@@ -1,0 +1,4 @@
+Antivirus
+=========
+
+*Sympa* lets you use an external antivirus solution to check incoming mails. In this case you must set the `antivirus_path` and `antivirus_args` configuration parameters (see [7.13](node8.html#Antivirus_plug-in), page [![\[\*\]](crossref.png)](node8.html#Antivirus_plug-in). *Sympa* is already compatible with McAfee/uvscan, Fsecure/fsav, Sophos, AVP, Trend Micro/VirusWall and Clam Antivirus. For each mail received, *Sympa* extracts its MIME parts in the `/usr/local/sympa-os/spool/tmp/antivirus` directory and then calls the antivirus software to check them. When a virus is detected, *Sympa* looks for the virus name in the virus scanner STDOUT and sends a `your_infected_msg.tt2` warning to the sender of the mail. The mail is saved as 'bad' and the working directory is deleted (except if *Sympa* is running in debug mode).
