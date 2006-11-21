@@ -4,7 +4,21 @@ SOAP/HTTP API
 Introduction
 ------------
 
-(Work in progress)
+[SOAP](http://www.w3.org/2002/ws/) is one protocol (generally over HTTP) that can be used to provide **web services**. Sympa SOAP server allows to access a Sympa service from within another program, written in any programming language and on any computer. SOAP encapsulates procedure calls, input parameters and resulting data in an XML data structure. The Sympa SOAP server's API is published in a **WSDL** document, retreived via Sympa's web interface.
+
+The SOAP server provides a limited set of high level functions including `login`, `which`, `lists`, `subscribe`, `signoff` and list creation. Other functions might be implemented in the future. One of the important implementation constraint is to provide services for proxy application with a correct authorization evaluation processus where authentication may differ from classic web method. The following cases can be used to access to the service :
+
+  - The client first ask for a login and later service request provide the `sympa-user` cookie.
+
+  - The client authenticate the end user providing the `sympa-user` http cookie. This can be used in order to share the an authenticated session betwing Sympa and some other application running on the same server as wwsympa. The soap method used is `getUserEmailByCookieRequest`.
+
+  - The client provide user email and password and request a service in a single soap access using the `authenticateAndRun` soap service.
+
+  - The client is a trusted by Sympa as a proxy application and is authorized to set some variables that will be used by Sympa during the authorization scenario evaluation. Trusted application have there own password and the variables they can set are listed in a configuration file name `trusted_applications.conf`. See [12.4](#trustedapplications) page [![\[\*\]](crossref.png)][(]customize/soap-api.md#trustedapplications).
+
+In any case scenario authorization is used with same rules as mail interface or usual web interface.
+
+The SOAP server uses [SOAP::Lite](http://www.soaplite.com/) Perl library. The server is running as a daemon (thanks to FastCGI), receiving the client SOAP requests via a web server (Apache for example).
 
 Supported functions
 -------------------
@@ -150,7 +164,23 @@ For more details see appropriate section in
 Trust remote applications
 -------------------------
 
-(Work in progress)
+The SOAP service `authenticateRemoteAppAndRun` is used in order to allow some remote application such as a web portal to request Sympa service as a proxy for the end user. In such case, Sympa will not authenticate the end user itself but instead it will trust a particular application to act as a proxy.
+
+This configuration file `trusted_applications.conf` can be created in the robot `etc/` subdirectory or in `/usr/local/sympa-os/etc` directory depending on the scope you want for it (the source package include a sample of file `trusted_applications.conf` in directory `soap`). This file is constructed with paragraphs separated by empty line and stating with key word `trusted_application`. A sample `trusted_applications.conf` file is provided with Sympa sources. Each paragraph defines a remote trusted application with keyword/value pairs
+
+  - `name` : the name of the application. Used with password for authentication ; the `remote_application_name` variable is set for use in authorization scenarios.
+
+  - `md5password` : the MD5 digest of the application password. You can compute the digest as follows : `sympa.pl -md5_digest=<the password>`.
+
+  - `proxy_for_variables` : a comma separated list of variables that can be set by the remote application and that will be used by Sympa SOAP server when evaluating an authorization scenario. If you list `USER_EMAIL` in this parameter, then the remote application can act as a user. Any other variable such as `remote_host` can be listed.
+
+You can test your SOAP service using the `sympa_soap_client.pl` sample script as follows :
+
+``` code
+  /usr/local/sympa-os/bin/sympa_soap_client.pl --soap_url=http://my.server/sympasoap --service=createList --trusted_application=myTestApp --trusted_application_password=myTestAppPwd --proxy_vars="USER_EMAIL=userProxy@my.server" --service_parameters=listA,listSubject,discussion_list,description,myTopic
+
+  /usr/local/sympa-os/bin/sympa_soap_client.pl --soap_url=http://myserver/sympasoap --service=add --trusted_application=myTestApp --trusted_application_password=myTestAppPwd  --proxy_vars="USER_EMAIL=userProxy@my.server" --service_parameters=listA,someone@some;domain,name
+```
 
 Below is a sample Perl code that does a SOAP procedure call (for a SUBSCRIBE sympa command) using the trusted\_application feature :
 
@@ -171,11 +201,84 @@ my $response = $soap->authenticateRemoteAppAndRun('myTestApp',
 Client-side programming
 -----------------------
 
-(Work in progress)
+Sympa is distributed with 2 sample clients written in Perl and in PHP. Sympa SOAP server has also been successfully tested with a UPortal Chanel as a Java client (using Axis). The sample PHP SOAP client has been installed on our demo server : [http://demo.sympa.org/sampleClient.php](http://demo.sympa.org/sampleClient.php).
+
+Depending on your programming language and the SOAP library you're using, you will either directly contact the SOAP service (as with Perl SOAP::Lite library) or first load the WSDL description of the service (as with PHP nusoap or Java Axis). Axis is able to create a stub from the WSDL document.
+
+The WSDL document describing the service should be fetch through WWSympa's dedicated URL : **http://your.server/sympa/wsdl**.
+
+Note : the **login()** function maintains a login session using HTTP cookies. If you are not able to maintain this session by analysing and sending appropriate cookies under SOAP, then you should use the **authenticateAndRun()** function that does not require cookies to authenticate.
 
 ### Writing a Java client with Axis
 
-(Work in progress)
+First, download jakarta-axis (http://ws.apache.org/axis/)
+
+You must add the libraries provided with jakarta axis (v &gt;1.1) to you CLASSPATH. These libraries are :
+
+  - axis.jar
+
+  - saaj.jar
+
+  - commons-discovery.jar
+
+  - commons-logging.jar
+
+  - xercesImpl.jar
+
+  - jaxrpc.jar
+
+  - xml-apis.jar
+
+  - jaas.jar
+
+  - wsdl4j.jar
+
+  - soap.jar
+
+Next, you have to generate client java classes files from the sympa WSDL url. Use the following command :
+
+``` code
+java org.apache.axis.wsdl.WSDL2Java -av WSDL_URL
+```
+
+For example :
+
+``` code
+java org.apache.axis.wsdl.WSDL2Java -av  http://demo.sympa.org/sympa/wsdl
+```
+
+Exemple of screen output during generation of java files :
+
+``` code
+  Parsing XML file:  http://demo.sympa.org/sympa/wsdl
+  Generating org/sympa/demo/sympa/msdl/ListType.java
+  Generating org/sympa/demo/sympa/msdl/SympaPort.java
+  Generating org/sympa/demo/sympa/msdl/SOAPStub.java
+  Generating org/sympa/demo/sympa/msdl/SympaSOAP.java
+  Generating org/sympa/demo/sympa/msdl/SympaSOAPLocator.java
+```
+
+If you need more information or more generated classes (to have the server-side classes or junit testcase classes for example), you can get a list of switches :
+
+``` code
+java org.apache.axis.wsdl.WSDL2Java -h
+```
+
+The reference page is :
+http://ws.apache.org/axis/java/reference.html
+
+Take care of Test classes generated by axis, there are not useable as is. You have to stay connected between each test. To use junit testcases, before each soap operation tested, you must call the authenticated connexion to sympa instance.
+
+Here is a simple Java code that invokes the generated stub to perform a casLogin() and a which() on the remote Sympa SOAP server :
+
+``` code
+  SympaSOAP loc = new SympaSOAPLocator();
+  ((SympaSOAPLocator)loc).setMaintainSession(true);
+  SympaPort tmp = loc.getSympaPort();
+  String _value = tmp.casLogin(_ticket);
+  String _cookie = tmp.checkCookie();
+  String[] _abonnements = tmp.which();
+```
 
 The test command line SOAP client
 ---------------------------------
