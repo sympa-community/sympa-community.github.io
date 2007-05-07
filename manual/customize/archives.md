@@ -25,9 +25,11 @@ From individual message web pages, you can ask that the message is sent back to 
 MHonArc tool
 ------------
 
-Sympa does not perform the MIME → HTML transformation itself, neither does it build the messages index and threads. All this is performed by the [MHonArc](http://www.mhonarc.org "http://www.mhonarc.org") program. MhonArc is a software used beside many other mailing list softwares. The may Sympa uses MHonArc concentrates on integration. MhonArc output uses Sympa TT2 template format ; the web archive pages being delivered by the `wwsympa.fcgi` process.
+Sympa does not perform the MIME → HTML transformation itself, neither does it build the messages index and threads. All this is performed by the [MHonArc](http://www.mhonarc.org "http://www.mhonarc.org") program. MhonArc is a software used beside many other mailing list softwares. The may Sympa uses MHonArc concentrates on integration.
 
-You can customize the behavior of `mhonarc` via the `mhonarc-ressources.tt2` resource file. See [MHonArc manual](http://www.mhonarc.org/MHonArc/doc/mhonarc.html "http://www.mhonarc.org/MHonArc/doc/mhonarc.html") for more informations on customization.
+You can customize the behavior of `mhonarc` via the `mhonarc-ressources.tt2` resource file. The html view of archives is being delivered by the `wwsympa.fcgi` process so the MhonArc output uses Sympa TT2 template format. When modifying `mhonarc-ressources.tt2` you may change the way MhonArc prepare archives or you may change the way wwsympa.fcgi show them.
+
+See [MHonArc manual](http://www.mhonarc.org/MHonArc/doc/mhonarc.html "http://www.mhonarc.org/MHonArc/doc/mhonarc.html") for more informations on customization.
 
 Archives structure
 ------------------
