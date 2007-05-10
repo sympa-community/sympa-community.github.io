@@ -22,6 +22,10 @@ Sympa provides a `message removal` feature, accessible through a button from ind
 
 From individual message web pages, you can ask that the message is sent back to you, via SMTP.
 
+### Export of web archives
+
+List owners have access to an archive management page from the web interface. From this page, they can download a ZIP of their list web archives. The ZIP is organized by month, each month containing original emails.
+
 MHonArc tool
 ------------
 
