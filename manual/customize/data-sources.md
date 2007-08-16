@@ -6,29 +6,32 @@ Data sources
 Data inclusion file
 -------------------
 
-Sympa will use these files only if the list is configured in `include2` `user_data_source` mode. Every file has the .incl extension. More over, these files must be declared in paragraphs `owner_include` or `editor_inlude` in the list configuration file without the .incl extension (see [21](node22.html#list-configuration-param), page [![\[\*\]](crossref.png)](node22.html#list-configuration-param)). This files can be template file.
+Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [List configuration parameters](/manual/list-parameters)). This files can be template files.
 
-Sympa looks for them in the following order :
+Sympa looks for them in the following order:
 
-  1. `/usr/local/sympa-os/expl/mylist/data_sources/<`file`>`.incl.
-  2. `/usr/local/sympa-os/etc/data_sources/<`file`>`.incl.
-  3. `/usr/local/sympa-os/etc/my.domain.org/data_sources/<`file`>`.incl.
+  - `/home/sympa/expl/mylist/data_sources/<file>.incl`;
+  - `/home/sympa/etc/data_sources/<file>.incl`;
+  - `/home/sympa/etc/my.domain.org/data_sources/<file>.incl`.
 
-These files are used by Sympa to load administrative data in a relational database : Owners or editors are defined *intensively* (definition of criteria owners or editors must satisfy). Includes can be performed by extracting e-mail addresses using an SQL or LDAP query, or by including other mailing lists.
+These files are used by Sympa to load administrative data in a relational database: owners or editors are defined *intensively* (definition of criteria owners or editors must satisfy). Includes can be performed by extracting email addresses using an SQL or LDAP query, or by including other mailing lists.
 
-A data inclusion file is composed of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query` and `include_ldap_query`. They are described in the list configuration parameters chapitre, [21](node22.html#list-configuration-param), page [![\[\*\]](crossref.png)](node22.html#list-configuration-param).
+A data inclusion file is made of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query` and `include_ldap_query`. They are described in the [List configuration parameters](/manual/list-parameters) chapter.
 
-When this file is a template, used variables are array elements (`param` array). This array is instantiated by values contained in the subparameter `source_parameter` of `owner_include` or `editor_inlude`.
+When this file is a template, the variables used are array elements (`param` array). This array is instantiated by values contained in the subparameter `source_parameter` of `owner_include` or `editor_inlude`.
 
-*Example :*
+Example:
 
-  - in the list configuration file :
+  - in the list configuration file `/home/sympa/expl/mylist/config` :
+
     ``` code
     owner_include
     source myfile
     source_parameters mysql,rennes1,stduser,mysecret,studentbody,student
     ```
-  - in myfile.incl :
+
+  - in `/home/sympa/etc/data_sources/myfile.incl`:
+
     ``` code
     include_sql_query
     db_type [% param.0 %]
@@ -38,7 +41,9 @@ When this file is a template, used variables are array elements (`param` array).
     db_name [% param.4 %]
     sql_query SELECT DISTINCT email FROM [% param.5 %]
     ```
-  - resulting data inclusion file :
+
+  - once it has been parsed with provided parameters, the inclusion directives would look like this:
+
     ``` code
     include_sql_query
     db_type mysql
