@@ -90,7 +90,7 @@ Rebuilding web archive
 
 Sympa provides a way to rebuild all HTML files for a given web archive. This is useful whenever you changed the `mhonarc-resources.tt2` file or if Sympa changed its template format or the charset used for web pages.
 
-The rebuild feature is accessible to listmasters only from the `Sympa admin` → `Archives` chapter, from the web interface.
+The rebuild feature is accessible to listmasters only from the `Sympa admin` → `Archives` chapter, from the web interface. The rebuild is then run by the `archived.pl` process.
 
 Importing archives
 ------------------
