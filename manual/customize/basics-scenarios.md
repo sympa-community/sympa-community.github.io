@@ -52,6 +52,14 @@ The function to evaluate scenario is described in section [internals](/internals
 
 (Work in progress)
 
+The `quiet` can be part of the scenario action result. When using this option, no notification is sent to the message sender. For example, if a scenario rule is applied and result in  `editorkey,quiet` the sender of teh message will not receive the automatic information message telling hilm that his message has been forwarded to the list editor. This is an important issue to prevent _backscatter_ messages. backscatter messages are messages you receive as an automatic answer to a message you never sent. The following web page give you more details :
+  * http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html
+  * http://en.wikipedia.org/wiki/Backscatter
+
+Sympa version 5.5 and later of Sympa provide a better mechanism to prevent backscatter. See https://www.sympa.org/dev-manual/antispam
+
+(Work in progress)
+
 Named Filters
 -------------
 
