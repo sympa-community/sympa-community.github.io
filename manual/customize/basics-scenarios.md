@@ -63,7 +63,29 @@ That way, the character string following `title.gettext` can be handled by Sympa
 
 #### Authentification methods
 
-(Work in progress)
+Yous can specify three different authentication methods to base your rules on: `smtp`, `smime` and `md5`.
+
+**these methods take a different meaning if you consider them in a web or mail context**.
+
+Indeed if you consider, for example, the scenario `send`: it will be evaluated when people try to send a message to a list.
+
+  - If the message is sent through the web interface, Sympa will verify the identity of the sender based on its web authentication informations (login/password, certificate, etc.)
+
+  - If it is sent by the mail client, the authentication is based on whatever authentication method the user's email client associated with the SMTP message (S/MIME signature, From field, etc.).
+
+*But the same scenario file will be used in both cases.* That means that the same authentication method will be used, whichever context we're in. It is consequently important to understand what interpretation to give to each authentication method according to the context.
+
+Here is a description of what is evaluated to authenticate the user depending of the context: web or mail.
+
+| Method  | Mail context                               | Web context                                                        |
+|---------|--------------------------------------------|--------------------------------------------------------------------|
+| `smtp`  | the "From:" field of the message           | *Nothing - unused in web context*                                  |
+| `smime` | the S/MIME X509 signature of the email     | An X509 certificate installed in the user's browser                |
+| `md5`   | the MD5 hash in the subject of the message | the authentication informations provided to Sympa (login/password) |
+
+Note that `md5` will be used, in a mail context, when users answer to an authentication request, or when editors moderate a message by replying to a moderation request mail.
+
+In most cases, `smtp` will be used for mails, and `md5` for the web.
 
 #### Actions
 
