@@ -10,5 +10,6 @@ name here.
   - Stefan Hornburg
   - Soji Ikeda
   - Etienne Meleard
+  - Olivier Salaün
   - David Verdin
 
