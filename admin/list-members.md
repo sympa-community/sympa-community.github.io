@@ -3,7 +3,7 @@
 Managing list members and list owners
 =====================================
 
-The standard way to define list members is to make them subscribe to the list. However, you may have user groups already defined in your LDAP directory or in a relational database. Therefore Sympa allows to automatically map mailing list membership with such data sources ; Sympa users the term **include** to describe these dynamic mailing lists.
+The standard way to define list members is to make them subscribe to the list (or added by list owner). However, you may have user groups already defined in your LDAP directory or in a relational database. Therefore Sympa allows to automatically map some list membership subset with such data sources. The term **include** is used to designate these dynamic mailing lists membership management.
 
 Standard definition of list members and owners
 ----------------------------------------------
