@@ -185,6 +185,30 @@ As on command line creation, the list creator has to choose a list profile and t
 public_anonymous hidden
 * read
 ```
+
+### customize `create_list_request.tt2`
+
+The list creation form is in a template named `create_list_request.tt2`. You may modify this template in order to some other input that will be used to modify the created list. Any new input variable will be catched by wwsympa.fcgi and available in the tt2 hash `[% custom_input %]` when using the list template to create teh list.
+
+exemple :
+
+``` code
+## This is an html part added in create_list-request.tt2
+<input type="text" name="ldap_group" />
+```
+
+In ``config.tt2`` you may use
+
+``` code
+…
+include_ldap_query
+  host ldap.foo.edu
+  suffix ou=accounts,dc…
+  filter (&(isMemberOf=[% custum_input.ldap_group %]))
+…
+```
+
+For more details on tt2 customization, templates path etc please go to the [web template files section](/dev-manual/customizing#web_template_files)
  
 ### List edition
 
