@@ -30,7 +30,7 @@ SSLVerifyDepth  10
 If you are using the SubjAltName, then you additionaly need to export the certificate data because of a `mod_ssl` bug. You will also need to install the textindex Crypt-OpenSSL-X509 CPAN module. Add this option to the Apache configuration file:
 
 ``` code
-    SSLOptions +ExportCertData
+SSLOptions +ExportCertData
 ```
 
 Authentication with email address, uid or alternate email address
@@ -45,7 +45,7 @@ Sympa gets the canonic email in the LDAP directory with the `ldap_uid` or the `a
 Example: a person is described by
 
 ``` code
-dn: cn=Fabrice Rafart, ou=Siege, o=MyCompany, c=FR
+dn: cn=Fabrice Rafart, ou=Siege , o=MyCompany, c=FR
 objectClass: person
 cn: Fabrice Rafart
 title: Network Responsible
@@ -53,7 +53,7 @@ o: Siege
 or: Data processing
 telephoneNumber: 01-00-00-00-00
 facsimileTelephoneNumber: 01-00-00-00-00
-l:Paris
+l: Paris
 country: France
 uid: frafart
 mail: Fabrice.Rafart@MyCompany.fr
@@ -97,9 +97,31 @@ The `/home/sympa/etc/auth.conf` configuration file contains numerous parameters 
 
 The `/home/sympa/etc/auth.conf` is organized in paragraphs. Each paragraph describes an authentication service with all parameters required to perform an authentication using this service. Sympa's current version can perform authentication through LDAP directories, using an external Single Sign-On Service (like CAS or Shibboleth), or using the internal `user_table` table.
 
+### ''regexp'' and ''negative\_regexp'' : the auth.conf switches
+
+Suppose your organization use two domains for its email addresses, for example "student.univ.edu" and "univ.edu". The first domain correspond to people stored in a part of the LDAP directory , and the other one to people stored in another part. You may want to define a specific authentication paragraph for each of these groups.
+
+the `regexp` subparameter – and its evil twin `negative_regexp` – are exactly used to perform such a distinction: it allows you to apply different authentication paragraph based on which email address was provided by the user. Let's emphasize this: **the `regexp` and `negative_regexp` are applied to email addresses *only*. It will *not* work on user id.**
+
+Each paragraph in `auth.conf` can contain an occurence of these subparameters. Their value is a regexp (just the regexp part. No delimiters).
+
+Example:
+
+``` code
+    regexp         student\.univ\.edu
+```
+
+What do they do?
+
+They are tested among the domain part of the email provided. The paragraph will be used with this email address if it matches the expression defined by `regexp` or if it does *not* match the expressino defined by `negative_regexp`.
+
+### Login form
+
 The login page contains 2 forms: the login form and the SSO. When users hit the login form, each ldap or `user_table` authentication paragraph is applied unless email adress input from form matches the `negative_regexp` or do not match `regexp`. `negative_regexp` and `regexp` can be defined for each ldap or `user_table` authentication service so that administrators can block some authentication methods for a class of users.
 
 The second form in the login page contains the list of CAS servers so that users can choose explicitely their CAS service.
+
+### ''auth.conf'' structure
 
 Each paragraph starts with one of the keyword `cas`, `ldap` or `user_table`.
 
@@ -188,6 +210,14 @@ The `user_table` paragraph is related to Sympa internal authentication by email 
 
 ### ldap paragraph
 
+This paragraph allows to login to Sympa using data taken from an LDAP directory. Login is done in two steps:
+
+  - user provide an user id or an email address, with a password. These are used to retrieve their DN in the LDAP directory.
+
+  - the email attribute is extracted from the directory entry corresponding to the found DN.
+
+Here is how to configure the LDAP authentication:
+
   - `regexp` and `negative_regexp`
     Same as in the `user_table` paragraph: if an email address is provided (this does not apply to an uid), then the regular expression will be applied to find out if the LDAP directory can be used to authenticate a subset of users.
 
@@ -207,7 +237,6 @@ The `user_table` paragraph is related to Sympa internal authentication by email 
 
   - `suffix`
     The root of the DIT (Directory Information Tree). The DN that is the base object entry relative to which the search is to be performed.
-
     Example: `dc=university,dc=fr`
 
   - `bind_dn`
@@ -218,8 +247,8 @@ The `user_table` paragraph is related to Sympa internal authentication by email 
 
   - `get_dn_by_uid_filter`
     Defines the search filter corresponding to the `ldap_uid`. (RFC 2254 compliant). If you want to apply the filter on the user, use the variable ' \[sender\] '. It will work with every type of authentication (uid, `alternate_email`, ...).
-    Example:
 
+    Example:
     ``` code
     (Login = [sender])
     ```
@@ -231,7 +260,6 @@ The `user_table` paragraph is related to Sympa internal authentication by email 
     Defines the search filter corresponding to the email addresses (canonic and alternative - this is RFC 2254 compliant). If you want to apply the filter on the user, use the variable ' \[sender\] '. It will work with every type of authentication (`uid`, `alternate_email`..).
 
     Example: a person is described by
-
     ``` code
     dn: cn=Fabrice Rafart, ou=Siege, o=MaSociete, c=FR
     objectClass: person
@@ -295,7 +323,6 @@ The `user_table` paragraph is related to Sympa internal authentication by email 
 
   - `service_id`
     This service ID is used as a parameter by Sympa to refer to the SSO service (instead of the service name).
-
     A corresponding URL on the local web server should be protected by the SSO system; this URL would look like `http://yourhost.yourdomain/sympa/sso_login/inqueue` if the `service_id` is `inqueue`.
 
   - `http_header_prefix`
@@ -336,7 +363,9 @@ The following parameters define how Sympa can retrieve the user email address; *
     The scope used when searching user email. Possible values are `sub`, `base` and `one`.
 
   - `ldap_get_email_by_uid_filter`
-    The filter used to perform the email search. It can refer to any environment variables inherited from the SSO module, as shown below. Example:
+    The filter used to perform the email search. It can refer to any environment variables inherited from the SSO module, as shown below.
+
+    Example:
     ```
     ldap_get_email_by_uid_filter (mail=[SSL_CLIENT_S_DN_Email])
     ```
@@ -432,21 +461,25 @@ Note that Sympa will act as a CAS client to validate CAS tickets. During this ex
 Sharing WWSympa's authentication with other applications
 --------------------------------------------------------
 
-If you are not using a web Single Sign On system, you might want to make other web applications collaborate with Sympa and share the same authentication system. Sympa uses HTTP cookie to identify each user session and stores information about the current session into a table name session\_table.
+If you are not using a web Single Sign On system, you might want to make other web applications collaborate with Sympa and share the same authentication system. Sympa uses HTTP cookies to carry users' authentication information from page to page. This cookie contains no information about privileges. To make your application work with Sympa, you have two possibilities:
 
-Delegating authentication operations to *WWSympa*. If you want to avoid spending a lot of time programming a CGI to do Login, Logout and Resetpassword you can copy *WWSympa*'s login page to your application, and then make use of the cookie information within your application. If you are programming using perl the best way for it is use SympaSession.pm module. It is described into [internals session](/internals/internals-session) of the internal documentation. You may also do it with some other programming langage such as perl or whatever.
+  - Delegating authentication operations to *WWSympa*
+    If you want to avoid spending a lot of time programming a CGI to do Login, Logout and Remindpassword, you can copy *WWSympa*'s login page to your application, and then make use of the cookie information within your application. The cookie format is:
+    ``` code
+    sympauser=<user_email>:<checksum>
+    ```
+    where `<user_email>` is the user's complete e-mail address, and `<checksum>` represents the 8 last bytes of the MD5 checksum of the `<user_email>`+Sympa `cookie` configuration parameter. Your application needs to know what the `cookie` parameter is, so it can check the HTTP cookie validity; this is a secret shared between *WWSympa* and your application. *WWSympa*'s `loginrequest` page can be called to return to the referer URL when an action is performed. Here is a sample HTML anchor:
+    ``` html
+    <A HREF=`/sympa/loginrequest/referer`>Login page</A>
+    ```
+    You can also have your own HTML page submitting data to `wwsympa.fcgi` CGI. If you do so, you can set the `referer` variable to another URI. You can also set the `failure_referer` to make *WWSympa* redirect the client to a different URI if login fails.
 
-*WWSympa*'s `loginrequest` page can be called to return to the referer URL when an action is performed. Here is a sample HTML anchor:
-
-``` code
-<A HREF=''/sympa/loginrequest/referer''>Login page</A>
-```
-
-You can also have your own HTML page submitting data to `wwsympa.fcgi` CGI. If you do so, you can set the `referer` variable to another URI. You can also set the `failure_referer` to make *WWSympa* redirect the client to a different URI if login fails.
+  - Using *WWSympa*'s HTTP cookie format within your authentication module
+    To cooperate with *WWSympa*, you simply need to adopt its HTTP cookie format and share the secret it uses to generate MD5 checksums, i.e. the `cookie` configuration parameter. In this way, *WWSympa* will accept users authenticated through your application without further authentication.
 
 ### Perl example
 
-Here is a example using perl that show both method : use Sympa login page or copy login form into your application. You can try it on Sympa author's lists server : http:listes.cru.fr/cgi-bin/sample.cgi
+Here is a example using perl that show both method : use Sympa login page or copy login form into your application. You can try it on Sympa author's lists server : http://listes.cru.fr/cgi-bin/sample.cgi
 
 ``` perl
 #!/usr/bin/perl -U
@@ -507,6 +540,10 @@ The URL look like http://mysserver.domain.org/sympa/loginrequest/referer.
 print '</body></hml>';
 ```
 
+### How to do it using PHP ?
+
+Chris Hastie has sumitted a [contrib for sharing Sympa sessions with PHP applications](/contribs/index#how_to_share_sympa_session_with_other_php_applications).
+
 ### What about using SOAP to access Sympa sessions
 
 Not yet possible but of course this the best way to do it. There is a [feature request](https://sourcesup.cru.fr/tracker/index.php?func=detail&aid=4056&group_id=23&atid=170) for it.
@@ -514,22 +551,23 @@ Not yet possible but of course this the best way to do it. There is a [feature r
 Provide a Sympa login form in another application
 -------------------------------------------------
 
-You can easily trigger a Sympa login from within another web page. The login form should look like this :
-```
+You can easily trigger a Sympa login from another web page. The login form should look like this:
+
+``` html
 <FORM ACTION="http://listes.cru.fr/sympa" method="post">
     <input type="hidden" name="previous_action" value="arc" />
     Access web archives of list
     <select name="previous_list">
     <option value="sympa-users" >sympa-users</option>
     </select><br/>
-
     <input type="hidden" name="action" value="login" />
-    <label for="email">email address :
+    <label for="email">email address:
     <input type="text" name="email" id="email" size="18" value="" /></label><br />
-    <label for="passwd" >password :
+    <label for="passwd" >password:
     <input type="password" name="passwd" id="passwd" size="8" /></label> <br/>
     <input class="MainMenuLinks" type="submit" name="action_login" value="Login and access web archives" />
 </FORM>
 ```
-The example above does not only perform the login action but also redirects the user to another sympa page, a list web archives here. The `previous_action` and `previous_list` variable define the action that will be performed after the login is done.
+
+The example above does not only perform the login action, but also redirects the user to another Sympa page, a list web archive here. The `previous_action` and `previous_list` variables define the action that will be performed after the login is done.
 
