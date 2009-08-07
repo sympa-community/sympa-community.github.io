@@ -181,9 +181,9 @@ List rejection message and list creation notification message are both templates
 As on command line creation, the list creator has to choose a list profile and to fill in the owner's e-mail and the list subject together with a short description. But in this case, you don't need any XML file. Concerning these typical list profiles, they are described before, see [19.3](#typical-list-profile), page [![\[\*\]](crossref.png)](node20.html#typical-list-profile). You can check available profile. On the Web interface, another way to control publicly available profiles is to edit the `create_list.conf` file (the default for this file is in the `/usr/local/sympa-os/bin/etc` directory, and you may create your own customized version in `/usr/local/sympa-os/etc`). This file controls which of the available list templates are to be displayed. Example :
 
 ``` code
-# Do not allow the public_anonymous profile
+## This sample hides the public_anonymous create_list template
 public_anonymous hidden
-* read
+defaults read
 ```
 
 ### customize `create_list_request.tt2`
@@ -194,7 +194,7 @@ exemple :
 
 ``` code
 ## This is an html part added in create_list-request.tt2
-<input type="text" name="ldap_group" />
+<input type="text" name="custom_input.ldap_group" />
 ```
 
 In ``config.tt2`` you may use
@@ -204,13 +204,17 @@ In ``config.tt2`` you may use
 include_ldap_query
   host ldap.foo.edu
   suffix ou=accounts,dc…
-  filter (&(isMemberOf=[% custum_input.ldap_group %]))
+  filter (&(isMemberOf=[% custom_input.ldap_group %]))
 …
 ```
 
 For more details on tt2 customization, templates path etc please go to the [web template files section](/dev-manual/customizing#web_template_files)
  
 ### List edition
+
+(Work in progress)
+
+**Parameter** can be any list config parameter or the name of a template (thus controlling the edition of the template through the *customize* web admin feature. You can refer to a subentry of a structured list parameter using the '.' as a separator (examples: **owner.email** or **web_archive.quota**). **default** is a reserved parameter name that means *any other parameter*.
 
 (Work in progress)
 
