@@ -59,7 +59,7 @@ Here is a sample list archive hierarchy :
     thrd1.html
 ```
 
-Configuration paramaters
+Configuration parameters
 ------------------------
 
 #### sympa.conf parameters
@@ -68,7 +68,7 @@ Configuration paramaters
 
 See [WWSympa, Sympa's web interface](/manual/web-interface "manual:web-interface")
 
-#### wwsympa.conf prameters
+#### wwsympa.conf parameters
 
 `web_archive_spam_protection`, `default_archive_quota`.
 
@@ -85,6 +85,8 @@ Archived.pl daemon
 
 A dedicated perl script, `archived.pl`, is performing all operations on list web archives (adding a message to archive, removing a message, rebuilding HTML files). This process is running as the `sympa` user ; messages to archive and removal/rebuild commands are fetched from the `outgoing` spool defined by the [queueoutgoing](/conf-parameters/part2#queueoutgoing "conf-parameters:part2") sympa.conf parameter.
 
+When it archives the first message ever for a given list, archived.pl will try and create its archive directory. If it can't, it copies the message into a `bad/` subfolder of the `outgoing` spool.
+
 Rebuilding web archive
 ----------------------
 
@@ -95,6 +97,6 @@ The rebuild feature is accessible to listmasters only from the `Sympa admin` →
 Importing archives
 ------------------
 
-Since version 5.2b, Sympa maintains a single archive of mailing lists, but it previously maintained both a mail archive (stored in the `expl/mylist/archives/` directories) and a web archive (for historical reasons). You may need to import existing mail archives in a list mail archive, using the provided `arc2webarc.pl` script.
+Since version 5.2b, Sympa maintains a single archive of mailing lists, but it previously maintained both a mail archive (stored in the `list_data/mylist/archives/` directories) and a web archive (for historical reasons). You may need to import existing mail archives in a list mail archive, using the provided `arc2webarc.pl` script.
 
 If you are moving from another mailing list software to Sympa, you are also facing messages archive import problems. Check the [Contrib section](http://www.sympa.org/wiki/contribs/index "http://www.sympa.org/wiki/contribs/index") for useful migration tools.
