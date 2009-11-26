@@ -8,4 +8,5 @@ name here.
 
   - Stefan Hornburg
   - Soji Ikeda
+  - David Verdin
 
