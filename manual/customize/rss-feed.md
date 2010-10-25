@@ -6,13 +6,15 @@ This service is provided by *WWSympa* (*Sympa*'s web interface). Here is the roo
 (Default value: `http://<`host`>`/wws/rss)
 Example: `https://my.server/wws/rss`
 
-The access control of RSS queries proceed on the same way as *WWSympa* actions referred to. *Sympa* provides the following RSS features :
+The access control of RSS queries do _not_ proceed on the same way as **WWSympa**. Indeed, most RSS client do not deliver cookies are are not able to deal with authentication forms or SSO redirection. In addition some popular services are used to share rss feed and so there is not way to be sure of who is reading a feed. That's why RSS Sympa interface deliver all page as if the user was not authenticated.
+You may be disappointed by this restriction if you are using a web browser as RSS reader.
+
+Sympa provides the following RSS features:
 
   - the latest created lists on a robot (`latest_lists`) ;
   - the most active lists on a robot(`active_lists`) ;
   - the latest messages of a list (`active_arc`) ;
   - the latest shared documents of a list (`latest_d_read`) ;
-
 
 `latest_lists`
 --------------
