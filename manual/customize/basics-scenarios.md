@@ -3,12 +3,14 @@ Authorization scenarios
 
 (Work in progress)
 
+The function to evaluate scenario is described in section [internals](/internals/index).
+
 Location of scenario file
 -------------------------
 
 (Work in progress)
 
-When customizing scenario for your own site, robot or list, don't modify .../sympa/bin/scenari content or next Sympa update will overwrite it (you must never modify anything in .../sympa/bin/ unless your are patching Sympa). You can modify Sympa behavior if you create new scenario which name is the same as one of the scenario included in the distribution but with a location related to target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
+When customizing scenario for your own site, robot or list, don't modify .../sympa/bin/scenari content or the next Sympa update will overwrite it (you must never modify anything in .../sympa/bin/ unless you are patching Sympa). You can modify Sympa behavior if you are creating a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
 
 ----
 Note:
@@ -42,21 +44,33 @@ That way, the character string following `title.gettext` can be handled by Sympa
 
 (Work in progress)
 
-### Rules specifications
+### Rules definition
 
 (Work in progress)
 
-The function to evaluate scenario is described in section [internals](/internals).
+#### Conditions
 
 `custom_vars` allows you to introduce [custom parameters](/manual/customizing#custom_parameters) in your scenario.
 
 (Work in progress)
 
-The `quiet` can be part of the scenario action result. When using this option, no notification is sent to the message sender. For example, if a scenario rule is applied and result in  `editorkey,quiet` the sender of teh message will not receive the automatic information message telling hilm that his message has been forwarded to the list editor. This is an important issue to prevent _backscatter_ messages. backscatter messages are messages you receive as an automatic answer to a message you never sent. The following web page give you more details :
-  * http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html
-  * http://en.wikipedia.org/wiki/Backscatter
+#### Authentification methods
 
-Sympa version 5.5 and later of Sympa provide a better mechanism to prevent backscatter. See https://www.sympa.org/dev-manual/antispam
+(Work in progress)
+
+#### Actions
+
+(Work in progress)
+
+The `quiet` can be part of the scenario action result. When using this option, no notification is sent to the message sender. For example, if a scenario rule is applied and result in `editorkey,quiet` the sender of the message will not receive the automatic information message telling him that his message has been forwarded to the list editor. This is an important issue to prevent *backscatter* messages. backscatter messages are messages you receive as an automatic answer to a message you never sent. The following web page give you more details :
+
+  - [http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html](http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html)
+
+  - [http://en.wikipedia.org/wiki/Backscatter](http://en.wikipedia.org/wiki/Backscatter)
+
+Sympa version 6.0 and later of Sympa provide a better mechanism to prevent backscatter. See [https://www.sympa.org/dev-manual/antispam](https://www.sympa.org/dev-manual/antispam)
+
+#### Formal specification of the rules
 
 (Work in progress)
 
@@ -172,7 +186,30 @@ The variable used by `search` is the name of the LDAP configuration file or a tx
 
 Note that Sympa processes maintain a cache of processed search conditions to limit access to the LDAP directory or SQL server; each entry has a lifetime of one hour in the cache.
 
-When using the '.txt' file extension, the file is read looking for a line that matches the second parameter (usually the user email address). Each line is a string where the char `*` can be used once to mach any block. This feature is used by the blacklist implicit scenario rule (see [Blacklist](/conf-parameters/part2#use_blacklist)).
+When using the '.txt' file extension, each line is used to try to match the sender email address. You can use the "\*" character as a joker to replace any string.
+
+Here is an example of such a file:
+
+``` code
+david.verdin@cru.fr
+*salaun*
+```
+
+With such a file, the rule would be true for the following email addresses:
+
+  - david.verdin@cru.fr
+
+  - salaun@cru.fr
+
+  - O.salaun@cru.fr
+
+It would be false for the following email addresses :
+
+  - verdin@cru.fr
+
+  - olivier.sala@cru.fr
+
+This feature is used by the blacklist implicit scenario rule (see [Blacklist](/manual/conf-parameters/part2#use_blacklist)).
 
 The method of authentication does not change.
 
@@ -182,10 +219,9 @@ Scenario inclusion
 Scenarios can also contain includes:
 
 ``` code
-subscribe
-  include commonreject
-  match([sender], /cru\.fr$/)          smtp,smime -> do_it
-  true()                               smtp,smime -> owner
+include commonreject
+match([sender], /cru\.fr$/)          smtp,smime -> do_it
+true()                               smtp,smime -> owner
 ```
 
 In this case, Sympa applies recursively the scenario named `include.commonreject` before introducing the other rules. This possibility was introduced in order to facilitate the administration of common rules.
@@ -225,8 +261,9 @@ This Perl module:
 
 For example, lets write the smallest custom condition that always returns `1`.
 
-/home/sympa/etc/custom_conditions/yes.pm :
-``` code
+/home/sympa/etc/custom\_conditions/yes.pm :
+
+``` perl
 #!/usr/bin/perl
 
 package CustomCondition::yes;
@@ -237,11 +274,12 @@ use Log; # optional : we log parameters
 sub verify {
   my @args = @_;
   foreach my $arg (@args) {
-    do_log ('debug3', 'arg: ', $arg);
+    do_log ('debug3', 'arg: %s', $arg);
   }
   # I always say 'yes'
   return 1;
 }
+
 ## Packages must return true.
 1;
 ```
@@ -256,6 +294,60 @@ true()                               smtp,smime -> reject
 Note that the `,,` are optional, but it is the way you can pass information to your package. Our `yes.pm` will print the values in the logs.
 
 Remember that the package name has to be lowercase, but the `CustomCondition` namespace is case sensitive. If your package returns `undef`, the sender will receive an 'internal error' mail. If it returns anything else but `1`, the sender will receive a 'forbidden' error.
+
+### How to use message related variables within scenario rule conditions.
+
+this tuto was *also* submitted by Thomas Berry, JPL, NASA. Thanks to him!
+
+Scenario condition, message vars include:
+
+``` code
+[msg_body]
+[msg_part->body]
+```
+
+When creating scenario rules that evaluate message content, two rules must be created when passing the contents of a message to a condition: one rule for plain text messages (msg\_body) and a second rule for multi-part MIME messages (msg\_part).
+
+For example, I wrote a CustomCondition module that parses the URLs in a message and compares them with a list of approved URLs:
+
+(send.url\_eval)
+
+``` code
+title.us Moderated with URL verification
+CustomCondition::urlreview([listname],[sender],[msg_body]) smtp,smime,md5 -> reject()
+CustomCondition::urlreview([listname],[sender],[msg_part->body]) smtp,smime,md5 -> reject()
+true() smtp,smime,md5 -> editorkey
+```
+
+The CustomCondition module returns undef if the message contents are not provided by the rule. If the message contents are multi-part MIME, then the \[msg\_body\] passed by the first rule is undefined, and the CustomCondition module returns undef causing the scenario to move on to the next rule which passes the parts of the multi-part MIME message to the module.
+
+As for the CustomCondition module, it was written to evaluate both plain text (SCALAR) and multi-part MIME (ARRAY reference) being passed to the condition:
+
+(urlreview.pm)
+
+``` perl
+package CustomCondition::urlreview;
+...
+sub verify {
+   my $listname = shift or return;
+   my $sender   = shift or return;
+   my $body;
+   foreach my $part (@_) {
+      $body .= ref $part eq "ARRAY" ? join " ", @{$part} : $part;
+   }
+   return unless defined $body;
+   ...
+}
+...
+1;
+```
+
+----
+Note:
+
+  * this will work in included scenario if the include contains two rules: one with msg\_body and with msg\_part→body.
+
+---
 
 Hiding scenario files
 ---------------------
