@@ -245,6 +245,49 @@ For more details on tt2 customization, templates path etc please go to the [web 
 
 (Work in progress)
 
+Using `edit_list.conf`, you can define privileges on the following lists parameters:
+
+  - All the lists config parameters ([those used in the config file](/manual/conf-parameters/index)),
+
+  - Any file used in list context and likely to be edited through the web interface:
+
+      - homepage
+      - info
+      - welcome.tt2
+      - rejection messages
+      - invite.tt2
+      - remind.tt2
+      - message.footer
+      - message.header
+      - bye.tt2
+      - removed.tt2
+      - tour\_infected\_msg.tt2
+
+----
+Notes:
+
+Starting Sympa 6.1.10, a **unique** exception exists in the matching between file names and edition rights in the edit\_list.conf: the "info" term.
+
+"info" represents both a list parameter and a list file:
+
+  - The info **list parameter** controls the authorization scenario that will be used to know who can view the lists information text, both in the list welcome page and by using the "info" command. the value to use in the edit\_list.conf to control who can edit this parameter's value is "info".
+
+  - The info **file** contains the text to be displayed when somebody requests to see the list's informations. This is the content whose access is controlled by the info **list parameter**. the value to use in the edit\_list.conf to control who can edit this parameter's value is "info.file".
+
+Obviously, there is no reason why the exact same people would have the same rights on these two informations. But as they have the same name, one must use differetn keys in the "edit\_list.conf" file to discriminate them.
+
+In the following example, an owner and a privileged owner can both edit the info file, but only the privileged owner can change the info scenario to be used (the owner is only allowed to read it):
+
+``` code
+info.file    owner,privileged_owner        write
+info        privileged_owner        write
+info        privileged_owner        read
+```
+
+----
+
+(Work in progress)
+
 Concerning list edition in a family context, see [20.2.8](node21.html#list-param-edit-family), page [![\[\*\]](crossref.png)](node21.html#list-param-edit-family)
  
 Removing a list
