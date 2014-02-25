@@ -9,5 +9,6 @@ name here.
   - Serge Aumont
   - Stefan Hornburg
   - Soji Ikeda
+  - Etienne Meleard
   - David Verdin
 
