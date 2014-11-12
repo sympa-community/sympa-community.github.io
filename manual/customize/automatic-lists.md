@@ -59,7 +59,7 @@ sympafamily  unix  -       n       n       -       -       pipe
 
 A mail sent to `auto-cto.50@lists.domain.com` will be queued to the `/home/sympa/spool/automatic` spool, defined by the `queueautomatic` `sympa.conf` parameter (see [queueautomatic](/conf-parameters/part2#queueautomatic)). The mail will first be processed by an instance of the `sympa.pl` process dedicated to automatic list creation, then the mail will be sent to the newly created mailing list.
 
-#### The sympa-milter solution (with sendmail)
+#### The sympa-milter solution
 
 If you don't use postfix or don't want to dig in postfix alias management, you have an alternative solution for automatic listes management: sympa-milter.
 
@@ -67,7 +67,14 @@ This program is a contribution by [Jose-Marcio Martins da Cruz](mailto:Jose-Marc
 
 What it does is checking all incoming mails and, if it recognizes a message to an automatic list, adds the relevant headers in it and places it in Sympa's automatic spool. It replaces familyqueue.
 
-For all the doc, we assume you're using sendmail.
+Sympa-milter will work with Sendmail 8 or Postfix built with milter support.
+
+----
+Note:
+
+  * As of Sympa 6.2, sympa-milter 0.7 or better is required and `file_prefix` configuration should be added.  If you were using earlier versions, please consider upgrading.
+
+----
 
 This is the procedure to make it work:
 
@@ -75,7 +82,7 @@ This is the procedure to make it work:
 
 You can download the latest version at the following address: [http://j-chkmail.ensmp.fr/sympa-milter/](http://j-chkmail.ensmp.fr/sympa-milter/).
 
-Once you have the archive, decompress it: `tar xzvf sympa-milter-0.6.tgz`.
+Once you have the archive, decompress it: `tar xzvf sympa-milter-0.7.tgz`.
 
 You will need the `libmilter` library to build the sympa milter. This can be found in the development files of sendmail. You can install it, for example on a RedHat system, with the following command:
 
@@ -86,7 +93,7 @@ yum install sendmail-devel
 Then install the program:
 
 ``` code
-# cd sympa-milter-0.6/
+# cd sympa-milter-0.7/
 # ./configure
 # make
 # make install
@@ -113,6 +120,7 @@ You must then set up the configuration file, `sympa-milter.conf`. You will find 
       - pid\_file (string): the absolute path to the pid file (default = `/usr/local/sympa-milter/var/sympa-milter.pid`);
       - run\_as\_user (string) the user the uid under which to execute sympa-milter (default = `sympa`, but changeable by a `configure` script option); this must be the same as the one running sympa;
       - run\_as\_group the group the gid under which to execute sympa-milter (default = `sympa`, but changeable by a `configure` script option); this must be the same as the one running sympa;
+      - file\_prefix the style of file names sympa-milter saves in spool\_dir (default is `family`, but **if you use Sympa 6.2 or later, you must set it as `list`**);
   - the family definition section, between the `<families>` and `</families>` tags is used to define the regular expressions which will allow sympa-milter to catch list creation messages. This section can contain an unlimited number of identically built lines, following this syntax:
 
 ``` code
@@ -140,6 +148,8 @@ pid_file                /usr/local/sympa-milter/var/sympa-milter.pid
 
 run_as_user             sympa
 run_as_group            sympa
+
+file_prefix             list
 </general>
 #
 # Section families
@@ -167,12 +177,16 @@ You can use any regular expression to define the addresses used by your family.
 
 What you must do to make all the thingy to work is:
 
-  - setting up your MTA to use sympa-milter:
+  - setting up your MTA to use sympa-milter. For Sendmail:
+    ``` code
+    O InputMailFilters=sympa-milter
+    Xsympa-milter, S=inet:2030@localhost, T=C:2m;S:20s;R:20s;E:5m
+    ```
 
-``` code
-O InputMailFilters=sympa-milter
-Xsympa-milter, S=inet:2030@localhost, T=C:2m;S:20s;R:20s;E:5m
-```
+    For Postfix:
+    ``` code
+    smtpd_milters = ...other milters if any... inet:localhost:2030
+    ```
 
   - defining aliases to prevent sendmail from howling that a user (corresponding to your automatic list) doesn't exist. If all your automatic lists start with "auto", for example you can write:
 
