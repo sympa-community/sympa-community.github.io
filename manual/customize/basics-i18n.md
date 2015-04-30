@@ -1,68 +1,115 @@
 Sympa Internationalization
 ==========================
 
-Catalogs and templates
-----------------------
+(Work in progress)
 
-Sympa is designed to allow easy internationalization of its user interface (service mail messages and web interface). All translations for one language are gathered in a single PO file that can be manipulated by standard [GNU gettext tools](http://www.gnu.org/software/gettext/#TOCintroduction).
+Sympa internationalization
+--------------------------
 
-Documentation and ressources about software translations : [http://translate.sourceforge.net/doc/](http://translate.sourceforge.net/doc/)
+(Work in progress)
 
-Sympa previously (until Sympa 4.1.x) used XPG4 messages catalogue format. Web and mail templates were language specific. The new organization both provide a unique file to work on for translators and a standard format supported by many software. Sympa templates refer to translatable strings using the `loc` TT2 filter.
+### List internationalization
 
-Examples :
+(Work in progress)
+
+### User internationalization
+
+(Work in progress)
+
+Language tag
+------------
+
+Sympa uses "language tag" to determine context of language and locale for users and lists. The language tag consists of one or more subtags: language, script, region and variant. Below are some examples.
+
+| Language tag     | Description                        |
+|------------------|------------------------------------|
+| `ar`             | Arabic language (common)           |
+| `pt-BR`          | Portuguese language in Brazil      |
+| `sr-Latn`        | Serbian language with Latin script |
+| `ca-ES-valencia` | Catalan spoken in Valencia         |
+| `ryu`            | Utinaaguti (around Okinawa island) |
+
+Until Sympa 6.1.x, language contexts are based on POSIX locale. Its naming rule was not standardized enough, and also had difficulties to handle particular languages. Language tag is roughly based on [BCP 47](http://tools.ietf.org/html/bcp47) published by IETF. As of Sympa 6.2.0, POSIX locale names in old style are still supported but they are converted to language tags internally.
+
+Translation catalogs and templates
+----------------------------------
+
+Sympa is designed to allow easy internationalization of its user interface (service mail messages and web interface). All translations for one language are gathered in a single .po file that can be manipulated by standard [GNU gettext tools](http://www.gnu.org/software/gettext/#TOCintroduction).
+
+[Instructions for translating Sympa](/translating_sympa) are maintained on the Sympa website.
+
+The "gettext locale name" is used for naming of .po file. Sympa maps language tags to gettext locale names and vice versa. Equivalents of language tags in example above are `ar`, `pt_BR`, `sr@latin`, `ca_ES@valencia` and `ryu`, respectively. If you don't know what name to use for your language, please ask Sympa authors.
+
+Sympa templates refer to translatable strings using the `loc` TT2 filter.
+
+Examples:
 
 ``` code
-[%|loc%]User Email[%END%]
-
-[%|loc(list.name,user.email)%]You have subscribed to list %1 with email address %2[%END%]
+[%|loc%]User Email[% END %]
 ```
 
-Sympa had previously been translated into 15 languages more or less completely. We have automatically extracted the translatable strings from previous templates but this process is awkward and is only seen as a bootstrap for translators. Therefore Sympa distribution will not include previous translations until a skilled translator has reviewed and updated the corresponding PO file.
+``` code
+[%|loc(list.name,user.email)%]You have subscribed to list %1 with email address %2[% END %]
+```
 
-Translating Sympa GUI in your language
---------------------------------------
-
-Instructions for translating Sympa are maintained on Sympa web site : [http://www.sympa.org/howtotranslate.html](http://www.sympa.org/howtotranslate.html)
+Sympa had previously been translated into 15 languages more or less completely. We have automatically extracted the translatable strings from previous templates but this process is awkward and is only seen as a bootstrap for translators. Therefore Sympa distribution will not include previous translations until a skilled translator has reviewed and updated the corresponding .po file.
 
 Defining language-specific templates
 ------------------------------------
 
-The default Sympa templates are language independant, refering to catalogue entries for translations. When customizing either web or mail templates, you can define different templates for different languages. The template should be located in a ll\_CC subdirectory of `web_tt2` or `mail_tt2` with the language code.
+The default Sympa templates are language independant, refering to catalogue entries for translations. When customizing either web or mail templates, you can define different templates for different languages. The template should be located in a language subdirectory of `web_tt2` or `mail_tt2` with the language tag.
 
 Example :
 
 ``` code
 /web_tt2/home.tt2
-/web_tt2/de_DE/home.tt2
-/web_tt2/fr_FR/home.tt2
+/web_tt2/de/home.tt2
+/web_tt2/en-US/home.tt2
+/web_tt2/fr/home.tt2
 ```
 
-This mecanism also applies to `comment.tt2` files used by create list templates.
+This mechanism also applies to `comment.tt2` files used by create list templates.
 
-Web templates can also make use of the `locale` variable to make templates multi-lingual :
+Web templates can also make use of the `lang` variable to make templates multi-lingual:
 
 Example :
 
 ``` code
-[% IF locale == 'fr_FR' %]
+[% IF lang == 'fr' %]
 Personnalisation
 [% ELSE %]
 Customization
 [% END %]
 ```
 
-Translating topics titles
--------------------------
+`lang` variable is also defined for JavaScript.
 
-Topics are defined in a `topics.conf` file. In this file, each entry can be given a title in different languages, see [17.5][(]customize/basics-templates.md#topics), page [![\[\*\]](crossref.png)][(]customize/basics-templates.md#topics).
+Until Sympa 6.1.x, `locale` variable was used.
 
-Handling of encodings
----------------------
+### Overriding cascading style sheets by language context
 
-Until version 5.3, Sympa web pages were encoded in each language's encoding (iso-8859-1 for French, utf-8 for Japanese,...) whereas every web page is now encoded in utf-8. Thanks to the `Encode` Perl module, Sympa can now juggle with the filesystem encoding, each message catalog's encoding and its web encoding (utf-8).
+`web_tt2/css.tt2` for specific languages will override any portion of main css, not fully replacing it. So they may be used for customization for particular language.
 
-If your operating system uses a character encoding different from utf-8, then you should declare it using the `filesystem_encoding` sympa.conf parameter (see [![\[\*\]](crossref.png)](#filesystem-encoding), page [![\[\*\]](crossref.png)](#filesystem-encoding)). It is required to do so because Sympa has no way to find out what encoding is used for its configuration files. Once this encoding is known, every template or configuration parameter can be read properly for the web and also saved properly when edited from the web interface.
+For example, default css.tt2 specifies the font families covering Western scripts (Cyrillic, Latin, ...). East Asian users may prefer to consistent font family supporting Western along with Eastern scripts (hangeul, hanzi, ...). Sympa 6.1.18 and later include `css.tt2` specific to these languages (`web_tt2/ja/css.tt2`, `web_tt2/ko/css.tt2`, `web_tt2/zh-CN/css.tt2` and `web_tt2/zh-TW/css.tt2`).
 
-Note that the shared documents (see[23][(]customize/shared-repository.md#shared), page [![\[\*\]](crossref.png)][(]customize/shared-repository.md#shared)) filenames are Q-encoded to make their storage encoding neutral. This encoding is transparent for the end-users.
+For another example, users using languages with right-to-left scripts (Arabic, Hebrew, ...) might wish web page layout to be fit in direction of texts. It may be possible to override attributes for alignment by `css.tt2` for each language (`web_tt2/ar/css.tt2` etc.).
 
+Translating titles of topics, scenarios and description of list creation templates
+----------------------------------------------------------------------------------
+
+Topics are defined in a `topics.conf` file. In this file, each entry can be given a title in different languages, see [Topics](/manual/customizing#topics).
+
+Scenarios and comments in list creation templates can have titles by multiple languages. See [Scenario structure](/manual/authorization-scenarios#scenario_structure) and [comment.tt2](/manual/list-creation#commenttt2).
+
+Handling of character sets
+--------------------------
+
+Until version 5.3, Sympa web pages were using in each language's character set (iso-8859-1 for French, utf-8 for Japanese, ...) whereas every web page now uses utf-8. Sympa also expects every file to be UTF-8 including : configursation files, templates, authorization scenarios, .po files.
+
+Note that the shared documents (see [Shared documents](/manual/shared-documents)) filenames are Q-encoded to make their storage encoding neutral. This encoding is transparent for end users.
+
+### Support for legacy character sets
+
+Sympa fully supports Unicode. By default, all messages sent by Sympa will be encoded by `utf-8` character set. However, in some language environments legacy character sets are preferred, for example `iso-2022-jp` in Japanese language. Messages sent by Sympa may be encoded using legacy character sets spesific to each language. See [legacy_character_support_feature](/manual/conf-parameters/conf-parameters#legacy_character_support_feature) parameter.
+
+Note that this setting does not affect messages sent by users but only the messages mailing list robot will send.
