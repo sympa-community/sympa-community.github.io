@@ -28,6 +28,37 @@ Moreover of these required data, provided values are assigned to vars being in t
 
 On the Web interface, these data are given by the list creator in the web form. On command line these data are given by an xml file.
 
+### Typical list profile (list template creation)
+
+List profiles are stored in `/home/sympa/etc/create_list_templates` or in `/home/sympa/bin/etc/create_list_templates` (default of distribution) as directories with profile name. Directory of a profile should contain at least two files: config.tt2 and comment.tt2.
+
+comment.tt2 is the descripion of list profile. It may contain tilte line(s) and HTML content. They are shown in list creation page of web interface.
+
+config.tt2 is the template of list configuration. It will be formatted and save as config file when list is created.
+
+You might want to hide or modify profiles (not useful, or dangerous for your site). If a profile exists both in the local site directory `/home/sympa/etc/create_list_templates` and in the `/home/sympa/bin/etc/create_list_templates` directory, then the local profile will be used by *WWSympa*.
+
+### comment.tt2
+
+Title line(s) are placed at beginning of config.tt2. They are separated from content by single newline. Below is an example.
+
+``` code
+title Liste de discussion publique
+title.fr Liste de discussion publique
+title.gettext Public discussion mailing list
+
+<ul><li>[%|loc%]public archives[%END%]</li>
+<li>[%|loc%]only subscribers can post[%END%]</li>
+</ul>
+```
+
+----
+Note:
+
+  * Title lines are available as of Sympa 6.2.
+
+----
+
 ### XML file format
 
 The xml file provides information on :
@@ -146,7 +177,7 @@ List creation on command line with `sympa.pl`
 ---------------------------------------------
 
 This way to create lists is independent of family.
-
+The list creator has to choose a profile for the list and put its name in the XML element `<type>`.
 Here is a sample command to create one list :.
 
 ``` bash
@@ -157,10 +188,6 @@ The list is created under the `my_robot` robot and the list is described in the 
 
 By default, the status of the created list is `open`.
 
-#### typical list profile (list template creation)
-
-(Work in progress)
- 
 Creating and editing mailing using the web
 ------------------------------------------
 
@@ -219,7 +246,6 @@ For more details on tt2 customization, templates path etc please go to the [web 
 (Work in progress)
 
 Concerning list edition in a family context, see [20.2.8](node21.html#list-param-edit-family), page [![\[\*\]](crossref.png)](node21.html#list-param-edit-family)
-
  
 Removing a list
 ---------------
