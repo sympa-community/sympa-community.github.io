@@ -358,3 +358,163 @@ You can make use of this mechanism in your plugin to have a global configuration
 my $config_file = tools::get_filename('etc', {}, 'myPlugin.conf', $self->{'context'}->stash()->get('robot'));
 return $self->error('Config file not found') unless($config_file);
 ```
+
+### Logging
+
+If you want your plugin to log in the same files as the Sympa process, use the Sympa primitives like this:
+
+``` perl
+# Use the main Sympa process logger singleton
+my $logger = Sympa::Log->instance();
+ 
+...
+ 
+# Later in the code, use logs.
+# Sympa logs are based on sprintf calls.
+# $variable value will thus replace %s in the final log.
+$logger->syslog('info','My log message %s',$variable);
+```
+
+### Database access
+
+Your plugin can manipulate the Sympa database. Even create tables if needed. Take care, though, that you can *also* alter the main Sympa database's tables. If you need to add a table, we strongly suggest that the table name would be called after your plugin and prefixed in a way that explicitely tells users that this is a plugin-related table.
+
+We suggest the following naming scheme: “plugin\_\[plugin\_name\]\_\[function\]”
+
+This could lead to, for example, the following table name: "plugin\_sponsoring\_godsons". For the godsons table in the Sponsoring plugin.
+
+``` perl
+# Use the main Sympa process database handler singleton
+my $sdm = Sympa::DatabaseManager->instance();
+ 
+...
+ 
+# Table creation
+ 
+# 1. Put datastructure description into a hash.
+my $table_structure = (
+  [
+    {
+      table => 'plugin_myplugin_table',
+      field => 'plugin_myplugin_table_key',
+      key => 1,
+      type => 'varchar(150)',
+      notnull => 1,
+    },
+    {
+      table => 'plugin_myplugin_table',
+      field => 'plugin_myplugin_table_field1',
+      type => 'varchar(100)',
+    },
+    {
+      table => 'plugin_myplugin_table',
+      field => 'plugin_myplugin_table_field2',
+      type => 'varchar(150)',
+      notnull => 1,
+    },
+  ]
+);
+ 
+# 2. Add table if it does not exist
+ 
+  my $table_exists;
+  my $class = ref $self;
+  my @tables;
+  unless (
+            $sdm
+            and @tables = @{$sdm->get_tables()}
+      ) {
+    return $class->error('Unable to query database.');
+  }
+  foreach my $table (@tables) {
+    if ($table eq 'plugin_myplugin_table') {
+      $table_exists = 1;
+      last;
+    }
+  }
+  unless ($table_exists) {
+    unless (
+        $sdm
+        and $sdm->add_table({table => 'plugin_myplugin_table'})
+        ) {
+      return $class->error('Unable to create table.');
+    }
+  }
+ 
+# 3. Update fields according to table structure description
+ 
+  my @primary_key;
+  my $existing_fields = $sdm->get_fields({table => 'plugin_myplugin_table'});
+  foreach my $field (@{$self->{table_structure}}) {
+    if ($existing_fields->{$field->{field}}) {
+      unless ($sdm->update_field($field)) {
+        return $class->error(sprintf 'Unable to update field %s: %s',$field->{field},$sdm->error);
+      }
+    }else{
+      unless ($sdm->add_field($field)) {
+        return $class->error(sprintf 'Unable to add field %s: %s',$field->{field},$sdm->error);
+      }
+    }
+    if ($field->{key}) {
+      push @primary_key, $field->{field};
+    }
+  }
+ 
+# 4. Delete temporary field used at table creation
+ 
+  unless ($table_exists) {
+    $sdm->delete_field({
+      table => 'plugin_myplugin_table',
+      field => 'temporary',
+    });
+  }
+ 
+# 5. Reset primary key
+ 
+  my $primary_keys = $sdm->get_primary_key({table => 'plugin_myplugin_table'});
+  if(keys %$primary_keys) {
+    unless ($sdm->unset_primary_key({table => 'plugin_myplugin_table'})) {
+      return $class->error("Unable to unset primary key");
+    }
+  }
+  unless (my $report = $sdm->set_primary_key ({
+    table => 'plugin_myplugin_table',
+    fields => \@primary_key,
+  })) {
+    return $class->error($report);
+  }
+ 
+ 
+# 6. INSERT statement
+my ($key_value,$field1_value, $field2_value);
+$sdm->do_prepared_query(
+  sprintf (q{
+    INSERT INTO %s (%s,%s,%s) VALUES(?,?,?)
+    },
+      'plugin_myplugin_table',
+      'plugin_myplugin_table_key',
+      'plugin_myplugin_table_field1',
+      'plugin_myplugin_table_field2',),
+    $key_value,
+    $field1_value,
+    $field2_value,
+    );
+ 
+# 7. SELECT statement
+ 
+  my $sth = $sdm->do_prepared_query(
+    sprintf (q{
+      SELECT %s,%s from %s WHERE %s=?
+      },
+      'plugin_myplugin_table_field1',
+      'plugin_myplugin_table_field2',
+      'plugin_myplugin_table',
+      'plugin_myplugin_table_key',
+      ),
+    $key_value,
+    );
+  while (my $entry = $sth->fetchrow_arrayref()) {
+  #...
+  # Do something with the entry.
+  }
+```
