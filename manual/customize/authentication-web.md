@@ -146,10 +146,10 @@ Example:
 #Description of parameters for each directory
 
 cas
-    base_url            https://sso-cas.cru.fr
+    base_url            https://sso-cas.renater.fr
     non_blocking_redirection        on
     auth_service_name        cas-cru
-    ldap_host            ldap.cru.fr:389
+    ldap_host            ldap.renater.fr:389
     ldap_get_email_by_uid_filter    (uid=[uid])
     ldap_timeout            7
     ldap_suffix            dc=cru,dc=fr
@@ -183,8 +183,8 @@ ldap
     email_attribute            mail
     alternative_email_attribute    mailalternateaddress,ur1mail
     scope                sub
-    use_ssl                         1
-    ssl_version                     sslv3
+    use_tls                         ldaps
+    ssl_version                     tlsv1
     ssl_ciphers                     MEDIUM:HIGH
 
 ldap
@@ -237,6 +237,7 @@ Here is how to configure the LDAP authentication:
 
   - `suffix`
     The root of the DIT (Directory Information Tree). The DN that is the base object entry relative to which the search is to be performed.
+
     Example: `dc=university,dc=fr`
 
   - `bind_dn`
@@ -276,7 +277,6 @@ Here is how to configure the LDAP authentication:
     alternate_email: frafart@MaSociete.fr
     alternate: rafart@MaSociete.fr
     ```
-
     The filters can be:
     ``` code
     (mail = [sender])
@@ -308,13 +308,43 @@ Here is how to configure the LDAP authentication:
   - `authentication_info_url`
     Defines the URL of a document describing LDAP password management. When hitting Sympa's *Send me a password* button, LDAP users will be redirected to this URL.
 
-  - `use_ssl`
-    If set to `1`, connection to the LDAP server will use SSL (LDAPS).
+Following parameters are used to provide LDAPS (LDAP over TLS/SSL):
 
-  - `ssl_version`
-    This defines the version of the SSL/TLS protocol to use. Defaults of Net::LDAPS to `sslv2/3`, other possible values are `sslv2`, `sslv3`, and `tlsv1`.
+  - `use_ssl` (OBSOLETE)
+    If set to `1`, connection to the LDAP server will use LDAPS (LDAP over TLS/SSL).
 
-  - ssl\_ciphers Specify which subset of cipher suites are permissible for this connection, using the standard OpenSSL string format. The default value of Net::LDAPS for ciphers is `ALL`, which permits all ciphers, even those that do not encrypt!
+      - Obsoleted as of Sympa 6.2.15. Use `use_tls` instead.
+
+  - `use_tls` (Default value: `none`):
+
+      - `ldaps`: use LDAPS (LDAP over TLS/SSL),
+
+      - `starttls`: use StartTLS,
+
+      - `none`: TLS (SSL) is disabled.
+
+  - `ssl_version` (Default value: `tlsv1`)
+    This defines the version of the TLS/SSL protocol to use. Possible values are `sslv2`, `sslv3`, `tlsv1`, `tlsv1_1` and `tlsv1_2`.
+
+  - `ssl_ciphers`
+    Specify which subset of cipher suites are permissible for this connection, using the standard OpenSSL string format. The default value of Net::LDAPS for ciphers is `ALL`, which permits all ciphers, even those that do not encrypt!
+
+Additionally, following parameters may also used with Sympa 6.2 or later:
+
+  - `ssl_cert`
+    Path to client certificate.
+
+  - `ssl_key`
+    Path to the secret key of client certificate.
+
+  - `ca_verify`
+    `none`, `optional` or `required`. If set to `none`, will never verify server certificate. Latter two need appropriate `ca_path` and/or `ca_file` settings.
+
+  - `ca_path`
+    Path to directory store of CA certificates.
+
+  - `ca_file`
+    Path to file store of CA certificates.
 
 ### generic\_sso paragraph
 
@@ -381,14 +411,7 @@ The following parameters define how Sympa can retrieve the user email address; *
   - `ldap_timeout`
     The time out for the search.
 
-  - `ldap_use_ssl`
-    If set to `1`, connection to the LDAP server will use SSL (LDAPS).
-
-  - `ldap_ssl_version`
-    This defines the version of the SSL/TLS protocol to use. Defaults of Net::LDAPS to `sslv2/3`, other possible values are `sslv2`, `sslv3`, and `tlsv1`.
-
-  - `ldap_ssl_ciphers`
-    Specifies which subset of cipher suites are permissible for this connection, using the OpenSSL string format. The default value of Net::LDAPS for ciphers is `ALL`, which permits all ciphers, even those that do not encrypt!
+To support LDAPS (LDAP over SSL/TLS), corresponding parameters in ldap paragraph may also be used for generic\_sso.
 
 ### cas paragraph
 
@@ -460,14 +483,7 @@ Note that Sympa will act as a CAS client to validate CAS tickets. During this ex
   - `ldap_timeout`
     The time out for the search.
 
-  - `ldap_use_ssl`
-    If set to `1`, connection to the LDAP server will use SSL (LDAPS).
-
-  - `ldap_ssl_version`
-    This defines the version of the SSL/TLS protocol to use. Defaults of Net::LDAPS to `sslv2/3`, other possible values are `sslv2`, `sslv3`, and `tlsv1`.
-
-  - `ldap_ssl_ciphers`
-    Specifies which subset of cipher suites are permissible for this connection, using the OpenSSL string format. The default value of Net::LDAPS for ciphers is `ALL`, which permits all ciphers, even those that do not encrypt!
+To support LDAPS (LDAP over SSL/TLS), corresponding parameters in ldap paragraph may also be used for cas.
 
 Sharing WWSympa's authentication with other applications
 --------------------------------------------------------
@@ -490,15 +506,16 @@ If you are not using a web Single Sign On system, you might want to make other w
 
     To cooperate with *WWSympa*, you simply need to adopt its HTTP cookie format and share the secret it uses to generate MD5 checksums, i.e. the `cookie` configuration parameter. In this way, *WWSympa* will accept users authenticated through your application without further authentication.
 
-### Perl example
+Perl example
+------------
 
-Here is a example using perl that show both method : use Sympa login page or copy login form into your application. You can try it on Sympa author's lists server : http://listes.cru.fr/cgi-bin/sample.cgi
+Here is a example using perl that show both method : use Sympa login page or copy login form into your application. You can try it on Sympa author's lists server : [http://listes.renater.fr/cgi-bin/sample.cgi](http://listes.renater.fr/cgi-bin/sample.cgi).
 
 ``` perl
 #!/usr/bin/perl -U
-
+ 
 ## Just a example how to use Sympa Session
-
+ 
 use strict;
 use CGI;
 use DBI;
@@ -509,22 +526,22 @@ use SympaSession;
 use List;
 my $query = new CGI;
 my %in = $query->Vars;
-my $robot = 'cru.fr';
+my $robot = 'renater.fr';
 my $email;
-
+ 
 unless (&Conf::load('/etc/sympa.conf')) {
     printf "Configuration file /etc/sympa.conf has errors.\n";
 }
 ### this section is mandatory to have List::is_user working
 if ($Conf{'db_name'} and $Conf{'db_type'}) {
     unless ($List::use_db = &Upgrade::probe_db()) {
-	printf "Error could not connect to database";
+        printf "Error could not connect to database";
     }
 }
 &List::_apply_defaults();
 print "Content-Type: text/html\n\n";
 print "<html><head><title>just a test</head><body>";
-if ($ENV{'HTTP_COOKIE'} =~ /(sympa_session)\=/) {   
+if ($ENV{'HTTP_COOKIE'} =~ /(sympa_session)\=/) {
     my  $session = new SympaSession ($robot,{'cookie'=>&SympaSession::get_session_cookie($ENV{'HTTP_COOKIE'})});
     $email = $session->{'email'} unless ($session->{'email'} eq 'nobody');
 }
@@ -534,13 +551,13 @@ if ($email) {
 }else{
 print '
 <h4> method 1: use Sympa form</h4>
-This method is very simple, just link the Sympa login page using the <i>referer</i> parameter. 
-The URL look like http://mysserver.domain.org/sympa/loginrequest/referer.   
+This method is very simple, just link the Sympa login page using the <i>referer</i> parameter.
+The URL look like http://mysserver.domain.org/sympa/loginrequest/referer.
 <a href="/sympa/loginrequest/referer">Try it</a>
-
+ 
 <h4>method 2 : copy login form into your application</h4>
-  <form action="http://listes.cru.fr/sympa" method="post">
-        <input type="hidden" name="referer" value="http://myserver.domain.org/cgi-bin/sample.cgi" /> 
+  <form action="http://listes.renater.fr/sympa" method="post">
+        <input type="hidden" name="referer" value="http://myserver.domain.org/cgi-bin/sample.cgi" />
         <input type="hidden" name="failure_referer" value " http://myserver.domain.org/cgi-bin/error_login.html" />
         <input type="hidden" name="action" value="login" />
         <label for="email">email address:
@@ -553,13 +570,15 @@ The URL look like http://mysserver.domain.org/sympa/loginrequest/referer.
 print '</body></hml>';
 ```
 
-### How to do it using PHP ?
+How to do it using PHP ?
+------------------------
 
 Chris Hastie has sumitted a [contrib for sharing Sympa sessions with PHP applications](/contribs/index#how_to_share_sympa_session_with_other_php_applications).
 
-### What about using SOAP to access Sympa sessions
+What about using SOAP to access Sympa sessions
+----------------------------------------------
 
-Not yet possible but of course this the best way to do it. There is a [feature request](https://sourcesup.cru.fr/tracker/index.php?func=detail&aid=4056&group_id=23&atid=170) for it.
+Not yet possible but of course this the best way to do it. There is a [feature request](https://sourcesup.renater.fr/tracker/index.php?func=detail&aid=4056&group_id=23&atid=170) for it.
 
 Provide a Sympa login form in another application
 -------------------------------------------------
@@ -567,7 +586,7 @@ Provide a Sympa login form in another application
 You can easily trigger a Sympa login from another web page. The login form should look like this:
 
 ``` html
-<FORM ACTION="http://listes.cru.fr/sympa" method="post">
+<FORM ACTION="http://listes.renater.fr/sympa" method="post">
     <input type="hidden" name="previous_action" value="arc" />
     Access web archives of list
     <select name="previous_list">
@@ -585,31 +604,48 @@ You can easily trigger a Sympa login from another web page. The login form shoul
 The example above does not only perform the login action, but also redirects the user to another Sympa page, a list web archive here. The `previous_action` and `previous_list` variables define the action that will be performed after the login is done.
 
 Setting up a Shibboleth-enabled Sympa server
---------------------------------------------
+============================================
 
-Sympa is an open source mailing list software, provided by the CRU.  Shibboleth is an open source distributed authentication software, provided by Internet2 consortium; it implements the SAML 2.0 protocol.
+[Sympa](http://www.sympa.org) is an open source mailing list software, provided by the CRU.
 
-### Implementation in Sympa
+[Shibboleth](http://shibboleth.internet2.edu) is an open source distributed authentication software, provided by Internet2 consortium; it implements the SAML 2.0 protocol.
 
-Sympa has been made Shibboleth-enabled in its 4.1 release (March 2004). The implementation is wider that Shibboleth authentication and can be used to plug Sympa web interface with almost any authentication mecanism that comes with an Apache authentication module. The feature is named generic_sso in Sympa documentation.    * Sympa documentation for generic_sso
+Implementation in Sympa
+-----------------------
 
-### Prerequisites
+Sympa has been made Shibboleth-enabled in its 4.1 release (March 2004). The implementation is wider that Shibboleth authentication and can be used to plug Sympa web interface with almost any authentication mecanism that comes with an Apache authentication module. The feature is named **generic\_sso** in Sympa documentation.
 
-#### Sympa
+  - [Sympa documentation for generic_sso](http://www.sympa.org/manual/authentication#generic_sso_authentication)
+
+Prerequisites
+-------------
+
+### Sympa
 
 You'll need to have a Sympa server running. It should be a recent version (5.3 or later) because a few bugs have been fixed.
 
-#### Shibboleth Service Provider
+### Shibboleth Service Provider
 
-You need to install Shibboleth SP (Service Provider) and configure it properly to interract with your favourite federation. The documentation refers to Shibboleth SP 2.4.    * Installing a Shibboleth Service Provider   * Installer un fournisseur de services Shibboleth
+You need to install Shibboleth SP (Service Provider) and configure it properly to interract with your favourite federation. The documentation refers to Shibboleth SP 2.4.
 
-### How it works
+  - [Installing a Shibboleth Service Provider](https://spaces.internet2.edu/display/SHIB2/NativeSPLinuxInstall)
 
-Sympa expects Shibboleth to provide some user informations, especially the user email address, once the user has authenticated. Sympa will get user attributes from Shibboleth Apache module via environment variables. You'll have to tell Sympa the names of these environment variables.  To keep part of Sympa web interface accessible to unauthenticated users, not all Sympa URLs are Shibboleth-protected. Only one URL needs to be protected ; Sympa will manage to collect user attributes when the user is redirected to this URL and will keep them in cache for later use, during the session.  Note that Sympa does not use lazy sessions mecanism (provided by Shibboleth); the mecanism used almost provides the same level of flexibility and can be adapted to authentication mecanisms other than Shibboleth.
+  - [Installer un fournisseur de services Shibboleth](https://federation.renater.fr/docs/installation-sp)
 
-### Configuring Sympa
+How it works
+------------
 
-Sympa gathers all web authentication configuration in a single file (can have one per virtual host): auth.conf. You should create/edit this configuration file to add the Shibboleth-related part. Here is a sample /home/sympa/etc/auth.conf file:
+Sympa expects Shibboleth to provide some user informations, especially the user email address, once the user has authenticated. Sympa will get user attributes from Shibboleth Apache module via environment variables. You'll have to tell Sympa the names of these environment variables.
+
+To keep part of Sympa web interface accessible to unauthenticated users, not all Sympa URLs are Shibboleth-protected. Only one URL needs to be protected ; Sympa will manage to collect user attributes when the user is redirected to this URL and will keep them in cache for later use, during the session.
+
+Note that Sympa does not use lazy sessions mecanism (provided by Shibboleth); the mecanism used almost provides the same level of flexibility and can be adapted to authentication mecanisms other than Shibboleth.
+
+Configuring Sympa
+-----------------
+
+Sympa gathers all web authentication configuration in a single file (can have one per virtual host): **auth.conf**. You should create/edit this configuration file to add the Shibboleth-related part. Here is a sample */home/sympa/etc/auth.conf* file:
+
 ``` code
 generic_sso
     service_name       Connexion
@@ -623,15 +659,22 @@ generic_sso
 ```
 
 Note that:
-  * service_name (*Connexion* here) is the name of the button (of menu item) for logging in, in Sympa web interface;
-  * service_id (*federation_renater* here) is the identifier of this authentication server within Sympa. You'll notice later that login URLs in Sympa will include this token;
-  * http_header_prefix is of no use with Shibboleth SP 2.x because user attributes provided by Apache no more share a common prefix (as Shibboleth 1.3 used to do). Set this parameter to the same value as the *email_http_header* parameter. Note that Sympa 6 includes a new *http_header_list* more adapted to declare the set of user attributes that are worth getting from Shibboleth.
-  * email_http_header is the name of the environment variable that brings the user email address. It used to be *HTTP_SHIB_INETORGPERSON_MAIL* with Shibboleth 1.3 and the default with Shibboleth 2.x is *mail*. Note that until Sympa 6, multi-valued are not properly handled by Sympa. Sympa 6 provides a new *http_header_value_separator* with a default value of *;*.
-  * logout_url is the URL the user will be redirected to for logging out. Note the *return* parameter provided here to make the user come back to Sympa web interface after logout is completed.
-  * user_table authentication method is disabled, thus providing Shibboleth authentication ONLY; the standard Sympa login banner will disappear from the web interface.
+
+  - service\_name (*Connexion* here) is the name of the button (of menu item) for logging in, in Sympa web interface;
+
+  - service\_id (*federation\_renater* here) is the identifier of this authentication server within Sympa. You'll notice later that login URLs in Sympa will include this token;
+
+  - http\_header\_prefix is of no use with Shibboleth SP 2.x because user attributes provided by Apache no more share a common prefix (as Shibboleth 1.3 used to do). Set this parameter to the same value as the *email\_http\_header* parameter. Note that Sympa 6 includes a new *http\_header\_list* more adapted to declare the set of user attributes that are worth getting from Shibboleth.
+
+  - email\_http\_header is the name of the environment variable that brings the user email address. It used to be *HTTP\_SHIB\_INETORGPERSON\_MAIL* with Shibboleth 1.3 and the default with Shibboleth 2.x is *mail*. Note that until Sympa 6, multi-valued are not properly handled by Sympa. Sympa 6 provides a new *http\_header\_value\_separator* with a default value of *;*.
+
+  - logout\_url is the URL the user will be redirected to for logging out. Note the *return* parameter provided here to make the user come back to Sympa web interface after logout is completed.
+
+  - user\_table authentication method is disabled, thus providing Shibboleth authentication ONLY; the standard Sympa login banner will disappear from the web interface.
 
 You'll need to restart your Apache server to make Sympa web server take these changes into account:
-```
+
+``` code
 /etc/init.d/httpd restart
 ```
 
@@ -639,9 +682,11 @@ You'll note the new "Connexion" button on your Sympa web interface:
 
 [shiblogin.png: Work in progress]
 
-### Configuring Apache
+Configuring Apache
+------------------
 
 Shibboleth authentication needs to be triggered on a dedicated URL. Here is a sample Apache configuration:
+
 ``` code
 <Location /sympa/sso_login/federation_renater>
     AuthType shibboleth
@@ -653,67 +698,79 @@ Shibboleth authentication needs to be triggered on a dedicated URL. Here is a sa
 ```
 
 Note that:
-  * the protected URL includes the *service_id* (here *federation_renater*); you should replace with the federation_id you defined in your *auth.conf* file.
-  * ShibApplicationID directive reffers to the application context you'll define in Shibboleth configuration file.
-  * we could have used the *require mail* directive (commented here) to enforce that the remote Identity Provider provides the user email address; we did not, to let Sympa cope with errors more smoothly than Shibboleth SP does.
+
+  - the protected URL includes the *service\_id* (here *federation\_renater*); you should replace with the federation\_id you defined in your *auth.conf* file.
+
+  - ShibApplicationID directive reffers to the application context you'll define in Shibboleth configuration file.
+
+  - we could have used the *require mail* directive (commented here) to enforce that the remote Identity Provider provides the user email address; we did not, to let Sympa cope with errors more smoothly than Shibboleth SP does.
 
 Now restart your web server to validate these changes:
-```
+
+``` code
 /etc/init.d/httpd restart
 ```
 
-You can have a try accessing http:`//`lists.your.domain/sympa/sso_login/federation_renater ; it should trigger the Shibboleth user authentication.
+You can have a try accessing `http://lists.your.domain/sympa/sso_login/federation_renater`; it should trigger the Shibboleth user authentication.
 
-### Configuring Shibboleth
+Configuring Shibboleth
+----------------------
 
 Shibboleth SP's main configuration file is **/etc/shibboleth/shibboleth2.xml**. That's the only configuration file you'll have to edit to make Shibboleth authentication work with Sympa.
 
 You'll need to define an application context specific for your Sympa service. If you already have a Shibboleth-enabled service running on the server, you should either using the same application context for Sympa or define a new one using the *ApplicationOverride* directive.
 
 Here is a sample piece of *shibboleth2.xml*:
+
 ``` xml
-<ApplicationOverride id="app-sympa" entityID="https:*lists.your.domain/sympa">
-
+<ApplicationOverride id="app-sympa" entityID="https://lists.your.domain/sympa">
+ 
     <Sessions lifetime="28800" timeout="3600" checkAddress="false" handlerSSL="true">
-
-        <SSO discoveryProtocol="SAMLDS" discoveryURL="https:*services-federation.renater.fr/test/wayf">
-        SAML2 SAML1
+ 
+        <SSO discoveryProtocol="SAMLDS" discoveryURL="https://services-federation.renater.fr/test/wayf">
+            SAML2 SAML1
         </SSO>
-
+ 
     </Sessions>
 </ApplicationOverride>
 ```
 
 Note that:
-  * the *ApplicationOverride/id* attribute needs to be the same you defined in your Apache *ShibApplicationID* directive value. An alternative is to use Shibboleth RequestMapper but it's much harder to configure;
-  * the value of *ApplicationOverride/entityID* is your Sympa service entityID, used later to declare the service at your favourite federation;
+
+  - the *ApplicationOverride/id* attribute needs to be the same you defined in your Apache *ShibApplicationID* directive value. An alternative is to use Shibboleth RequestMapper but it's much harder to configure;
+
+  - the value of *ApplicationOverride/entityID* is your Sympa service entityID, used later to declare the service at your favourite federation;
 
 Restart your Apache server and shibd daemon to use the new configuration file :
-```
+
+``` code
 /etc/init.d/https restart
 /etc/init.d/shibd restart
 ```
 
-### Declaring your Sympa service in your favourite federation
+Declaring your Sympa service in your favourite federation
+---------------------------------------------------------
 
 It's now time to let identity providers know about your federated mailing list service, otherwise they will not authenticate users that come from your service, or provide no user attributes. You favourite federation probably provides a web form to declare federated resources.
 
-  * [resource registration for French users](https://services-federation.renater.fr/gestion?action=get_all&federation=renater)
+  - [resource registration for French users](https://services-federation.renater.fr/gestion?action=get_all&amp;federation=renater)
 
 Before you register your mailing list in a production federation you should do some testing. You can either test within a Test federation ([see the French test federation](https://federation.renater.fr/en/test-federation)) or setup a bilateral trust relationship with a single Identity Provider ([documentation in French to setup a bilateral relationship](https://federation.renater.fr/docs/fiches/fedadeux)).
 
 You'll need to make sure all Identity Providers will provide the user email address; therefore they'll need to configure their *attribute release policy*.
 
-### Coping with virtual hosts
+Coping with virtual hosts
+-------------------------
 
 If you have Sympa virtual robots for other virtual hosts, you'll need to define distinct ApplicationOverride Shibboleth configuration elements for each virtual host. You'll have to declare each of them to your favourite federation, since they appear as separate services.
 
-### What if you don't trust provided email addresses?
+What if you don't trust provided email addresses?
+-------------------------------------------------
 
 You might not trust the email address user attribute provided by some Identity Providers, because the provisioning of this attribute is too weak (provided by the user himself, without further checks). This raises security issue because anybody who logs in with somebody else's email address gets this person's privileges on the mailing list server.
 
 This issue can be addressed by Sympa thanks to an extension developped by JP Robinson that allows Sympa to either validate the user's email address or even collect it (later associated to a Shibboleth user identifier).
 
 Please read the documentation for further informations:
-  * [generic_sso documentation](http://www.sympa.org/manual/authentication#generic_sso_paragraph|)
+  * [generic_sso documentation](http://www.sympa.org/manual/authentication#generic_sso_paragraph)
 
