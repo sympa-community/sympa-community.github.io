@@ -1,0 +1,5 @@
+/var/log/sympa.log {
+    missingok
+    notifempty
+    create 640 sympa sympa
+}

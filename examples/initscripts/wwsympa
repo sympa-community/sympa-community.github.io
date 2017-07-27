@@ -1,0 +1,170 @@
+#!/bin/sh
+#
+# wwsympa                       Sympa Web Interface
+#
+# Written by IKEDA Soji  2011-10-20
+#
+# chkconfig: 345 95 05
+# description: sympa is a powerful mailing lists management system.
+
+if [ -f /etc/rc.d/init.d/functions ]; then
+    # Source function library.
+    . /etc/rc.d/init.d/functions
+
+    ## Set a flag
+    use_functions=1
+fi
+
+# WWSympa parameters
+# WWSympa binaries directory
+sympafcgidir="/usr/libexec/sympa"
+
+# Sympa config files directory
+sympaconf="/etc/sympa/sympa.conf"
+
+FCGI_CHILDREN=5
+FCGI_USER=sympa
+FCGI_GROUP=sympa
+FCGI_PID_DIR=/var/run/sympa
+FCGI_OPTS='-s /var/run/sympa/wwsympa.socket -M 0600 -U nginx'
+if [ -e /etc/sysconfig/sympa ]; then
+    . /etc/sysconfig/sympa
+fi
+
+# Current state of WWSympa
+wwsympa_status() {
+    if [ ${use_functions} ]; then
+        status wwsympa
+    else
+        if [ -f ${FCGI_PID_DIR}/wwsympa.pid ]; then
+            pid=`cat ${FCGI_PID_DIR}/wwsympa.pid | perl -pe0777 'chomp $_; s/\s+/|/g'`
+            if [ "$pid" != "" ]; then
+                running=`ps -A | egrep "$pid"`
+                if [ "$running" != "" ]; then
+                    echo "$1 (pid(s) $pid) is active..."
+                    return 0
+                else
+                    echo "$1 died, pid file remains."
+                    return 1
+                fi
+            fi
+        fi
+        echo "$1 is stopped."
+        return 3
+    fi
+}
+
+# Start WWSympa
+wwsympa_start() {
+    wwsympa_status > /dev/null
+    rc=$?
+    case "$rc" in
+    3)
+        echo -n "Starting wwsympa: "
+        ;;
+    1)
+        echo -n "Starting wwsympa, overwriting old pid file."
+        ;;
+    0)
+        echo "WWSympa seems active. No action will be taken."
+        echo "Try \"wwsympa status\" or \"wwsympa restart"\".
+        return
+    esac
+
+    /usr/bin/spawn-fcgi -F ${FCGI_CHILDREN} -P ${FCGI_PID_DIR}/wwsympa.pid \
+    -u ${FCGI_USER} -g ${FCGI_GROUP} ${FCGI_OPTS} -- \
+    ${sympafcgidir}/wwsympa.fcgi
+}
+
+# Stop WWSympa
+wwsympa_stop() {
+    if [ -f ${FCGI_PID_DIR}/wwsympa.pid ]; then
+        runcount=0
+        pids=`cat ${FCGI_PID_DIR}/wwsympa.pid`
+        if [ "$pids" != "" ]; then
+            for pid in "$pids"; do
+                killcount=0
+                running=`ps -A | grep "$pid ..* wwsympa"`
+                while [ "$running" != "" ]; do
+                    if [ $killcount -gt 10 ]; then
+                        if [ ${use_functions} ]; then
+                            failure
+                        else
+                            echo 'failure'
+                        fi
+                        return 3
+                    fi
+
+                    kill -TERM $pid >/dev/null 2>&1
+                    running=`ps -A | grep "$pid ..* $1\\.pl"`
+                    if [ "$running" = "" ]; then
+                        runcount=`expr $runcount + 1`
+                        break
+                    fi
+                    sleep 2
+                    running=`ps -A | grep "$pid ..* $1\\.pl"`
+                    if [ "$running" = "" ]; then
+                        runcount=`expr $runcount + 1`
+                        break
+                    fi
+                    killcount=`expr $killcount + 1`
+                done
+            done
+        fi
+        if [ $runcount -gt 0 ]; then
+            if [ ${use_functions} ]; then
+                success
+            else
+                echo 'success'
+            fi
+        else
+            echo 'died'
+        fi
+        echo
+    else
+        echo "Module $1.pl not running"
+    fi
+    return 0
+}
+
+# Check config files
+[ -d $sympafcgidir ] || exit 0
+[ -f $sympaconf ] || exit 0
+
+# See how we were called.
+case "$1" in
+start)
+    if [ ! -f /var/lock/subsys/wwsympa ]; then
+        echo "Starting WWSympa: "
+        wwsympa_start
+        touch /var/lock/subsys/wwsympa
+        echo
+    else
+        echo "WWSympa seems active. No action will be taken."
+        echo "Try \"wwsympa status\" or \"wwsympa restart"\".
+    fi
+    ;;
+stop)
+    echo "Stopping WWSympa: "
+    wwsympa_stop
+    if [ -f /var/lock/subsys/wwsympa ]; then
+        rm -f /var/lock/subsys/wwsympa
+    fi
+    ;;
+status)
+    echo "Status of WWSympa: "
+    wwsympa_status
+    ;;
+restart)
+    echo "Restarting WWSympa: "
+    $0 stop && $0 start
+    echo
+    ;;
+*)
+    echo "Usage: $0 {start|stop|status|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
