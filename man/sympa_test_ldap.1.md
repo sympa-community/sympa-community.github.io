@@ -25,7 +25,7 @@ driver of Sympa.
 
 # SEE ALSO
 
-[Sympa::DatabaseDriver::LDAP](./Sympa::DatabaseDriver::LDAP.3.md).
+[Sympa::DatabaseDriver::LDAP](./Sympa-DatabaseDriver-LDAP.3.md).
 
 # HISTORY
 

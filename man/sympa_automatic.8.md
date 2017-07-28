@@ -74,7 +74,7 @@ of `sympa_automatic.pl`.
 
 [sympa.conf(5)](./sympa.conf.5.md), [sympa\_msg(8)](./sympa_msg.8.md).
 
-[Sympa::Spindle::ProcessAutomatic](./Sympa::Spindle::ProcessAutomatic.3.md).
+[Sympa::Spindle::ProcessAutomatic](./Sympa-Spindle-ProcessAutomatic.3.md).
 
 # HISTORY
 

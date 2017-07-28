@@ -98,4 +98,4 @@ See [http://www.sympa.org/tracking](http://www.sympa.org/tracking).
 
 [sympa\_msg(8)](./sympa_msg.8.md), [bounced(8)](./bounced.8.md), [mhonarc(1)](./mhonarc.1.md), [sympa.conf(5)](./sympa.conf.5.md).
 
-[Sympa::Spindle::ProcessArchive](./Sympa::Spindle::ProcessArchive.3.md).
+[Sympa::Spindle::ProcessArchive](./Sympa-Spindle-ProcessArchive.3.md).

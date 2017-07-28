@@ -95,8 +95,8 @@ of `sympa_msg.pl`.
 [archived(8)](./archived.8.md), [bulk(8)](./bulk.8.md), [bounced(8)](./bounced.8.md), [sympa\_automatic(8)](./sympa_automatic.8.md),
 [task\_manager(8)](./task_manager.8.md).
 
-[Sympa::Spindle::ProcessDigest](./Sympa::Spindle::ProcessDigest.3.md),
-[Sympa::Spindle::ProcessIncoming](./Sympa::Spindle::ProcessIncoming.3.md).
+[Sympa::Spindle::ProcessDigest](./Sympa-Spindle-ProcessDigest.3.md),
+[Sympa::Spindle::ProcessIncoming](./Sympa-Spindle-ProcessIncoming.3.md).
 
 # HISTORY
 

@@ -113,7 +113,7 @@ Site, Robot, Family and List.
 
     - $self
 
-        [Sympa::List](./Sympa::List.3.md), Robot or Site.
+        [Sympa::List](./Sympa-List.3.md), Robot or Site.
 
     - $operation
 
@@ -137,7 +137,7 @@ Site, Robot, Family and List.
 
     - $that
 
-        [Sympa::List](./Sympa::List.3.md), Robot or Site.
+        [Sympa::List](./Sympa-List.3.md), Robot or Site.
 
     - $operation
 
@@ -261,7 +261,7 @@ These are accessors derived from configuration parameters.
 
     - options...
 
-        See ["weburl" in Sympa::Tools::Text](./Sympa::Tools::Text.3.md#weburl).
+        See ["weburl" in Sympa::Tools::Text](./Sympa-Tools-Text.3.md#weburl).
 
     Returns:
 
@@ -285,7 +285,7 @@ These are accessors derived from configuration parameters.
 
 # SEE ALSO
 
-[Sympa::Site](./Sympa::Site.3.md) (not yet available),
-[Sympa::Robot](./Sympa::Robot.3.md) (not yet available),
-[Sympa::Family](./Sympa::Family.3.md),
-[Sympa::List](./Sympa::List.3.md).
+[Sympa::Site](./Sympa-Site.3.md) (not yet available),
+[Sympa::Robot](./Sympa-Robot.3.md) (not yet available),
+[Sympa::Family](./Sympa-Family.3.md),
+[Sympa::List](./Sympa-List.3.md).

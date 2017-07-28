@@ -35,7 +35,7 @@ Following site configuration parameters in `/etc/sympa/sympa.conf` are referred.
 
 # SEE ALSO
 
-[sympa.conf(5)](./sympa.conf.5.md), [Sympa::Message](./Sympa::Message.3.md).
+[sympa.conf(5)](./sympa.conf.5.md), [Sympa::Message](./Sympa-Message.3.md).
 
 # HISTORY
 
