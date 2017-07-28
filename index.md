@@ -7,5 +7,5 @@ Sympa Documentation
 - [Administering Sympa](admin.md)
 - [Customizing Sympa](customize.md)
 
-- [References](references.md)
+- [References](man/sympa_toc.1.md)
 
