@@ -1,50 +1,42 @@
 Start mailing list service
 ==========================
 
-Systemd
--------
+1. Ensure that RDBMS is running (on SQLite, service need not to be run).
 
-  * Ensure that RDBMS is running (on SQLite, service need not to be run).
+2. Ensure that MTA and HTTP server are running.
 
-  * Ensure that MTA and HTTP server are running.
+3. Start Sympa service.
 
-  * Run ``systemctl start sympa.service``.
+   If you are using nginx, you must run WWSympa service, too.
 
-    * If you are using nginx, you must run ``systemctl start wwsympa.service``
-      too.
+   If you are using nginx and wish to use SOAP service, you must run SympaSOAP serivce, too.
 
-    * If you are using nginx and wish to use SOAP service, you must run
-      ``systemctl start sympasoap.service`` too.
+   * If your system supports Systemd:
+     ```
+     # systemctl start sympa.service
+     ```
+     and optionally,
+     ```
+     # systemctl start wwsympa.service
+     # systemctl start sympasoap.service
+     ```
 
-  * Start Web browser and access to <http://your.host.dom.ain/sympa>.
+   * If your system supports initscripts:
+     ```
+     # service sympa start
+     ```
+     and optionally,
+     ```
+     # service wwsympa start
+     # service sympasoap start
+     ```
 
-  * Follow ``First login`` link, input listmaster address chosen on the
-    first section, and then click ``Send my password`` button.
+4. Start Web browser and access to <http://your.host.dom.ain/sympa>.
 
-  * E-mail describing how to choose your password (are you a listmaster,
-    aren't you?) will be sent.  According to description, choose your
-    password.
+5. Follow ``First login`` link, input listmaster address chosen on the
+   first section, and then click ``Send my password`` button.
 
-initscripts
------------
-
-  * Ensure that RDBMS is running (on SQLite, service need not to be run).
-
-  * Ensure that MTA and HTTP server are running.
-
-  * Run ``service sympa start``.
-
-    * If you are using nginx, you must run ``service wwsympa start`` too.
-
-    * If you are using nginx and wish to use SOAP service, you must run
-      ``service sympasoap start`` too.
-
-  * Start Web browser and access to <http://your.host.dom.ain/sympa>.
-
-  * Follow ``First login`` link, input listmaster address chosen on the
-    first section, and then click ``Send my password`` button.
-
-  * E-mail describing how to choose your password (are you a listmaster,
-    aren't you?) will be sent.  According to description, choose your
-    password.
+6. E-mail describing how to choose your password (are you a listmaster,
+   aren't you?) will be sent.  According to description, choose your
+   password.
 

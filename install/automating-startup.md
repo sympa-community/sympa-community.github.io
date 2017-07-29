@@ -4,28 +4,39 @@ Automating Startup
 Systemd
 -------
 
-  * Units should be customized to ensure Sympa starts after database server
-    (if you run it except SQLite on the same host as Sympa).  It can be done
-    by editing configuration file:
+1. Units should be customized to ensure Sympa starts after database server
+   (if you run it except SQLite on the same host as Sympa).  It can be done
+   by copying and editing a configuration file:
+   [``/etc/systemd/system/sympa.service.d/dependencies.conf``](../examples/systemd/dependencies.conf)
 
-      /etc/systemd/system/sympa.service.d/dependencies.conf
+   Note that database service should also start before HTTP service.
 
-    Note that database service should also start before HTTP service.
+2. Activate Sympa service.
+   If you are using nginx, activate WWSympa service, too.
+   If you are using nginx and wish to use SOAP service, activate SympaSOAP service, too.
 
-  * Run ``systemctl enable sympa.service`` to activate sympa service.
-
-    * If you are using nginx, run ``systemctl enable wwsympa.service`` too.
-
-    * If you are using nginx and wish to use SOAP service, run
-      ``systemctl enable sympasoap.service`` too.
+   ```
+   # systemctl enable sympa.service
+   ```
+   and optionally,
+   ```
+   # systemctl enable wwsympa.service
+   # systemctl enable sympasoap.service
+   ```
 
 initscripts
 -----------
 
-  * Run ``chkconfig sympa on`` to activate sympa service.
+1. Activate Sympa service.
+   If you are using nginx, activate WWSympa service, too.
+   If you are using nginx and wish to use SOAP service, activate SympaSOAP service, too.
 
-    * If you are using nginx, run ``chkconfig wwsympa on`` too.
-
-    * If you are using nginx and wish to use SOAP service, run
-      ``chkconfig sympasoap on`` too.
+   ```
+   # chkconfig sympa on
+   ```
+   and optionally,
+   ```
+   # chkconfig wwsympa on
+   # chkconfig sympasoap on
+   ```
 
