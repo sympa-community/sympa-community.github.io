@@ -21,1576 +21,1576 @@ For more details of each parameter see Reference Manual.
 
 ### Site customization
 
-- domain
+#### domain
 
-    (Mandatory)
-    (Overridable by each `robot.conf`)
+(Mandatory)
+(Overridable by each `robot.conf`)
 
-    Main robot hostname
+Main robot hostname
 
-    Example:
+Example:
 
-        domain domain.tld
+    domain domain.tld
 
-- host
+#### host
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- email
+#### email
 
-    (Default value: `sympa`)
-    (Overridable by each `robot.conf`)
+(Default value: `sympa`)
+(Overridable by each `robot.conf`)
 
-    Local part of sympa email address
+Local part of sympa email address
 
-    Effective address will be \[EMAIL\]@\[HOST\]
+Effective address will be \[EMAIL\]@\[HOST\]
 
-- gecos
+#### gecos
 
-    (Default value: `SYMPA`)
-    (Overridable by each `robot.conf`)
+(Default value: `SYMPA`)
+(Overridable by each `robot.conf`)
 
-    Gecos for service mail sent by Sympa itself
+Gecos for service mail sent by Sympa itself
 
-    This parameter is used for display name in the "From:" header
+This parameter is used for display name in the "From:" header
 
-- listmaster
+#### listmaster
 
-    (Mandatory)
-    (Overridable by each `robot.conf`)
+(Mandatory)
+(Overridable by each `robot.conf`)
 
-    Listmasters email list comma separated
+Listmasters email list comma separated
 
-    Example:
+Example:
 
-        listmaster your_email_address@domain.tld
+    listmaster your_email_address@domain.tld
 
-    Sympa will associate listmaster privileges to these email addresses (mail and web interfaces). Some error reports may also be sent to these addresses.
+Sympa will associate listmaster privileges to these email addresses (mail and web interfaces). Some error reports may also be sent to these addresses.
 
-- listmaster\_email
+#### listmaster\_email
 
-    (Default value: `listmaster`)
-    (Overridable by each `robot.conf`)
+(Default value: `listmaster`)
+(Overridable by each `robot.conf`)
 
-    Local part of listmaster email address
+Local part of listmaster email address
 
-- wwsympa\_url
+#### wwsympa\_url
 
-    (Mandatory)
-    (Overridable by each `robot.conf`)
+(Mandatory)
+(Overridable by each `robot.conf`)
 
-    URL of main Web page
+URL of main Web page
 
-    Example:
+Example:
 
-        wwsympa_url http://host.domain.tld/sympa
+    wwsympa_url http://host.domain.tld/sympa
 
-- soap\_url
+#### soap\_url
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- process\_archive
+#### process\_archive
 
-    (Default value: `off`)
-    (Overridable by each `robot.conf`)
+(Default value: `off`)
+(Overridable by each `robot.conf`)
 
-    Store distributed messages into archive
+Store distributed messages into archive
 
-    This setting can be overridden by each list
+This setting can be overridden by each list
 
-- voot\_feature
+#### voot\_feature
 
-    (Default value: `off`)
+(Default value: `off`)
 
-- max\_wrong\_password
+#### max\_wrong\_password
 
-    (Default value: `19`)
-    (Overridable by each `robot.conf`)
+(Default value: `19`)
+(Overridable by each `robot.conf`)
 
-- spam\_protection
+#### spam\_protection
 
-    (Default value: `javascript`)
-    (Overridable by each `robot.conf`)
+(Default value: `javascript`)
+(Overridable by each `robot.conf`)
 
-- web\_archive\_spam\_protection
+#### web\_archive\_spam\_protection
 
-    (Default value: `cookie`)
-    (Overridable by each `robot.conf`)
+(Default value: `cookie`)
+(Overridable by each `robot.conf`)
 
-- color\_0
+#### color\_0
 
-    (Default value: `#F7F7F7`)
-    (Overridable by each `robot.conf`)
+(Default value: `#F7F7F7`)
+(Overridable by each `robot.conf`)
 
-- color\_1
+#### color\_1
 
-    (Default value: `#222222`)
-    (Overridable by each `robot.conf`)
+(Default value: `#222222`)
+(Overridable by each `robot.conf`)
 
-- color\_2
+#### color\_2
 
-    (Default value: `#004B94`)
-    (Overridable by each `robot.conf`)
+(Default value: `#004B94`)
+(Overridable by each `robot.conf`)
 
-- color\_3
+#### color\_3
 
-    (Default value: `#5E5E5E`)
-    (Overridable by each `robot.conf`)
+(Default value: `#5E5E5E`)
+(Overridable by each `robot.conf`)
 
-- color\_4
+#### color\_4
 
-    (Default value: `#4c4c4c`)
-    (Overridable by each `robot.conf`)
+(Default value: `#4c4c4c`)
+(Overridable by each `robot.conf`)
 
-- color\_5
+#### color\_5
 
-    (Default value: `#0090E9`)
-    (Overridable by each `robot.conf`)
+(Default value: `#0090E9`)
+(Overridable by each `robot.conf`)
 
-- color\_6
+#### color\_6
 
-    (Default value: `#005ab2`)
-    (Overridable by each `robot.conf`)
+(Default value: `#005ab2`)
+(Overridable by each `robot.conf`)
 
-- color\_7
+#### color\_7
 
-    (Default value: `#fff`)
-    (Overridable by each `robot.conf`)
+(Default value: `#fff`)
+(Overridable by each `robot.conf`)
 
-- color\_8
+#### color\_8
 
-    (Default value: `#f2f6f9`)
-    (Overridable by each `robot.conf`)
+(Default value: `#f2f6f9`)
+(Overridable by each `robot.conf`)
 
-- color\_9
+#### color\_9
 
-    (Default value: `#bfd2e1`)
-    (Overridable by each `robot.conf`)
+(Default value: `#bfd2e1`)
+(Overridable by each `robot.conf`)
 
-- color\_10
+#### color\_10
 
-    (Default value: `#983222`)
-    (Overridable by each `robot.conf`)
+(Default value: `#983222`)
+(Overridable by each `robot.conf`)
 
-- color\_11
+#### color\_11
 
-    (Default value: `#66aaff`)
-    (Overridable by each `robot.conf`)
+(Default value: `#66aaff`)
+(Overridable by each `robot.conf`)
 
-- color\_12
+#### color\_12
 
-    (Default value: `#FFE7E7`)
-    (Overridable by each `robot.conf`)
+(Default value: `#FFE7E7`)
+(Overridable by each `robot.conf`)
 
-- color\_13
+#### color\_13
 
-    (Default value: `#f48A7b`)
-    (Overridable by each `robot.conf`)
+(Default value: `#f48A7b`)
+(Overridable by each `robot.conf`)
 
-- color\_14
+#### color\_14
 
-    (Default value: `#ff9`)
-    (Overridable by each `robot.conf`)
+(Default value: `#ff9`)
+(Overridable by each `robot.conf`)
 
-- color\_15
+#### color\_15
 
-    (Default value: `#fe57a1`)
-    (Overridable by each `robot.conf`)
+(Default value: `#fe57a1`)
+(Overridable by each `robot.conf`)
 
-- dark\_color
+#### dark\_color
 
-    (Default value: `silver`)
-    (Overridable by each `robot.conf`)
+(Default value: `silver`)
+(Overridable by each `robot.conf`)
 
-- light\_color
+#### light\_color
 
-    (Default value: `#aaddff`)
-    (Overridable by each `robot.conf`)
+(Default value: `#aaddff`)
+(Overridable by each `robot.conf`)
 
-- text\_color
+#### text\_color
 
-    (Default value: `#000000`)
-    (Overridable by each `robot.conf`)
+(Default value: `#000000`)
+(Overridable by each `robot.conf`)
 
-- bg\_color
+#### bg\_color
 
-    (Default value: `#ffffcc`)
-    (Overridable by each `robot.conf`)
+(Default value: `#ffffcc`)
+(Overridable by each `robot.conf`)
 
-- error\_color
+#### error\_color
 
-    (Default value: `#ff6666`)
-    (Overridable by each `robot.conf`)
+(Default value: `#ff6666`)
+(Overridable by each `robot.conf`)
 
-- selected\_color
+#### selected\_color
 
-    (Default value: `silver`)
-    (Overridable by each `robot.conf`)
+(Default value: `silver`)
+(Overridable by each `robot.conf`)
 
-- shaded\_color
+#### shaded\_color
 
-    (Default value: `#66cccc`)
-    (Overridable by each `robot.conf`)
+(Default value: `#66cccc`)
+(Overridable by each `robot.conf`)
 
-- logo\_html\_definition
+#### logo\_html\_definition
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- favicon\_url
+#### favicon\_url
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_1\_title
+#### main\_menu\_custom\_button\_1\_title
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_1\_url
+#### main\_menu\_custom\_button\_1\_url
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_1\_target
+#### main\_menu\_custom\_button\_1\_target
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_2\_title
+#### main\_menu\_custom\_button\_2\_title
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_2\_url
+#### main\_menu\_custom\_button\_2\_url
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_2\_target
+#### main\_menu\_custom\_button\_2\_target
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_3\_title
+#### main\_menu\_custom\_button\_3\_title
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_3\_url
+#### main\_menu\_custom\_button\_3\_url
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- main\_menu\_custom\_button\_3\_target
+#### main\_menu\_custom\_button\_3\_target
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- css\_path
+#### css\_path
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- css\_url
+#### css\_url
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- static\_content\_path
+#### static\_content\_path
 
-    (Default value: `/home/sympa/static_content`)
-    (Overridable by each `robot.conf`)
+(Default value: `/home/sympa/static_content`)
+(Overridable by each `robot.conf`)
 
-    Directory for storing static contents (CSS, members pictures, documentation) directly delivered by HTTP server
+Directory for storing static contents (CSS, members pictures, documentation) directly delivered by HTTP server
 
-- static\_content\_url
+#### static\_content\_url
 
-    (Default value: `/static-sympa`)
-    (Overridable by each `robot.conf`)
+(Default value: `/static-sympa`)
+(Overridable by each `robot.conf`)
 
-    URL mapped with the static\_content\_path directory defined above
+URL mapped with the static\_content\_path directory defined above
 
-- pictures\_feature
+#### pictures\_feature
 
-    (Default value: `on`)
+(Default value: `on`)
 
-- pictures\_max\_size
+#### pictures\_max\_size
 
-    (Default value: `102400`)
-    (Overridable by each `robot.conf`)
+(Default value: `102400`)
+(Overridable by each `robot.conf`)
 
-- cookie
+#### cookie
 
-    (Optioal)
+(Optioal)
 
-    Secret used by Sympa to make MD5 fingerprint in web cookies secure
+Secret used by Sympa to make MD5 fingerprint in web cookies secure
 
-    Example:
+Example:
 
-        cookie 123456789
+    cookie 123456789
 
-    Should not be changed ! May invalid all user password
+Should not be changed ! May invalid all user password
 
-- create\_list
+#### create\_list
 
-    (Default value: `public_listmaster`)
-    (Overridable by each `robot.conf`)
+(Default value: `public_listmaster`)
+(Overridable by each `robot.conf`)
 
-    Value of this parameter is name of `create_list` scenario.
+Value of this parameter is name of `create_list` scenario.
 
-    Who is able to create lists
+Who is able to create lists
 
-    This parameter is a scenario, check sympa documentation about scenarios if you want to define one
+This parameter is a scenario, check sympa documentation about scenarios if you want to define one
 
-- global\_remind
+#### global\_remind
 
-    (Default value: `listmaster`)
+(Default value: `listmaster`)
 
-    Value of this parameter is name of `global_remind` scenario.
+Value of this parameter is name of `global_remind` scenario.
 
-- move\_user
+#### move\_user
 
-    (Default value: `auth`)
-    (Overridable by each `robot.conf`)
+(Default value: `auth`)
+(Overridable by each `robot.conf`)
 
-    Value of this parameter is name of `move_user` scenario.
+Value of this parameter is name of `move_user` scenario.
 
-    Who is able to change user's email
+Who is able to change user's email
 
-- allow\_subscribe\_if\_pending
+#### allow\_subscribe\_if\_pending
 
-    (Default value: `on`)
-    (Overridable by each `robot.conf`)
+(Default value: `on`)
+(Overridable by each `robot.conf`)
 
-- custom\_robot\_parameter
+#### custom\_robot\_parameter
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Used to define a custom parameter for your server. Do not forget the semicolon between the param name and the param value.
+Used to define a custom parameter for your server. Do not forget the semicolon between the param name and the param value.
 
 ### Directories
 
-- home
+#### home
 
-    (Default value: `/home/sympa/list_data`)
+(Default value: `/home/sympa/list_data`)
 
-    Directory containing mailing lists subdirectories
+Directory containing mailing lists subdirectories
 
-- etc
+#### etc
 
-    (Default value: `/home/sympa/etc`)
+(Default value: `/home/sympa/etc`)
 
-    Directory for configuration files; it also contains scenari/ and templates/ directories
+Directory for configuration files; it also contains scenari/ and templates/ directories
 
 ### System related
 
-- syslog
+#### syslog
 
-    (Default value: `LOCAL1`)
+(Default value: `LOCAL1`)
 
-    Syslog facility for sympa
+Syslog facility for sympa
 
-    Do not forget to edit syslog.conf
+Do not forget to edit syslog.conf
 
-- log\_level
+#### log\_level
 
-    (Default value: `0`)
-    (Overridable by each `robot.conf`)
+(Default value: `0`)
+(Overridable by each `robot.conf`)
 
-    Log verbosity
+Log verbosity
 
-    0: normal, 2,3,4: for debug
+0: normal, 2,3,4: for debug
 
-- log\_socket\_type
+#### log\_socket\_type
 
-    (Default value: `unix`)
+(Default value: `unix`)
 
-    Communication mode with syslogd (unix | inet)
+Communication mode with syslogd (unix | inet)
 
-- log\_condition
+#### log\_condition
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- log\_module
+#### log\_module
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-- umask
+#### umask
 
-    (Default value: `027`)
+(Default value: `027`)
 
-    Umask used for file creation by Sympa
+Umask used for file creation by Sympa
 
 ### Sending related
 
-- sendmail
+#### sendmail
 
-    (Default value: `/usr/sbin/sendmail`)
+(Default value: `/usr/sbin/sendmail`)
 
-    Path to the MTA (sendmail, postfix, exim or qmail)
+Path to the MTA (sendmail, postfix, exim or qmail)
 
-    should point to a sendmail-compatible binary (eg: a binary named "sendmail" is distributed with Postfix)
+should point to a sendmail-compatible binary (eg: a binary named "sendmail" is distributed with Postfix)
 
-- sendmail\_args
+#### sendmail\_args
 
-    (Default value: `-oi -odi -oem`)
+(Default value: `-oi -odi -oem`)
 
-- maxsmtp
+#### maxsmtp
 
-    (Default value: `40`)
+(Default value: `40`)
 
-    Max. number of Sendmail processes (launched by Sympa) running simultaneously
+Max. number of Sendmail processes (launched by Sympa) running simultaneously
 
-    Proposed value is quite low, you can rise it up to 100, 200 or even 300 with powerful systems.
+Proposed value is quite low, you can rise it up to 100, 200 or even 300 with powerful systems.
 
-- merge\_feature
+#### merge\_feature
 
-    (Default value: `off`)
+(Default value: `off`)
 
-- automatic\_list\_removal
+#### automatic\_list\_removal
 
-    (Default value: `none`)
-    (Overridable by each `robot.conf`)
+(Default value: `none`)
+(Overridable by each `robot.conf`)
 
-- automatic\_list\_feature
+#### automatic\_list\_feature
 
-    (Default value: `off`)
-    (Overridable by each `robot.conf`)
+(Default value: `off`)
+(Overridable by each `robot.conf`)
 
-- automatic\_list\_creation
+#### automatic\_list\_creation
 
-    (Default value: `public`)
-    (Overridable by each `robot.conf`)
+(Default value: `public`)
+(Overridable by each `robot.conf`)
 
-    Value of this parameter is name of `automatic_list_creation` scenario.
+Value of this parameter is name of `automatic_list_creation` scenario.
 
-- automatic\_list\_families
+#### automatic\_list\_families
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Defines the name of the family the automatic lists are based on.
+Defines the name of the family the automatic lists are based on.
 
-- automatic\_list\_prefix
+#### automatic\_list\_prefix
 
-    (Optioal)
+(Optioal)
 
-    Defines the prefix allowing to recognize that a list is an automatic list.
+Defines the prefix allowing to recognize that a list is an automatic list.
 
-- log\_smtp
+#### log\_smtp
 
-    (Default value: `off`)
-    (Overridable by each `robot.conf`)
+(Default value: `off`)
+(Overridable by each `robot.conf`)
 
-- use\_blacklist
+#### use\_blacklist
 
-    (Default value: `send,create_list`)
-    (Overridable by each `robot.conf`)
+(Default value: `send,create_list`)
+(Overridable by each `robot.conf`)
 
-    comma separated list of operations for which blacklist filter is applied
+comma separated list of operations for which blacklist filter is applied
 
-    Setting this parameter to "none" will hide the blacklist feature
+Setting this parameter to "none" will hide the blacklist feature
 
-- reporting\_spam\_script\_path
+#### reporting\_spam\_script\_path
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    If set, when a list editor report a spam, this external script is run by wwsympa or sympa, the spam is sent into script stdin
+If set, when a list editor report a spam, this external script is run by wwsympa or sympa, the spam is sent into script stdin
 
-- max\_size
+#### max\_size
 
-    (Default value: `5242880`)
-    (Overridable by each `robot.conf`)
+(Default value: `5242880`)
+(Overridable by each `robot.conf`)
 
-    Default maximum size (in bytes) for messages (can be re-defined for each list)
+Default maximum size (in bytes) for messages (can be re-defined for each list)
 
-- misaddressed\_commands
+#### misaddressed\_commands
 
-    (Default value: `reject`)
+(Default value: `reject`)
 
-- misaddressed\_commands\_regexp
+#### misaddressed\_commands\_regexp
 
-    (Default value: `((subscribe\s+(\S+)|unsubscribe\s+(\S+)|signoff\s+(\S+)|set\s+(\S+)\s+(mail|nomail|digest))\s*)`)
+(Default value: `((subscribe\s+(\S+)|unsubscribe\s+(\S+)|signoff\s+(\S+)|set\s+(\S+)\s+(mail|nomail|digest))\s*)`)
 
-- nrcpt
+#### nrcpt
 
-    (Default value: `25`)
+(Default value: `25`)
 
-    Maximum number of recipients per call to Sendmail. The nrcpt\_by\_domain.conf file allows a different tuning per destination domain.
+Maximum number of recipients per call to Sendmail. The nrcpt\_by\_domain.conf file allows a different tuning per destination domain.
 
-- avg
+#### avg
 
-    (Default value: `10`)
+(Default value: `10`)
 
-    Max. number of different domains per call to Sendmail
+Max. number of different domains per call to Sendmail
 
-- alias\_manager
+#### alias\_manager
 
-    (Default value: `/home/sympa/bin/alias_manager.pl`)
+(Default value: `/home/sympa/bin/alias_manager.pl`)
 
-- db\_list\_cache
+#### db\_list\_cache
 
-    (Default value: `off`)
+(Default value: `off`)
 
-    Whether or not to cache lists in the database
+Whether or not to cache lists in the database
 
-- sendmail\_aliases
+#### sendmail\_aliases
 
-    (Default value: `/etc/mail/sympa_aliases`)
-    (Overridable by each `robot.conf`)
+(Default value: `/etc/mail/sympa_aliases`)
+(Overridable by each `robot.conf`)
 
-    Path of the file that contains all list related aliases
+Path of the file that contains all list related aliases
 
-- aliases\_program
+#### aliases\_program
 
-    (Default value: `newaliases`)
-    (Overridable by each `robot.conf`)
+(Default value: `newaliases`)
+(Overridable by each `robot.conf`)
 
-    Program used to update alias database.  "makemap", "newaliases", "postalias", "postmap" or full path to custom program
+Program used to update alias database.  "makemap", "newaliases", "postalias", "postmap" or full path to custom program
 
-- aliases\_db\_type
+#### aliases\_db\_type
 
-    (Default value: `hash`)
-    (Overridable by each `robot.conf`)
+(Default value: `hash`)
+(Overridable by each `robot.conf`)
 
-    Type of alias database.  "btree", "dbm", "hash" and so on.  Available when aliases\_program is "makemap", "postalias" or "postmap"
+Type of alias database.  "btree", "dbm", "hash" and so on.  Available when aliases\_program is "makemap", "postalias" or "postmap"
 
-- rfc2369\_header\_fields
+#### rfc2369\_header\_fields
 
-    (Default value: `help,subscribe,unsubscribe,post,owner,archive`)
+(Default value: `help,subscribe,unsubscribe,post,owner,archive`)
 
-    Specify which rfc2369 mailing list headers to add
+Specify which rfc2369 mailing list headers to add
 
-- remove\_headers
+#### remove\_headers
 
-    (Default value: `X-Sympa-To,X-Family-To,Return-Receipt-To,Precedence,X-Sequence,Disposition-Notification-To,Sender`)
+(Default value: `X-Sympa-To,X-Family-To,Return-Receipt-To,Precedence,X-Sequence,Disposition-Notification-To,Sender`)
 
-    Specify header fields to be removed before message distribution
+Specify header fields to be removed before message distribution
 
-- remove\_outgoing\_headers
+#### remove\_outgoing\_headers
 
-    (Default value: `none`)
+(Default value: `none`)
 
-- reject\_mail\_from\_automates\_feature
+#### reject\_mail\_from\_automates\_feature
 
-    (Default value: `on`)
+(Default value: `on`)
 
-    Reject mail from automates (crontab, etc) sent to a list?
+Reject mail from automates (crontab, etc) sent to a list?
 
-- ignore\_x\_no\_archive\_header\_feature
+#### ignore\_x\_no\_archive\_header\_feature
 
-    (Default value: `off`)
+(Default value: `off`)
 
-- anonymous\_header\_fields
+#### anonymous\_header\_fields
 
-    (Default value: `Authentication-Results,Disposition-Notification-To,DKIM-Signature,Injection-Info,Organisation,Organization,Original-Recipient,Originator,Path,Received,Received-SPF,Reply-To,Resent-Reply-To,Return-Receipt-To,X-Envelope-From,X-Envelope-To,X-Sender,X-X-Sender`)
+(Default value: `Authentication-Results,Disposition-Notification-To,DKIM-Signature,Injection-Info,Organisation,Organization,Original-Recipient,Originator,Path,Received,Received-SPF,Reply-To,Resent-Reply-To,Return-Receipt-To,X-Envelope-From,X-Envelope-To,X-Sender,X-X-Sender`)
 
-- list\_check\_smtp
+#### list\_check\_smtp
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    SMTP server to which Sympa verify if alias with the same name as the list to be created
+SMTP server to which Sympa verify if alias with the same name as the list to be created
 
-    Default value is real FQDN of host. Set \[HOST\]:\[PORT\] to specify non-standard port.
+Default value is real FQDN of host. Set \[HOST\]:\[PORT\] to specify non-standard port.
 
-- list\_check\_suffixes
+#### list\_check\_suffixes
 
-    (Default value: `request,owner,editor,unsubscribe,subscribe`)
-    (Overridable by each `robot.conf`)
+(Default value: `request,owner,editor,unsubscribe,subscribe`)
+(Overridable by each `robot.conf`)
 
-- list\_check\_helo
+#### list\_check\_helo
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    SMTP HELO (EHLO) parameter used for alias verification
+SMTP HELO (EHLO) parameter used for alias verification
 
-    Default value is the host part of list\_check\_smtp parameter.
+Default value is the host part of list\_check\_smtp parameter.
 
-- urlize\_min\_size
+#### urlize\_min\_size
 
-    (Default value: `10240`)
-    (Overridable by each `robot.conf`)
+(Default value: `10240`)
+(Overridable by each `robot.conf`)
 
-- sender\_headers
+#### sender\_headers
 
-    (Default value: `From`)
+(Default value: `From`)
 
-    Header field name(s) used to determine sender of the messages
+Header field name(s) used to determine sender of the messages
 
-    Example:
+Example:
 
-        sender_headers Resent-From,From,Return-Path
+    sender_headers Resent-From,From,Return-Path
 
-    "Return-Path" means envelope sender (a.k.a. "UNIX From") which will be alternative to sender of messages without "From" field.  "Resent-From" may also be inserted before "From", because some mailers add it into redirected messages and keep original "From" field intact.  In particular cases, "Return-Path" can not give right sender: several mail gateway products rewrite envelope sender and add original one as non-standard field such as "X-Envelope-From".  If that is the case, you might want to insert it in place of "Return-Path".
+"Return-Path" means envelope sender (a.k.a. "UNIX From") which will be alternative to sender of messages without "From" field.  "Resent-From" may also be inserted before "From", because some mailers add it into redirected messages and keep original "From" field intact.  In particular cases, "Return-Path" can not give right sender: several mail gateway products rewrite envelope sender and add original one as non-standard field such as "X-Envelope-From".  If that is the case, you might want to insert it in place of "Return-Path".
 
 ### Bulk mailer
 
-- sympa\_packet\_priority
+#### sympa\_packet\_priority
 
-    (Default value: `5`)
-    (Overridable by each `robot.conf`)
+(Default value: `5`)
+(Overridable by each `robot.conf`)
 
-    Default priority for a packet to be sent by bulk.
+Default priority for a packet to be sent by bulk.
 
-- bulk\_fork\_threshold
+#### bulk\_fork\_threshold
 
-    (Default value: `1`)
+(Default value: `1`)
 
-    Minimum number of packets in database before the bulk forks to increase sending rate
+Minimum number of packets in database before the bulk forks to increase sending rate
 
-- bulk\_max\_count
+#### bulk\_max\_count
 
-    (Default value: `3`)
+(Default value: `3`)
 
-    Max number of bulks that will run on the same server
+Max number of bulks that will run on the same server
 
-- bulk\_lazytime
+#### bulk\_lazytime
 
-    (Default value: `600`)
+(Default value: `600`)
 
-    The number of seconds a slave bulk will remain running without processing a message before it spontaneously dies.
+The number of seconds a slave bulk will remain running without processing a message before it spontaneously dies.
 
-- bulk\_sleep
+#### bulk\_sleep
 
-    (Default value: `1`)
+(Default value: `1`)
 
-    The number of seconds a bulk sleeps between starting a new loop if it didn't find a message to send.
+The number of seconds a bulk sleeps between starting a new loop if it didn't find a message to send.
 
-    Keep it small if you want your server to be reactive.
+Keep it small if you want your server to be reactive.
 
-- bulk\_wait\_to\_fork
+#### bulk\_wait\_to\_fork
 
-    (Default value: `10`)
+(Default value: `10`)
 
-    Number of seconds a master bulk waits between two packets number checks.
+Number of seconds a master bulk waits between two packets number checks.
 
-    Keep it small if you expect brutal increases in the message sending load.
+Keep it small if you expect brutal increases in the message sending load.
 
 ### Quotas
 
-- default\_max\_list\_members
+#### default\_max\_list\_members
 
-    (Default value: `0`)
-    (Overridable by each `robot.conf`)
+(Default value: `0`)
+(Overridable by each `robot.conf`)
 
-    Default limit for the number of subscribers per list (0 means no limit)
+Default limit for the number of subscribers per list (0 means no limit)
 
-- default\_shared\_quota
+#### default\_shared\_quota
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Default disk quota for shared repository
+Default disk quota for shared repository
 
-- default\_archive\_quota
+#### default\_archive\_quota
 
-    (Optioal)
+(Optioal)
 
 ### Spool related
 
-- spool
+#### spool
 
-    (Default value: `/home/sympa/spool`)
+(Default value: `/home/sympa/spool`)
 
-    Directory containing various specialized spools
+Directory containing various specialized spools
 
-    All spool are created at runtime by sympa.pl
+All spool are created at runtime by sympa.pl
 
-- queue
+#### queue
 
-    (Default value: `/home/sympa/spool/msg`)
+(Default value: `/home/sympa/spool/msg`)
 
-    Directory for message incoming spool
+Directory for message incoming spool
 
-- queuemod
+#### queuemod
 
-    (Default value: `/home/sympa/spool/moderation`)
+(Default value: `/home/sympa/spool/moderation`)
 
-    Directory for moderation spool
+Directory for moderation spool
 
-- queuedigest
+#### queuedigest
 
-    (Default value: `/home/sympa/spool/digest`)
+(Default value: `/home/sympa/spool/digest`)
 
-    Directory for digest spool
+Directory for digest spool
 
-- queueauth
+#### queueauth
 
-    (Default value: `/home/sympa/spool/auth`)
+(Default value: `/home/sympa/spool/auth`)
 
-    Directory for authentication spool
+Directory for authentication spool
 
-- queueoutgoing
+#### queueoutgoing
 
-    (Default value: `/home/sympa/spool/outgoing`)
+(Default value: `/home/sympa/spool/outgoing`)
 
-    Directory for archive spool
+Directory for archive spool
 
-- queuesubscribe
+#### queuesubscribe
 
-    (Default value: `/home/sympa/spool/subscribe`)
+(Default value: `/home/sympa/spool/subscribe`)
 
-    Directory for subscription spool
+Directory for subscription spool
 
-- queuetopic
+#### queuetopic
 
-    (Default value: `/home/sympa/spool/topic`)
+(Default value: `/home/sympa/spool/topic`)
 
-    Directory for topic spool
+Directory for topic spool
 
-- queuebounce
+#### queuebounce
 
-    (Default value: `/home/sympa/spool/bounce`)
+(Default value: `/home/sympa/spool/bounce`)
 
-    Directory for bounce incoming spool
+Directory for bounce incoming spool
 
-- queuetask
+#### queuetask
 
-    (Default value: `/home/sympa/spool/task`)
+(Default value: `/home/sympa/spool/task`)
 
-    Directory for task spool
+Directory for task spool
 
-- queueautomatic
+#### queueautomatic
 
-    (Default value: `/home/sympa/spool/automatic`)
+(Default value: `/home/sympa/spool/automatic`)
 
-    Directory for automatic list creation spool
+Directory for automatic list creation spool
 
-- queuebulk
+#### queuebulk
 
-    (Default value: `/home/sympa/spool/bulk`)
+(Default value: `/home/sympa/spool/bulk`)
 
-    Directory for message outgoing spool
+Directory for message outgoing spool
 
-- sleep
+#### sleep
 
-    (Default value: `5`)
+(Default value: `5`)
 
-    Must not be 0.
+Must not be 0.
 
-- tmpdir
+#### tmpdir
 
-    (Default value: `/home/sympa/spool/tmp`)
+(Default value: `/home/sympa/spool/tmp`)
 
-    Temporary directory used by antivirus plugins, MHonArc etc.
+Temporary directory used by antivirus plugins, MHonArc etc.
 
-- viewmail\_dir
+#### viewmail\_dir
 
-    (Default value: `/home/sympa/spool/viewmail`)
+(Default value: `/home/sympa/spool/viewmail`)
 
-    Directory containing HTML file generated by MHonArc while displaying messages other than archives
+Directory containing HTML file generated by MHonArc while displaying messages other than archives
 
-- clean\_delay\_queue
+#### clean\_delay\_queue
 
-    (Default value: `7`)
+(Default value: `7`)
 
-- clean\_delay\_queueoutgoing
+#### clean\_delay\_queueoutgoing
 
-    (Default value: `7`)
+(Default value: `7`)
 
-- clean\_delay\_queuebounce
+#### clean\_delay\_queuebounce
 
-    (Default value: `7`)
+(Default value: `7`)
 
-- clean\_delay\_queuemod
+#### clean\_delay\_queuemod
 
-    (Default value: `30`)
+(Default value: `30`)
 
-- clean\_delay\_queueauth
+#### clean\_delay\_queueauth
 
-    (Default value: `30`)
+(Default value: `30`)
 
-- clean\_delay\_queuesubscribe
+#### clean\_delay\_queuesubscribe
 
-    (Default value: `30`)
+(Default value: `30`)
 
-- clean\_delay\_queuetopic
+#### clean\_delay\_queuetopic
 
-    (Default value: `30`)
+(Default value: `30`)
 
-- clean\_delay\_queueautomatic
+#### clean\_delay\_queueautomatic
 
-    (Default value: `10`)
+(Default value: `10`)
 
-- clean\_delay\_queuebulk
+#### clean\_delay\_queuebulk
 
-    (Default value: `7`)
+(Default value: `7`)
 
-- clean\_delay\_queuedigest
+#### clean\_delay\_queuedigest
 
-    (Default value: `14`)
+(Default value: `14`)
 
-- clean\_delay\_tmpdir
+#### clean\_delay\_tmpdir
 
-    (Default value: `7`)
+(Default value: `7`)
 
 ### Internationalization related
 
-- supported\_lang
+#### supported\_lang
 
-    (Default value: `ca,cs,de,el,en-US,es,et,eu,fi,fr,gl,hu,it,ja,ko,nb,nl,oc,pl,pt-BR,ru,sv,tr,vi,zh-CN,zh-TW`)
-    (Overridable by each `robot.conf`)
+(Default value: `ca,cs,de,el,en-US,es,et,eu,fi,fr,gl,hu,it,ja,ko,nb,nl,oc,pl,pt-BR,ru,sv,tr,vi,zh-CN,zh-TW`)
+(Overridable by each `robot.conf`)
 
-    Supported languages
+Supported languages
 
-    This is the set of language that will be proposed to your users for the Sympa GUI. Don't select a language if you don't have the proper locale packages installed.
+This is the set of language that will be proposed to your users for the Sympa GUI. Don't select a language if you don't have the proper locale packages installed.
 
-- lang
+#### lang
 
-    (Default value: `en-US`)
-    (Overridable by each `robot.conf`)
+(Default value: `en-US`)
+(Overridable by each `robot.conf`)
 
-    Default language (one of supported languages)
+Default language (one of supported languages)
 
-    This is the default language used by Sympa
+This is the default language used by Sympa
 
-- legacy\_character\_support\_feature
+#### legacy\_character\_support\_feature
 
-    (Default value: `off`)
+(Default value: `off`)
 
-    If set to "on", enables support of legacy character set
+If set to "on", enables support of legacy character set
 
-    See also charset.conf(5) manpage
+See also charset.conf(5) manpage
 
-- filesystem\_encoding
+#### filesystem\_encoding
 
-    (Default value: `utf-8`)
+(Default value: `utf-8`)
 
 ### Bounce related
 
-- verp\_rate
+#### verp\_rate
 
-    (Default value: `0%`)
-    (Overridable by each `robot.conf`)
+(Default value: `0%`)
+(Overridable by each `robot.conf`)
 
-- welcome\_return\_path
+#### welcome\_return\_path
 
-    (Default value: `owner`)
+(Default value: `owner`)
 
-    Welcome message return-path ( unique | owner )
+Welcome message return-path ( unique | owner )
 
-    If set to unique, new subcriber is removed if welcome message bounce
+If set to unique, new subcriber is removed if welcome message bounce
 
-- remind\_return\_path
+#### remind\_return\_path
 
-    (Default value: `owner`)
+(Default value: `owner`)
 
-    Remind message return-path ( unique | owner )
+Remind message return-path ( unique | owner )
 
-    If set to unique, subcriber is removed if remind message bounce, use with care
+If set to unique, subcriber is removed if remind message bounce, use with care
 
-- return\_path\_suffix
+#### return\_path\_suffix
 
-    (Default value: `-owner`)
+(Default value: `-owner`)
 
-- bounce\_path
+#### bounce\_path
 
-    (Default value: `/home/sympa/bounce`)
+(Default value: `/home/sympa/bounce`)
 
-    Directory for storing bounces
+Directory for storing bounces
 
-    Better if not in a critical partition
+Better if not in a critical partition
 
-- expire\_bounce\_task
+#### expire\_bounce\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-    Task name for expiration of old bounces
+Task name for expiration of old bounces
 
-- purge\_orphan\_bounces\_task
+#### purge\_orphan\_bounces\_task
 
-    (Default value: `monthly`)
+(Default value: `monthly`)
 
-- eval\_bouncers\_task
+#### eval\_bouncers\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-- process\_bouncers\_task
+#### process\_bouncers\_task
 
-    (Default value: `weekly`)
+(Default value: `weekly`)
 
-- minimum\_bouncing\_count
+#### minimum\_bouncing\_count
 
-    (Default value: `10`)
+(Default value: `10`)
 
-- minimum\_bouncing\_period
+#### minimum\_bouncing\_period
 
-    (Default value: `10`)
+(Default value: `10`)
 
-- bounce\_delay
+#### bounce\_delay
 
-    (Default value: `0`)
+(Default value: `0`)
 
-- default\_bounce\_level1\_rate
+#### default\_bounce\_level1\_rate
 
-    (Default value: `45`)
-    (Overridable by each `robot.conf`)
+(Default value: `45`)
+(Overridable by each `robot.conf`)
 
-- default\_bounce\_level2\_rate
+#### default\_bounce\_level2\_rate
 
-    (Default value: `75`)
-    (Overridable by each `robot.conf`)
+(Default value: `75`)
+(Overridable by each `robot.conf`)
 
-- bounce\_email\_prefix
+#### bounce\_email\_prefix
 
-    (Default value: `bounce`)
+(Default value: `bounce`)
 
-- bounce\_warn\_rate
+#### bounce\_warn\_rate
 
-    (Default value: `30`)
+(Default value: `30`)
 
-    Bouncing email rate for warn list owner
+Bouncing email rate for warn list owner
 
-- bounce\_halt\_rate
+#### bounce\_halt\_rate
 
-    (Default value: `50`)
+(Default value: `50`)
 
-    Bouncing email rate for halt the list (not implemented)
+Bouncing email rate for halt the list (not implemented)
 
-    Not yet used in current version, Default is 50
+Not yet used in current version, Default is 50
 
-- tracking\_default\_retention\_period
+#### tracking\_default\_retention\_period
 
-    (Default value: `90`)
+(Default value: `90`)
 
-- tracking\_delivery\_status\_notification
+#### tracking\_delivery\_status\_notification
 
-    (Default value: `off`)
+(Default value: `off`)
 
-- tracking\_message\_disposition\_notification
+#### tracking\_message\_disposition\_notification
 
-    (Default value: `off`)
+(Default value: `off`)
 
-- default\_remind\_task
+#### default\_remind\_task
 
-    (Optioal)
+(Optioal)
 
 ### Tuning
 
-- cache\_list\_config
+#### cache\_list\_config
 
-    (Default value: `none`)
+(Default value: `none`)
 
-    Use of binary version of the list config structure on disk (none | binary\_file)
+Use of binary version of the list config structure on disk (none | binary\_file)
 
-    Set this parameter to "binary\_file" if you manage a big amount of lists (1000+); it should make the web interface startup faster
+Set this parameter to "binary\_file" if you manage a big amount of lists (1000+); it should make the web interface startup faster
 
-- sympa\_priority
+#### sympa\_priority
 
-    (Default value: `1`)
-    (Overridable by each `robot.conf`)
+(Default value: `1`)
+(Overridable by each `robot.conf`)
 
-    Sympa commands priority
+Sympa commands priority
 
-- request\_priority
+#### request\_priority
 
-    (Default value: `0`)
-    (Overridable by each `robot.conf`)
+(Default value: `0`)
+(Overridable by each `robot.conf`)
 
-- owner\_priority
+#### owner\_priority
 
-    (Default value: `9`)
-    (Overridable by each `robot.conf`)
+(Default value: `9`)
+(Overridable by each `robot.conf`)
 
-- default\_list\_priority
+#### default\_list\_priority
 
-    (Default value: `5`)
-    (Overridable by each `robot.conf`)
+(Default value: `5`)
+(Overridable by each `robot.conf`)
 
-    Default priority for list messages
+Default priority for list messages
 
-- parsed\_family\_files
+#### parsed\_family\_files
 
-    (Default value: `message.footer,message.header,message.footer.mime,message.header.mime,info`)
-    (Overridable by each `robot.conf`)
+(Default value: `message.footer,message.header,message.footer.mime,message.header.mime,info`)
+(Overridable by each `robot.conf`)
 
-    comma-separated list of files that will be parsed by Sympa when instantiating a family (no space allowed in file names)
+comma-separated list of files that will be parsed by Sympa when instantiating a family (no space allowed in file names)
 
-- incoming\_max\_count
+#### incoming\_max\_count
 
-    (Default value: `1`)
+(Default value: `1`)
 
-    Max number of daemons processing incoming spool that will run on the same server
+Max number of daemons processing incoming spool that will run on the same server
 
 ### Database related
 
-- update\_db\_field\_types
+#### update\_db\_field\_types
 
-    (Default value: `auto`)
+(Default value: `auto`)
 
-- db\_type
+#### db\_type
 
-    (Default value: `mysql`)
+(Default value: `mysql`)
 
-    Type of the database (mysql|Pg|Oracle|Sybase|SQLite)
+Type of the database (mysql|Pg|Oracle|Sybase|SQLite)
 
-    Be careful to the case
+Be careful to the case
 
-- db\_name
+#### db\_name
 
-    (Default value: `sympa`)
+(Default value: `sympa`)
 
-    Name of the database
+Name of the database
 
-    With SQLite, the name of the DB corresponds to the DB file
+With SQLite, the name of the DB corresponds to the DB file
 
-- db\_host
+#### db\_host
 
-    (Default value: `localhost`)
+(Default value: `localhost`)
 
-    Hostname of the database server
+Hostname of the database server
 
-    Example:
+Example:
 
-        db_host localhost
+    db_host localhost
 
-- db\_port
+#### db\_port
 
-    (Optioal)
+(Optioal)
 
-    Port of the database server
+Port of the database server
 
-- db\_user
+#### db\_user
 
-    (Default value: `user_name`)
+(Default value: `user_name`)
 
-    User for the database connection
+User for the database connection
 
-    Example:
+Example:
 
-        db_user sympa
+    db_user sympa
 
-- db\_passwd
+#### db\_passwd
 
-    (Default value: `user_password`)
+(Default value: `user_password`)
 
-    Password for the database connection
+Password for the database connection
 
-    Example:
+Example:
 
-        db_passwd your_passwd
+    db_passwd your_passwd
 
-    What ever you use a password or not, you must protect the SQL server (is it not a public internet service ?)
+What ever you use a password or not, you must protect the SQL server (is it not a public internet service ?)
 
-- db\_timeout
+#### db\_timeout
 
-    (Optioal)
+(Optioal)
 
-- db\_options
+#### db\_options
 
-    (Optioal)
+(Optioal)
 
-- db\_env
+#### db\_env
 
-    (Optioal)
+(Optioal)
 
-    Environment variables setting for database
+Environment variables setting for database
 
-    This is useful for defining ORACLE\_HOME 
+This is useful for defining ORACLE\_HOME 
 
-- db\_additional\_subscriber\_fields
+#### db\_additional\_subscriber\_fields
 
-    (Optioal)
+(Optioal)
 
-    Database private extension to subscriber table
+Database private extension to subscriber table
 
-    Example:
+Example:
 
-        db_additional_subscriber_fields billing_delay,subscription_expiration
+    db_additional_subscriber_fields billing_delay,subscription_expiration
 
-    You need to extend the database format with these fields
+You need to extend the database format with these fields
 
-- db\_additional\_user\_fields
+#### db\_additional\_user\_fields
 
-    (Optioal)
+(Optioal)
 
-    Database private extension to user table
+Database private extension to user table
 
-    Example:
+Example:
 
-        db_additional_user_fields age,address
+    db_additional_user_fields age,address
 
-    You need to extend the database format with these fields
+You need to extend the database format with these fields
 
-- purge\_user\_table\_task
+#### purge\_user\_table\_task
 
-    (Default value: `monthly`)
+(Default value: `monthly`)
 
-- purge\_spools\_task
+#### purge\_spools\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-- purge\_tables\_task
+#### purge\_tables\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-- purge\_logs\_table\_task
+#### purge\_logs\_table\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-- logs\_expiration\_period
+#### logs\_expiration\_period
 
-    (Default value: `3`)
+(Default value: `3`)
 
-    Number of months that elapse before a log is expired
+Number of months that elapse before a log is expired
 
-- stats\_expiration\_period
+#### stats\_expiration\_period
 
-    (Default value: `3`)
+(Default value: `3`)
 
-    Number of months that elapse before statistics are expired
+Number of months that elapse before statistics are expired
 
-- purge\_one\_time\_ticket\_table\_task
+#### purge\_one\_time\_ticket\_table\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-- one\_time\_ticket\_table\_ttl
+#### one\_time\_ticket\_table\_ttl
 
-    (Default value: `10d`)
+(Default value: `10d`)
 
-- purge\_session\_table\_task
+#### purge\_session\_table\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-- session\_table\_ttl
+#### session\_table\_ttl
 
-    (Default value: `2d`)
+(Default value: `2d`)
 
-- anonymous\_session\_table\_ttl
+#### anonymous\_session\_table\_ttl
 
-    (Default value: `1h`)
+(Default value: `1h`)
 
-- purge\_challenge\_table\_task
+#### purge\_challenge\_table\_task
 
-    (Default value: `daily`)
+(Default value: `daily`)
 
-- challenge\_table\_ttl
+#### challenge\_table\_ttl
 
-    (Default value: `5d`)
+(Default value: `5d`)
 
-- default\_ttl
+#### default\_ttl
 
-    (Default value: `3600`)
+(Default value: `3600`)
 
-    Default timeout between two scheduled synchronizations of list members with data sources.
+Default timeout between two scheduled synchronizations of list members with data sources.
 
-- default\_distribution\_ttl
+#### default\_distribution\_ttl
 
-    (Default value: `300`)
+(Default value: `300`)
 
-    Default timeout between two action-triggered synchronizations of list members with data sources.
+Default timeout between two action-triggered synchronizations of list members with data sources.
 
-- default\_sql\_fetch\_timeout
+#### default\_sql\_fetch\_timeout
 
-    (Default value: `300`)
+(Default value: `300`)
 
-    Default timeout while performing a fetch for an include\_sql\_query sync
+Default timeout while performing a fetch for an include\_sql\_query sync
 
 ### Loop prevention
 
-- loop\_command\_max
+#### loop\_command\_max
 
-    (Default value: `200`)
+(Default value: `200`)
 
-- loop\_command\_sampling\_delay
+#### loop\_command\_sampling\_delay
 
-    (Default value: `3600`)
+(Default value: `3600`)
 
-- loop\_command\_decrease\_factor
+#### loop\_command\_decrease\_factor
 
-    (Default value: `0.5`)
+(Default value: `0.5`)
 
-- loop\_prevention\_regex
+#### loop\_prevention\_regex
 
-    (Default value: `mailer-daemon|sympa|listserv|majordomo|smartlist|mailman`)
-    (Overridable by each `robot.conf`)
+(Default value: `mailer-daemon|sympa|listserv|majordomo|smartlist|mailman`)
+(Overridable by each `robot.conf`)
 
-- msgid\_table\_cleanup\_ttl
+#### msgid\_table\_cleanup\_ttl
 
-    (Default value: `86400`)
+(Default value: `86400`)
 
-- msgid\_table\_cleanup\_frequency
+#### msgid\_table\_cleanup\_frequency
 
-    (Default value: `3600`)
+(Default value: `3600`)
 
 ### S/MIME configuration
 
-- capath
+#### capath
 
-    (Optioal)
+(Optioal)
 
-    Directory containing trusted CA certificates
+Directory containing trusted CA certificates
 
-- cafile
+#### cafile
 
-    (Optioal)
+(Optioal)
 
-    File containing trusted CA certificates
+File containing trusted CA certificates
 
-- ssl\_cert\_dir
+#### ssl\_cert\_dir
 
-    (Default value: `/home/sympa/list_data/X509-user-certs`)
+(Default value: `/home/sympa/list_data/X509-user-certs`)
 
-    Directory containing user certificates
+Directory containing user certificates
 
-- key\_passwd
+#### key\_passwd
 
-    (Optioal)
+(Optioal)
 
-    Password used to crypt lists private keys
+Password used to crypt lists private keys
 
-    Example:
+Example:
 
-        key_passwd your_password
+    key_passwd your_password
 
 ### DKIM
 
-- dkim\_feature
+#### dkim\_feature
 
-    (Default value: `off`)
-    (Overridable by each `robot.conf`)
+(Default value: `off`)
+(Overridable by each `robot.conf`)
 
-- dkim\_add\_signature\_to
+#### dkim\_add\_signature\_to
 
-    (Default value: `robot,list`)
-    (Overridable by each `robot.conf`)
+(Default value: `robot,list`)
+(Overridable by each `robot.conf`)
 
-    Insert a DKIM signature to message from the robot, from the list or both
+Insert a DKIM signature to message from the robot, from the list or both
 
-- dkim\_signature\_apply\_on
+#### dkim\_signature\_apply\_on
 
-    (Default value: `md5_authenticated_messages,smime_authenticated_messages,dkim_authenticated_messages,editor_validated_messages`)
-    (Overridable by each `robot.conf`)
+(Default value: `md5_authenticated_messages,smime_authenticated_messages,dkim_authenticated_messages,editor_validated_messages`)
+(Overridable by each `robot.conf`)
 
-    Type of message that is added a DKIM signature before distribution to subscribers. Possible values are "none", "any" or a list of the following keywords: "md5\_authenticated\_messages", "smime\_authenticated\_messages", "dkim\_authenticated\_messages", "editor\_validated\_messages".
+Type of message that is added a DKIM signature before distribution to subscribers. Possible values are "none", "any" or a list of the following keywords: "md5\_authenticated\_messages", "smime\_authenticated\_messages", "dkim\_authenticated\_messages", "editor\_validated\_messages".
 
-- dkim\_private\_key\_path
+#### dkim\_private\_key\_path
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Location of the file where DKIM private key is stored
+Location of the file where DKIM private key is stored
 
-- dkim\_signer\_domain
+#### dkim\_signer\_domain
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    The "d=" tag as defined in rfc 4871, default is virtual host domain name
+The "d=" tag as defined in rfc 4871, default is virtual host domain name
 
-- dkim\_selector
+#### dkim\_selector
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    The selector
+The selector
 
-- dkim\_signer\_identity
+#### dkim\_signer\_identity
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    The "i=" tag as defined in rfc 4871, default is null
+The "i=" tag as defined in rfc 4871, default is null
 
-- dmarc\_protection\_mode
+#### dmarc\_protection\_mode
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Test mode(s) for DMARC Protection
+Test mode(s) for DMARC Protection
 
-    Example:
+Example:
 
-        dmarc_protection_mode dmarc_reject,dkim_signature
+    dmarc_protection_mode dmarc_reject,dkim_signature
 
-    Do not set unless you want to use DMARC protection.  This is a comma separated list of test modes; if multiple are selected then protection is activated if ANY match.  Do not use dmarc\_\* modes unless you have a local DNS cache as they do a DNS lookup for each received message.
+Do not set unless you want to use DMARC protection.  This is a comma separated list of test modes; if multiple are selected then protection is activated if ANY match.  Do not use dmarc\_\* modes unless you have a local DNS cache as they do a DNS lookup for each received message.
 
-- dmarc\_protection\_domain\_regex
+#### dmarc\_protection\_domain\_regex
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Regexp for domain name match
+Regexp for domain name match
 
-    This is used for the "domain\_regex" protection mode.
+This is used for the "domain\_regex" protection mode.
 
-- dmarc\_protection\_phrase
+#### dmarc\_protection\_phrase
 
-    (Default value: `name_via_list`)
-    (Overridable by each `robot.conf`)
+(Default value: `name_via_list`)
+(Overridable by each `robot.conf`)
 
-    Pattern used to create new From header phrase
+Pattern used to create new From header phrase
 
-- dmarc\_protection\_other\_email
+#### dmarc\_protection\_other\_email
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Email to use for replacement From header
+Email to use for replacement From header
 
 ### Antivirus plug-in
 
-- antivirus\_path
+#### antivirus\_path
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Path to the antivirus scanner engine
+Path to the antivirus scanner engine
 
-    Example:
+Example:
 
-        antivirus_path /usr/local/bin/clamscan
+    antivirus_path /usr/local/bin/clamscan
 
-    supported antivirus: Clam AntiVirus/clamscan & clamdscan, McAfee/uvscan, Fsecure/fsav, Sophos, AVP and Trend Micro/VirusWall
+supported antivirus: Clam AntiVirus/clamscan & clamdscan, McAfee/uvscan, Fsecure/fsav, Sophos, AVP and Trend Micro/VirusWall
 
-- antivirus\_args
+#### antivirus\_args
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Antivirus plugin command argument
+Antivirus plugin command argument
 
-    Example:
+Example:
 
-        antivirus_args --no-summary --database /usr/local/share/clamav
+    antivirus_args --no-summary --database /usr/local/share/clamav
 
-- antivirus\_notify
+#### antivirus\_notify
 
-    (Default value: `sender`)
-    (Overridable by each `robot.conf`)
+(Default value: `sender`)
+(Overridable by each `robot.conf`)
 
-    Notify sender if virus checker detects malicious content
+Notify sender if virus checker detects malicious content
 
-    "sender" to notify originator of the message, "delivery\_status" to send delivery status, or "none"
+"sender" to notify originator of the message, "delivery\_status" to send delivery status, or "none"
 
 ### Tag based spam filtering
 
-- antispam\_feature
+#### antispam\_feature
 
-    (Default value: `off`)
-    (Overridable by each `robot.conf`)
+(Default value: `off`)
+(Overridable by each `robot.conf`)
 
-- antispam\_tag\_header\_name
+#### antispam\_tag\_header\_name
 
-    (Default value: `X-Spam-Status`)
-    (Overridable by each `robot.conf`)
+(Default value: `X-Spam-Status`)
+(Overridable by each `robot.conf`)
 
-    If a spam filter (like spamassassin or j-chkmail) add a smtp headers to tag spams, name of this header (example X-Spam-Status)
+If a spam filter (like spamassassin or j-chkmail) add a smtp headers to tag spams, name of this header (example X-Spam-Status)
 
-- antispam\_tag\_header\_spam\_regexp
+#### antispam\_tag\_header\_spam\_regexp
 
-    (Default value: `^\s*Yes`)
-    (Overridable by each `robot.conf`)
+(Default value: `^\s*Yes`)
+(Overridable by each `robot.conf`)
 
-    Regexp applied on this header to verify message is a spam (example Yes)
+Regexp applied on this header to verify message is a spam (example Yes)
 
-- antispam\_tag\_header\_ham\_regexp
+#### antispam\_tag\_header\_ham\_regexp
 
-    (Default value: `^\s*No`)
-    (Overridable by each `robot.conf`)
+(Default value: `^\s*No`)
+(Overridable by each `robot.conf`)
 
-    Regexp applied on this header to verify message is NOT a spam (example No)
+Regexp applied on this header to verify message is NOT a spam (example No)
 
-- spam\_status
+#### spam\_status
 
-    (Default value: `x-spam-status`)
-    (Overridable by each `robot.conf`)
+(Default value: `x-spam-status`)
+(Overridable by each `robot.conf`)
 
-    Value of this parameter is name of `spam_status` scenario.
+Value of this parameter is name of `spam_status` scenario.
 
-    Messages are supposed to be filtered by an antispam that add one more headers to messages. This parameter is used to select a special scenario in order to decide the message spam status: ham, spam or unsure. This parameter replace antispam\_tag\_header\_name, antispam\_tag\_header\_spam\_regexp and antispam\_tag\_header\_ham\_regexp.
+Messages are supposed to be filtered by an antispam that add one more headers to messages. This parameter is used to select a special scenario in order to decide the message spam status: ham, spam or unsure. This parameter replace antispam\_tag\_header\_name, antispam\_tag\_header\_spam\_regexp and antispam\_tag\_header\_ham\_regexp.
 
 ### Web interface parameters
 
-- arc\_path
+#### arc\_path
 
-    (Default value: `/home/sympa/arc`)
-    (Overridable by each `robot.conf`)
+(Default value: `/home/sympa/arc`)
+(Overridable by each `robot.conf`)
 
-    Directory for storing HTML archives
+Directory for storing HTML archives
 
-    Better if not in a critical partition
+Better if not in a critical partition
 
-- archive\_default\_index
+#### archive\_default\_index
 
-    (Default value: `thrd`)
+(Default value: `thrd`)
 
-    Default index organization when entering the web archive: either threaded or in chronological order
+Default index organization when entering the web archive: either threaded or in chronological order
 
-- cookie\_expire
+#### cookie\_expire
 
-    (Default value: `0`)
+(Default value: `0`)
 
-    HTTP cookies lifetime
+HTTP cookies lifetime
 
-- cookie\_domain
+#### cookie\_domain
 
-    (Default value: `localhost`)
-    (Overridable by each `robot.conf`)
+(Default value: `localhost`)
+(Overridable by each `robot.conf`)
 
-    HTTP cookies validity domain
+HTTP cookies validity domain
 
-- cookie\_refresh
+#### cookie\_refresh
 
-    (Default value: `60`)
+(Default value: `60`)
 
-    Average interval to refresh HTTP session ID.
+Average interval to refresh HTTP session ID.
 
-- custom\_archiver
+#### custom\_archiver
 
-    (Optioal)
+(Optioal)
 
-    Activates a custom archiver to use instead of MHonArc. The value of this parameter is the absolute path on the file system to the script of the custom archiver.
+Activates a custom archiver to use instead of MHonArc. The value of this parameter is the absolute path on the file system to the script of the custom archiver.
 
-- default\_home
+#### default\_home
 
-    (Default value: `home`)
-    (Overridable by each `robot.conf`)
+(Default value: `home`)
+(Overridable by each `robot.conf`)
 
-    Type of main Web page ( lists | home )
+Type of main Web page ( lists | home )
 
-- edit\_list
+#### edit\_list
 
-    (Default value: `owner`)
+(Default value: `owner`)
 
-- ldap\_force\_canonical\_email
+#### ldap\_force\_canonical\_email
 
-    (Default value: `1`)
-    (Overridable by each `robot.conf`)
+(Default value: `1`)
+(Overridable by each `robot.conf`)
 
-    When using LDAP authentication, if the identifier provided by the user was a valid email, if this parameter is set to false, then the provided email will be used to authenticate the user. Otherwise, use of the first email returned by the LDAP server will be used.
+When using LDAP authentication, if the identifier provided by the user was a valid email, if this parameter is set to false, then the provided email will be used to authenticate the user. Otherwise, use of the first email returned by the LDAP server will be used.
 
-- log\_facility
+#### log\_facility
 
-    (Default value: `LOCAL1`)
+(Default value: `LOCAL1`)
 
-    Syslog facility for wwsympa, archived and bounced
+Syslog facility for wwsympa, archived and bounced
 
-    Default is to use previously defined sympa log facility.
+Default is to use previously defined sympa log facility.
 
-- mhonarc
+#### mhonarc
 
-    (Default value: `/usr/bin/mhonarc`)
-    (Overridable by each `robot.conf`)
+(Default value: `/usr/bin/mhonarc`)
+(Overridable by each `robot.conf`)
 
-    Path to MHonArc mail2html plugin
+Path to MHonArc mail2html plugin
 
-    This is required for HTML mail archiving
+This is required for HTML mail archiving
 
-- htmlarea\_url
+#### htmlarea\_url
 
-    (Optioal)
+(Optioal)
 
-- one\_time\_ticket\_lifetime
+#### one\_time\_ticket\_lifetime
 
-    (Default value: `2d`)
+(Default value: `2d`)
 
-    duration before the one time tickets are expired
+duration before the one time tickets are expired
 
-- one\_time\_ticket\_lockout
+#### one\_time\_ticket\_lockout
 
-    (Default value: `one_time`)
-    (Overridable by each `robot.conf`)
+(Default value: `one_time`)
+(Overridable by each `robot.conf`)
 
-    Is access to the one time ticket restricted, if any users previously accessed? (one\_time | remote\_addr | open)
+Is access to the one time ticket restricted, if any users previously accessed? (one\_time | remote\_addr | open)
 
-- password\_case
+#### password\_case
 
-    (Default value: `insensitive`)
+(Default value: `insensitive`)
 
-    Password case (insensitive | sensitive)
+Password case (insensitive | sensitive)
 
-    Should not be changed ! May invalid all user password
+Should not be changed ! May invalid all user password
 
-- review\_page\_size
+#### review\_page\_size
 
-    (Default value: `25`)
-    (Overridable by each `robot.conf`)
+(Default value: `25`)
+(Overridable by each `robot.conf`)
 
-    Default number of lines of the array displaying users in the review page
+Default number of lines of the array displaying users in the review page
 
-- title
+#### title
 
-    (Default value: `Mailing lists service`)
-    (Overridable by each `robot.conf`)
+(Default value: `Mailing lists service`)
+(Overridable by each `robot.conf`)
 
-    Title of main Web page
+Title of main Web page
 
-- use\_html\_editor
+#### use\_html\_editor
 
-    (Default value: `0`)
-    (Overridable by each `robot.conf`)
+(Default value: `0`)
+(Overridable by each `robot.conf`)
 
-    If set to "on", users will be able to post messages in HTML using a javascript WYSIWYG editor.
+If set to "on", users will be able to post messages in HTML using a javascript WYSIWYG editor.
 
-- html\_editor\_url
+#### html\_editor\_url
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    URL path to the javascript file making the WYSIWYG HTML editor available.  Relative path under &lt;static\_content\_url> or absolute path
+URL path to the javascript file making the WYSIWYG HTML editor available.  Relative path under &lt;static\_content\_url> or absolute path
 
-    Example:
+Example:
 
-        html_editor_url js/tinymce/tinymce.min.js
+    html_editor_url js/tinymce/tinymce.min.js
 
-    Example is for TinyMCE 4 installed under &lt;static\_content\_path>/js/tinymce/.
+Example is for TinyMCE 4 installed under &lt;static\_content\_path>/js/tinymce/.
 
-- html\_editor\_init
+#### html\_editor\_init
 
-    (Optioal)
-    (Overridable by each `robot.conf`)
+(Optioal)
+(Overridable by each `robot.conf`)
 
-    Javascript excerpt that enables and configures the WYSIWYG HTML editor.
+Javascript excerpt that enables and configures the WYSIWYG HTML editor.
 
-    Example:
+Example:
 
-        html_editor_init tinymce.init({selector:"#body",language:lang.split(/[^a-zA-Z]+/).join("_")});
+    html_editor_init tinymce.init({selector:"#body",language:lang.split(/[^a-zA-Z]+/).join("_")});
 
-- use\_fast\_cgi
+#### use\_fast\_cgi
 
-    (Default value: `1`)
+(Default value: `1`)
 
-    Is FastCGI module for HTTP server installed (0 | 1)
+Is FastCGI module for HTTP server installed (0 | 1)
 
-    This module provide much faster web interface
+This module provide much faster web interface
 
-- viewlogs\_page\_size
+#### viewlogs\_page\_size
 
-    (Default value: `25`)
-    (Overridable by each `robot.conf`)
+(Default value: `25`)
+(Overridable by each `robot.conf`)
 
-    Default number of lines of the array displaying the log entries in the logs page
+Default number of lines of the array displaying the log entries in the logs page
 
-- http\_host
+#### http\_host
 
-    (Default value: `host.domain.tld`)
-    (Overridable by each `robot.conf`)
+(Default value: `host.domain.tld`)
+(Overridable by each `robot.conf`)
 
-    Web domain of a virtual host
+Web domain of a virtual host
 
-    Example:
+Example:
 
-        http_host host.domain.tld
+    http_host host.domain.tld
 
-- password\_validation
+#### password\_validation
 
-    (Optioal)
+(Optioal)
 
-    The password validation techniques to be used against user passwords that are added to mailing lists. Options come from Data::Password (http://search.cpan.org/~razinf/Data-Password-1.07/Password.pm#VARIABLES)
+The password validation techniques to be used against user passwords that are added to mailing lists. Options come from Data::Password (http://search.cpan.org/~razinf/Data-Password-1.07/Password.pm#VARIABLES)
 
-    Example:
+Example:
 
-        password_validation MINLEN=8,GROUPS=3,DICTIONARY=4,DICTIONARIES=/pentest/dictionaries
+    password_validation MINLEN=8,GROUPS=3,DICTIONARY=4,DICTIONARIES=/pentest/dictionaries
 
 # FILES
 

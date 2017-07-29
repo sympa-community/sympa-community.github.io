@@ -164,7 +164,7 @@ Below is the list of documentation of Sympa.
 
 ## Internals
 
-- [Sympa::Internals(3)](./Sympa::Internals.3.md)
+- [Sympa::Internals(3)](./Sympa-Internals.3.md)
 
     List of Sympa internal modules
 
