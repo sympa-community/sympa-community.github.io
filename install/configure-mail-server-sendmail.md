@@ -1,7 +1,10 @@
 Configure mail server: Sendmail
 ===============================
 
-1. Copy [``/etc/sympa/aliases.sympa.sendmail``](../examples/sendmail/aliases.sympa.sendmail``) file and edit it as you prefer.
+General instruction
+-------------------
+
+1. Copy [example ``aliases.sympa.sendmail``](../examples/sendmail/aliases.sympa.sendmail``) file into /etc/sympa directory and edit it as you prefer.
 
 2. Edit sendmail.cf:
 

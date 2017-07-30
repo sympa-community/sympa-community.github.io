@@ -1,6 +1,15 @@
 Configure mail server
 =====================
 
+Requirements
+------------
+
+* MTA was installed: For example Sendmail, Postfix, OpenSMTPD.
+
+* Mail domain for mailing list service.  Appropriate DNS resource record
+  (``MX``, ``A`` or ``AAAA``) should be assigned and accessible via Internet.
+  Instructions in this chapter, ``mail.example.org`` is used.
+
 Instruction by MTAs
 -------------------
 

@@ -1,0 +1,7 @@
+#--- [% list.name %]@[% list.domain %]: list transport map created at [% date %]
+[% list.name %]@[% list.domain %] sympa:[% list.name %]@[% list.domain %]
+[% list.name %]-request@[% list.domain %] sympa:[% list.name %]-request@[% list.domain %]
+[% list.name %]-editor@[% list.domain %] sympa:[% list.name %]-editor@[% list.domain %]
+#[% list.name %]-subscribe@[% list.domain %] sympa:[% list.name %]-subscribe@[%list.domain %]
+[% list.name %]-unsubscribe@[% list.domain %] sympa:[% list.name %]-unsubscribe@[% list.domain %]
+[% list.name %][% return_path_suffix %]@[% list.domain %] sympabounce:[% list.name %]@[% list.domain %]
