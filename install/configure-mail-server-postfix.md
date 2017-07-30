@@ -18,7 +18,7 @@ Single domain (using ``postalias``)
    # chown sympa:sympa /var/lib/sympa/sympa_aliases
    ```
 
-3. Edit /etc/postfix/main.cf:
+3. Edit main.cf:
 
    * Add maps to alias_maps parameter:
      ```
@@ -47,7 +47,7 @@ Single domain (using ``postalias``)
 5. Reload Postfix.
 
 ---
-N.B.: This instruction is to use postalias(1) maintainance tool.  If you
+N.B.: This instruction is to use postalias(1) maintenance tool.  If you
 wish to use postmap(1), edit /etc/sympa/sympa.conf to add a line
 ``aliases_program postmap``.
 

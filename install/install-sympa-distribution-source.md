@@ -7,7 +7,7 @@ Requirements
 See also "[Requirements](requirements.md)".
 
 * ANSI-compliant C compiler,
-  for example [GCC C Compiler](https://gcc.gnu.org/) (gcc)
+  for example [gcc](https://gcc.gnu.org/) (GCC C Compiler)
   or [clang](http://clang.llvm.org/).
 
 * make(1) utility. [GNU make](https://www.gnu.org/software/make/)
@@ -15,7 +15,7 @@ See also "[Requirements](requirements.md)".
 
 * [Perl 5 interpreter](https://www.perl.org/get.html).
   At least Perl 5.8.1 is required,
-  however, recent version of Perl 5 is recommented.
+  however, recent version of Perl 5 is recommended.
 
 * MTA has been installed: For example Sendmail, Postfix, OpenSMTPD.
   MTA service need not have started at this time.
@@ -25,8 +25,8 @@ See also "[Requirements](requirements.md)".
   - [GNU automake](https://www.gnu.org/software/automake/)
   - [GNU gettext](https://www.gnu.org/software/gettext/), including ``msgcat``, ``msgfmt`` and ``msgmerge``.
 
-Instllation overview
---------------------
+Installation overview
+---------------------
 
 1. Create system group and user
 
@@ -75,8 +75,8 @@ Get and unpack source
 * If you wish to install development version,
   create local clone of [git repository](https://github.com/sympa-community/sympa.git) and checkout ``sympa-6.2`` branch:
   ```
-  $ git clone https://github.com/sympa-community/sympa.git sympa-6.2head
-  $ cd sympa-6.2head
+  $ git clone https://github.com/sympa-community/sympa.git sympa-6.2-head
+  $ cd sympa-6.2-head
   $ git checkout -b sympa-6.2 origin/sympa-6.2
   ```
 
@@ -85,7 +85,7 @@ Run ``configure`` script
 
 * Note for development version: You should run ``autoreconf`` in advance:
   ```
-  $ auteconf -i
+  $ autoreconf -i
   ```
 
 Run ``configure`` script with appropriate options:
@@ -102,9 +102,9 @@ If you are upgrading earlier version of Sympa, you may choose _the same_ options
 
 ### New installation
 
-If you are installing Sympa anew, ``--enable-fhs`` and ``--prefix`` options are recommended, for exmample:
+If you are installing Sympa anew, ``--enable-fhs`` and ``--prefix`` options are recommended, for example:
 ```
-$ ./configure --enable-fhs --prefix=/usr/local --confdir=/etc/sympa (...other options...)
+$ ./configure --enable-fhs --prefix=/usr/local --sysconfdir=/etc/sympa --with-confdir=/etc/sympa (...other options...)
 ```
 On the future releases, the ``--enable-fhs`` option will be enabled by default.
 
@@ -114,7 +114,7 @@ On the future releases, the ``--enable-fhs`` option will be enabled by default.
 
   Installs system V init scripts into specified directory.
 
-- ``--without-initdir --with-unitsdir=/usr/lib/systemd``
+- ``--without-initdir --with-unitsdir=/usr/lib/systemd/system``
 
   Installs Systemd unit files into specified directory.
 
@@ -132,9 +132,9 @@ On the future releases, the ``--enable-fhs`` option will be enabled by default.
 
 - ``--without-smrshdir``
 
-  Doesn't install symbolic links only useful for Sendmail smrsh.
+  Does not install symbolic links only useful for Sendmail smrsh.
 
-To know about all available options for configure scription, run:
+To know about all available options for configure script, run:
 ```
 $ ./configure --help
 ```

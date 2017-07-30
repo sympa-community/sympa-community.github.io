@@ -1,4 +1,4 @@
-Automating Startup
+Automating startup
 ==================
 
 Systemd

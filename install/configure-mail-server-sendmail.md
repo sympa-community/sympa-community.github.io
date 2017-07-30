@@ -1,9 +1,9 @@
 Configure mail server: Sendmail
 ===============================
 
-1. Copy [``/etc/sympa/aliases.sympa.sendmail``](../examples/sendmail/aliases.sympa.sendmail``] file and edit it as you prefer.
+1. Copy [``/etc/sympa/aliases.sympa.sendmail``](../examples/sendmail/aliases.sympa.sendmail``) file and edit it as you prefer.
 
-2. Edit /etc/mail/sendmail.cf:
+2. Edit sendmail.cf:
 
    * Add ``AliasFile`` lines to sendmail.cf:
      ```
@@ -26,7 +26,7 @@ Configure mail server: Sendmail
 4. Restart Sendmail.
 
 ---
-N.B.: This instruction is to use newaliases(1) maintainance tool.  If you
+N.B.: This instruction is to use newaliases(1) maintenance tool.  If you
 wish to use makemap(1), edit /etc/sympa/sympa.conf to add a line
 ``aliases_program makemap``.
 

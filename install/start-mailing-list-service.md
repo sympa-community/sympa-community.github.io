@@ -9,7 +9,7 @@ Start mailing list service
 
    If you are using nginx, you must run WWSympa service, too.
 
-   If you are using nginx and wish to use SOAP service, you must run SympaSOAP serivce, too.
+   If you are using nginx and wish to use SOAP service, you must run SympaSOAP service, too.
 
    * If your system supports Systemd:
      ```

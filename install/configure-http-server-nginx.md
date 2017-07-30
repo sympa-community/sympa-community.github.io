@@ -1,12 +1,12 @@
-Configure HTTP server: Apache HTTP Server
-=========================================
+Configure HTTP server: nginx
+============================
 
 Requirements
 ------------
 
 * [nginx](https://nginx.org/en/download.html).
 
-* [spawn-fcgi](https://redmine.lighttpd.net/projects/spawn-fcgi/wiki), an implimentation of FastCGI server.
+* [spawn-fcgi](https://redmine.lighttpd.net/projects/spawn-fcgi/wiki), an implementation of FastCGI server.
 
 * [FCGI](https://metacpan.org/release/FCGI), FastCGI interface for Perl.
 
