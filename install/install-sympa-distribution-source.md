@@ -60,25 +60,41 @@ On macOS:
 Get and unpack source
 ---------------------
 
-* If you wish to install stable version (and we also recommend it),
-  download the newest source tarball from Sympa release page:
-  https://github.com/sympa-community/sympa/releases
+### Stable version
 
-  The source tarball is named ``sympa-6.2.XX.tar.gz``.
+If you wish to install stable version (and we also recommend it),
+download the newest source tarball from Sympa release page:
+https://github.com/sympa-community/sympa/releases
 
-  Unpack it, and move into the new directory:
-  ```
-  $ zcat sympa-6.2.XX.tar.gz | tar xf -
-  $ cd sympa-6.2.XX
-  ```
+The source tarball is named ``sympa-6.2.XX.tar.gz``.
 
-* If you wish to install development version,
-  create local clone of [git repository](https://github.com/sympa-community/sympa.git) and checkout ``sympa-6.2`` branch:
-  ```
-  $ git clone https://github.com/sympa-community/sympa.git sympa-6.2-head
-  $ cd sympa-6.2-head
-  $ git checkout -b sympa-6.2 origin/sympa-6.2
-  ```
+Unpack it, and move into the new directory:
+```
+$ zcat sympa-6.2.XX.tar.gz | tar xf -
+$ cd sympa-6.2.XX
+```
+
+### Development version
+
+If you wish to install development version,
+create local clone of [git repository](https://github.com/sympa-community/sympa.git) and checkout ``sympa-6.2`` branch:
+```
+$ git clone https://github.com/sympa-community/sympa.git sympa-6.2-head
+$ cd sympa-6.2-head
+$ git checkout -b sympa-6.2 origin/sympa-6.2
+```
+Once you have created your local clone, you can get the latest source at any
+time by doing:
+```
+$ cd sympa-6.2-head
+$ git pull
+```
+
+----
+Note: If you are planning to contribute to Sympa by fixing bugs or adding
+enhancements, you would be better to create GitHub account of your own,
+"fork" original repository and work on it.  For more details see
+[GitHub documentation](https://help.github.com/articles/fork-a-repo/).
 
 Run ``configure`` script
 ------------------------

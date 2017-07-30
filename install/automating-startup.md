@@ -11,7 +11,15 @@ Systemd
 
    Note that database service should also start before HTTP service.
 
-2. Activate Sympa service.
+2. Some paths may be placed under volatile directory, for example PID
+   directory ``/var/run/sympa`` under ``/var/run``.  They have to be recreated
+   at the next boot-up time.  If it is the case, create
+   ``/usr/lib/tmpfiles.d/sympa.conf`` with the content:
+   ```
+   d /var/run/sympa 0755 sympa sympa -
+   ```
+
+3. Activate Sympa service.
    If you are using nginx, activate WWSympa service, too.
    If you are using nginx and wish to use SOAP service, activate SympaSOAP service, too.
 
