@@ -20,28 +20,47 @@ General instruction
    domain mail.example.org
    ```
 
-2. Edit sendmail.cf:
+2. Edit sendmail.cf (Note:
+   replace [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below.
+   And note that ``/etc/mail`` is Sendmail configuation directory):
 
    * Add ``AliasFile`` lines to sendmail.cf:
      ```
-     O AliasFile=/etc/sympa/aliases.sympa.sendmail
-     O AliasFile=/var/lib/sympa/sympa_aliases
+     O AliasFile=/etc/mail/aliases.sympa.sendmail
+     O AliasFile=$SENDMAIL_ALIASES
      ```
 
    * Or, if you are generating sendmail.cf by "cf" package, edit sendmail.mc
      to add paths to argument of ``ALIAS_FILE`` macro:
      ```
-     define(`ALIAS_FILE', `(...exisitng value...),/etc/sympa/aliases.sympa.sendmail,/var/lib/sympa/sympa_aliases')
+     define(`ALIAS_FILE', `(...exisitng value...),/etc/mail/aliases.sympa.sendmail,$SENDMAIL_ALIASES')
      ```
      then recompile sendmail.cf.
 
-3. Copy [example ``aliases.sympa.sendmail``](../examples/sendmail/aliases.sympa.sendmail``) file into /etc/sympa directory and edit it as you prefer.
-
-4. Create empty sympa_aliases file:
+3. Save following excerpt as ``aliases.sympa.sendmail`` file in Sendmail
+   configuration directory (such as ``/etc/mail``) and edit it as you prefer
+   (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
    ```
-   touch /var/lib/sympa/sympa_aliases
-   chmod 640 /var/lib/sympa/sympa_aliases
-   chown sympa:sympa /var/lib/sympa/sympa_aliases
+   # Robot aliases for Sympa.
+   sympa:                 "| $LIBEXECDIR/queue sympa@mail.example.org"
+   listmaster:            "| $LIBEXECDIR/queue listmaster@mail.example.org"
+   bounce+*:              "| $LIBEXECDIR/bouncequeue sympa@mail.example.org"
+   abuse-feedback-report: "| $LIBEXECDIR/bouncequeue sympa@mail.example.org"
+   sympa-request:         postmaster
+   sympa-owner:           postmaster
+   #listserv:	          sympa
+   #listserv-request:     sympa-request
+   #majordomo:            sympa
+   #listserv-owner:       sympa-owner
+   ```
+
+4. Create empty [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) file
+   (Note: replace [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases)
+   below):
+   ```
+   touch $SENDMAIL_ALIASES
+   chmod 640 $SENDMAIL_ALIASES
+   chown sympa:sympa $SENDMAIL_ALIASES
    ```
    then create alias databases:
    ```
@@ -49,11 +68,4 @@ General instruction
    ```
 
 5. Restart Sendmail.
-
-----
-N.B.: This instruction is to use newaliases(1) maintenance tool.  If you
-wish to use makemap(1), edit /etc/sympa/sympa.conf to add a line
-``aliases_program makemap``.
-
-----
 

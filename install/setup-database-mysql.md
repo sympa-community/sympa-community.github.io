@@ -32,11 +32,15 @@ General instruction
    # sympa.pl --health_check
    ```
 
----
-N.B.: MySQL/MariaDB 5.5.3 or later provides ``utf8mb4`` character set
-which covers full range of Unicode including such as chinese ideographs
-used for persons' names.  As of Sympa-6.2a.33 r8753, both ``utf8`` and
-``utf8mb4`` character sets are supported.  To use ``utf8mb4`` character
-set, you might want to replace ``utf8`` in SQL statement above with
-``utf8mb4``.
+----
+Note:
+
+* MySQL/MariaDB 5.5.3 or later provides ``utf8mb4`` character set
+  which covers full range of Unicode including such as chinese ideographs
+  used for persons' names.  As of Sympa-6.2a.33 r8753, both ``utf8`` and
+  ``utf8mb4`` character sets are supported.  To use ``utf8mb4`` character
+  set, you might want to replace ``utf8`` in SQL statement above with
+  ``utf8mb4``.
+
+----
 

@@ -100,10 +100,12 @@ $ git pull
 ```
 
 ----
-Note: If you are planning to contribute to Sympa by fixing bugs or adding
-enhancements, you would be better to create GitHub account of your own,
-"fork" original repository and work on it.  For more details see
-[GitHub documentation](https://help.github.com/articles/fork-a-repo/).
+Note:
+
+* If you are planning to contribute to Sympa by fixing bugs or adding
+  enhancements, you would be better to create GitHub account of your own,
+  "fork" original repository and work on it.  For more details see
+  [GitHub documentation](https://help.github.com/articles/fork-a-repo/).
 
 ----
 
@@ -131,9 +133,16 @@ If you are upgrading earlier version of Sympa, you may choose _the same_ options
 
 If you are installing Sympa anew, ``--enable-fhs`` and ``--prefix`` options are recommended, for example:
 ```
-$ ./configure --enable-fhs --prefix=/usr/local --sysconfdir=/etc/sympa --with-confdir=/etc/sympa (...other options...)
+$ ./configure --enable-fhs --prefix=/usr/local --with-confdir=/etc/sympa (...other options...)
 ```
-On the future releases, the ``--enable-fhs`` option will be enabled by default.
+
+----
+Note:
+
+* On the future releases of Sympa, the ``--enable-fhs`` option will be enabled
+  by default.
+
+----
 
 ### Other useful options
 
@@ -144,6 +153,10 @@ On the future releases, the ``--enable-fhs`` option will be enabled by default.
 - ``--without-initdir --with-unitsdir=/usr/lib/systemd/system``
 
   Installs Systemd unit files into specified directory.
+
+- ``--without-initdir``
+
+  Installs neither of system V init scripts nor Systemd unit files.
 
 - ``--with-perl=/path/to/perl``
 

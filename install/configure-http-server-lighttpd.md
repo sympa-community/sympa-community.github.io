@@ -13,8 +13,25 @@ Requirements
 General instruction
 -------------------
 
-1. Edit [example configuration](../examples/lighttpd/sympa.conf) as you prefer,
-   and add it to lighttpd configuration.
+1. Add following excerpt to lighttpd configuration and edit it as you prefer
+   (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
+   [``$STATICDIR``](../layout.md#staticdir)):
+   ```
+   server.modules += ("mod_fastcgi")
+
+   alias.url += ( "/static-sympa/" => "$STATICDIR/" )
+
+   $HTTP["url"] =~ "\^/sympa" {
+   fastcgi.server = ( "/sympa" =>
+       ((    "check-local"    =>    "disable",
+           "bin-path"    =>    "$LIBEXECDIR/wwsympa-wrapper.fcgi",
+           "socket"    =>    "/var/run/lighttpd/sympa.sock",
+           "max-procs"    =>     2,
+           "idle-timeout"    =>     20,
+       ))
+   )
+   }
+   ```
 
 2. Restart lighttpd.
 
