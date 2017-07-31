@@ -8,7 +8,7 @@ Requirements
 
 * Mail domain for mailing list service.  Appropriate DNS resource record
   (``MX``, ``A`` or ``AAAA``) should be assigned and accessible via Internet.
-  Instructions in this chapter, ``mail.example.org`` is used.
+  Through the instructions in this chapter, ``mail.example.org`` will be used.
 
 Instruction by MTAs
 -------------------

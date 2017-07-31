@@ -10,20 +10,18 @@ Requirements
   (``MX``, ``A`` or ``AAAA``) should be assigned and accessible via Internet.
   In the instructions below, ``mail.example.org`` is used.
 
-* Host name for web server.  Appropriate DNS resource record (``CNAME``, ``A``
-  or ``AAAA``) should be assigned and accessible via Internet.
-  In the instructions below, ``www.example.org`` is used.
-
-  Mail domain and web host name may or may not be the same.
-  They may or may not be subdomains of the same domain.
+Two ways to integrate
+---------------------
 
 There are two ways to integrate Sympa to Postfix:
-_fully virtual setting_ and _single domain setting_.  The former is
-recommended.  However, if you never have plan to manage multiple domains,
-the latter is easier way.
+* _fully virtual_ setting (using ``postmap`` and transports).
+* _single domain_ setting (using ``postalias`` and alias database).
 
-Fully virtual setting (using ``postmap`` and transports)
---------------------------------------------------------
+The former is recommended.  However, if you will never have plan to manage
+multiple domains, the latter is easier way.
+
+Fully virtual setting
+---------------------
 
 ### Initial setting
 
@@ -105,9 +103,6 @@ Steps in this section have to be done every time the new domain is added.
    # mkdir -m 750 /var/lib/sympa/list_data/mail.example.org
    # chown sympa:sympa /var/lib/sympa/list_data/mail.example.org
    ```
-   Then, add content of
-   [example ``robot.conf``](../examples/postfix/virtual/robot.conf) to
-   robot.conf created above and edit it as you prefer.
 
 2. Add contents of
    [example ``transport.sympa``](../examples/postfix/virtual/transport.sympa)
@@ -122,11 +117,12 @@ Steps in this section have to be done every time the new domain is added.
 
 3. Reload Postfix.
 
-Single domain setting (using ``postalias``)
--------------------------------------------
+Single domain setting
+---------------------
 
-1. Edit /etc/sympa/sympa.conf to add following line:
+1. Edit /etc/sympa/sympa.conf to add following lines:
    ```
+   domain mail.example.org
    aliases_program postalias
    ```
 
@@ -145,6 +141,7 @@ Single domain setting (using ``postalias``)
 
 3. Edit main.cf:
    ```
+   mydestination = (...existing parameter value...), mail.example.org
    alias_maps = (...existing parameter value...),
      hash:/etc/sympa/aliases.sympa.postfix,
      hash:/var/lib/sympa/sympa_aliases

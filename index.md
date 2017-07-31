@@ -8,4 +8,5 @@ Sympa Documentation
 - [Customizing Sympa](customize.md)
 
 - [References](man/sympa_toc.1.md)
+- [Directory layout](layout.md)
 

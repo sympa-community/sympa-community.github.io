@@ -41,13 +41,22 @@ Create system group and user
 
 At first, create a group and a user dedicated to Sympa.
 
-For example, on most of Linux distributions:
+### Most of Linux distributions
+
 ```
 # groupadd sympa
-# useradd -g sympa -s /sbin/nologin sympa
+# useradd -g sympa -c 'Sympa user' -s /sbin/nologin sympa
 ```
 
-On macOS:
+### FreeBSD
+
+```
+# pw groupadd sympa
+# pw useradd sympa -g sympa -c 'Sympa user' -s /usr/sbin/nologin
+```
+
+### macOS
+
 ```
 # dscl . -create /Groups/sympa gid <new GID>
 # dscl . -create /Users/sympa
@@ -95,6 +104,8 @@ Note: If you are planning to contribute to Sympa by fixing bugs or adding
 enhancements, you would be better to create GitHub account of your own,
 "fork" original repository and work on it.  For more details see
 [GitHub documentation](https://help.github.com/articles/fork-a-repo/).
+
+----
 
 Run ``configure`` script
 ------------------------
