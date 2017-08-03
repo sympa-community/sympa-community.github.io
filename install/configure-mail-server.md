@@ -4,11 +4,14 @@ Configure mail server
 Requirements
 ------------
 
-* MTA was installed: For example Sendmail, Postfix, OpenSMTPD.
+* Mail transfer agent (MTA):
+  See also "[Requirements](../requirements.md#mail-transfer-agent-mta)".
 
-* Mail domain for mailing list service.  Appropriate DNS resource record
-  (``MX``, ``A`` or ``AAAA``) should be assigned and accessible via Internet.
-  Through the instructions in this chapter, ``mail.example.org`` will be used.
+* A mail domain name for the mailing list service.
+  See also "[Requirements](../requirements.md#network-requirements)".
+
+  Through the instructions in this chapter, ``mail.example.org`` will be used
+  for example.
 
 Instruction by MTAs
 -------------------
@@ -17,9 +20,4 @@ Instruction by MTAs
 - [Postfix](configure-mail-server-postfix.md)
 - [OpenSMTPD](configure-mail-server-opensmtpd.md)
 - [Other MTAs](configure-mail-server-other-mtas.md)
-
-Optional configuration
-----------------------
-
-- [Automatic lists](automatic-lists.md)
 

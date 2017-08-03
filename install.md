@@ -9,5 +9,5 @@ Installing Sympa
   - [Configure mail server](install/configure-mail-server.md)
   - [Configure HTTP server](install/configure-http-server.md)
   - [Start mailing list service](install/start-mailing-list-service.md)
-  - [Automating Startup](install/automating-startup.md)
+  - [Automate startup](install/automate-startup.md)
 

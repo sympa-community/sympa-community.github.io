@@ -90,7 +90,7 @@ Location of each spool may be overridden by
 
 #### ``$SYSCONFDIR``
 
-**Directory of global configuration** (except ``sympa.conf``).
+**Base directory of global configuration** (except ``sympa.conf``).
 
 * This path may be overridden by [``etc``](man/sympa.conf.5.md#etc) parameter.
 
@@ -223,7 +223,7 @@ Location of each spool may be overridden by
 Note:
 
 * All paths above are defined in an internal module
-  [``LIBDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
+  [``$MODULEDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
 
 ----
 

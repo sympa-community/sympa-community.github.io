@@ -6,14 +6,15 @@ Requirements
 
 * [Postfix](http://www.postfix.org/).
 
-* Mail domain for mailing list service.  Appropriate DNS resource record
-  (``MX``, ``A`` or ``AAAA``) should be assigned and accessible via Internet.
-  In the instructions below, ``mail.example.org`` is used.
+* A mail domain name for the mailing list service.
+  See also "[Requirements](../requirements.md#network-requirements)".
+
+  In the instructions below, ``mail.example.org`` will be used for example.
 
 Two ways to integrate
 ---------------------
 
-There are two ways to integrate Sympa to Postfix:
+There are two ways to integrate Sympa into Postfix:
 * _fully virtual_ setting (using ``postmap`` and transports).
 * _single domain_ setting (using ``postalias`` and alias database).
 
@@ -32,7 +33,7 @@ Steps in this section may be done once at the first time.
    file into [``$SYSCONFDIR``](../layout.md#sysconfdir) directory and edit it
    as you prefer.
 
-   Edit [sympa.conf](../layout.md#config) to add following lines (Note:
+   Edit [``sympa.conf``](../layout.md#config) to add following lines (Note:
    replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
    ```
    sendmail_aliases $SYSCONFDIR/sympa_transport
@@ -43,19 +44,19 @@ Steps in this section may be done once at the first time.
    lists are created, closed, restored or purged.
 
 2. Create empty map files (Note:
-   replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below.  And note that
-   ``/etc/postfix`` is config_directory of Postfix):
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
    ```
-   # touch /etc/postfix/transport.sympa
-   # touch /etc/postfix/virtual.sympa
+   # touch $SYSCONFDIR/transport.sympa
+   # touch $SYSCONFDIR/virtual.sympa
    # touch $SYSCONFDIR/sympa_transport
    # chmod 640 $SYSCONFDIR/sympa_transport
    # chown sympa:sympa $SYSCONFDIR/sympa_transport
    ```
-   and create databases:
+   and create databases (Note:
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir)):
    ```
-   # postmap hash:/etc/postfix/transport.sympa
-   # postmap hash:/etc/postfix/virtual.sympa
+   # postmap hash:$SYSCONFDIR/transport.sympa
+   # postmap hash:$SYSCONFDIR/virtual.sympa
    # sympa_newaliases.pl
    ```
 
@@ -70,22 +71,21 @@ Steps in this section may be done once at the first time.
    Note that ``flags`` option have to contain ``R``. ``F`` is unnecessary.
 
 4. Edit Postfix main.cf file to add configuration for virtual domains (Note:
-   replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below.  And note that
-   ``/etc/postfix`` is config_directory of Postfix).
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
    ```
    # virtual(8) maps
    virtual_mailbox_domains = (...existing parameter value...),
-     hash:/etc/postfix/transport.sympa
+     hash:$SYSCONFDIR/transport.sympa
    virtual_mailbox_maps = (...existing parameter value...),
-     hash:/etc/postfix/transport.sympa,
+     hash:$SYSCONFDIR/transport.sympa,
      hash:$SYSCONFDIR/sympa_transport,
-     hash:/etc/postfix/virtual.sympa
+     hash:$SYSCONFDIR/virtual.sympa
    # virtual(5) maps
    virtual_alias_maps = (...existing parameter value...),
-     hash:/etc/postfix/virtual.sympa
+     hash:$SYSCONFDIR/virtual.sympa
    # transport maps
    transport_maps = (...existing parameter value...),
-     hash:/etc/postfix/transport.sympa,
+     hash:$SYSCONFDIR/transport.sympa,
      hash:$SYSCONFDIR/sympa_transport
    # For VERP
    recipient_delimiter = +
@@ -97,6 +97,7 @@ Steps in this section may be done once at the first time.
      parameter in main.cf includes the virtual domain listed in
      ``virtual_mailbox_domains``, Postfix outputs warnings to system log.
      Remove virtual domain(s) from ``mydestination``.
+
    ----
 
 ### Adding new domain
@@ -104,8 +105,8 @@ Steps in this section may be done once at the first time.
 Steps in this section have to be done every time the new domain is added.
 
 1. Create directories for virtual domain configurations (Note:
-   replace [``$SYSCONFDIR``](../layout.md#sysconfdir) and
-   [``$EXPLDIR``](../layout.md#expldir)):
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
+   [``$EXPLDIR``](../layout.md#expldir) and ``mail.example.org`` below):
    ```
    # mkdir -m 755 $SYSCONFDIR/mail.example.org
    # touch $SYSCONFDIR/mail.example.org/robot.conf
@@ -114,16 +115,31 @@ Steps in this section have to be done every time the new domain is added.
    # chown sympa:sympa $EXPLDIR/mail.example.org
    ```
 
-2. Copy
-   [example ``transport.sympa``](../examples/postfix/virtual/transport.sympa)
-   and [example ``virtual.sympa``](../examples/postfix/virtual/virtual.sympa)
-   into config_directory of Postfix (such as ``/etc/postfix``) and edit them
-   as you prefer.
+2. Add following contents to ``transport.sympa`` and ``virtual.sympa``
+   and edit them as you prefer (Note: replace ``mail.example.org`` below).
 
-   Then, update databases for transport map and virtual alias map:
+   ``transport.sympa``:
    ```
-   # postmap hash:/etc/postfix/transport.sympa
-   # postmap hash:/etc/postfix/virtual.sympa
+   mail.example.org                error:User unknown in recipient table
+   sympa@mail.example.org          sympa:sympa@mail.example.org
+   listmaster@mail.example.org     sympa:listmaster@mail.example.org
+   bounce@mail.example.org         sympabounce:sympa@mail.example.org
+   abuse-feedback-report@mail.example.org  sympabounce:sympa@mail.example.org
+
+   ```
+
+   ``virtual.sympa``:
+   ```
+   sympa-request@mail.example.org  postmaster@localhost
+   sympa-owner@mail.example.org    postmaster@localhost
+
+   ```
+
+   Then, update databases for transport map and virtual alias map (Note:
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
+   ```
+   # postmap hash:$SYSCONFDIR/transport.sympa
+   # postmap hash:$SYSCONFDIR/virtual.sympa
    ```
 
 3. Reload Postfix.
@@ -131,15 +147,17 @@ Steps in this section have to be done every time the new domain is added.
 Single domain setting
 ---------------------
 
-1. Edit [sympa.conf](../layout.md#config) to add following lines:
+1. Edit [``sympa.conf``](../layout.md#config) to add following lines (Note:
+   replace ``mail.example.org``):
    ```
    domain mail.example.org
    aliases_program postalias
    ```
 
 2. Save following excerpt as ``aliases.sympa.postfix`` file in
-   config_directory of Postfix (such as ``/etc/postfix``) and edit it as you
-   prefer (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir)):
+   [``$SYSCONFDIR``](../layout.md#sysconfdir) and edit it as you prefer (Note:
+   replace [``$LIBEXECDIR``](../layout.md#libexecdir) and ``mail.example.org``
+   below):
    ```
    # Robot aliases for Sympa.
    sympa:                 "| $LIBEXECDIR/queue sympa@mail.example.org"
@@ -162,22 +180,24 @@ Single domain setting
    # chmod 640 $SENDMAIL_ALIASES
    # chown sympa:sympa $SENDMAIL_ALIASES
    ```
-   and create alias databases:
+   and create alias databases (Note:
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir)):
    ```
-   # newaliases
+   # postalias hash:$SYSCONFDIR/aliases.sympa.postfix
    # sympa_newaliases.pl
    ```
 
 3. Edit Postfix main.cf file (Note:
-   replace [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below. And
-   ``/etc/postfix`` is config_directory of Postfix):
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
+   [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) and
+   ``mail.example.org`` below):
    ```
    mydestination = (...existing parameter value...), mail.example.org
    alias_maps = (...existing parameter value...),
-     hash:/etc/postfix/aliases.sympa.postfix,
+     hash:$SYSCONFDIR/aliases.sympa.postfix,
      hash:$SENDMAIL_ALIASES
    alias_database = (...existing parameter value...),
-     hash:/etc/postfix/aliases.sympa.postfix
+     hash:$SYSCONFDIR/aliases.sympa.postfix
    recipient_delimiter = +
    ```
 

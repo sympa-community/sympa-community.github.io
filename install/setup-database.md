@@ -1,11 +1,14 @@
 Setup database
 ==============
 
-* Appropriate DBI driver (DBD) should be installed: DBD::mysql, DBD::Pg,
-  DBD::Oracle, DBD::Sybase or DBD::SQLite.
+Database setup overview
+-----------------------
 
-* Create a database and a database user dedicated for Sympa.  The user
-  must have most of privileges on database.
+1. Appropriate DBI driver (DBD) suitable for chosen RDBMS should be installed:
+   For example DBD-mysql, DBD-Pg, DBD-Oracle, DBD-Sybase or DBD-SQLite.
+
+2. Create a database and a database user dedicated for Sympa.  The user
+   must have most of privileges on database.
 
 Instruction by RDBMSs
 ---------------------

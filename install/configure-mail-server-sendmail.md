@@ -7,39 +7,42 @@ Requirements
 * [Sendmail](https://www.proofpoint.com/us/sendmail-open-source)
   is installed and confirmed to work.
 
-* Mail domain for mailing list service.  Appropriate DNS resource record
-  (``MX``, ``A`` or ``AAAA``) should be assigned and accessible via Internet.
-  In the instructions below, ``mail.example.org`` is used.
+* A mail domain name for the mailing list service.
+  See also "[Requirements](../requirements.md#network-requirements)".
+
+  In the instructions below, ``mail.example.org`` will be used for example.
 
 General instruction
 -------------------
 
 1. Set [``domain``](../man/sympa.conf.5.md#domain) parameter.
-   Add following line to sympa.conf:
+   Add following line to [``sympa.conf``](../man/sympa.conf.5.md#config)
+   (Note: replace ``mail.example.org``):
    ```
    domain mail.example.org
    ```
 
 2. Edit sendmail.cf (Note:
-   replace [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below.
-   And note that ``/etc/mail`` is Sendmail configuation directory):
+   replace [``$SYSCONFDIR``](../layout.md#sysconfdir) and
+   [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below):
 
    * Add ``AliasFile`` lines to sendmail.cf:
      ```
-     O AliasFile=/etc/mail/aliases.sympa.sendmail
+     O AliasFile=$SYSCONFDIR/aliases.sympa.sendmail
      O AliasFile=$SENDMAIL_ALIASES
      ```
 
    * Or, if you are generating sendmail.cf by "cf" package, edit sendmail.mc
      to add paths to argument of ``ALIAS_FILE`` macro:
      ```
-     define(`ALIAS_FILE', `(...exisitng value...),/etc/mail/aliases.sympa.sendmail,$SENDMAIL_ALIASES')
+     define(`ALIAS_FILE', `(...exisitng value...),$SYSCONFDIR/aliases.sympa.sendmail,$SENDMAIL_ALIASES')
      ```
      then recompile sendmail.cf.
 
-3. Save following excerpt as ``aliases.sympa.sendmail`` file in Sendmail
-   configuration directory (such as ``/etc/mail``) and edit it as you prefer
-   (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
+3. Save following excerpt as ``aliases.sympa.sendmail`` file in
+   [``$SYSCONFDIR``](../layout.md#sysconfdir) and edit it as you prefer
+   (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
+   ``mail.example.org`` below):
    ```
    # Robot aliases for Sympa.
    sympa:                 "| $LIBEXECDIR/queue sympa@mail.example.org"

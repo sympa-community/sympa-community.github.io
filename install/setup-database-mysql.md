@@ -15,7 +15,8 @@ Requirements
 General instruction
 -------------------
 
-1. Ensure that sympa.conf includes appropriate values for these parameters:
+1. Ensure that [``sympa.conf``](../layout.md#config) includes appropriate
+   values for these parameters:
    [``db_type``](../man/sympa.conf.5.md#db_type), [``db_name``](../man/sympa.conf.5.md#db_name), [``db_host``](../man/sympa.conf.5.md#db_host), [``db_user``](../man/sympa.conf.5.md#db_user) and [``db_passwd``](../man/sympa.conf.5.md#db_passwd).
 
 2. Create database and database user:
@@ -36,7 +37,7 @@ General instruction
 Note:
 
 * MySQL/MariaDB 5.5.3 or later provides ``utf8mb4`` character set
-  which covers full range of Unicode including such as chinese ideographs
+  which covers full range of Unicode including such as Chinese ideographs
   used for persons' names.  As of Sympa-6.2a.33 r8753, both ``utf8`` and
   ``utf8mb4`` character sets are supported.  To use ``utf8mb4`` character
   set, you might want to replace ``utf8`` in SQL statement above with

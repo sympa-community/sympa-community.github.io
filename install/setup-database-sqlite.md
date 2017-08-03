@@ -12,7 +12,8 @@ Requirements
 General instruction
 -------------------
 
-1. Ensure that [``db_name``](../man/sympa.conf.5.md#db_name) in sympa.conf is absolute path to database file
+1. Ensure that [``db_name``](../man/sympa.conf.5.md#db_name) in
+   [``sympa.conf``](../layout.md#config) is absolute path to database file
    you want to create.
 
 2. Create database file and table structure:

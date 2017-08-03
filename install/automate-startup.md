@@ -1,5 +1,5 @@
-Automating startup
-==================
+Automate startup
+================
 
 Systemd
 -------

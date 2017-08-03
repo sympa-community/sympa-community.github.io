@@ -4,37 +4,49 @@ Install Sympa distribution: Installing from source
 Requirements
 ------------
 
-See also "[Requirements](requirements.md)".
+See also "[Requirements](../requirements.md)".
+
+* [GNU tar](https://www.gnu.org/software/tar/) (sometimes called "gtar").
 
 * ANSI-compliant C compiler,
   for example [gcc](https://gcc.gnu.org/) (GCC C Compiler)
   or [clang](http://clang.llvm.org/).
 
+* [Perl 5 interpreter](https://www.perl.org/get.html) is required.
+  Currently, Perl 5.8.1 and later are supported, however, recent version of
+  Perl 5 is recommended.
+
+* [GNU gettext](https://www.gnu.org/software/gettext/).
+
+  ----
+  Note:
+
+  * On several binary releases, required files (``po.m4`` etc.) may be
+    shipped in separate "development package" named such as ``gettext-dev``
+    or ``gettext-devel``.
+
+  ----
+
 * make(1) utility. [GNU make](https://www.gnu.org/software/make/)
   (sometimes called "gmake") is recommended.
 
-* [Perl 5 interpreter](https://www.perl.org/get.html).
-  At least Perl 5.8.1 is required,
-  however, recent version of Perl 5 is recommended.
-
-* MTA has been installed: For example Sendmail, Postfix, OpenSMTPD.
-  MTA service need not have started at this time.
-
 * If you wish to install development version, these packages are also needed:
-  - [GNU autoconf](https://www.gnu.org/software/autoconf/)
-  - [GNU automake](https://www.gnu.org/software/automake/)
-  - [GNU gettext](https://www.gnu.org/software/gettext/), including ``msgcat``, ``msgfmt`` and ``msgmerge``.
+  - [Git](https://git-scm.com/downloads).
+  - [GNU autoconf](https://www.gnu.org/software/autoconf/).
+  - [GNU automake](https://www.gnu.org/software/automake/).
+  - [GNU gettext](https://www.gnu.org/software/gettext/) which includes
+    utilities msgcat(1), msgfmt(1) and msgmerge(1).
 
 Installation overview
 ---------------------
 
-1. Create system group and user
+1. Create system group and user.
 
-2. Get and unpack source
+2. Get and unpack source.
 
-3. Run ``configure`` script
+3. Run ``configure`` script.
 
-4. Build and install
+4. Build and install.
 
 Create system group and user
 ----------------------------
@@ -69,31 +81,32 @@ At first, create a group and a user dedicated to Sympa.
 Get and unpack source
 ---------------------
 
-### Stable version
+### Release version
 
-If you wish to install stable version (and we also recommend it),
-download the newest source tarball from Sympa release page:
-https://github.com/sympa-community/sympa/releases
+If you wish to install release version (and we also recommend it),
+download the newest source tarball from
+[Sympa release page](https://github.com/sympa-community/sympa/releases).
 
 The source tarball is named ``sympa-6.2.XX.tar.gz``.
 
 Unpack it, and move into the new directory:
 ```
-$ zcat sympa-6.2.XX.tar.gz | tar xf -
+$ tar xzf sympa-6.2.XX.tar.gz
 $ cd sympa-6.2.XX
 ```
 
 ### Development version
 
-If you wish to install development version,
-create local clone of [git repository](https://github.com/sympa-community/sympa.git) and checkout ``sympa-6.2`` branch:
+If you wish to install development version, create local clone of
+[git repository](https://github.com/sympa-community/sympa.git) and checkout
+``sympa-6.2`` branch:
 ```
 $ git clone https://github.com/sympa-community/sympa.git sympa-6.2-head
 $ cd sympa-6.2-head
 $ git checkout -b sympa-6.2 origin/sympa-6.2
 ```
 Once you have created your local clone, you can get the latest source at any
-time by doing:
+time just doing:
 ```
 $ cd sympa-6.2-head
 $ git pull

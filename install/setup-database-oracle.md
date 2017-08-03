@@ -11,7 +11,8 @@ Requirements
 General instruction
 -------------------
 
-1. Ensure that sympa.conf includes appropriate values for these parameters:
+1. Ensure that [``sympa.conf``](../layout.md#config) includes appropriate
+   values for these parameters:
    [``db_type``](../man/sympa.conf.5.md#db_type), [``db_name``](../man/sympa.conf.5.md#db_name), [``db_host``](../man/sympa.conf.5.md#db_host), [``db_user``](../man/sympa.conf.5.md#db_user), [``db_passwd``](../man/sympa.conf.5.md#db_passwd) and [``db_env``](../man/sympa.conf.5.md#db_env).
 
    * ``db_name`` must be same as Oracle SID.
