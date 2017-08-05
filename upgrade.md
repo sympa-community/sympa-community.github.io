@@ -1,3 +1,9 @@
+---
+title: 'Upgrading Sympa'
+prev: install.md
+up: ./
+---
+
 Upgrading Sympa
 ===============
 

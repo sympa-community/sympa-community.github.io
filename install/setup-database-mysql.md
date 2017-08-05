@@ -1,3 +1,10 @@
+---
+title: 'Setup database: MySQL or MariaDB'
+prev: generate-initial-configuration.md
+up: setup-database.md
+next: configure-system-log.md
+---
+
 Setup database: MySQL or MariaDB
 ================================
 

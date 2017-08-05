@@ -1,3 +1,10 @@
+---
+title: 'Configure HTTP server: lighttpd'
+prev: configure-mail-server.md
+up: configure-http-server.md
+next: start-mailing-list-service.md
+---
+
 Configure HTTP server: lighttpd
 ===============================
 

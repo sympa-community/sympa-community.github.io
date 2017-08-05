@@ -1,3 +1,10 @@
+---
+title: 'Configure HTTP server: Apache HTTP Server'
+prev: configure-mail-server.md
+up: configure-http-server.md
+next: start-mailing-list-service.md
+---
+
 Configure HTTP server: Apache HTTP Server
 =========================================
 

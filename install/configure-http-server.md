@@ -1,3 +1,10 @@
+---
+title: 'Configure HTTP server'
+prev: configure-mail-server.md
+up: ../install.md
+next: start-mailing-list-service.md
+---
+
 Configure HTTP server
 =====================
 

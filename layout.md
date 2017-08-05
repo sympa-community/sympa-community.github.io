@@ -1,3 +1,7 @@
+---
+title: 'Directory layout'
+---
+
 Directory layout
 ================
 

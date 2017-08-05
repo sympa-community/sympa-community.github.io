@@ -1,3 +1,10 @@
+---
+title: 'Configure system log'
+prev: setup-database.md
+up: ../install.md
+next: configure-mail-server.md
+---
+
 Configure system log
 ====================
 

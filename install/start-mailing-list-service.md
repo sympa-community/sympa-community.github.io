@@ -1,3 +1,10 @@
+---
+title: 'Start mailing list service'
+prev: configure-http-server.md
+up: ../install.md
+next: automating-startup.md
+---
+
 Start mailing list service
 ==========================
 

@@ -1,3 +1,10 @@
+---
+title: 'Configure mail server'
+priv: configure-system-log.md
+up: ../install.md
+next: configure-http-server.md
+---
+
 Configure mail server
 =====================
 

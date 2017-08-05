@@ -1,3 +1,10 @@
+---
+title: 'Install dependent modules'
+prev: install-sympa-distribution.md
+up: ../install.md
+next: generate-initial-configuration.md
+---
+
 Install dependent modules
 =========================
 

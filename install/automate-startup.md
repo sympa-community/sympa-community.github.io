@@ -1,3 +1,10 @@
+---
+title: 'Automate startup'
+prev: start-mailing-list-service.md
+up: ../install.md
+next: ../upgrade.md
+---
+
 Automate startup
 ================
 

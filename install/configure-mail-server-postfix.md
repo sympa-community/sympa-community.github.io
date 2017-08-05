@@ -1,3 +1,10 @@
+---
+title: 'Configure mail server: Postfix'
+prev: configure-system-log.md
+up: configure-mail-server.md
+next: configure-http-server.md
+---
+
 Configure mail server: Postfix
 ==============================
 

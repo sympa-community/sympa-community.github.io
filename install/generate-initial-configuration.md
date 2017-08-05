@@ -1,3 +1,10 @@
+---
+title: 'Generate initial configuration'
+prev: install-dependent-modules.md
+up: ../install.md
+next: setup-database.md
+---
+
 Generate initial configuration
 ==============================
 

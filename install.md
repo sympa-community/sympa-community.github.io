@@ -1,3 +1,10 @@
+---
+title: 'Installing Sympa'
+prev: requirements.md
+up: ./
+next: upgrade.md
+---
+
 Installing Sympa
 ================
 

@@ -1,3 +1,10 @@
+---
+title: 'Setup database'
+prev: generate-initial-configuration.md
+up: ../install.md
+next: configure-system-log.md
+---
+
 Setup database
 ==============
 

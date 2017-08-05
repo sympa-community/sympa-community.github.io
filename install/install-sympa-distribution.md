@@ -1,3 +1,10 @@
+---
+title: 'Install Sympa distribution'
+prev: ../requirements.md
+up: ../install.md
+next: install-dependent-modules.md
+---
+
 Install Sympa distribution
 ==========================
 

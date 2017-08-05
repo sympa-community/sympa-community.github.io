@@ -1,3 +1,10 @@
+---
+title: 'Requirements'
+prev: scope.md
+up: ./
+next: install.md
+---
+
 Requirements
 ============
 
