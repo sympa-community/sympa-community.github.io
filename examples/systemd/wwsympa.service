@@ -1,0 +1,22 @@
+[Unit]
+Description=WWSympa - Web interface for Sympa mailing list manager
+After=syslog.target
+BindTo=sympa.service
+ 
+[Service]
+Type=forking
+PIDFile=/var/run/sympa/wwsympa.pid
+ExecStart=/usr/bin/spawn-fcgi -F $FCGI_CHILDREN \
+    -P /var/run/sympa/wwsympa.pid \
+    -u $FCGI_USER -g $FCGI_GROUP $FCGI_OPTS -- \
+    /usr/libexec/sympa/wwsympa.fcgi
+Environment="FCGI_CHILDREN=5"
+Environment="FCGI_USER=sympa"
+Environment="FCGI_GROUP=sympa"
+Environment="FCGI_OPTS=-s /var/run/sympa/wwsympa.socket -M 0600 -U nginx"
+EnvironmentFile=-/etc/sysconfig/sympa
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

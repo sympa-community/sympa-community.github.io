@@ -4,8 +4,14 @@ Install Sympa distribution
 Instruction by distributions
 ----------------------------
 
-- [Debian/Ubuntu package](install-sympa-distribution-debian.md)
-- [RPM package](install-sympa-distribution-rpm.md)
-- [FreeBSD Ports/Packages](install-sympa-distribution-ports.md)
+- ~~[Debian/Ubuntu package](install-sympa-distribution-debian.md)~~
+  (Work in progress)
+
+- ~~[RPM package](install-sympa-distribution-rpm.md)~~
+  (Work in progress)
+
+- ~~[FreeBSD Ports/Packages](install-sympa-distribution-ports.md)~~
+  (Work in progress)
+
 - [Installing from source](install-sympa-distribution-source.md)
 

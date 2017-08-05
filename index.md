@@ -10,8 +10,8 @@ Table of contents
 - [Requirements](requirements.md)
 - [Installing Sympa](install.md)
 - [Upgrading Sympa](upgrade.md)
-- [Administering Sympa](admin.md)
-- [Customizing Sympa](customize.md)
+- ~~[Administering Sympa](admin.md)~~ (Work in progress)
+- ~~[Customizing Sympa](customize.md)~~ (Work in progress)
 
 ----
 - [References](man/sympa_toc.1.md)

@@ -31,7 +31,7 @@ symbols with real paths on your Sympa.
 | FreeBSD                     | ``/etc/mail/sympa_aliases``      |
 | RPM                         | ``/var/lib/sympa/sympa_aliases`` |
 | Source distribution default | ``/etc/mail/sympa_aliases``      |
-| Suggested configure option  | ``/usr/local/var/run/sympa``     |
+| Suggested configure option  | ``/etc/mail/sympa_aliases``      |
 
 #### ``$PIDDIR``
 

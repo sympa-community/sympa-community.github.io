@@ -20,31 +20,22 @@ Systemd
    ```
 
 3. Activate Sympa service.
-   If you are using nginx, activate WWSympa service, too.
-   If you are using nginx and wish to use SOAP service, activate SympaSOAP service, too.
-
-   ```
+   ```bash
    # systemctl enable sympa.service
    ```
-   and optionally,
-   ```
-   # systemctl enable wwsympa.service
-   # systemctl enable sympasoap.service
-   ```
+
+You should activate other services also: Mail transfer agent (MTA) and
+HTTP server.
 
 initscripts
 -----------
 
 1. Activate Sympa service.
-   If you are using nginx, activate WWSympa service, too.
-   If you are using nginx and wish to use SOAP service, activate SympaSOAP service, too.
 
-   ```
+   ```bash
    # chkconfig sympa on
    ```
-   and optionally,
-   ```
-   # chkconfig wwsympa on
-   # chkconfig sympasoap on
-   ```
+
+You should activate other services also:
+Database server, mail transfer agent (MTA) and HTTP server.
 

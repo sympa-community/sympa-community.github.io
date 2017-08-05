@@ -6,30 +6,20 @@ Start mailing list service
 2. Ensure that MTA and HTTP server are running.
 
 3. Start Sympa service.
-   If you are using nginx, you must run WWSympa service, too.
-   If you are using nginx and wish to use SOAP service, you must run SympaSOAP service, too.
 
-   * If your system supports Systemd:
+   * Systemd
      ```
      # systemctl start sympa.service
-     ```
-     and optionally,
-     ```
-     # systemctl start wwsympa.service
-     # systemctl start sympasoap.service
+     # systemctl status sympa.service
      ```
 
-   * If your system supports initscripts:
+   * initscripts
      ```
      # service sympa start
-     ```
-     and optionally,
-     ```
-     # service wwsympa start
-     # service sympasoap start
+     # service sympa status
      ```
 
-4. Start Web browser and access to <http://your.host.dom.ain/sympa>.
+4. Start Web browser and access to <http://web.example.org/sympa>.
 
 5. Follow ``First login`` link, input a listmaster address chosen on
    [previous chapter](generate-initial-configuration.md), and then click

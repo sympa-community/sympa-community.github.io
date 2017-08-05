@@ -13,18 +13,57 @@ Requirements
 General instruction
 -------------------
 
-1. Register service.
+1. Register WWSympa FCGI service.
 
-   * If your system supports Systemd, edit ``nginx-wwsympa.service`` in Sympa
-     source as you prefer, and copy it to Systemd system directory
+   * Systemd
+
+     Edit [example ``wwsympa.service``](../examples/systemd/wwsympa.service)
+     as you prefer, and copy it to Systemd system directory
      (such as ``/usr/lib/systemd/system``) as ``wwsympa.service`` file.
 
-   * If your system supports system V init script, edit
+     ----
+     Note:
+
+     If you installed Sympa from source, you may find a file
+     ``nginx-wwsympa.service`` in ``src/etc/script`` subdirectory of source
+     tree.  Use it as ``wwsympa.service``.
+
+     ----
+
+   * System V init script
+
+     If your system supports system V init script, edit
      [example init script](../examples/initscripts/wwsympa) as you prefer, and
-     copy it to sysV init directory (such as ``/etc/rc.d/init.d``) as
+     copy it to system V init directory (such as ``/etc/rc.d/init.d``) as the
      ``wwsympa`` file.
 
-2. Add following excerpt to nginx configuration and edit it as you prefer
+2. Start WWSympa FCGI service.
+
+   * Systemd
+     ```bash
+     # systemctl start wwsympa.service
+     # systemctl status wwsympa.service
+     ```
+
+   * initscripts
+     ```bash
+     # service wwsympa start
+     # service wwsympa status
+     ```
+
+3. Activate WWSympa FCGI service.
+
+   * Systemd
+     ```bash
+     # systemctl enable wwsympa.service
+     ```
+
+   * initscripts
+     ```bash
+     # chkconfig wwsympa on
+     ```
+
+4. Add following excerpt to nginx configuration and edit it as you prefer
    (Note: replace [``$PIDDIR``](../layout.md#piddir),
    [``$LIBEXECDIR``](../layout.md#libexecdir) and
    [``$STATICDIR``](../layout.md#staticdir) below):
@@ -48,6 +87,10 @@ General instruction
        }
    }
    ```
+   Note that ``server_name`` directive above should contain host part of
+   [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
+   Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
+   web host name of the service.
 
-3. Restart nginx.
+5. Restart nginx.
 

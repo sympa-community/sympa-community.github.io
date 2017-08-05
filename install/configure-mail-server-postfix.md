@@ -15,8 +15,8 @@ Two ways to integrate
 ---------------------
 
 There are two ways to integrate Sympa into Postfix:
-* _fully virtual_ setting (using ``postmap`` and transports).
-* _single domain_ setting (using ``postalias`` and alias database).
+* _Fully virtual_ setting (using ``postmap`` and transports).
+* _Single domain_ setting (using ``postalias`` and alias database).
 
 The former is recommended.  However, if you will never have plan to manage
 multiple domains, the latter is easier way.
@@ -40,8 +40,8 @@ Steps in this section may be done once at the first time.
    aliases_program postmap
    aliases_db_type hash
    ```
-   By these settings, sympa_transport will be updated automatically when any
-   lists are created, closed, restored or purged.
+   By these settings, ``sympa_transport`` file will be updated automatically
+   when any lists are created, closed, restored or purged.
 
 2. Create empty map files (Note:
    replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
