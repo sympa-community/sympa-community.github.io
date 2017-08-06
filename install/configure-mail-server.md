@@ -23,8 +23,8 @@ Requirements
 Instruction by MTAs
 -------------------
 
-- [Sendmail](configure-mail-server-sendmail.md)
+- ~~[exim](configure-mail-server-exim.md)~~ (Work in progress)
+- ~~[OpenSMTPD](configure-mail-server-opensmtpd.md)~~ (Work in progress)
 - [Postfix](configure-mail-server-postfix.md)
-- [OpenSMTPD](configure-mail-server-opensmtpd.md)
-- [Other MTAs](configure-mail-server-other-mtas.md)
+- [Sendmail](configure-mail-server-sendmail.md)
 

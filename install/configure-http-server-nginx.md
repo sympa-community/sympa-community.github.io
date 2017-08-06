@@ -20,7 +20,7 @@ Requirements
 General instruction
 -------------------
 
-1. Register WWSympa FCGI service.
+1. Register WWSympa FastCGI service.
 
    * Systemd
 
@@ -31,10 +31,9 @@ General instruction
      ----
      Note:
 
-     If you installed Sympa from source, you may find a file
-     ``nginx-wwsympa.service`` in ``src/etc/script`` subdirectory of source
-     tree.  Use it as ``wwsympa.service``.
-
+     * If you installed Sympa from source, you may find a file
+       ``nginx-wwsympa.service`` in ``src/etc/script`` subdirectory of source
+       tree.  Use it as ``wwsympa.service``.
      ----
 
    * System V init script
@@ -44,7 +43,7 @@ General instruction
      copy it to system V init directory (such as ``/etc/rc.d/init.d``) as the
      ``wwsympa`` file.
 
-2. Start WWSympa FCGI service.
+2. Start WWSympa FastCGI service.
 
    * Systemd
      ```bash
@@ -58,7 +57,7 @@ General instruction
      # service wwsympa status
      ```
 
-3. Activate WWSympa FCGI service.
+3. Activate WWSympa FastCGI service.
 
    * Systemd
      ```bash

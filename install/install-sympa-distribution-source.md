@@ -17,22 +17,13 @@ See also "[Requirements](../requirements.md)".
 
 * ANSI-compliant C compiler,
   for example [gcc](https://gcc.gnu.org/) (GCC C Compiler)
-  or [clang](http://clang.llvm.org/).
+  or [clang](https://clang.llvm.org/).
 
 * [Perl 5 interpreter](https://www.perl.org/get.html) is required.
   Currently, Perl 5.8.1 and later are supported, however, recent version of
   Perl 5 is recommended.
 
 * [GNU gettext](https://www.gnu.org/software/gettext/).
-
-  ----
-  Note:
-
-  * On several binary releases, required files (``po.m4`` etc.) may be
-    shipped in separate "development package" named such as ``gettext-dev``
-    or ``gettext-devel``.
-
-  ----
 
 * make(1) utility. [GNU make](https://www.gnu.org/software/make/)
   (sometimes called "gmake") is recommended.
@@ -41,8 +32,15 @@ See also "[Requirements](../requirements.md)".
   - [Git](https://git-scm.com/downloads).
   - [GNU autoconf](https://www.gnu.org/software/autoconf/).
   - [GNU automake](https://www.gnu.org/software/automake/).
-  - [GNU gettext](https://www.gnu.org/software/gettext/) which includes
-    utilities msgcat(1), msgfmt(1) and msgmerge(1).
+  - [GNU gettext](https://www.gnu.org/software/gettext/).
+
+    ----
+    Note:
+
+    * On several binary releases, files required to support gettext
+      (``po.m4`` etc.) may be shipped in separate "development package" named
+      such as ``gettext-dev`` or ``gettext-devel``.
+    ----
 
 Installation overview
 ---------------------
@@ -90,10 +88,10 @@ Get and unpack source
 
 ### Release version
 
-If you wish to install release version (and we also recommend it),
+If you wish to install release version
+(this is recommended for production use),
 download the newest source tarball from
 [Sympa release page](https://github.com/sympa-community/sympa/releases).
-
 The source tarball is named ``sympa-6.2.XX.tar.gz``.
 
 Unpack it, and move into the new directory:

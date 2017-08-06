@@ -15,14 +15,12 @@ Edit [``sympa.conf``](../layout.md#config) so that it will contain at least
 two lines such as:
 ```
 domain mail.example.org
-```
-```
 listmaster your@e-mail.addr.ess,other@email.addr.ess
 ```
 
 * [``domain``](../man/sympa.conf.5.md#domain) is the "primary" mail domain
-  name of the mailing list service.  Listmaster(s) of this mail domain name
-  have privileges to manage all domains provided by your Sympa
+  name of the mailing list service.  Listmaster(s) belonging to this mai
+  domain have privileges to manage all domains provided by your Sympa
   (a.k.a. "super-listmaster").
   If your Sympa provides service for single domain, it is primary domain.
 

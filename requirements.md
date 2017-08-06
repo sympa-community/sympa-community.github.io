@@ -86,8 +86,8 @@ Network requirements
 * For web interface, inbound HTTP or HTTPS connections (typically on TCP port
   80 or 443) should be allowed.
 
-Any other unnecessary inbound accesses including database connections should
-be inhibited by taking measures such as firewall.
+* Any other unnecessary inbound accesses including database connections should
+  be inhibited by taking measures such as firewall.
 
 * Finally, at least one **mail domain name** for the mailing list service is
   indispensable.  Appropriate DNS resource record (``MX``, ``A``, ``AAAA``

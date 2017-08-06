@@ -10,6 +10,9 @@ Configure system log
 
 Sympa reports events and errors using syslog protocol.
 
+Sympa configuration parameters
+------------------------------
+
 * The log facility is ``LOCAL1`` by default, and it may be changed by
   [``syslog``](../man/sympa.conf.5.md#syslog) parameter in
   [``sympa.conf``](../layout.md#config).
@@ -23,9 +26,16 @@ Sympa reports events and errors using syslog protocol.
 Traditional syslog
 ------------------
 
-Add following line to syslog.conf:
-```
-local1.* /var/log/sympa.log
-```
-Then restart syslog service.
+1. Create log file:
+   ```bash
+   # touch /var/log/syslog
+   # chmod 640 /var/log/syslog
+   ```
+
+2. Add following line to syslog.conf:
+   ```
+   local1.* /var/log/sympa.log
+   ```
+
+3. Reload syslog service.
 

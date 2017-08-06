@@ -9,7 +9,7 @@ Audiences and scope
 
 This document assumes following kind of people as readers:
 
-* **System administrators**:
+* **System administrators**
 
   People who deploy the server software and maintain them.  They are allowed
   console login, and are able to possess super-user (root) privileges.
@@ -17,7 +17,7 @@ This document assumes following kind of people as readers:
   edit the configuration files using text editor (such as ``vi``, ``nano``,
   ``emacs``).
 
-* **Listmasters**:
+* **Listmasters**
 
   People who manage the mailing list service.  They are allowed login to
   web interface, and possess listmaster privileges to configure service,

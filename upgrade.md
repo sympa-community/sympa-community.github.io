@@ -18,7 +18,7 @@ Upgrading process overview
 
 4. Install new version of Sympa.
 
-5. Upgrade data
+5. Upgrade data.
 
 6. Restart services.
 
@@ -37,8 +37,8 @@ Stop the services
 
 * HTTP server should be stopped.
 
-  On nginx, WWSympa FCGI service should be stopped at least: nginx itself may
-  not be stopped.
+  On nginx, WWSympa FastCGI service should be stopped at least: nginx itself
+  may not be stopped.
 
 * Mail transfer agent (MTA) is recommended to be stopped.
   If it was not stopped, incoming messages will be queued into the spools of
@@ -47,7 +47,7 @@ Stop the services
 * Database service _must not_ be stopped during upgrading process.
 
 Back up everything
-----=-------------
+------------------
 
 It is recommended to back up all configurations and database in advance.
 
@@ -56,7 +56,7 @@ It is recommended to back up all configurations and database in advance.
   - Global configuration ([``$SYSCONFDIR``](layout.md#sysconfdir)).
   - List home ([``$EXPLDIR``](layout.md#expldir)).
 
-* To backup database, please consult the documentation of database server.
+* To back up database, please consult the documentation of database server.
 
 * Contrary to expectations, default settings, especially default templates,
   are frequently changed on release by release.  Backing up files under
@@ -73,10 +73,10 @@ See the documentaion of each distribution to know how to update packages.
 ### General instruction
 
 1. Install new version of Sympa distribution according to description in
-   "[Installing Sympa distribution](install/installing-sympa-distribution.md)".
+   "[Install Sympa distribution](install/install-sympa-distribution.md)".
 
 2. Update dependent modules if necessary according to description in
-   "[Installing dependent modules](install/installing-dependent-modules.md).
+   "[Install dependent modules](install/install-dependent-modules.md).
 
 Upgrade data
 ------------
@@ -86,7 +86,7 @@ Upgrade data
    # sympa.pl --upgrade
    ```
    This will upgrade database schema and reload configuration caches
-   (This step will be done automatically by binary releases)
+   (On binary releases, this step will be done automatically).
 
 2. If the Release Notes suggest any manual adjustments, carry out them.
 

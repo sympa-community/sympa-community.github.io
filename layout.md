@@ -176,7 +176,7 @@ Location of each spool may be overridden by
 | FreeBSD                     | ``/usr/local/share/sympa/defaults`` |
 | RPM                         | ``/usr/share/sympa/default``     |
 | Source distribution default | ``/home/sympa/default``          |
-| Suggested configure option | ``/usr/local/share/sympa/default'`` |
+| Suggested configure option | ``/usr/local/share/sympa/default`` |
 
 #### ``$STATICDIR``
 

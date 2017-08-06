@@ -22,14 +22,14 @@ Two ways to integrate
 ---------------------
 
 There are two ways to integrate Sympa into Postfix:
-* _Fully virtual_ setting (using ``postmap`` and transports).
+* _Virtual domain_ setting (using ``postmap`` and transports).
 * _Single domain_ setting (using ``postalias`` and alias database).
 
 The former is recommended.  However, if you will never have plan to manage
 multiple domains, the latter is easier way.
 
-Fully virtual setting
----------------------
+Virtual domain setting
+----------------------
 
 ### Initial setting
 
@@ -67,7 +67,7 @@ Steps in this section may be done once at the first time.
    # sympa_newaliases.pl
    ```
 
-3. Edit master.cf to add transport definitions (Note:
+3. Edit Postfix master.cf to add transport definitions (Note:
    replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
    ```
    sympa   unix    -       n       n       -       -       pipe
@@ -99,12 +99,12 @@ Steps in this section may be done once at the first time.
    ```
    ----
    Note:
+
    * If
      [``mydestination``](http://www.postfix.org/postconf.5.html#mydestination)
      parameter in main.cf includes the virtual domain listed in
      ``virtual_mailbox_domains``, Postfix outputs warnings to system log.
      Remove virtual domain(s) from ``mydestination``.
-
    ----
 
 ### Adding new domain
@@ -173,7 +173,7 @@ Single domain setting
    abuse-feedback-report: "| $LIBEXECDIR/bouncequeue sympa@mail.example.org"
    sympa-request:         postmaster
    sympa-owner:           postmaster
-   #listserv:	          sympa
+   #listserv:             sympa
    #listserv-request:     sympa-request
    #majordomo:            sympa
    #listserv-owner:       sympa-owner

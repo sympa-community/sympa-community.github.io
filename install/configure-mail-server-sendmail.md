@@ -58,7 +58,7 @@ General instruction
    abuse-feedback-report: "| $LIBEXECDIR/bouncequeue sympa@mail.example.org"
    sympa-request:         postmaster
    sympa-owner:           postmaster
-   #listserv:	          sympa
+   #listserv:             sympa
    #listserv-request:     sympa-request
    #majordomo:            sympa
    #listserv-owner:       sympa-owner

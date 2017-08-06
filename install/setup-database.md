@@ -24,5 +24,4 @@ Instruction by RDBMSs
 - [Oracle Database](setup-database-oracle.md)
 - [PostgreSQL](setup-database-postgresql.md)
 - [SQLite](setup-database-sqlite.md)
-- [Other RDBMSs](setup-database-other-rdbmss.md)
 

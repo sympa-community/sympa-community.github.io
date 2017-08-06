@@ -63,6 +63,15 @@ multiple domains, the latter is easier way.
 Virtual domain setting
 ----------------------
 
+### Initial setting
+
+Steps in this section may be done once at the first time.
+
+1. Setup HTTP server according to description in
+   "[Instruction by HTTP servers](#instruction-by-http-servers)".
+
+### Adding new domain
+
 1. If directories for virtual domain configurations have not been created,
    create them (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
    [``$EXPLDIR``](../layout.md#expldir) and ``mail.example.org`` below):
@@ -80,10 +89,7 @@ Virtual domain setting
    wwsympa_url http://web.example.org/sympa
    ```
 
-If you want to add another domain, repeat steps above by each domain.
-
-3. Setup HTTP server according to description in
-   "[Instruction by HTTP servers](#instruction-by-http-servers)".
+If you want to add another domain, repeat steps in this section by each domain.
 
 Single domain setting
 ---------------------

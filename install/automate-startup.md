@@ -25,6 +25,7 @@ Systemd
    ```
    d /var/run/sympa 0755 sympa sympa -
    ```
+   On binary releases, volatile directories will be managed automatically.
 
 3. Activate Sympa service.
    ```bash
