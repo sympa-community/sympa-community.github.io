@@ -10,7 +10,7 @@ Table of contents
 - [Requirements](requirements.md)
 - [Installing Sympa](install.md)
 - [Upgrading Sympa](upgrade.md)
-- ~~[Administering Sympa](admin.md)~~ (Work in progress)
+- [Administering Sympa](admin.md)
 - ~~[Customizing Sympa](customize.md)~~ (Work in progress)
 
 ----

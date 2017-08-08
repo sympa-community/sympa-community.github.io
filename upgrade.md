@@ -2,6 +2,7 @@
 title: 'Upgrading Sympa'
 prev: install.md
 up: ./
+next: admin.md
 ---
 
 Upgrading Sympa
@@ -33,6 +34,8 @@ describe measures you can take.
 Stop the services
 -----------------
 
+See also "[Stopping services](admin/services.md#stopping-services)".
+
 * Sympa services should be stopped.
 
 * HTTP server should be stopped.
@@ -44,7 +47,7 @@ Stop the services
   If it was not stopped, incoming messages will be queued into the spools of
   Sympa and processed when the services will restart.
 
-* Database service _must not_ be stopped during upgrading process.
+* Note that database service _must not_ be stopped during upgrading process.
 
 Back up everything
 ------------------
@@ -92,6 +95,8 @@ Upgrade data
 
 Restart services
 ----------------
+
+See also "[Starting services](admin/services.md#starting-services)".
 
 Restart services and check if the system will work properly.
 
