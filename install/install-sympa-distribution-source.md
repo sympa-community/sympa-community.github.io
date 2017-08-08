@@ -32,14 +32,15 @@ See also "[Requirements](../requirements.md)".
   - [Git](https://git-scm.com/downloads).
   - [GNU autoconf](https://www.gnu.org/software/autoconf/).
   - [GNU automake](https://www.gnu.org/software/automake/).
-  - [GNU gettext](https://www.gnu.org/software/gettext/).
+  - [GNU gettext](https://www.gnu.org/software/gettext/) development files.
 
     ----
     Note:
 
-    * On several binary releases, files required to support gettext
+    * On several binary releases, GNU gettext development files
       (``po.m4`` etc.) may be shipped in separate "development package" named
       such as ``gettext-dev`` or ``gettext-devel``.
+
     ----
 
 Installation overview

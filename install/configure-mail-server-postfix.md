@@ -97,6 +97,7 @@ Steps in this section may be done once at the first time.
    # For VERP
    recipient_delimiter = +
    ```
+
    ----
    Note:
 
@@ -105,6 +106,7 @@ Steps in this section may be done once at the first time.
      parameter in main.cf includes the virtual domain listed in
      ``virtual_mailbox_domains``, Postfix outputs warnings to system log.
      Remove virtual domain(s) from ``mydestination``.
+
    ----
 
 ### Adding new domain
