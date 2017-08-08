@@ -27,6 +27,12 @@ Requirements
   Through the instructions in this chapter, ``http://web.example.org/sympa``
   will be used for example.
 
+* Several binary distributions need additional packages installed to enable
+  web interface.
+
+  - RPM: Install ``sympa-httpd``, ``sympa-lighttpd`` or ``sympa-nginx``
+    package according to HTTP servers you will configure.
+
 Sympa configuration parameters
 ------------------------------
 
@@ -94,7 +100,7 @@ If you want to add another domain, repeat steps in this section by each domain.
 Single domain setting
 ---------------------
 
-1. Edit [sympa.conf](../layout.md#config) to add parameters described in
+1. Edit [``sympa.conf``](../layout.md#config) to add parameters described in
    previous section:
    ```
    domain (...existing parameter value...)

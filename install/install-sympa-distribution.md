@@ -17,8 +17,7 @@ Instruction by distributions
 - ~~[FreeBSD Ports/Packages](install-sympa-distribution-ports.md)~~
   (Work in progress)
 
-- ~~[RPM package](install-sympa-distribution-rpm.md)~~
-  (Work in progress)
+- [RPM package](install-sympa-distribution-rpm.md)
 
 - [Installing from source](install-sympa-distribution-source.md)
 

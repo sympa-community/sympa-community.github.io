@@ -40,5 +40,19 @@ General instruction
    }
    ```
 
+   ----
+   Note:
+
+   * Some binary distributions ship configuration ready to edit:
+
+     - On RPM, ``/etc/lighttpd/sympa.conf`` file is prepared.  To add it to
+       configuration, you might want to add a line at the bottom in
+       ``lighttpd.conf``:
+       ```
+       include /etc/lighttpd/sympa.conf
+       ```
+
+   ----
+
 2. Restart lighttpd.
 

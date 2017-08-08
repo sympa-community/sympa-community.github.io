@@ -64,10 +64,20 @@ General instruction
    #RewriteEngine on
    #RewriteRule ^/?$ /sympa [R=301]
    ```
+
    Note that ``ServerName`` or ``ServerAlias`` directive should define
    the host part of [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url)
    parameter.  Because Sympa refers to ``SERVER_NAME`` CGI environment variable
    to determine host name of web service.
+
+   ----
+   Note:
+
+   * Some binary distributions ship configuration ready to edit:
+
+     - On RPM, ``/etc/httpd/conf.d/sympa.conf`` file is prepared.
+
+   ----
 
 2. Restart httpd.
 

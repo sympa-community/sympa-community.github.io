@@ -93,10 +93,20 @@ General instruction
        }
    }
    ```
+
    Note that ``server_name`` directive above should contain host part of
    [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
    Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
    web host name of the service.
+
+   ----
+   Note:
+
+   * Some binary distributions ship configuration ready to edit:
+
+     - On RPM, ``/etc/nginx/conf.d/sympa.conf`` file is prepared.
+
+   ----
 
 5. Restart nginx.
 
