@@ -2,7 +2,7 @@
 title: 'Configure mail server: Sendmail'
 prev: configure-system-log.md
 up: configure-mail-server.md
-next: configure-http-server.md
+next: configure-mail-server.md#tests
 ---
 
 Configure mail server: Sendmail

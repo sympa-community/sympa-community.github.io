@@ -28,3 +28,25 @@ Instruction by MTAs
   - [Postfix](configure-mail-server-postfix.md)
   - [Sendmail](configure-mail-server-sendmail.md)
 
+Tests
+-----
+
+  1. Start mail user agent (MUA) on your PC or PDA.
+
+  2. Send any message to ``sympa-request@mail.example.org``.
+     And confirm that your message will be delivered to ``postmaster``.
+
+  3. Send a message with a subject "help" to ``sympa@mail.example.org``.
+     And confirm that the message will be stored into
+     ``[$SPOOLDIR](../layout.md#spooldir)/msg`` directory.
+
+     ----
+     Note:
+
+       * Afterward when the service will start, this message will be processed
+         by Sympa and a help messsage will be sent back to you.
+
+     ----
+
+If something went unexpected, check mail system log and configuration of MTA.
+
