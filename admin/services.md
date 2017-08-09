@@ -14,34 +14,34 @@ Services overview
 
 Several daemons collaboratively provide mailing list service.
 
-* [``archived.pl``](../man/archived.8.md)
+  * [``archived.pl``](../man/archived.8.md)
 
-  Archiving daemon.
+    Archiving daemon.
 
-* [``bounced.pl``](../man/bounced.8.md)
+  * [``bounced.pl``](../man/bounced.8.md)
 
-  Bounce processing daemon.
+    Bounce processing daemon.
 
-* [``bulk.pl``](../man/bulk.8.md)
+  * [``bulk.pl``](../man/bulk.8.md)
 
-  Daemon for submitting messages to mail transfer agent (MTA).
-  It may fork several workers as necessity.
+    Daemon for submitting messages to mail transfer agent (MTA).
+    It may fork several workers as necessity.
 
-* [``sympa_msg.pl``](../man/sympa_msg.8.md)
+  * [``sympa_msg.pl``](../man/sympa_msg.8.md)
 
-  Daemon to handle incoming messages.
-  It may fork several workers as necessity.
+    Daemon to handle incoming messages.
+    It may fork several workers as necessity.
 
-* [``task_manager.pl``](../man/task_manager.8.md)
+  * [``task_manager.pl``](../man/task_manager.8.md)
 
-  Daemon to process periodical tasks.
+    Daemon to process periodical tasks.
 
 And optionally:
 
-* [``sympa_automatic.pl``](../man/sympa_automatic.8.md)
+  * [``sympa_automatic.pl``](../man/sympa_automatic.8.md)
 
-  Automatic list creation daemon.
-  It may be invoked by ``sympa_msg.pl`` as necessity.
+    Automatic list creation daemon.
+    It may be invoked by ``sympa_msg.pl`` as necessity.
 
 ### Mail transfer agent (MTA)
 
@@ -66,63 +66,63 @@ Starting and stopping services
 
 ### Checking status of Sympa services
 
-* Systemd:
-  ```bash
-  # systemctl status sympa
-  ```
+  * Systemd:
+    ```bash
+    # systemctl status sympa
+    ```
 
-* initscripts:
-  ```bash
-  # service sympa status
-  ```
+  * initscripts:
+    ```bash
+    # service sympa status
+    ```
 
 ### Stopping services
 
-1. Ensure that HTTP server is stopping.
+  1. Ensure that HTTP server is stopping.
 
-   On nginx, only WWSympa FastCGI service (``wwsympa``) may be stopped
-   in many cases: nginx itself may not be stopped.
+     On nginx, only WWSympa FastCGI service (``wwsympa``) may be stopped
+     in many cases: nginx itself may not be stopped.
 
-2. Ensure that mail server is stopping.
+  2. Ensure that mail server is stopping.
 
-3. Stop Sympa services.
+  3. Stop Sympa services.
 
-   * Systemd:
-     ```bash
-     # systemctl stop sympa
-     # systemctl status sympa
-     ```
+       * Systemd:
+         ```bash
+         # systemctl stop sympa
+         # systemctl status sympa
+         ```
 
-   * initscripts:
-     ```bash
-     # service sympa stop
-     # service sympa status
-     ```
+       * initscripts:
+         ```bash
+         # service sympa stop
+         # service sympa status
+         ```
 
-4. Database service may be stopped when all services above are stopping.
+  4. Database service may be stopped when all services above are stopping.
 
 ### Starting services
 
-1. Ensure that database service is running.
+  1. Ensure that database service is running.
 
-2. Start Sympa services.
+  2. Start Sympa services.
 
-   * Systemd:
-     ```bash
-     # systemctl start sympa
-     # systemctl status sympa
-     ```
+       * Systemd:
+         ```bash
+         # systemctl start sympa
+         # systemctl status sympa
+         ```
 
-   * initscripts:
-     ```bash
-     # service sympa start
-     # service sympa status
-     ```
+       * initscripts:
+         ```bash
+         # service sympa start
+         # service sympa status
+         ```
 
-3. Start mail server.
+  3. Start mail server.
 
-4. Start HTTP server, if necessary.
+  4. Start HTTP server, if necessary.
 
-   On nginx, WWSympa FastCGI service (``wwsympa``) must be started
-   along with nginx itself.
+     On nginx, WWSympa FastCGI service (``wwsympa``) must be started
+     along with nginx itself.
 

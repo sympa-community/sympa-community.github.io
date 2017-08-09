@@ -11,20 +11,20 @@ Configure mail server
 Requirements
 ------------
 
-* Mail transfer agent (MTA):
-  See also "[Requirements](../requirements.md#mail-transfer-agent-mta)".
+  * Mail transfer agent (MTA):
+    See also "[Requirements](../requirements.md#mail-transfer-agent-mta)".
 
-* A mail domain name for the mailing list service.
-  See also "[Requirements](../requirements.md#network-requirements)".
+  * A mail domain name for the mailing list service.
+    See also "[Requirements](../requirements.md#network-requirements)".
 
-  Through the instructions in this chapter, ``mail.example.org`` will be used
-  for example.
+    Through the instructions in this chapter, ``mail.example.org`` will be
+    used for example.
 
 Instruction by MTAs
 -------------------
 
-- ~~[exim](configure-mail-server-exim.md)~~ (Work in progress)
-- ~~[OpenSMTPD](configure-mail-server-opensmtpd.md)~~ (Work in progress)
-- [Postfix](configure-mail-server-postfix.md)
-- [Sendmail](configure-mail-server-sendmail.md)
+  - ~~[exim](configure-mail-server-exim.md)~~ (Work in progress)
+  - ~~[OpenSMTPD](configure-mail-server-opensmtpd.md)~~ (Work in progress)
+  - [Postfix](configure-mail-server-postfix.md)
+  - [Sendmail](configure-mail-server-sendmail.md)
 

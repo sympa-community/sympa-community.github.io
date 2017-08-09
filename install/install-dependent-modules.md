@@ -18,12 +18,16 @@ dependent modules may have been installed: You can
 General instruction
 -------------------
 
+### Using sympa_wizard
+
 Run ``sympa_wizard`` to install dependent modules.
 ```
 # sympa_wizard.pl --check
 ```
 It checks your system, gets lacking or outdated modules from
 [CPAN](https://www.cpan.org/) and installs them.
+
+### Using package management tools
 
 Also, you can use any package management tools on your system
 (apt, yum, pkg, ...) or generic tools

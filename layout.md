@@ -26,8 +26,8 @@ symbols with real paths on your Sympa.
 
 **Aliases file**
 
-* This path may be overridden by
-  [``sendmail_aliases``](man/sympa.conf.5.md#sendmail_aliases) parameter.
+  * This path may be overridden by
+    [``sendmail_aliases``](man/sympa.conf.5.md#sendmail_aliases) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -53,8 +53,8 @@ symbols with real paths on your Sympa.
 
 **List home**.  Base directory of list configurations.
 
-* This path may be overridden by
-  [``home``](man/sympa.conf.5.md#home) parameter.
+  * This path may be overridden by
+    [``home``](man/sympa.conf.5.md#home) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -69,20 +69,20 @@ symbols with real paths on your Sympa.
 
 **Base directory of spools**.
 
-Location of each spool may be overridden by
-[queue](man/sympa.conf.5.md#queue),
-[queueauth](man/sympa.conf.5.md#queueauth),
-[queueautomatic](man/sympa.conf.5.md#queueautomatic),
-[queuebounce](man/sympa.conf.5.md#queuebounce),
-[queuebulk](man/sympa.conf.5.md#queuebulk),
-[queuedigest](man/sympa.conf.5.md#queuedigest),
-[queuemod](man/sympa.conf.5.md#queuemod),
-[queueoutgoing](man/sympa.conf.5.md#queueoutgoing),
-[queuesubscribe](man/sympa.conf.5.md#queuesubscribe),
-[queuetask](man/sympa.conf.5.md#queuetask),
-[queuetopic](man/sympa.conf.5.md#queuetopic),
-[tmpdir](man/sympa.conf.5.md#tmpdir) or
-[viewmail_dir](man/sympa.conf.5.md#viewmail_dir) parameter.
+  * Location of each spool may be overridden by
+    [queue](man/sympa.conf.5.md#queue),
+    [queueauth](man/sympa.conf.5.md#queueauth),
+    [queueautomatic](man/sympa.conf.5.md#queueautomatic),
+    [queuebounce](man/sympa.conf.5.md#queuebounce),
+    [queuebulk](man/sympa.conf.5.md#queuebulk),
+    [queuedigest](man/sympa.conf.5.md#queuedigest),
+    [queuemod](man/sympa.conf.5.md#queuemod),
+    [queueoutgoing](man/sympa.conf.5.md#queueoutgoing),
+    [queuesubscribe](man/sympa.conf.5.md#queuesubscribe),
+    [queuetask](man/sympa.conf.5.md#queuetask),
+    [queuetopic](man/sympa.conf.5.md#queuetopic),
+    [tmpdir](man/sympa.conf.5.md#tmpdir) or
+    [viewmail_dir](man/sympa.conf.5.md#viewmail_dir) parameter.
 
 | Distribution                | Path                             |
 |-----------------------------|----------------------------------|
@@ -96,7 +96,8 @@ Location of each spool may be overridden by
 
 **Base directory of global configuration** (except ``sympa.conf``).
 
-* This path may be overridden by [``etc``](man/sympa.conf.5.md#etc) parameter.
+  * This path may be overridden by
+    [``etc``](man/sympa.conf.5.md#etc) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -182,8 +183,9 @@ Location of each spool may be overridden by
 
 **Base path of static web contents**.
 
-* This path may be overridden by
-  [``static_content_path``](man/sympa.conf.5.md#static_content_path) parameter.
+  * This path may be overridden by
+    [``static_content_path``](man/sympa.conf.5.md#static_content_path)
+    parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -197,8 +199,8 @@ Location of each spool may be overridden by
 
 **Base directory of archives**.
 
-* This path may be overridden by
-  [``arc_path``](man/sympa.conf.5.md#arc_path) parameter.
+  * This path may be overridden by
+    [``arc_path``](man/sympa.conf.5.md#arc_path) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -211,9 +213,9 @@ Location of each spool may be overridden by
 #### ``$BOUNCEDIR``
 
 **Base directory of bounce and tracking information**.
- 
-* This path may be overridden by
-  [``bounce_path``](man/sympa.conf.5.md#bounce_path) parameter.
+
+  * This path may be overridden by
+    [``bounce_path``](man/sympa.conf.5.md#bounce_path) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -226,8 +228,8 @@ Location of each spool may be overridden by
 ----
 Note:
 
-* All paths above are defined in an internal module
-  [``$MODULEDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
+  * All paths above are defined in an internal module
+    [``$MODULEDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
 
 ----
 

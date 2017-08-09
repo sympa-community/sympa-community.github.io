@@ -13,46 +13,49 @@ Requirements
 
 See also "[Requirements](../requirements.md)".
 
-* [GNU tar](https://www.gnu.org/software/tar/) (sometimes called "gtar").
+  * [GNU tar](https://www.gnu.org/software/tar/) (sometimes called "gtar").
 
-* ANSI-compliant C compiler,
-  for example [gcc](https://gcc.gnu.org/) (GCC C Compiler)
-  or [clang](https://clang.llvm.org/).
+  * ANSI-compliant C compiler,
+    for example [gcc](https://gcc.gnu.org/) (GCC C Compiler)
+    or [clang](https://clang.llvm.org/).
 
-* [Perl 5 interpreter](https://www.perl.org/get.html) is required.
-  Currently, Perl 5.8.1 and later are supported, however, recent version of
-  Perl 5 is recommended.
+  * [Perl 5 interpreter](https://www.perl.org/get.html) is required.
+    Currently, Perl 5.8.1 and later are supported, however, recent version of
+    Perl 5 is recommended.
 
-* [GNU gettext](https://www.gnu.org/software/gettext/).
+  * [GNU gettext](https://www.gnu.org/software/gettext/).
 
-* make(1) utility. [GNU make](https://www.gnu.org/software/make/)
-  (sometimes called "gmake") is recommended.
+  * make(1) utility. [GNU make](https://www.gnu.org/software/make/)
+    (sometimes called "gmake") is recommended.
 
-* If you wish to install development version, these packages are also needed:
-  - [Git](https://git-scm.com/downloads).
-  - [GNU autoconf](https://www.gnu.org/software/autoconf/).
-  - [GNU automake](https://www.gnu.org/software/automake/).
-  - [GNU gettext](https://www.gnu.org/software/gettext/) development files.
+  * If you wish to install development version, these packages are also
+    needed:
 
-    ----
-    Note:
+      - [Git](https://git-scm.com/downloads).
+      - [GNU autoconf](https://www.gnu.org/software/autoconf/).
+      - [GNU automake](https://www.gnu.org/software/automake/).
+      - [GNU gettext](https://www.gnu.org/software/gettext/) development
+        files.
 
-    * On several binary releases, GNU gettext development files
-      (``po.m4`` etc.) may be shipped in separate "development package" named
-      such as ``gettext-dev`` or ``gettext-devel``.
+        ----
+        Note:
 
-    ----
+          * On several binary releases, GNU gettext development files
+            (``po.m4`` etc.) may be shipped in separate "development package"
+            named such as ``gettext-dev`` or ``gettext-devel``.
+
+        ----
 
 Installation overview
 ---------------------
 
-1. Create system group and user.
+  1. Create system group and user.
 
-2. Get and unpack source.
+  2. Get and unpack source.
 
-3. Run ``configure`` script.
+  3. Run ``configure`` script.
 
-4. Build and install.
+  4. Build and install.
 
 Create system group and user
 ----------------------------
@@ -121,20 +124,20 @@ $ git pull
 ----
 Note:
 
-* If you are planning to contribute to Sympa by fixing bugs or adding
-  enhancements, you would be better to create GitHub account of your own,
-  "fork" original repository and work on it.  For more details see
-  [GitHub documentation](https://help.github.com/articles/fork-a-repo/).
+  * If you are planning to contribute to Sympa by fixing bugs or adding
+    enhancements, you would be better to create GitHub account of your own,
+    "fork" original repository and work on it.  For more details see
+    [GitHub documentation](https://help.github.com/articles/fork-a-repo/).
 
 ----
 
 Run ``configure`` script
 ------------------------
 
-* Note for development version: You should run ``autoreconf`` in advance:
-  ```
-  $ autoreconf -i
-  ```
+  * Note for development version: You should run ``autoreconf`` in advance:
+    ```
+    $ autoreconf -i
+    ```
 
 Run ``configure`` script with appropriate options:
 ```
@@ -158,40 +161,40 @@ $ ./configure --enable-fhs --prefix=/usr/local --with-confdir=/etc/sympa (...oth
 ----
 Note:
 
-* On the future releases of Sympa, the ``--enable-fhs`` option will be enabled
-  by default.
+  * On the future releases of Sympa, the ``--enable-fhs`` option will be
+    enabled by default.
 
 ----
 
 ### Other useful options
 
-- ``--with-initdir=/etc/rc.d/init.d``
+  - ``--with-initdir=/etc/rc.d/init.d``
 
-  Installs system V init scripts into specified directory.
+    Installs system V init scripts into specified directory.
 
-- ``--without-initdir --with-unitsdir=/usr/lib/systemd/system``
+  - ``--without-initdir --with-unitsdir=/usr/lib/systemd/system``
 
-  Installs Systemd unit files into specified directory.
+    Installs Systemd unit files into specified directory.
 
-- ``--without-initdir``
+  - ``--without-initdir``
 
-  Installs neither of system V init scripts nor Systemd unit files.
+    Installs neither of system V init scripts nor Systemd unit files.
 
-- ``--with-perl=/path/to/perl``
+  - ``--with-perl=/path/to/perl``
 
-  Uses alternative Perl interpreter.
+    Uses alternative Perl interpreter.
 
-- ``--with-makemap=/path/to/makemap``,
-  ``--with-newaliases=/path/to/newaliases``,
-  ``--with-postalias=/path/to/postalias``,
-  ``--with-postmap=/path/to/postmap``
+  - ``--with-makemap=/path/to/makemap``,
+    ``--with-newaliases=/path/to/newaliases``,
+    ``--with-postalias=/path/to/postalias``,
+    ``--with-postmap=/path/to/postmap``
 
-  Specifys paths to makemap, newaliases, postalias and postmap.
-  By default, they are automatically detected.
+    Specifys paths to makemap, newaliases, postalias and postmap.
+    By default, they are automatically detected.
 
-- ``--without-smrshdir``
+  - ``--without-smrshdir``
 
-  Does not install symbolic links only useful for Sendmail smrsh.
+    Does not install symbolic links only useful for Sendmail smrsh.
 
 To know about all available options for configure script, run:
 ```

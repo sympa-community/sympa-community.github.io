@@ -11,49 +11,49 @@ Configure HTTP server
 Requirements
 ------------
 
-* HTTP server to provide web interface:
-  See also "[Requirements](../requirements.md#http-server)".
+  * HTTP server to provide web interface:
+    See also "[Requirements](../requirements.md#http-server)".
 
-* A mail domain name for the mailing list service.  It must have been chosen
-  when you [configured mail server](configure-mail-server.md).
+  * A mail domain name for the mailing list service.  It must have been chosen
+    when you [configured mail server](configure-mail-server.md).
 
-  Through the instructions in this chapter, ``mail.example.org`` will be used
-  for example.
+    Through the instructions in this chapter, ``mail.example.org`` will be
+    used for example.
 
-* The URL prefix dedicated for WWSympa service.  Either ``http`` or ``https``
-  scheme may be used.  The host part may or may not be the same as mail domain
-  name.
+  * The URL prefix dedicated for WWSympa service.  Either ``http`` or
+    ``https`` scheme may be used.
+    The host part may or may not be the same as mail domain name.
 
-  Through the instructions in this chapter, ``http://web.example.org/sympa``
-  will be used for example.
+    Through the instructions in this chapter, ``http://web.example.org/sympa``
+    will be used for example.
 
-* Several binary distributions need additional packages installed to enable
-  web interface.
+  * Several binary distributions need additional packages installed to enable
+    web interface.
 
-  - RPM: Install ``sympa-httpd``, ``sympa-lighttpd`` or ``sympa-nginx``
-    package according to HTTP servers you will configure.
+      - RPM: Install ``sympa-httpd``, ``sympa-lighttpd`` or ``sympa-nginx``
+        package according to HTTP servers you will configure.
 
 Sympa configuration parameters
 ------------------------------
 
-* [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url)
+  * [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url)
 
-  This is URL prefix of WWSympa service _without_ trailing slash (``/``).
+    This is URL prefix of WWSympa service _without_ trailing slash (``/``).
 
-* [``static_content_url``](../man/sympa.conf.5.md#static_content_url)
+  * [``static_content_url``](../man/sympa.conf.5.md#static_content_url)
 
-  This is URL path or full URL of static content.  Default value is
-  ``/static-sympa``.  HTTP server have to map it with
-  [``$STATICDIR``](../layout.md#staticdir).
+    This is URL path or full URL of static content.  Default value is
+    ``/static-sympa``.  HTTP server have to map it with
+    [``$STATICDIR``](../layout.md#staticdir).
 
 See ["Web interface parameters" in sympa.conf(5)](../man/sympa.conf.5#web-interface-parameters) for more parameters for web interface.
 
 ----
 Note:
 
-* Value of [``use_fast_cgi``](../man/sympa.conf.5.md#use_fast_cgi) parameter
-  in [``sympa.conf``](../man/sympa.conf.5.md#config) must be ``1``,
-  the default.
+  * Value of [``use_fast_cgi``](../man/sympa.conf.5.md#use_fast_cgi) parameter
+    in [``sympa.conf``](../man/sympa.conf.5.md#config) must be ``1``,
+    the default.
 
 ----
 
@@ -73,48 +73,48 @@ Virtual domain setting
 
 Steps in this section may be done once at the first time.
 
-1. Setup HTTP server according to description in
-   "[Instruction by HTTP servers](#instruction-by-http-servers)".
+  1. Setup HTTP server according to description in
+     "[Instruction by HTTP servers](#instruction-by-http-servers)".
 
 ### Adding new domain
 
-1. If directories for virtual domain configurations have not been created,
-   create them (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
-   [``$EXPLDIR``](../layout.md#expldir) and ``mail.example.org`` below):
-   ```
-   # mkdir -m 755 $SYSCONFDIR/mail.example.org
-   # touch $SYSCONFDIR/mail.example.org/robot.conf
-   # chown -r sympa:sympa $SYSCONFDIR/mail.example.org
-   # mkdir -m 750 $EXPLDIR/mail.example.org
-   # chown sympa:sympa $EXPLDIR/mail.example.org
-   ```
+  1. If directories for virtual domain configurations have not been created,
+     create them (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
+     [``$EXPLDIR``](../layout.md#expldir) and ``mail.example.org`` below):
+     ```
+     # mkdir -m 755 $SYSCONFDIR/mail.example.org
+     # touch $SYSCONFDIR/mail.example.org/robot.conf
+     # chown -r sympa:sympa $SYSCONFDIR/mail.example.org
+     # mkdir -m 750 $EXPLDIR/mail.example.org
+     # chown sympa:sympa $EXPLDIR/mail.example.org
+     ```
 
-2. Edit ``robot.conf`` created by the step above to add parameters described
-   in previous section:
-   ```
-   wwsympa_url http://web.example.org/sympa
-   ```
+  2. Edit ``robot.conf`` created by the step above to add parameters described
+     in previous section:
+     ```
+     wwsympa_url http://web.example.org/sympa
+     ```
 
 If you want to add another domain, repeat steps in this section by each domain.
 
 Single domain setting
 ---------------------
 
-1. Edit [``sympa.conf``](../layout.md#config) to add parameters described in
-   previous section:
-   ```
-   domain (...existing parameter value...)
-   listmaster (...existing parameter value...)
-   wwsympa_url http://web.example.org/sympa
-   ```
+  1. Edit [``sympa.conf``](../layout.md#config) to add parameters described in
+     previous section:
+     ```
+     domain (...existing parameter value...)
+     listmaster (...existing parameter value...)
+     wwsympa_url http://web.example.org/sympa
+     ```
 
-2. Setup HTTP server according to description in
-   "[Instruction by HTTP servers](#instruction-by-http-servers)" section.
+  2. Setup HTTP server according to description in
+     "[Instruction by HTTP servers](#instruction-by-http-servers)" section.
 
 Instruction by HTTP servers
 ---------------------------
 
-- [Apache HTTP Server](configure-http-server-apache.md)
-- [lighttpd](configure-http-server-lighttpd.md)
-- [nginx](configure-http-server-nginx.md)
+  - [Apache HTTP Server](configure-http-server-apache.md)
+  - [lighttpd](configure-http-server-lighttpd.md)
+  - [nginx](configure-http-server-nginx.md)
 
