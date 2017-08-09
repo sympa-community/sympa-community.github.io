@@ -23,8 +23,10 @@ Sympa configuration parameters
     server.  Some platforms including Solaris prefer to ``stream``.  The value
     may also be ``inet``, using TCP or UDP connection.
 
-Traditional syslog
-------------------
+Instruction by syslog servers
+-----------------------------
+
+### Traditional syslog
 
   1. Create log file:
      ```bash
@@ -38,4 +40,24 @@ Traditional syslog
      ```
 
   3. Reload syslog service.
+
+Tests
+-----
+
+  1. Run [``testlogs``](../man/testlogs.1.md) utility (Note: replace
+     [``$SCRIPTDIR``](../layout.md#scriptdir) below):
+     ```bash
+     # $SCRIPTDIR/testlogs.pl
+     ```
+     And confirm that following message will be shown:
+     ```
+     Ok, now check logs
+     ```
+
+  2. Check log file and confirm that following log line was recorded:
+     ```
+     sympa/testlogs[XXXX]: info main:: Logs seems OK, default log level 0
+     ```
+
+If something went unexpected, check configuration of syslog server.
 
