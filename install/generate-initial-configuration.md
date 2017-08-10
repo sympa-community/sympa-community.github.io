@@ -30,6 +30,18 @@ listmaster your@e-mail.addr.ess,other@email.addr.ess
     sent to those addresses must not be forwarded to any addresses managed by
     Sympa.
 
+Additionally, following parameter may be useful:
+
+  * [``lang``](../man/sympa.conf.5.md#lang) is the default language used
+    in user interface of Sympa (Note that this setting never affect languages
+    of messages sent by users).  It should be one of possible values listed
+    in [``supported_lang``](../man/sympa.conf.5.md#supported_lang)
+    parameter.  For example with Polish:
+    ```
+    lang pl
+    ```
+    The default value is ``en-US`` (American English).
+
 To know about all available parameters in sympa.conf,
 see [sympa.conf(5)](../man/sympa.conf.5.md).
 

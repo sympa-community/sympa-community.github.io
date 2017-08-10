@@ -125,7 +125,12 @@ Steps in this section have to be done every time the new domain is added.
      # chown sympa:sympa $EXPLDIR/mail.example.org
      ```
 
-  2. Add following contents to ``transport.sympa`` and ``virtual.sympa``
+  2. If you want to override global settings in
+     [``sympa.conf``](../layout.md#config) (such as
+     [``lang``](../man/sympa.conf.5.md#lang)) by each domain, you can add it
+     to ``robot.conf`` above.
+
+  3. Add following contents to ``transport.sympa`` and ``virtual.sympa``
      and edit them as you prefer (Note: replace ``mail.example.org`` below).
 
      ``transport.sympa``:
@@ -152,7 +157,7 @@ Steps in this section have to be done every time the new domain is added.
      # postmap hash:$SYSCONFDIR/virtual.sympa
      ```
 
-  3. Reload Postfix.
+  4. Reload Postfix.
 
 Single domain setting
 ---------------------

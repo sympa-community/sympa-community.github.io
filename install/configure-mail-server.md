@@ -38,7 +38,9 @@ Tests
 
   3. Send a message with a subject "help" to ``sympa@mail.example.org``.
      And confirm that the message will be stored into
-     ``[$SPOOLDIR](../layout.md#spooldir)/msg`` directory.
+     [incoming spool directory](../man/sympa.conf.5.md#queue) (by default
+     it is ``msg`` subdirectory in [``$SPOOLDIR``](../layout.md#spooldir)
+     directory).
 
      ----
      Note:

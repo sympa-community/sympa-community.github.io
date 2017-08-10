@@ -2,7 +2,7 @@
 title: 'Configure HTTP server: Apache HTTP Server'
 prev: configure-mail-server.md
 up: configure-http-server.md
-next: start-mailing-list-service.md
+next: configure-http-server.md#tests
 ---
 
 Configure HTTP server: Apache HTTP Server

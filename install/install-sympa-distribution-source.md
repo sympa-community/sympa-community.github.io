@@ -96,9 +96,12 @@ If you wish to install release version
 (this is recommended for production use),
 download the newest source tarball from
 [Sympa release page](https://github.com/sympa-community/sympa/releases).
-The source tarball is named ``sympa-6.2.XX.tar.gz``.
 
-Unpack it, and move into the new directory:
+The source tarball is named like ``sympa-6.2.XX.tar.gz``.  Version numbers
+containing non-numeric letter (e.g. ``6.2.17b.1``, ``7.0a``) represent
+prerelease versions which are a bit less stable in exchange for enhancements.
+
+Unpack source tarball, and move into the new directory:
 ```
 $ tar xzf sympa-6.2.XX.tar.gz
 $ cd sympa-6.2.XX

@@ -95,6 +95,20 @@ Steps in this section may be done once at the first time.
      wwsympa_url http://web.example.org/sympa
      ```
 
+     ----
+     Note:
+
+       * On Sympa 6.2.18 or earlier, ``robot.conf`` had to contain additional
+         [``http_host``](../man/sympa.conf.5.md#http_host) parameter, like:
+         ```
+         wwsympa_url http://web.example.org/sympa
+         http_host web.example.org/sympa
+         ```
+         On Sympa 6.2.19b.1 or later, this parameter will not be necessary.
+         ``http_host`` parameter may be obsoleted in the future.
+
+     ----
+
 If you want to add another domain, repeat steps in this section by each domain.
 
 Single domain setting
@@ -117,4 +131,20 @@ Instruction by HTTP servers
   - [Apache HTTP Server](configure-http-server-apache.md)
   - [lighttpd](configure-http-server-lighttpd.md)
   - [nginx](configure-http-server-nginx.md)
+
+Tests
+-----
+
+  1. Start web browser on your PC or PDA.
+
+  2. Open the URL ``http://web.example.org/sympa`` (the URL you have
+     configured).  And confirm that home page of Sympa web interface will be
+     shown.
+
+If something went unexpected, check following information:
+
+  - Logs of HTTP server (error log and access log).
+  - Sympa log file (see also
+    "[Configure system log](configure-system-log.md)").
+  - Configuration of HTTP server and Sympa.
 
