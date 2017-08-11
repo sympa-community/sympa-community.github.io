@@ -75,7 +75,7 @@
               Installing Sympa
               {% if page.path == 'install.md' %}</strong>{% endif %}
             </a>
-            {% if page.path == 'install.md' || page.path contains 'install/' %}
+            {% if page.path == 'install.md' or page.path contains 'install/' %}
               <ol>
               <li>
               <a href="{{ site.github.url }}/install/install-sympa-distribution.html">
@@ -277,7 +277,7 @@
               Administering Sympa
               {% if page.path == 'admin.md' %}</strong>{% endif %}
             </a>
-            {% if page.path == 'admin.md' || page.path contains 'admin/' %}
+            {% if page.path == 'admin.md' or page.path contains 'admin/' %}
               <ol>
               <li>
               <a href="{{ site.github.url }}/admin/services.html">
@@ -312,9 +312,9 @@
             </li>
             <li>
             <a href="{{ site.github.url }}/customize.html">
-              {% if page.path == 'customize.md' || page.path contains 'customize/' %}<strong>{% endif %}
+              {% if page.path == 'customize.md' or page.path contains 'customize/' %}<strong>{% endif %}
               Customizing Sympa
-              {% if page.path == 'customize.md' || page.path contains 'customize/' %}</strong>{% endif %}
+              {% if page.path == 'customize.md' or page.path contains 'customize/' %}</strong>{% endif %}
             </a>
             </li>
           </ol>
