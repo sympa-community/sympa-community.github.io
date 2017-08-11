@@ -10,20 +10,32 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <style>
+      header ol li {
+        border: none;
+        float: none;
+        height: auto;
+        width: auto;
+      }
+      @media print, screen and (max-width: 960px) {
+        nav.toc {
+          display: none;
+        }
+      }
+    </style>
+
   </head>
   <body>
     <div class="wrapper">
       <header>
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
-
-        {% if site.github.is_project_page %}
-          <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
-        {% endif %}
-
-        {% if site.github.is_user_page %}
-          <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
-        {% endif %}
+        <ul>
+          <li><a href="{{ site.github.url }}">Home</a></li>
+          <li><a href="{{ site.github.repository_url }}/tree/master/{{ page.path }}">Source</a></li>
+          <li><a href="{{ site.github.issues_url }}">Issues</a></li>
+        </ul>
 
         {% if site.show_downloads %}
           <ul>
@@ -32,35 +44,344 @@
             <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
           </ul>
         {% endif %}
+
+        <nav class="toc">
+          <p>
+          <a href="{{ site.github.url }}/">
+            {% if page.path == 'index.md' %}<strong>{% endif %}
+            Sympa Administration Manual
+            {% if page.path == 'index.md' %}</strong>{% endif %}
+          </a>
+          </p>
+
+          <ol>
+            <li>
+            <a href="{{ site.github.url }}/scope.html">
+              {% if page.path == 'scope.md' %}<strong>{% endif %}
+              Audiences and scope
+              {% if page.path == 'scope.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="{{ site.github.url }}/requirements.html">
+              {% if page.path == 'requirements.md' %}<strong>{% endif %}
+              Requirements
+              {% if page.path == 'requirements.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="{{ site.github.url }}/install.html">
+              {% if page.path == 'install.md' %}<strong>{% endif %}
+              Installing Sympa
+              {% if page.path == 'install.md' %}</strong>{% endif %}
+            </a>
+            {% if page.path == 'install.md' || page.path contains 'install/' %}
+              <ol>
+              <li>
+              <a href="{{ site.github.url }}/install/install-sympa-distribution.html">
+                {% if page.path == 'install/install-sympa-distribution.md' %}<strong>{% endif %}
+                Install Sympa distribution
+                {% if page.path == 'install/install-sympa-distribution.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'install/install-sympa-distribution' %}
+                <ol>
+                <li>
+                <a href="{{ site.github.url }}/install/install-sympa-distribution-debian.html">
+                  {% if page.path == 'install/install-sympa-distribution-debian.md' %}<strong>{% endif %}
+                  Debian package
+                  {% if page.path == 'install/install-sympa-distribution-debian.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/install-sympa-distribution-ports.html">
+                  {% if page.path == 'install/install-sympa-distribution-ports.md' %}<strong>{% endif %}
+                  FreeBSD Ports/Packages
+                  {% if page.path == 'install/install-sympa-distribution-ports.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/install-sympa-distribution-rpm.html">
+                  {% if page.path == 'install/install-sympa-distribution-rpm.md' %}<strong>{% endif %}
+                  RPM package
+                  {% if page.path == 'install/install-sympa-distribution-rpm.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/install-sympa-distribution-source.html">
+                  {% if page.path == 'install/install-sympa-distribution-source.md' %}<strong>{% endif %}
+                  Installing from source
+                  {% if page.path == 'install/install-sympa-distribution-source.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/install-dependent-modules.html">
+                {% if page.path == 'install/install-dependent-modules.md' %}<strong>{% endif %}
+                Install dependent modules
+                {% if page.path == 'install/install-dependent-modules.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/generate-initial-configuration.html">
+                {% if page.path == 'install/generate-initial-configuration.md' %}<strong>{% endif %}
+                Generate initial configuration
+                {% if page.path == 'install/generate-initial-configuration.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/setup-database.html">
+                {% if page.path == 'install/setup-database.md' %}<strong>{% endif %}
+                Setup database
+                {% if page.path == 'install/setup-database.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'install/setup-database' %}
+                <ol>
+                <li>
+                <a href="{{ site.github.url }}/install/setup-database-mysql.html">
+                  {% if page.path == 'install/setup-database-mysql.md' %}<strong>{% endif %}
+                  MySQL or MariaDB
+                  {% if page.path == 'install/setup-database-mysql.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/setup-database-oracle.html">
+                  {% if page.path == 'install/setup-database-oracle.md' %}<strong>{% endif %}
+                  Oracle Database
+                  {% if page.path == 'install/setup-database-oracle.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/setup-database-postgresql.html">
+                  {% if page.path == 'install/setup-database-postgresql.md' %}<strong>{% endif %}
+                  PostgreSQL
+                  {% if page.path == 'install/setup-database-postgresql.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/setup-database-sqlite.html">
+                  {% if page.path == 'install/setup-database-sqlite.md' %}<strong>{% endif %}
+                  SQLite
+                  {% if page.path == 'install/setup-database-sqlite.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/configure-system-log.html">
+                {% if page.path == 'install/configure-system-log.md' %}<strong>{% endif %}
+                Configure system log
+                {% if page.path == 'install/configure-system-log.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/configure-mail-server.html">
+                {% if page.path == 'install/configure-mail-server.md' %}<strong>{% endif %}
+                Configure mail server
+                {% if page.path == 'install/configure-mail-server.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'install/configure-mail-server' %}
+                <ol>
+                <li>
+                <a href="{{ site.github.url }}/install/configure-mail-server-exim.html">
+                  {% if page.path == 'install/configure-mail-server-exim.md' %}<strong>{% endif %}
+                  exim
+                  {% if page.path == 'install/configure-mail-server-exim.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/configure-mail-server-opensmtpd.html">
+                  {% if page.path == 'install/configure-mail-server-opensmtpd.md' %}<strong>{% endif %}
+                  OpenSMTPD
+                  {% if page.path == 'install/configure-mail-server-opensmtpd.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/configure-mail-server-postfix.html">
+                  {% if page.path == 'install/configure-mail-server-postfix.md' %}<strong>{% endif %}
+                  Postfix
+                  {% if page.path == 'install/configure-mail-server-postfix.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/configure-mail-server-sendmail.html">
+                  {% if page.path == 'install/configure-mail-server-sendmail.md' %}<strong>{% endif %}
+                  Sendmail
+                  {% if page.path == 'install/configure-mail-server-sendmail.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/configure-http-server.html">
+                {% if page.path == 'install/configure-http-server.md' %}<strong>{% endif %}
+                Configure HTTP server
+                {% if page.path == 'install/configure-http-server.md' %}</strong>{% endif %}
+              </a>
+              {% if page.path contains 'install/configure-http-server' %}
+                <ol>
+                <li>
+                <a href="{{ site.github.url }}/install/configure-http-server-apache.html">
+                  {% if page.path == 'install/configure-http-server-apache.md' %}<strong>{% endif %}
+                  Apache HTTP Server
+                  {% if page.path == 'install/configure-http-server-apache.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/configure-http-server-lighttpd.html">
+                  {% if page.path == 'install/configure-http-server-lighttpd.md' %}<strong>{% endif %}
+                  lighttpd
+                  {% if page.path == 'install/configure-http-server-lighttpd.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
+                <a href="{{ site.github.url }}/install/configure-http-server-nginx.html">
+                  {% if page.path == 'install/configure-http-server-nginx.md' %}<strong>{% endif %}
+                  nginx
+                  {% if page.path == 'install/configure-http-server-nginx.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                </ol>
+              {% endif %}
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/start-mailing-list-service.html">
+                {% if page.path == 'install/start-mailing-list-service.md' %}<strong>{% endif %}
+                Start mailing list service
+                {% if page.path == 'install/start-mailing-list-service.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/install/automate-startup.html">
+                {% if page.path == 'install/automate-startup.md' %}<strong>{% endif %}
+                Automate startup
+                {% if page.path == 'install/automate-startup.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              </ol>
+            {% endif %}
+            </li>
+            <li>
+            <a href="{{ site.github.url }}/upgrade.html">
+              {% if page.path == 'upgrade.md' %}<strong>{% endif %}
+              Upgrading Sympa
+              {% if page.path == 'upgrade.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="{{ site.github.url }}/admin.html">
+              {% if page.path == 'admin.md' %}<strong>{% endif %}
+              Administering Sympa
+              {% if page.path == 'admin.md' %}</strong>{% endif %}
+            </a>
+            {% if page.path == 'admin.md' || page.path contains 'admin/' %}
+              <ol>
+              <li>
+              <a href="{{ site.github.url }}/admin/services.html">
+                {% if page.path == 'admin/services.md' %}<strong>{% endif %}
+                Managing services
+                {% if page.path == 'admin/services.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/admin/cli.html">
+                {% if page.path == 'admin/cli.md' %}<strong>{% endif %}
+                Command line interface
+                {% if page.path == 'admin/cli.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/admin/list-creation.html">
+                {% if page.path == 'admin/list-creation.md' %}<strong>{% endif %}
+                List creation
+                {% if page.path == 'admin/list-creation.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/admin/serveradmin.html">
+                {% if page.path == 'admin/serveradmin.md' %}<strong>{% endif %}
+                Listmaster portal on web interface
+                {% if page.path == 'admin/serveradmin.md' %}</strong>{% endif %}
+              </a>
+              </li>
+              </ol>
+            {% endif %}
+            </li>
+            <li>
+            <a href="{{ site.github.url }}/customize.html">
+              {% if page.path == 'customize.md' || page.path contains 'customize/' %}<strong>{% endif %}
+              Customizing Sympa
+              {% if page.path == 'customize.md' || page.path contains 'customize/' %}</strong>{% endif %}
+            </a>
+            </li>
+          </ol>
+          
+          <p>Appendices</p>
+          <ol>  
+            <li>
+            <a href="{{ site.github.url }}/man/sympa_toc.1.html">
+              {% if page.path == 'man/sympa_toc.1.md' %}<strong>{% endif %}
+              References
+              {% if page.path == 'man/sympa_toc.1.md' %}</strong>{% endif %}
+            </a>
+            </li>
+            <li>
+            <a href="{{ site.github.url }}/layout.html">
+              {% if page.path == 'layout.md' %}<strong>{% endif %}
+              Directory layout
+              {% if page.path == 'layout.md' %}</strong>{% endif %}
+            </a>
+            </li>
+          </ol>
+        </nav>
+
       </header>
       <section>
 
+      {% unless page.url contains '/man/' %}
       <nav>
-      <p>
+      <p style='text-align: center;'>
         {% if page.prev %}<a href="{{ page.prev | replace: ".md", ".html" }}" title="Prev">&#x25c0;</a>{% else %}<span title="Prev">&#x25c0;</span>{% endif %}
         {% if page.up %}<a href="{{ page.up | replace: ".md", ".html" }}" title="Up">&#x23eb;</a>{% else %}<span title="Up">&#x23eb;</span>{% endif %}
         {% if page.next %}<a href="{{ page.next | replace: ".md", ".html" }}" title="Next">&#x25b6;</a>{% else %}<span title="Next">&#x25b6;</span>{% endif %}
       </p>
       <hr />
       </nav>
+      {% endunless %}
 
       {{ content }}
 
+      {% unless page.url contains '/man/' %}
       <nav>
       <hr />
-      <p>
+      <p style='text-align: center;'>
         {% if page.prev %}<a href="{{ page.prev | replace: ".md", ".html" }}" title="Prev">&#x25c0;</a>{% else %}<span title="Prev">&#x25c0;</span>{% endif %}
         {% if page.up %}<a href="{{ page.up | replace: ".md", ".html" }}" title="Up">&#x23eb;</a>{% else %}<span title="Up">&#x23eb;</span>{% endif %}
         {% if page.next %}<a href="{{ page.next | replace: ".md", ".html" }}" title="Next">&#x25b6;</a>{% else %}<span title="Next">&#x25b6;</span>{% endif %}
       </p>
       </nav>
+      {% endunless %}
+
+        {% if page.url contains '/man/' %}
+          <p>
+            The content of this page is automatically generated from the source distribution of Sympa.
+          </p>
+        {% elsif page.license %}
+          <p>
+            {{ page.license }}
+          </p>
+        {% else %}
+          <p>
+            (PUT LICENSE TERMS HERE)
+          </p>
+        {% endif %}
 
       </section>
       <footer>
-        {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p><small>Theme originally designed by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
