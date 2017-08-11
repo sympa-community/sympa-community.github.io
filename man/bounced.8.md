@@ -46,11 +46,11 @@ options is included below.
 
 `/etc/sympa/sympa.conf` Sympa configuration file.
 
-`/home/sympa/bin/bouncequeue` bounce spooler, referenced from sendmail alias file
+`$LIBEXECDIR/bouncequeue` bounce spooler, referenced from sendmail alias file
 
-`/home/sympa/spool/bounce` incoming bounces directory
+`$SPOOLDIR/bounce` incoming bounces directory
 
-`/home/sympa/bounced.pid` this file contains the process ID
+`$PIDDIR/bounced.pid` this file contains the process ID
 of `bounced.pl`.
 
 # MORE DOCUMENTATION

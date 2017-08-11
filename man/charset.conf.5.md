@@ -13,7 +13,7 @@ set for service messages sent by Sympa.  If you want to enable legacy character
 set support, simply copy sample `charset.conf` onto configuration
 directory:
 
-    # cp /home/sympa/default/charset.conf /home/sympa/etc/charset.conf
+    # cp $DEFAULTDIR/charset.conf $SYSCONFDIR/charset.conf
 
 And set the `legacy_character_support_feature` parameter value in
 `/etc/sympa/sympa.conf` to `on`.

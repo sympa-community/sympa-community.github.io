@@ -40,7 +40,7 @@ They may be overridden by robot.conf of each virtual robot.
 
     Source text of alias database.
 
-    Default value is `/etc/mail/sympa_aliases`.
+    Default value is `$SENDMAIL_ALIASES`.
 
 - aliases\_program
 
@@ -94,7 +94,7 @@ On other failures, returns with 1.
 
     Sympa site configuration.
 
-- `/home/sympa/bin/sympa_newaliases-wrapper`
+- `$LIBEXECDIR/sympa_newaliases-wrapper`
 
     Set UID wrapper for sympa\_newaliases.pl.
 

@@ -38,7 +38,7 @@ options is included below.
 - **-l**, **--lang=**_lang_
 
     Set this option to use a language for Sympa. The corresponding
-    gettext catalog file must be located in `/home/sympa/locale`
+    gettext catalog file must be located in `$LOCALEDIR`
     directory.
 
 - **--log\_level=**_level_
@@ -85,7 +85,7 @@ With following options `sympa_msg.pl` will print some information and exit.
 
 `/etc/sympa/sympa.conf` main configuration file.
 
-`/home/sympa/sympa_msg.pid` this file contains the process ID
+`$PIDDIR/sympa_msg.pid` this file contains the process ID
 of `sympa_msg.pl`.
 
 # SEE ALSO

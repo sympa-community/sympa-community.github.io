@@ -42,7 +42,7 @@ traffic.
 
 # FILES
 
-`/home/sympa/bulk.pid` this file contains the process IDs
+`$PIDDIR/bulk.pid` this file contains the process IDs
 of `bulk.pl`.
 
 # SEE ALSO

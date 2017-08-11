@@ -38,7 +38,7 @@ tasks.
 - **-l**, **--lang=**_lang_
 
     Set this option to use a language for Sympa. The corresponding
-    gettext catalog file must be located in `/home/sympa/locale`
+    gettext catalog file must be located in `$LOCALEDIR`
     directory.
 
 - **--log\_level=**_level_

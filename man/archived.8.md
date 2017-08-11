@@ -44,13 +44,13 @@ options is included below.
 
 # FILES
 
-`/home/sympa/spool/outgoing/` outgoing Sympa directory.
+`$SPOOLDIR/outgoing/` outgoing Sympa directory.
 
-`/home/sympa/default/mhonarc-ressources.tt2` template of MHonArc resource file.
+`$DEFAULTDIR/mhonarc-ressources.tt2` template of MHonArc resource file.
 
 `/etc/sympa/sympa.conf` Sympa configuration file.
 
-`/home/sympa/archived.pid` this file contains the process ID
+`$PIDDIR/archived.pid` this file contains the process ID
 of `archived.pl`.
 
 # MORE DOCUMENTATION

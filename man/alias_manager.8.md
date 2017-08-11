@@ -35,7 +35,7 @@ management by setting
 
 # FILES
 
-`/etc/mail/sympa_aliases` sendmail aliases file.
+`$SENDMAIL_ALIASES` sendmail aliases file.
 
 # DOCUMENTATION
 

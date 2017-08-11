@@ -35,9 +35,9 @@ XXX @todo doc
 
 # FILES
 
-`/home/sympa/spool/task/` directory for task spool.
+`$SPOOLDIR/task/` directory for task spool.
 
-`/home/sympa/task_manager.pid` this file contains the process ID
+`$PIDDIR/task_manager.pid` this file contains the process ID
 of `task_manager.pl`.
 
 # MORE DOCUMENTATION

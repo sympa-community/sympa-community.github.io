@@ -67,7 +67,7 @@ With following options `sympa_automatic.pl` will print some information and exit
 
 `/etc/sympa/sympa.conf` main configuration file.
 
-`/home/sympa/sympa_automatic.pid` this file contains the process ID
+`$PIDDIR/sympa_automatic.pid` this file contains the process ID
 of `sympa_automatic.pl`.
 
 # SEE ALSO
