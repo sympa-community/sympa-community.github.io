@@ -48,6 +48,17 @@ Sympa configuration parameters
 
 See ["Web interface parameters" in sympa.conf(5)](../man/sympa.conf.5#web-interface-parameters) for more parameters for web interface.
 
+And following parameter in [``sympa.conf``](../layout.md#config) may be
+useful:
+
+  * [``log_facility``](../man/sympa.conf.5.md#log_facility)
+
+    System log facility for web interface.  By default, its value is the same
+    as [``syslog``](../man/sympa.conf.5.md#syslog) parameter.  If you want to
+    record logs about web interface into separate log file, add this parameter
+    to ``sympa.conf`` with another facility and setup syslog server (see also
+    "[Configure system log](configure-system-log.md)").
+
 ----
 Note:
 
@@ -69,15 +80,6 @@ multiple domains, the latter is easier way.
 Virtual domain setting
 ----------------------
 
-### Initial setting
-
-Steps in this section may be done once at the first time.
-
-  1. Setup HTTP server according to description in
-     "[Instruction by HTTP servers](#instruction-by-http-servers)".
-
-### Adding new domain
-
   1. If directories for virtual domain configurations have not been created,
      create them (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
      [``$EXPLDIR``](../layout.md#expldir) and ``mail.example.org`` below):
@@ -89,8 +91,8 @@ Steps in this section may be done once at the first time.
      # chown sympa:sympa $EXPLDIR/mail.example.org
      ```
 
-  2. Edit ``robot.conf`` created by the step above to add parameters described
-     in previous section:
+  2. Edit ``robot.conf`` created by the step above to add parameter(s)
+     described in previous section:
      ```
      wwsympa_url http://web.example.org/sympa
      ```
@@ -109,13 +111,16 @@ Steps in this section may be done once at the first time.
 
      ----
 
+  3. Setup HTTP server according to description in
+     "[Instruction by HTTP servers](#instruction-by-http-servers)".
+
 If you want to add another domain, repeat steps in this section by each domain.
 
 Single domain setting
 ---------------------
 
-  1. Edit [``sympa.conf``](../layout.md#config) to add parameters described in
-     previous section:
+  1. Edit [``sympa.conf``](../layout.md#config) to add parameter(s) described
+     in previous section:
      ```
      domain (...existing parameter value...)
      listmaster (...existing parameter value...)

@@ -71,8 +71,8 @@ General instruction
          # chkconfig wwsympa on
          ```
 
-  4. Add following excerpt to nginx configuration and edit it as you prefer
-     (Note: replace [``$PIDDIR``](../layout.md#piddir),
+  4. If you have not added configuration for Sympa to nginx, add following
+     excerpt (Note: replace [``$PIDDIR``](../layout.md#piddir),
      [``$LIBEXECDIR``](../layout.md#libexecdir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
      ```
@@ -96,11 +96,6 @@ General instruction
      }
      ```
 
-     Note that ``server_name`` directive above should contain host part of
-     [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
-     Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
-     web host name of the service.
-
      ----
      Note:
 
@@ -110,5 +105,12 @@ General instruction
 
      ----
 
-  5. Restart nginx.
+  5. Edit it as you prefer.
+
+     Note that ``server_name`` directive above should contain host part of
+     [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
+     Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
+     web host name of the service.
+
+  6. Restart nginx.
 

@@ -23,8 +23,8 @@ Requirements
 General instruction
 -------------------
 
-  1. Add following excerpt to lighttpd configuration and edit it as you prefer
-     (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
+  1. If you have not added configuration for Sympa to lighttpd, add following
+     excerpt (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      [``$STATICDIR``](../layout.md#staticdir)):
      ```
      server.modules += ("mod_fastcgi")
@@ -57,5 +57,7 @@ General instruction
 
      ----
 
-  2. Restart lighttpd.
+  2. Edit it as you prefer.
+
+  3. Restart lighttpd.
 

@@ -22,8 +22,8 @@ Requirements
 General instruction
 -------------------
 
-  1. Add following excerpt to httpd configuration and edit it as you prefer
-     (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
+  1. If you have not added configuration for Sympa to httpd, add following
+     excerpt (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      [``$STATICDIR``](../layout.md#staticdir)):
      ```
      ### Apache Configuration for Sympa
@@ -66,11 +66,6 @@ General instruction
      #RewriteRule ^/?$ /sympa [R=301]
      ```
 
-     Note that ``ServerName`` or ``ServerAlias`` directive should define
-     the host part of [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url)
-     parameter.  Because Sympa refers to ``SERVER_NAME`` CGI environment
-     variable to determine host name of web service.
-
      ----
      Note:
 
@@ -80,5 +75,12 @@ General instruction
 
      ----
 
-  2. Restart httpd.
+  2. Edit it as you prefer.
+
+     Note that ``ServerName`` or ``ServerAlias`` directive should define
+     the host part of [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url)
+     parameter.  Because Sympa refers to ``SERVER_NAME`` CGI environment
+     variable to determine host name of web service.
+
+  3. Restart httpd.
 
