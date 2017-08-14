@@ -53,11 +53,9 @@ useful:
 
   * [``log_facility``](../man/sympa.conf.5.md#log_facility)
 
-    System log facility for web interface.  By default, its value is the same
-    as [``syslog``](../man/sympa.conf.5.md#syslog) parameter.  If you want to
-    record logs about web interface into separate log file, add this parameter
-    to ``sympa.conf`` with another facility and setup syslog server (see also
-    "[Configure system log](configure-system-log.md)").
+    Setting this, you can record logs about web interface into separate log
+    file.  Default value is the same as
+    [``syslog``](../man/sympa.conf.5.md#syslog) parameter.
 
 ----
 Note:
@@ -106,7 +104,7 @@ Virtual domain setting
          wwsympa_url http://web.example.org/sympa
          http_host web.example.org/sympa
          ```
-         On Sympa 6.2.19b.1 or later, this parameter will not be necessary.
+         On recent releases, this parameter is not necessary.
          ``http_host`` parameter may be obsoleted in the future.
 
      ----
