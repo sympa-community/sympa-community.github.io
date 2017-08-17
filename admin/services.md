@@ -61,6 +61,24 @@ daemon.
 
 Database server provides backend database for services above.
 
+Signals
+-------
+
+Daemons of Sympa services accept following signals:
+
+* ``TERM``
+
+  Daemon finishes process in progress and then terminates safely.
+  ``INT`` signal is also recognized.
+
+* ``HUP``
+
+  For ``sympa_msg.pl`` and ``sympa_automatic.pl`` only.
+  Daemon reloads configuration then continues processing.
+
+Anyway, recommended procedure to reload, stop or start the services is
+described in succeeding sections.
+
 Starting and stopping services
 ------------------------------
 
@@ -73,6 +91,20 @@ Starting and stopping services
 
   * initscripts:
     ```bash
+    # service sympa status
+    ```
+
+### Reloading Sympa services
+
+  * Systemd:
+    ```bash
+    # systemctl restart sympa
+    # systemctl status sympa
+    ```
+
+  * initscripts:
+    ```bash
+    # service sympa restart
     # service sympa status
     ```
 
