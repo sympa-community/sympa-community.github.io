@@ -45,22 +45,24 @@ Tests
      ----
      Note:
 
-       * Afterward when the service will start, this message will be processed
-         by Sympa and a help messsage will be sent back to you.
+       * If the services have already started (or once they start), this
+         message will be removed immediately, and a help messsage will be sent
+         back to you.
 
      ----
 
   4. Send any message to ``bounce+hogehoge@mail.example.org``.
      And confirm that the message will be stored into
-     [bounce spool directory](../man/sympa.conf.5.md#bouncequeue) (by default
+     [bounce spool directory](../man/sympa.conf.5.md#queuebounce) (by default
      it is ``bounce`` subdirectory in [``$SPOOLDIR``](../layout.md#spooldir)
      directory).
 
      ----
      Note:
 
-       * Afterward when the service will start, this message will be processed
-         by Sympa and moved into ``bad`` subdirectory of the spool.
+       * If the services have already started (or once they start), this
+         message will be immediately moved into ``bad`` subdirectory of the
+         spool.
 
      ----
 

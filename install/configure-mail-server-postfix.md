@@ -130,7 +130,10 @@ Steps in this section have to be done every time the new domain is added.
      [``lang``](../man/sympa.conf.5.md#lang)) by each domain, you can add it
      to ``robot.conf`` above.
 
-  3. Add following contents to ``transport.sympa`` and ``virtual.sympa``
+  3. If Sympa services have already been running, reload them
+     (see "[Reloading Sympa services](../admin/services.md#reloading-sympa-services)").
+
+  4. Add following contents to ``transport.sympa`` and ``virtual.sympa``
      and edit them as you prefer (Note: replace ``mail.example.org`` below).
 
      ``transport.sympa``:
@@ -150,6 +153,14 @@ Steps in this section have to be done every time the new domain is added.
 
      ```
 
+     ----
+     Note:
+
+       * If you want some addresses of ``mail.example.org`` to be excluded
+         from mailing list service, you can add them to these files.
+
+     ----
+
      Then, update databases for transport map and virtual alias map (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
      ```
@@ -157,7 +168,7 @@ Steps in this section have to be done every time the new domain is added.
      # postmap hash:$SYSCONFDIR/virtual.sympa
      ```
 
-  4. Reload Postfix.
+  5. Reload Postfix.
 
 Single domain setting
 ---------------------
