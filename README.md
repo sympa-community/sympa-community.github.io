@@ -3,7 +3,7 @@ Sympa Documentation
 
 This site holds the draft of new documentation site for Sympa.
 
-See [LICENSE](LICENSE.md] file about license.
+See [LICENSE](LICENSE.md) file about license.
 
 See [AUTHORS](AUTHORS.md) file about authors.
 
