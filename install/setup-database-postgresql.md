@@ -23,8 +23,16 @@ General instruction
      [``db_type``](../man/sympa.conf.5.md#db_type),
      [``db_name``](../man/sympa.conf.5.md#db_name),
      [``db_host``](../man/sympa.conf.5.md#db_host),
+     [``db_port``](../man/sympa.conf.5.md#db_port) (optional),
      [``db_user``](../man/sympa.conf.5.md#db_user) and
-     [``db_passwd``](../man/sympa.conf.5.md#db_passwd).
+     [``db_passwd``](../man/sympa.conf.5.md#db_passwd) (optional).
+
+       * ``db_type`` must be ``PostgreSQL`` or ``Pg`` (obsoleted).
+
+       * ``db_host`` may be host name or IP address of the database server
+         with TCP connection (if ``db_port`` is not specified, ``5432`` is
+         used as port), or directory of the Unix domain sockets (sockets must
+         be writable by ``sympa`` group).
 
   2. Create database and role:
      ```

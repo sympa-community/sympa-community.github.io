@@ -27,8 +27,16 @@ General instruction
      [``db_type``](../man/sympa.conf.5.md#db_type),
      [``db_name``](../man/sympa.conf.5.md#db_name),
      [``db_host``](../man/sympa.conf.5.md#db_host),
+     [``db_port``](../man/sympa.conf.5.md#db_host) (optional),
      [``db_user``](../man/sympa.conf.5.md#db_user) and
-     [``db_passwd``](../man/sympa.conf.5.md#db_passwd).
+     [``db_passwd``](../man/sympa.conf.5.md#db_passwd) (optional).
+
+       * ``db_type`` must be ``MySQL`` or ``mysql`` (obsoleted).
+
+       * If ``db_host`` is set to ``localhost``, Sympa will connect to
+         database on local machine using Unix domain socket.  Otherwise, if
+         another host name or IP address is set, TCP socket will be used (If
+        ``db_port`` is not specified, ``3306`` will be used as port).
 
   2. Create database and database user:
      ```

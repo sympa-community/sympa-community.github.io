@@ -19,9 +19,16 @@ Requirements
 General instruction
 -------------------
 
-  1. Ensure that [``db_name``](../man/sympa.conf.5.md#db_name) in
-     [``sympa.conf``](../layout.md#config) is absolute path to database file
-     you want to create.
+  1. Ensure that [``sympa.conf``](../layout.md#config) includes appropriate
+     values for these parameters:
+     [``db_type``](../man/sympa.conf.5.md#db_type),
+     [``db_name``](../man/sympa.conf.5.md#db_name) and
+     [``db_timeout``](../man/sympa.conf.5.md#db_timeout) (optional).
+
+       * ``db_type`` must be ``SQLite``.
+
+       * ``db_name`` must be absolute path to database file you want to
+         create.
 
   2. Create database file and table structure:
      ```

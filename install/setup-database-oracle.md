@@ -27,7 +27,9 @@ General instruction
      [``db_passwd``](../man/sympa.conf.5.md#db_passwd) and
      [``db_env``](../man/sympa.conf.5.md#db_env).
 
-       * ``db_name`` must be same as Oracle SID.
+       * ``db_type`` must be ``Oracle``.
+
+       * ``db_name`` must be the same as Oracle SID.
 
        * ``db_env`` should include definition of NLS_LANG and ORACLE_HOME.
 
