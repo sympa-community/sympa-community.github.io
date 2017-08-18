@@ -5,7 +5,7 @@ How to contribute
 -----------------
 
   * Unless otherwise specified, contents of this document are licensed under
-    CC BY-SA (see [LICENSE](License.md) file).  You, as an author, have to
+    CC BY-SA (see [LICENSE](LICENSE.md) file).  You, as an author, have to
     agree to this license.
 
   * Submit your additions, changes or proofreadings to
