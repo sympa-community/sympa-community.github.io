@@ -9,7 +9,7 @@ Install Sympa distribution: RPM package
 =======================================
 
 Currently, [unofficial YUM repository](http://sympa-ja.org/download/rhel/)
-is provided by volunteer.
+is provided by volunteers.
 
 Requirements
 ------------
