@@ -25,40 +25,60 @@ General instruction
   1. If you have not added configuration for Sympa to httpd, add following
      excerpt (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      [``$STATICDIR``](../layout.md#staticdir)):
+
+     For HTTP Server 2.4:
      ```
-     ### Apache Configuration for Sympa
+     <Location /sympa>
+         SetHandler fcgid-script
 
-     ## Definition of Sympa FastCGI server.
-     <IfModule mod_fcgid.c>
-         IPCCommTimeout 300
-         # You wish to increase the value in following line, don't you?
-         MaxProcessCount 5
-         MaxRequestLen 131072
+         # Don't forget to edit lines below!
+         Require all denied
+         #Require all granted
+     </Location>
+     ScriptAlias /sympa $LIBEXECDIR/wwsympa-wrapper.fcgi
 
-         # Don't forget to edit this section!
-         <Location /sympa>
-             SetHandler fcgid-script
-
-             # Don't forget to edit lines below!
-             Order deny,allow
-             Deny from all
-             #Allow from all
-         </Location>
-         ScriptAlias /sympa $LIBEXECDIR/wwsympa-wrapper.fcgi
-
-     #    # You may uncomment following lines to enable SympaSOAP feature.
-     #    <Location /sympasoap>
-     #        SetHandler fcgid-script
+     ## You may uncomment following lines to enable SympaSOAP feature.
+     #<Location /sympasoap>
+     #    SetHandler fcgid-script
      #
-     #        # Don't forget to edit lines below!
-     #        Order deny,allow
-     #        Deny from all
-     #        #Allow from all
-     #    </Location>
-     #    ScriptAlias /sympasoap $LIBEXECDIR/sympa_soap_server-wrapper.fcgi
-     </IfModule>
+     #    # Don't forget to edit lines below!
+     #    Require all denied
+     #    #Require all granted
+     #</Location>
+     #ScriptAlias /sympasoap $LIBEXECDIR/sympa_soap_server-wrapper.fcgi
 
-     ## Other static contents
+     # Other static contents
+     Alias /static-sympa $STATICDIR
+
+     ## If your host is dedicated to Sympa:
+     #RewriteEngine on
+     #RewriteRule ^/?$ /sympa [R=301]
+     ```
+
+     For HTTP Server 2.2:
+     ```
+     <Location /sympa>
+         SetHandler fcgid-script
+
+         # Don't forget to edit lines below!
+         Order deny,allow
+         Deny from all
+         #Allow from all
+     </Location>
+     ScriptAlias /sympa $LIBEXECDIR/wwsympa-wrapper.fcgi
+
+     ## You may uncomment following lines to enable SympaSOAP feature.
+     #<Location /sympasoap>
+     #    SetHandler fcgid-script
+     #
+     #    # Don't forget to edit lines below!
+     #    Order deny,allow
+     #    Deny from all
+     #    #Allow from all
+     #</Location>
+     #ScriptAlias /sympasoap $LIBEXECDIR/sympa_soap_server-wrapper.fcgi
+
+     # Other static contents
      Alias /static-sympa $STATICDIR
 
      ## If your host is dedicated to Sympa:
@@ -81,6 +101,11 @@ General instruction
      the host part of [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url)
      parameter.  Because Sympa refers to ``SERVER_NAME`` CGI environment
      variable to determine host name of web service.
+
+     You may also tune FastCGI by adding directives such as
+     ``FcgidIOTimeout``, ``FcgidMaxProcesses`` or ``FcgidMaxRequestLen``.  For
+     more details see the
+     [mod_fcgid reference page](https://httpd.apache.org/mod_fcgid/mod/mod_fcgid.html#fcgidmaxrequestlen).
 
   3. Restart httpd.
 
