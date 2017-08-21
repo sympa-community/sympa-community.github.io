@@ -28,6 +28,12 @@ General instruction
      ```
      domain mail.example.org
      ```
+     Also, if path of ``sendmail`` executable file is differ from the default
+     value of [``sendmail``](../man/sympa.conf.5.md#sendmail) parameter,
+     ``/usr/sbin/sendmail``, define it.  For example:
+     ```
+     sendmail /usr/lib/sendmail
+     ```
 
   2. Edit sendmail.cf (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) and

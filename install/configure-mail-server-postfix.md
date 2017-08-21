@@ -36,7 +36,16 @@ Virtual domain setting
 
 Steps in this section may be done once at the first time.
 
-  1. Copy an
+  1. If path of ``sendmail`` executable file is differ from the default value
+     of [``sendmail``](../man/sympa.conf.5.md#sendmail) parameter,
+     ``/usr/sbin/sendmail``, define it in
+     [``sympa.conf``](../layout.md#config).  For example:
+
+     ```
+     sendmail /usr/local/sbin/sendmail
+     ```
+
+  2. Copy an
      [example ``list_aliases.tt2``](../examples/postfix/virtual/list_aliases.tt2)
      file into [``$SYSCONFDIR``](../layout.md#sysconfdir) directory and edit
      it as you prefer.
@@ -51,7 +60,7 @@ Steps in this section may be done once at the first time.
      By these settings, ``sympa_transport`` file will be updated automatically
      when any lists are created, closed, restored or purged.
 
-  2. Create empty map files (Note:
+  3. Create empty map files (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
      ```
      # touch $SYSCONFDIR/transport.sympa
@@ -68,7 +77,7 @@ Steps in this section may be done once at the first time.
      # sympa_newaliases.pl
      ```
 
-  3. Edit Postfix master.cf to add transport definitions (Note:
+  4. Edit Postfix master.cf to add transport definitions (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
      ```
      sympa   unix    -       n       n       -       -       pipe
@@ -78,7 +87,7 @@ Steps in this section may be done once at the first time.
      ```
      Note that ``flags`` option have to contain ``R``. ``F`` is unnecessary.
 
-  4. Edit Postfix main.cf file to add configuration for virtual domains (Note:
+  5. Edit Postfix main.cf file to add configuration for virtual domains (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
      ```
      # virtual(8) maps
@@ -178,6 +187,7 @@ Single domain setting
      ```
      domain mail.example.org
      aliases_program postalias
+     sendmail /usr/local/sbin/sendmail  (If path is differ from the default)
      ```
 
   2. Save following excerpt as ``aliases.sympa.postfix`` file in

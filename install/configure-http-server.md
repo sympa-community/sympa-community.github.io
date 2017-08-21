@@ -14,6 +14,9 @@ Requirements
   * HTTP server to provide web interface:
     See also "[Requirements](../requirements.md#http-server)".
 
+  * [MHonArc](https://www.mhonarc.org/) to provide message archives
+    browseable by web interface.
+
   * A mail domain name for the mailing list service.  It must have been chosen
     when you [configured mail server](configure-mail-server.md).
 
@@ -45,6 +48,11 @@ Sympa configuration parameters
     This is URL path or full URL of static content.  Default value is
     ``/static-sympa``.  HTTP server have to map it with
     [``$STATICDIR``](../layout.md#staticdir).
+
+  * [``mhonarc``](../man/sympa.conf.5.md#mhonarc)
+
+    This is full path to executable file of MHonArc used to provide archives
+    browseable by web interface.
 
 See ["Web interface parameters" in sympa.conf(5)](../man/sympa.conf.5#web-interface-parameters) for more parameters for web interface.
 
@@ -78,7 +86,16 @@ multiple domains, the latter is easier way.
 Virtual domain setting
 ----------------------
 
-  1. If directories for virtual domain configurations have not been created,
+  1. If path of MHonArc executable file is differ from the default of
+     [``mhonarc``](../man/sympa.conf.5.md#mhonarc) parameter,
+     ``/usr/bin/mhonarc``, define it in
+     [``sympa.conf``](../layout.md#config).  For example:
+
+     ```
+     mhonarc /usr/local/bin/mhonarc
+     ```
+
+  2. If directories for virtual domain configurations have not been created,
      create them (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
      [``$EXPLDIR``](../layout.md#expldir) and ``mail.example.org`` below):
      ```
@@ -89,7 +106,7 @@ Virtual domain setting
      # chown sympa:sympa $EXPLDIR/mail.example.org
      ```
 
-  2. Edit ``robot.conf`` created by the step above to add parameter(s)
+  3. Edit ``robot.conf`` created by the step above to add parameter(s)
      described in previous section:
      ```
      wwsympa_url http://web.example.org/sympa
@@ -109,7 +126,7 @@ Virtual domain setting
 
      ----
 
-  3. Setup HTTP server according to description in
+  4. Setup HTTP server according to description in
      "[Instruction by HTTP servers](#instruction-by-http-servers)".
 
 If you want to add another domain, repeat steps in this section by each domain.
@@ -123,6 +140,7 @@ Single domain setting
      domain (...existing parameter value...)
      listmaster (...existing parameter value...)
      wwsympa_url http://web.example.org/sympa
+     mhonarc /usr/local/bin/mhonarc     (If path is differ from the default)
      ```
 
   2. Setup HTTP server according to description in
