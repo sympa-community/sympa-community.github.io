@@ -129,7 +129,7 @@ Support of legacy character set
 
     None.
 
-If set to "on", enables support of legacy character set according to "charset.conf" configuration file.
+If set to "on", enables support of legacy character set according to charset.conf(5) configuration file.
 
 In some language environments, legacy encoding (character set) can be preferred for e-mail messages: for example iso-2022-jp in Japanese language.
 
@@ -1033,7 +1033,7 @@ Default disk quota for lists' archive
 
 - Overrides:
 
-    List (`web_archive.quota`)
+    List (`archive.quota`)
 
 #### `ignore_x_no_archive_header_feature`
 
@@ -1117,7 +1117,7 @@ Default bounce halt rate
 
 - Overrides:
 
-    List (`bounce.halt_rate`)
+    None.
 
 NOT USED YET. If bounce rate reaches the halt\_rate, messages for the list will be halted, i.e. they are retained for subsequent moderation.
 
@@ -1869,15 +1869,11 @@ Directory for storing bounces
 
     None.
 
-The directory where bounced.pl daemon will store the last bouncing message for each user. A message is stored in the file:
-
-    E<lt>bounce_pathE<gt>/E<lt>list nameE<gt>@E<lt>mail domain nameE<gt>/E<lt>email addressE<gt>
-
-or, if tracking is enabled:  &lt;bounce\_path>/&lt;list name>@&lt;mail domain name>/&lt;email address>\_&lt;envelope ID>
+The directory where bounced.pl daemon will store the last bouncing message for each user. A message is stored in the file: &lt;bounce\_path>/&lt;list name>@&lt;mail domain name>/&lt;email address>, or, if tracking is enabled: &lt;bounce\_path>/&lt;list name>@&lt;mail domain name>/&lt;email address>\_&lt;envelope ID>.
 
 Users can access to these messages using web interface in the bounce management page.
 
-Don't confuse with "queuebounce" parameter which defines the spool here incoming error reports are stored and picked by bounced.pl daemon.
+Don't confuse with "queuebounce" parameter which defines the spool where incoming error reports are stored and picked by bounced.pl daemon.
 
 #### `arc_path`
 
@@ -2819,6 +2815,10 @@ If set, when a list editor report undetected spams for list moderation, this ext
 
 ## S/MIME and TLS
 
+S/MIME authentication, decryption and re-encryption. It requires these external modules: Crypt-OpenSSL-X509 and Crypt-SMIME.
+
+TLS client authentication. It requires an external module: IO-Socket-SSL.
+
 #### `cafile`
 
 File containing trusted CA certificates
@@ -2881,6 +2881,8 @@ Directory containing user certificates
 
 ## Data sources setup
 
+Including subscribers, owners and editors from datasources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-SOcket-SSL.
+
 #### `default_sql_fetch_timeout`
 
 Default of SQL fetch timeout
@@ -2896,6 +2898,8 @@ Default of SQL fetch timeout
 Default timeout while performing a fetch with include\_sql\_query.
 
 ## DKIM
+
+DKIM signature verification and re-signing. It requires an external module: Mail-DKIM.
 
 #### `dkim_feature`
 
@@ -3007,6 +3011,8 @@ The selector is used in order to build the DNS query for public key. It is up to
 
 ## DMARC protection
 
+Processes originator addresses to avoid some domains' excessive DMARC protection.  This feature requires external module: Net-DNS.
+
 #### `dmarc_protection_mode`
 
 Test mode(s) for DMARC Protection
@@ -3076,6 +3082,8 @@ New From address
     List (`dmarc_protection.other_email`)
 
 ## List address verification
+
+Checks if ailias with the same name as the list to be created already exists on the SMTP server. This feature requires external module: Net-SMTP.
 
 #### `list_check_helo`
 
@@ -3175,6 +3183,8 @@ Notify sender if virus checker detects malicious content
 
 ## Password validation
 
+Checks if the password the users sbmitted has sufficient strength. This feature requires external module: Data-Password.
+
 #### `password_validation`
 
 Password validation
@@ -3195,6 +3205,8 @@ Example:
 
 ## Authentication with LDAP
 
+Authnticates users based on the directory on LDAP server. This feature requires external module: Net-LDAP. And also, if secure connection (LDAPS) is required: IO-Socket-SSL.
+
 #### `ldap_force_canonical_email`
 
 Use canonical email address for LDAP authentication
@@ -3210,6 +3222,8 @@ Use canonical email address for LDAP authentication
 When using LDAP authentication, if the identifier provided by the user was a valid email, if this parameter is set to false, then the provided email will be used to authenticate the user. Otherwise, use of the first email returned by the LDAP server will be used.
 
 ## SOAP HTTP interface
+
+Provides some functions of Sympa through SOAP HTTP interface. This feature requires external module: SOAP-Lite.
 
 #### `soap_url`
 

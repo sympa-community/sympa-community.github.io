@@ -83,3 +83,14 @@ and each robot.
 # SEE ALSO
 
 [sympa.conf(5)](./sympa.conf.5.md), [robot.conf(5)](./robot.conf.5.md).
+
+# HISTORY
+
+[confdef](https://metacpan.org/pod/confdef) was separated from [Conf](https://metacpan.org/pod/Conf) on Sympa 6.0a,
+and renamed to [Sympa::ConfDef](./Sympa-ConfDef.3.md) on 6.2a.39.
+
+Descriptions of parameters in this source file were partially taken from
+chapters "sympa.conf parameters" in
+_Sympa, Mailing List Management Software - Reference manual_, written by
+Serge Aumont, Stefan Hornburg, Soji Ikeda, Olivier Salaün and
+David Verdin.
