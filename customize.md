@@ -32,6 +32,9 @@ Customization basics
   * [Internationalization](customize/basics-i18n.md)
     (Work in progress)
 
+  * [List families](customize/basics-families.md)
+    (Work in progress)
+
 Customizing Sympa services
 --------------------------
 
@@ -77,10 +80,6 @@ needed.
 
   * Others
 
-      - List topics
-
-        &#x2699; topics.conf
-
       - Custom user attributes in database
         [&#x1F527;](man/sympa.conf.5.md#db_additional_subscriber_fields)
 
@@ -122,6 +121,10 @@ needed.
         [&#x1F527;](man/sympa.conf.5.md#spam_protection)
 
         &#x2699; crawlers_detection.conf
+
+      - User-friendly automatic lists
+
+        &#x2699; automatic_lists_description.conf
 
 Sympa services: Optional features
 ---------------------------------
@@ -224,6 +227,9 @@ external Perl modules.
 
   * SOAP HTTP interface
     [&#x1F527;](man/sympa.conf.5.md#soap-http-interface)
+
+    &#x2699; sympa.wsdl
+    &#x2699; trusted_applications.conf
 
     &#x1F4E6; [SOAP-Lite](https://metacpan.org/release/SOAP-Lite).
 
