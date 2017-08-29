@@ -154,13 +154,41 @@ Below is the list of documentation of Sympa.
 
 ## Configuration files
 
+- [auth.conf(5)](./auth.conf.5.md)
+
+    Configuration of authentication mechanisms for web interface of Sympa
+
 - [charset.conf(5)](./charset.conf.5.md)
 
     Configiration file for legacy character set support by Sympa
 
-- [sympa.conf(5)](./sympa.conf.5.md), [robot.conf(5)](./robot.conf.5.md)
+- [crawlers\_detection.conf(5)](./crawlers_detection.conf.5.md)
+
+    User agents to be excluded from session management
+
+- [edit\_list.conf(5)](./edit_list.conf.5.md)
+
+    Configuration of privileges to edit list configuration
+
+- [ldap\_alias\_manager.conf(5)](./ldap_alias_manager.conf.5.md)
+
+    Configuration of LDAP alias management
+
+- [list\_config(5)](./list_config.5.md)
+
+    Configuration file for mailing list
+
+- [nrcpt\_by\_domain.conf(5)](./nrcpt_by_domain.conf.5.md)
+
+    Grouping factor for SMTP sessions by recipient domains
+
+- [sympa.conf(5)](./sympa.conf.5.md), robot.conf(5)
 
     Configuration file for default site and robot
+
+- [topics.conf(5)](./topics.conf.5.md)
+
+    Configuration of list topics
 
 ## Internals
 

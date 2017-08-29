@@ -747,6 +747,24 @@ Minimum size to be urlized
 
 When a subscriber chose "urlize" reception mode, attachments not smaller than this size will be urlized.
 
+#### `allowed_external_origin`
+
+Allowed external links in sanitized HTML
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    Virtual domain
+
+When the HTML content of a message must be sanitized, links ("href" or "src" attributes) with the hosts listed in this parameter will not be scrubbed. If "\*" character is included, it matches any subdomains. Single "\*" allows any hosts.
+
+Example:
+
+    allowed_external_origin *.example.org,www.example.com
+
 #### `sympa_packet_priority`
 
 Default priority for a packet

@@ -16,13 +16,23 @@ directory:
     # cp $DEFAULTDIR/charset.conf $SYSCONFDIR/charset.conf
 
 And set the `legacy_character_support_feature` parameter value in
-`/etc/sympa/sympa.conf` to `on`.
+[`sympa.conf`](./sympa.conf.5.md) to `on`.
 
 ## Note
 
 If you are planning to upgrade Sympa earlier than 5.3a.8,
 original `charset.conf` is required to convert shared documents
 during upgrade process.
+
+# FILES
+
+- `$DEFAULTDIR/charset.conf`
+
+    Distribution default.  This file should not be edited.
+
+- `$SYSCONFDIR/charset.conf`
+
+    Configuration file.
 
 # SEE ALSO
 
