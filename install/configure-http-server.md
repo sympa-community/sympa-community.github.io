@@ -54,7 +54,7 @@ Sympa configuration parameters
     This is full path to executable file of MHonArc used to provide archives
     browseable by web interface.
 
-See ["Web interface parameters" in sympa.conf(5)](../man/sympa.conf.5#web-interface-parameters) for more parameters for web interface.
+See ["Web interface parameters" in sympa.conf(5)](../man/sympa.conf.5.md#web-interface-parameters) for more parameters for web interface.
 
 And following parameter in [``sympa.conf``](../layout.md#config) may be
 useful:

@@ -105,7 +105,7 @@ General instruction
      You may also tune FastCGI by adding directives such as
      ``FcgidIOTimeout``, ``FcgidMaxProcesses`` or ``FcgidMaxRequestLen``.  For
      more details see the
-     [mod_fcgid reference page](https://httpd.apache.org/mod_fcgid/mod/mod_fcgid.html#fcgidmaxrequestlen).
+     [mod_fcgid reference page](https://httpd.apache.org/mod_fcgid/mod/mod_fcgid.html).
 
   3. Restart httpd.
 
