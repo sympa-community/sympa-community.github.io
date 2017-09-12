@@ -2209,13 +2209,13 @@ Max age of statistics information in database
 
 - Default:
 
-    `3` (days)
+    `3` (months)
 
 - Overrides:
 
     None.
 
-Number of days that elapse before statistics information are expired
+Number of months that elapse before statistics information are expired
 
 #### `umask`
 

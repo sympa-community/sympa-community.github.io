@@ -21,14 +21,23 @@ This module keeps definition of configuration parameters for each list.
 
     - format
 
-        Regexp aplied to the configuration file entry;
-        some common regexps are defined in [Sympa::Regexps](./Sympa-Regexps.3.md).
+        Regexp applied to the configuration file entry.
         Or arrayref containing all possible values of parameter.
 
-        If the parameter is paragraph, value of this item is a hashref containing
+        Or, if the parameter is paragraph, value of this item is a hashref containing
         definitions of sub-parameters.
 
         See also ["Node types" in Sympa::List::Config](./Sympa-List-Config.3.md#node-types).
+
+    - format\_s
+
+        Template of regexp applied to the configuration file entry;
+        see also ["format"](#format).
+
+        Subpatterns `$word` indicate the name of pattern defined in
+        [Sympa::Regexps](./Sympa-Regexps.3.md).
+
+        This was introduced on Sympa 6.2.19b.2.
 
     - file\_format
 

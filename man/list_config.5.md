@@ -50,7 +50,7 @@ Subject of the list
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -86,7 +86,7 @@ email address
 
 - Format:
 
-    `(?-xism:([\w\-\_\.\/\+\='\&]+|\".*\")\@[\w\-]+(\.[\w\-]+)+)`
+    /`$email`/
 
 - Default:
 
@@ -98,7 +98,7 @@ name
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -110,7 +110,7 @@ private information
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -161,7 +161,7 @@ the datasource
 
 - Format:
 
-    `(?-xism:[\w-]+)`
+    /`[\w-]+`/
 
 - Default:
 
@@ -173,7 +173,7 @@ datasource parameters
 
 - Format:
 
-    `.*`
+    /`.*`/
 
 - Default:
 
@@ -230,7 +230,7 @@ email address
 
 - Format:
 
-    `(?-xism:([\w\-\_\.\/\+\='\&]+|\".*\")\@[\w\-]+(\.[\w\-]+)+)`
+    /`$email`/
 
 - Default:
 
@@ -242,7 +242,7 @@ name
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -254,7 +254,7 @@ private information
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -294,7 +294,7 @@ the data source
 
 - Format:
 
-    `(?-xism:[\w-]+)`
+    /`[\w-]+`/
 
 - Default:
 
@@ -306,7 +306,7 @@ data source parameters
 
 - Format:
 
-    `.*`
+    /`.*`/
 
 - Default:
 
@@ -356,7 +356,7 @@ Internet domain
 
 - Format:
 
-    `(?-xism:[\w\.\-]+)`
+    /`$host`/
 
 - Default:
 
@@ -384,7 +384,7 @@ Family name
 
 - Format:
 
-    `(?-xism:[a-z0-9][a-z0-9\-\.\+_]*)`
+    /`$family_name`/
 
 - Default:
 
@@ -446,7 +446,7 @@ Delivery time (hh:mm)
 
 - Format:
 
-    `[0-2]?\d\:[0-6]\d`
+    /`[0-2]?\d\:[0-6]\d`/
 
 - Default:
 
@@ -480,7 +480,7 @@ hour
 
 - Format:
 
-    `\d+`
+    /`\d+`/
 
 - Default:
 
@@ -492,7 +492,7 @@ minute
 
 - Format:
 
-    `\d+`
+    /`\d+`/
 
 - Default:
 
@@ -582,7 +582,7 @@ Message topic name
 
 - Format:
 
-    `[\-\w]+`
+    /`[\-\w]+`/
 
 - Default:
 
@@ -594,7 +594,7 @@ Message topic keywords
 
 - Format:
 
-    `[^,\n]+(,[^,\n]+)*`
+    /`[^,\n]+(,[^,\n]+)*`/
 
 - Default:
 
@@ -606,7 +606,7 @@ Message topic title
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -671,7 +671,7 @@ other email address
 
 - Format:
 
-    `(?-xism:([\w\-\_\.\/\+\='\&]+|\".*\")\@[\w\-]+(\.[\w\-]+)+)`
+    /`$email`/
 
 - Default:
 
@@ -698,7 +698,7 @@ Anonymous sender
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -714,7 +714,7 @@ Custom header field
 
     Multiple occurrences allowed.
 
-    `\S+:\s+.*`
+    /`\S+:\s+.*`/
 
 - Default:
 
@@ -728,7 +728,7 @@ Subject tagging
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -794,7 +794,7 @@ A hook on the messages before distribution
 
 - Format:
 
-    `(::|\w)+`
+    /`(::|\w)+`/
 
 - Default:
 
@@ -806,7 +806,7 @@ A hook on the messages just after archiving
 
 - Format:
 
-    `(::|\w)+`
+    /`(::|\w)+`/
 
 - Default:
 
@@ -831,7 +831,7 @@ Incoming SMTP header fields to be removed
 
     Multiple values allowed, separated by `,`.
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -845,7 +845,7 @@ Outgoing SMTP header fields to be removed
 
     Multiple values allowed, separated by `,`.
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -1391,7 +1391,7 @@ the data source
 
 - Format:
 
-    `(?-xism:[\w-]+)`
+    /`[\w-]+`/
 
 - Default:
 
@@ -1403,7 +1403,7 @@ data source parameters
 
 - Format:
 
-    `.*`
+    /`.*`/
 
 - Default:
 
@@ -1429,7 +1429,7 @@ File inclusion
 
     Multiple occurrences allowed.
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -1449,7 +1449,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1461,7 +1461,7 @@ data location URL
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1473,7 +1473,7 @@ remote user
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1505,7 +1505,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1517,7 +1517,7 @@ list name to include
 
 - Format:
 
-    `(?-xism:[a-z0-9][a-z0-9\-\.\+_]*)(\@(?-xism:[\w\.\-]+))?`
+    /`$listname(\@$host)?`/
 
 - Default:
 
@@ -1529,7 +1529,7 @@ filter definition
 
 - Format:
 
-    `.*`
+    /`.*`/
 
 - Default:
 
@@ -1551,7 +1551,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1563,7 +1563,7 @@ remote host
 
 - Format:
 
-    `(?-xism:[\w\.\-]+)`
+    /`$host`/
 
 - Default:
 
@@ -1575,7 +1575,7 @@ remote port
 
 - Format:
 
-    `\d+`
+    /`\d+`/
 
 - Default:
 
@@ -1587,7 +1587,7 @@ remote path of sympa list dump
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -1618,7 +1618,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1630,7 +1630,7 @@ remote host
 
 - Format:
 
-    `(?-xism:([-\w]+://.+|[-.\w]+(:\d+)?)(,([-\w]+://.+|[-.\w]+(:\d+)?))*)`
+    /`$multiple_host_or_url`/
 
 - Default:
 
@@ -1672,7 +1672,7 @@ SSL ciphers used
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1696,7 +1696,7 @@ remote user
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1720,7 +1720,7 @@ suffix
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1756,7 +1756,7 @@ filter
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1768,7 +1768,7 @@ extracted attribute
 
 - Format:
 
-    `(?-xism:\w[-\w]*(?:;[-\w]+)*)(\s*,\s*(?-xism:\w[-\w]*(?:;[-\w]+)*))?`
+    /`$ldap_attrdesc(\s*,\s*$ldap_attrdesc)?`/
 
 - Default:
 
@@ -1791,7 +1791,7 @@ Time ranges when inclusion is not allowed
 
 - Format:
 
-    `(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)(?:\s+(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?))*`
+    /`$time_ranges`/
 
 - Default:
 
@@ -1815,7 +1815,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1827,7 +1827,7 @@ remote host
 
 - Format:
 
-    `(?-xism:([-\w]+://.+|[-.\w]+(:\d+)?)(,([-\w]+://.+|[-.\w]+(:\d+)?))*)`
+    /`$multiple_host_or_url`/
 
 - Default:
 
@@ -1869,7 +1869,7 @@ SSL ciphers used
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1893,7 +1893,7 @@ remote user
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1917,7 +1917,7 @@ first-level suffix
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1953,7 +1953,7 @@ first-level filter
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -1965,7 +1965,7 @@ first-level extracted attribute
 
 - Format:
 
-    `(?-xism:\w[-\w]*(?:;[-\w]+)*)`
+    /`$ldap_attrdesc`/
 
 - Default:
 
@@ -1989,7 +1989,7 @@ first-level regular expression
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2001,7 +2001,7 @@ second-level suffix template
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2037,7 +2037,7 @@ second-level filter template
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2049,7 +2049,7 @@ second-level extracted attribute
 
 - Format:
 
-    `(?-xism:\w[-\w]*(?:;[-\w]+)*)(\s*,\s*(?-xism:\w[-\w]*(?:;[-\w]+)*))?`
+    /`$ldap_attrdesc(\s*,\s*$ldap_attrdesc)?`/
 
 - Default:
 
@@ -2073,7 +2073,7 @@ second-level regular expression
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2085,7 +2085,7 @@ Time ranges when inclusion is not allowed
 
 - Format:
 
-    `(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)(?:\s+(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?))*`
+    /`$time_ranges`/
 
 - Default:
 
@@ -2109,7 +2109,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2121,7 +2121,7 @@ database type
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2133,7 +2133,7 @@ remote host
 
 - Format:
 
-    `(?-xism:[\w\.\-]+)`
+    /`$host`/
 
 - Default:
 
@@ -2145,7 +2145,7 @@ database port
 
 - Format:
 
-    `\d+`
+    /`\d+`/
 
 - Default:
 
@@ -2157,7 +2157,7 @@ connection options
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2169,7 +2169,7 @@ database name
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2181,7 +2181,7 @@ environment variables for database connection
 
 - Format:
 
-    `\w+\=\S+(;\w+\=\S+)*`
+    /`\w+\=\S+(;\w+\=\S+)*`/
 
 - Default:
 
@@ -2193,7 +2193,7 @@ remote user
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2217,7 +2217,7 @@ SQL query
 
 - Format:
 
-    `(?-xism:(SELECT|select).*)`
+    /`$sql_query`/
 
 - Default:
 
@@ -2229,7 +2229,7 @@ Directory where the database is stored (used for DBD::CSV only)
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2241,7 +2241,7 @@ Time ranges when inclusion is not allowed
 
 - Format:
 
-    `(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)(?:\s+(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?))*`
+    /`$time_ranges`/
 
 - Default:
 
@@ -2259,7 +2259,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2271,7 +2271,7 @@ user
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2283,7 +2283,7 @@ provider
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2295,7 +2295,7 @@ group
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2339,7 +2339,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2351,7 +2351,7 @@ remote host
 
 - Format:
 
-    `(?-xism:([-\w]+://.+|[-.\w]+(:\d+)?)(,([-\w]+://.+|[-.\w]+(:\d+)?))*)`
+    /`$multiple_host_or_url`/
 
 - Default:
 
@@ -2393,7 +2393,7 @@ SSL ciphers used
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2417,7 +2417,7 @@ remote user
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2441,7 +2441,7 @@ suffix
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2477,7 +2477,7 @@ filter
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2489,7 +2489,7 @@ extracted attribute
 
 - Format:
 
-    `(?-xism:\w[-\w]*(?:;[-\w]+)*)`
+    /`$ldap_attrdesc`/
 
 - Default:
 
@@ -2501,7 +2501,7 @@ Name of email entry
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2524,7 +2524,7 @@ Time ranges when inclusion is not allowed
 
 - Format:
 
-    `(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)(?:\s+(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?))*`
+    /`$time_ranges`/
 
 - Default:
 
@@ -2546,7 +2546,7 @@ remote host
 
 - Format:
 
-    `(?-xism:([-\w]+://.+|[-.\w]+(:\d+)?)(,([-\w]+://.+|[-.\w]+(:\d+)?))*)`
+    /`$multiple_host_or_url`/
 
 - Default:
 
@@ -2558,7 +2558,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2600,7 +2600,7 @@ SSL ciphers used
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2624,7 +2624,7 @@ remote user
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2648,7 +2648,7 @@ first-level suffix
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2684,7 +2684,7 @@ first-level filter
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2696,7 +2696,7 @@ first-level extracted attribute
 
 - Format:
 
-    `(?-xism:\w[-\w]*(?:;[-\w]+)*)`
+    /`$ldap_attrdesc`/
 
 - Default:
 
@@ -2720,7 +2720,7 @@ first-level regular expression
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2732,7 +2732,7 @@ second-level suffix template
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2768,7 +2768,7 @@ second-level filter template
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2780,7 +2780,7 @@ second-level extracted attribute
 
 - Format:
 
-    `(?-xism:\w[-\w]*(?:;[-\w]+)*)`
+    /`$ldap_attrdesc`/
 
 - Default:
 
@@ -2804,7 +2804,7 @@ second-level regular expression
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2816,7 +2816,7 @@ Name of email entry
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2828,7 +2828,7 @@ Time ranges when inclusion is not allowed
 
 - Format:
 
-    `(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)(?:\s+(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?))*`
+    /`$time_ranges`/
 
 - Default:
 
@@ -2850,7 +2850,7 @@ short name for this source
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2862,7 +2862,7 @@ database type
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2874,7 +2874,7 @@ remote host
 
 - Format:
 
-    `(?-xism:[\w\.\-]+)`
+    /`$host`/
 
 - Default:
 
@@ -2886,7 +2886,7 @@ database port
 
 - Format:
 
-    `\d+`
+    /`\d+`/
 
 - Default:
 
@@ -2898,7 +2898,7 @@ database name
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2910,7 +2910,7 @@ connection options
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2922,7 +2922,7 @@ environment variables for database connection
 
 - Format:
 
-    `\w+\=\S+(;\w+\=\S+)*`
+    /`\w+\=\S+(;\w+\=\S+)*`/
 
 - Default:
 
@@ -2934,7 +2934,7 @@ remote user
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2958,7 +2958,7 @@ SQL query
 
 - Format:
 
-    `(?-xism:(SELECT|select).*)`
+    /`$sql_query`/
 
 - Default:
 
@@ -2970,7 +2970,7 @@ Directory where the database is stored (used for DBD::CSV only)
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -2982,7 +2982,7 @@ Name of email entry
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -2994,7 +2994,7 @@ Time ranges when inclusion is not allowed
 
 - Format:
 
-    `(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)(?:\s+(?-xism:[012]?[0-9](?:\:[0-5][0-9])?)-(?-xism:[012]?[0-9](?:\:[0-5][0-9])?))*`
+    /`$time_ranges`/
 
 - Default:
 
@@ -3037,7 +3037,7 @@ File path for list DKIM private key
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -3051,7 +3051,7 @@ Selector for DNS lookup of DKIM public key
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -3069,7 +3069,7 @@ DKIM "d=" tag, you should probably use the default value
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -3083,7 +3083,7 @@ DKIM "i=" tag, you should probably leave this parameter empty
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -3148,7 +3148,7 @@ Match domain regexp
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -3162,7 +3162,7 @@ New From address
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -3227,7 +3227,7 @@ internal identifier
 
 - Format:
 
-    `\w+`
+    /`\w+`/
 
 - Default:
 
@@ -3239,7 +3239,7 @@ label
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -3251,7 +3251,7 @@ additional comment
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -3276,7 +3276,7 @@ possible attribute values (if enum is used)
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -3305,7 +3305,7 @@ var name
 
 - Format:
 
-    `\S+`
+    /`\S+`/
 
 - Default:
 
@@ -3317,7 +3317,7 @@ var value
 
 - Format:
 
-    `.+`
+    /`.+`/
 
 - Default:
 
@@ -3329,7 +3329,7 @@ Periodical subscription expiration task
 
 - Format:
 
-    `(?-xism:\w+)`
+    /`\w+`/
 
 - Default:
 
@@ -3343,7 +3343,7 @@ Regular expression applied to prevent loops with robots
 
 - Format:
 
-    `\S*`
+    /`\S*`/
 
 - Default:
 
@@ -3366,7 +3366,7 @@ Periodical subscription reminder task
 
 - Format:
 
-    `(?-xism:\w+)`
+    /`\w+`/
 
 - Default:
 
@@ -3412,7 +3412,7 @@ who ran the instantiation
 
 - Format:
 
-    `listmaster|(?-xism:([\w\-\_\.\/\+\='\&]+|\".*\")\@[\w\-]+(\.[\w\-]+)+)`
+    /`listmaster|$email`/
 
 - Default:
 
@@ -3446,7 +3446,7 @@ who created the list
 
 - Format:
 
-    `listmaster|(?-xism:([\w\-\_\.\/\+\='\&]+|\".*\")\@[\w\-]+(\.[\w\-]+)+)`
+    /`listmaster|$email`/
 
 - Default:
 
@@ -3480,7 +3480,7 @@ who updated the config
 
 - Format:
 
-    `(listmaster|automatic|(?-xism:([\w\-\_\.\/\+\='\&]+|\".*\")\@[\w\-]+(\.[\w\-]+)+))`
+    /`(listmaster|automatic|$email)`/
 
 - Default:
 
@@ -3520,7 +3520,7 @@ Serial number of the config
 
 - Format:
 
-    `\d+`
+    /`\d+`/
 
 - Default:
 
