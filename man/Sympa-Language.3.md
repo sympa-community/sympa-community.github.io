@@ -392,7 +392,7 @@ RFC 5646 _Tags for Identifying Languages_.
 [http://tools.ietf.org/html/rfc5646](http://tools.ietf.org/html/rfc5646).
 
 _Translating Sympa_.
-[http://www.sympa.org/translating\_sympa](http://www.sympa.org/translating_sympa).
+[https://translate.sympa.org/pages/help](https://translate.sympa.org/pages/help).
 
 # HISTORY
 
