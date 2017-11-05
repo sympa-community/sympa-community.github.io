@@ -79,20 +79,23 @@ Daemons of Sympa services accept following signals:
 Anyway, recommended procedure to reload, stop or start the services is
 described in succeeding sections.
 
-Starting and stopping services
-------------------------------
+Checking status of services
+---------------------------
 
 ### Checking status of Sympa services
 
   * Systemd:
     ```bash
-    # systemctl status sympa
+    # systemctl status 'sympa*'
     ```
 
   * initscripts:
     ```bash
     # service sympa status
     ```
+
+Reloading services
+------------------
 
 ### Reloading Sympa services
 
@@ -107,6 +110,30 @@ Starting and stopping services
     # service sympa restart
     # service sympa status
     ```
+
+### Reloading WWSympa
+
+  * Automatic reloading
+
+    If [``wwsympa.fcgi``](man/wwsympa.8.md) script was updated, it detects
+    change of itself and exits.  Then WWSympa will be automatically reloaded.
+
+    Exception is the case using nginx with initscripts: If script exits,
+    it have to be restared manually:
+    ```
+    # service wwsympa start
+    ```
+
+  * Forced reloading
+
+    To force reloading, restart HTTP server.
+
+    Exception is the case using nginx (either with Systemd or initscripts):
+    Only WWSympa FastCGI service (``wwsympa``) may be reloaded by
+    ``service wwsympa restart`` or ``systemctl restart wwsympa``.
+
+Stopping and starting services
+------------------------------
 
 ### Stopping services
 
