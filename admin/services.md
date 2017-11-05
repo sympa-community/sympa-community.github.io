@@ -89,7 +89,7 @@ Checking status of services
     # systemctl status 'sympa*'
     ```
 
-  * initscripts:
+  * initscripts or FreeBSD ports:
     ```bash
     # service sympa status
     ```
@@ -105,7 +105,7 @@ Reloading services
     # systemctl status sympa
     ```
 
-  * initscripts:
+  * initscripts or FreeBSD ports:
     ```bash
     # service sympa restart
     # service sympa status
@@ -119,7 +119,7 @@ Reloading services
     change of itself and exits.  Then WWSympa will be automatically reloaded.
 
     Exception is the case using nginx with initscripts: If script exits,
-    it have to be restared manually:
+    it have to be restared manually by executing such as:
     ```
     # service wwsympa start
     ```
@@ -172,7 +172,7 @@ Stopping and starting services
          # systemctl status sympa
          ```
 
-       * initscripts:
+       * initscripts or FreeBSD ports:
          ```bash
          # service sympa start
          # service sympa status

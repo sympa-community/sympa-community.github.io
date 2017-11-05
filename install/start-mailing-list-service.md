@@ -20,7 +20,7 @@ Start mailing list service
        # systemctl status sympa.service
        ```
 
-     * initscripts
+     * initscripts or FreeBSD ports
        ```
        # service sympa start
        # service sympa status

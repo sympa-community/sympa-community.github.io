@@ -91,7 +91,8 @@ General instruction
 
        * Some binary distributions ship configuration ready to edit:
 
-           - On RPM, ``/etc/httpd/conf.d/sympa.conf`` file is prepared.
+           - On RPM, ``/etc/httpd/conf.d/sympa.conf`` file is prepared by
+             ``sympa-httpd`` package.
 
      ----
 

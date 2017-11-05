@@ -35,6 +35,17 @@ Systemd
 You should activate other services also: Mail transfer agent (MTA) and
 HTTP server.
 
+FreeBSD ports
+-------------
+
+  1. Activate Sympa service.
+     ```bash
+     # sysrc sympa_enable=YES
+     ```
+
+You should activate other services also:
+Database server, mail transfer agent (MTA) and HTTP server.
+
 initscripts
 -----------
 

@@ -53,7 +53,7 @@ General instruction
          # systemctl status wwsympa.service
          ```
 
-       * initscripts
+       * initscripts or FreeBSD ports
          ```bash
          # service wwsympa start
          # service wwsympa status
@@ -101,7 +101,8 @@ General instruction
 
        * Some binary distributions ship configuration ready to edit:
 
-           - On RPM, ``/etc/nginx/conf.d/sympa.conf`` file is prepared.
+           - On RPM, ``/etc/nginx/conf.d/sympa.conf`` file is prepared by
+             ``sympa-nginx`` package.
 
      ----
 
