@@ -68,7 +68,8 @@ useful:
 ----
 Note:
 
-  * Value of [``use_fast_cgi``](../man/sympa.conf.5.md#use_fast_cgi) parameter
+  * On Sympa 6.2.22 or earlier,
+    value of [``use_fast_cgi``](../man/sympa.conf.5.md#use_fast_cgi) parameter
     in [``sympa.conf``](../man/sympa.conf.5.md#config) must be ``1``,
     the default.
 
