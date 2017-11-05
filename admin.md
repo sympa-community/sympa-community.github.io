@@ -2,6 +2,7 @@
 title: 'Administering Sympa'
 prev: upgrade.md
 up: ./
+next: customize.md
 ---
 
 Administering Sympa
