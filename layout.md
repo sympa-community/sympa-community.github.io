@@ -20,6 +20,7 @@ symbols with real paths on your Sympa.
 | FreeBSD                     | ``/usr/local/etc/sympa/sympa.conf`` |
 | RPM                         | ``/etc/sympa/sympa.conf``        |
 | Source distribution default | ``/etc/sympa/sympa.conf``        |
+| (by version prior to 6.2)   | ``/etc/sympa.conf``              |
 | [Suggested configure option](install/install-sympa-distribution-source.md#new-installation) | ``/etc/sympa/sympa.conf`` |
 
 #### ``$SENDMAIL_ALIASES``
@@ -62,7 +63,7 @@ symbols with real paths on your Sympa.
 | FreeBSD                     | ``/usr/local/share/sympa/list_data`` |
 | RPM                         | ``/var/lib/sympa/list_data``     |
 | Source distribution default | ``/home/sympa/list_data``        |
-| (by earlier releases)       | ``/home/sympa/expl``             |
+| (by version prior to 6.0)   | ``/home/sympa/expl``             |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/list_data`` |
 
 #### ``$SPOOLDIR``
