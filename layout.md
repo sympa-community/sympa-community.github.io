@@ -59,7 +59,7 @@ symbols with real paths on your Sympa.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
-| Debian                      | ???? |
+| Debian                      | ``/var/lib/sympa/list_data`` |
 | FreeBSD                     | ``/usr/local/share/sympa/list_data`` |
 | RPM                         | ``/var/lib/sympa/list_data``     |
 | Source distribution default | ``/home/sympa/list_data``        |
@@ -87,7 +87,7 @@ symbols with real paths on your Sympa.
 
 | Distribution                | Path                             |
 |-----------------------------|----------------------------------|
-| Debian                      | ???? |
+| Debian                      | ``/var/spool/sympa`` |
 | FreeBSD                     | ``/var/spool/sympa``             |
 | RPM                         | ``/var/spool/sympa``             |
 | Source distribution default | ``/home/sympa/spool``            |
@@ -114,7 +114,7 @@ symbols with real paths on your Sympa.
 
 | Distribution                | Path                             |
 |-----------------------------|----------------------------------|
-| Debian                      | ???? |
+| Debian                      | ``/usr/lib/sympa/locale`` |
 | FreeBSD                     | ``/usr/local/share/locale``      |
 | RPM                         | ``/usr/share/locale``            |
 | Source distribution default | ``/home/sympa/locale``           |
@@ -190,7 +190,7 @@ symbols with real paths on your Sympa.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
-| Debian                      | ???? |
+| Debian                      | ``/var/lib/sympa/static_content`` |
 | FreeBSD                     | ???? |
 | RPM                         | ``/var/lib/sympa/static_content`` |
 | Source distribution default | ``/home/sympa/static_content``   |
