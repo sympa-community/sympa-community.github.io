@@ -1,34 +1,41 @@
 # NAME
 
-alias\_manager, alias\_manager.pl - Manage Sympa Aliases
+alias\_manager, alias\_manager.pl - Manage Sympa aliases (Obsoleted)
+
+# OBSOLETED
+
+`alias_manager.pl` was obsoleted as of Sympa 6.2.24, and will be removed
+in the future.
+To manage aliases based on template, setting "`alias_manager Template`" in
+`sympa.conf` or `robot.conf` is recommended.
 
 # SYNOPSIS
 
-**alias\_manager.pl** **add** | **del** _listname_ _domain_
+`alias_manager.pl` `add` _listname_ _domain_ \[ _file_ \]
+
+`alias_manager.pl` `del` _listname_ _domain_ \[ _file_ \]
 
 # DESCRIPTION
 
 Alias\_manager is a program that helps in installing aliases for newly
 created lists and deleting aliases for closed lists. 
 
-It is called by
-[wwsympa.fcgi(8)](./wwsympa.8.md) or [sympa.pl(8)](./sympa.8.md) via the _aliaswrapper_.
 Alias management is performed only if it was setup in `/etc/sympa/sympa.conf`
 (`sendmail_aliases` configuration parameter).
 
 Administrators using MTA functionalities to manage aliases (ie
 virtual\_regexp and transport\_regexp with postfix) can disable alias
 management by setting
-`sendmail_aliases` configuration parameter to **none**.
+`sendmail_aliases` configuration parameter to `none`.
 
 # OPTIONS
 
-- **add** _listname_ _domain_
+- `add` _listname_ _domain_ \[ _file_ \]
 
     Add the set of aliases for the mailing list _listname_ in the
     domain _domain_.
 
-- **del** _listname_ _domain_
+- `del` _listname_ _domain_ \[ _file_ \]
 
     Remove the set of aliases for the mailing list _listname_ in the
     domain _domain_.
@@ -39,7 +46,7 @@ management by setting
 
 # DOCUMENTATION
 
-The full documentation in HTML and PDF formats can be
+The full documentation in HTML formats can be
 found in [http://www.sympa.org/manual/](http://www.sympa.org/manual/). 
 
 The mailing lists (with web archives) can be accessed at
@@ -80,4 +87,4 @@ See [http://www.sympa.org/tracking](http://www.sympa.org/tracking).
 
 # SEE ALSO
 
-[sympa(1)](./sympa.1.md), [sympa\_msg(8)](./sympa_msg.8.md), [sendmail(8)](./sendmail.8.md), [wwsympa(8)](./wwsympa.8.md).
+[Sympa::Aliases::Template](./Sympa-Aliases-Template.3.md).

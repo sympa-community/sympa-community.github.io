@@ -4,10 +4,11 @@ sympa\_automatic, sympa\_automatic.pl - Automatic list creation daemon
 
 # SYNOPSIS
 
-**sympa\_automatic.pl** \[ **-d, --debug** \] \[ **-f, --file**=_another.sympa.conf_ \]
-      \[ **-k, --keepcopy**=_directory_ \]
-      \[ \[ **-m, --mail** \]
-      \[ **-h, --help** \] \[ **-v, --version** \]
+`sympa_automatic.pl` \[ `-d, --debug` \]
+\[ `-f, --file`=_another.sympa.conf_ \]
+\[ `-k, --keepcopy`=_directory_ \]
+\[ \[ `-m, --mail` \]
+\[ `-h, --help` \] \[ `-v, --version` \]
 
 # DESCRIPTION
 
@@ -22,32 +23,32 @@ message spool again and wait for processing by `sympa_msg.pl`.
 
 `sympa_automatic.pl` may run with following options in general.
 
-- **-d**, **--debug**
+- `-d`, `--debug`
 
     Enable debug mode.
 
-- **-f**, **--config=**_file_
+- `-f`, `--config=`_file_
 
     Force Sympa to use an alternative configuration file instead
     of `/etc/sympa/sympa.conf`.
 
-- **--log\_level=**_level_
+- `--log_level=`_level_
 
     Sets Sympa log level.
 
 `sympa_automatic.pl` may run in daemon mode with following options.
 
-- **--foreground**
+- `--foreground`
 
     The process remains attached to the TTY.
 
-- **-k**, **--keepcopy=**`directory`
+- `-k`, `--keepcopy=`_directory_
 
     This option tells Sympa to keep a copy of every incoming message, 
     instead of deleting them. \`directory' is the directory to 
     store messages.
 
-- **-m**, **--mail**
+- `-m`, `--mail`
 
     Sympa will log calls to sendmail, including recipients. This option is
     useful for keeping track of each mail sent (log files may grow faster
@@ -55,11 +56,11 @@ message spool again and wait for processing by `sympa_msg.pl`.
 
 With following options `sympa_automatic.pl` will print some information and exit.
 
-- **-h**, **--help**
+- `-h`, `--help`
 
     Print this help message.
 
-- **-v**, **--version**
+- `-v`, `--version`
 
     Print the version number.
 

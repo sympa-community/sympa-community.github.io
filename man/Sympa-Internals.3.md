@@ -15,13 +15,25 @@ To know details of each module, run:
 
     Future base class of Sympa functional objects
 
-- [Sympa::Admin](./Sympa-Admin.3.md)
-
-    TBD
-
 - [Sympa::Alarm](./Sympa-Alarm.3.md)
 
     Spool on memory for listmaster notification
+
+- [Sympa::Aliases](./Sympa-Aliases.3.md)
+
+    Base class for alias management
+
+- [Sympa::Aliases::CheckSMTP](./Sympa-Aliases-CheckSMTP.3.md)
+
+    Alias management: Check addresses using SMTP
+
+- [Sympa::Aliases::External](./Sympa-Aliases-External.3.md)
+
+    Alias management: Updating aliases by external program
+
+- [Sympa::Aliases::Template](./Sympa-Aliases-Template.3.md)
+
+    Alias management: Aliases file based on template
 
 - [Sympa::Archive](./Sympa-Archive.3.md)
 

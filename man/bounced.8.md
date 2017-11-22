@@ -4,7 +4,7 @@ bounced, bounced.pl - Mailing List Bounce Processing Daemon for Sympa
 
 # SYNOPSIS
 
-**bounced** \[ **--foreground** \] \[ **--debug** \]
+`bounced.pl` \[ `--foreground` \] \[ `--debug` \]
 
 # DESCRIPTION
 
@@ -21,24 +21,24 @@ These programs follow the usual GNU command line syntax,
 with long options starting with two dashes (`--`).  A summary of
 options is included below.
 
-- **-F**, **--foreground**
+- `-F`, `--foreground`
 
     Do not detach TTY.
 
-- **-f**, **--config=**_file_
+- `-f`, `--config=`_file_
 
     Force bounced to use an alternative configuration file instead
     of `/etc/sympa/sympa.conf`.
 
-- **-d**, **--debug**
+- `-d`, `--debug`
 
     Run the program in a debug mode.
 
-- **-h**, **--help**
+- `-h`, `--help`
 
     Print this help message.
 
-- **--log\_level=**_level_
+- `--log_level=`_level_
 
     Sets daemon log level.
 

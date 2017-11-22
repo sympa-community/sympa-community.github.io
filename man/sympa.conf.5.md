@@ -2323,20 +2323,6 @@ System log facility for web interface
 
 System log facility for WWSympa, archived.pl and bounced.pl. Default is to use value of "syslog" parameter.
 
-#### `use_fast_cgi`
-
-Enable FastCGI
-
-- Default:
-
-    `1`
-
-- Overrides:
-
-    None.
-
-Is FastCGI module for HTTP server installed. This module provide much faster web interface.
-
 ## Web interface parameters: Appearances
 
 #### `logo_html_definition`
@@ -3392,6 +3378,20 @@ Default timeout between two action-triggered synchronizations of list members wi
 - Overrides:
 
     None.
+
+#### `use_fast_cgi`
+
+Enable FastCGI
+
+- Default:
+
+    `1`
+
+- Overrides:
+
+    None.
+
+Is FastCGI module for HTTP server installed. This module provide much faster web interface.
 
 # FILES
 

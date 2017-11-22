@@ -4,10 +4,11 @@ sympa\_msg, sympa\_msg.pl - Daemon to handle incoming messages
 
 # SYNOPSIS
 
-**sympa\_msg.pl** \[ **-d, --debug** \] \[ **-f, --file**=_another.sympa.conf_ \]
-      \[ **-k, --keepcopy**=_directory_ \]
-      \[ **-l, --lang**=_lang_ \] \[ **-m, --mail** \]
-      \[ **-h, --help** \] \[ **-v, --version** \]
+`sympa_msg.pl` \[ `-d`, `--debug` \]
+\[ `-f`, `--file`=_another.sympa.conf_ \]
+\[ `-k`, `--keepcopy`=_directory_ \]
+\[ `-l`, `--lang`=_lang_ \] \[ `-m`, `--mail` \]
+\[ `-h`, `--help` \] \[ `-v`, `--version` \]
 
 # DESCRIPTION
 
@@ -26,58 +27,59 @@ Sympa\_msg.pl follows the usual GNU command line syntax,
 with long options starting with two dashes (`--`).  A summary of
 options is included below.
 
-- **-d**, **--debug**
+- `-d`, `--debug`
 
     Enable debug mode.
 
-- **-f**, **--config=**_file_
+- `-f`, `--config=`_file_
 
     Force Sympa to use an alternative configuration file instead
     of `/etc/sympa/sympa.conf`.
 
-- **-l**, **--lang=**_lang_
+- `-l`, `--lang=`_lang_
 
     Set this option to use a language for Sympa. The corresponding
     gettext catalog file must be located in `$LOCALEDIR`
     directory.
 
-- **--log\_level=**_level_
+- `--log_level=`_level_
 
     Sets Sympa log level.
 
 `sympa_msg.pl` may run in daemon mode with following options.
 
-- **--foreground**
+- `--foreground`
 
     The process remains attached to the TTY.
 
-- **-k**, **--keepcopy=**`directory`
+- `-k`, `--keepcopy=``directory`
 
     This option tells Sympa to keep a copy of every incoming message, 
     instead of deleting them. \`directory' is the directory to 
     store messages.
 
-- **-m**, **--mail**
+- `-m`, `--mail`
 
     Sympa will log calls to sendmail, including recipients. This option is
     useful for keeping track of each mail sent (log files may grow faster
     though).
 
-- **--service=process\_command**|**process\_message**|**process\_creation**
+- `--service=`_service_
 
     **Note**:
     This option was deprecated.
 
-    Process is dedicated to messages distribution, commands or to automatic lists
-    creation (default three of them).
+    Process is dedicated to messages distribution (`process_message`),
+    commands (`process_command`) or to automatic lists
+    creation (`process_creation`, default three of them).
 
 With following options `sympa_msg.pl` will print some information and exit.
 
-- **-h**, **--help**
+- `-h`, `--help`
 
     Print this help message.
 
-- **-v**, **--version**
+- `-v`, `--version`
 
     Print the version number.
 

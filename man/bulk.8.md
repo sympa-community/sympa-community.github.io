@@ -4,7 +4,7 @@ bulk, bulk.pl - Daemon for submitting messages to SMTP engine
 
 # SYNOPSIS
 
-**bulk.pl** \[ **--foreground** \] \[ **--debug** \]
+`bulk.pl` \[ `--foreground` \] \[ `--debug` \]
 
 # DESCRIPTION 
 
@@ -15,28 +15,28 @@ traffic.
 
 # OPTIONS
 
-- **-d**, **--debug**
+- `-d`, `--debug`
 
     Sets the debug mode
 
-- **-f**, **--config=**_file_
+- `-f`, `--config=`_file_
 
     Force bulk to use an alternative configuration file instead
     of `/etc/sympa/sympa.conf`.
 
-- **-F**, **--foreground**
+- `-F`, `--foreground`
 
     Prevents the script from being daemonized
 
-- **-h**, **--help**
+- `-h`, `--help`
 
     Prints this help message.
 
-- **--log\_level=**_level_
+- `--log_level=`_level_
 
     Set log level.
 
-- **-m**, **--mail**
+- `-m`, `--mail`
 
     Logs every sendmail calls.
 

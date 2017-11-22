@@ -33,7 +33,22 @@ This module is the base class for spool subclasses of Sympa.
     _Constructor_.
     Creates new instance of the class.
 
-- next ( \[ no\_lock => 1 \] )
+- marshal ( $message, \[ keep\_keys => 1 \] )
+
+    _Instance method_.
+    Gets marshalled key (file name) of the message.
+
+    Parameters:
+
+    - $message
+
+        Message to be marshalled.
+
+    - keep\_keys => 1
+
+        See marshal\_metadata().
+
+- next ( \[ no\_filter => 1 \], \[ no\_lock => 1 \] )
 
     _Instance method_.
     Gets next message to process, order is controlled by name of spool file and
@@ -41,6 +56,10 @@ This module is the base class for spool subclasses of Sympa.
     Message will be locked to prevent multiple proccessing of a single message.
 
     Parameters:
+
+    - no\_filter => 1
+
+        Won't skip messages when filter defined by \_filter() returns false.
 
     - no\_lock => 1
 
@@ -132,6 +151,21 @@ This module is the base class for spool subclasses of Sympa.
     If storing succeeded, marshalled metadata (file name) of the message.
     Otherwise `undef`.
 
+- unmarshal ( $marshalled )
+
+    _Instance method_.
+    Gets metadata from marshalled key (file name).
+
+    Parameters:
+
+    - $marshalled
+
+        Marshalled key.
+
+    Returns:
+
+    Hashref containing metadata.
+
 ## Properties
 
 Instance of [Sympa::Spool](./Sympa-Spool.3.md) may have following properties.
@@ -188,7 +222,8 @@ $marshal\_regexp, $marshal\_keys )
     Following keys are derived from them:
     `context`, `listname`, `listtype`, `priority`.
 
-- marshal\_metadata ( $message, $marshal\_format, $marshal\_keys )
+- marshal\_metadata ( $message, $marshal\_format, $marshal\_keys,
+\[ keep\_keys => 1 \] )
 
     _Function_.
     Marshals metadata.
@@ -198,6 +233,7 @@ $marshal\_regexp, $marshal\_keys )
     If key is uppercase, it means auto-generated value:
     `'AUTHKEY'`, `'KEYAUTH'`, `'PID'`, `'RAND'`, `'TIME'`.
     Otherwise it means metadata or property of $message.
+    If `keep_keys` option (added on 6.2.23b) is set, forces using latter.
 
     sprintf() is executed under `C` locale:
     Full stop (`.`) is always used for decimal point in floating point number.
@@ -358,3 +394,5 @@ It as the base class appeared on Sympa 6.2.6.
 build\_glob\_pattern(), size(), \_glob\_pattern() and \_store\_key()
 were introduced on Sympa 6.2.8.
 \_filter\_pre() was introduced on Sympa 6.2.10.
+marshal(), unmarshal() and `no_filter` option of next()
+were introduced on Sympa 6.2.22.

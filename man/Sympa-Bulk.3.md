@@ -22,12 +22,13 @@ Sympa::Bulk - Spool for bulk sending
     _Constructor_.
     Creates new instance of [Sympa::Bulk](./Sympa-Bulk.3.md).
 
-- next ( )
+- next ( \[ no\_filter => 1 \] )
 
     _Instance method_.
     Gets next packet to process, order is controlled by message priority, then by
     packet priority, then by delivery date, then by reception date.
-    Packets with future delivery date are ignored.
+    Packets with future delivery date are ignored
+    (if `no_filter` option is _not_ set).
     Packet will be locked to prevent multiple proccessing of a single packet.
 
     Parameters:

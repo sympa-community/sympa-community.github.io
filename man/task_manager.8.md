@@ -4,7 +4,7 @@ task\_manager, task\_manager.pl - Daemon to Process Periodical Sympa Tasks
 
 # SYNOPSIS
 
-**task\_manager.pl** \[ **--foreground** \] \[ **--debug** \]
+`task_manager.pl` \[ `--foreground` \] \[ `--debug` \]
 
 # DESCRIPTION
 
@@ -12,24 +12,24 @@ XXX @todo doc
 
 # OPTIONS
 
-- **-d**, **--debug**
+- `-d`, `--debug`
 
     Sets the debug mode
 
-- **-f**, **--config=**_file_
+- `-f`, `--config=`_file_
 
     Force task\_manager to use an alternative configuration file instead
     of `/etc/sympa/sympa.conf`.
 
-- **-F**, **--foreground**
+- `-F`, `--foreground`
 
     Prevents the script from being daemonized
 
-- **-h**, **--help**
+- `-h`, `--help`
 
     Prints this help message.
 
-- **--log\_level=**_level_
+- `--log_level=`_level_
 
     Set log level.
 

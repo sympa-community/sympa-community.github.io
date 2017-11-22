@@ -20,6 +20,16 @@ authorized, it will be created.  Then the message is stored into incoming
 message spool again and waits for processing by
 [Sympa::Spindle::ProcessIncoming](./Sympa-Spindle-ProcessIncoming.3.md).
 
+Order to process messages in source spool are controlled by modification time
+of files and delivery date.
+Some messages are skipped according to these priorities
+(See [Sympa::Spool::Automatic](./Sympa-Spool-Automatic.3.md)):
+
+- Messages with lowest priority (`z` or `Z`) are skipped.
+- Messages with possiblly higher priority are chosen.
+This is done by skipping messages with lower priority than those already
+found.
+
 ## Public methods
 
 See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-methods).

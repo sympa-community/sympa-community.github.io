@@ -129,7 +129,7 @@ Below is the list of documentation of Sympa.
 
 - [alias\_manager(8)](./alias_manager.8.md)
 
-    Manage Sympa Aliases
+    Manage Sympa aliases (Obsoleted)
 
 - [ldap\_alias\_manager(8)](./ldap_alias_manager.8.md)
 

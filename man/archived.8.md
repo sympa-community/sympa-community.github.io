@@ -4,7 +4,7 @@ archived, archived.pl - Mailing List Archiving Daemon for Sympa
 
 # SYNOPSIS
 
-**archived.pl** \[ **--foreground** \] \[ **--debug** \]
+`archived.pl` \[ `--foreground` \] \[ `--debug` \]
 
 # DESCRIPTION
 
@@ -25,20 +25,20 @@ These programs follow the usual GNU command line syntax,
 with long options starting with two dashes (`--`).  A summary of
 options is included below.
 
-- **-F**, **--foreground**
+- `-F`, `--foreground`
 
     Do not detach TTY.
 
-- **-f**, **--config=**_file_
+- `-f`, `--config=`_file_
 
     Force archived to use an alternative configuration file instead
     of `/etc/sympa/sympa.conf`.
 
-- **-d**, **--debug**
+- `-d`, `--debug`
 
     Run the program in a debug mode.
 
-- **-h**, **--help**
+- `-h`, `--help`
 
     Print this help message.
 

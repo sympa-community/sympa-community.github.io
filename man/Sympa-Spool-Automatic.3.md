@@ -18,12 +18,13 @@ automatic spool.
 
 See also ["Public methods" in Sympa::Spool](./Sympa-Spool.3.md#public-methods).
 
-- next ( )
+- next ( \[ no\_filter => 1 \], \[ no\_lock => 1 \] )
 
     _Instance method_.
-    Order is controlled by modification time of files and delivery date, then
-    messages with possiblly higher priority are chosen.
-    Messages with lowest priority (`z` or `Z`) are skipped.
+    Order is controlled by modification time of files and delivery date, then,
+    if `no_filter` is _not_ set,
+    messages with possiblly higher priority are chosen and
+    messages with lowest priority (`z` or `Z`) are skipped.
 
 - store ( $message, \[ original => $original \] )
 

@@ -8,26 +8,26 @@ sympa\_newaliases, sympa\_newaliases.pl - Alias database maintenance
 
 # DESCRIPTION
 
-sympa\_newaliases is a program to maintain alias database.
+`sympa_newaliases.pl` is a program to maintain alias database.
 
-It is typically called by
-[alias\_manager(8)](./alias_manager.8.md) via sympa\_newaliases-wrapper,
+It is typically invoked from
+[Sympa::Aliases::Template](./Sympa-Aliases-Template.3.md) module via sympa\_newaliases-wrapper,
 then updates alias database.
 
 # OPTIONS
 
 `sympa_newaliases.pl` may run with following options.
 
-- **--domain=**_domain_
+- `--domain=`_domain_
 
     Name of virtual robot on which aliases will be updated.
 
-- **-f**, **--config=**_file_
+- `-f`, `--config=`_file_
 
     Force sympa\_newaliases to use an alternative configuration file instead
     of `/etc/sympa/sympa.conf`.
 
-- **-h**, **--help**
+- `-h`, `--help`
 
     Print this help message.
 
@@ -106,4 +106,4 @@ IKEDA Soji <ikeda@conversion.co.jp>.
 
 # SEE ALSO
 
-[alias\_manager(8)](./alias_manager.8.md).
+[Sympa::Aliases::Template](./Sympa-Aliases-Template.3.md).

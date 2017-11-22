@@ -44,6 +44,10 @@ context => $list, arc => $arc, message\_id => $message\_id,
 
         Context (List), archive and message ID to specify the message in archive.
 
+        Note:
+        `arc` parameter will be used by a latter part of processing,
+        [Sympa::Spindle::TransofrmOutgoing](./Sympa-Spindle-TransofrmOutgoing.3.md) to construct `Archived-At` field.
+
     - quiet => 1
 
         NOT YET IMPLEMENTED.
@@ -69,7 +73,7 @@ See also ["Properties" in Sympa::Spindle](./Sympa-Spindle.3.md#properties).
 [Sympa::Archive](./Sympa-Archive.3.md),
 [Sympa::Message](./Sympa-Message.3.md),
 [Sympa::Spindle](./Sympa-Spindle.3.md), [Sympa::Spindle::ToList](./Sympa-Spindle-ToList.3.md),
-[Sympa::Spool::TransformOutgoing](./Sympa-Spool-TransformOutgoing.3.md).
+[Sympa::Spindle::TransformOutgoing](./Sympa-Spindle-TransformOutgoing.3.md).
 
 # HISTORY
 

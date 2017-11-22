@@ -17,7 +17,7 @@ Sympa::Spindle::ProcessAuth - Workflow of request confirmation
 requests.
 
 When spin() method is invoked, it reads a request in held request spool,
-authorizes it and dispatch it if possible.
+authorizes and dispatch it or remove it if possible.
 Either authorization and dispatching failed or not, spin() will terminate
 processing.
 Failed request will be kept in spool and wait for confirmation again.
@@ -26,18 +26,20 @@ Failed request will be kept in spool and wait for confirmation again.
 
 See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-methods).
 
-- new ( confirmed\_by => $email,
+- new ( confirmed\_by => $email | canceled\_by => $email,
 context => $context, keyauth => $key,
 \[ quiet => 1 \], scenario\_context => {context...} )
 - spin ( )
 
     new() must take following options:
 
-    - confirmed\_by => $email
+    - confirmed\_by => $email | canceled\_by => $email
 
-        E-mail address of the user who confirmed the request.
-        It is given by AUTH command and
+        E-mail address of the user who confirmed or canceled the request.
+        Confirming address is given by AUTH command and
         used by [Sympa::Spindle::AuthorizeRequest](./Sympa-Spindle-AuthorizeRequest.3.md) to execute scenario.
+
+        N.B. The key is spelled `cenceled_by`, not `cancelled_by`.
 
     - context => $context
     - keyauth => $key
@@ -76,3 +78,5 @@ See also ["Properties" in Sympa::Spindle](./Sympa-Spindle.3.md#properties).
 # HISTORY
 
 [Sympa::Spindle::ProcessAuth](./Sympa-Spindle-ProcessAuth.3.md) appeared on Sympa 6.2.15.
+
+`canceled_by` option was added on Sympa 6.2.19b.
