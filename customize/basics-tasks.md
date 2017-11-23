@@ -8,7 +8,7 @@ A task is a sequence of simple actions which realize a complex routine. It is ex
 
 A task is created with a task model. It is a text file which describes a sequence of simple actions. It may have different versions (for instance reminding subscribers every year or semester). A task model file name has the following format: `<model name>.<model version>.task`. For instance `remind.annual.task` or `remind.semestrial.task`.
 
-Sympa provides several task models stored in the `/home/sympa/bin/etc/global_task_models` and `/home/sympa/bin/etc/list_task_models` directories. Others can be designed by listmasters.
+Sympa provides several task models stored in the [``$DEFAULTDIR``](../layout.md#defaultdir)`/global_task_models` and [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models` directories. Others can be designed by listmasters.
 
 A task can be either global or related to a list.
 
@@ -19,9 +19,9 @@ Though you can freely modify the content of any model task and create as much ve
 
 This is due to the fact that, in order to use a task (whatever its focus is, global or list related), you must:
 
--   Ensure that the task model file exists in the pertinent location;
+  - Ensure that the task model file exists in the pertinent location;
 
--   Set the configuration parameter that will make the task manager use the right task model file.
+  - Set the configuration parameter that will make the task manager use the right task model file.
 
 Both the model name and the parameter are hard-coded in Sympa for each task model. Consequently, if you want to create a brand new task model (and not a new version of an existing model), you must modify Sympa to add this new task and its associated parameter.
 
@@ -29,9 +29,9 @@ Both the model name and the parameter are hard-coded in Sympa for each task mode
 
 Two different objects used by the task manager can have the same name;
 
--   the *model* name referred above, used in the task model file name composition;
+  - the *model* name referred above, used in the task model file name composition;
 
--   the *command* name used *inside* the task model file to call a functionality offered by the task manager.
+  - the *command* name used *inside* the task model file to call a functionality offered by the task manager.
 
 ***These are two completely different things*** but for historical reasons some have exactly the same name. For example there is a model name called `sync_include` AND a command called `sync_include()`. You can call the `sync_include()` command inside the `sync_include` model but you don't have to.
 
@@ -49,31 +49,31 @@ List task creation
 
 You define in the list configuration file the model and the version you want to use. Then the task manager daemon will automatically create the task by looking for the appropriate model file in different directories in the following order:
 
--   `/home/sympa/list_data/<list path>/`;
+  - [``$EXPLDIR``](../layout.md#expldir)`/<list path>/`;
 
--   `/home/sympa/etc/<virtual host name>/list_task_models/`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/<virtual host name>/list_task_models/`;
 
--   `/home/sympa/etc/list_task_models/`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/list_task_models/`;
 
--   `/home/sympa/bin/etc/list_task_models/`.
+  - [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models/`.
 
-See also [List model files](/manual/list-definition#list_model_files) to know more about standard list models provided with Sympa.
+See also ~~[List model files](/manual/list-definition#list_model_files)~~ to know more about standard list models provided with Sympa.
 
 ### List model names
 
 You can use two model names in your list task model files :
 
--   `remind` : generally used to remind subscribers that they subscribed to this list;
+  - `remind` : generally used to remind subscribers that they subscribed to this list;
 
--   `expire`: generally used as an extended remind: it reminds users of theirs subscription and, if they don't validate their subscription again, they are deleted.
+  - `expire`: generally used as an extended remind: it reminds users of theirs subscription and, if they don't validate their subscription again, they are deleted.
 
 ### List model version definition parameters
 
-List tasks are defined through specific parameters in the `config` file (see [list task parameters](/manual/parameters-privileges#remind)). As of this writing, the following parameters are available :
+List tasks are defined through specific parameters in the `config` file. As of this writing, the following parameters are available :
 
--   [remind_task](/manual/parameters-others#remind_task);
+  - [remind_task](../man/list_config.5.md#remind_task);
 
--   [expire_task](/manual/parameters-others#expire_task);
+  - [expire_task](../man/list_config.5.md#expire_task);
 
 Global task creation
 --------------------
@@ -82,56 +82,56 @@ Global task creation
 
 The task manager daemon checks if a version of a global task model exists in different directories in the following order:
 
--   `/home/sympa/etc/<virtual host name>/global_task_models/`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/<virtual host name>/global_task_models/`;
 
--   `/home/sympa/etc/global_task_models/`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/global_task_models/`;
 
--   `/home/sympa/bin/etc/global_task_models/`.
+  - [``$DEFAULTDIR``](../layout.md#defaultdir)`/global_task_models/`.
 
 ### Global model names
 
 You can use the following model names for global tasks. The description below corresponds to the default action of these tasks. By modifying these files, you will alter the actions performed:
 
--   `expire_bounce`: this task resets bouncing information for addresses not bouncing in the last 10 days after the latest message distribution;
+  - `expire_bounce`: this task resets bouncing information for addresses not bouncing in the last 10 days after the latest message distribution;
 
--   `purge_orphan_bounces`: deletes bounce archive for unsubscribed users;
+  - `purge_orphan_bounces`: deletes bounce archive for unsubscribed users;
 
--   `eval_bouncers`: evaluates all bouncing users for all lists, and fill the field bounce\_score\_suscriber in table suscriber\_table with a score. This score allows the auto-management of bouncing users;
+  - `eval_bouncers`: evaluates all bouncing users for all lists, and fill the field bounce\_score\_suscriber in table suscriber\_table with a score. This score allows the auto-management of bouncing users;
 
--   `process_bouncers`: executes configured actions on bouncing users, according to their score. The association between score and actions has to be done in List configuration. This parameter defines the frequency of execution for this task;
+  - `process_bouncers`: executes configured actions on bouncing users, according to their score. The association between score and actions has to be done in List configuration. This parameter defines the frequency of execution for this task;
 
--   `remind`: reminds subscribers that they are suscribed to this list;
+  - `remind`: reminds subscribers that they are suscribed to this list;
 
--   `purge_user_table`: removes entries in the user\_table table that have no corresponding entries in the subscriber\_table table;
+  - `purge_user_table`: removes entries in the user\_table table that have no corresponding entries in the subscriber\_table table;
 
--   `purge_logs_table`: removes all the logs from the database;
+  - `purge_logs_table`: removes all the logs from the database;
 
 See the synonyms commands below. These models are usually employed to apply these commands.
 
 ### Global model version definition parameters
 
-The version of a global model to be used is specified in `sympa.conf`. These are the parameters you can set in this configuration file:
+The version of a global model to be used is specified in [``sympa.conf``](../layout.md#config). These are the parameters you can set in this configuration file:
 
--   [expire_bounce_task](/manual/conf-parameters/part3#expire_bounce_task): expire\_bounce model definition;
+  - [expire_bounce_task](../man/sympa.conf.5.md#expire_bounce_task): expire\_bounce model definition;
 
--   [purge_orphan_bounces_task](/manual/conf-parameters/part3#purge_orphan_bounces_task): purge\_orphan\_bounces model definition;
+  - [purge_orphan_bounces_task](../man/sympa.conf.5.md#purge_orphan_bounces_task): purge\_orphan\_bounces model definition;
 
--   [eval_bouncers_task](/manual/conf-parameters/part3#eval_bouncers_task) : eval\_bouncers model definition;
+  - [eval_bouncers_task](../man/sympa.conf.5.md#eval_bouncers_task) : eval\_bouncers model definition;
 
--   [process_bouncers_task](/manual/conf-parameters/part3#process_bouncers_task) : process\_bouncers model definition;
+  - [process_bouncers_task](../man/sympa.conf.5.md#process_bouncers_task) : process\_bouncers model definition;
 
--   [default_remind_task](/manual/conf-parameters/part3#default_remind_task) : the remind model used by default in lists;
+  - [default_remind_task](../man/sympa.conf.5.md#default_remind_task) : the remind model used by default in lists;
 
--   [purge_user_table_task](/manual/conf-parameters/part3#purge_user_table_task) : purge\_user\_table model definition;
+  - [purge_user_table_task](../man/sympa.conf.5.md#purge_user_table_task) : purge\_user\_table model definition;
 
--   [purge_logs_table_task](/manual/conf-parameters/part3#purge_logs_table_task) : purge\_logs\_table model definition;
+  - [purge_logs_table_task](../man/sympa.conf.5.md#purge_logs_table_task) : purge\_logs\_table model definition;
 
 The `sync_include` model is an exception, as it doesn't have a single dedicated configuration parameter.
 
 The ''sync\_include'' task
 --------------------------
 
-An exception in the realm of tasks in Sympa, the `sync-include` task accepts one and only one model : `sync-include.ttl.task`. It's useless to try and create other versions of this task, they will be ignored. There exist a configuration parameter related to `sync_include`, though, but it doesn't set the model used. It is the [ttl](/manual/parameters-data-sources#ttl) parameter. It will just set the length of time between two synchronizations.
+An exception in the realm of tasks in Sympa, the `sync-include` task accepts one and only one model : `sync-include.ttl.task`. It's useless to try and create other versions of this task, they will be ignored. There exist a configuration parameter related to `sync_include`, though, but it doesn't set the model used. It is the [ttl](../man/list_config.5.md#ttl) parameter. It will just set the length of time between two synchronizations.
 
 Model files constitution
 ========================
@@ -143,95 +143,112 @@ Model file format
 
 Model files are composed of comments, labels, references, variables, date values and commands. All those syntactical elements are composed of alphanumerics (0-9a-zA-Z) and underscores (\_).
 
--   Comment lines begin by '\#' and are not interpreted by the task manager.
+  - Comment lines begin by '\#' and are not interpreted by the task manager.
 
--   Label lines begin by '/' and are used by the next command (see below).
+  - Label lines begin by '/' and are used by the next command (see below).
 
--   References are enclosed between brackets '\[\]'. They refer to a value depending on the object of the task (for instance `[list→name]`). Those variables are instantiated when a task file is created from a model file. The list of available variables is the same as for templates (see [List template files](/manual/list-definition#list_template_files)) plus `[creation_date]` (see below).
+  - References are enclosed between brackets '\[\]'. They refer to a value depending on the object of the task (for instance `[list→name]`). Those variables are instantiated when a task file is created from a model file. The list of available variables is the same as for templates (see ~~[List template files](/manual/list-definition#list_template_files)~~) plus `[creation_date]` (see below).
 
--   Variables store results of some commands and are parameters for others. Their names begin with '@'.
+  - Variables store results of some commands and are parameters for others. Their names begin with '@'.
 
--   A date value may be written in two ways:
+  - A date value may be written in two ways:
 
-    -   Absolute dates follow the format: xxxxYxxMxxDxxHxxMin. Y is the year, M the month (1-12), D the day (1-28|30|31, leap-years are not managed), H the hour (0-23), Min the minute (0-59). H and Min are optional. For instance, 2001y12m4d44min is the 4th of December 2001 at 00h44.
+      - Absolute dates follow the format: xxxxYxxMxxDxxHxxMin. Y is the year, M the month (1-12), D the day (1-28|30|31, leap-years are not managed), H the hour (0-23), Min the minute (0-59). H and Min are optional. For instance, 2001y12m4d44min is the 4th of December 2001 at 00h44.
 
-    -   Relative dates use the `[creation_date]` or `[execution_date]` references. `[creation_date]` is the date when the task file is created, `[execution_date]` when the command line is executed. A duration may follow with the '+' or '-' operators. The duration is expressed like an absolute date whose all parameters are optional. Examples: \[creation\_date\], \[execution\_date\]+1y, \[execution\_date\]-6m4d.
+      - Relative dates use the `[creation_date]` or `[execution_date]` references. `[creation_date]` is the date when the task file is created, `[execution_date]` when the command line is executed. A duration may follow with the '+' or '-' operators. The duration is expressed like an absolute date whose all parameters are optional. Examples: \[creation\_date\], \[execution\_date\]+1y, \[execution\_date\]-6m4d.
 
--   Command arguments are separated by commas and enclosed between parenthesis '()'.
+  - Command arguments are separated by commas and enclosed between parenthesis '()'.
 
 Here is the list of the currently available commands:
 
--   `stop ()`
+  - `stop ()`
+
     Stops the execution of the task and deletes the task file;
 
--   `next (<date value>, <label>)`
+  - `next (<date value>, <label>)`
+
     Stops the execution. The task will go on at the date value and begin at the label line;
 
--   `@deleted_users = delete_subs (@<user_selection>)`
+  - `@deleted_users = delete_subs (@<user_selection>)`
+
     Deletes the `@user_selection` email list and stores user emails successfully deleted in `@deleted_users`;
 
--   `send_msg (<@user_selection>, <template>)`
+  - `send_msg (<@user_selection>, <template>)`
+
     Sends the template message to emails stored in `@user_selection`;
 
--   `@user_selection = select_subs (<condition>)`
-    Stores emails which match the condition in `@user_selection`. See [Authorization Scenarios](/manual/authorization-scenarios) to know how to write conditions. Only available for list models;
+  - `@user_selection = select_subs (<condition>)`
 
--   `create (global | list (<list name>), <model type>, <model>)`
+    Stores emails which match the condition in `@user_selection`. See [Authorization Scenarios](basics-scenarios.md) to know how to write conditions. Only available for list models;
+
+  - `create (global | list (<list name>), <model type>, <model>)`
+
     Creates a task for object with model file `~model type.model.task`;
 
--   `chk_cert_expiration (<template>, <date value>)`
+  - `chk_cert_expiration (<template>, <date value>)`
+
     Sends the template message to emails whose certificate has expired or will expire before the date value;
 
--   `update_crl (<file name>, <date value>)`
+  - `update_crl (<file name>, <date value>)`
+
     Updates certificate revocation lists (CRL) which are expired or will expire before the date value. The file stores the CRL's URLs;
 
--   `purge_logs_table()`
+  - `purge_logs_table()`
+
     Removes all logs from database;
 
--   `purge_user_table()`
+  - `purge_user_table()`
+
     Removes from database users which have no role and no subscription;
 
--   `purge_orphan_bounces()`
+  - `purge_orphan_bounces()`
+
     Cleans bounces by removing the unsubscribed users' archive;
 
--   `eval_bouncers()`
+  - `eval_bouncers()`
+
     Evaluates all bouncing users of all lists and gives them a score from 0 to 100. (`0` is for non bouncing users and `100` is for users who should be removed);
 
--   `process_bouncers()`
+  - `process_bouncers()`
+
     Executes actions defined in list configuration on all bouncing users, according to their score;
 
--   `expire_bounce(<number_of_days>)`
+  - `expire_bounce(<number_of_days>)`
+
     For all the lists, removes bouncing address from the bounce list if the last recorded bounce is older than `<number_of_days>` days before the last distribution date;
 
--   `rm_file(<variable>)`
+  - `rm_file(<variable>)`
+
     Deletes the file whose path is given as argument;
 
--   `exec(<script>)`
+  - `exec(<script>)`
+
     Executes the script contained by the file whose path is given as argument;
 
--   `sync_include()`
+  - `sync_include()`
+
     Updates the list of users from a database or an LDAP directory.
 
-Model files may have a [scenario-like title](/manual/authorization-scenarios#scenario_title) line at the beginning.
+Model files may have a [scenario-like title](basics-scenarios.md#scenario-title) line at the beginning.
 
 When you change a configuration file by hand, and a task parameter is created or modified, it is up to you to remove existing task files in the `task/` spool if needed. Task file names have the following format:
 
 `<date>.<label>.<model name>.<list name | global>` where:
 
--   `date` represents the time when the task is executed, it is an epoch date;
+  - `date` represents the time when the task is executed, it is an epoch date;
 
--   `label` states where in the task file the execution begins. If empty, it starts at the beginning.
+  - `label` states where in the task file the execution begins. If empty, it starts at the beginning.
 
 Model file examples
 -------------------
 
-You will find plenty of examples in the `/home/sympa/bin/etc/global_task_models` and `/home/sympa/bin/etc/list_task_models` directories. Such examples look like:
+You will find plenty of examples in the [``$DEFAULTDIR``](../layout.md#defaultdir)`/global_task_models` and [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models` directories. Such examples look like:
 
--   remind.annual.task;
+  - remind.annual.task;
 
--   expire.annual.task;
+  - expire.annual.task;
 
--   crl\_update.daily.task.
+  - crl\_update.daily.task.
 
 ``` code
     title.gettext daily update of the certificate revocation list

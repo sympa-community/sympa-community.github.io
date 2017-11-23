@@ -14,25 +14,24 @@ Or, please consider adding description and instruction written by your own
 Customization basics
 --------------------
 
-  * [Roles and privileges](customize/basics-roles.md)
+  * ~~[Roles and privileges](customize/basics-roles.md)~~
     (Work in progress)
 
-  * [Configuration hierarchy](customize/basics-configuration.md)
+  * ~~[Configuration hierarchy](customize/basics-configuration.md)~~
     (Work in progress)
 
-  * [Templates](customize/basics-templates.md)
+  * ~~[Templates](customize/basics-templates.md)~~
     (Work in progress)
 
-  * [Scenarios](customize/basics-scenarios.md)
+  * ~~[Scenarios](customize/basics-scenarios.md)~~
     (Work in progress)
 
   * [Tasks](customize/basics-tasks.md)
+
+  * ~~[Internationalization](customize/basics-i18n.md)~~
     (Work in progress)
 
-  * [Internationalization](customize/basics-i18n.md)
-    (Work in progress)
-
-  * [List families](customize/basics-families.md)
+  * ~~[List families](customize/basics-families.md)~~
     (Work in progress)
 
 Customizing Sympa services
@@ -154,7 +153,7 @@ external Perl modules.
     [Net-LDAP](https://metacpan.org/release/Net-LDAP).
     Optionally [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL).
 
-  * DKIM
+  * [DKIM](customize/dkim.md)
     [&#x1F527;](man/sympa.conf.5.md#dkim)
 
     &#x1F4E6; [Mail-DKIM](https://metacpan.org/release/Mail-DKIM).

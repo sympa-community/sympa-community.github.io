@@ -1,34 +1,29 @@
 DKIM features for Sympa
 =======================
 
-----
-Important:
-
-* DKIM has been introduced in Sympa version **6.1**.
-
-----
+  * DKIM has been introduced in Sympa version **6.1**.
 
 DKIM is a crytographic signature method designed to prevent spam, phishing etc. As postmaster or listmaster you should consider 1) checking the DKIM status of each incoming message and 2) signing all or a subset of outgoing messages.
 
 Processing of DKIM status of incoming messages is done by the MTA (Message transfert Agent) that delivers emails to the Sympa server Sympa domain (in order to reject some messages). This topic is not addressed in the chapter of the documentation.
 
-The mailing list server can take advantage of incoming DKIM signature in order to measure the trust of the message while evaluating message workflow. This is based on [scenario mechanism](/manual/authorization-scenarios). An authentication level named `dkim` can be used within scenario rules to check that an incoming message has a valid DKIM signature (dkim signature status = pass).
+The mailing list server can take advantage of incoming DKIM signature in order to measure the trust of the message while evaluating message workflow. This is based on [scenario mechanism](basics-scenarios.md). An authentication level named `dkim` can be used within scenario rules to check that an incoming message has a valid DKIM signature (dkim signature status = pass).
 
 In addition, you must consider signature of outgoing messages. Should messages brodcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?
 
 Prerequisites
 -------------
 
-DKIM features in Sympa are based on the **Mail::DKIM** cpan module ; you should install it first. Check [the documentation related to cpan modules installation](/manual/installing-sympa#installing_perl_and_cpan_modules).
+DKIM features in Sympa are based on the **[Mail::DKIM](https://metacpan.org/release/Mail-DKIM)** cpan module ; you should install it first. Check [the documentation related to cpan modules installation](../install/install-dependent-modules.md).
 
 Incoming messages
 -----------------
 
-To make Sympa check the DKIM signature of incoming messages, you need to set the [dkim_feature](/manual/conf-parameters/part3) configuration parameter to `on`. Before doing that you must first update your customized scenario to introduce `dkim` authentication method, **otherwise Sympa may reject messages because they include a valid DKIM signature !**. All default scenario starting at version 6.1 already include rules for DKIM, both for command and lists messages.
+To make Sympa check the DKIM signature of incoming messages, you need to set the [dkim_feature](../man/sympa.conf.5.md#dkim_feature) configuration parameter to `on`. Before doing that you must first update your customized scenario to introduce `dkim` authentication method, **otherwise Sympa may reject messages because they include a valid DKIM signature !**. All default scenario starting at version 6.1 already include rules for DKIM, both for command and lists messages.
 
 **What kind of changes is required in scenarios?**
 
-Turning on the [dkim_feature](/manual/conf-parameters/part3) configuration parameter will provide a new authentication level to the scenario engine. Scenario evaluation for incoming messages with a valid DKIM signature (but no S/MIME signature) will be evaluated with authentication method `dkim`. So rules that use authentication method `smtp` will not match.
+Turning on the [dkim_feature](../man/sympa.conf.5.md#dkim_feature) configuration parameter will provide a new authentication level to the scenario engine. Scenario evaluation for incoming messages with a valid DKIM signature (but no S/MIME signature) will be evaluated with authentication method `dkim`. So rules that use authentication method `smtp` will not match.
 
 Example:
 
@@ -54,31 +49,31 @@ If the front MTA adds the [Authentication-results header](http://www.ietf.org/rf
 Outgoing messages
 -----------------
 
-You may want to make Sympa sign outgoing messages. Almost every aspects of DKIM signature behavior can be customized via Sympa configuration parameters. Please check the [DKIM parameters section](/manual_6.1/conf-parameters/part3#dkim) for further details. Note that each parameter can also be set for a given virtual robot; and most of them are available as list parameter.
+You may want to make Sympa sign outgoing messages. Almost every aspects of DKIM signature behavior can be customized via Sympa configuration parameters. Please check the [DKIM parameters section](../man/sympa.conf.5.md#dkim) for further details. Note that each parameter can also be set for a given virtual robot; and most of them are available as list parameter.
 
 ### Which messages should be signed
 
 In order to configure Sympa for signing outgoing messages, you have to decide **which messages Sympa should sign** . This should be decided for four kind of messages:
 
--   Services messages : these are all messages sent by Sympa itself : welcome messages, answers to mail commands, various notification such as *remind message* and digest messages;
+  - Services messages : these are all messages sent by Sympa itself : welcome messages, answers to mail commands, various notification such as *remind message* and digest messages;
 
--   List messages : messages distributed to list members (where the initial `From:` header is preserved). These messages will fall is one one the following subcategory:
+  - List messages : messages distributed to list members (where the initial `From:` header is preserved). These messages will fall is one one the following subcategory:
 
-    -   authenticated messages (using S/MIME signature, challenge or password);
+      - authenticated messages (using S/MIME signature, challenge or password);
 
-    -   received with a valid DKIM signature;
+      - received with a valid DKIM signature;
 
-    -   validated by one of the list editors;
+      - validated by one of the list editors;
 
-    -   other messages.
+      - other messages.
 
-This behavior is controlled by [dkim_add_signature_to](/manual_6.1/conf-parameters/part3#dkim_add_signature_to) and [dkim_signature_apply_on](/manual_6.1/conf-parameters/part3#dkim_signature_apply_on) parameters.
+This behavior is controlled by [dkim_add_signature_to](../man/sympa.conf.5.md#dkim_add_signature_to) and [dkim_signature_apply_on](../man/sympa.conf.5.md#dkim_signature_apply_on) parameters.
 
 ### Prerequisites for DKIM signing
 
-Before Sympa is able to DKIM-sign messages, you need to set several related parameters. The most important ones are [dkim_private_key_path](/manual_6.1/conf-parameters/part3#dkim_private_key_path) (private key file location) and [dkim_selector](/manual_6.1/conf-parameters/part3#dkim_selector). Other parameters related to RFC 4871: [dkim_signer_domain](/manual_6.1/conf-parameters/part3#dkim_signer_domain), [dkim_signer_identity](/manual_6.1/conf-parameters/part3#dkim_signer_identity),[dkim_header_list](/manual_6.1/conf-parameters/part3#dkim_header_list).
+Before Sympa is able to DKIM-sign messages, you need to set several related parameters. The most important ones are [dkim_private_key_path](../man/sympa.conf.5.md#dkim_private_key_path) (private key file location) and [dkim_selector](../man/sympa.conf.5.md#dkim_selector). Other parameters related to RFC 4871: [dkim_signer_domain](../man/sympa.conf.5.md#dkim_signer_domain), [dkim_signer_identity](../man/sympa.conf.5.md#dkim_signer_identity),[dkim_header_list](../man/sympa.conf.5.md#dkim_header_list).
 
-The private key is a PEM encoded RSA key <sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup> (a PEM encoded key include base64 encoded informations and starts with `—–BEGIN RSA PRIVATE KEY—–`.). The public key associated with that private key must be published in a DNS TXT record for entry `<selector>._domainkey.<domain>` where `<selector>` is [dkim_selector](/manual_6.1/conf-parameters/part3#dkim_selector) and `<domain>` is [dkim_signer_domain](/manual_6.1/conf-parameters/part3#dkim_signer_domain). The signer domain should be the domain of the list ; this is the default, don't change it unless you have strong reason for it.
+The private key is a PEM encoded RSA key <sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup> (a PEM encoded key include base64 encoded informations and starts with `—–BEGIN RSA PRIVATE KEY—–`.). The public key associated with that private key must be published in a DNS TXT record for entry `<selector>._domainkey.<domain>` where `<selector>` is [dkim_selector](../man/sympa.conf.5.md#dkim_selector) and `<domain>` is [dkim_signer_domain](../man/sympa.conf.5.md#dkim_signer_domain). The signer domain should be the domain of the list ; this is the default, don't change it unless you have strong reason for it.
 
 example with selector = 'lists' and domain 'sympa.org':
 
@@ -88,18 +83,16 @@ example with selector = 'lists' and domain 'sympa.org':
 
 In order to generate the public and private keys, you may use `openssl` or `dkim-genkey` included in [milter_dkim software](http://sourceforge.net/projects/dkim-milter/). There are also online tools to generate them, but those services will generate the private key for you (is it still a private key?).
 
-``` code
-* http://www.socketlabs.com/services/dkwiz
-* http://www.port25.com/support/support_dkwz.php
-```
+  * http://www.socketlabs.com/services/dkwiz
+  * http://www.port25.com/support/support_dkwz.php
 
 Summary of parameters
 ---------------------
 
-| parameter name (sympa.conf or robot.conf context) | default | overwritten by (list configuration) |
+| parameter name ([``sympa.conf``](../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
 |---------------------------------------------------|---------|--------------|
-| [dkim_feature](/manual_6.1/conf-parameters/part3#dkim_feature) | `off` | not pertinent |
-| [dkim_add_signature_to](/manual_6.1/conf-parameters/part3#dkim_add_signature_to) | `list,robot` | not pertinent |
-| [dkim_signature_apply_on](/manual_6.1/conf-parameters/part3#dkim_signature_apply_on) | | |
+| [dkim_feature](../man/sympa.conf.5.md#dkim_feature) | `off` | not pertinent |
+| [dkim_add_signature_to](../man/sympa.conf.5.md#dkim_add_signature_to) | `list,robot` | not pertinent |
+| [dkim_signature_apply_on](../man/sympa.conf.5.md#dkim_signature_apply_on) | | |
 
 <sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> The private key can't be encrypted with a passphase
