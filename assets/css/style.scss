@@ -3,18 +3,28 @@
 
 @import "{{ site.theme }}";
 
-h2, h2 code, h2 pre {
+code, pre {
+    font-size: 1.0em;
+}
+
+h1 {
     font-size: 2.0em;
+    border-bottom: solid 1px #e0e0e0;
 }
 
-h2, h2 code, h2 pre {
+h2 {
     font-size: 1.6em;
+    border-bottom: solid 1px #e0e0e0;
 }
 
-h3, h3 code, h3 pre {
+h3 {
     font-size: 1.25em;
 }
 
-h4, h4 code, h4 pre {
+h4 {
     font-size: 1.0em;
+}
+
+blockquote code, .highlight .c, .highlight .cd {
+    font-style: normal;
 }
