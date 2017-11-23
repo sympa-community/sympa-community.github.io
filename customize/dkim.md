@@ -34,17 +34,17 @@ Example:
 
 ``` code
   is_subscriber([listname],[sender])   smtp      request_auth
-  is_subscriber([listname],[sender])   md5,smime request_auth
+  is_subscriber([listname],[sender])   md5,smime do_it
 ```
 
 Those 2 rules will not match any messsage with a valid DKIM signature, you must replace them with one of the following:
 
 ``` code
   is_subscriber([listname],[sender])   smtp,dkim request_auth
-  is_subscriber([listname],[sender])   md5,smime request_auth
+  is_subscriber([listname],[sender])   md5,smime do_it
 
   is_subscriber([listname],[sender])   smtp           request_auth
-  is_subscriber([listname],[sender])   dkim,md5,smime request_auth
+  is_subscriber([listname],[sender])   dkim,md5,smime do_it
 ```
 
 If you choose the second solution, you accept DKIM as a valid authentication mecanism.
