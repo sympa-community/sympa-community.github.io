@@ -178,7 +178,8 @@ symbols with real paths on your Sympa.
 | FreeBSD                     | ``/usr/local/share/sympa/defaults`` |
 | RPM                         | ``/usr/share/sympa/default``     |
 | Source distribution default | ``/home/sympa/default``          |
-| Suggested configure option | ``/usr/local/share/sympa/default`` |
+| (by version prior to 6.0)   | ``/home/sympa/bin/etc``             |
+| Suggested configure option  | ``/usr/local/share/sympa/default``  |
 
 #### ``$STATICDIR``
 
