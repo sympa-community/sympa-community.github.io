@@ -16,7 +16,7 @@ How to contribute
 
   * Markdown is recommended format for the texts.
 
-    If you don't familiar with Markdown, plain text is allowed: Anyone may
+    If you are not familiar with Markdown, plain text is allowed: Anyone may
     reformat your work.  Other formats (OpenDocument, HTML, POD, ...)
     should be converted to Markdown.
 
