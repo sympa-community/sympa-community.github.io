@@ -1,18 +1,13 @@
-Templates Plugins
-=================
-
-----
-Warning:
+Template plugins
+================
 
   * This feature is available from Sympa 6.2
-
-----
 
 The template plugins system extends template customization capabilities, it allows you to run your own code to add content or do some processing in templates.
 
 It is then possible to add links to a menu based on privileges from another backend, get data and render it from a webservice and much more.
 
-A plugin consists of a single perl package located in the `bin/Sympa/Template/Plugin` directory under Sympa's root.
+A plugin consists of a single perl package located in the [``$MODULEDIR``](../layout.md#moduledir)`/Sympa/Template/Plugin` directory under Sympa's root.
 
 The plugin is called in templates with a simple `[% USE myPlugin %]`, it is possible to pass arguments (`[% USE myPlugin("foo") %]`), more examples to follow.
 
@@ -22,9 +17,8 @@ This package must use `Template::Plugin` as base and provide at least 2 subrouti
 |---|---|---|---|---|---|
 | | | Arguments | Must return | Arguments | Must return
 | load | Plugin is required by perl, that is when first used | Package name and context object | Package name | Package name and context object | Blessed reference to package instance |
-| new | Each time the plugin is `USE`d in templates | Package name, context object and given arguments | Blessed reference to package instance | Blessed instance returned by initial `load` call, context object and given arguments |
+| new | Each time the plugin is `USE`d in templates | Package name, context object and given arguments | Blessed reference to package instance | Blessed instance returned by initial `load` call, context object and given arguments | The blessed instance given in arguments |
 
-The blessed instance given in arguments
 In the `basic` mode each time the plugin is `USE`d a new instance is created and returned, in the `singleton` mode a single instance is created and return each time the plugin is `USE`d, it can be useful when the plugin connects to a database to use only one socket ...
 
 Plugin skeleton
@@ -328,7 +322,7 @@ foo
 
 #### A configuration file aside of the plugin package file
 
-You can put your configuration file in the same directory as your package file, that is the `bin/Sympa/Template/Plugin` directory :
+You can put your configuration file in the same directory as your package file, that is the [``$MODULEDIR``](../layout.md#moduledir)`/Sympa/Template/Plugin` directory :
 
 ``` perl
 my $file = $class;
@@ -346,11 +340,11 @@ my $config_file = Sympa::Constants::MODULEDIR.'/Sympa/Template/Plugin/myPlugin.c
 
 Sympa's configuration seeking mechanism work as follows :
 
--   Look in the virtualhost directory (`etc/<virtualhost>/`) if previous not found
+-   Look in the virtualhost directory ([``$SYSCONFDIR``](../layout.md#sysconfdir)`/<virtualhost>/`) if previous not found
 
--   Look in the `etc/` directory if previous not found
+-   Look in the [``$SYSCONFDIR``](../layout.md#sysconfdir)`/` directory if previous not found
 
--   Look in the `default/` if previous not found
+-   Look in the [``$DEFAULTDIR``](../layout.md#defaultdir)`/` if previous not found
 
 You can make use of this mechanism in your plugin to have a global configuration which is overridden for some virtualhosts for example :
 
@@ -379,7 +373,7 @@ $logger->syslog('info','My log message %s',$variable);
 
 Your plugin can manipulate the Sympa database. Even create tables if needed. Take care, though, that you can *also* alter the main Sympa database's tables. If you need to add a table, we strongly suggest that the table name would be called after your plugin and prefixed in a way that explicitely tells users that this is a plugin-related table.
 
-We suggest the following naming scheme: “plugin\_\[plugin\_name\]\_\[function\]”
+We suggest the following naming scheme: "plugin\_\[plugin\_name\]\_\[function\]"
 
 This could lead to, for example, the following table name: "plugin\_sponsoring\_godsons". For the godsons table in the Sponsoring plugin.
 
@@ -518,3 +512,12 @@ $sdm->do_prepared_query(
   # Do something with the entry.
   }
 ```
+
+List of template plugins
+------------------------
+
+This is the list of template plugins avaialable for Sympa.
+
+  - [Dokiwiki plugin](template-plugins-dokuwiki.md)
+  - [Modlist / Whitelist plugin](template-plugins-modwhitelist.md)
+  - [Sponsoring plugin](template-plugins-sponsoring.md)

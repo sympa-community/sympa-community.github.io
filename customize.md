@@ -158,7 +158,7 @@ external Perl modules.
 
     &#x1F4E6; [Mail-DKIM](https://metacpan.org/release/Mail-DKIM).
 
-  * DMARC protection
+  * [DMARC protection](customize/dmarc-protection.md)
     [&#x1F527;](man/sympa.conf.5.md#dmarc-protection)
 
     &#x1F4E6; [Net-DNS](https://metacpan.org/release/Net-DNS).
@@ -247,7 +247,9 @@ These features need skill of Perl programming.
 
   - [Message hooks](man/Sympa-Message-Plugin.3.md)
 
-  - Template plugins
+  - [Template plugins](customize/template-plugins.md)
+
+      - [List of template plugins](customize/template-plugins.md#list-of-template-plugins)
 
   - Custom actions for web interface
 

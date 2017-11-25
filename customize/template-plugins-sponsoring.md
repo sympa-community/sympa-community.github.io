@@ -1,3 +1,8 @@
+---
+title: Sponsoring plugin
+up: template-plugins.md
+---
+
 Sponsoring plugin
 =================
 
@@ -8,7 +13,7 @@ Install instructions
 
 ### To enable the functionnality
 
-  - untar ~~[sponsoring.tgz](/_media/templates_plugins/sponsoring.tgz)~~ to the bin/Sympa/Template/Plugin directory
+  - untar [sponsoring.tgz](https://www.sympa.org/_media/templates_plugins/sponsoring.tgz) to the [``$MODULEDIR``](../layout.md#moduledir)`/Sympa/Template/Plugin` directory
 
   - copy the files from the mail\_tt2 sub-directory to the relevant mail\_tt2 directory (either in etc, etc/\[vhost\] or in list directory).
 

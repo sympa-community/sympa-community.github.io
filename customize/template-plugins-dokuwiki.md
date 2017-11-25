@@ -1,4 +1,9 @@
-Dokiwiki plugin
+---
+title: DokuWiki plugin
+up: template-plugins.md
+---
+
+DokuWiki plugin
 ===============
 
 This plugin offers a set of functionalities, from simple Sympa-based authorization to full coupling between lists and wiki farm.
@@ -10,9 +15,9 @@ The idea is to authorize a user to access part of the wiki if he/she is subscrib
 
 Using Sympa's SOAP server one can get the user's lists, we just need a way for DokuWiki to automatically do it and add the lists as groups to the user definition.
 
-[This plugin](/_media/contribs/dokuwiki/sympagroups.zip) does just that (you can copy-paste the link in your wiki's plugin manager page).
+[This plugin](https://www.sympa.org/_media/contribs/dokuwiki/sympagroups.zip) does just that (you can copy-paste the link in your wiki's plugin manager page).
 
-| Configuration parameters |
+### Configuration parameters
 
 | Name | Type | Signification |
 |---|---|---|
@@ -46,7 +51,7 @@ Next you have to install the ~~[farm plugin](/_media/contribs/dokuwiki/sympagrou
 
 You may also want to use ~~[sympagroups](/templates_plugins/sympagroups)~~.
 
-If you use SSO ~~[genericsso](/templates_plugins/genericsso)~~ may also interest you.
+If you use SSO [genericsso](https://www.dokuwiki.org/plugin:genericsso) may also interest you.
 
 ### Enabling farming
 
@@ -661,9 +666,9 @@ Add the folowing snippet to your `additional_list_menu_links.tt2` template :
 Using federated auth in the lists wikis
 ---------------------------------------
 
-If you are using SSO login (like shibboleth) for Sympa you can use ~~[this plugin](/_media/contribs/dokuwiki/genericsso.zip)~~ to add the same login to your wiki (genericsso is a plugin that fetch an environment variable and use it to create a Dokuwiki session).
+If you are using SSO login (like shibboleth) for Sympa you can use [this plugin](https://www.dokuwiki.org/plugin:genericsso) to add the same login to your wiki (genericsso is a plugin that fetch an environment variable and use it to create a DokuWiki session).
 
-| Configuration parameters |
+### Configuration parameters
 
 | Name | Type | Signification |
 |---|---|---|
