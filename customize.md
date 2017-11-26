@@ -201,12 +201,6 @@ external Perl modules.
 
     &#x1F4E6; [AuthCAS](https://metacpan.org/release/AuthCAS).
 
-  * ~~FastCGI~~ (always recommended: should not be optional)
-    [&#x1F527;](man/sympa.conf.5.md#use_fast_cgi)
-
-    &#x1F4E6; [CGI-Fast](https://metacpan.org/release/CGI-Fast),
-    [FCGI](https://metacpan.org/release/FCGI).
-
   * TLS client authentication
     [&#x1F527;](man/sympa.conf.5.md#s-mime-and-tls)
 
@@ -224,12 +218,14 @@ external Perl modules.
     &#x1F4E6; [Net-LDAP](https://metacpan.org/release/Net-LDAP).
     Optionally [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL).
 
-  * SOAP HTTP interface
+  * [SOAP/HTTP API](customize/soap-api.md)
     [&#x1F527;](man/sympa.conf.5.md#soap-http-interface)
 
     &#x2699; sympa.wsdl
     &#x2699; trusted_applications.conf
 
+    &#x1F4E6; [CGI-Fast](https://metacpan.org/release/CGI-Fast),
+    [FCGI](https://metacpan.org/release/FCGI),
     &#x1F4E6; [SOAP-Lite](https://metacpan.org/release/SOAP-Lite).
 
   * Miscelaneous

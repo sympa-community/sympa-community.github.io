@@ -1,141 +1,208 @@
-Sympa SOAP server
-=================
+SOAP/HTTP API
+=============
 
 Introduction
-============
+------------
 
 (Work in progress)
 
 Supported functions
-===================
+-------------------
 
 Note that all functions accessible through the SOAP interface apply the appropriate access control rules, given the user's privileges.
 
 The following functions are currently available through the Sympa SOAP server :
 
-  - login : user email and passwords are checked against Sympa user DB, or another backend.
+  - `login`
 
-  - casLogin : this function will verify CAS proxy tickets against the CAS server
+    User email and passwords are checked against Sympa user DB, or another backend.
 
-  - authenticateAndRun : useful for SOAP clients that can't set an HTTP cookie ; they can provide both the Sympa session cookie and the requested command in a single call
+  - `casLogin`
 
-  - authenticateRemoteAppAndRun : equivalent of the previous command used in a trusted context (see [trust_remote_applications](#trust_remote_applications))
+    This function will verify CAS proxy tickets against the CAS server.
 
-  - lists : provides a list of available lists (authorization scenarios are applied)
+  - `authenticateAndRun`
 
-  - complexLists : same as the previous feature, but provides a complex structure for each list
+    Useful for SOAP clients that can't set an HTTP cookie ; they can provide both the Sympa session cookie and the requested command in a single call.
 
-  - info : provides description informations about a given list
+  - `authenticateRemoteAppAndRun`
 
-  - which : gets the list of subscription of a given user
+    Equivalent of the previous command used in a trusted context (see [Trust remote applications](#trust-remote-applications)).
 
-  - complexWhich : same as previous command, but provides a complex structure for each list
+  - `lists`
 
-  - amI : tells if a given user is member of a given list
+    Provides a list of available lists (authorization scenarios are applied).
 
-  - review : lists the members of a given list
+  - `complexLists`
 
-  - subscribe : subscribes the current user to a given list
+    Same as the previous feature, but provides a complex structure for each list.
 
-  - signoff : current user is removed from a given list
+  - `info`
 
-  - add : used to add a given user to a given list (admin feature)
+    Provides description informations about a given list.
 
-  - del : removes a given user from a given list (admin feature)
+  - `which`
 
-  - createList : creates a new mailing list (requires appropriate privileges)
+    Gets the list of subscription of a given user.
 
-  - closeList : closes a given mailing list (admin feature)
+  - `complexWhich`
+
+    Same as previous command, but provides a complex structure for each list.
+
+  - `amI`
+
+    Tells if a given user is member of a given list.
+
+  - `review`
+
+    Lists the members of a given list.
+
+  - `subscribe`
+
+    Subscribes the current user to a given list.
+
+  - `signoff`
+
+    Current user is removed from a given list.
+
+  - `add`
+
+    Used to add a given user to a given list (admin feature).
+
+  - `del`
+
+    Removes a given user from a given list (admin feature).
+
+  - `createList`
+
+    Creates a new mailing list (requires appropriate privileges).
+
+  - `closeList`
+
+    Closes a given mailing list (admin feature).
 
 Note that when a list parameter is required for a function, you can either provide the list name or the list address. However the domain part of the address will be ignored.
 
-Check [the_wsdl_service_description](#the_wsdl_service_description) for detailed API informations.
+Check [the WSDL service description](../man/sympa.wsdl.5.md) for detailed API information.
 
-Web server setup
-================
+Setup
+-----
 
-**Starting Sympa 5.4**, the sympa\_soap\_server is wrapped in small C script, sympa\_soap\_server-wrapper.fcgi, in order to avoid to use the -unsecure and no longer maintained - setuid perl mode.
+### Requirements
 
-(Work in progress)
+  * Web interface has to be configured. See
+    "[Configure HTTP server](../install/configure-http-server.md)" for
+    details.
 
-Until version 5.3
------------------
+### HTTP server setup
 
-(Work in progress)
+Here are excerts of HTTP server configuration with a SOAP server (Note:
+replace [``$EXECCGIDIR``](../layout.md#execcgidir) below).
+For more details see appropriate section in
+"[Configure HTTP server](../install/configure-http-server.md)".
 
-Version 5.4 and higher
-----------------------
+  * Apache HTTP Server
 
-Here is a sample piece of your Apache `httpd.conf` with a SOAP server configured and using the C wrapper:
+    ``` code
+    <Location /sympasoap>
+        SetHandler fcgid-script
+    
+        # Don't forget to edit lines below!
+        Require all denied
+        #Require all granted
+    </Location>
+    ScriptAlias /sympasoap $EXECCGIDIR/sympa_soap_server-wrapper.fcgi
+    ```
 
-``` code
-      FastCgiServer /home/sympa/bin/sympa_soap_server-wrapper.fcgi -processes 1
-      ScriptAlias /sympasoap /home/sympa/bin/sympa_soap_server-wrapper.fcgi
+    ----
+    Note:
 
-      <Location /sympasoap>
-           SetHandler fastcgi-script
-      </Location>
-```
+      * Starting Sympa 5.4, the
+        [`sympa_soap_server.fcgi`](../man/sympa_soap_server.8.md) is wrapped
+        in small C program, [`sympa_soap_server-wrapper.fcgi`](../man/sympa_soap_server-wrapper.8.md),
+        in order to avoid to use the --- insecure and no longer
+        maintained --- setuid perl mode.
 
-Sympa setup
-===========
+    ----
 
-(Work in progress)
+### Sympa configuration parameters
+
+  * [``soap_url``](../man/sympa.conf.5.md#soap_url)
+
+    The URL of SOAP/HTTP service itself.
+
+  * [``wwsympa_url``](../man/sympa.conf.5.md#soap_url)
+
+    This is URL prefix of WWSympa service _without_ trailing slash (``/``).
+    WSDL service description is published using a URL _wwsymp_url_`/wsdl`.
+
+### Other configuration files
+
+  * [``sympa.wsdl``](../man/sympa.wsdl.5.md)
+
+    WSDL service description. Default description is placed under
+    [``$DEFAULTDIR``](../layout.md#defaultdir).
+
+  * [``trusted_applications.conf``](../man/trusted_applications.5.md)
+
+    Definitions of trusted SOAP applications.  See also below.
 
 Trust remote applications
-=========================
+-------------------------
 
 (Work in progress)
 
 Below is a sample Perl code that does a SOAP procedure call (for a SUBSCRIBE sympa command) using the trusted\_application feature :
 
-``` code
-my $soap = new SOAP::Lite();
-$soap->uri('urn:sympasoap');
-$soap->proxy('http://myserver/sympasoap');
+``` perl
+use SOAP::Lite;
 
-my $response = $soap->authenticateRemoteAppAndRun('myTestApp', 'myTestAppPwd', 'USER_EMAIL=userProxy@my.server', 'subscribe', ['myList@dom']);
+my $soap = SOAP::Lite->new();
+$soap->uri('urn:sympasoap');
+$soap->proxy('http://web.exemple.org/sympasoap');
+
+my $response = $soap->authenticateRemoteAppAndRun('myTestApp',
+    'myTestAppPwd', 'USER_EMAIL=userProxy@my.server',
+    'subscribe', ['myList@mail.example.org']);
 ```
 
 [S. Santoro](mailto:dereckson@espace-win.org) wrote its own [PHP Trusted Application library for Sympa](/contribs/index#php_soap_library).
 
-The WSDL service description
-============================
-
-(Work in progress)
-
 Client-side programming
-=======================
+-----------------------
 
 (Work in progress)
 
-Writing a Java client with Axis
--------------------------------
+### Writing a Java client with Axis
 
 (Work in progress)
 
 The test command line SOAP client
-=================================
+---------------------------------
 
-Sympa distribution includes a simple command line application that allows you to test SOAP request towards your Sympa SOAP server. This script is named sympa\_soap\_client.pl and is located in the Sympa bin directory.
+Sympa distribution includes a simple command line application that allows you to test SOAP request towards your Sympa SOAP server. This script is named [``sympa_soap_client.pl``](../man/sympa_soap_client.1.md) and is located in [``$SCRIPTDIR``](../layout.md#scriptdir) directory.
 
-The [four methods](/manual/soap#introduction) available through the Sympa SOAP server can be tested using this tool. There is no explicit option to tell what acces methos is used. It is inferred based on what options are provided to the script.
+The ~~[four methods](/manual/soap#introduction)~~ available through the Sympa SOAP server can be tested using this tool. There is no explicit option to tell what acces methos is used. It is inferred based on what options are provided to the script.
 
 ### Getting the email associated to a session id
 
-You must use the id of a session actually used at the time you launch the command. It is the value of the “sympa\_session” cookie set when accessing to the Sympa web interface.
+You must use the id of a session actually used at the time you launch the command. It is the value of the "`sympa_session`" cookie set when accessing to the HTTP interface.
 
 #### Command line
 
-``` code
-# /home/sympa/bin/sympa_soap_client.pl
- --soap_url=<SOAP server URL>
+``` bash
+$ sympa_soap_client.pl \
+ --soap_url=<SOAP server URL> \
  --cookie=<cookie identifier>
 ```
 
-  - --soap\_url: the URL to your Sympa SOAP server
+  - ``--soap_url``
 
-  - --cookie: the value of the “sympa\_session” cookie set when accessing to the Sympa web interface.
+    The URL to your Sympa SOAP server.
+
+  - ``--cookie``
+
+    The value of the "`sympa_session`" cookie set when accessing to the Sympa web interface.
 
 #### Expected output
 
@@ -161,91 +228,125 @@ It is done by calling the script and providing two kind of arguments :
 
 Actually, providing the HTTP cookie to a command line sums up in providing a session id, i.e. a simple number. You must use the value of a session cookie actually used at the time you launch the command. It is the “sympa\_session” cookie set when accessing to the Sympa web interface.
 
-``` code
-# /home/sympa/bin/sympa_soap_client.pl --soap_url=<SOAP server URL>
-                                       --service=<a sympa service>
-                                       --service_parameters=<value1,value2,value3>
-                                       --session_id=<cookie identifier>
+``` bash
+$ sympa_soap_client.pl --soap_url=<SOAP server URL> \
+ --service=<a sympa service> \
+ --service_parameters=<value1,value2,value3> \
+ --session_id=<cookie identifier>
 ```
 
 The options used are:
 
-  - --soap\_url: the URL to your Sympa SOAP server;
+  - ``--soap\_url``
 
-  - --service: the requested SOAP service. See [below](#sympa_soap_services_and_the_command_line_tool);
+    The URL to your Sympa SOAP server.
 
-  - --service\_parameters: the parameters needed to use the service. They must be provided as a comma separated list, without spaces. See [below](#sympa_soap_services_and_the_command_line_tool);
+  - ``--service``
 
-  - --session\_id: the value of the “sympa\_session” cookie set when accessing to the Sympa web interface.
+    The requested SOAP service. See [below](#sympa-soap-services-and-the-command-line-tool);
+
+  - ``--service_parameters``
+
+    The parameters needed to use the service. They must be provided as a comma separated list, without spaces. See [below](#sympa-soap-services-and-the-command-line-tool).
+
+  - ``--session_id``
+
+    The value of the "`sympa_session`" cookie set when accessing to the Sympa web interface.
 
 #### Authentication using a user name and password
 
-``` code
-# /home/sympa/bin/sympa_soap_client.pl --soap_url=<SOAP server URL>
-                                       --service=<a sympa service>
-                                       --service_parameters=<value1,value2,value3>
-                                       --user_email=<email>
-                                       --user_password=<password>
+``` bash
+$ sympa_soap_client.pl --soap_url=<SOAP server URL> \
+ --service=<a sympa service> \
+ --service_parameters=<value1,value2,value3> \
+ --user_email=<email> \
+ --user_password=<password>
 ```
 
 The options used are:
 
-  - --soap\_url: the URL to your Sympa SOAP server;
+  - ``--soap_url``
 
-  - --service: the requested SOAP service. See [below](#sympa_soap_services_and_the_command_line_tool);
+    The URL to your Sympa SOAP server.
 
-  - --service\_parameters: the parameters needed to use the service. They must be provided as a comma separated list, without spaces. See [below](#sympa_soap_services_and_the_command_line_tool);
+  - ``--service``
 
-  - --user\_email: the email of the user requesting the service;
+    The requested SOAP service. See [below](#sympa-soap-services-and-the-command-line-tool).
 
-  - --user\_password: the password of this user.
+  - ``--service_parameters``
+
+    The parameters needed to use the service. They must be provided as a comma separated list, without spaces. See [below](#sympa-soap-services-and-the-command-line-tool).
+
+  - ``--user_email``
+
+    The email of the user requesting the service.
+
+  - ``--user_password``
+
+    The password of this user.
 
 #### Access through a trusted application
 
-``` code
-# /home/sympa/bin/sympa_soap_client.pl --soap_url=<SOAP server URL>
-                                       --service=<a sympa service>
-                                       --service_parameters=<value1,value2,value3>
-                                       --cookie=<cookie identifier>
-                                       --trusted_application=<app name>
-                                       --trusted_application_password=<password>
-                                       --proxy_vars=<id=value,id2=value2>
+``` bash
+$ sympa_soap_client.pl --soap_url=<SOAP server URL> \
+ --service=<a sympa service> \
+ --service_parameters=<value1,value2,value3> \
+ --cookie=<cookie identifier> \
+ --trusted_application=<app name> \
+ --trusted_application_password=<password> \
+ --proxy_vars=<id=value,id2=value2>
 ```
 
 The options used are:
 
-  - --soap\_url: the URL to your Sympa SOAP server;
+  - ``--soap_url``
 
-  - --service: the requested SOAP service. See [below](#sympa_soap_services_and_the_command_line_tool);
+    The URL to your Sympa SOAP server.
 
-  - --service\_parameters: the parameters needed to use the service. They must be provided as a comma separated list, without spaces. See [below](#sympa_soap_services_and_the_command_line_tool);
+  - ``--service``
 
-  - --cookie: the value of the “sympa\_session” cookie set when accessing to the Sympa web interface;
+    The requested SOAP service. See [below](#sympa-soap-services-and-the-command-line-tool).
 
-  - --trusted\_application: the trusted application name as defined in `trusted_applications.conf`;
+  - ``--service_parameters``
 
-  - --trusted\_application\_password: the password of the trusted application as defined in `trusted_applications.conf`;
+    The parameters needed to use the service. They must be provided as a comma separated list, without spaces. See [below](#sympa-soap-services-and-the-command-line-tool).
 
-  - --proxy\_vars: the proxy vars of the trusted application as defined in `trusted_applications.conf`. This is a comma-separated list of values. For example, if you have defined in `trusted_applications.conf` the following variables: `proxy_for_variables USER_EMAIL,remote_host`, then you will use it this way in the proxy\_vars option: `--proxy_vars=USER_EMAIL=user.email@domain.tld,remote_host=remote.host.domain.tld`.
+  - ``--cookie``
+
+    The value of the "`sympa_session`" cookie set when accessing to the Sympa web interface.
+
+  - ``--trusted_application``
+
+    The trusted application name as defined in `trusted_applications.conf`.
+
+  - ``--trusted_application_password``
+
+    The password of the trusted application as defined in `trusted_applications.conf`.
+
+  - ``--proxy_vars``
+
+    The proxy vars of the trusted application as defined in `trusted_applications.conf`. This is a comma-separated list of values. For example, if you have defined in `trusted_applications.conf` the following variables: `proxy_for_variables USER_EMAIL,remote_host`, then you will use it this way in the proxy\_vars option: `--proxy_vars=USER_EMAIL=user.email@domain.tld,remote_host=remote.host.domain.tld`.
 
 ### Sympa SOAP services and the command line tool
 
 This is a description of how to use the Sympa SOAP services using the command line tool. The parameters are given in the same order they must be found in the command tool option `service_parameters`. They must be provided as a comma separated list, without spaces. Don't forget to escape characters that would break the command line, such as spaces, exclamation marks and so on.
 
-********
-Parameters example
+----
+Note:
 
-If the list of parameters is:
+  * If the list of parameters is:
 
-  - list name
+      - list name
 
-  - user email
+      - user email
 
-Then the `service_parameters` option will look like:
+    then the `service_parameters` option will look like:
 
---service\_parameters=mylist,mail@renater.fr
+    ```
+    --service_parameters=mylist,mail@my.dom.ain
+    ```
 
-********
+----
 
 #### login
 
