@@ -254,7 +254,7 @@ Sympa and other systems
 
 ### Integrating Sympa with other systems
 
-  - LMTP delivery
+  - [LMTP delivery](customize/lmtp-delivery.md)
 
   - ~~OpenSocial integration~~ (under development)
 
