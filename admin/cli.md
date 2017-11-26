@@ -13,15 +13,15 @@ reference manuals for more details.
 Administration tools
 --------------------
 
-  - [sympa(1)](../man/sympa.1.md)
+  - [sympa.pl](../man/sympa.1.md)
 
     Command line utility to manage Sympa.
 
-  - [sympa\_newaliases(1)](../man/sympa_newaliases.1.md)
+  - [sympa\_newaliases.pl](../man/sympa_newaliases.1.md)
 
     Alias database maintenance.
 
-  - [sympa\_wizard(1)](../man/sympa_wizard.1.md)
+  - [sympa\_wizard.pl](../man/sympa_wizard.1.md)
 
     Help performing Sympa initial setup.
 
