@@ -73,7 +73,7 @@ General instruction
 
   4. If you have not added configuration for Sympa to nginx, add following
      excerpt (Note: replace [``$PIDDIR``](../layout.md#piddir),
-     [``$LIBEXECDIR``](../layout.md#libexecdir) and
+     [``$EXECCGIDIR``](../layout.md#execcgidir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
      ```
      server {
@@ -86,7 +86,7 @@ General instruction
 
              # If you changed wwsympa_url in sympa.conf, change this regex too!
              fastcgi_split_path_info ^(/sympa)(.*)$;
-             fastcgi_param SCRIPT_FILENAME $LIBEXECDIR/wwsympa.fcgi;
+             fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/wwsympa.fcgi;
              fastcgi_param PATH_INFO $fastcgi_path_info;
          }
 

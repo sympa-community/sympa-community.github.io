@@ -23,7 +23,7 @@ General instruction
 -------------------
 
   1. If you have not added configuration for Sympa to httpd, add following
-     excerpt (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
+     excerpt (Note: replace [``$EXECCGIDIR``](../layout.md#execcgidir) and
      [``$STATICDIR``](../layout.md#staticdir)):
 
      For HTTP Server 2.4:
@@ -35,7 +35,7 @@ General instruction
          Require all denied
          #Require all granted
      </Location>
-     ScriptAlias /sympa $LIBEXECDIR/wwsympa-wrapper.fcgi
+     ScriptAlias /sympa $EXECCGIDIR/wwsympa-wrapper.fcgi
 
      ## You may uncomment following lines to enable SympaSOAP feature.
      #<Location /sympasoap>
@@ -45,7 +45,7 @@ General instruction
      #    Require all denied
      #    #Require all granted
      #</Location>
-     #ScriptAlias /sympasoap $LIBEXECDIR/sympa_soap_server-wrapper.fcgi
+     #ScriptAlias /sympasoap $EXECCGIDIR/sympa_soap_server-wrapper.fcgi
 
      # Other static contents
      Alias /static-sympa $STATICDIR
@@ -65,7 +65,7 @@ General instruction
          Deny from all
          #Allow from all
      </Location>
-     ScriptAlias /sympa $LIBEXECDIR/wwsympa-wrapper.fcgi
+     ScriptAlias /sympa $EXECCGIDIR/wwsympa-wrapper.fcgi
 
      ## You may uncomment following lines to enable SympaSOAP feature.
      #<Location /sympasoap>
@@ -76,7 +76,7 @@ General instruction
      #    Deny from all
      #    #Allow from all
      #</Location>
-     #ScriptAlias /sympasoap $LIBEXECDIR/sympa_soap_server-wrapper.fcgi
+     #ScriptAlias /sympasoap $EXECCGIDIR/sympa_soap_server-wrapper.fcgi
 
      # Other static contents
      Alias /static-sympa $STATICDIR

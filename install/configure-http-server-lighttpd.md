@@ -24,7 +24,7 @@ General instruction
 -------------------
 
   1. If you have not added configuration for Sympa to lighttpd, add following
-     excerpt (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
+     excerpt (Note: replace [``$EXECCGIDIR``](../layout.md#execcgidir) and
      [``$STATICDIR``](../layout.md#staticdir)):
      ```
      server.modules += ("mod_fastcgi")
@@ -34,7 +34,7 @@ General instruction
      $HTTP["url"] =~ "\^/sympa" {
      fastcgi.server = ( "/sympa" =>
          ((    "check-local"    =>    "disable",
-             "bin-path"    =>    "$LIBEXECDIR/wwsympa-wrapper.fcgi",
+             "bin-path"    =>    "$EXECCGIDIR/wwsympa-wrapper.fcgi",
              "socket"    =>    "/var/run/lighttpd/sympa.sock",
              "max-procs"    =>     2,
              "idle-timeout"    =>     20,

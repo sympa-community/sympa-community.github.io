@@ -10,6 +10,14 @@ distribution you have installed.  Therefore, in this document, several symbols
 are used to stand for particular paths.  You may have to replace uppercase
 symbols with real paths on your Sympa.
 
+----
+Note:
+
+  * All paths below (except ``$EXECCGIDIR``) are defined in an internal module
+    [``$MODULEDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
+
+----
+
 #### ``$CONFIG``
 
 **Main configuration file** (``sympa.conf``).
@@ -181,22 +189,6 @@ symbols with real paths on your Sympa.
 | (by version prior to 6.0)   | ``/home/sympa/bin/etc``             |
 | Suggested configure option  | ``/usr/local/share/sympa/default``  |
 
-#### ``$STATICDIR``
-
-**Base path of static web contents**.
-
-  * This path may be overridden by
-    [``static_content_path``](man/sympa.conf.5.md#static_content_path)
-    parameter.
-
-| Distribution                | Default path                     |
-|-----------------------------|----------------------------------|
-| Debian                      | ``/var/lib/sympa/static_content`` |
-| FreeBSD                     | ???? |
-| RPM                         | ``/var/lib/sympa/static_content`` |
-| Source distribution default | ``/home/sympa/static_content``   |
-| Suggested configure option  | ``/usr/local/var/lib/sympa/static_content`` |
-
 #### ``$ARCDIR``
 
 **Base directory of archives**.
@@ -227,11 +219,34 @@ symbols with real paths on your Sympa.
 | Source distribution default | ``/home/sympa/bounce``           |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/bounce`` |
 
-----
-Note:
+Directories specific to web interface
+-------------------------------------
 
-  * All paths above are defined in an internal module
-    [``$MODULEDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
+#### ``$EXECCGIDIR``
 
-----
+**Path of web interface programs** (WWSympa and SympaSOAP).
+
+| Distribution                | Path                         |
+|-----------------------------|------------------------------|
+| Debian | ???? |
+| FreeBSD| ???? |
+| RPM                         | ``/usr/libexec/sympa``       |
+| Source distribution default | ``/home/sympa/bin``          |
+| Suggested configure option  | ``/usr/local/lib/sympa/cgi`` |
+
+#### ``$STATICDIR``
+
+**Base path of static web contents**.
+
+  * This path may be overridden by
+    [``static_content_path``](man/sympa.conf.5.md#static_content_path)
+    parameter.
+
+| Distribution                | Default path                      |
+|-----------------------------|-----------------------------------|
+| Debian                      | ``/var/lib/sympa/static_content`` |
+| FreeBSD                     | ???? |
+| RPM                         | ``/var/lib/sympa/static_content`` |
+| Source distribution default | ``/home/sympa/static_content``    |
+| Suggested configure option  | ``/usr/local/var/lib/sympa/static_content`` |
 
