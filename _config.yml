@@ -3,4 +3,6 @@ theme: jekyll-theme-minimal
 include:
   - CONTRIBUTING.md
   - LICENSE.md
+plugins:
+  - jekyll-redirect-from
 

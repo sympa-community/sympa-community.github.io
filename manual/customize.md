@@ -9,7 +9,7 @@ See related links of each feature:
   - &#x1F4E6; for optional external modules.
 
 Or, please consider adding description and instruction written by your own
-(See [CONTRIBUTING](CONTRIBUTING.md)).
+(See [CONTRIBUTING](../CONTRIBUTING.md)).
 
 Customization basics
 --------------------

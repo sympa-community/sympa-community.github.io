@@ -1,5 +1,7 @@
 ---
 title: 'Directory layout'
+redirect_from:
+  - ../layout.html
 ---
 
 Directory layout
