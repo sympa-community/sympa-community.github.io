@@ -127,10 +127,6 @@ To know details of each module, run:
 
     TBD
 
-- [Sympa::Fetch](./Sympa-Fetch.3.md)
-
-    TBD
-
 - [Sympa::HTML::FormatText](./Sympa-HTML-FormatText.3.md)
 
     TBD

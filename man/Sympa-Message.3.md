@@ -381,7 +381,8 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 
     _Instance method_.
     Transforms the message according to reception mode:
-    `'mail'`, `'notice'`, `'txt'` or `'html'`.
+    `'mail'`, `'notice'` or `'txt'`.
+    Note: 'html' mode was deprecated as of 6.2.23b.2.
 
     By `'nomail'`, `'digest'`, `'digestplain'` or `'summary'` mode,
     the message is not modified.
