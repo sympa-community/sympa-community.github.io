@@ -90,9 +90,14 @@ Summary of parameters
 ---------------------
 
 | parameter name ([``sympa.conf``](../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
-|---------------------------------------------------|---------|--------------|
+|---|---|---|
 | [dkim_feature](../man/sympa.conf.5.md#dkim_feature) | `off` | not pertinent |
 | [dkim_add_signature_to](../man/sympa.conf.5.md#dkim_add_signature_to) | `list,robot` | not pertinent |
-| [dkim_signature_apply_on](../man/sympa.conf.5.md#dkim_signature_apply_on) | | |
+| [dkim_signature_apply_on](../man/sympa.conf.5.md#dkim_signature_apply_on) | `md5_authenticated_messages,` `smime_authenticated_messages,` `dkim_authenticated_messages,` `editor_validated_messages` | `dkim_signature_apply_on` |
+| [dkim_private_key_path](../man/sympa.conf.5.md#dkim_private_key_path) | | dkim > `key_path` |
+| [dkim_signer_domain](../man/sympa.conf.5.md#dkim_signer_domain) | the robot domain | dkim > `signer_domain` |
+| [dkim_selector](../man/sympa.conf.5.md#dkim_selector) | no default | dkim > `selector` |
+| [dkim_signer_identity](../man/sympa.conf.5.md#dkim_signer_identity) | none for robot's messages, _`listname`_`-request@robot` for lists | dkim > `identity_domain` |
+| ~~[dkim_header_list](../man/sympa.conf.5.md#dkim_header_list)~~ | as recommended in RFC4871 | Not yet implemented |
 
 <sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> The private key can't be encrypted with a passphase
