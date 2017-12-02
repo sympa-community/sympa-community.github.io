@@ -26,9 +26,12 @@ Upgrading process overview
 Preparation
 -----------
 
-First, read the [Release Notes](https://github.com/sympa-community/sympa/blob/sympa-6.2/NEWS.md).
+First, read the following notes:
 
-If imcompatible changes had been made, the Release Notes may state them and
+  - [Release Notes](https://github.com/sympa-community/sympa/blob/sympa-6.2/NEWS.md).
+  - [Upgrading notes](upgrade/notes.md).
+
+If imcompatible changes had been made, these notes may state them and
 describe measures you can take.
 
 Stop the services
