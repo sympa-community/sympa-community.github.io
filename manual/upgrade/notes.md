@@ -87,3 +87,70 @@ After the process above, the following changes will have occured:
     your customizations could not be compliant to the new web interface. You
     should see how to reintroduce them to the new templates.
 
+Upgrading from Sympa 5.4.x or earlier
+-------------------------------------
+
+  1. Since there are big changes after 5.4.x, we recommend that recent version
+     of Sympa will be installed into new machine, or at least will be installed
+     under separate directory, keeping installation of earlier version.
+
+       - See "[Installing Sympa](../install.md)" to install recent version.
+
+  2. Stop services of earlier version, for example doing:
+     ``` base
+     # /etc/rc.d/init.d/sympa stop
+     ```
+
+  3. Copy configuration files and database:
+
+       - Copy configuration files ``sympa.conf`` _and_ ``wwsympa.conf`` in
+         earlier version to recent version.  Then edit them to fix up
+         configuration (including name of database below).
+
+       - Restore entire database content as a new database (e.g. naming it as
+         "`sympa6`" instead of "`sympa`"). Succeeding process will upgrade
+         database structure and those changes are not recoverable.
+
+         ----
+         Note:
+
+           * On this occation, you might want to check if database schema
+             support Unicode-aware character set, e.g. `utf8`, `UNICODE`,
+             `AL32UTF8`. Even if it does not, Sympa will work, however
+             it is desirable.  To know how to convert your database to be
+             Unicode-aware, please consult to documentation of database
+             server.
+
+         ----
+       - Queued messages in spools of earlier version should be copied into
+         the new location.
+
+  4. Upgrade configuration:
+
+       - With recent version of Sympa, run, for example:
+         ``` bash
+         # sympa.pl --upgrade --from=5.4.7
+         ```
+         Note that `5.4.7` above must be replaced with the version number you
+         are updating from.  Doing this, configuration and database structure
+         will be upgraded.
+
+       - Upgrade format of web interface password in the database:
+         ``` bash
+         # upgrade_sympa_password.pl
+         ```
+         For details see the manual page of
+         [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md).
+
+       - Check customizations of templates and scenarios on earlier version,
+         and reapply them to recent version if possible.
+
+  5. Start services of recent version (see
+     "[Starting services](admin/services.md#starting-services)"),
+     then check if everything goes well.
+
+Upgrading from Sympa prior to 5.0
+---------------------------------
+
+(Not yet written)
+
