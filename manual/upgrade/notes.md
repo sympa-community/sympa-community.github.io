@@ -90,16 +90,23 @@ After the process above, the following changes will have occured:
 Upgrading from Sympa 5.4.x or earlier
 -------------------------------------
 
-  1. Since there are big changes after 5.4.x, we recommend that recent version
-     of Sympa will be installed into new machine, or at least will be installed
-     under separate directory, keeping installation of earlier version.
+Since there are big changes after 5.4.x, we recommend that recent version
+of Sympa will be installed into new machine, or at least will be installed
+under separate directory, keeping installation and data of earlier version.
 
-       - See "[Installing Sympa](../install.md)" to install recent version.
-
-  2. Stop services of earlier version, for example doing:
-     ``` base
+  1. Stop services of earlier version, for example doing:
+     ``` bash
      # /etc/rc.d/init.d/sympa stop
      ```
+     Then [back up everything](../upgrade.md#back-up-everything).
+
+     Note that you should also backup init script of earlier version, because
+     it may be overwritten by installing recent version (if you will install
+     recent version to the same machine).
+
+  2. Install recent version of Sympa.
+
+       - See "[Installing Sympa](../install.md)" to install recent version.
 
   3. Copy configuration files and database:
 
@@ -107,9 +114,13 @@ Upgrading from Sympa 5.4.x or earlier
          earlier version to recent version.  Then edit them to fix up
          configuration (including name of database below).
 
-       - Restore entire database content as a new database (e.g. naming it as
-         "`sympa6`" instead of "`sympa`"). Succeeding process will upgrade
-         database structure and those changes are not recoverable.
+       - Queued messages in spools of earlier version should be copied into
+         the new location.  Their formats will be changed later.
+
+       - Restore entire database content as a _new_ database (e.g. naming it
+         as "`sympa6`" instead of "`sympa`").  Because, succeeding process
+         will upgrade content and structure of database and those changes are
+         not recoverable.
 
          ----
          Note:
@@ -122,10 +133,8 @@ Upgrading from Sympa 5.4.x or earlier
              server.
 
          ----
-       - Queued messages in spools of earlier version should be copied into
-         the new location.
 
-  4. Upgrade configuration:
+  4. Upgrade configuration and data:
 
        - With recent version of Sympa, run, for example:
          ``` bash
@@ -142,7 +151,8 @@ Upgrading from Sympa 5.4.x or earlier
          For details see the manual page of
          [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md).
 
-       - Check customizations of templates and scenarios on earlier version,
+       - Check customizations of templates, scenarios and list creation
+         templates on earlier version,
          and reapply them to recent version if possible.
 
   5. Start services of recent version (see
