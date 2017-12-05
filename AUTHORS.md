@@ -7,6 +7,7 @@ If you commit changes or additions at the first time, don't forget to add your
 name here.
 
   - Serge Aumont
+  - Geoffroy Desvernay
   - Stefan Hornburg
   - Soji Ikeda
   - Etienne Meleard
