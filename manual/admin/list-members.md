@@ -49,6 +49,39 @@ The supported data sources should all return a set of email addresses, because t
 
 Data sources are defined through [list-xx configuration parameters](../man/list_config.5.md#data-sources-setup); they can be edited through the list admin web interface of Sympa. Note that the ~~[user_data_source list configuration parameter](../man/list_config.5.md#user_data_source)~~ is no more used (hard-coded include2 value) ; it has been introduced to support different members data management modes.
 
+#### Excluding members from dynamic update
+
+Particular users can be excluded from dynamic update.
+Excluded users will no longer be added nor deleted from the list when data
+sources are updated.  Thus, owners may be able to add or delete those users
+manually, and those users may be able to subscribe or unsubscribe themselves
+(if they are allowed).
+
+Information of excluded users are stored in
+[`exclusion_table`](../man/sympa_database.5.md#exclusion_table) table of
+database.  List owners can update the information in one of following ways:
+
+  - Using "Manage list members" -- "Exclude" in list administration menu,
+    list owners can add or remove users to be excluded.
+
+  - Deleting a member included from data sources from the list, they are
+    excluded automatically.
+
+Note that exclusion will not be released even if the same user will be added
+again.
+
+----
+Note:
+
+  * On Sympa prior to 6.2, deleting member needed exclusion in advance, if
+    they had already been included from data sources.
+
+    On 6.2 or later, deleting may imply exclusion.  If you noticed that
+    one or more users were not included from data sources, please check
+    "Exclude" in list administration menu.
+
+----
+
 ### Defining the data sources for list owners and moderators
 
 List owners can be defined using external data sources the same way members are. The main difference is related to the configuration parameters : data sources are not directly defined in the list configuration file, they come from a separate `.inc` file located in the ~~[data_sources/ directory](/manual/list-definition#data_inclusion_file)~~. The [owner_include list configuration parameter](../man/list_config.5.md#owner_include) then refers to this data source file. This different configuration approach has been adopted to lessen the number of list configuration parameters.
