@@ -1,12 +1,12 @@
 ---
-title: 'Upgrading Sympa'
-prev: install.md
-up: ./
-next: admin.md
+title: 'Upgrading Sympa in place'
+prev: ../install.md
+up: ../upgrade.md
+next: move.md
 ---
 
-Upgrading Sympa
-===============
+Upgrading Sympa in place
+========================
 
 Upgrading process overview
 --------------------------
