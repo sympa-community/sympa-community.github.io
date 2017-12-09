@@ -167,7 +167,7 @@ Trust remote applications
 
 The SOAP service `authenticateRemoteAppAndRun` is used in order to allow some remote applications such as a web portal to request the Sympa service as a proxy for the end user. In such cases, Sympa will not authenticate the end user itself, but instead it will trust a particular application to act as a proxy.
 
-This configuration file [`trusted_applications.conf`](../man/trusted_applications.conf.5.md) can be created in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_domain_ directory or in [``$SYSCONFDIR``](../layout.md#sysconfdir)` directory depending on the scope you want for it. This file is made of paragraphs separated by empty lines and stating with keyword `trusted_application`. A sample `trusted_applications.conf` file is provided with Sympa sources. Each paragraph defines a remote trusted application with keyword/value pairs:
+This configuration file [`trusted_applications.conf`](../man/trusted_applications.conf.5.md) can be created in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_domain_ directory or in [``$SYSCONFDIR``](../layout.md#sysconfdir) directory depending on the scope you want for it. This file is made of paragraphs separated by empty lines and stating with keyword `trusted_application`. A sample `trusted_applications.conf` file is provided with Sympa sources. Each paragraph defines a remote trusted application with keyword/value pairs:
 
   - `name`
 
