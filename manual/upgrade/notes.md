@@ -1,10 +1,11 @@
 ---
-title: 'Upgrading to latest version of Sympa'
+title: 'Upgrading notes'
+prev: move.md
 up: ../upgrade.md
 ---
 
-Upgrading to latest version of Sympa
-====================================
+Upgrading notes
+===============
 
 ----
 Note:
