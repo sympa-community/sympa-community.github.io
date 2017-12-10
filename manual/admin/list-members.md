@@ -1,3 +1,9 @@
+---
+title: 'Managing list members, owners and editors'
+prev: list-creation.md
+up: ../admin.md
+---
+
 Managing list members, owners and editors
 =========================================
 

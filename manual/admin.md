@@ -11,8 +11,7 @@ Administering Sympa
   - [Managing services](admin/services.md)
   - [Command line interface](admin/cli.md)
   - Managing lists
-      - ~~[Creating and closing lists](admin/list-creation.md)~~
-        (Work in progress)
+      - [List creation, editing and removal](admin/list-creation.md)
       - [Managing list members, owners and editors](admin/list-members.md)
   - ~~[Listmaster portal on web interface](admin/serveradmin.md)~~
     (Work in progress)
