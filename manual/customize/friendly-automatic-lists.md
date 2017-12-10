@@ -1,3 +1,8 @@
+---
+title: 'User-friendly automatic lists'
+up: ../customize.md#customizing-web-interface
+---
+
 User-friendly automatic lists
 =============================
 
@@ -8,7 +13,7 @@ Note:
 
 ----
 
-While [automatic lists](#automatic_list_creation) save a lot of efforts to listmasters, they still remain hard to use for users. Most of the difficulty resides in the proper constitution of a list name. For example, if you use three fields to build your lists names, users will need to know, in order to use an automatic list:
+While [automatic lists](automatic-lists.md) save a lot of efforts to listmasters, they still remain hard to use for users. Most of the difficulty resides in the proper constitution of a list name. For example, if you use three fields to build your lists names, users will need to know, in order to use an automatic list:
 
   - the prefix to tag the automatic lists
   - the order of the fields to use
@@ -33,7 +38,7 @@ Once it is configured, users can select a new tab from the main Sympa tab panel.
 
 ----
 
-Once the form is submitted, Sympa check whether the list exists already. If not, the list is created with the same mechanism described in the [automatic lists feature](#automatic_list_creation). The user is then automatically redirected to the message composing space of the automatic list.
+Once the form is submitted, Sympa check whether the list exists already. If not, the list is created with the same mechanism described in the [automatic lists feature](automatic-lists.md). The user is then automatically redirected to the message composing space of the automatic list.
 
 ----
 [listes_auto_composition.png "Message composiing in the newly created list": Work in progress]
@@ -47,9 +52,10 @@ The list keeps existing after its creation. the user can therefore use its archi
 
 ----
 
-### Configuration
+Configuration
+-------------
 
-#### Sympa.conf configuration
+### `sympa.conf` configuration
 
 To make the automatic lists available through the web interface, these families must be declared in sympa.conf (or robot.conf) using the `automatic_list_families` parameter.
 
@@ -92,9 +98,9 @@ Once you've done that, restart the web server. You should, as listmaster, see tw
 
 Clicking on one of thses tabs will redirect you to the automatic lists creation form which, if you are following this doc step by step, should still be empty as our automatic lists families are not created yet.
 
-#### Create automatic lists families
+### Create families for automatic lists
 
-To set up this functionnality, you need first to [create at least an automatic lists family](#automatic_list_creation). You can define as many families as you wish.
+To set up this functionnality, you need first to [create at least an automatic lists family](automatic-lists.md). You can define as many families as you wish.
 
 A feature that can be usefull is the family unsubscription, if you wish.
 
@@ -102,7 +108,7 @@ On thing important when you create the config.tt2 of the families is the order i
 
 This is a very important point to keep in mind when you create the `automatic_lists_description.conf` file in the section below: make sure that the order you define for each class will make them appear at the right place in the list name, according to what you defined in your config.tt2.
 
-#### Customize the list families to make them available online
+### Customize the list families to make them available online
 
 To display a form for a family, you need to add a new file to the family folder: `automatic_lists_description.conf`. This file contains the description of the fields used to:
 

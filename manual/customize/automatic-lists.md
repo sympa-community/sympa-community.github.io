@@ -1,5 +1,10 @@
+---
+title: 'Automatic list creation'
+up: ../customize.md#customizing-sympa-services
+---
+
 Automatic list creation
------------------------
+=======================
 
 ----
 Note:
@@ -18,9 +23,10 @@ To enable automatic list creation, you will have to:
   - define a family associated to such lists;
   - configure Sympa to enable the feature.
 
-### Configuring your MTA
+Configuring your MTA
+--------------------
 
-#### The familyqueue solution (with postfix)
+### The familyqueue solution (with postfix)
 
 To do so, you have to configure your MTA for it to add a custom header field to messages. The easiest way is to customize your aliases manager, so that mails for automatic lists are not delivered to the normal `queue` program, but to the `familyqueue` dedicated one. For example, you can decide that the name of those lists will start with the `auto-` pattern, so you can process them separately from other lists you are hosting.
 
@@ -47,19 +53,19 @@ local_recipient_maps = pcre:/etc/postfix/local_recipient_regexp unix:passwd.byna
 /^.*-owner\@lists\.domain\.com$/  1
 /^auto-.*\@lists\.domain\.com$/   1
 ```
-/etc/postfix/master.cf
+/etc/postfix/master.cf (Note: Replace [``$LIBEXECDIR``](../layout.md#libexecdir) below)
 ``` code
 sympa     unix  -       n       n       -       -       pipe
-  flags=R user=sympa argv=/home/sympa/bin/queue ${recipient}
+  flags=R user=sympa argv=$LIBEXECDIR/queue ${recipient}
 sympabounce  unix  -       n       n       -       -       pipe
-  flags=R user=sympa argv=/home/sympa/bin/bouncequeue ${user}
+  flags=R user=sympa argv=$LIBEXECDIR/bouncequeue ${user}
 sympafamily  unix  -       n       n       -       -       pipe
-  flags=R user=sympa argv=/home/sympa/bin/familyqueue ${user} age-occupation
+  flags=R user=sympa argv=$LIBEXECDIR/familyqueue ${user} age-occupation
 ```
 
-A mail sent to `auto-cto.50@lists.domain.com` will be queued to the `/home/sympa/spool/automatic` spool, defined by the `queueautomatic` `sympa.conf` parameter (see [queueautomatic](/conf-parameters/part2#queueautomatic)). The mail will first be processed by an instance of the `sympa.pl` process dedicated to automatic list creation, then the mail will be sent to the newly created mailing list.
+A mail sent to `auto-cto.50@lists.domain.com` will be queued to the [``$SPOOLDIR``](../layout.md#spooldir)`/automatic` spool, defined by the `queueautomatic` `sympa.conf` parameter (see [`queueautomatic`](../man/sympa.conf.5.md#queueautomatic)). The mail will first be processed by an instance of the `sympa.pl` process dedicated to automatic list creation, then the mail will be sent to the newly created mailing list.
 
-#### The sympa-milter solution
+### The sympa-milter solution (with Postfix or Sendmail)
 
 If you don't use postfix or don't want to dig in postfix alias management, you have an alternative solution for automatic listes management: sympa-milter.
 
@@ -78,9 +84,9 @@ Note:
 
 This is the procedure to make it work:
 
-##### Install sympa-milter
+#### Install sympa-milter
 
-You can download the latest version at the following address: [http://j-chkmail.ensmp.fr/sympa-milter/](http://j-chkmail.ensmp.fr/sympa-milter/).
+You can download the latest version from the [download site](http://foss.jose-marcio.org/sympa-milter/).
 
 Once you have the archive, decompress it: `tar xzvf sympa-milter-0.7.tgz`.
 
@@ -99,7 +105,7 @@ Then install the program:
 # make install
 ```
 
-The default install directory is `/usr/local/sympa-milter/` (you can change this value with the `–prefix` configure option).
+The default install directory is `/usr/local/sympa-milter/` (you can change this value with the `--prefix` configure option).
 
 The install process also adds a launcher into `/etc/init.d/`, named `sympa-milter`. You'll need to setup links to it under `/etc/rc3.d`. If you're using Fedora like Linux distributions, you can use `/sbin/chkconfig` to setup these links.
 
@@ -173,7 +179,7 @@ best                 ^best.*@another.domain.com
 
 You can use any regular expression to define the addresses used by your family.
 
-##### Set up your MTA
+#### Set up your MTA
 
 What you must do to make all the thingy to work is:
 
@@ -202,11 +208,12 @@ auto    : "some_file"
 
 Reload your MTA config. All set!
 
-### Defining the list family
+Defining the list family
+------------------------
 
 We need to create the appropriate `etc/families/age-occupation/config.tt2`. All the magic comes from the TT2 language capabilities. We define on-the-fly the LDAP source, thanks to TT2 macros.
 
-/home/sympa/etc/families/age-occupation/config.tt2
+[``$SYSCONFDIR``](../layout.md#sysconfdir)/families/age-occupation/config.tt2
 ``` code
 ...
 user_data_source include2
@@ -244,22 +251,22 @@ select all
 
 The main variable you get is the name of the current mailing list via the `listname` variable as used in the example above.
 
-### Configuring Sympa
+Configuring Sympa
+-----------------
 
 Now we need to enable automatic list creation in Sympa. To do so, we have to:
 
   - set the `automatic_list_feature` parameter to `on` and define who can create automatic lists via the `automatic_list_creation` (points to an automatic\_list\_creation scenario);
-  - set the `queueautomatic` `sympa.conf` parameter to the spool location where we want these messages to be stored (it has to be different from the `/home/sympa/spool/msg` spool).
+  - set the `queueautomatic` `sympa.conf` parameter to the spool location where we want these messages to be stored (it has to be different from the [``$SPOOLDIR``](../layout.md#spooldir)`/msg` spool).
 
 You can make Sympa delete automatic lists that were created with zero list members; to do so, you should set the `automatic_list_removal` parameter to `if_empty`.
 
-/home/sympa/etc/sympa.conf
+[``sympa.conf``](../layout.md#config)
 ``` code
 ...
 automatic_list_feature  on
 automatic_list_creation public
-queueautomatic          /home/sympa/spool/automatic
-automatic_list_removal    if_empty
+automatic_list_removal  if_empty
 ```
 
 While writing your own `automatic_list_creation` scenarios, be aware that:

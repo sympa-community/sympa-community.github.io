@@ -31,8 +31,7 @@ Customization basics
   * ~~[Internationalization](customize/basics-i18n.md)~~
     (Work in progress)
 
-  * ~~[List families](customize/basics-families.md)~~
-    (Work in progress)
+  * [List families](customize/basics-families.md)
 
 Customizing Sympa services
 --------------------------
@@ -65,8 +64,7 @@ needed.
   * Loop prevention
     [&#x1F527;](man/sympa.conf.5.md#loop-prevention)
 
-  * Automatic lists
-    [&#x1F527;](man/sympa.conf.5.md#automatic-lists)
+  * [Automatic list creation](customize/automatic-lists.md)
 
   * Tag based spam filtering
     [&#x1F527;](man/sympa.conf.5.md#tag-based-spam-filtering)
@@ -121,9 +119,7 @@ needed.
 
         &#x2699; crawlers_detection.conf
 
-      - User-friendly automatic lists
-
-        &#x2699; automatic_lists_description.conf
+      - [User-friendly automatic lists](customize/friendly-automatic-lists.md)
 
 Sympa services: Optional features
 ---------------------------------
@@ -154,14 +150,8 @@ external Perl modules.
     Optionally [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL).
 
   * [DKIM](customize/dkim.md)
-    [&#x1F527;](man/sympa.conf.5.md#dkim)
-
-    &#x1F4E6; [Mail-DKIM](https://metacpan.org/release/Mail-DKIM).
 
   * [DMARC protection](customize/dmarc-protection.md)
-    [&#x1F527;](man/sympa.conf.5.md#dmarc-protection)
-
-    &#x1F4E6; [Net-DNS](https://metacpan.org/release/Net-DNS).
 
   * Managing aliases with LDAP
 
@@ -219,14 +209,6 @@ external Perl modules.
     Optionally [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL).
 
   * [SOAP/HTTP API](customize/soap-api.md)
-    [&#x1F527;](man/sympa.conf.5.md#soap-http-interface)
-
-    &#x2699; sympa.wsdl
-    &#x2699; trusted_applications.conf
-
-    &#x1F4E6; [CGI-Fast](https://metacpan.org/release/CGI-Fast),
-    [FCGI](https://metacpan.org/release/FCGI),
-    &#x1F4E6; [SOAP-Lite](https://metacpan.org/release/SOAP-Lite).
 
   * Miscelaneous
 

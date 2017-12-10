@@ -17,7 +17,10 @@ The messages to yahoo would bounce "for policy reason" but worse: messages sent 
 
 To fix it:
 
-  - Set the `dmarc_protection_mode` to the value you wish. For a quick correction on the most restrictive DMARc records, just add the following line to your sympa.conf:
+  1. Install [Net-DNS](https://metacpan.org/release/Net-DNS) Perl module, if
+     it have not been installed.
+
+  2. Set the `dmarc_protection_mode` to the value you wish. For a quick correction on the most restrictive DMARc records, just add the following line to your sympa.conf:
 
     ``` code
     dmarc_protection_mode dmarc_reject

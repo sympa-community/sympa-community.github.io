@@ -1,3 +1,8 @@
+---
+title: 'List families'
+up: ../customize.md#customization-basics
+---
+
 List families
 =============
 
@@ -29,12 +34,8 @@ Using family
 
 Families can be defined at the robot level, at the site level or on the distribution level (where default families are provided). So, you have to create a sub directory named after the family's name in a `families` directory:
 
-Examples:
-
-``` code
-/home/sympa/etc/families/my_family
-/home/sympa/etc/my_robot/families/my_family
-```
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/families/`_my family_
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_my domain_`/families/`_my family_
 
 In this directory, you must provide the following files:
 
@@ -47,7 +48,7 @@ In this directory, you must provide the following files:
 
 #### config.tt2
 
-This is a list creation template, this file is mandatory. It provides default values for parameters. This file is an almost complete list configuration, with a number of missing fields (such as owner email) to be replaced by data obtained at the time of family instantiation. It is easy to create new list templates by modifying existing ones. See [List template files](/manual/list-definition#list_template_files) and [Template file format](/manual/customizing#template_file_format).
+This is a list creation template, this file is mandatory. It provides default values for parameters. This file is an almost complete list configuration, with a number of missing fields (such as owner email) to be replaced by data obtained at the time of family instantiation. It is easy to create new list templates by modifying existing ones. See "~~[List template files](../admin/list-definition#list-template-files)~~" and "~~[Template file format](../admin/basics-templates.md#template-file-format)~~".
 
 Example:
 
@@ -115,7 +116,7 @@ This file is mandatory. It defines constraints on parameters. There are three ki
 
 The parameters constraints will be checked at every list loading.
 
-**WARNING**: Some parameters cannot be constrained, they are: `msg_topic.keywords` (see [msg-topic](/manual/parameters-sending#msg_topic)),`owner_include.source_parameter` (see [owner_include](/manual/parameters-definition#owner_include)) and `editor_include.source_parameter` (see [editor_include](/manual/parameters-definition#editor_include)). About `digest` parameter (see [digest](/manual/parameters-sending#digest)), only days can be constrained.
+**WARNING**: Some parameters cannot be constrained, they are: `msg_topic.keywords` (see [`msg_topic`](../man/list_config.5.md#msg_topic)), `owner_include.source_parameter` (see [`owner_include`](../man/list_config.5.md#owner_include)) and `editor_include.source_parameter` (see [`editor_include`](../man/list_config.5.md#editor_include)). About `digest` parameter (see [`digest`](../man/list_config.5.md#digest)), only days can be constrained.
 
 Example:
 
@@ -129,12 +130,12 @@ shared_doc.d_edit   editor
 
 #### edit\_list.conf
 
-This is an optional file. It defines which parameters/files are editable by owners. See [List editing](/manual/list-creation#list_editing). If the family does not have this file, Sympa will look for the one defined on robot level, server site level or distribution level (this file already exists without family context).
+This is an optional file. It defines which parameters/files are editable by owners. See "[List editing](../admin/list-creation#list-editing)". If the family does not have this file, Sympa will look for the one defined on robot level, server site level or distribution level (this file already exists without family context).
 Note that by default, the `family_name` parameter is not writable, you should not change this editing right.
 
 #### automatic\_lists\_description.conf
 
-This file is used if you want to let users create / access to automatic lists using the Sympa web interface. Please, see the [documentation related to this functionnality](#user-friendly_automatic_lists).
+This file is used if you want to let users create / access to automatic lists using the Sympa web interface. Please, see the [documentation related to this functionnality](friendly-automatic-lists.md).
 
 #### Common list files
 
@@ -146,7 +147,7 @@ You can parse several files at list creation, later used by the list. Here are t
   - `message.header.mime.tt2`,
   - `info.tt2`
 
-These files will be parsed using the list family data defined in the XML file. You can use the same data in these files as in the [config.tt2](#config_tt2) file.
+These files will be parsed using the list family data defined in the XML file. You can use the same data in these files as in the [config.tt2](#config-tt2) file.
 
 For example, if you add to the family directory a file named `info.tt2` containing the following code :
 
@@ -171,7 +172,7 @@ List mylist home page
 A loooong text describing the purpose of the list
 ```
 
-Message footers and headers are likely to contain TT2 code themselves (for example, to create [unsubscription links](/manual/message-handling#unsubscription_url) at the bottom of the list messages).
+Message footers and headers are likely to contain TT2 code themselves (for example, to create ~~[unsubscription links](/manual/message-handling#unsubscription_url)~~ at the bottom of the list messages).
 
 In that case, you can use the capacity, offered by TT2, to define [custom tag delimitors](http://template-toolkit.org/docs/manual/Config.html#section_START_TAG_END_TAG).
 
@@ -200,19 +201,17 @@ The subject of the list is "create and share our passion of scrap cooking", clic
 
 #### customizable files
 
-Families provide a new level of customization for scenarios (see [Authorization scenarios](/manual/authorization-scenarios#authorization_scenarios)), templates for service messages (see [Site template files](/manual/customizing#site_template_files)) and templates for web pages (see [Web template files](/manual/customizing#web_template_files)). Sympa looks for these files in the following level order: list, family, robot, server site or distribution.
+Families provide a new level of customization for scenarios (see "[Authorization scenarios](../customize/basics-scenarios.md)"), templates for service messages (see "~~[Site template files](../cusromize/basics-scenarios#site-template-files)~~") and templates for web pages (see "~~[web template files](../customize/basics-templates.md#web-template-files)~~"). Sympa looks for these files in the following level order: list, family, robot, server site or distribution.
 
 Example of custom hierarchy:
 
-``` code
-/home/sympa/etc/families/myfamily/mail_tt2/
-/home/sympa/etc/families/myfamily/mail_tt2/bye.tt2
-/home/sympa/etc/families/myfamily/mail_tt2/welcome.tt2
-```
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/families/`_myfamily_`/mail_tt2/`
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/families/`_myfamily_`/mail_tt2/bye.tt2`
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/families/`_myfamily_`/mail_tt2/welcome.tt2`
 
 ### Instantiation
 
-Instantiation allows to generate lists. You must provide an XML file made of list descriptions, the root element being `family` and which is only composed of `list` elements. List elements are described in section [XML file format](/manual/list-creation#xml_file_format). Each list is described by the set of values for affectation list parameters.
+Instantiation allows to generate lists. You must provide an XML file made of list descriptions, the root element being `family` and which is only composed of `list` elements. List elements are described in section [XML file format](../admin/list-creation#xml-file-format). Each list is described by the set of values for affectation list parameters.
 
 Here is a sample command to instantiate a family:
 
@@ -334,7 +333,7 @@ sympa.pl --close_family my_family --robot samplerobot
 
 ### Adding a list to a list family
 
-Adds a list to the family without instantiating the whole family. The list is created as if it was created during an instantiation, under the indicated robot. The XML file describes the list and the root element is `<list>`. List elements are described in section [List creation on command line with sympa.pl](/manual/list-creation#list_creation_on_command_line_with_sympapl).
+Adds a list to the family without instantiating the whole family. The list is created as if it was created during an instantiation, under the indicated robot. The XML file describes the list and the root element is `<list>`. List elements are described in section [List creation on command line with sympa.pl](../admin/list-creation.md#list-creation-on-command-line-with-sympa-pl).
 
 Here is a sample command to add a list to a family:
 
@@ -354,7 +353,7 @@ sympa.pl --close_list my_list@samplerobot
 
 ### Modifying a family list
 
-Modifies a family list without instantiating the whole family. The list (installed under the indicated robot) is modified as if it was modified during an instantiation. The XML file describes the list and the root element is `<list>`. List elements are described in section [List creation on command line with sympa.pl](/manual/list-creation#list_creation_on_command_line_with_sympapl).
+Modifies a family list without instantiating the whole family. The list (installed under the indicated robot) is modified as if it was modified during an instantiation. The XML file describes the list and the root element is `<list>`. List elements are described in section [List creation on command line with sympa.pl](../admin/list-creation.md#list-creation-on-command-line-with-sympa-pl).
 
 Here is a sample command to modify a list to a family:
 
@@ -364,7 +363,7 @@ sympa.pl --modify_list my_family --robot samplerobot --input_file /path/to/my_fi
 
 ### Editing list parameters in a family context
 
-According to file `edit_list.conf`, editing rights are controlled. See [List editing](/manual/list-creation#list_editing). But in a family context, constraints parameters are added to editing right as it is summarized in this array:
+According to file `edit_list.conf`, editing rights are controlled. See "[List editing](../admin/list-creation.md#list-editing)". But in a family context, constraints parameters are added to editing right as it is summarized in this array:
 
 array
 
