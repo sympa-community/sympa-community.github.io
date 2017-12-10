@@ -1,3 +1,9 @@
+---
+title: 'Customizing Sympa'
+prev: admin.md
+up: ./
+---
+
 Customizing Sympa
 =================
 
@@ -14,8 +20,7 @@ Or, please consider adding description and instruction written by your own
 Customization basics
 --------------------
 
-  * ~~[Roles and privileges](customize/basics-roles.md)~~
-    (Work in progress)
+  * [Roles and privileges](customize/basics-roles.md)
 
   * ~~[Configuration hierarchy](customize/basics-configuration.md)~~
     (Work in progress)
@@ -23,7 +28,7 @@ Customization basics
   * ~~[Templates](customize/basics-templates.md)~~
     (Work in progress)
 
-  * ~~[Scenarios](customize/basics-scenarios.md)~~
+  * ~~[Authorization scenarios](customize/basics-scenarios.md)~~
     (Work in progress)
 
   * [Tasks](customize/basics-tasks.md)
