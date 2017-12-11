@@ -1,3 +1,10 @@
+---
+title: 'Sympa Internationalization'
+prev: basics-tasks.md
+up: ../customize.md#customization-basics
+next: basics-families.md
+---
+
 Sympa Internationalization
 ==========================
 
@@ -29,16 +36,26 @@ Sympa uses "language tag" to determine context of language and locale for users 
 | `ca-ES-valencia` | Catalan spoken in Valencia         |
 | `ryu`            | Utinaaguti (around Okinawa island) |
 
-Until Sympa 6.1.x, language contexts are based on POSIX locale. Its naming rule was not standardized enough, and also had difficulties to handle particular languages. Language tag is roughly based on [BCP 47](http://tools.ietf.org/html/bcp47) published by IETF. As of Sympa 6.2.0, POSIX locale names in old style are still supported but they are converted to language tags internally.
+----
+Note:
+
+  * Until Sympa 6.1.x, language contexts are based on POSIX locale. Its naming rule was not standardized enough, and also had difficulties to handle particular languages. Language tag is roughly based on [BCP 47](https://tools.ietf.org/html/bcp47) published by IETF. As of Sympa 6.2, POSIX locale names in old style are still supported but they are converted to language tags internally.
+
+----
 
 Translation catalogs and templates
 ----------------------------------
 
-Sympa is designed to allow easy internationalization of its user interface (service mail messages and web interface). All translations for one language are gathered in a single .po file that can be manipulated by standard [GNU gettext tools](http://www.gnu.org/software/gettext/#TOCintroduction).
+Sympa is designed to allow easy internationalization of its user interface (service mail messages and web interface). All translations for one language are gathered in a single .po file that can be manipulated by standard [GNU gettext tools](https://www.gnu.org/software/gettext/#introduction).
 
-[Instructions for translating Sympa](/translating_sympa) are maintained on the Sympa website.
+[Instructions for translating Sympa](https://translate.sympa.org/pages/help) are maintained.
 
-The "gettext locale name" is used for naming of .po file. Sympa maps language tags to gettext locale names and vice versa. Equivalents of language tags in example above are `ar`, `pt_BR`, `sr@latin`, `ca_ES@valencia` and `ryu`, respectively. If you don't know what name to use for your language, please ask Sympa authors.
+----
+Note:
+
+  * The "gettext locale name" is used for naming of `.po` file. Sympa maps language tags to gettext locale names and vice versa. Equivalents of language tags in example above are `ar`, `pt_BR`, `sr@latin`, `ca_ES@valencia` and `ryu`, respectively. If you don't know what name to use for your language, please ask Sympa authors.
+
+----
 
 Sympa templates refer to translatable strings using the `loc` TT2 filter.
 
@@ -84,7 +101,12 @@ Customization
 
 `lang` variable is also defined for JavaScript.
 
-Until Sympa 6.1.x, `locale` variable was used.
+----
+Note:
+
+  * Until Sympa 6.1.x, `locale` variable was used.
+
+----
 
 ### Overriding cascading style sheets by language context
 
@@ -97,19 +119,19 @@ For another example, users using languages with right-to-left scripts (Arabic, H
 Translating titles of topics, scenarios and description of list creation templates
 ----------------------------------------------------------------------------------
 
-Topics are defined in a `topics.conf` file. In this file, each entry can be given a title in different languages, see [Topics](/manual/customizing#topics).
+Topics are defined in a `topics.conf` file. In this file, each entry can be given a title in different languages, see ~~[Topics](/manual/customizing#topics)~~.
 
-Scenarios and comments in list creation templates can have titles by multiple languages. See [Scenario structure](/manual/authorization-scenarios#scenario_structure) and [comment.tt2](/manual/list-creation#commenttt2).
+Scenarios and comments in list creation templates can have titles by multiple languages. See [Scenario structure](basics-scenarios.md#scenario-structure) and [comment.tt2](../admin/list-creation.md#comment-tt2).
 
 Handling of character sets
 --------------------------
 
 Until version 5.3, Sympa web pages were using in each language's character set (iso-8859-1 for French, utf-8 for Japanese, ...) whereas every web page now uses utf-8. Sympa also expects every file to be UTF-8 including : configursation files, templates, authorization scenarios, .po files.
 
-Note that the shared documents (see [Shared documents](/manual/shared-documents)) filenames are Q-encoded to make their storage encoding neutral. This encoding is transparent for end users.
+Note that the shared documents (see "~~[Shared document repository](../customize/shared-repository.md)~~") filenames are Q-encoded to make their storage encoding neutral. This encoding is transparent for end users.
 
 ### Support for legacy character sets
 
-Sympa fully supports Unicode. By default, all messages sent by Sympa will be encoded by `utf-8` character set. However, in some language environments legacy character sets are preferred, for example `iso-2022-jp` in Japanese language. Messages sent by Sympa may be encoded using legacy character sets spesific to each language. See [legacy_character_support_feature](/manual/conf-parameters/conf-parameters#legacy_character_support_feature) parameter.
+Sympa fully supports Unicode. By default, all messages sent by Sympa will be encoded by `utf-8` character set. However, in some language environments legacy character sets are preferred, for example `iso-2022-jp` in Japanese language. Messages sent by Sympa may be encoded using legacy character sets spesific to each language. See [`legacy_character_support_feature`](../man/sympa.conf.5.md#legacy_character_support_feature) parameter.
 
 Note that this setting does not affect messages sent by users but only the messages mailing list robot will send.

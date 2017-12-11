@@ -1,5 +1,12 @@
-Presentation
-============
+---
+title: 'Sympa Internationalization'
+prev: basics-scenarios.md
+up: ../customize.md#customization-basics
+next: basics-i18n.md
+---
+
+Tasks
+=====
 
 Definition
 ----------

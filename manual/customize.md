@@ -33,8 +33,7 @@ Customization basics
 
   * [Tasks](customize/basics-tasks.md)
 
-  * ~~[Internationalization](customize/basics-i18n.md)~~
-    (Work in progress)
+  * [Internationalization](customize/basics-i18n.md)
 
   * [List families](customize/basics-families.md)
 
