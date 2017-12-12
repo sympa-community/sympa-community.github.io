@@ -1,9 +1,16 @@
+---
+title: 'Authorization scenarios'
+prev: basics-templates.md
+up: ../customize.md#customization-basics
+next: basics-tasks.md
+---
+
 Authorization scenarios
 =======================
 
 (Work in progress)
 
-The function to evaluate scenario is described in section [internals](/internals/index).
+The function to evaluate scenario is described in section ~~[internals](/internals/index)~~.
 
 Location of scenario file
 -------------------------
@@ -29,7 +36,7 @@ Basically, a scenario file is composed of a title on the first line and a set of
 The first line of a scenario file can contain its title. This is the text that will later appear in the drop-down menu of your administration web interface. This title can be just plain text:
 
 ``` code
-Restricted to subscribers
+title Restricted to subscribers
 ```
 
 It can also be set to be internationalized:
@@ -50,7 +57,7 @@ That way, the character string following `title.gettext` can be handled by Sympa
 
 #### Conditions
 
-`custom_vars` allows you to introduce [custom parameters](/manual/customizing#custom_parameters) in your scenario.
+`custom_vars` allows you to introduce ~~[custom parameters](/manual/customizing#custom_parameters)~~ in your scenario.
 
 (Work in progress)
 
@@ -68,9 +75,9 @@ The `quiet` can be part of the scenario action result. When using this option, n
 
   - [http://en.wikipedia.org/wiki/Backscatter](http://en.wikipedia.org/wiki/Backscatter)
 
-Sympa version 6.0 and later of Sympa provide a better mechanism to prevent backscatter. See [https://www.sympa.org/dev-manual/antispam](https://www.sympa.org/dev-manual/antispam)
+Sympa version 6.0 and later of Sympa provide a better mechanism to prevent backscatter. See ~~[https://www.sympa.org/manual/antispam](https://www.sympa.org/manual/antispam)~~.
 
-#### Formal specification of the rules
+### Formal specification of the rules
 
 (Work in progress)
 
@@ -128,7 +135,7 @@ People are selected through an SQL filter defined in a configuration file. This 
 
 To create an SQL Named Filter, you have to configure SQL host, database and options, the same way you did it for the main Sympa database in `sympa.conf`. Of course, you can use different database and options. Sympa will open a new Database connection to execute your statement.
 
-Please refer to section [Database related](/conf-parameters/part3#database_related) for a detailed explanation of each parameter.
+Please refer to section "[Database related](../man/sympa.conf.5.md#database-related)" for a detailed explanation of each parameter.
 
 Here, all database parameters have to be grouped in one `sql_named_filter_query` paragraph.
 
@@ -191,25 +198,25 @@ When using the '.txt' file extension, each line is used to try to match the send
 Here is an example of such a file:
 
 ``` code
-david.verdin@cru.fr
+david.verdin@renater.fr
 *salaun*
 ```
 
 With such a file, the rule would be true for the following email addresses:
 
-  - david.verdin@cru.fr
+  - david.verdin@renater.fr
 
-  - salaun@cru.fr
+  - salaun@renater.fr
 
-  - O.salaun@cru.fr
+  - O.salaun@renater.fr
 
 It would be false for the following email addresses :
 
-  - verdin@cru.fr
+  - verdin@renater.fr
 
-  - olivier.sala@cru.fr
+  - olivier.sala@renater.fr
 
-This feature is used by the blacklist implicit scenario rule (see [Blacklist](/manual/conf-parameters/part2#use_blacklist)).
+This feature is used by the blacklist implicit scenario rule (see "[Blacklist](../sympa.conf.5.md#use_blacklist)").
 
 The method of authentication does not change.
 
@@ -234,10 +241,10 @@ You can define a set of common scenario rules, used by all lists. `include.<acti
 Blacklist implicit rule
 -----------------------
 
-For each service listed in parameter `use_blacklist` (see [use_blacklist](/manual/conf-parameters/part2#use_blacklist)), the following implicit scenario rule is added at the beginning of the scenario:
+For each service listed in parameter `use_blacklist` (see [`use_blacklist`](../man/sympa.conf.5.md#use_blacklist)), the following implicit scenario rule is added at the beginning of the scenario:
 
 ``` code
-search(blacklist.txt)  smtp,md5,pgp,smime -> reject,quiet
+search(blacklist.txt)  smtp,md5,dkim,smime -> reject,quiet
 ```
 
 The goal is to block messages or other service requests from unwanted users. The blacklist can be defined for the robot or for the list. At the list level, the blacklist is to be managed by list owner or list editor via the web interface.
@@ -272,12 +279,12 @@ use strict;
 use Log; # optional : we log parameters
 
 sub verify {
-  my @args = @_;
-  foreach my $arg (@args) {
-    do_log ('debug3', 'arg: %s', $arg);
-  }
-  # I always say 'yes'
-  return 1;
+    my @args = @_;
+    foreach my $arg (@args) {
+        do_log ('debug3', 'arg: %s', $arg);
+    }
+    # I always say 'yes'
+    return 1;
 }
 
 ## Packages must return true.
@@ -313,7 +320,7 @@ For example, I wrote a CustomCondition module that parses the URLs in a message 
 (send.url\_eval)
 
 ``` code
-title.us Moderated with URL verification
+title Moderated with URL verification
 CustomCondition::urlreview([listname],[sender],[msg_body]) smtp,smime,md5 -> reject()
 CustomCondition::urlreview([listname],[sender],[msg_part->body]) smtp,smime,md5 -> reject()
 true() smtp,smime,md5 -> editorkey
@@ -329,14 +336,14 @@ As for the CustomCondition module, it was written to evaluate both plain text (S
 package CustomCondition::urlreview;
 ...
 sub verify {
-   my $listname = shift or return;
-   my $sender   = shift or return;
-   my $body;
-   foreach my $part (@_) {
-      $body .= ref $part eq "ARRAY" ? join " ", @{$part} : $part;
-   }
-   return unless defined $body;
-   ...
+    my $listname = shift or return;
+    my $sender   = shift or return;
+    my $body;
+    foreach my $part (@_) {
+        $body .= ref $part eq "ARRAY" ? join " ", @{$part} : $part;
+    }
+    return unless defined $body;
+...
 }
 ...
 1;
@@ -345,9 +352,9 @@ sub verify {
 ----
 Note:
 
-  * this will work in included scenario if the include contains two rules: one with msg\_body and with msg\_part→body.
+  * this will work in included scenario if the include contains two rules: one with msg\_body and with msg\_part->body.
 
----
+----
 
 Hiding scenario files
 ---------------------

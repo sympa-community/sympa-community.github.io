@@ -28,8 +28,7 @@ Customization basics
   * ~~[Templates](customize/basics-templates.md)~~
     (Work in progress)
 
-  * ~~[Authorization scenarios](customize/basics-scenarios.md)~~
-    (Work in progress)
+  * [Authorization scenarios](customize/basics-scenarios.md)
 
   * [Tasks](customize/basics-tasks.md)
 
