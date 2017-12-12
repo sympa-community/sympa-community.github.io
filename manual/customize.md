@@ -224,7 +224,7 @@ Extending Sympa
 
 These features need skill of Perl programming.
 
-  - Custom scenarios
+  - [Custom scenario conditions](customize/custom-scenario-conditions.md)
 
   - [Message hooks](man/Sympa-Message-Plugin.3.md)
 
