@@ -8,52 +8,112 @@ next: basics-tasks.md
 Authorization scenarios
 =======================
 
-(Work in progress)
-
-The function to evaluate scenario is described in section ~~[internals](/internals/index)~~.
+The authorization scenario (or simply "scenario") is a small configuration
+language. It describes authorization for each operation of Sympa based on
+various conditions such as actors and authentication methods.
 
 Location of scenario file
 -------------------------
 
-(Work in progress)
+Each scenario file is named as "_function_`.`_name_". The _function_
+corresponds to a function to be authorized, and the _name_ distingishes the
+policy.  Usually, some scenario files with different names are prepared for
+each function.
 
-When customizing scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa). You can modify Sympa behavior if you are creating a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
+For example, a scenario file
+
+> `subscribe.open`
+
+may be used to make subscription of a list be open. To do such,
+
+  * Edit list [``config``](../man/list_config.5.md) file to add following
+    setting:
+    ```
+    subscribe open
+    ```
+  * With web interface, choose "for anyone without authentication (open)"
+    option on "Who can subscribe to the list (subscribe)" in list
+    configuration page.
+
+To look for particular scenario, Sympa searches following directories in
+order:
+
+  - [``$EXPLDIR``](../layout.md#expldir)`/`_list path_`/scenari`
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_virtual host_`/scenari`
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/scenari`
+  - [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari`
+
+You can modify Sympa behavior if you are creating a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
+
+See also "[Hiding scenario files](#hiding-scenario-files)".
 
 ----
-Note:
+Notes:
+
+  * When customizing scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
 
   * When modifying a existing scenario you need to restart Sympa or touch list [`config`](../man/list_config.5.md) file before Sympa use it.
 
 ----
 
-Scenario structure
-------------------
+Content of scenario file
+------------------------
 
-Basically, a scenario file is composed of a title on the first line and a set of rules on the following lines.
+Basically, content of scenario file is composed of one or more titles on the
+first lines and a set of rules on the following lines. For example:
+```
+title.en-US deletion performed only by list owners, need authentication
+title.es eliminacin reservada slo para el propietario, necesita autentificacin
+title.fr suppression réservée au propriétaire avec authentification
+
+is_owner([listname],[sender])  smtp       -> request_auth
+is_listmaster([sender])        smtp       -> request_auth
+true()                         md5,smime  -> do_it
+```
 
 ### Scenario title
 
 The first line of a scenario file can contain its title. This is the text that will later appear in the drop-down menu of your administration web interface. This title can be just plain text:
-
 ``` code
 title Restricted to subscribers
 ```
 
 It can also be set to be internationalized:
-
+``` code
+title Restricted to subscribers
+title.en-US Restricted to subscribers
+title.es restringido a subscriptores
+title.fr limité aux abonnés
+```
+or
 ``` code
 title.gettext Restricted to subscribers
 ```
+In the first example, appropriate `title.`_lang_ line will be used for
+title according to users' language context (see also
+"[Language tag](basics-i18n.md#language-tag)"). If no appropriate line is
+found, `title` will be used as default.
+In the second, the string following `title.gettext` will be translated to
+users' language using Sympa's translation catalog. If there are no entry in
+catalog, the string itself will be used.
 
-That way, the character string following `title.gettext` can be handled by Sympa internationalization process.
+### Rules
 
-### Rules overview
+One or more lines for rules follow to title. Each rule has following syntax:
 
-(Work in progress)
+> *condition* *authentication_methods* `->` *action*
 
-### Rules definition
+Rules are evaluated in order, and once a rule matching with given
+*condition* and *authentication method* is found, *action* will be returned
+and subsequent rules will no longer be evaluated.
 
-(Work in progress)
+----
+Note:
+
+  * About formal syntax of rules, see
+    ~~[sympa_scenario(5)](../man/sympa_scenario.5.md)~~ manual page.
+
+----
 
 #### Conditions
 
@@ -67,8 +127,7 @@ See "[Custom scenario conditions](custom-scenario-conditions.md)" for details.
 #### Authentication methods
 
 You can specify three different authentication methods to base your rules on: `smtp`, `dkim`, `smime` and `md5`.
-
-**these methods take a different meaning if you consider them in a web or mail context**.
+These methods take a different meaning if you consider them in a web or mail context.
 
 Indeed if you consider, for example, the scenario `send`: it will be evaluated when people try to send a message to a list.
 
@@ -83,8 +142,8 @@ Here is a description of what is evaluated to authenticate the user depending of
 | Method  | Mail context                               | Web context                                                        |
 |---------|--------------------------------------------|--------------------------------------------------------------------|
 | `smtp`  | the "From:" field of the message           | *Nothing - unused in web context*                                  |
-| `dkim`  | the DKIM signature of the message          | *Nothing - unused in web context*
-| `md5`   | the authentication key in the message      | the authentication information provided to Sympa (login/password) |
+| `dkim`  | the DKIM signature of the message          | *Nothing - unused in web context*                                  |
+| `md5`   | the authentication key in the message      | the authentication information provided to Sympa (login/password)  |
 | `smime` | the S/MIME X509 signature of the email     | An X509 certificate installed in the user's browser                |
 
 Note that `md5` will be used, in a mail context, when users answer to an authentication request, or when editors moderate a message by replying to a moderation request mail.
@@ -92,6 +151,25 @@ Note that `md5` will be used, in a mail context, when users answer to an authent
 In most cases, `smtp` or `dkim` will be used for mails, and `md5` for the web.
 
 #### Actions
+
+An action is one of following keywords:
+
+  * `do_it`
+    Allows operation.
+
+  * `listmaster`
+    Same as `do_it` but makes the status of newly created list "pending".
+    Only for `create_list` function.  
+
+  * `request_auth`
+    Requests the users authentiation to perform operation.
+
+  * `owner`
+    Requests the list owners authentiation to perform operation.
+    Only for `subscribe` and `unsubscribe` functions.
+
+  * `reject`
+    Denys operation.
 
 (Work in progress)
 
@@ -102,10 +180,6 @@ The `quiet` can be part of the scenario action result. When using this option, n
   - [http://en.wikipedia.org/wiki/Backscatter](http://en.wikipedia.org/wiki/Backscatter)
 
 Sympa version 6.0 and later of Sympa provide a better mechanism to prevent backscatter. See ~~[https://www.sympa.org/manual/antispam](https://www.sympa.org/manual/antispam)~~.
-
-### Formal specification of the rules
-
-(Work in progress)
 
 Named Filters
 -------------
@@ -181,15 +255,10 @@ Here, all database parameters have to be grouped in one `sql_named_filter_query`
     Please refer to main `sympa.conf` section for description.
 
       - `db_user`
-
       - `db_password`
-
       - `db_options`
-
       - `db_env`
-
       - `db_port`
-
       - `db_timeout`
 
 `example.sql`: we want to select the teachers of mathematics in the University of Rennes 1 in France:
@@ -231,15 +300,12 @@ david.verdin@renater.fr
 With such a file, the rule would be true for the following email addresses:
 
   - david.verdin@renater.fr
-
   - salaun@renater.fr
-
   - O.salaun@renater.fr
 
 It would be false for the following email addresses :
 
   - verdin@renater.fr
-
   - olivier.sala@renater.fr
 
 This feature is used by the blacklist implicit scenario rule (see "[Blacklist](../sympa.conf.5.md#use_blacklist)").
@@ -259,21 +325,25 @@ true()                               smtp,smime -> owner
 
 In this case, Sympa applies recursively the scenario named `include.commonreject` before introducing the other rules. This possibility was introduced in order to facilitate the administration of common rules.
 
-Scenario implicit inclusion
----------------------------
+### Scenario implicit inclusion
 
 You can define a set of common scenario rules, used by all lists. `include.<action>.header` is automatically added to evaluated scenarios. Note that you will need to restart Sympa processes to force reloading of list config files.
 
 Blacklist implicit rule
 -----------------------
 
-For each service listed in parameter `use_blacklist` (see [`use_blacklist`](../man/sympa.conf.5.md#use_blacklist)), the following implicit scenario rule is added at the beginning of the scenario:
+For each service listed in parameter [`use_blacklist`](../man/sympa.conf.5.md#use_blacklist), the following implicit scenario rule is added at the beginning of the scenario:
 
 ``` code
 search(blacklist.txt)  smtp,md5,dkim,smime -> reject,quiet
 ```
 
 The goal is to block messages or other service requests from unwanted users. The blacklist can be defined for the robot or for the list. At the list level, the blacklist is to be managed by list owner or list editor via the web interface.
+
+`spam-status` special scenario
+------------------------------
+
+(Work in progress)
 
 Hiding scenario files
 ---------------------
@@ -283,3 +353,4 @@ Because Sympa is distributed with many default scenario files, you may want to h
 Example:
 
 By creating [``$SYSCONFDIR``](../layout.md#sysconfdir)`/mail.example.org/scenari/send.intranetorprivate:ignore`, the `intranetorprivate` `send` scenario will be hidden (on the web admin interface), at the `mail.example.org` robot level only.
+

@@ -121,7 +121,7 @@ Translating titles of topics, scenarios and description of list creation templat
 
 Topics are defined in a `topics.conf` file. In this file, each entry can be given a title in different languages, see ~~[Topics](/manual/customizing#topics)~~.
 
-Scenarios and comments in list creation templates can have titles by multiple languages. See [Scenario structure](basics-scenarios.md#scenario-structure) and [comment.tt2](../admin/list-creation.md#comment-tt2).
+Scenarios and comments in list creation templates can have titles by multiple languages. See "[Content of scenario file](basics-scenarios.md#content-of-scenario-file)" and "[comment.tt2](../admin/list-creation.md#commenttt2)".
 
 Handling of character sets
 --------------------------
