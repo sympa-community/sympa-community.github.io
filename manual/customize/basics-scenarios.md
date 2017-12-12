@@ -17,12 +17,12 @@ Location of scenario file
 
 (Work in progress)
 
-When customizing scenario for your own site, robot or list, don't modify .../sympa/bin/scenari content or the next Sympa update will overwrite it (you must never modify anything in .../sympa/bin/ unless you are patching Sympa). You can modify Sympa behavior if you are creating a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
+When customizing scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa). You can modify Sympa behavior if you are creating a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
 
 ----
 Note:
 
-  * When modifying a existing scenario you need to restart Sympa or touch list config file before Sympa use it.
+  * When modifying a existing scenario you need to restart Sympa or touch list [`config`](../man/list_config.5.md) file before Sympa use it.
 
 ----
 
@@ -61,15 +61,15 @@ That way, the character string following `title.gettext` can be handled by Sympa
 
 (Work in progress)
 
-#### Authentification methods
+#### Authentication methods
 
-Yous can specify three different authentication methods to base your rules on: `smtp`, `smime` and `md5`.
+You can specify three different authentication methods to base your rules on: `smtp`, `dkim`, `smime` and `md5`.
 
 **these methods take a different meaning if you consider them in a web or mail context**.
 
 Indeed if you consider, for example, the scenario `send`: it will be evaluated when people try to send a message to a list.
 
-  - If the message is sent through the web interface, Sympa will verify the identity of the sender based on its web authentication informations (login/password, certificate, etc.)
+  - If the message is sent through the web interface, Sympa will verify the identity of the sender based on its web authentication information (login/password, certificate, etc.)
 
   - If it is sent by the mail client, the authentication is based on whatever authentication method the user's email client associated with the SMTP message (S/MIME signature, From field, etc.).
 
@@ -80,12 +80,13 @@ Here is a description of what is evaluated to authenticate the user depending of
 | Method  | Mail context                               | Web context                                                        |
 |---------|--------------------------------------------|--------------------------------------------------------------------|
 | `smtp`  | the "From:" field of the message           | *Nothing - unused in web context*                                  |
+| `dkim`  | the DKIM signature of the message          | *Nothing - unused in web context*
+| `md5`   | the authentication key in the message      | the authentication information provided to Sympa (login/password) |
 | `smime` | the S/MIME X509 signature of the email     | An X509 certificate installed in the user's browser                |
-| `md5`   | the MD5 hash in the subject of the message | the authentication informations provided to Sympa (login/password) |
 
 Note that `md5` will be used, in a mail context, when users answer to an authentication request, or when editors moderate a message by replying to a moderation request mail.
 
-In most cases, `smtp` will be used for mails, and `md5` for the web.
+In most cases, `smtp` or `dkim` will be used for mails, and `md5` for the web.
 
 #### Actions
 
@@ -114,7 +115,7 @@ Note that only a subset of variables available in the scenario context are avail
 
 ### LDAP Named Filters Definition
 
-People are selected through an LDAP filter defined in a configuration file. This file must have the extension '.ldap'. It is stored in `/home/sympa/etc/search_filters/`.
+People are selected through an LDAP filter defined in a configuration file. This file must have the extension '.ldap'. It is stored in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/search_filters/`.
 
 You must give a few information in order to create a LDAP Named Filter:
 
@@ -153,7 +154,7 @@ scope        sub
 
 ### SQL Named Filters Definition
 
-People are selected through an SQL filter defined in a configuration file. This file must have the extension '.sql'. It is stored in `/home/sympa/etc/search_filters/`.
+People are selected through an SQL filter defined in a configuration file. This file must have the extension '.sql'. It is stored in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/search_filters/`.
 
 To create an SQL Named Filter, you have to configure SQL host, database and options, the same way you did it for the main Sympa database in `sympa.conf`. Of course, you can use different database and options. Sympa will open a new Database connection to execute your statement.
 
@@ -290,7 +291,7 @@ This Perl module:
 
 For example, lets write the smallest custom condition that always returns `1`.
 
-/home/sympa/etc/custom\_conditions/yes.pm :
+[``$SYSCONFDIR``](../layout.md#sysconfdir)`/custom_conditions/yes.pm`:
 
 ``` perl
 #!/usr/bin/perl
@@ -335,12 +336,11 @@ Scenario condition, message vars include:
 [msg_part->body]
 ```
 
-When creating scenario rules that evaluate message content, two rules must be created when passing the contents of a message to a condition: one rule for plain text messages (msg\_body) and a second rule for multi-part MIME messages (msg\_part).
+When creating scenario rules that evaluate message content, two rules must be created when passing the contents of a message to a condition: one rule for plain text messages (`msg_body`) and a second rule for multi-part MIME messages (`msg_part`).
 
 For example, I wrote a CustomCondition module that parses the URLs in a message and compares them with a list of approved URLs:
 
-(send.url\_eval)
-
+`send.url_eval`:
 ``` code
 title Moderated with URL verification
 CustomCondition::urlreview([listname],[sender],[msg_body]) smtp,smime,md5 -> reject()
@@ -348,7 +348,7 @@ CustomCondition::urlreview([listname],[sender],[msg_part->body]) smtp,smime,md5 
 true() smtp,smime,md5 -> editorkey
 ```
 
-The CustomCondition module returns undef if the message contents are not provided by the rule. If the message contents are multi-part MIME, then the \[msg\_body\] passed by the first rule is undefined, and the CustomCondition module returns undef causing the scenario to move on to the next rule which passes the parts of the multi-part MIME message to the module.
+The CustomCondition module returns undef if the message contents are not provided by the rule. If the message contents are multi-part MIME, then the `[msg_body]` passed by the first rule is undefined, and the CustomCondition module returns undef causing the scenario to move on to the next rule which passes the parts of the multi-part MIME message to the module.
 
 As for the CustomCondition module, it was written to evaluate both plain text (SCALAR) and multi-part MIME (ARRAY reference) being passed to the condition:
 
@@ -374,7 +374,7 @@ sub verify {
 ----
 Note:
 
-  * this will work in included scenario if the include contains two rules: one with msg\_body and with msg\_part->body.
+  * this will work in included scenario if the include contains two rules: one with `msg_body` and with `msg_part->body`.
 
 ----
 
@@ -385,8 +385,4 @@ Because Sympa is distributed with many default scenario files, you may want to h
 
 Example:
 
-``` code
-/home/sympa/etc/my.domain.org/scenari/send.intranetorprivate:ignore
-```
-
-The `intranetorprivate` `send` scenario will be hidden (on the web admin interface), at the my.domain.org robot level only.
+By creating [``$SYSCONFDIR``](../layout.md#sysconfdir)`/mail.example.org/scenari/send.intranetorprivate:ignore`, the `intranetorprivate` `send` scenario will be hidden (on the web admin interface), at the `mail.example.org` robot level only.
