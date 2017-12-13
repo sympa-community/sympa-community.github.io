@@ -186,6 +186,10 @@ Below is the list of documentation of Sympa.
 
     Configuration file for default site and robot
 
+- [sympa\_scenario(5)](./sympa_scenario.5.md)
+
+    Authorization scenario
+
 - [topics.conf(5)](./topics.conf.5.md)
 
     Configuration of list topics

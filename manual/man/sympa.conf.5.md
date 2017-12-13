@@ -3369,6 +3369,46 @@ Default timeout between two action-triggered synchronizations of list members wi
 
     None.
 
+#### `owner_domain`
+
+List of required domains for list owner addresses
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Restrict list ownership to addresses in the specified domains. This can be used to reserve list ownership to a group of trusted users from a set of domains associated with an organization, while allowing editors and subscribers from the Internet at large.
+
+Example:
+
+    owner_domain domain1.tld domain2.tld
+
+#### `owner_domain_min`
+
+Minimum number of list owners that must match owner\_domain restriction
+
+- Default:
+
+    `0`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Minimum number of list owners that must satisfy the owner\_domain restriction.  The default of zero (0) means \*all\* list owners must match. Setting to 1 requires only one list owner to match owner\_domain; all other owners can be from any domain. This setting can be used to ensure that there is always at least one known contact point for a mailing list.
+
+Example:
+
+    owner_domain_min 1
+
 #### `edit_list`
 
 - Default:
