@@ -99,6 +99,14 @@ catalog, the string itself will be used.
 
 ### Rules
 
+----
+Note:
+
+  * About detailed description on rules, see also
+    [sympa_scenario(5)](../man/sympa_scenario.5.md) manual page.
+
+----
+
 One or more lines for rules follow to title. Each rule has following syntax:
 
 > *condition* *authentication_methods* `->` *action*
@@ -107,19 +115,21 @@ Rules are evaluated in order, and once a rule matching with given
 *condition* and *authentication method* is found, *action* will be returned
 and subsequent rules will no longer be evaluated.
 
-----
-Note:
-
-  * About formal syntax of rules, see
-    ~~[sympa_scenario(5)](../man/sympa_scenario.5.md)~~ manual page.
-
-----
-
 #### Conditions
 
-`custom_vars` allows you to introduce ~~[custom parameters](/manual/customizing#custom_parameters)~~ in your scenario.
+A condition is the term with optional arguments.  Each argument may be a
+variable with given value according to context, or a literal string.
 
-(Work in progress)
+For example:
+
+  - `is_owner([listname],[sender])` succeeds if the user requested operation
+    is the member of given list.
+
+  - `true()` succeeds always.
+
+  - As an argument, a variable `[custom_vars->`*variable name*`]` allows you
+    to introduce ~~[custom parameters](/manual/customizing#custom_parameters)~~
+    in your scenario.
 
 You can also create custom condition writing Perl module:
 See "[Custom scenario conditions](custom-scenario-conditions.md)" for details.
@@ -155,25 +165,71 @@ In most cases, `smtp` or `dkim` will be used for mails, and `md5` for the web.
 An action is one of following keywords:
 
   * `do_it`
+
     Allows operation.
 
   * `listmaster`
+
     Same as `do_it` but makes the status of newly created list "pending".
     Only for `create_list` function.  
 
   * `request_auth`
-    Requests the users authentiation to perform operation.
+
+    Requests the users of their own to authenticate (confirm) performing
+    operation.
+
+  * `editor`
+
+    Forwards the message to the list moderators.
+    Only for `send` function.
+
+  * `editorkey`
+
+    Hold the message for moderation and sends notification to the moderators.
+    Only for `send` function.
 
   * `owner`
-    Requests the list owners authentiation to perform operation.
+
+    Requests the list owners to authenticate performing operation.
     Only for `subscribe` and `unsubscribe` functions.
 
   * `reject`
+
     Denys operation.
 
-(Work in progress)
+Some actions may have modifiers, for example:
+> `editorkey,quiet`
 
-The `quiet` can be part of the scenario action result. When using this option, no notification is sent to the message sender. For example, if a scenario rule is applied and result in `editorkey,quiet` the sender of the message will not receive the automatic information message telling him that his message has been forwarded to the list editor. This is an important issue to prevent *backscatter* messages. backscatter messages are messages you receive as an automatic answer to a message you never sent. The following web page give you more details :
+> `do_it,notify`
+
+> `reject(reason='subscribe_closed')`
+
+> `reject(tt2='custom_response')`
+
+  * With `quiet` modifier, no notification is sent to the message sender.
+
+    For example, if a scenario rule is applied and result in
+    `editorkey,quiet`, the sender of the message will not receive the
+    automatic information message telling them that their message has been
+    forwarded to the list editor.
+
+  * `notify` modifier sends a report to list owner, if it will not be sent by
+    default.
+
+  * `(reason=...)` modifier returns a key in `mail_tt2/report.tt2` template as
+    the reason of rejection.
+
+    ----
+    Note:
+
+      * On Sympa 6.2.18 or earlier, `mail_tt2/authorization_reject.tt2`
+        template was referred instead.
+    ----
+
+  * `(tt2=...)` modifier sends the user a rejection message generated from
+    specified template (extension `.tt2` will be added).
+
+This is an important issue to prevent *backscatter* messages. backscatter messages are messages you receive as an automatic answer to a message you never sent. The following web page give you more details :
 
   - [http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html](http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html)
 
@@ -188,7 +244,7 @@ At the moment, Named Filters are only used in authorization scenarios. They enab
 
 As a consequence, you can grant privileges in a list to people belonging to an LDAP directory, an SQL database or a flat text file, thanks to an authorization scenario.
 
-Note that only a subset of variables available in the scenario context are available here (including \[sender\] and \[listname\]).
+Note that only a subset of variables available in the scenario context are available here (including `[sender]` and `[listname]`).
 
 ### LDAP Named Filters Definition
 
@@ -197,15 +253,19 @@ People are selected through an LDAP filter defined in a configuration file. This
 You must give a few information in order to create a LDAP Named Filter:
 
   - `host`
+
     A list of host:port LDAP directories (replicates) entries.
 
   - `suffix`
+
     Defines the naming space covered by the search (optional, depending on the LDAP server).
 
   - `filter`
+
     Defines the LDAP search filter (RFC 2254 compliant). But you must absolutely take into account the first part of the filter which is: `(mail_attribute = [sender])`, as shown in the example. You will have to replace `mail_attribute` by the name of the attribute for the email. Sympa checks whether the user belongs to the category of people defined in the filter.
 
   - `scope`
+
     By default, the search is performed on the whole tree below the specified base object. This may be changed by specifying a scope:
 
       - `base`: search only the base object.
@@ -215,18 +275,20 @@ You must give a few information in order to create a LDAP Named Filter:
       - `sub`: search the whole tree below the base object. This is the default option.
 
   - `bind_dn`
+
     If anonymous bind is not allowed on the LDAP server, a DN and password can be used.
 
   - `bind_password`
+
     This password is used, combined with the `bind_dn` above.
 
 `example.ldap`: we want to select the teachers of mathematics in the University of Rennes 1 in France:
 
 ``` code
 host        ldap.univ-rennes1.fr:389,ldap2.univ-rennes1.fr:390
-suffix        dc=univ-rennes1.fr,dc=fr
-filter        (&(canonic_mail = [sender])(EmployeeType = prof)(subject = math))
-scope        sub
+suffix      dc=univ-rennes1.fr,dc=fr
+filter      (&(canonic_mail = [sender])(EmployeeType = prof)(subject = math))
+scope       sub
 ```
 
 ### SQL Named Filters Definition
@@ -240,26 +302,31 @@ Please refer to section "[Database related](../man/sympa.conf.5.md#database-rela
 Here, all database parameters have to be grouped in one `sql_named_filter_query` paragraph.
 
   - `db_type`
+
     Format: `db_type mysql|SQLite|Pg|Oracle|Sybase`; Database management system used. Mandatory and case sensitive.
 
   - `db_host`
+
     Database host name. Mandatory.
 
   - `db_name`
+
     Name of database to query. Mandatory.
 
   - `statement`
+
     Mandatory. The SQL statement to execute to verify authorization. This statement must returns 0 to refuse the action, or anything else to grant privileges. The `SELECT COUNT(*)...` statement is the perfect query for this parameter. The keyword in the SQL query will be replaced by the sender's email.
 
   - Optional parameters
+
     Please refer to main `sympa.conf` section for description.
 
-      - `db_user`
-      - `db_password`
-      - `db_options`
-      - `db_env`
-      - `db_port`
-      - `db_timeout`
+      - [`db_user`](../man/sympa.conf.5.md#db_user)
+      - [`db_password`](../man/sympa.conf.5.md#db_password)
+      - [`db_options`](../man/sympa.conf.5.md#db_options)
+      - [`db_env`](../man/sympa.conf.5.md#db_env)
+      - [`db_port`](../man/sympa.conf.5.md#db_port)
+      - [`db_timeout`](../man/sympa.conf.5.md#db_timeout)
 
 `example.sql`: we want to select the teachers of mathematics in the University of Rennes 1 in France:
 
