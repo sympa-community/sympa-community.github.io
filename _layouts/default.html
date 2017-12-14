@@ -296,9 +296,9 @@
               </li>
               <li>
               <a href="{{ site.github.url }}/manual/admin/list.html">
-                {% if page.path == 'manual/admin/list.md' or page.path contains 'manual/admin/list-' %}<strong>{% endif %}
-                List creation
-                {% if page.path == 'manual/admin/list.md' or page.path contains 'manual/admin/list-' %}</strong>{% endif %}
+                {% if page.path contains 'manual/admin/list' %}<strong>{% endif %}
+                Managing lists
+                {% if page.path contains 'manual/admin/list' %}</strong>{% endif %}
               </a>
               </li>
               <li>
@@ -313,10 +313,34 @@
             </li>
             <li>
             <a href="{{ site.github.url }}/manual/customize.html">
-              {% if page.path == 'manual/customize.md' or page.path contains 'manual/customize/' %}<strong>{% endif %}
+              {% if page.path contains 'manual/customize' %}
+                {% unless page.path contains 'manual/customize/basics' %}
+                <strong>
+                {% endif %}
+              {% endif %}
               Customizing Sympa
-              {% if page.path == 'manual/customize.md' or page.path contains 'manual/customize/' %}</strong>{% endif %}
+              {% if page.path contains 'manual/customize' %}
+                {% unless page.path contains 'manual/customize/basics' %}
+                </strong>
+                {% endif %}
+              {% endif %}
             </a>
+            {% if page.path contains 'manual/customize' %}
+              <ol>
+              <li>
+              <a href="{{ site.github.url }}/manual/customize.html#customization-basics">
+                {% if page.path contains 'manual/customize/basics' %}<strong>{% endif %}
+                Customization basics
+                {% if page.path contains 'manual/customize/basics' %}</strong>{% endif %}
+              </a>
+              </li>
+              <li>
+              <a href="{{ site.github.url }}/manual/customize.html#costomizing-sympa-services">
+                ...
+              </a>
+              </li>
+              </ol>
+            {% endif %}
             </li>
           </ol>
           
@@ -368,10 +392,12 @@
       {% endunless %}
 
         {% if page.url contains '/manual/man/' %}
+          <hr />
           <p>
             The content of this page is automatically generated from the source distribution of Sympa.  For details about this document see original source file.
           </p>
         {% elsif page.license %}
+          <hr />
           <p>
             {{ page.license }}
           </p>
