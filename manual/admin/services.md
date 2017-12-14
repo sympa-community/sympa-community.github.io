@@ -2,6 +2,7 @@
 title: 'Managing services'
 prev: ../upgrade.md
 up: ../admin.md
+next: cli.md
 ---
 
 Managing services

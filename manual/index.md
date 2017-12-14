@@ -13,7 +13,7 @@ Table of contents
   - [Administering Sympa](admin.md)
   - [Customizing Sympa](customize.md)
 
-----
+Appendices
   - [References](man/sympa_toc.1.md)
   - [Directory layout](layout.md)
 

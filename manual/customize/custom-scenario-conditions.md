@@ -1,3 +1,8 @@
+---
+title: 'Custom scenario conditions'
+up: ../customize.md#extending-sympa
+---
+
 Custom scenario conditions
 ==========================
 

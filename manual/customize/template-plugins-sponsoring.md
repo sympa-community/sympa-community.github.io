@@ -1,5 +1,5 @@
 ---
-title: Sponsoring plugin
+title: 'Sponsoring plugin'
 up: template-plugins.md
 ---
 

@@ -1,3 +1,8 @@
+---
+title: 'SOAP/HTTP API'
+up: ../customize.md#web-interface-optional-features
+---
+
 SOAP/HTTP API
 =============
 

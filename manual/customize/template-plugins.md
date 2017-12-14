@@ -1,3 +1,8 @@
+---
+title: 'Template plugins'
+up: ../customize.md#extending-sympa
+---
+
 Template plugins
 ================
 

@@ -1,6 +1,6 @@
 ---
-title: LMTP delivery
-up: ../customize.md
+title: 'LMTP delivery'
+up: ../customize.md#sympa-and-other-systems
 ---
 
 LMTP Delivery

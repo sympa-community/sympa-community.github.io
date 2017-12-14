@@ -10,8 +10,7 @@ Automatic list creation
 Note:
 
   * **Situation**: you want to create lists according to specified criteria (age, geographical location, etc.).
-*
-    *Problem**: Creating all the possible lists would result in thousands of list creation, many of them (but you don't know which one...) would never be used.
+  * **Problem**: Creating all the possible lists would result in thousands of list creation, many of them (but you don't know which one...) would never be used.
 
 ----
 

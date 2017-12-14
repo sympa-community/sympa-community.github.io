@@ -1,5 +1,5 @@
 ---
-title: Modlist / Whitelist plugin
+title: 'Modlist / Whitelist plugin'
 up: template-plugins.md
 ---
 

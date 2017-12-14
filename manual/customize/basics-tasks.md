@@ -1,5 +1,5 @@
 ---
-title: 'Sympa Internationalization'
+title: 'Tasks'
 prev: basics-scenarios.md
 up: ../customize.md#customization-basics
 next: basics-i18n.md

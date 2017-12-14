@@ -1,3 +1,8 @@
+---
+title: 'DKIM features for Sympa'
+up: ../customize.md#sympa-services-optional-features
+---
+
 DKIM features for Sympa
 =======================
 

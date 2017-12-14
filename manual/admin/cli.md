@@ -2,7 +2,7 @@
 title: 'Command line interface'
 prev: services.md
 up: ../admin.md
-next: list-creation.md
+next: list.md
 ---
 
 Command line interface

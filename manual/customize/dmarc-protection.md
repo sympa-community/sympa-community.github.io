@@ -1,3 +1,8 @@
+---
+title: 'DMARC protection'
+up: ../customize.md#sympa-services-optional-features
+---
+
 DMARC protection
 ================
 
