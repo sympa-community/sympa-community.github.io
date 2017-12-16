@@ -18,6 +18,44 @@ Requirements
 
     In the instructions below, ``mail.example.org`` will be used for example.
 
+  * If you are planning to use
+    [message tracking](../customize/bounce-management.md#message-tracking)
+    feature, [sympa_smtpc](../man/sympa_smtpc.1.md).
+    See the [description](../customize/lmtp-delivery.md#installation) to
+    get it.
+
+Sympa configuration parameters
+------------------------------
+
+  * [``aliases_program``](../man/sympa.conf.5.md#alias_program)
+
+    This parameter must be set to full path to makemap(1) utility bundled in
+    OpenSMTPD:
+    ```
+    aliases_program /path/to/makemap
+    ```
+    Note that setting a keyword ``makemap`` _will not_ work.
+
+  * [``sendmail``](../man/sympa.conf.5.md#sendmail) and
+    [``sendmail_args``](../man/sympa.conf.5.md#sendmail_args)
+
+      - If you are planning to use
+        [message tracking](../customize/bounce-management.md#message-tracking)
+        feature, add these lines:
+        ```
+        sendmail /path/to/sympa_smtpc
+        sendmail_args --esmtp localhost
+        ```
+        Note that smtpd must listen on ``localhost``.
+
+      - Otherwise, add this line:
+        ```
+        sendmail /path/to/sendmail
+        ```
+        If the full path to sendmail(1) utility bundled in OpenSMTPD is the
+        same as default of Sympa, ``/usr/sbin/sendmail``, the line above may
+        not be added.
+
 Setup
 -----
 
@@ -25,27 +63,13 @@ Setup
 
 Steps in this section may be done once at the first time.
 
-  1. Edit [``sympa.conf``](../layout.md#config) to add following lines (Note:
-     replace ``/usr/local/sbin/makemap`` and ``/usr/local/sbin/sendmail``
-     below):
+  1. Edit [``sympa.conf``](../layout.md#config) to add parameters described
+     in the section above, for example:
      ```
      aliases_program /usr/local/sbin/makemap
      sendmail /usr/local/sbin/sendmail
      ```
-     ----
-     Note:
-
-       * ``/usr/local/sbin/makemap`` in ``alias_program`` line must be the
-         full path to makemap(1) utility bundled in OpenSMTPD: Setting a
-         keyword ``makemap`` _will not_ work.
-
-       * If the full path to sendmail(1) utility bundled in OpenSMTPD is the
-         same as Sympa's default, ``/usr/sbin/sendmail``, ``sendmail`` line
-         may not be added.
-
-     ----
-
-     Create ``list_aliases.tt2`` file in
+     Then create ``list_aliases.tt2`` file in
      [``$SYSCONFDIR``](../layout.md#sysconfdir) directory with following
      content, and edit it as you prefer (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
