@@ -90,8 +90,8 @@ Steps in this section may be done once at the first time.
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) and
      [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below):
      ``` bash
-     # touch $SYSCONFDIR/sympa_aliases
-     # chmod 644 $SYSCONFDIR/sympa_aliases
+     # touch $SYSCONFDIR/sympa_domain_aliases
+     # chmod 644 $SYSCONFDIR/sympa_domain_aliases
      # touch $SENDMAIL_ALIASES
      # chmod 640 $SENDMAIL_ALIASES
      # chown sympa:smtpd $SENDMAIL_ALIASES
@@ -99,7 +99,7 @@ Steps in this section may be done once at the first time.
      and create databases (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
      ``` bash
-     # makemap $SYSCONFDIR/sympa_aliases
+     # makemap $SYSCONFDIR/sympa_domain_aliases
      # sympa_newaliases.pl
      ```
      Note that table files must be readable by smtpd (at least by ``smtpd``
@@ -109,7 +109,7 @@ Steps in this section may be done once at the first time.
      domains (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir) and
      [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below):
      ```
-     table sympa db:$SYSCONFIDR/sympa_aliases.db
+     table sympa db:$SYSCONFIDR/sympa_domain_aliases.db
      accept from any for any recipient <sympa> virtual <sympa>
      
      table lists db:$SENDMAIL_ALIASES.db
@@ -153,7 +153,7 @@ Steps in this section have to be done every time the new domain is added.
      ...
      ```
 
-  5. Add following content to ``sympa_aliases`` file
+  5. Add following content to ``sympa_domain_aliases`` file
      and edit them as you prefer (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      ``mail.example.org`` below):
@@ -173,7 +173,7 @@ Steps in this section have to be done every time the new domain is added.
      Then, update database for virtual table (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
      ``` bash
-     # makemap $SYSCONFDIR/sympa_aliases
+     # makemap $SYSCONFDIR/sympa_domain_aliases
      ```
 
   6. Reload OpenSMTPD.
