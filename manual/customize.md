@@ -60,9 +60,7 @@ needed.
 
     &#x2699; mhonarc_ressources.tt2
 
-  * [Bounce management and tracking](customize/bounce-management.md)
-    [&#x1F527;](man/sympa.conf.5.md#bounce-management-and-tracking)
-
+  * [Bounce management](customize/bounce-management.md)
 
   * Loop prevention
     [&#x1F527;](man/sympa.conf.5.md#loop-prevention)
@@ -122,7 +120,9 @@ needed.
 
         &#x2699; crawlers_detection.conf
 
-      - [User-friendly automatic lists](customize/friendly-automatic-lists.md)
+  * [User-friendly automatic lists](customize/friendly-automatic-lists.md)
+
+  * [Message tracking](customize/message-tracking.md)
 
 Sympa services: Optional features
 ---------------------------------

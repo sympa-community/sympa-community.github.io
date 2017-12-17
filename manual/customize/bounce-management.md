@@ -10,6 +10,13 @@ Automatic bounce management is a key feature in a modern mailing list server. Sy
 
 The default Sympa configuration is good enough to automatically remove users that are in error for a long time and keep bounce rate low enough. This is important because list server with many invalid address may be blacklisted as a spam source. In addition, sending messages to wrong address is usefulness and may stress the relaying MTA.
 
+About message tracking feature, see also "[Message tracking](../customize/message-tracking.md)".
+
+Setup
+-----
+
+(Work in progress)
+
 How it works
 ------------
 
@@ -59,35 +66,6 @@ If VERP is enabled, the format of the messages return path are as follows:
 Return-Path: <bounce+user==a==userdomain==listname@listdomain>
 ```
 Note that you need to set a mail alias for the generic `bounce+*` alias (see ~~[Robot aliases](/manual/mail-aliases#robot_aliases)~~).
-
-Message tracking
-----------------
-
-List owner can verify message delivery and disposition for each message using a special feature that can configutred for a robot or a list.
-
-This feature was added in version 6.2. It's a contribution from french army “DGA Maitrise de l'Information”. If the list is configured for tracking, outgoing messages include a “delivery status notification” request and optionnaly a “message disposition notification” request. This allows list owner to verify for **each mail** who did not received the message but also who received it and who displayed it.
-
-Notification (both positive status and negative status are stored and can be used later to prove that a message was delivered or displayed by its recipient.
-
-When active tracking overright VERP parameter to 100%. Of course, tracking may be expensive.
-
-Two different mode can be use for tracking :
-
-  - DSN:
-
-    Sympa will just require **D**elivery **S**tatus **N**otification . This is a ESMTP service that will not be viewed by recipients. This service may or may not be implemented by remote MTAs.
-
-  - MDN:
-
-    In that case Sympa will require both DSN and **M**essage **D**isposition **N**otification. This service is usually prompted to recipient that may accept to send back a delivery or not. Because this may be surprising for subscribers and also because this may be used by spammers we suggest you not to use this feature unless subscribers are informed previously.
-
-Tracking feature is accessible in archive web page when list owner display a message where tracking was actived. It require to support VERP so a plussed aliases is needed.
-
-See [list tracking configuration parameters](../man/list_config.5.md#tracking)
-
-The following screen copy is a part of the tracking information of one message from a list archive. Email address are hidden in this image for privacy reason.
-
-[manual:screen_shot_tracking.png: Work in progress]
 
 ARF
 ---
