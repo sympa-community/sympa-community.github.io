@@ -2,7 +2,7 @@ License
 =======
 
 Unless otherwise specified, the contents of this document are licensed under
-the [Creative Commons - Attribution - ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/)
+the [Creative Commons Attribution-ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/)
  license.
 
 See [AUTHORS](AUTHORS.md) file about authors.
