@@ -14,7 +14,7 @@ mail domain and each list.
 Addresses by the mail domains
 -----------------------------
 
-Thease addresses are prepared by each mail domain.
+These addresses are prepared by each mail domain.
 
   * `sympa@mail.example.org`
 

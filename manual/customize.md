@@ -20,7 +20,7 @@ Note:
 Customization basics
 --------------------
 
-  * [Mail addresses](basics-addresses.md)
+  * [Mail addresses](customize/basics-addresses.md)
 
   * [Roles and privileges](customize/basics-roles.md)
 
