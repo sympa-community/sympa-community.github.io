@@ -26,10 +26,9 @@ To fix it:
      it have not been installed.
 
   2. Set the `dmarc_protection_mode` to the value you wish. For a quick correction on the most restrictive DMARc records, just add the following line to your sympa.conf:
-
-    ``` code
-    dmarc_protection_mode dmarc_reject
-    ```
+     ``` code
+     dmarc_protection_mode dmarc_reject
+     ```
 
 This will have the following effect: mails from domains whose pollicy is to reject any mail not respecting its DMARC policy will be processed this way:
 
