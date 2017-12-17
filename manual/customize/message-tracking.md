@@ -43,12 +43,13 @@ Setup
     tracking_message_disposition_notification on 
     ```
     These settings can be overridden by configuration of each list: See
-    [[list tracking configuration parameters](../man/list_config.5.md#tracking).
+    [list tracking configuration parameters](../man/list_config.5.md#tracking).
 
     ----
     Note:
 
       * The parameters above can not be overridden by `robot.conf`.
+
     ----
 
 Acknowledgements
