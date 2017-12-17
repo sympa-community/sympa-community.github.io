@@ -15,6 +15,8 @@ Addresses by the mail domains
 -----------------------------
 
 These addresses are prepared by each mail domain.
+Typically, these addresses are implemented as "mail aliases" managed by
+system administrators.
 
   * `sympa@mail.example.org`
 
@@ -49,6 +51,16 @@ These addresses are prepared by each mail domain.
 
 Among addresses above, only listmaster address may forward messages to the
 human: Others swallow messages and none will read content of them,
+
+Additionally, following address is required:
+
+  * `sympa-request@mail.example.org`
+
+    The destination of delivery error reports on the messages originated by
+    mailing list service (including messages forwarded by mailing list
+    service). It is strongly recommended that messages sent to this address
+    will be forwarded to addresses of real people: This address must not be
+    forwarded to any addresses described in this chapter.
 
 Addresses by the lists
 ----------------------
