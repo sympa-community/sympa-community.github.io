@@ -1,6 +1,6 @@
 ---
 title: 'Roles and privileges'
-prev: ../customize.md
+prev: basics-addresses.md
 up: ../customize.md#customization-basics
 ---
 

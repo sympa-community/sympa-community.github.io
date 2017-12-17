@@ -7,18 +7,20 @@ up: ./
 Customizing Sympa
 =================
 
-This chapter is work in progress.
+----
+Note:
 
-See related links of each feature:
-  - &#x1F527; for configuration parameters,
-  - &#x2699; for configuration files and
-  - &#x1F4E6; for optional external modules.
+  * This chapter is work in progress.
 
-Or, please consider adding description and instruction written by your own
-(See [CONTRIBUTING](../CONTRIBUTING.md)).
+    Please consider adding description and instruction written by your own
+    (See [CONTRIBUTING](../CONTRIBUTING.md)).
+
+----
 
 Customization basics
 --------------------
+
+  * [Mail addresses](basics-addresses.md)
 
   * [Roles and privileges](customize/basics-roles.md)
 
@@ -38,6 +40,16 @@ Customization basics
 
 Customizing Sympa services
 --------------------------
+
+----
+Note:
+
+  * See related links of each feature:
+      - &#x1F527; for configuration parameters,
+      - &#x2699; for configuration files and
+      - &#x1F4E6; for optional external modules.
+
+----
 
 To manage these features, listmaster privileges and/or console login are
 needed.
