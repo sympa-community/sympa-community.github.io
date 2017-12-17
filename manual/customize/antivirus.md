@@ -1,4 +1,19 @@
-Antivirus
-=========
+---
+title: 'Antivirus plug-in'
+up: ../customize.md#sympa-services-optional-features
+---
 
-*Sympa* lets you use an external antivirus solution to check incoming mails. In this case you must set the `antivirus_path` and `antivirus_args` configuration parameters (see [7.13](node8.html#Antivirus_plug-in), page [![\[\*\]](crossref.png)](node8.html#Antivirus_plug-in). *Sympa* is already compatible with McAfee/uvscan, Fsecure/fsav, Sophos, AVP, Trend Micro/VirusWall and Clam Antivirus. For each mail received, *Sympa* extracts its MIME parts in the `/usr/local/sympa-os/spool/tmp/antivirus` directory and then calls the antivirus software to check them. When a virus is detected, *Sympa* looks for the virus name in the virus scanner STDOUT and sends a `your_infected_msg.tt2` warning to the sender of the mail. The mail is saved as 'bad' and the working directory is deleted (except if *Sympa* is running in debug mode).
+Antivirus plug-in
+=================
+
+Sympa lets you use an external antivirus solution to check incoming mails. In this case you must set the `antivirus_path` and `antivirus_args` configuration parameters (see "[Antivirus plug-in](../man/sympa.conf.5.md#antivirus-plug-in)"). Sympa supports at least following products:
+
+  - McAfee/uvscan
+  - Fsecure/fsav
+  - Sophos
+  - AVP
+  - Trend Micro/VirusWall
+  - [Clam Antivirus](https://www.clamav.net/)
+
+For each email received, Sympa extracts its MIME parts in the [``$SPOOLDIR``](../layout.md#spooldir)`/tmp/antivirus` directory and then calls the antivirus software to check them. When a malware is detected, Sympa looks for the name of it in the standard outout of virus checker and sends a warning message to the sender of the email using `your_infected_msg.tt2` template. The email is saved as "bad" and the working directory is deleted (except if Sympa is running in debug mode).
+

@@ -81,7 +81,7 @@ needed.
       - Custom user attributes in database
         [&#x1F527;](man/sympa.conf.5.md#db_additional_subscriber_fields)
 
-Customizing Web interface
+Customizing web interface
 --------------------------
 
 To manage these features, listmaster privileges and/or console login are
@@ -120,9 +120,11 @@ needed.
 
         &#x2699; crawlers_detection.conf
 
-  * [User-friendly automatic lists](customize/friendly-automatic-lists.md)
-
   * [Message tracking](customize/message-tracking.md)
+
+  * [RSS feed](customize/rss-feed.md)
+
+  * [User-friendly automatic lists](customize/friendly-automatic-lists.md)
 
 Sympa services: Optional features
 ---------------------------------
@@ -172,10 +174,7 @@ external Perl modules.
     &#x1F4E6; [libnet](https://metacpan.org/release/libnet)
     ([Net::SMTP](https://metacpan.org/pod/Net::SMTP)).
 
-  * Antivirus plug-in
-    [&#x1F527;](man/sympa.conf.5.md#antivirus-plug-in)
-
-    &#x1F4E6; Antivirus software.
+  * [Antivirus plug-in](customize/antivirus.md)
 
   * Miscelaneous
 

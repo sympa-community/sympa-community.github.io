@@ -70,10 +70,11 @@ Note that you need to set a mail alias for the generic `bounce+*` alias (see ~~[
 ARF
 ---
 
-ARF (Abuse Reporting Format) is a standard for reporting abuse. It is implemented mainly in the AOL email user interface. AOL servers propose to mass mailer to received automatically the users complain by formated messages. Because many subscribers do not remember how to unsubscribe, they use ARF when provided by their user interface. It may be useful to configure the ARF management in Sympa. It is really simple: all what you have to do is to create a new alias for each virtual robot as the following:
+ARF (Abuse Reporting Format) is a standard for reporting abuse. It is implemented mainly in the AOL email user interface. AOL servers propose to mass mailer to received automatically the users complain by formated messages. Because many subscribers do not remember how to unsubscribe, they use ARF when provided by their user interface. It may be useful to configure the ARF management in Sympa. It is really simple: all what you have to do is to create a new alias for each virtual robot as the following (Note:
+replace [``$IBEXECDIR``](../layout.md#libexecdir) below):
 
 ``` code
-abuse-feedback-report:       "| /home/sympa/bin/bouncequeue sympa@samplerobot"
+abuse-feedback-report:       "| $LIBEXECDIR/bouncequeue sympa@mail.example.org"
 ```
 
 Then register this address as your loop back email address with ISP (for exemple AOL). This way, messages to that email adress are processed by the bounced.pl daemon and automatically processed. If the bounced.pl service can remove a user, the message report feedback is forwarded to the list owner. Unrecognized messages are forwarded to the listmaster.
