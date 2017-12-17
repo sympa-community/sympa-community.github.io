@@ -60,7 +60,7 @@ needed.
 
     &#x2699; mhonarc_ressources.tt2
 
-  * Bounce management and tracking
+  * [Bounce management and tracking](customize/bounce-management.md)
     [&#x1F527;](man/sympa.conf.5.md#bounce-management-and-tracking)
 
 
