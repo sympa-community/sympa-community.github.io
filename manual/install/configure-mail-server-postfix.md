@@ -45,10 +45,19 @@ Steps in this section may be done once at the first time.
      sendmail /usr/local/sbin/sendmail
      ```
 
-  2. Copy an
-     [example ``list_aliases.tt2``](../examples/postfix/virtual/list_aliases.tt2)
-     file into [``$SYSCONFDIR``](../layout.md#sysconfdir) directory and edit
-     it as you prefer.
+  2. Create `list_aliases.tt2` file in
+     [``$SYSCONFDIR``](../layout.md#sysconfdir) directory with following
+     content:
+     ``` code
+     #--- [% list.name %]@[% list.domain %]: list transport map created at [% date %]
+     [% list.name %]@[% list.domain %] sympa:[% list.name %]@[% list.domain %]
+     [% list.name %]-request@[% list.domain %] sympa:[% list.name %]-request@[% list.domain %]
+     [% list.name %]-editor@[% list.domain %] sympa:[% list.name %]-editor@[% list.domain %]
+     #[% list.name %]-subscribe@[% list.domain %] sympa:[% list.name %]-subscribe@[%list.domain %]
+     [% list.name %]-unsubscribe@[% list.domain %] sympa:[% list.name %]-unsubscribe@[% list.domain %]
+     [% list.name %][% return_path_suffix %]@[% list.domain %] sympabounce:[% list.name %]@[% list.domain %]
+     ```
+     and edit it as you prefer.
 
      Edit [``sympa.conf``](../layout.md#config) to add following lines (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
@@ -178,6 +187,8 @@ Steps in this section have to be done every time the new domain is added.
      ```
 
   5. Reload Postfix.
+     Then test configuration according to
+     [instruction](configure-mail-server.md#tests).
 
 Single domain setting
 ---------------------
@@ -238,4 +249,6 @@ Single domain setting
      ```
 
   4. Reload Postfix.
+     Then test configuration according to
+     [instruction](configure-mail-server.md#tests).
 

@@ -1,6 +1,0 @@
-# Robot mail.example.org
-mail.example.org                error:User unknown in recipient table
-sympa@mail.example.org          sympa:sympa@mail.example.org
-listmaster@mail.example.org     sympa:listmaster@mail.example.org
-bounce@mail.example.org         sympabounce:sympa@mail.example.org
-abuse-feedback-report@mail.example.org  sympabounce:sympa@mail.example.org

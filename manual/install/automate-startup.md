@@ -13,8 +13,16 @@ Systemd
 
   1. Units should be customized to ensure Sympa starts after database server
      (if you run it except SQLite on the same host as Sympa).  It can be done
-     by copying and editing a configuration file:
-     [``/etc/systemd/system/sympa.service.d/dependencies.conf``](../examples/systemd/dependencies.conf)
+     by creating a configuration file
+     `/etc/systemd/system/sympa.service.d/dependencies.conf`. Its content is,
+     for example you are using MySQL:
+     ```
+     [Unit]
+     Requires=mysql.service
+     After=mysql.service
+     ```
+     You may replace `mysql` above with the name of database service you are
+     using: `mariadb`, `postgresql` and so on.
 
      Note that database service should also start before HTTP service.
 
