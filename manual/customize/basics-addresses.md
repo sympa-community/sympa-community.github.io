@@ -11,8 +11,8 @@ Mail addresses
 To provide mail interface, Sympa requires a set of e-mail addresses for each
 mail domain and each list.
 
-Addresses by the mail domains
------------------------------
+Addresses by mail domain
+------------------------
 
 These addresses are prepared by each mail domain.
 Typically, these addresses are implemented as "mail aliases" managed by
@@ -23,6 +23,16 @@ system administrators.
     The destination address of mail command interface.  Messages sent to this
     address will be processed its content as
     ~~[mail commands](/manual/mail-command)~~.
+
+    ----
+    Note:
+
+      * If you decided not to provide mail command interface to users, this
+        `sympa` address may be disabled.
+        However, you have to modify many mail templates to remove links to
+        this address from system messages.
+
+    ----
 
   * `listmaster@mail.example.org`
 
@@ -52,22 +62,23 @@ system administrators.
 Among addresses above, only listmaster address may forward messages to the
 human: Others swallow messages and none will read content of them,
 
-Additionally, following address is required:
+Additionally, following address have to be managed:
 
   * `sympa-request@mail.example.org`
 
-    The destination of delivery error reports on the messages originated by
-    mailing list service (including messages forwarded by mailing list
-    service). It is strongly recommended that messages sent to this address
-    will be forwarded to addresses of real people: This address must not be
-    forwarded to any addresses described in this chapter.
+    The destination of delivery error reports on the messages which are
+    originated by or forwarded by mailing list service _and_ are not related
+    to particular list.
 
-Addresses by the lists
-----------------------
+    Messages bound for this address _must not_ be forwarded to any addresses
+    described in this chapter.
 
-These address are prepared by each mailing lists.
+Addresses by list
+-----------------
+
+These addresses are prepared by each mailing list.
 Typically, these addresses are implemented as "mail aliases" managed by
-Sympa.
+Sympa's alias management function.
 
   * *list name*`@mail.example.org`
 

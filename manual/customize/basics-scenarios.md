@@ -224,6 +224,7 @@ Some actions may have modifiers, for example:
 
       * On Sympa 6.2.18 or earlier, `mail_tt2/authorization_reject.tt2`
         template was referred instead.
+
     ----
 
   * `(tt2=...)` modifier sends the user a rejection message generated from
