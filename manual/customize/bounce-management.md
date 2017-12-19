@@ -65,7 +65,7 @@ If VERP is enabled, the format of the messages return path are as follows:
 ``` code
 Return-Path: <bounce+user==a==userdomain==listname@listdomain>
 ```
-Note that you need to set a mail alias for the generic `bounce+*` alias (see ~~[Robot aliases](/manual/mail-aliases#robot_aliases)~~).
+Note that you need to set a mail alias for the generic `bounce+*` alias (see "[Addresses by mail domain](basics-addresses.md#addresses-by-mail-domain)").
 
 ARF
 ---
