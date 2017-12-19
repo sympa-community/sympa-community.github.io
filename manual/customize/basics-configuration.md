@@ -100,7 +100,7 @@ Main configuration files have different names by each context:
     --- List configuration
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*mail domain name*`/robot.conf`
     --- Domain configuration
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`sympa.conf`
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/sympa.conf`
     --- Site configuration
   - Distribution defaults of parameters are defined in the source code of
     Sympa.
