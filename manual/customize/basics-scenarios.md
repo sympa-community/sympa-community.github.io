@@ -36,7 +36,8 @@ may be used to make subscription of a list be open. To do such,
     configuration page.
 
 To look for particular scenario, Sympa searches following directories in
-order:
+order (see also
+"[Configuration files](basics-configuration.md#configuration-files)"):
 
   - [``$EXPLDIR``](../layout.md#expldir)`/`_list path_`/scenari`
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_virtual host_`/scenari`

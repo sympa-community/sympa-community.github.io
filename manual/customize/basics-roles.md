@@ -2,6 +2,7 @@
 title: 'Roles and privileges'
 prev: basics-addresses.md
 up: ../customize.md#customization-basics
+next: basics-configuration.md
 ---
 
 Roles and privileges

@@ -24,8 +24,7 @@ Customization basics
 
   * [Roles and privileges](customize/basics-roles.md)
 
-  * ~~[Configuration hierarchy](customize/basics-configuration.md)~~
-    (Work in progress)
+  * [Configuration hierarchy](customize/basics-configuration.md)
 
   * ~~[Templates](customize/basics-templates.md)~~
     (Work in progress)
