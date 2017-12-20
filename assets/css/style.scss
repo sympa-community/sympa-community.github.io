@@ -32,3 +32,9 @@ code {
 blockquote code, .highlight .c, .highlight .cd {
     font-style: normal;
 }
+
+a:hover, a:focus {
+    font-weight: inherit;
+    color: #000;
+}
+
