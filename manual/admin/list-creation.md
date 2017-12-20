@@ -35,9 +35,9 @@ In addition to these required data, provided values are assigned to vars being i
 
 On the web interface, these data are given by the list creator in the web form. On command line, these data are given through an XML file.
 
-### Typical list profile (list template creation)
+### Typical list profile
 
-List profiles are stored in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/create_list_templates` or in [``$DEFAULTDIR``](../layout.md#defaultdir)`/create_list_templates` (default of distribution) as directories with profile name. Directory of a profile should contain at least two files: config.tt2 and comment.tt2.
+List profiles (list creation templates) are stored in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/create_list_templates` or in [``$DEFAULTDIR``](../layout.md#defaultdir)`/create_list_templates` (default of distribution) as directories with profile name. Directory of a profile should contain at least two files: config.tt2 and comment.tt2.
 
 comment.tt2 is the descripion of list profile. It may contain tilte line(s) and HTML content. They are shown in list creation page of web interface.
 
@@ -229,7 +229,7 @@ The list rejection message and list creation notification message are both templ
 
 ### Typical list profile and web interface
 
-As on command line creation, the list creator has to choose a list profile and to fill in the owner's email and the list subject together with a short description. But in this case, you do not need any XML file. Concerning these typical list profiles, they are described before, see [Typical list profile (list template creation)](#typical-list-profile-list-template-creation). You can check available profiles. On the web interface, another way to control publicly available profiles is to edit the `create_list.conf` file (the default for this file is in the [``$DEFAULTDIR``](../layout.md#defaultdir) directory, and you may create your own customized version in [``$SYSCONFDIR``](../layout.md#sysconfdir)). This file controls which of the available list templates are to be displayed. Example:
+As on command line creation, the list creator has to choose a list profile and to fill in the owner's email and the list subject together with a short description. But in this case, you do not need any XML file. Concerning these typical list profiles, they are described before, see "[Typical list profile](#typical-list-profile)". You can check available profiles. On the web interface, another way to control publicly available profiles is to edit the `create_list.conf` file (the default for this file is in the [``$DEFAULTDIR``](../layout.md#defaultdir) directory, and you may create your own customized version in [``$SYSCONFDIR``](../layout.md#sysconfdir)). This file controls which of the available list templates are to be displayed. Example:
 
 ``` code
 ## This sample hides the public_anonymous create_list template
