@@ -21,20 +21,12 @@ Customization basics
 --------------------
 
   * [Mail addresses](customize/basics-addresses.md)
-
   * [Roles and privileges](customize/basics-roles.md)
-
   * [Configuration hierarchy](customize/basics-configuration.md)
-
-  * ~~[Templates](customize/basics-templates.md)~~
-    (Work in progress)
-
+  * [Templates](customize/basics-templates.md)
   * [Authorization scenarios](customize/basics-scenarios.md)
-
   * [Tasks](customize/basics-tasks.md)
-
   * [Internationalization](customize/basics-i18n.md)
-
   * [List families](customize/basics-families.md)
 
 Customizing Sympa services
