@@ -58,14 +58,14 @@ Here is an example of such an XML fragment, which contains two custom attributes
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8" ?>
-  <custom_attributes>
-    <custom_attribute id="accr">
-      <value> ultra-violet</value>
-    </custom_attribute>
-    <custom_attribute id="pt">
-      <value>0</value>
-    </custom_attribute>
-  </custom_attributes>
+<custom_attributes>
+  <custom_attribute id="accr">
+    <value> ultra-violet</value>
+  </custom_attribute>
+  <custom_attribute id="pt">
+    <value>0</value>
+  </custom_attribute>
+</custom_attributes>
 ```
 
 So, what can you do with that feature?

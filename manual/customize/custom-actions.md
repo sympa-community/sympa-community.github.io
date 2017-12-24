@@ -43,7 +43,7 @@ Your custom action is reachable using URL:
 
 *param1*, *param2* etc. are parameters that can be later used by the custom action.
 
-The HTML code in *your_action*`.tt2` can make use of the parameters this way: `[% cap.1 %]` for the first parameter (*param1* in the example URL above), `[% cap.2 %]` for the second one, and so on. If the module is not defined, the template is simply displayed.
+The HTML code in *your_action*`.tt2` can make use of the parameters this way: `[%cap.1%]` for the first parameter (*param1* in the example URL above), `[%cap.2%]` for the second one, and so on. If the module is not defined, the template is simply displayed.
 
 You can even have a robot-common *your_action*`.pm` module with a specific *your_action*`.tt2` for each robot as the file (`.pm` or `.tt2`) is conducted in this order :
 
