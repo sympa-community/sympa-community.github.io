@@ -37,11 +37,11 @@ Variable items and control directives are enclosed in the delimiters
 the [User Manual](http://www.template-toolkit.org/docs/manual/) to know
 details about syntax.
 
-### Custom filters
+### Custom filter directives
 
 Sympa also implements some custom
-[filters](http://www.template-toolkit.org/docs/manual/Filters.html).  For
-example, with the `loc` filter, the text:
+[filter directives](http://www.template-toolkit.org/docs/manual/Filters.html).  For
+example, with the `loc` filter directive, the text:
 ``` code
 [%|loc%]A text[%END%]
 ```
@@ -49,7 +49,7 @@ will be replaced with localized phrase of `A text` using translation catalogs
 (see also "[Internationalization](basics-i18n.md)").
 
 See ["Filters" in Sympa::Template(3)](../man/Sympa-Template.3.md#filters)
-on custom filters proveded by Sympa.
+on custom filter directives proveded by Sympa.
 
 Files
 -----
@@ -112,19 +112,24 @@ It may be customized by each mail domain and/or each list: See
 
 ### Template file for mail aliases
 
-[`list_aliases.tt2`](../man/list_aliases.tt2) is used by alias manager of
+~~[`list_aliases.tt2`](../man/list_aliases.tt2)~~ is used by alias manager of
 Sympa to generate mail aliases so that message delivery agent (MDA) will
 be able to recognize list addresses.  It may be customized by each mail
 domain: See
 "[Location](basics-configuration.md#location) in "Configuration hierarchy".
 
-### Use of template syntax in parameters
+### Other uses
 
-Template syntax may be used in following list configuration parameters:
-
-  - [`custom_subject`](../man/list_config.5.md#custom_subject)
-
+  - Value of [`custom_subject`](../man/list_config.5.md#custom_subject)
+    list configuration parameter may include template syntax:
     `[% list.name %]` and `[% list.sequence %]` variables may be used.
+
+  - On the lists
+    [Message personalization](../man/list_config.5.md#merge_feature) enabled,
+    Sympa treats the bodies of incoming messages as templates, and delivers
+    messages customized by each member.  See
+    "~~[Message personalization](../customize/message-personalization.md)~~"
+    for details.
 
 (Work in progress)
 
@@ -135,11 +140,28 @@ In some cases, a template have to generate another template.  To avoid
 breaking template syntax,
 [custom tag delimiters](http://www.template-toolkit.org/docs/manual/Directives.html#section_TAGS) are useful.
 
-(Work in progress)
+Example:
+
+To include a setting in the list creation template:
+```
+custom_subject [% list.name %]:[% list.sequence %]
+```
+use custom tag delimiters in `config.tt2` as below:
+```
+...
+
+[% TAGS <+ +> %]
+custom_subject [% list.name %]:[% list.sequence %]
+<+ TAGS [% %] +>
+
+...
+```
+By the first `TAGS` directive, special meaning of "`[% ... %]`" is dropped.
+Then by the second `TAGS`, its meaning is restored.
 
 Template plugins
 ----------------
 
-You can extend syntax of template by writing Perl code.  See
+You can extend syntax of template by writing Perl module.  See
 "[Template plugins](../customize/template-plugins.md)".
 

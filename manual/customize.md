@@ -79,6 +79,9 @@ needed.
   * Miscelaneous
     [&#x1F527;](man/sympa.conf.5.md#miscelaneous)
 
+      - [Custom list parameters](customize/custom-parameters.md)
+      - [Custom user attributes](customize/custom-user-attributes.md)
+
   * Others
 
       - Custom user attributes in database
@@ -227,14 +230,11 @@ Extending Sympa
 These features need skill of Perl programming.
 
   - [Custom scenario conditions](customize/custom-scenario-conditions.md)
-
   - [Message hooks](man/Sympa-Message-Plugin.3.md)
-
   - [Template plugins](customize/template-plugins.md)
-
       - [List of template plugins](customize/template-plugins.md#list-of-template-plugins)
 
-  - Custom actions for web interface
+  - [Custom actions for web interface](customize/custom-actions.md)
 
 Sympa and other systems
 -----------------------
