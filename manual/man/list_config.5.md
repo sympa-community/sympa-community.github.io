@@ -1,6 +1,6 @@
 # NAME
 
-sympa\_config - Configuration file for mailing list
+list\_config - Configuration file for mailing list
 
 # DESCRIPTION
 
@@ -402,6 +402,8 @@ Maximum number of list members
 
     Value of [`default_max_list_members`](./sympa.conf.5.md#default_max_list_members) parameter in `sympa.conf` or `robot.conf`.
 
+limit for the number of subscribers. 0 means no limit.
+
 ### `priority`
 
 Priority
@@ -528,7 +530,7 @@ reception mode
 
 - Default:
 
-    `mail,notice,digest,digestplain,summary,nomail,txt,html,urlize,not_me`
+    `mail,notice,digest,digestplain,summary,nomail,txt,urlize,not_me`
 
 Only these modes will be allowed for the subscribers of this list. If a subscriber has a reception mode not in the list, Sympa uses the mode specified in the default\_user\_options paragraph.
 
@@ -814,7 +816,7 @@ A hook on the messages just after archiving
 
 ### `reject_mail_from_automates_feature`
 
-Reject mail from automates (crontab, etc)?
+Reject mail from automatic processes (crontab, etc)?
 
 - Format:
     - `on` - enabled
@@ -985,6 +987,34 @@ Who can review subscribers
     `default`
 
 This parameter specifies who can access the list of members. Since subscriber addresses can be abused by spammers, it is strongly recommended that you only authorize owners or subscribers to access the subscriber list. 
+
+### `owner_domain`
+
+Required domains for list owners
+
+- Format:
+
+    /`$host( +$host)*`/
+
+- Default:
+
+    Value of [`owner_domain`](./sympa.conf.5.md#owner_domain) parameter in `sympa.conf` or `robot.conf`.
+
+Restrict list ownership to addresses in the specified domains.
+
+### `owner_domain_min`
+
+Minimum owners in required domains
+
+- Format:
+
+    /`\d+`/
+
+- Default:
+
+    Value of [`owner_domain_min`](./sympa.conf.5.md#owner_domain_min) parameter in `sympa.conf` or `robot.conf`.
+
+Require list ownership by a minimum number of addresses in the specified domains.
 
 ### `shared_doc`
 
@@ -2326,6 +2356,12 @@ Inclusions timeout for message distribution
 - Default:
 
     None.
+
+This parameter defines the delay since the last synchronization after which the user's list will be updated before performing either of following actions:
+
+\* Reviewing list members
+
+\* Message distribution
 
 ### `include_ldap_ca`
 
