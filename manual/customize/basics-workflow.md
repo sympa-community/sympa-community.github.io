@@ -8,6 +8,6 @@ next: basics-roles.md
 Message workflow
 ================
 
-  * [Mail addresses](customize/basics-addresses.md)
-  * [Message delivery](customize/basics-delivery.md)
+  * [Mail addresses](basics-addresses.md)
+  * [Message delivery](basics-delivery.md)
 
