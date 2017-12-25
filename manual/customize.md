@@ -20,7 +20,7 @@ Note:
 Customization basics
 --------------------
 
-  * [Mail addresses](customize/basics-addresses.md)
+  * [Message workflow](customize/basics-workflow.md)
   * [Roles and privileges](customize/basics-roles.md)
   * [Configuration hierarchy](customize/basics-configuration.md)
   * [Templates](customize/basics-templates.md)

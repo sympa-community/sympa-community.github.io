@@ -1,8 +1,8 @@
 ---
 title: 'Mail addresses'
 prev: ../customize.md
-up: ../customize.md#customization-basics
-next: basics-roles.md
+up: basics-workflow.md
+next: basics-delivery.md
 ---
 
 Mail addresses
