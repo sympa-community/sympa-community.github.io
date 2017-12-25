@@ -51,8 +51,8 @@ will be replaced with localized phrase of `A text` using translation catalogs
 See ["Filters" in Sympa::Template(3)](../man/Sympa-Template.3.md#filters)
 on custom filter directives proveded by Sympa.
 
-Files
------
+Location
+--------
 
 ### Mail and web template files
 
@@ -85,7 +85,7 @@ about location of template files and how to customize them.
 
 Mail and web templates may also be customized according to language contexts:
 See
-"[Translation catalogs and templates](basics-i18n.md#translation-catalogs-and-templates)"
+"[Defining language-specific templates](basics-i18n.md#defining-language-specific-templates)"
 in "Internationalization".
 
 ### List creation templates
