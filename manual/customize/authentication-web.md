@@ -123,22 +123,6 @@ The second form in the login page contains the list of CAS servers so that users
 
 ### ''auth.conf'' structure
 
-Each paragraph starts with one of the keyword `cas`, `ldap` or `user_table`.
-
-The `/home/sympa/etc/auth.conf` file contains directives in the following format:
-
-``` code
-paragraphs
-keyword value
-
-paragraphs
-keyword value
-```
-
-Comments start with the `#` character at the beginning of a line.
-
-Empty lines are also considered as comments and are ignored at the beginning. After the first paragraph, they are considered as paragraph separators. There should only be one directive per line, but their order in the paragraph is of no importance.
-
 Example:
 
 ``` code
@@ -159,331 +143,50 @@ cas
 ## The URL corresponding to the service_id should be protected by the SSO (Shibboleth in the exampl)
 ## The URL would look like http://yourhost.yourdomain/sympa/sso_login/inqueue in the following example
 generic_sso
-    service_name       InQueue Federation
-    service_id         inqueue
-    http_header_list   mail,displayName,eduPersonAffiliation
-    email_http_header  mail
+    service_name                InQueue Federation
+    service_id                  inqueue
+    http_header_list            mail,displayName,eduPersonAffiliation
+    email_http_header           mail
 
 ## The email address is not provided by the user home institution
 generic_sso
-    service_name               Shibboleth Federation
-    service_id                 myfederation
-    http_header_list           mail,displayName,eduPersonAffiliation
-    netid_http_header          mail
-    internal_email_by_netid    1
-    force_email_verify         1
+    service_name                Shibboleth Federation
+    service_id                  myfederation
+    http_header_list            mail,displayName,eduPersonAffiliation
+    netid_http_header           mail
+    internal_email_by_netid     1
+    force_email_verify          1
 
 ldap
-    regexp                univ-rennes1\.fr
-    host                ldap.univ-rennes1.fr:389
-    timeout                30
-    suffix                dc=univ-rennes1,dc=fr
+    regexp                      univ-rennes1\.fr
+    host                        ldap.univ-rennes1.fr:389
+    timeout                     30
+    suffix                      dc=univ-rennes1,dc=fr
     get_dn_by_uid_filter        (uid=[sender])
-    get_dn_by_email_filter        (|(mail=[sender])(mailalternateaddress=[sender]))
-    email_attribute            mail
-    alternative_email_attribute    mailalternateaddress,ur1mail
-    scope                sub
-    use_tls                         ldaps
-    ssl_version                     tlsv1
-    ssl_ciphers                     MEDIUM:HIGH
+    get_dn_by_email_filter      (|(mail=[sender])(mailalternateaddress=[sender]))
+    email_attribute             mail
+    alternative_email_attribute mailalternateaddress,ur1mail
+    scope                       sub
+    use_tls                     ldaps
+    ssl_version                 tlsv1
+    ssl_ciphers                 MEDIUM:HIGH
 
 ldap
-    host                ldap.univ-nancy2.fr:392,ldap1.univ-nancy2.fr:392,ldap2.univ-nancy2.fr:392
-    timeout                20
-    bind_dn                         cn=sympa,ou=people,dc=cru,dc=fr
-    bind_password                   sympaPASSWD
-    suffix                dc=univ-nancy2,dc=fr
+    host                        ldap.univ-nancy2.fr:392,ldap1.univ-nancy2.fr:392,ldap2.univ-nancy2.fr:392
+    timeout                     20
+    bind_dn                     cn=sympa,ou=people,dc=cru,dc=fr
+    bind_password               sympaPASSWD
+    suffix                      dc=univ-nancy2,dc=fr
     get_dn_by_uid_filter        (uid=[sender])
-    get_dn_by_email_filter            (|(mail=[sender])(n2atraliasmail=[sender]))
-    alternative_email_attribute    n2atrmaildrop
-    email_attribute            mail
-    scope                sub
-    authentication_info_url         http://sso.univ-nancy2.fr/
+    get_dn_by_email_filter      (|(mail=[sender])(n2atraliasmail=[sender]))
+    alternative_email_attribute n2atrmaildrop
+    email_attribute             mail
+    scope                       sub
+    authentication_info_url     http://sso.univ-nancy2.fr/
 
 user_table
-    negative_regexp         ((univ-rennes1)|(univ-nancy2))\.fr
+    negative_regexp             ((univ-rennes1)|(univ-nancy2))\.fr
 ```
-
-### user\_table paragraph
-
-The `user_table` paragraph is related to Sympa internal authentication by email and password. It is the simplest one. The only parameters are `regexp` or `negative_regexp` which are Perl regular expressions applied on an email address provided, to select or block this authentication method for a subset of email addresses.
-
-### ldap paragraph
-
-This paragraph allows to login to Sympa using data taken from an LDAP directory. Login is done in two steps:
-
-  - user provide an user id or an email address, with a password. These are used to retrieve their DN in the LDAP directory.
-
-  - the email attribute is extracted from the directory entry corresponding to the found DN.
-
-Here is how to configure the LDAP authentication:
-
-  - `regexp` and `negative_regexp`
-    Same as in the `user_table` paragraph: if an email address is provided (this does not apply to an uid), then the regular expression will be applied to find out if the LDAP directory can be used to authenticate a subset of users.
-
-  - `host`
-    This keyword is **mandatory**. It is the domain name used in order to bind to the directory and then to extract information. You must mention the port number after the server name. Server replication is supported by listing several servers separated by commas.
-
-    Example:
-    ``` code
-    host ldap.univ-rennes1.fr:389
-    ```
-    ``` code
-    host ldap0.university.com:389,ldap1.university.com:389,ldap2.university.com:389
-    ```
-
-  - `timeout`
-    It corresponds to the timelimit in the Search fonction. A timelimit that restricts the maximum time (in seconds) allowed for a search. A value of 0 (the default) means that no timelimit will be requested.
-
-  - `suffix`
-    The root of the DIT (Directory Information Tree). The DN that is the base object entry relative to which the search is to be performed.
-
-    Example: `dc=university,dc=fr`
-
-  - `bind_dn`
-    If anonymous bind is not allowed on the LDAP server, a DN and password can be used.
-
-  - `bind_password`
-    This password is used, combined with the `bind_dn` above.
-
-  - `get_dn_by_uid_filter`
-    Defines the search filter corresponding to the `ldap_uid`. (RFC 2254 compliant). If you want to apply the filter on the user, use the variable ' \[sender\] '. It will work with every type of authentication (uid, `alternate_email`, ...).
-
-    Example:
-    ``` code
-    (Login = [sender])
-    ```
-    ``` code
-    (|(ID = [sender])(UID = [sender]))
-    ```
-
-  - `get_dn_by_email_filter`
-    Defines the search filter corresponding to the email addresses (canonic and alternative - this is RFC 2254 compliant). If you want to apply the filter on the user, use the variable ' \[sender\] '. It will work with every type of authentication (`uid`, `alternate_email`..).
-
-    Example: a person is described by
-    ``` code
-    dn: cn=Fabrice Rafart, ou=Siege, o=MaSociete, c=FR
-    objectClass: person
-    cn: Fabrice Rafart
-    title: Network Responsible
-    o: Siege
-    or: Data processing
-    telephoneNumber: 01-00-00-00-00
-    facsimileTelephoneNumber: 01-00-00-00-00
-    l:Paris
-    country: France
-    uid: frafart
-    mail: Fabrice.Rafart@MaSociete.fr
-    alternate_email: frafart@MaSociete.fr
-    alternate: rafart@MaSociete.fr
-    ```
-    The filters can be:
-    ``` code
-    (mail = [sender])
-    ```
-    ``` code
-    (| (mail = [sender])(alternate_email = [sender]) )
-    ```
-    ``` code
-    (| (mail = [sender])(alternate_email = [sender])(alternate  = [sender]) )
-    ```
-
-  - `email_attribute`
-    The name of the attribute for the canonic email in your directory: for instance `mail`, `canonic_email`, `canonic_address`, ... In the previous example, the canonic email is `mail`.
-
-  - `alternative_email_attribute`
-    The name of the attribute for the alternate email in your directory: for instance `alternate_email`, `mailalternateaddress`, ... You make a list of these attributes separated by commas.
-
-    With this list, Sympa creates a cookie which contains various information: whether the user is authenticated via LDAP or not, his alternate email. Storing the alternate email is interesting when you want to canonify your preferences and subscriptions, that is to say you want to use a unique address in `user_table` and `subscriber_table`, which is the canonic email.
-
-  - `scope` (Default value: `sub`)
-    By default, the search is performed on the whole tree below the specified base object. This may be changed by specifying a scope:
-
-      - `base`: search only the base object,
-
-      - `one`: search the entries immediately below the base object,
-
-      - `sub`: search the whole tree below the base object. This is the default.
-
-  - `authentication_info_url`
-    Defines the URL of a document describing LDAP password management. When hitting Sympa's *Send me a password* button, LDAP users will be redirected to this URL.
-
-Following parameters are used to provide LDAPS (LDAP over TLS/SSL):
-
-  - `use_ssl` (OBSOLETE)
-    If set to `1`, connection to the LDAP server will use LDAPS (LDAP over TLS/SSL).
-
-      - Obsoleted as of Sympa 6.2.15. Use `use_tls` instead.
-
-  - `use_tls` (Default value: `none`):
-
-      - `ldaps`: use LDAPS (LDAP over TLS/SSL),
-
-      - `starttls`: use StartTLS,
-
-      - `none`: TLS (SSL) is disabled.
-
-  - `ssl_version` (Default value: `tlsv1`)
-    This defines the version of the TLS/SSL protocol to use. Possible values are `sslv2`, `sslv3`, `tlsv1`, `tlsv1_1` and `tlsv1_2`.
-
-  - `ssl_ciphers`
-    Specify which subset of cipher suites are permissible for this connection, using the standard OpenSSL string format. The default value of Net::LDAPS for ciphers is `ALL`, which permits all ciphers, even those that do not encrypt!
-
-Additionally, following parameters may also used with Sympa 6.2 or later:
-
-  - `ssl_cert`
-    Path to client certificate.
-
-  - `ssl_key`
-    Path to the secret key of client certificate.
-
-  - `ca_verify`
-    `none`, `optional` or `required`. If set to `none`, will never verify server certificate. Latter two need appropriate `ca_path` and/or `ca_file` settings.
-
-  - `ca_path`
-    Path to directory store of CA certificates.
-
-  - `ca_file`
-    Path to file store of CA certificates.
-
-### generic\_sso paragraph
-
-  - `service_name`
-    This is the SSO service name that will be offered to the user in the login banner menu.
-
-  - `service_id`
-    This service ID is used as a parameter by Sympa to refer to the SSO service (instead of the service name).
-    A corresponding URL on the local web server should be protected by the SSO system; this URL would look like `http://yourhost.yourdomain/sympa/sso_login/inqueue` if the `service_id` is `inqueue`.
-
-  - `http_header_list`
-    Sympa gets user attributes from environment variables coming from the web server. These variables are then cached in the `user_table` DB table for later use in authorization scenarios (in structure). You can define a coma-separated list of header field names.
-
-  - `http_header_prefix`
-    Only environment variables starting with the defined prefix will be kept. Another option is to list HTTP header fields explicitely using `http_header_list` parameter.
-
-  - `email_http_header`
-    This parameter defines the environment variable that will contain the authenticated user's email address.
-
-  - `http_header_value_separator` (default: ';'): user attributes may be multi-valued (including the user email address. This parameter defines the values separator character(s).
-
-  - `logout_url`
-    This optional parameter allows to specify the SSO logout URL. If defined, Sympa will redirect the user to this URL after the Sympa logout has been performed.
-
-The following parameters define how Sympa can check the user email address, either provided by the SSO or by the user himself:
-
-  - `internal_email_by_netid`
-    If set to `1`, this parameter makes Sympa use its `netidmap` table to associate NetIDs to user email addresses.
-
-  - `netid_http_header`
-    This parameter defines the environment variable that will contain the user's identifier. This netid will then be associated with an email address provided by the user.
-
-  - `force_email_verify`
-    If set to `1`, this parameter makes Sympa check the user's email address. If the email address was not provided by the authentication module, then the user is requested to provide a valid email address.
-
-The following parameters define how Sympa can retrieve the user email address; **these are useful only in case the `email_http_header` entry was not defined:**
-
-  - `ldap_host`
-    The LDAP host Sympa will connect to fetch user email. The `ldap_host` include the port number and it may be a comma separated list of redondant hosts.
-
-  - `ldap_bind_dn`
-    The DN used to bind to this server. Anonymous bind is used if this parameter is not defined.
-
-  - `ldap_bind_password`
-    The password used unless anonymous bind is used.
-
-  - `ldap_suffix`
-    The LDAP suffix used when searching user email.
-
-  - `ldap_scope`
-    The scope used when searching user email. Possible values are `sub`, `base` and `one`.
-
-  - `ldap_get_email_by_uid_filter`
-    The filter used to perform the email search. It can refer to any environment variables inherited from the SSO module, as shown below.
-
-    Example:
-    ``` code
-    ldap_get_email_by_uid_filter (mail=[SSL_CLIENT_S_DN_Email])
-    ```
-
-  - `ldap_email_attribute`
-    The attribute name to be used as user canonical email. In the current version of Sympa, only the first value returned by the LDAP server is used.
-
-  - `ldap_timeout`
-    The time out for the search.
-
-To support LDAPS (LDAP over SSL/TLS), corresponding parameters in ldap paragraph may also be used for generic\_sso.
-
-### cas paragraph
-
-Note that Sympa will act as a CAS client to validate CAS tickets. During this exchange, Sympa will check the CAS server x.509 certificate. Therefore you should ensure that the certificate autority of the CAS server is known by Sympa ; this should be configured through the [cafile](/manual/conf-parameters/part3#cafile) or [capath](/manual/conf-parameters/part3#capath) sympa.conf configuration parameters.
-
-  - `auth_service_name`
-    The authentication service name. Note that it is used as an identifier in the code; it should therefore be made of alphanumeric characters only, with no space.
-
-  - `auth_service_friendly_name`
-    If defined, this string is proposed on the web login banner.
-
-  - `host` (OBSOLETE)
-    This parameter has been replaced by **base\_url** parameter
-
-  - `base_url`
-    The base URL of the CAS server.
-
-  - `non_blocking_redirection` on | off
-
-    Default value: `on`
-
-    This parameter only concerns the first access to Sympa services by a user, it activates or not the non blocking redirection to the related CAS server to check automatically if the user as been previously authenticated with this CAS server. The redirection to CAS is used with the CGI parameter `gateway=1` that specifies to CAS server to always redirect the user to the original URL, but just check if the user is logged. If active, the SSO service is effective and transparent, but in case the CAS server is out of order, the access to Sympa services is impossible.
-
-  - `login_uri` (OBSOLETE)
-    This parameter has been replaced by the `login_path` parameter.
-
-  - `login_path` (OPTIONAL)
-    The login service path.
-
-  - `check_uri` (OBSOLETE)
-    This parameter has been replaced by the `service_validate_path` parameter.
-
-  - `service_validate_path` (OPTIONAL)
-    The ticket validation service path.
-
-  - `logout_uri` (OBSOLETE)
-    This parameter has been replaced by the `logout_path` parameter.
-
-  - `logout_path` (OPTIONAL)
-    The logout service path.
-
-  - `proxy_path` (OPTIONAL)
-    The proxy service path, only used by the Sympa SOAP server.
-
-  - `proxy_validate_path` (OPTIONAL)
-    The proxy validate service path, only used by the Sympa SOAP server.
-
-  - `ldap_host`
-    The LDAP host Sympa will connect to fetch user email when user uid is return by CAS service. The `ldap_host` includes the port number and it may be a comma separated list of redondant hosts.
-
-  - `ldap_bind_dn`
-    The DN used to bind to this server. Anonymous bind is used if this parameter is not defined.
-
-  - `ldap_bind_password`
-    The password used unless anonymous bind is used.
-
-  - `ldap_suffix`
-    The LDAP suffix used when searching user email.
-
-  - `ldap_scope`
-    The scope used when searching user email. Possible values are `sub`, `base` and `one`.
-
-  - `ldap_get_email_by_uid_filter`
-    The filter used to perform the email search.
-
-  - `ldap_email_attribute`
-    The attribute name to be used as user canonical email. In the current version of Sympa, only the first value returned by the LDAP server is used.
-
-  - `ldap_timeout`
-    The time out for the search.
-
-To support LDAPS (LDAP over SSL/TLS), corresponding parameters in ldap paragraph may also be used for cas.
 
 Sharing WWSympa's authentication with other applications
 --------------------------------------------------------
