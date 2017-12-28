@@ -12,56 +12,8 @@ The authorization process in Sympa (authorization scenarios) refers to authentic
 S/MIME and HTTPS authentication
 -------------------------------
 
-Chapter [Use of S/MIME signature by Sympa itself](/manual/x509#use_of_smime_signatures_by_sympa_itself) deals with Sympa and S/MIME signature. Sympa uses the `OpenSSL` library to work on S/MIME messages, you need to configure some related Sympa parameters: [S/X509 Sympa configuration](/manual/x509#ssympa_configuration).
-
-Sympa HTTPS authentication is based on Apache+mod\_SSL that provide the required authentication information through CGI environment variables. You will need to edit the Apache configuration to allow HTTPS access and require X509 client certificate. Here is a sample Apache configuration:
-
-``` code
-SSLEngine on
-SSLVerifyClient optional
-SSLVerifyDepth  10
-...
-<Location /sympa>
-    SSLOptions +StdEnvVars
-    SetHandler fastcgi-script
-</Location>
-```
-
-If you are using the SubjAltName, then you additionaly need to export the certificate data because of a `mod_ssl` bug. You will also need to install the textindex Crypt-OpenSSL-X509 CPAN module. Add this option to the Apache configuration file:
-
-``` code
-SSLOptions +ExportCertData
-```
-
 Authentication with email address, uid or alternate email address
 -----------------------------------------------------------------
-
-Sympa stores the data relative to the subscribers in a DataBase. Among these data: password, email address exploited during the web authentication. The module of LDAP authentication allows to use Sympa in an intranet without duplicating user passwords.
-
-This way users can indifferently authenticate with their `ldap_uid`, their `alternate_email` or their canonic email stored in the LDAP directory.
-
-Sympa gets the canonic email in the LDAP directory with the `ldap_uid` or the `alternate_email`. Sympa will first attempt an anonymous bind to the directory to get the user's DN, then Sympa will bind with the DN and the user's `ldap_password` in order to perform an efficient authentication. This last bind will work only if the right `ldap_password` is provided. Indeed the value returned by the bind(DN,ldap\_password) is tested.
-
-Example: a person is described by
-
-``` code
-dn: cn=Fabrice Rafart, ou=Siege, o=MyCompany, c=FR
-objectClass: person
-cn: Fabrice Rafart
-title: Network Responsible
-o: Siege
-or: Data processing
-telephoneNumber: 01-00-00-00-00
-facsimileTelephoneNumber: 01-00-00-00-00
-l: Paris
-country: France
-uid: frafart
-mail: Fabrice.Rafart@MyCompany.fr
-alternate_email: frafart@MyCompany.fr
-alternate: rafart@MyCompany.fr
-```
-
-So Fabrice Rafart can be authenticated with: frafart, Fabrice.Rafart@MyCompany.fr, frafart@MyCompany.fr, Rafart@MyCompany.fr. After this operation, the address in the FROM field will be the Canonic email, in this case Fabrice.Rafart@MyCompany.fr. That means that Sympa will get this email and use it during all the session until you clearly ask Sympa to change your email address via the two pages: which and pref.
 
 Generic SSO authentication
 --------------------------
@@ -85,10 +37,6 @@ Apart from the user email address, the SSO can provide other user attributes tha
 
 CAS-based authentication
 ------------------------
-
-CAS is the Yale University SSO software. Sympa can use the CAS authentication service.
-
-Listmasters should define at least one or more CAS servers (**cas** paragraph) in `auth.conf`. If the `non_blocking_redirection` parameter was set for a CAS server, then Sympa will try a transparent login on this server when the user accesses the web interface. If a CAS server redirects the user to Sympa with a valid ticket, Sympa receives a user ID from the CAS server. Then, it connects to the related LDAP directory to get the user email address. If no CAS server returns a valid user ID, Sympa will let the user either select a CAS server to login or perform a Sympa login.
 
 auth.conf
 ---------
@@ -129,17 +77,6 @@ Example:
 #Configuration file auth.conf for the LDAP authentification
 #Description of parameters for each directory
 
-cas
-    base_url            https://sso-cas.renater.fr
-    non_blocking_redirection        on
-    auth_service_name        cas-cru
-    ldap_host            ldap.renater.fr:389
-    ldap_get_email_by_uid_filter    (uid=[uid])
-    ldap_timeout            7
-    ldap_suffix            dc=cru,dc=fr
-    ldap_scope            sub
-    ldap_email_attribute        mail
-
 ## The URL corresponding to the service_id should be protected by the SSO (Shibboleth in the exampl)
 ## The URL would look like http://yourhost.yourdomain/sympa/sso_login/inqueue in the following example
 generic_sso
@@ -156,33 +93,6 @@ generic_sso
     netid_http_header           mail
     internal_email_by_netid     1
     force_email_verify          1
-
-ldap
-    regexp                      univ-rennes1\.fr
-    host                        ldap.univ-rennes1.fr:389
-    timeout                     30
-    suffix                      dc=univ-rennes1,dc=fr
-    get_dn_by_uid_filter        (uid=[sender])
-    get_dn_by_email_filter      (|(mail=[sender])(mailalternateaddress=[sender]))
-    email_attribute             mail
-    alternative_email_attribute mailalternateaddress,ur1mail
-    scope                       sub
-    use_tls                     ldaps
-    ssl_version                 tlsv1
-    ssl_ciphers                 MEDIUM:HIGH
-
-ldap
-    host                        ldap.univ-nancy2.fr:392,ldap1.univ-nancy2.fr:392,ldap2.univ-nancy2.fr:392
-    timeout                     20
-    bind_dn                     cn=sympa,ou=people,dc=cru,dc=fr
-    bind_password               sympaPASSWD
-    suffix                      dc=univ-nancy2,dc=fr
-    get_dn_by_uid_filter        (uid=[sender])
-    get_dn_by_email_filter      (|(mail=[sender])(n2atraliasmail=[sender]))
-    alternative_email_attribute n2atrmaildrop
-    email_attribute             mail
-    scope                       sub
-    authentication_info_url     http://sso.univ-nancy2.fr/
 
 user_table
     negative_regexp             ((univ-rennes1)|(univ-nancy2))\.fr
