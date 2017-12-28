@@ -1,3 +1,8 @@
+---
+title: 'Setting up a Shibboleth-enabled Sympa server'
+up: ../customize.md#web-interface-optional-features
+---
+
 Setting up a Shibboleth-enabled Sympa server
 ============================================
 

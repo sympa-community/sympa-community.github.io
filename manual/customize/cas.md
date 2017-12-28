@@ -1,5 +1,10 @@
-CAS-based authentication
-========================
+---
+title: 'CAS single sign-on'
+up: ../customize.md#web-interface-optional-features
+---
+
+CAS single sign-on
+==================
 
 See also "[Authentication on web interface](authentication-web.md)".
 

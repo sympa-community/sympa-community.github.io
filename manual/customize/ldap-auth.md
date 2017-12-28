@@ -1,3 +1,8 @@
+---
+title: 'LDAP authentication'
+up: ../customize.md#web-interface-optional-features
+---
+
 LDAP authentication
 ===================
 

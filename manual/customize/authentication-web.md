@@ -1,3 +1,8 @@
+---
+title: 'Authentication on web interface'
+up: ../customize.md#customizing-web-interface
+---
+
 Authentication on web interface
 ===============================
 
@@ -59,9 +64,9 @@ may be defined by [`ldap`](../man/auth.conf.5.md#ldap-paragraph) paragraph in
 `auth.conf` configuration file.  See "[LDAP authentication](ldap-auth.md)"
 for more details.
 
-### CAS-based authentication
+### CAS single sign-on
 
-See "[CAS single sign-on](cas.md)" for more details.
+See "[CAS single sign-on](cas.md)" for details.
 
 ### Generic SSO authentication
 
@@ -111,12 +116,12 @@ For detailed description to integrate Sympa into Shibboleth and its
 federation, see
 "[Setting up a Shibboleth-enabled Sympa server](shibboleth.md)".
 
-### S/MIME and HTTPS authentication
+### TLS client authentication
 
-See "[TLS client authentication](tls-auth.md) for more details.
+See "[TLS client authentication](tls-auth.md) for details.
 
-Sympa configuration
--------------------
+Sympa configuration overview
+----------------------------
 
 ### Location
 

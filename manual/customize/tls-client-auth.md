@@ -1,3 +1,8 @@
+---
+title: 'TLS client authentication'
+up: ../customize.md#web-interface-optional-features
+---
+
 TLS client authentication
 =========================
 
