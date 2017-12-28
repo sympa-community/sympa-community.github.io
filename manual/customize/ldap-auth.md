@@ -1,11 +1,22 @@
-Authentication with email address, uid or alternate email address
------------------------------------------------------------------
+LDAP authentication
+===================
 
-Sympa stores the data relative to the subscribers in a DataBase. Among these data: password, email address exploited during the web authentication. The module of LDAP authentication allows to use Sympa in an intranet without duplicating user passwords.
+See also "[Authentication on web interface](authentication-web.md)".
 
-This way users can indifferently authenticate with their `ldap_uid`, their `alternate_email` or their canonic email stored in the LDAP directory.
+The LDAP
+[authentication mechanism](authenticate-web.md#authentication-mechanisms)
+allows to use Sympa web interface (WWSympa) in an intranet without duplicating
+user passwords.
 
-Sympa gets the canonic email in the LDAP directory with the `ldap_uid` or the `alternate_email`. Sympa will first attempt an anonymous bind to the directory to get the user's DN, then Sympa will bind with the DN and the user's `ldap_password` in order to perform an efficient authentication. This last bind will work only if the right `ldap_password` is provided. Indeed the value returned by the bind(DN,ldap\_password) is tested.
+This way users can indifferently authenticate with their "LDAP user ID", their
+"alternate email" or their canonic email stored in the LDAP directory.
+
+WWSympa gets the canonic email in the LDAP directory with the "LDAP user ID"
+or the "alternate email". WWSympa will first attempt an anonymous bind to the
+directory to get the user's distinguished name (DN), then will bind with the
+DN and the user's "LDAP password" in order to perform an efficient
+authentication. This last bind will work only if the right "LDAP password" is
+provided. Indeed the value returned by the LDAP bind operation is tested.
 
 Example: a person is described by
 
@@ -15,7 +26,7 @@ objectClass: person
 cn: Fabrice Rafart
 title: Network Responsible
 o: Siege
-or: Data processing
+ou: Data processing
 telephoneNumber: 01-00-00-00-00
 facsimileTelephoneNumber: 01-00-00-00-00
 l: Paris
@@ -26,11 +37,31 @@ alternate_email: frafart@MyCompany.fr
 alternate: rafart@MyCompany.fr
 ```
 
-So Fabrice Rafart can be authenticated with: frafart, Fabrice.Rafart@MyCompany.fr, frafart@MyCompany.fr, Rafart@MyCompany.fr. After this operation, the address in the FROM field will be the Canonic email, in this case Fabrice.Rafart@MyCompany.fr. That means that Sympa will get this email and use it during all the session until you clearly ask Sympa to change your email address via the two pages: which and pref.
+So Fabrice Rafart can be authenticated with `frafart`,
+`Fabrice.Rafart@MyCompany.fr`, `frafart@MyCompany.fr` or
+`Rafart@MyCompany.fr`. After this operation, the address in the `mail`
+attribute will be the canonic email, in this case
+`Fabrice.Rafart@MyCompany.fr`. That means that WWSympa will get this email and
+use it during all the session until you clearly ask WWSympa to change your
+email address using the user preferences page on web interface.
 
-Example:
+Requirements
+------------
 
-``` code
+  - [Net-LDAP](https://metacpan.org/release/Net-LDAP) Perl module.
+
+  - [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL) Perl module,
+    if you need TLS to connect to LDAP server, either with LDAP over TLS
+    ("ldaps") or Start_TLS extension.
+
+Sympa configuration
+-------------------
+
+You can add LDAP authentication mechanism with
+[`ldap`](../man/auth.conf.5.md#ldap-paragraph) paragraph in
+[`auth.conf`](../man/auth.conf.5.md) configuration file.  Below is an example
+of the paragraph:
+```code
 ldap
     regexp                      univ-rennes1\.fr
     host                        ldap.univ-rennes1.fr:389
@@ -58,3 +89,4 @@ ldap
     scope                       sub
     authentication_info_url     http://sso.univ-nancy2.fr/
 ```
+

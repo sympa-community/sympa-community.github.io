@@ -1,9 +1,27 @@
-S/MIME and HTTPS authentication
--------------------------------
+TLS client authentication
+=========================
 
-Chapter [Use of S/MIME signature by Sympa itself](/manual/x509#use_of_smime_signatures_by_sympa_itself) deals with Sympa and S/MIME signature. Sympa uses the `OpenSSL` library to work on S/MIME messages, you need to configure some related Sympa parameters: [S/X509 Sympa configuration](/manual/x509#ssympa_configuration).
+See also "[Authentication on web interface](authentication-web.md)".
 
-Sympa HTTPS authentication is based on Apache+mod\_SSL that provide the required authentication information through CGI environment variables. You will need to edit the Apache configuration to allow HTTPS access and require X509 client certificate. Here is a sample Apache configuration:
+Sympa web interface (WWSympa) provides an
+[authentication mechanism](authentication-web.md#authentication-mechanisms)
+based on X.509 certificates installed in users' browser.
+
+HTTP server supporting HTTPS (HTTP over TLS) connections provides the
+required authentication information through CGI environment variables. You
+will need to configure HTTP server to allow HTTPS access and require X.509
+client certificate.  No additional setting is needed on the side of Sympa.
+
+Requirements
+------------
+
+  - [Crypt-OpenSSL-X509](https://metacpan.org/release/(Crypt-OpenSSL-X509)
+    Perl module.
+
+Configuring HTTP server
+-----------------------
+
+### Apache HTTP Server with mod_ssl
 
 ``` code
 SSLEngine on
@@ -11,14 +29,9 @@ SSLVerifyClient optional
 SSLVerifyDepth  10
 ...
 <Location /sympa>
-    SSLOptions +StdEnvVars
-    SetHandler fastcgi-script
+    SSLOptions +StdEnvVars +ExportCertData
+    SetHandler fcgid-script
+    ...
 </Location>
-```
-
-If you are using the SubjAltName, then you additionaly need to export the certificate data because of a `mod_ssl` bug. You will also need to install the textindex Crypt-OpenSSL-X509 CPAN module. Add this option to the Apache configuration file:
-
-``` code
-SSLOptions +ExportCertData
 ```
 
