@@ -20,7 +20,7 @@ client certificate.  No additional setting is needed on the side of Sympa.
 Requirements
 ------------
 
-  - [Crypt-OpenSSL-X509](https://metacpan.org/release/(Crypt-OpenSSL-X509)
+  - [Crypt-OpenSSL-X509](https://metacpan.org/release/Crypt-OpenSSL-X509)
     Perl module.
 
 Configuring HTTP server

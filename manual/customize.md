@@ -87,7 +87,7 @@ needed.
 
   * Appearances
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-appearances)
-  * [Authentication on web interface](authentication-web.md)
+  * [Authentication on web interface](customize/authentication-web.md)
     [&#x2699;](man/auth.conf.5.md "auth.conf")
   * Miscelaneous
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-miscelaneous)
@@ -168,7 +168,7 @@ external Perl modules.
   * [CAS single sign-on](customize/cas.md)
     [&#x2699;](man/auth.conf.5.md#cas-paragraph "auth.conf")
     [&#x1F4E6;](https://metacpan.org/release/AuthCAS "AuthCAS")
-  * [TLS client authentication](customize/tls-auth.md)
+  * [TLS client authentication](customize/tls-client-auth.md)
     [&#x1F4E6;](https://metacpan.org/release/Crypt-OpenSSL-X509 "Crypt-OpenSSL-X509")
   * Password validation
     [&#x1F527;](man/sympa.conf.5.md#password-validation)
@@ -177,7 +177,7 @@ external Perl modules.
     [&#x2699;](man/auth.conf.5.md#ldap-paragraph "auth.conf")
     [&#x1F4E6;](https://metacpan.org/release/Net-LDAP "Net-LDAP")
     [&#x1F4E6;](https://metacpan.org/release/IO-Socket-SSL "IO-Socket-SSL")
-  * [Setting up a Shibboleth-enabled Sympa server](shibboleth.md)
+  * [Setting up a Shibboleth-enabled Sympa server](customize/shibboleth.md)
     [&#x2699;](man/auth.conf.5.md#generic_sso-paragraph "auth.conf")
     [&#x1F4E6;](http://shibboleth.internet2.edu "Shibboleth SP")
   * [SOAP/HTTP API](customize/soap-api.md)

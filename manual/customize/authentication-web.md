@@ -118,7 +118,7 @@ federation, see
 
 ### TLS client authentication
 
-See "[TLS client authentication](tls-auth.md) for details.
+See "[TLS client authentication](tls-client-auth.md) for details.
 
 Sympa configuration overview
 ----------------------------
