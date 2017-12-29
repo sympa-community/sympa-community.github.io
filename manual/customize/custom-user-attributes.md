@@ -32,17 +32,11 @@ Users can provide the information expected by your custom attributes on two occa
 
   - when *subscribing* to the list through the web interface. After hitting the "subscribe" button, the user is presented a form, each field of which corresponds to a custom attribute.
 
-----
-[sub_form.png: Work in progress]
-
-----
+    ![][../media/sub_form.png]
 
   - when *modifying their profile* through the web interface.
 
-----
-[sub_options.png: Work in progress]
-
-----
+    ![][../media/sub_options.png]
 
 How is it stored?
 -----------------

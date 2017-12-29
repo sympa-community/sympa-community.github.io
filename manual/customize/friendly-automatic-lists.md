@@ -33,24 +33,15 @@ Here are three screenshots describing the core functionnalities of the automatic
 
 Once it is configured, users can select a new tab from the main Sympa tab panel. It displays a form. In this form, the user must select one value in each category. These categories describe the people the user wants to contact. The name of the automatic list created will be a concatenation of the values corresponding to the radio buttons selected.
 
-----
-[listes_auto_creation_form.png: Work in progress]
-
-----
+![][../media/listes_auto_creation_form.png]
 
 Once the form is submitted, Sympa check whether the list exists already. If not, the list is created with the same mechanism described in the [automatic lists feature](automatic-lists.md). The user is then automatically redirected to the message composing space of the automatic list.
 
-----
-[listes_auto_composition.png "Message composiing in the newly created list": Work in progress]
-
-----
+![Message composiing in the newly created list][../media/listes_auto_composition.png]
 
 The list keeps existing after its creation. the user can therefore use its archives. Finding a list is just a matter of filling the first form and, once the message composing space is displayed, click on the "archives" link in the list menu.
 
-----
-[listes_auto_archives.png "Archives from an automatic list": Work in progress]
-
-----
+![Archives from an automatic list][../media/listes_auto_archives.png]
 
 Configuration
 -------------
@@ -91,10 +82,7 @@ true()    smtp,dkim,md5,smime        ->    reject,quiet
 
 Once you've done that, restart the web server. You should, as listmaster, see two new tabs in the main Sympa menu:
 
-----
-[listes_auto_tabs.png "Automatic lists tabs": Work in progress]
-
-----
+![Automatic lists tabs][../media/listes_auto_tabs.png]
 
 Clicking on one of thses tabs will redirect you to the automatic lists creation form which, if you are following this doc step by step, should still be empty as our automatic lists families are not created yet.
 
@@ -168,10 +156,7 @@ class
 
 Here is the form that would be displayed by this version of `automatic_lists_description.conf`:
 
-----
-[listes_auto_creation_form.png "Automatic lists creation form.": Work in progress]
-
-----
+![Automatic lists creation form.][../media/listes_auto_creation_form.png]
 
 If you submit this form, using the exact configuration given as example in this doc, you will create a list called `fo+researcher-rennes-bastards@domain.tld`.
 

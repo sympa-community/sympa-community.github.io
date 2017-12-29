@@ -106,8 +106,5 @@ sub process {
 
 Here is the result:
 
-----
-[custom_action.png: Work in progress]
-
-----
+![][../media/custom_action.png]
 

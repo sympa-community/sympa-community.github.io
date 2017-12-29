@@ -82,7 +82,7 @@ You'll need to restart your Apache server to make Sympa web server take these ch
 
 You'll note the new "Connexion" button on your Sympa web interface:
 
-[shiblogin.png: Work in progress]
+![][shiblogin.png]
 
 Configuring Apache HTTP Server
 ------------------------------
