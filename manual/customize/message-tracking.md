@@ -28,7 +28,7 @@ Tracking feature is accessible in archive web page when list owner display a mes
 
 The following screen copy is a part of the tracking information of one message from a list archive. Email address are hidden in this image for privacy reason.
 
-![][../media/screen_shot_tracking.png]
+![](../media/screen_shot_tracking.png)
 
 Setup
 -----

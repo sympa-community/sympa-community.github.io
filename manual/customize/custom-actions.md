@@ -106,5 +106,5 @@ sub process {
 
 Here is the result:
 
-![][../media/custom_action.png]
+![](../media/custom_action.png)
 
