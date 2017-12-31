@@ -1,30 +1,93 @@
 Data sources
 ============
 
-(Work in progress)
+Sympa can include list subscribers, owners and editors from external data
+sources.
+The supported data sources should all return a set of email addresses, because
+that's the information Sympa needs to define a list user. You can define as
+many data sources as required, including data sources of the same type.
+
+Currently, these types of data sources are supported:
+
+  - `include_file`
+
+    Inclusion from the file on local server.
+
+  - `include_remote_file`
+
+    Inclusion from the file on remote server using HTTPS.
+
+  - `include_sympa_list`
+
+    Inclusion from the list on local server (either the same mail domain or
+    not).
+
+  - `include_remote_sympa_list`
+
+    Inclusion from the list on remote Sympa server.
+
+  - `include_ldap_query`
+
+    Inclusion using LDAP search operation.
+
+  - `include_ldap_2level_query`
+
+    Inclusion using LDAP search operation twice.
+
+  - `include_sql_query`
+
+    Inclusion using SQL query to SQL server or local CSV flle.
+
+Requirements
+------------
+
+  - To use datasources for remote file or remote Sympa list,
+    [IO-Socket-SSL]((https://metacpan.org/release/IO-Socket-SSL) Perl module
+    have to be installed.
+
+  - To use datasources based on SQL query, appropriate DBI driver (DBD)
+    Perl module corresponding to the database systems have to be installed: 
+    [DBD-CSV]((https://metacpan.org/release/DBD-CSV),
+    [DBD-mysql]((https://metacpan.org/release/DBD-mysql),
+    [DBD-ODBC]((https://metacpan.org/release/DBD-ODBC),
+    [DBD-Oracle]((https://metacpan.org/release/DBD-Oracle),
+    [DBD-Pg]((https://metacpan.org/release/DBD-Pg),
+    [DBD-SQLite]((https://metacpan.org/release/DBD-SQLite) or
+    [DBD-Sybase]((https://metacpan.org/release/DBD-Sybase).
+
+  - To use datasources based on LDAP search operation,
+    [Net-LDAP]((https://metacpan.org/release/Net-LDAP) Perl module have to be
+    have to be.  Additionally, if TLS connection to LDAP server --- LDAPS
+    (LDAP over TLS) or Start_TLS extension --- should be supported,
+    [IO-Socket-SSL]((https://metacpan.org/release/IO-Socket-SSL) Perl module
+    also have to be installed.
 
 Defining the data sources
 -------------------------
 
-The supported data sources should all return a set of email addresses, because
-that's the information Sympa needs to define a list member. You can define as
-many data sources as required, including data sources of the same type.
-
 ### List configuration parameters
 
-  - Member data sources are defined through
-    [`include_*`](../man/list_config.5.md#data-sources-setup) configuration
-    parameters; they can be edited through the list admin web interface of
-    Sympa.
+Data source definition comes from a separate `.inc` file located in the
+`data_sources/` directory (See "[Data inclusion file](#data-inclusion-file)").
+Any of following list configuration parameters then refers to this data source
+file.
+  - [`member_include`](../man/list_config.5.md#member_include) for members.
+  - [`owner_include`](../man/list_config.5.md#owner_include) for owners.
+  - [`editor_include`](../man/list_config.5.md#editor_include) for moderators.
 
-  - List owners can be defined using external data sources the same way members are. The main difference is related to the configuration parameters : data sources are not directly defined in the list configuration file, they come from a separate [`.inc` file located in the `data_sources/` directory](#data-inclusion-file). The [`owner_include`](../man/list_config.5.md#owner_include) list configuration parameter then refers to this data source file. This different configuration approach has been adopted to lessen the number of list configuration parameters.
+This configuration approach has been adopted to lessen the number of list
+configuration parameters.
 
-  - List moderators are defined the same way with the [`editor_include`](../man/list_config.5.md#editor_include) configuration parameter.
+There is another way to define member data sources: Member data source may
+also be defined using
+[`include_*`](../man/list_config.5.md#data-sources-setup) configuration
+parameters; they can be edited through the list admin web interface of Sympa.
 
 ----
 Note:
 
-  * The [`user_data_source`](../man/list_config.5.md#user_data_source)
+  * As of Sympa 6.2,
+    [`user_data_source`](../man/list_config.5.md#user_data_source)
     list configuration parameter is no more used (hard-coded include2 value);
     it has been introduced to support different members data management modes.
 
@@ -32,7 +95,7 @@ Note:
 
 ### Data inclusion file
 
-Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `member_include`, `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [list configuration parameters](../man/list_config.5.md#data-sources-setup)).  These files can be template files.
+Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `member_include`, `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [list configuration parameters](../man/list_config.5.md#data-sources-setup)).  These files can be processed as template files.
 
 Sympa looks for them in the following order:
 
@@ -40,7 +103,7 @@ Sympa looks for them in the following order:
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/data_sources/`*file*`.incl`;
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*mail domain*`/data_sources/`*file*`.incl`.
 
-These files are used by Sympa to load administrative data in a relational database: owners or editors are defined *intensively* (definition of criteria owners or editors must satisfy). Includes can be performed by extracting email addresses using an SQL or LDAP query, or by including other mailing lists.
+These files are used by Sympa to load administrative data in a relational database: owners or editors are defined *intensively* (definition of criteria owners or editors must satisfy). Includes can be performed by extracting email addresses using an SQL query or LDAP search operation, or by including other mailing lists.
 
 A data inclusion file is made of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_remote_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query`, `include_ldap_query` and `include_ldap_2level_query`. They are described in the [List configuration parameters](../man/list_config.5.md#data-sources-setup) chapter.
 

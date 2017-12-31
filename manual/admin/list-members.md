@@ -45,7 +45,7 @@ Sympa provides a way to have list membership based on third-party data sources. 
 
   - an SQL query
 
-  - an LDAP directory filter
+  - an LDAP search operation
 
 Once the data sources defined, the Sympa server will cope with the data updates.
 
