@@ -6,23 +6,23 @@ Data sources
 Data inclusion file
 -------------------
 
-Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [List configuration parameters](/manual/list-parameters)). This files can be template files.
+Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `member_include`, `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [List configuration parameters](../man/list_config.5.md#data-sources-setup)). This files can be template files.
 
 Sympa looks for them in the following order:
 
-  - `/home/sympa/expl/mylist/data_sources/<file>.incl`;
-  - `/home/sympa/etc/data_sources/<file>.incl`;
-  - `/home/sympa/etc/my.domain.org/data_sources/<file>.incl`.
+  - [``$EXPLDIR``](../layout.md#expldir)`/mylist/data_sources/`*file*`.incl`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/data_sources/`*file*`.incl`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*mail domain*`/data_sources/`*file*`.incl`.
 
 These files are used by Sympa to load administrative data in a relational database: owners or editors are defined *intensively* (definition of criteria owners or editors must satisfy). Includes can be performed by extracting email addresses using an SQL or LDAP query, or by including other mailing lists.
 
-A data inclusion file is made of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query` and `include_ldap_query`. They are described in the [List configuration parameters](/manual/list-parameters) chapter.
+A data inclusion file is made of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_remote_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query`, `include_ldap_query` and `include_ldap_2level_query`. They are described in the [List configuration parameters](../man/list_config.5.md#data-sources-setup) chapter.
 
-When this file is a template, the variables used are array elements (`param` array). This array is instantiated by values contained in the subparameter `source_parameter` of `owner_include` or `editor_inlude`.
+When this file is a template, the variables used are array elements (`param` array). This array is instantiated by values contained in the subparameter `source_parameter` of `owner_include` or `editor_include`.
 
 Example:
 
-  - in the list configuration file `/home/sympa/expl/mylist/config` :
+  - in the list configuration file [``$EXPLDIR``](../layout.md#expldir)`/mylist/config` :
 
     ``` code
     owner_include
@@ -30,7 +30,7 @@ Example:
     source_parameters mysql,rennes1,stduser,mysecret,studentbody,student
     ```
 
-  - in `/home/sympa/etc/data_sources/myfile.incl`:
+  - in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/data_sources/myfile.incl`:
 
     ``` code
     include_sql_query
