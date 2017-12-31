@@ -3,10 +3,36 @@ Data sources
 
 (Work in progress)
 
-Data inclusion file
--------------------
+Defining the data sources
+-------------------------
 
-Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `member_include`, `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [List configuration parameters](../man/list_config.5.md#data-sources-setup)). This files can be template files.
+The supported data sources should all return a set of email addresses, because
+that's the information Sympa needs to define a list member. You can define as
+many data sources as required, including data sources of the same type.
+
+### List configuration parameters
+
+  - Member data sources are defined through
+    [`include_*`](../man/list_config.5.md#data-sources-setup) configuration
+    parameters; they can be edited through the list admin web interface of
+    Sympa.
+
+  - List owners can be defined using external data sources the same way members are. The main difference is related to the configuration parameters : data sources are not directly defined in the list configuration file, they come from a separate [`.inc` file located in the `data_sources/` directory](#data-inclusion-file). The [`owner_include`](../man/list_config.5.md#owner_include) list configuration parameter then refers to this data source file. This different configuration approach has been adopted to lessen the number of list configuration parameters.
+
+  - List moderators are defined the same way with the [`editor_include`](../man/list_config.5.md#editor_include) configuration parameter.
+
+----
+Note:
+
+  * The [`user_data_source`](../man/list_config.5.md#user_data_source)
+    list configuration parameter is no more used (hard-coded include2 value);
+    it has been introduced to support different members data management modes.
+
+----
+
+### Data inclusion file
+
+Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `member_include`, `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [list configuration parameters](../man/list_config.5.md#data-sources-setup)).  These files can be template files.
 
 Sympa looks for them in the following order:
 
@@ -54,8 +80,67 @@ Example:
     sql_query SELECT DISTINCT email FROM student
     ```
 
-Using Active Directory for Sympa data sources
----------------------------------------------
+Excluding members from dynamic update
+-------------------------------------
+
+Particular users can be excluded from dynamic update.
+Excluded users will no longer be added nor deleted from the list when data
+sources are updated.  Thus, owners may be able to add or delete those users
+manually, and those users may be able to subscribe or unsubscribe themselves
+(if they are allowed).
+
+Information of excluded users are stored in
+[`exclusion_table`](../man/sympa_database.5.md#exclusion_table) table of
+database.  List owners can update the information in one of following ways:
+
+  - Using "Manage list members" -- "Exclude" in list administration menu,
+    list owners can add or remove users to be excluded.
+
+  - Deleting a member included from data sources from the list, they are
+    excluded automatically.
+
+Note that exclusion will not be released even if the same user will be added
+again.
+
+----
+Note:
+
+  * On Sympa prior to 6.2, deleting member needed exclusion in advance, if
+    they had already been included from data sources.
+
+    On 6.2 or later, deleting may imply exclusion.  If you noticed that
+    one or more users were not included from data sources, please check
+    "Exclude" in list administration menu.
+
+----
+
+Cache management
+----------------
+
+Sympa maintains a cache of included list members in the `subscriber_table` DB table. The update of the cache is mainly performed by the [task_manager.pl](../man/task_manager.1.md) process (via the `sync_include` task) ; the frequency of the updates is defined by the [`ttl` list configuration parameter](../man/list_config.5.md#ttl). However, an update can be performed by other processes under the following circumstances:
+
+  - [wwsympa.fcgi](../man/wwsympa.8.md), using the "Synchronize members with data source" button, from the members review page;
+
+  - wwsympa.fcgi, after a data-source related list configuration parameter has been edited;
+
+  - [sympa.pl](../man/sympa.1.md) in command line, using the `--sync_include` option;
+
+  - sympa.pl, before sending a message for a list (depends on the [`distribution_ttl` parameter](../man/list_config.5.md#distribution_ttl));
+
+  - sympa.pl or wwsympa.fcgi or [sympa_soap_server.fcgi](../man/sympa_soap_server.8.md), while performing a members review (depends on the [`distribution_ttl` parameter](../man/list_config.5.md#distribution_ttl)).
+
+If one or more data source is unreachable, the latest data will stay in the cache.
+
+Sympa stores 3 kinds of include-related informations in the list members DB row :
+
+  - `subscribed_subscriber`: set to 1 if the member did subscribe (or was added by the list owner) to the list
+
+  - `included_subscriber`: set to 1 if the member was included from an external data source(s)
+
+  - `include_sources_subscriber`: a comma-separated list of external source identiers. These identifiers are computed by Sympa processes.
+
+Tip: Using Active Directory for Sympa data sources
+--------------------------------------------------
 
 Active Directory having quite a specific functionning, *Steve Shipway* found a way to make it work with Sympa. Here is his guidelines to achieve this goal.
 
@@ -118,3 +203,4 @@ timeout2 10
 ```
 
 Both of these `.incl` templates work for us on our Windows2013 system, and are in active use for list configurations.
+
