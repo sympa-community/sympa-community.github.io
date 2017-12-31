@@ -49,13 +49,13 @@ needed.
     [&#x1F527;](man/sympa.conf.5.md#receiving)
   * Sending related
     [&#x1F527;](man/sympa.conf.5.md#sending-related)
-    [&#x2699;](man/nrcpt_by_domain.conf.5.md "nrcpt_by_domain.conf")
+    [&#x2699;](man/nrcpt_by_domain.conf.5.md# "nrcpt_by_domain.conf")
   * Privileges
     [&#x1F527;](man/sympa.conf.5.md#privileges)
-    [&#x2699;](man/edit_list.conf.5.md "edit_list.conf")
+    [&#x2699;](man/edit_list.conf.5.md# "edit_list.conf")
   * Archives
     [&#x1F527;](man/sympa.conf.5.md#archives)
-    [&#x2699;](man/mhonarc_ressources.tt2.5.md "mhonarc_ressources.tt2")
+    [&#x2699;](man/mhonarc_ressources.tt2.5.md# "mhonarc_ressources.tt2")
   * [Bounce management](customize/bounce-management.md)
     [&#x1F527;](man/sympa.conf.5.md#bounce-management-and-tracking)
   * Loop prevention
@@ -88,7 +88,7 @@ needed.
   * Appearances
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-appearances)
   * [Authentication on web interface](customize/authentication-web.md)
-    [&#x2699;](man/auth.conf.5.md "auth.conf")
+    [&#x2699;](man/auth.conf.5.md# "auth.conf")
   * Miscelaneous
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-miscelaneous)
 
@@ -96,7 +96,7 @@ needed.
         [&#x1F527;](man/sympa.conf.5.md#cookie_domain)
       - Shared document repository
         [&#x1F527;](man/sympa.conf.5.md#default_shared_quota)
-      - HTML editor
+      - Web mailer
         [&#x1F527;](man/sympa.conf.5.md#use_html_editor)
       - Password
         [&#x1F527;](man/sympa.conf.5.md#max_wrong_password)
@@ -106,14 +106,14 @@ needed.
         [&#x1F527;](man/sympa.conf.5.md#pictures_feature)
       - Protection against spam harvesters
         [&#x1F527;](man/sympa.conf.5.md#spam_protection)
-        [&#x2699;](man/crawlers_detection.conf.5.md "crawlers_detection.conf")
+        [&#x2699;](man/crawlers_detection.conf.5.md# "crawlers_detection.conf")
 
   * [Message tracking](customize/message-tracking.md)
     [&#x1F527;](man/sympa.conf.5.md#bounce-management-and-tracking)
   * [RSS feed](customize/rss-feed.md)
   * [User-friendly automatic lists](customize/friendly-automatic-lists.md)
     [&#x1F527;](man/sympa.conf.5.md#automatic_list_families)
-    [&#x2699;](man/automatic_lists_description.conf.5.md "automatic_lists_description.conf")
+    [&#x2699;](man/automatic_lists_description.conf.5.md# "automatic_lists_description.conf")
 
 Sympa services: Optional features
 ---------------------------------
@@ -125,8 +125,8 @@ external Perl modules.
     [&#x1F527;](man/sympa.conf.5.md#s-mime-and-tls)
     [&#x1F4E6;](https://metacpan.org/release/Crypt-OpenSSL-X509 "Crypt-OpenSSL-X509")
     [&#x1F4E6;](https://metacpan.org/release/Crypt-SMIME "Crypt-SMIME")
-  * Data sources setup
-    [&#x1F527;](man/sympa.conf.5.md#data-sources-setup)
+  * [Data sources](data-sources.md)
+    [&#x1F527;](man/list_config.5.md#data-sources-setup)
     [&#x1F4E6;](https://metacpan.org/release/DBD-CSV "DBD-CSV")
     [&#x1F4E6;](https://metacpan.org/release/DBD-mysql "DBD-mysql")
     [&#x1F4E6;](https://metacpan.org/release/DBD-ODBC "DBD-ODBC")
@@ -143,8 +143,8 @@ external Perl modules.
     [&#x1F527;](man/sympa.conf.5.md#dmarc-protection)
     [&#x1F4E6;](https://metacpan.org/release/Net-DNS "Net-DNS")
   * Managing aliases with LDAP
-    [&#x2699;](man/ldap_alias_manager.conf.5.md "ldap_alias_manager.conf")
-    [&#x2699;](man/ldap_alias_entry.tt2.5.md "ldap_alias_entry.tt2")
+    [&#x2699;](man/ldap_alias_manager.conf.5.md# "ldap_alias_manager.conf")
+    [&#x2699;](man/ldap_alias_entry.tt2.5.md# "ldap_alias_entry.tt2")
     [&#x1F4E6;](https://metacpan.org/release/Net-LDAP "Net-LDAP")
     [&#x1F4E6;](https://metacpan.org/release/IO-Socket-SSL "IO-Socket-SSL")
   * ~~Managing aliases with RDBMS~~ (currently broken)
@@ -182,8 +182,8 @@ external Perl modules.
     [&#x1F4E6;](http://shibboleth.internet2.edu "Shibboleth SP")
   * [SOAP/HTTP API](customize/soap-api.md)
     [&#x1F527;](man/sympa.conf.5.md#soap-http-interface)
-    [&#x2699;](man/trusted_applications.conf.5.md "trusted_applications.conf")
-    [&#x2699;](man/sympa.wsdl.5.md "sympa.wsdl")
+    [&#x2699;](man/trusted_applications.conf.5.md# "trusted_applications.conf")
+    [&#x2699;](man/sympa.wsdl.5.md# "sympa.wsdl")
     [&#x1F4E6;](https://metacpan.org/release/SOAP-Lite "SOAP-Lite")
 
   * Miscelaneous

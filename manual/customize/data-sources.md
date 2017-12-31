@@ -1,3 +1,8 @@
+---
+title: 'Data sources'
+up: ../customize.md#sympa-services-optional-features
+---
+
 Data sources
 ============
 
@@ -42,24 +47,24 @@ Requirements
 ------------
 
   - To use datasources for remote file or remote Sympa list,
-    [IO-Socket-SSL]((https://metacpan.org/release/IO-Socket-SSL) Perl module
+    [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL) Perl module
     have to be installed.
 
   - To use datasources based on SQL query, appropriate DBI driver (DBD)
     Perl module corresponding to the database systems have to be installed: 
-    [DBD-CSV]((https://metacpan.org/release/DBD-CSV),
-    [DBD-mysql]((https://metacpan.org/release/DBD-mysql),
-    [DBD-ODBC]((https://metacpan.org/release/DBD-ODBC),
-    [DBD-Oracle]((https://metacpan.org/release/DBD-Oracle),
-    [DBD-Pg]((https://metacpan.org/release/DBD-Pg),
-    [DBD-SQLite]((https://metacpan.org/release/DBD-SQLite) or
-    [DBD-Sybase]((https://metacpan.org/release/DBD-Sybase).
+    [DBD-CSV](https://metacpan.org/release/DBD-CSV),
+    [DBD-mysql](https://metacpan.org/release/DBD-mysql),
+    [DBD-ODBC](https://metacpan.org/release/DBD-ODBC),
+    [DBD-Oracle](https://metacpan.org/release/DBD-Oracle),
+    [DBD-Pg](https://metacpan.org/release/DBD-Pg),
+    [DBD-SQLite](https://metacpan.org/release/DBD-SQLite) or
+    [DBD-Sybase](https://metacpan.org/release/DBD-Sybase).
 
   - To use datasources based on LDAP search operation,
-    [Net-LDAP]((https://metacpan.org/release/Net-LDAP) Perl module have to be
+    [Net-LDAP](https://metacpan.org/release/Net-LDAP) Perl module have to be
     have to be.  Additionally, if TLS connection to LDAP server --- LDAPS
     (LDAP over TLS) or Start_TLS extension --- should be supported,
-    [IO-Socket-SSL]((https://metacpan.org/release/IO-Socket-SSL) Perl module
+    [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL) Perl module
     also have to be installed.
 
 Defining the data sources
@@ -99,9 +104,9 @@ Every file has the `.incl` extension. Moreover, these files must be declared in 
 
 Sympa looks for them in the following order:
 
-  - [``$EXPLDIR``](../layout.md#expldir)`/mylist/data_sources/`*file*`.incl`;
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/data_sources/`*file*`.incl`;
+  - [``$EXPLDIR``](../layout.md#expldir)`/`*list path*`/data_sources/`*file*`.incl`;
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*mail domain*`/data_sources/`*file*`.incl`.
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/data_sources/`*file*`.incl`;
 
 These files are used by Sympa to load administrative data in a relational database: owners or editors are defined *intensively* (definition of criteria owners or editors must satisfy). Includes can be performed by extracting email addresses using an SQL query or LDAP search operation, or by including other mailing lists.
 
@@ -180,7 +185,7 @@ Note:
 Cache management
 ----------------
 
-Sympa maintains a cache of included list members in the `subscriber_table` DB table. The update of the cache is mainly performed by the [task_manager.pl](../man/task_manager.1.md) process (via the `sync_include` task) ; the frequency of the updates is defined by the [`ttl` list configuration parameter](../man/list_config.5.md#ttl). However, an update can be performed by other processes under the following circumstances:
+Sympa maintains a cache of included list members in the [`subscriber_table`](../man/sympa_database.5.md#subscriber_table) database table. The update of the cache is mainly performed by the [task_manager.pl](../man/task_manager.8.md) process (via the `sync_include` task) ; the frequency of the updates is defined by the [`ttl`](../man/list_config.5.md#ttl) list configuration parameter. However, an update can be performed by other processes under the following circumstances:
 
   - [wwsympa.fcgi](../man/wwsympa.8.md), using the "Synchronize members with data source" button, from the members review page;
 

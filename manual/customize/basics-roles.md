@@ -1,6 +1,6 @@
 ---
 title: 'Roles and privileges'
-prev: basics-addresses.md
+prev: basics-workflow.md
 up: ../customize.md#customization-basics
 next: basics-configuration.md
 ---

@@ -60,7 +60,7 @@ Note that the `,,` are optional, but it is the way you can pass information to y
 
 Remember that the package name has to be lowercase, but the `CustomCondition` namespace is case sensitive. If your package returns `undef`, the sender will receive an 'internal error' mail. If it returns anything else but `1`, the sender will receive a 'forbidden' error.
 
-Tutorail: How to use message related variables within scenario rule conditions
+Tutorial: How to use message related variables within scenario rule conditions
 ------------------------------------------------------------------------------
 
 This tutorial was *also* submitted by Thomas Berry, JPL, NASA. Thanks to him!
