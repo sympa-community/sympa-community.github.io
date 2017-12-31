@@ -48,24 +48,24 @@ Requirements
 
   - To use datasources for remote file or remote Sympa list,
     [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL) Perl module
-    have to be installed.
+    has to be installed.
 
   - To use datasources based on SQL query, appropriate DBI driver (DBD)
-    Perl module corresponding to the database systems have to be installed: 
+    Perl modules corresponding to the database systems have to be installed: 
     [DBD-CSV](https://metacpan.org/release/DBD-CSV),
     [DBD-mysql](https://metacpan.org/release/DBD-mysql),
     [DBD-ODBC](https://metacpan.org/release/DBD-ODBC),
     [DBD-Oracle](https://metacpan.org/release/DBD-Oracle),
     [DBD-Pg](https://metacpan.org/release/DBD-Pg),
-    [DBD-SQLite](https://metacpan.org/release/DBD-SQLite) or
+    [DBD-SQLite](https://metacpan.org/release/DBD-SQLite) and/or
     [DBD-Sybase](https://metacpan.org/release/DBD-Sybase).
 
   - To use datasources based on LDAP search operation,
-    [Net-LDAP](https://metacpan.org/release/Net-LDAP) Perl module have to be
+    [Net-LDAP](https://metacpan.org/release/Net-LDAP) Perl module has to be
     installed.  Additionally, if TLS connection to LDAP server --- LDAPS
     (LDAP over TLS) or Start_TLS extension --- should be supported,
     [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL) Perl module
-    also have to be installed.
+    also has to be installed.
 
 Defining the data sources
 -------------------------
