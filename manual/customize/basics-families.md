@@ -195,7 +195,7 @@ Once the family has been instantiated, each list directory will contain a messag
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
 ```
 
-Each time a message is sent to the list (provided you set the `merge_feature` parameter to `on`), this file will be parsed and allow to display the following text at the bottom of each message:
+Each time a message is sent to the list (provided you set the [`merge_feature`](../man/list_config.5.md#merge_feature) parameter to `on`), this file will be parsed and allow to display the following text at the bottom of each message:
 
 ``` code
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : http://lists.domain.tld/auto_signoff/mylist/bob.mcbob%40domain.tld

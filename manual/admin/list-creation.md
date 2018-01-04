@@ -284,7 +284,7 @@ Using `edit_list.conf`, you can define privileges on the following lists paramet
       - message.header
       - bye.tt2
       - removed.tt2
-      - tour\_infected\_msg.tt2
+      - your\_infected\_msg.tt2
 
 ----
 Notes:

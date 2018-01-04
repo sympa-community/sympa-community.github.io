@@ -271,7 +271,7 @@ You must give a few information in order to create a LDAP Named Filter:
 
   - `filter`
 
-    Defines the LDAP search filter (RFC 2254 compliant). But you must absolutely take into account the first part of the filter which is: `(mail_attribute = [sender])`, as shown in the example. You will have to replace `mail_attribute` by the name of the attribute for the email. Sympa checks whether the user belongs to the category of people defined in the filter.
+    Defines the LDAP search filter ([RFC 4515](https://tools.ietf.org/html/rfc4515)). But you must absolutely take into account the first part of the filter which is: `(mail_attribute = [sender])`, as shown in the example. You will have to replace `mail_attribute` by the name of the attribute for the email. Sympa checks whether the user belongs to the category of people defined in the filter.
 
   - `scope`
 

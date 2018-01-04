@@ -1,3 +1,10 @@
+---
+title: 'Message alteration'
+prev: basics-addresses.md
+up: basics-workflow.md
+next: basics-delivery.md
+---
+
 Message alteration
 ==================
 

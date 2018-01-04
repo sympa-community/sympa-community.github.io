@@ -2,7 +2,7 @@
 title: 'Mail addresses'
 prev: ../customize.md
 up: basics-workflow.md
-next: basics-delivery.md
+next: basics-alterations.md
 ---
 
 Mail addresses

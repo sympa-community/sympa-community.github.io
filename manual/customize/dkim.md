@@ -49,7 +49,7 @@ Those 2 rules will not match any messsage with a valid DKIM signature, you must 
 
 If you choose the second solution, you accept DKIM as a valid authentication mecanism.
 
-If the front MTA adds the [Authentication-results header](http://www.ietf.org/rfc/rfc5451.txt), Sympa can of course check this SMTP header field using standard match() and equal() scenario conditions.
+If the front MTA adds the [`Authentication-results`](https://tools.ietf.org/html/rfc7001) header field, Sympa can of course check this SMTP header field using standard match() and equal() scenario conditions.
 
 Outgoing messages
 -----------------
@@ -76,7 +76,7 @@ This behavior is controlled by [dkim_add_signature_to](../man/sympa.conf.5.md#dk
 
 ### Prerequisites for DKIM signing
 
-Before Sympa is able to DKIM-sign messages, you need to set several related parameters. The most important ones are [dkim_private_key_path](../man/sympa.conf.5.md#dkim_private_key_path) (private key file location) and [dkim_selector](../man/sympa.conf.5.md#dkim_selector). Other parameters related to RFC 4871: [dkim_signer_domain](../man/sympa.conf.5.md#dkim_signer_domain), [dkim_signer_identity](../man/sympa.conf.5.md#dkim_signer_identity),[dkim_header_list](../man/sympa.conf.5.md#dkim_header_list).
+Before Sympa is able to DKIM-sign messages, you need to set several related parameters. The most important ones are [dkim_private_key_path](../man/sympa.conf.5.md#dkim_private_key_path) (private key file location) and [dkim_selector](../man/sympa.conf.5.md#dkim_selector). Other parameters related to [RFC 6376](https://tools.ietf.org/html/rfc6376): [dkim_signer_domain](../man/sympa.conf.5.md#dkim_signer_domain), [dkim_signer_identity](../man/sympa.conf.5.md#dkim_signer_identity),[dkim_header_list](../man/sympa.conf.5.md#dkim_header_list).
 
 The private key is a PEM encoded RSA key <sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup> (a PEM encoded key include base64 encoded informations and starts with `—–BEGIN RSA PRIVATE KEY—–`.). The public key associated with that private key must be published in a DNS TXT record for entry `<selector>._domainkey.<domain>` where `<selector>` is [dkim_selector](../man/sympa.conf.5.md#dkim_selector) and `<domain>` is [dkim_signer_domain](../man/sympa.conf.5.md#dkim_signer_domain). The signer domain should be the domain of the list ; this is the default, don't change it unless you have strong reason for it.
 
@@ -103,6 +103,6 @@ Summary of parameters
 | [dkim_signer_domain](../man/sympa.conf.5.md#dkim_signer_domain) | the robot domain | dkim > `signer_domain` |
 | [dkim_selector](../man/sympa.conf.5.md#dkim_selector) | no default | dkim > `selector` |
 | [dkim_signer_identity](../man/sympa.conf.5.md#dkim_signer_identity) | none for robot's messages, _`listname`_`-request@robot` for lists | dkim > `identity_domain` |
-| ~~[dkim_header_list](../man/sympa.conf.5.md#dkim_header_list)~~ | as recommended in RFC4871 | Not yet implemented |
+| ~~[dkim_header_list](../man/sympa.conf.5.md#dkim_header_list)~~ | as recommended in RFC 6376 | Not yet implemented |
 
 <sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> The private key can't be encrypted with a passphase

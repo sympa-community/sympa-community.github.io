@@ -8,8 +8,8 @@ LMTP Delivery
 
 [``sympa_smtpc``](../man/sympa_smtpc.1.md) is a small program to be used as
 an alternative to sendmail(1) utility.  It supports
-[LMTP protocol](https://tools.ietf.org/html/rfc2033) along with SMTP/ESMTP
-protocols.
+Local Mail Transfer Protocol ([LMTP](https://tools.ietf.org/html/rfc2033))
+along with SMTP / ESMTP.
 
 Installation
 ------------

@@ -67,5 +67,5 @@ So, what can you do with that feature?
 
 The custom attributes are displayed for each user in the subscribers review of the web interface.
 
-You can use these attributes to ~~[message personalization](message-personalization.md)~~.
+You can use these attributes to ~~[message personalization](web-mailer.md#message-personalization)~~.
 
