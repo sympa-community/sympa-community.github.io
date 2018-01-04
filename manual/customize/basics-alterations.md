@@ -116,28 +116,73 @@ Eventually, the message is delivered to recipient by the MTA.
 Message reception modes
 -----------------------
 
-  - Headers and footers may be added. They are either added as separate MIME
-    parts or within the message body, if it is of text type (see
-    "~~[Message header and footer](/manual/list-definition#message_header_and_footer)~~").
+List members can choose the reception mode of their own either through the web
+interface or via the `SET `*list*` `*mode* mail command.
 
-  - Message content-type may be changed from multipart/alternative to
-    text/plain if the user has selected the `txt` reception mode.
+The available reception modes can be restricted by listmasters and/or list
+owners with the
+[`available_user_options`](../man/list_config.5.md#available_user_options)
+list/global parameter.  list owners can define default reception mode for
+users added to the list with
+[`default_user_options`](../man/list_config.5.md#default_user_options)
+list parameter.
 
-Attachments
------------
+Following changes are made by each mode:
 
-Sympa distribution process copes well with MIME messages, including those
-including attachments. However there are situations special processing for
-messages with attachments:
+### Regular delivery
 
-  - [`max_size`](../man/list_config.5.md#max_size) : this parameter controls
-    the maximum allowed size for a distributed message,
-
-  - urlize : list members can select this reception mode to have attachments
-    removed from the message and stored on the list server. Urlizization
-    depends on the message size and the
+  - `mail`:
+    Keeps original content of the message.
+  - `notice`:
+    Keeps only the subject of the message.  Message body is entirely removed.
+  - `txt`:
+    Keeps only plain text part of `multipart/alternative` message.
+    Message content-type is changed from multipart/alternative to
+    text/plain.
+  - `urlize`:
+    Replaces attachments with the links to the file in message archive.
+    This "urlizization" depends on the size of each message part: See also
     [`urlize_min_size`](../man/list_config.5.md#urlize_min_size) parameter.
 
-Loop prevention
----------------
+  - `not_me`:
+    Same as `mail`, however if the recipient is originator of the message,
+    no delivery.
+  - `nomail`:
+    No delivery.
+
+Additionally with `mail`, `not_me`, `txt` or `urlize` mode,
+"header" and/or "footer" may be added. They are either added as separate MIME
+parts, or within the message body if it is of text type.
+See
+"~~[Message header and footer](/manual/list-definition#message_header_and_footer)~~").
+
+*However*, `mail` and `not_me` modes do not alter S/MIME signed message (i.e.
+its MIME type is `multipart/signed`) so that integrity of signature will not
+be broken.
+
+----
+Note:
+
+  * `html` reception mode was deprecated on Sympa 6.2.24. Like `txt` mode,
+    this mode intended to keep only *HTML part* of multipart messages, and
+    therefore not practically useful.
+
+----
+
+### Digest delivery
+
+If the recipient chooses one of following digest delivery modes, multiple
+messages are compiled in one message and delivered periodically.
+
+  - `digest`:
+    Digest delivery (MIME `multipart/digest` format).
+  - `digestplain`:
+    Digest delivery (plain text format).
+  - `summary`:
+    Digest delivery, sort of: Sends the list of links to message archive.
+
+With `digest` mode, the body of each message compiled in is not altered.
+the other modes does not keep signature.
+
+*However*, encrypted messages are never included in compiled message.
 

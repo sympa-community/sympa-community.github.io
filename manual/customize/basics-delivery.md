@@ -1,6 +1,6 @@
 ---
 title: 'Message delivery'
-prev: basics-addresses.md
+prev: basics-alterations.md
 up: basics-workflow.md
 next: basics-roles.md
 ---
@@ -24,63 +24,33 @@ until the member will restore subscription.
 Suspending members are marked "suspended" in the list review page on web
 interface.
 
-Message reception modes
------------------------
-
-List members can select a reception mode for messages sent through the list.
-Here is a list of the all reception modes.
-
-Regular delivery:
-The message is delivered immediately (if it is allowed).
-
-  - `mail`:
-    Standard (direct delivery).
-  - `notice`:
-    Sends only the subject of messages.
-  - `txt`:
-    Sends only plain text part of `multipart/alternative` messages.
-  - `urlize`:
-    Replaces attachments with the links to the file in message archive.
-  - `nomail`:
-    No delivery.
-  - `not_me`:
-    No delivery, only if the recipient is originator of the message.
-
-Digest delivery:
-Multiple messages are compiled in one message which is delivered periodically.
-
-  - `digest`:
-    Digest delivery (MIME `multipart/digest` format).
-  - `digestplain`:
-    Digest delivery (plain text format).
-  - `summary`:
-    Digest delivery, sort of: Sends the list of links to message archive.
-
-On digest delivery, the list owner can set the days and time to deliver
-compiled messages, using [`digest`](../man/list_config.5.md#digest) list
-parameter.
+Regular delivery and digest delivery
+------------------------------------
 
 ----
 Note:
 
-  * If a message is encrypted, it will not be included in digest delivery.
-
-  * `html` reception mode was deprecated on Sympa 6.2.24. Like `txt` mode,
-    this mode intended to send *HTML part* of multipart messages, and
-    therefore not practically useful.
+  * See also
+    "[Message reception modes](basics-alterations.md#message-reception-modes)"
+    in "Message alteration".
 
 ----
 
-List members can choose the reception mode of their own either through the web
-interface or via the `SET `*list*` `*mode* mail command.
+List members can select a reception mode for messages sent through the list.
 
-The available reception modes can be restricted by listmasters and/or list
-owners with the
-[`available_user_options`](../man/list_config.5.md#available_user_options)
-list/global parameter.  list owners can define default reception mode for
-users added to the list with
-[`default_user_options`](../man/list_config.5.md#default_user_options)
-list parameter.
+With one of [regular delivery](basics-alterations.md#regular-delivery) modes,
+The message is delivered immediately, if it is allowed.
+
+*However*, if [`delivery_time`](../man/list_config.5.md#delivery_time)
+list configuration parameter is set, messages will be delivered at that time,
+and delivery of messages sent after that time will be postponed to the next
+day.
+
+With one of [digest delivery](basics-alterations.md#digest-delivery) modes,
+multiple messages are compiled in one message which is delivered periodically.
+
+The list owner can set the days and time to deliver compiled message using
+[`digest`](../man/list_config.5.md#digest) list parameter.
 
 Message topics
 --------------
