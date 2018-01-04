@@ -51,6 +51,40 @@ will be replaced with localized phrase of `A text` using translation catalogs
 See ["Filters" in Sympa::Template(3)](../man/Sympa-Template.3.md#filters)
 on custom filter directives proveded by Sympa.
 
+### Attached message in mail template
+
+Some mail templates may include another mail messages as attachments, i.e.
+the MIME parts with `message/rfc822` type.  For example, below is an excerpt
+from `mail_tt2/digest.tt2` for digest (MIME format) messages:
+``` code
+...
+Content-Type: multipart/digest; boundary="[% boundary2 %]"
+Mime-Version: 1.0
+
+This is a multi-part message in MIME format...
+
+[% FOREACH m = msg_list -%]
+--[% boundary2 %]
+Content-Type: message/rfc822
+Content-Disposition: inline
+X-Sympa-Attach: yes
+
+[%# message inserted here #%]
+
+[% END %]
+--[% boundary2 %]--
+
+...
+```
+If a part with `X-Sympa-Attach` pseudo-header field appears, its body will
+be replaced with a message, discarding original body.  This way, messages may
+be attached with their contents not being altered.
+
+### Line wrapping in mail templates
+
+By default, text body of mail template (exept attached part described in above)
+is wrapped.  `X-Sympa-NoWrap` pseudo-header field prevents line wrapping.
+
 Location
 --------
 
@@ -128,7 +162,7 @@ domain: See
     [Message personalization](../man/list_config.5.md#merge_feature) enabled,
     Sympa treats the bodies of incoming messages as templates, and delivers
     messages customized by each member.  See
-    "~~[Message personalization](../customize/message-personalization.md)~~"
+    "~~[Message personalization](../customize/web-mailer.md#message-personalization)~~"
     for details.
 
 (Work in progress)
