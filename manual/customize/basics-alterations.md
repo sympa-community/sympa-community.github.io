@@ -1,39 +1,127 @@
-Message workflow
-================
+Message alteration
+==================
+
+Sympa's [`sympa_msg.pl`](../man/sympa_msg.8.md) daemon fetches incoming
+messages on the incoming spool, [``$SPOOLDIR``](../layout.md#spooldir)`/msg`
+directory.  Then it creates an memory image of the message
+for later processing.  At the end, the processed image is stored into
+outgoing spool, [``$SPOOLDIR``](../layout.md#spooldir)`/bulk` directory,
+and [`bulk.pl`](../man/bulk.8.md) daemon fetches and dumps it to the mail
+transfer agent (MTA).
 
 Does Sympa alter messages?
 --------------------------
 
-Sympa receives incoming messages in its `msg` spool. An image of the message
-is then created (a MIME::Entity, using MIME-Tools CPAN library) for later
-processing. At the end, the MIME::Entity object is dumped to the mail tranfer
-agent (sendmail, postfix,...). Note that the message might be altered by this
-intermediate MIME::Entity object (row size for Base64 encoded MIME parts for
-example). The use of the MIME::Entity intermediate object is skipped is a
-message is S/MIME signed because any changes in any part of the message body
-would break the S/MIME signature.
+The intermediate image described above might be altered.  However, if a
+message is S/MIME signed, it should not be altered, because any changes in any
+part of the message body would break integrity of the S/MIME signature.
 
-Note also that Sympa might perform the following changes to the distributed
-messages; however some of this alterations of the messages can be configured.
+Sympa might perform the following changes to the messages to be distributed.
+Some of these alterations can be configured.
 
-  - SMTP header fields are added/removed for loop prevention (see
-    ~~[loop detection](/manual/customizing#loop_detection)~~),
-    for RFC 2369 compliance (see
-    [`rfc2369_header_fields`](../man/list_config.5.md##rfc2369_header_fields))
-    or through customizations (see
-    [`remove_headers`](../man/list_config.5.md#remove_headers)).
+### Decrypting
 
-  - The subject of the message might be changed to add a custom subject (see
-    [`custom_subject`](../man/list_config.5.md#custom_subject)).
+  - If a message is encrypted and S/MIME certificate of originator is valid,
+    decryption is tried.  Later this message may be encrypted again
+    (see below).
+
+### Altering message header
+
+  - `X-Sympa-Topic` header field is added as necessity.
+
+    See "[Message topics](basics-delivery.md#message-topics)".
+
+  - If anonymization mode is enabled, several header fields are removed or
+    consealed.
+
+    See [`anonymous_sender`](../man/list_config.5.md#anonymous_sender) and
+    [`anonymous_header_fields`](../man/sympa.conf.5.md#anonymous_header_fields)
+    parameters.
+
+  - The subject of the message might be changed to add a custom subject tag.
+
+    See [`custom_subject`](../man/list_config.5.md#custom_subject).
+
+  - Additional header fields are removed according to customizations.
+
+    See [`remove_headers`](../man/list_config.5.md#remove_headers) and
+    [`remove_outgoing_headers`](../man/list_config.5.md#remove_outgoing_headers).
+
+    ----
+    Note:
+
+      * `remove_headers` does not remove header fields described after this,
+        but `remove_outgoing_headers` can do.  Use the latter one only when
+        you know what you are doing, or messages might not be distributed
+        correctly.
+
+    ----
+
+  - `Reply-To` header field is altered according to configuration.
+
+     See [`reply_to_header`](../list_config.5.md#reply_to_header).
+
+  - `X-Sequence` header field is added.  Its value is the sequence number of
+     posts.
+
+  - Some header fields are added/removed to prevent mail loop.
+
+    See "~~[Loop prevention](../customize/loop-prevention.md)~~".
+
+  - `Sender` header field is added/altered.  It should have appropriate value
+    to satisfy some sender domain validation systems such as DKIM, Sender ID.
+
+  - Header fields configured by
+    [`custom_header`](../list_config.5.md#custom_header) are added.
+
+  - Some mailing list header fields for
+    [RFC 2369](https://tools.ietf.org/html/rfc2369) compliance (see
+    [`rfc2369_header_fields`](../man/list_config.5.md#rfc2369_header_fields))
+    are added.
+    Also, `List-Id` ([RFC 2919](https://tools.ietf.org/html/rfc2919)) and
+    `Archived-At` ([RFC 5064](https://tools.ietf.org/html/rfc5064)) fields are
+    added.
+
+### Altering message body
+
+  - Message body is altered according to message reception mode chosen by each
+    recipient.
+
+    See "[Message reception modes](#message-reception-modes)" for details.
+
+  - If message personalization is enabled, message body is altered further.
+
+    See "~~[Message personalization](../customize/web-mailer.md#message-personalization)~~".
+
+### Encrypting and signing
+
+  - If DMARC protection is enabled, `From` header field is consealed.
+
+    See "[DMRAC protection](../customize/dmarc-protection.md)".
+
+  - If original message has been decrypted (i.e. originally encrypted:
+    See above), re-encryption using certificate of recipient is tried.
+    When it fails, a message to inform failure instead of original message is
+    sent to recipient.
+
+    See "~~[S/MIME](../customize/smime.md)~~" for further details.
+
+  - If DKIM support is enabled, DKIM signature invalidated by alterations
+    so far is removed, then message is signed using Sympa's private key.
+
+    See "[DKIM features for Sympa](../customize/dkim.md)".
+
+Eventually, the message is delivered to recipient by the MTA.
+
+Message reception modes
+-----------------------
 
   - Headers and footers may be added. They are either added as separate MIME
     parts or within the message body, if it is of text type (see
-    "~~[Message header and footer](/manual/list-definition#message_header_and_footer)~~")
+    "~~[Message header and footer](/manual/list-definition#message_header_and_footer)~~").
 
   - Message content-type may be changed from multipart/alternative to
-    text/plain or text/html if the user has selected the corresponding
-    reception mode (see
-    "~~[multipartalternative](/manual/reception-mode#multipartalternative)~~").
+    text/plain if the user has selected the `txt` reception mode.
 
 Attachments
 -----------
