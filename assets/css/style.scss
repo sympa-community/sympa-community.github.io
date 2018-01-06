@@ -38,3 +38,47 @@ a:hover, a:focus {
     color: #000;
 }
 
+.pagetoc {
+    float: right;
+    clear: right;
+    max-width: 165px;
+    border: solid 1px #e0e0e0;
+    border-radius: 5px;
+    margin: 0.5em;
+    padding: 0.5em;
+    background-color: #fff;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+.pagetoc ul {
+    margin: 0;
+    padding: 0 0 0 2.0em;
+    -moz-padding-start: 2.0em;
+    -moz-padding-end: 0em;
+    -webkit-padding-start: 2.0em;
+    -webkit-padding-end: 0em;
+    padding-inline-start: 2.0em;
+    padding-inline-end: 0;
+}
+
+.toc-switch {
+    display: none;
+}
+.toc-switch ~ label {
+    display: block;
+    float: right;
+    clear: right;
+}
+.toc-switch ~ label:before {
+    content: '\25BE';
+}
+.toc-switch ~ p, .toc-switch ~ ul {
+    display: none;
+}
+.toc-switch:checked ~ label:before {
+    content: '\D7';
+}
+.toc-switch:checked ~ p, .toc-switch:checked ~ ul {
+    display: block;
+}
+
