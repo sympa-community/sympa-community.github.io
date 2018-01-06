@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::DispatchRequest(3)'
+---
+
 # NAME
 
 Sympa::Spindle::DispatchRequest -

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::remind(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::remind - remind request handler

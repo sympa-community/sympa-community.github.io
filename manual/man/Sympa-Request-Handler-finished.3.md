@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::finished(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::finished - finished request handler

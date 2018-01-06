@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Collection(3)'
+---
+
 # NAME
 
 Sympa::Request::Collection - Collection of requests

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::move_user(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::move\_user - change user's email

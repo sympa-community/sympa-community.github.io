@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::invite(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::invite - invite request handler

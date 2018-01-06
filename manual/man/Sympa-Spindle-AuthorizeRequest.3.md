@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::AuthorizeRequest(3)'
+---
+
 # NAME
 
 Sympa::Spindle::AuthorizeRequest -

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::ModDef(3)'
+---
+
 # NAME
 
 Sympa::ModDef - Definition of dependent modules

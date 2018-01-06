@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDescription(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDescription - Dafinition of core database structure

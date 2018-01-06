@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::distribute(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::distribute - distribute request handler

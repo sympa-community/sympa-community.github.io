@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Archive(3)'
+---
+
 # NAME
 
 Sympa::Spool::Archive - Spool for messages waiting for archiving

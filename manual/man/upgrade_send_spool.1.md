@@ -1,3 +1,7 @@
+---
+title: 'upgrade_send_spool(1)'
+---
+
 # NAME
 
 upgrade\_send\_spool, upgrade\_send\_spool.pl - Upgrade messages in incoming spool

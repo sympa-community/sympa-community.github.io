@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Moderation(3)'
+---
+
 # NAME
 
 Sympa::Spool::Moderation - Spool for held messages waiting for moderation

@@ -1,3 +1,7 @@
+---
+title: 'task_manager(8)'
+---
+
 # NAME
 
 task\_manager, task\_manager.pl - Daemon to Process Periodical Sympa Tasks

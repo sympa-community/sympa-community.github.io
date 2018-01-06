@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Tools::File(3)'
+---
+
 # NAME
 
 Sympa::Tools::File - File-related functions

@@ -1,3 +1,7 @@
+---
+title: 'sympa_scenario(5)'
+---
+
 # NAME
 
 sympa\_scenario - Authorization scenario
@@ -259,14 +263,14 @@ Modifiers:
 
     Sends no notification to the message sender.
 
-- `(reason=`_reason\_key_`)`
+- `(reason='`_reason\_key_`')`
 
     Only for `reject` action.
     Matches a key in `mail_tt2/authorization_reject.tt2` template corresponding
     to an information message about the reason of the reject of the user.
     _reason\_key_ have to be a static string enclosed by `'...'`.
 
-- `(tt2=`_tpl\_name_`)`
+- `(tt2='`_tpl\_name_`')`
 
     Only for `reject` action.
     Corresponding template (_tpl\_name_`.tt2`) is sent to the sender.

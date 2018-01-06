@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::last(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::last - last request handler

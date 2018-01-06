@@ -1,3 +1,7 @@
+---
+title: 'topics.conf(5)'
+---
+
 # NAME
 
 topics.conf - Configuration of list topics

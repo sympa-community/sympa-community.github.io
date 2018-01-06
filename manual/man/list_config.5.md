@@ -1,3 +1,7 @@
+---
+title: 'list_config(5)'
+---
+
 # NAME
 
 list\_config - Configuration file for mailing list
@@ -453,6 +457,8 @@ Delivery time (hh:mm)
 - Default:
 
     None.
+
+If this parameter is present, non-digest messages will be delivered to subscribers at this time: When this time has been past, delivery is postponed to the same time in next day.
 
 ### `digest`
 

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ToHeld(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ToHeld -

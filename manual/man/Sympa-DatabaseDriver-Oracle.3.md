@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::Oracle(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::Oracle - Database driver for Oracle Database

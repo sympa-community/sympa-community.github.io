@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Aliases(3)'
+---
+
 # NAME
 
 Sympa::Aliases - Base class for alias management

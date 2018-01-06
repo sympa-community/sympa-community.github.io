@@ -1,3 +1,7 @@
+---
+title: 'upgrade_bulk_spool(1)'
+---
+
 # NAME
 
 upgrade\_bulk\_spool, upgrade\_bulk\_spool.pl - Migrating messages in bulk tables

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::decl(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::decl - decl request handler

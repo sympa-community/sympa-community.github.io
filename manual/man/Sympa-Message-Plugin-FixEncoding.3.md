@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Message::Plugin::FixEncoding(3)'
+---
+
 # NAME
 
 Sympa::Message::Plugin::FixEncoding -

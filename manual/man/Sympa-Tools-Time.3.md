@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Tools::Time(3)'
+---
+
 # NAME
 
 Sympa::Tools::Time - Time-related functions

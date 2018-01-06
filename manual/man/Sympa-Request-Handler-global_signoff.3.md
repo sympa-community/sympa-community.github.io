@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::global_signoff(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::global\_signoff - global 'signoff' request handler

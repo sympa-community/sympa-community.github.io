@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessArchive(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessArchive - Workflow of archive storage

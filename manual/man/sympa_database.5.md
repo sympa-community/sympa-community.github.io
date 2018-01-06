@@ -1,3 +1,7 @@
+---
+title: 'sympa_database(5)'
+---
+
 # NAME
 
 sympa\_database - Strutcure of Sympa core database

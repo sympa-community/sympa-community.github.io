@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::lists(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::lists - lists request handler

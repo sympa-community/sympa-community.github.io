@@ -1,3 +1,7 @@
+---
+title: 'ldap_alias_manager.conf(5)'
+---
+
 # NAME
 
 ldap\_alias\_manager.conf - Configuration of LDAP alias management

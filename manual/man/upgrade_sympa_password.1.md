@@ -1,3 +1,7 @@
+---
+title: 'upgrade_sympa_password(1)'
+---
+
 # NAME
 
 upgrade\_sympa\_password, upgrade\_sympa\_password.pl -

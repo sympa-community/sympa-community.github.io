@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::add(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::add - add request handler

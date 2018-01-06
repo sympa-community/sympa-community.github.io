@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::create_automatic_list(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::create\_automatic\_list -

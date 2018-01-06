@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Aliases::CheckSMTP(3)'
+---
+
 # NAME
 
 Sympa::Aliases::CheckSMTP - Alias management: Check addresses using SMTP

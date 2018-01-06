@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Regexps(3)'
+---
+
 # NAME
 
 Sympa::Regexps - Definition of regular expressions

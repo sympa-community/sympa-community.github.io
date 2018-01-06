@@ -1,3 +1,7 @@
+---
+title: 'sympa.wsdl(5)'
+---
+
 # NAME
 
 sympa.wsdl - Service description of SOAP HTTP interface for Sympa

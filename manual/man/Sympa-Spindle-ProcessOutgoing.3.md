@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessOutgoing(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessOutgoing - Workflow of message distribution

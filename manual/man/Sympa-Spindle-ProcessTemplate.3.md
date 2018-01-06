@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessTemplate(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessTemplate - Workflow of template sending

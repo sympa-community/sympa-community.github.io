@@ -1,3 +1,7 @@
+---
+title: 'Sympa::HTMLDecorator(3)'
+---
+
 # NAME
 
 Sympa::HTMLDecorator - Decorating HTML texts

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Bounce(3)'
+---
+
 # NAME
 
 Sympa::Spool::Bounce - Spool for incoming bounce messages

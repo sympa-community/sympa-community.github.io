@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Alarm(3)'
+---
+
 # NAME
 
 Sympa::Alarm - Spool on memory for listmaster notification

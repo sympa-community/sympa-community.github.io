@@ -1,3 +1,7 @@
+---
+title: 'Sympa::User(3)'
+---
+
 # NAME
 
 Sympa::User - All Users Identified by Sympa

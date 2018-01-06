@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::move_list(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::move\_list - move\_list request handler

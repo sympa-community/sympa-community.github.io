@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool(3)'
+---
+
 # NAME
 
 Sympa::Spool - Base class of spool classes

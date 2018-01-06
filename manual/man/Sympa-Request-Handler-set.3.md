@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::set(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::set - set request handler

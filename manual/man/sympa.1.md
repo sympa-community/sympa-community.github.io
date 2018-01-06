@@ -1,3 +1,7 @@
+---
+title: 'sympa(1)'
+---
+
 # NAME
 
 sympa, sympa.pl - Command line utility to manage Sympa

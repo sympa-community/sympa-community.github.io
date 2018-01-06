@@ -1,3 +1,7 @@
+---
+title: 'Sympa::List::Config(3)'
+---
+
 # NAME
 
 Sympa::List::Config - List configuration

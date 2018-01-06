@@ -1,3 +1,7 @@
+---
+title: 'trusted_applications.conf(5)'
+---
+
 # NAME
 
 trusted\_applications.conf -

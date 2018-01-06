@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Archive(3)'
+---
+
 # NAME
 
 Sympa::Archive - Archives of Sympa

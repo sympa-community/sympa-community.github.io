@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ToAuth(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ToAuth -

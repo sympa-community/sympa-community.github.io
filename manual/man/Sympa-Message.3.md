@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Message(3)'
+---
+
 # NAME
 
 Sympa::Message - Mail message embedding for internal use in Sympa

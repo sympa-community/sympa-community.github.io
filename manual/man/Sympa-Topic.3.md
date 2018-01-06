@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Topic(3)'
+---
+
 # NAME
 
 Sympa::Topic - Message topic

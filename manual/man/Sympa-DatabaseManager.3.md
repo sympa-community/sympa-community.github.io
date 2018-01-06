@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseManager(3)'
+---
+
 # NAME
 
 Sympa::DatabaseManager - Managing schema of Sympa core database

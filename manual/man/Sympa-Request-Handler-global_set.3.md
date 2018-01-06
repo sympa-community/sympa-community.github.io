@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::global_set(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::global\_set - global 'set' request handler

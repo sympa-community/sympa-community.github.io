@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::TransformDigestFinal(3)'
+---
+
 # NAME
 
 Sympa::Spindle::TransformDigestFinal -

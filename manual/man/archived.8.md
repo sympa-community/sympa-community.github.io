@@ -1,3 +1,7 @@
+---
+title: 'archived(8)'
+---
+
 # NAME
 
 archived, archived.pl - Mailing List Archiving Daemon for Sympa

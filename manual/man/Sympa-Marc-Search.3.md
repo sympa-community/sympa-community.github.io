@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Marc::Search(3)'
+---
+
 # NAME
 
 Sympa::Marc::Search - Search archives of Sympa

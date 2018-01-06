@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::del(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::del - del request handler

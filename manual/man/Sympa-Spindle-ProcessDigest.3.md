@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessDigest(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessDigest - Workflow of digest sending

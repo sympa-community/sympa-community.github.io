@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::subscribe(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::subscribe - subscribe request handler

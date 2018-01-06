@@ -1,3 +1,7 @@
+---
+title: 'sympa_toc(1)'
+---
+
 # NAME
 
 sympa\_toc - Documentation on Sympa - Table of Contents

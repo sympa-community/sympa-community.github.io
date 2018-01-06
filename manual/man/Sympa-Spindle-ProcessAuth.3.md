@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessAuth(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessAuth - Workflow of request confirmation

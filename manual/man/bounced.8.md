@@ -1,3 +1,7 @@
+---
+title: 'bounced(8)'
+---
+
 # NAME
 
 bounced, bounced.pl - Mailing List Bounce Processing Daemon for Sympa

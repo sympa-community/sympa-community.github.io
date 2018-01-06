@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::open_list(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::open\_list - open\_list request handler

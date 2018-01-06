@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessMessage(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessMessage - Workflow of command processing

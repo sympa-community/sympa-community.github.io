@@ -1,3 +1,7 @@
+---
+title: 'edit_list.conf(5)'
+---
+
 # NAME
 
 edit\_list.conf - Configuration of privileges to edit list configuration

@@ -1,3 +1,7 @@
+---
+title: 'automatic_lists_description.conf(5)'
+---
+
 # NAME
 
 automatic\_lists\_description.conf -

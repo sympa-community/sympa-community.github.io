@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle(3)'
+---
+
 # NAME
 
 Sympa::Spindle - Base class of subclasses to define Sympa workflows

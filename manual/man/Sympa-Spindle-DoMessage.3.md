@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::DoMessage(3)'
+---
+
 # NAME
 
 Sympa::Spindle::DoMessage - Workflow to handle messages bound for lists

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Log(3)'
+---
+
 # NAME
 
 Sympa::Log - Logging facility of Sympa

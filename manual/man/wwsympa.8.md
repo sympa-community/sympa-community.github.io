@@ -1,3 +1,7 @@
+---
+title: 'wwsympa(8)'
+---
+
 # NAME 
 
 wwsympa, wwsympa.fcgi - WWSympa, Sympa's web interface 

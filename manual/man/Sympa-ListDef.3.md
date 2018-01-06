@@ -1,3 +1,7 @@
+---
+title: 'Sympa::ListDef(3)'
+---
+
 # NAME
 
 Sympa::ListDef - Definition of list configuration parameters

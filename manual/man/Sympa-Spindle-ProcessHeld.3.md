@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessHeld(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessHeld - Workflow of message confirmation

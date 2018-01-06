@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::modindex(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::modindex - modindex request handler

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::ConfDef(3)'
+---
+
 # NAME
 
 Sympa::ConfDef - Definition of site and robot configuration parameters

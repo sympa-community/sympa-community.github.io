@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::CSV(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::CSV - Database driver for CSV

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::verify(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::verify - verify request handler

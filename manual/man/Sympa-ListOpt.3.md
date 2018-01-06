@@ -1,3 +1,7 @@
+---
+title: 'Sympa::ListOpt(3)'
+---
+
 # NAME
 
 Sympa::ListOpt - Definition of list configuration parameter values

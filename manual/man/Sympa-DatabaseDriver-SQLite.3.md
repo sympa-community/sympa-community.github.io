@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::SQLite(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::SQLite - Database driver for SQLite

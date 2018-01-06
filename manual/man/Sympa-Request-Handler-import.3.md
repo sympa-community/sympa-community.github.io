@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::import(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::import - import request handler

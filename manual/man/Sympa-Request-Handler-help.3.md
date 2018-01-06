@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::help(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::help - help request handler

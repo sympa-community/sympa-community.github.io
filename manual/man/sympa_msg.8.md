@@ -1,3 +1,7 @@
+---
+title: 'sympa_msg(8)'
+---
+
 # NAME
 
 sympa\_msg, sympa\_msg.pl - Daemon to handle incoming messages

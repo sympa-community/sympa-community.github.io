@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Crash(3)'
+---
+
 # NAME
 
 Sympa::Crash - Show traceback on critical error

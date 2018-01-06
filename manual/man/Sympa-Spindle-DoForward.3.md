@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::DoForward(3)'
+---
+
 # NAME
 
 Sympa::Spindle::DoForward - Workflow to forward messages to administrators

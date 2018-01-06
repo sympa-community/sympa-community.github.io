@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ResendArchive(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ResendArchive - Workflow of resending messages in archive

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Internals::Workflow(3)'
+---
+
 # NAME
 
 Sympa::Internals::Workflow - Overview on workflow of Sympa
@@ -29,12 +33,14 @@ workflow of Sympa.  For more details see documentation on each class.
     
     Digest::Collection => [ProcessDigest]
                                        :
+                                       v
                                        *1
     
-                        +-> (reject or ignore)
-                       /
-                      +---> [DoCommand]
-                     /               :
+                         +-> (reject or ignore)
+                        /
+                       +---> [DoCommand]
+                      /              :
+                     /               v
     Incoming => [ProcessIncoming]    *2
                      \                              +-> (reject)
                       +-> [DoForward] => (Mailer)  /
@@ -43,14 +49,16 @@ workflow of Sympa.  For more details see documentation on each class.
                                   \             /---> [ToHeld] => Held
              *3 (CONFIRM)          +-> [AuthorizeMessage]
              :                    /             \---> [ToModeration] => Mod.
-    Held => [ProcessHeld] -------+               \
-                                                  +-> [DistributeMessage]
-               *3 (DISTRIBUTE)                   /             \
-                  (REJECT)       +--> (reject)  /               \
-                   :            /              /                 \
+             v                   /               \
+    Held => [ProcessHeld] ------+                 \
+                                                   +-> [DistributeMessage]
+               *3 (DISTRIBUTE)                    /           \
+                  (REJECT)       +--> (reject)   /             \
+                   :            /               /               \
+                   v           /               /                 \
     Moderation => [ProcessModeration]         /                   \
-                                \            /                     \
-                                 +----------+                       \
+                               \             /                     \
+                                +---------- +                       \
                                                                      \
                           +-------------------------------------------+
                            \
@@ -69,27 +77,29 @@ workflow of Sympa.  For more details see documentation on each class.
     <<Template sending>>     /         +----------> [ToOutgoing] => Outgoing 
                             /         / 
     (mail template) => [ProcessTemplate] ---------> [ToAlarm] => Alarm
-                           :          \
-                           *1          +----------> [ToMailer] => (Mailer)
+                          /           \
+                          ^            +----------> [ToMailer] => (Mailer)
+                          |
+                          *1
 
 ## Command processing
 
-    <<sympa_msg.pl>>
-    
-                     *2
-                     :
-    (message) => [ProcessMessage] -+              +-> (reject)
-                                    \            /
-         *3 (AUTH)                   \          /---> [ToAuth] => Auth
-            (DECL)    +-> (decline)   +-> [AuthorizeRequest]
-             :       /               /          \---> [ToAuthOwner] => Auth
-    Auth => [ProcessAuth]           /            \
-                     \             /              +-> [DispatchRequest]
+                         *2
+    <<sympa_msg.pl>>     :
+                         v
+    (message) => [ProcessMessage] --+             +-> (reject)
+                                     \           /
+         *3 (AUTH)                    \         /---> [ToAuth] => Auth
+            (DECL)     +-> (decline)   +-> [AuthorizeRequest]
+             :        /               /         \---> [ToAuthOwner] => Auth
+             v       /               /           \
+    Auth => [ProcessAuth]           /             \
+                     \             /               +-> [DispatchRequest]
                       +-----------+                            \
                                  /                      (request handler)
-    <<wwsympa.fcgi, SOAP>>      /                                  :
-                               /                                   *3
-    Request::Collection       / 
+    <<wwsympa.fcgi, SOAP>>      /                                :
+                               /                                 v
+    Request::Collection       /                                  *3 
            => [ProcessRequest]
 
 ## Legend

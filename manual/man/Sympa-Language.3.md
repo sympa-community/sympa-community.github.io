@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Language(3)'
+---
+
 # NAME
 
 Sympa::Language - Handling languages and locales

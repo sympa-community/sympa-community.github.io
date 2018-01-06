@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Database(3)'
+---
+
 # NAME
 
 Sympa::Database - Handling databases

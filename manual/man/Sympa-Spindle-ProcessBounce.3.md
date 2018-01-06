@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessBounce(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessBounce - Workflow of bounce processing

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Message::Template(3)'
+---
+
 # NAME
 
 Sympa::Message::Template - Mail message generated from template

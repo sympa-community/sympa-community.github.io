@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::Sybase(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::Sybase - Database driver for Adaptive Server Enterprise

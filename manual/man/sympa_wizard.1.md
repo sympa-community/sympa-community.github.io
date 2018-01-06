@@ -1,3 +1,7 @@
+---
+title: 'sympa_wizard(1)'
+---
+
 # NAME
 
 sympa\_wizard, sympa\_wizard.pl - Help Performing Sympa Initial Setup

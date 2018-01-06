@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessModeration(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessModeration - Workflow of message moderation

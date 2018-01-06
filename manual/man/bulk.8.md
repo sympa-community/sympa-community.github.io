@@ -1,3 +1,7 @@
+---
+title: 'bulk(8)'
+---
+
 # NAME 
 
 bulk, bulk.pl - Daemon for submitting messages to SMTP engine

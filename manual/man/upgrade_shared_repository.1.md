@@ -1,3 +1,7 @@
+---
+title: 'upgrade_shared_repository(1)'
+---
+
 # NAME
 
 upgrade\_shared\_repository, upgrade\_shared\_repository.pl -

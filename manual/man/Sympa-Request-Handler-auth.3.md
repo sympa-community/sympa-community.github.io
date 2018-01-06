@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::auth(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::auth - auth request handler

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::reject(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::reject - reject request handler

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Message(3)'
+---
+
 # NAME
 
 Sympa::Request::Message - Command message as spool of requests

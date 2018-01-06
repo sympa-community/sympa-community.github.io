@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessIncoming(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessIncoming - Workflow of processing incoming messages

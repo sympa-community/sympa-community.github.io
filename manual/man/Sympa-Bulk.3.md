@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Bulk(3)'
+---
+
 # NAME
 
 Sympa::Bulk - Spool for bulk sending

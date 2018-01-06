@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Ticket(3)'
+---
+
 # NAME
 
 Sympa::Ticket - One-time ticket for authorization

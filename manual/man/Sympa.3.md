@@ -1,3 +1,7 @@
+---
+title: 'Sympa(3)'
+---
+
 # NAME
 
 Sympa - Future base class of Sympa functional objects

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ToEditor(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ToEditor - Process to forward messages to list editors

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::info(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::info - info request handler

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::create_list(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::create\_list - create\_list request handler

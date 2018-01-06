@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Aliases::Template(3)'
+---
+
 # NAME
 
 Sympa::Aliases::Template -

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Message::Plugin(3)'
+---
+
 # NAME
 
 Sympa::Message::Plugin - process hooks

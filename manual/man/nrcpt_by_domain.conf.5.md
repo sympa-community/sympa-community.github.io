@@ -1,3 +1,7 @@
+---
+title: 'nrcpt_by_domain.conf(5)'
+---
+
 # NAME
 
 nrcpt\_by\_domain.conf - Grouping factor for SMTP sessions by recipient domains

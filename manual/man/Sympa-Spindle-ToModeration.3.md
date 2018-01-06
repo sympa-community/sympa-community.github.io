@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ToModeration(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ToModeration -

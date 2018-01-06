@@ -1,3 +1,7 @@
+---
+title: 'Sympa::HTMLSanitizer(3)'
+---
+
 # NAME
 
 Sympa::HTMLSanitizer - Sanitize HTML contents

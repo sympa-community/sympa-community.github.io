@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::close_list(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::close\_list - close\_list request handler

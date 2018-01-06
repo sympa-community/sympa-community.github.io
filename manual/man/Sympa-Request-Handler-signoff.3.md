@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::signoff(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::signoff - signoff request handler

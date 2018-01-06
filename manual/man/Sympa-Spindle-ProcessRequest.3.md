@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessRequest(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessRequest - Workflow of request processing

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Session(3)'
+---
+
 # NAME
 
 Sympa::Session - Web session

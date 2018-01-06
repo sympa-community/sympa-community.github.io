@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ToAlarm(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ToAlarm -

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::which(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::which - which request handler

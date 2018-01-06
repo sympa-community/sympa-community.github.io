@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Process(3)'
+---
+
 # NAME
 
 Sympa::Process - Process of Sympa

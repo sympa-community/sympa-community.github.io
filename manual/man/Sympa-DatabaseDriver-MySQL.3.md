@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::MySQL(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::MySQL - Database driver for MySQL / MariaDB

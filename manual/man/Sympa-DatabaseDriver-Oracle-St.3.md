@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::Oracle::St(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::Oracle::St - Correcting behavior of DBD::Oracle

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Tracking(3)'
+---
+
 # NAME
 
 Sympa::Tracking - Spool for message tracking

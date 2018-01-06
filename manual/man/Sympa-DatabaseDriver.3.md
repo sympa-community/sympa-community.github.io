@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver - Base class of database drivers for Sympa

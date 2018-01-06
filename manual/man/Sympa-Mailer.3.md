@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Mailer(3)'
+---
+
 # NAME
 
 Sympa::Mailer - Store messages to sendmail

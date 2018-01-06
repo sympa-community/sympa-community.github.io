@@ -1,3 +1,7 @@
+---
+title: 'sympa_newaliases(1)'
+---
+
 # NAME
 
 sympa\_newaliases, sympa\_newaliases.pl - Alias database maintenance

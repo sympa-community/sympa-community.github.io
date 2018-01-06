@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Auth(3)'
+---
+
 # NAME
 
 Sympa::Spool::Auth - Spool for held requests waiting for moderation

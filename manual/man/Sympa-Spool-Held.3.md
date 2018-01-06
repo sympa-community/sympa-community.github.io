@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Held(3)'
+---
+
 # NAME
 
 Sympa::Spool::Held - Spool for held messages waiting for confirmation

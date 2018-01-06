@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Internals(3)'
+---
+
 # NAME
 
 Sympa::Internals - Sympa internals

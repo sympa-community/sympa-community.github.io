@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::index(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::index - index request handler

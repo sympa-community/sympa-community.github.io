@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::unknown(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::unknown - unknown request handler

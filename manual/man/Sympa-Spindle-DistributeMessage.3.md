@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::DistributeMessage(3)'
+---
+
 # NAME
 
 Sympa::Spindle::DistributeMessage -

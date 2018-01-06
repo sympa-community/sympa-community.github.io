@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::review(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::review - review request handler

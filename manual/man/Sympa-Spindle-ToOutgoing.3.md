@@ -1,10 +1,19 @@
+---
+title: 'Sympa::Spindle::ToOutgoing(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ToOutgoing - Process to store messages into outgoing spool
 
 # DESCRIPTION
 
-TBD.
+This class stores message into outgoing spool (SPOOLDIR/bulk).
+
+If the message has list context and `add_list_statistics` attribute
+(the case it was spliced from [Sympa::Spindle::ProcessDigest](./Sympa-Spindle-ProcessDigest.3.md)),
+updates statistics information of the list (with regular delivery,
+[Sympa::Spindle::ToList](./Sympa-Spindle-ToList.3.md) will update it).
 
 # SEE ALSO
 

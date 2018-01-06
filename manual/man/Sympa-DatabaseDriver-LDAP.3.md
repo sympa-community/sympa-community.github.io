@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::LDAP(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::LDAP - Database driver for LDAP search operation

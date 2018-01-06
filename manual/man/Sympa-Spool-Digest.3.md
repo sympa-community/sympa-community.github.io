@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Digest(3)'
+---
+
 # NAME
 
 Sympa::Spool::Digest - Spool for messages waiting for digest sending

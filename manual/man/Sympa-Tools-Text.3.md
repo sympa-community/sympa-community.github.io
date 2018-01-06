@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Tools::Text(3)'
+---
+
 # NAME
 
 Sympa::Tools::Text - Text-related functions

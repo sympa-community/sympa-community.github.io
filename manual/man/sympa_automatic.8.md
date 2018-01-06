@@ -1,3 +1,7 @@
+---
+title: 'sympa_automatic(8)'
+---
+
 # NAME
 
 sympa\_automatic, sympa\_automatic.pl - Automatic list creation daemon

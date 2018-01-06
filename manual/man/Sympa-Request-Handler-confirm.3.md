@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::confirm(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::confirm - confirm request handler

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Aliases::External(3)'
+---
+
 # NAME
 
 Sympa::Aliases::External -

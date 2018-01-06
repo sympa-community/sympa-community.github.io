@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler - Base class of request handler classes

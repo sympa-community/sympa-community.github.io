@@ -1,3 +1,7 @@
+---
+title: 'sympa_test_ldap(1)'
+---
+
 # NAME
 
 sympa\_test\_ldap, sympa\_test\_ldap.pl - Testing LDAP connection for Sympa

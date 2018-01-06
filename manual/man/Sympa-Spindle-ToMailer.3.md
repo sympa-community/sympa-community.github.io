@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ToMailer(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ToMailer - Process to store messages into sendmail component

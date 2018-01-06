@@ -1,3 +1,7 @@
+---
+title: 'Sympa::SharedDocument(3)'
+---
+
 # NAME
 
 Sympa::SharedDocument - Shared document repository and its nodes

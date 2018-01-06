@@ -1,3 +1,7 @@
+---
+title: 'alias_manager(8)'
+---
+
 # NAME
 
 alias\_manager, alias\_manager.pl - Manage Sympa aliases (Obsoleted)

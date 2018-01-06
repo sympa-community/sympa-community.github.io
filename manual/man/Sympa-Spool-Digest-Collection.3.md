@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Digest::Collection(3)'
+---
+
 # NAME
 
 Sympa::Spool::Digest::Collection - Collection of digest spools

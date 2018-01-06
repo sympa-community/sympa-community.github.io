@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spool::Automatic(3)'
+---
+
 # NAME
 
 Sympa::Spool::Automatic - Spool for incoming messages in automatic spool

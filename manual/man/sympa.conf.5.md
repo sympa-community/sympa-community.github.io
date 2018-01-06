@@ -1,3 +1,7 @@
+---
+title: 'sympa.conf(5)'
+---
+
 # NAME
 
 sympa.conf, robot.conf - Configuration file for default site and robot

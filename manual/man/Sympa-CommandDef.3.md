@@ -1,3 +1,7 @@
+---
+title: 'Sympa::CommandDef(3)'
+---
+
 # NAME
 
 Sympa::CommandDef - Definition of mail commands

@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::ProcessAutomatic(3)'
+---
+
 # NAME
 
 Sympa::Spindle::ProcessAutomatic - Workflow of automatic list creation

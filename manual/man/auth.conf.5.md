@@ -1,3 +1,7 @@
+---
+title: 'auth.conf(5)'
+---
+
 # NAME
 
 auth.conf -

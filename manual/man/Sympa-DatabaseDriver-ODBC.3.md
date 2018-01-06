@@ -1,3 +1,7 @@
+---
+title: 'Sympa::DatabaseDriver::ODBC(3)'
+---
+
 # NAME
 
 Sympa::DatabaseDriver::ODBC - Database driver for ODBC

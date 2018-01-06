@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::stats(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::stats - stats request handler

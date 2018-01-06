@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Template(3)'
+---
+
 # NAME
 
 Sympa::Template - Template parser

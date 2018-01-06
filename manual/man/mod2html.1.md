@@ -1,3 +1,7 @@
+---
+title: 'mod2html(1)'
+---
+
 # NAME
 
 mod2html, mod2html.pl - Generates HTML view of messages to be moderated

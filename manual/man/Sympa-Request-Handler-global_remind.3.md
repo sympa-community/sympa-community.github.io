@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request::Handler::global_remind(3)'
+---
+
 # NAME
 
 Sympa::Request::Handler::global\_remind - global 'remind' request handler

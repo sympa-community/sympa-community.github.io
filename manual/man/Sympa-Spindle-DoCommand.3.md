@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Spindle::DoCommand(3)'
+---
+
 # NAME
 
 Sympa::Spindle::DoCommand - Workflow to handle command messages

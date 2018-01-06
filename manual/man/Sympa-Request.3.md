@@ -1,3 +1,7 @@
+---
+title: 'Sympa::Request(3)'
+---
+
 # NAME
 
 Sympa::Request - Requests for operation

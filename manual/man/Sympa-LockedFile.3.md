@@ -1,3 +1,7 @@
+---
+title: 'Sympa::LockedFile(3)'
+---
+
 # NAME
 
 Sympa::LockedFile - Filehandle with locking
