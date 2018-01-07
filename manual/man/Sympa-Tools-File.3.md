@@ -84,8 +84,8 @@ This package provides some file-related functions.
 - remove\_dir(@directories)
 
     Function for Removing a non-empty directory.
-    It takes a variale number of arguments:
-    It can be a list of directory or few direcoty paths.
+    It takes a variable number of arguments:
+    It can be a list of directory or few directory paths.
 
 # HISTORY
 

@@ -12,7 +12,7 @@ Workflow to dispatch requests
 [Sympa::Spindle::DispatchRequest](./Sympa-Spindle-DispatchRequest.3.md) dispatches requests, in most cases
 included in command messages.
 
-Requests are dispatched to routines to perform abstruct processing.
+Requests are dispatched to routines to perform abstract processing.
 
 ## Public methods
 

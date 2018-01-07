@@ -77,7 +77,7 @@ To know details of each module, run:
 
 - [Sympa::DatabaseDescription](./Sympa-DatabaseDescription.3.md)
 
-    Dafinition of core database structure
+    Definition of core database structure
 
 - [Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md)
 

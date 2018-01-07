@@ -19,7 +19,7 @@ Sympa::Spindle::ProcessOutgoing - Workflow of message distribution
 in outgoing spool using mailer.
 
 If messages are stored into incoming spool, sooner or later
-[Sympa::Spindle::ProcessIncoming](./Sympa-Spindle-ProcessIncoming.3.md) fetches them, modifys header and body of
+[Sympa::Spindle::ProcessIncoming](./Sympa-Spindle-ProcessIncoming.3.md) fetches them, modifies header and body of
 them, shelves several transformations, and at last stores altered messages
 into outgoing spool.
 

@@ -18,7 +18,7 @@ Each hook may modify objects (messages and so on) or may break ordinary
 processing.
 
 **Notice**:
-Hook mechanism is expreimental.
+Hook mechanism is experimental.
 Module names and interfaces may be changed in the future.
 
 ## Methods

@@ -66,7 +66,7 @@ Sympa::User - All Users Identified by Sympa
 
 - update\_global\_user
 
-## Miscelaneous
+## Miscellaneous
 
 - clean\_user ( USER\_OR\_HASH )
 - clean\_users ( ARRAYREF\_OF\_USERS\_OR\_HASHES )

@@ -18,7 +18,7 @@ Format of `config` is as following:
     each line has the form "_parameter_ _value_".
     _value_ may contain spaces but may not contain newlines.
 
-        Several parameters may have multiple vlues.
+        Several parameters may have multiple values.
         If it's the case, values may be separated by comma (`,`)
         or parameter lines may be repeated.
         Some of parameters must have one or more of limited values.
@@ -2347,7 +2347,7 @@ Inclusions timeout
 
 - Default:
 
-    `3600`
+    Value of [`default_ttl`](./sympa.conf.5.md#default_ttl) parameter in `sympa.conf`.
 
 Sympa caches user data extracted using the include parameter. Their TTL (time-to-live) within Sympa can be controlled using this parameter. The default value is 3600
 

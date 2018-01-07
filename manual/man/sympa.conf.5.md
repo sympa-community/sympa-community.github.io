@@ -2119,7 +2119,7 @@ Max age of temporary files
 
 Number of days files in temporary directory (as specified by "tmpdir" parameter), including standard error logs, are kept.
 
-## Miscelaneous
+## Miscellaneous
 
 #### `email`
 
@@ -2533,7 +2533,7 @@ Example:
     main_menu_custom_button_1_url http://www.renater.fr/faq/universalistes/index
     main_menu_custom_button_1_target Help
 
-## Web interface parameters: Miscelaneous
+## Web interface parameters: Miscellaneous
 
 #### `cookie_domain`
 
@@ -2944,6 +2944,20 @@ Default of SQL fetch timeout
     List (`sql_fetch_timeout`)
 
 Default timeout while performing a fetch with include\_sql\_query.
+
+#### `default_ttl`
+
+Default of inclusion timeout
+
+- Default:
+
+    `3600`
+
+- Overrides:
+
+    List (`ttl`)
+
+Default timeout between two scheduled synchronizations of list members with data sources.
 
 ## DKIM
 
@@ -3374,18 +3388,6 @@ Defines the prefix allowing to recognize that a list is an automatic list.
 - Default:
 
     None.
-
-- Overrides:
-
-    None.
-
-#### `default_ttl`
-
-Default timeout between two scheduled synchronizations of list members with data sources.
-
-- Default:
-
-    `3600`
 
 - Overrides:
 

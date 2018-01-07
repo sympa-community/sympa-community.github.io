@@ -111,14 +111,14 @@ Instance of [Sympa::Spindle](./Sympa-Spindle.3.md) may have following properties
     _Instance method_, _overridable_.
     Executes process when object could not be deserialized (new() method of object
     failed).
-    By default, quarantines object calling quearantine() method of source spool.
+    By default, quarantines object calling quarantine() method of source spool.
 
 - \_on\_failure ( $message, $handle )
 
     _Instance method_, _overridable_.
     Executes process when processing of $message failed (\_twist() returned
     `undef`).
-    By default, quarantines object calling quearantine() method of source spool.
+    By default, quarantines object calling quarantine() method of source spool.
 
 - \_on\_skip ( $message, $handle )
 
@@ -142,7 +142,7 @@ Instance of [Sympa::Spindle](./Sympa-Spindle.3.md) may have following properties
 - \_twist ( $message )
 
     _Instance method_, _mandatory_.
-    Processes an object: Typically, modifys object or creates another object and
+    Processes an object: Typically, modifies object or creates another object and
     stores it into appropriate spool.
 
     Parameter:
@@ -159,7 +159,7 @@ Instance of [Sympa::Spindle](./Sympa-Spindle.3.md) may have following properties
     As of Sympa 6.2.13, \_twist() may also return the reference to array including
     name(s) of other classes:
     In this case spin() and twist() will call \_twist() method of given classes in
-    order (not coercing spindle object into them) and uses retruned false value
+    order (not coercing spindle object into them) and uses returned false value
     at first or true value at last.
 
 # SEE ALSO

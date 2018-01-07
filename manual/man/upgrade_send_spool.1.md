@@ -6,7 +6,7 @@ title: 'upgrade_send_spool(1)'
 
 upgrade\_send\_spool, upgrade\_send\_spool.pl - Upgrade messages in incoming spool
 
-# SYNOMSIS
+# SYNOPSIS
 
     upgrade_send_spool.pl [ --dry_run ]
 
@@ -26,7 +26,7 @@ This program migrates messages with old format in appropriate spools.
 
 # RETURN VALUE
 
-This program exits with status 0 if processing secceeded.
+This program exits with status 0 if processing succeeded.
 Otherwise exits with non-zero status.
 
 # CONFIGURATION OPTIONS

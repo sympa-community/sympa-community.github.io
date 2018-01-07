@@ -67,7 +67,7 @@ Alias management: Updating aliases by external program
 
 - ERR\_CREATE\_TEMP
 
-    Could not create temporay file.
+    Could not create temporary file.
 
 - ERR\_ALIAS\_EXISTS
 

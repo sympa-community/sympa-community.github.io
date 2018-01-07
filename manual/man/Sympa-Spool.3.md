@@ -57,7 +57,7 @@ This module is the base class for spool subclasses of Sympa.
     _Instance method_.
     Gets next message to process, order is controlled by name of spool file and
     so on.
-    Message will be locked to prevent multiple proccessing of a single message.
+    Message will be locked to prevent multiple processing of a single message.
 
     Parameters:
 

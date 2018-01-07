@@ -19,7 +19,7 @@ sympa\_msg, sympa\_msg.pl - Daemon to handle incoming messages
 Sympa\_msg.pl is a program which scans permanently the incoming message spool
 and processes each message.
 
-Messages bound for the lists and authorized sending are modified as neccesity
+Messages bound for the lists and authorized sending are modified as necessity
 and at last stored into digest spool, archive spool and outgoing spool.
 Those bound for command addresses are interpreted and appropriate actions are
 taken.

@@ -8,7 +8,7 @@ Sympa::Request::Handler::decl - decl request handler
 
 # DESCRIPTION
 
-Fetchs the request matching with {authkey} and optional {request} attributes
+Fetches the request matching with {authkey} and optional {request} attributes
 from held request spool,
 and if succeeded, remove it from the spool.
 

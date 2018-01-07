@@ -27,7 +27,7 @@ See also ["Public methods" in Sympa::Spool](./Sympa-Spool.3.md#public-methods).
 
     Order is controlled by modification time of file and delivery date, then,
     if `no_filter` is _not_ set,
-    messages with possiblly higher priority are chosen and
+    messages with possibly higher priority are chosen and
     messages with lowest priority (`z` or `Z`) are skipped.
 
 - store ( $message, \[ original => $original \] )

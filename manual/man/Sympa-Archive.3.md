@@ -67,13 +67,13 @@ Sympa::Archive - Archives of Sympa
     Gets a message from archive.
     select\_archive() must be called in advance.
 
-    Message will be locked to prevent multiple proccessing of a single message.
+    Message will be locked to prevent multiple processing of a single message.
 
     Parameter:
 
     - message\_id => $message\_id
 
-        Message ID of the message to be feteched.
+        Message ID of the message to be fetched.
 
     Returns:
 
@@ -90,7 +90,7 @@ Sympa::Archive - Archives of Sympa
 
     - file => $filename
 
-        File name of the message to be feteched.
+        File name of the message to be fetched.
 
     Returns:
 
@@ -109,7 +109,7 @@ Sympa::Archive - Archives of Sympa
     Gets next message in archive.
     select\_archive() must be called in advance.
 
-    Message will be locked to prevent multiple proccessing of a single message.
+    Message will be locked to prevent multiple processing of a single message.
 
     Parameters:
 

@@ -48,7 +48,7 @@ Sympa::Alarm - Spool on memory for listmaster notification
 
     - operation => $operation
 
-        A string specifys tag of the message.
+        A string specifies tag of the message.
 
     Returns:
 

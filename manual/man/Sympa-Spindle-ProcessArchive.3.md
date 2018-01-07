@@ -16,7 +16,7 @@ Sympa::Spindle::ProcessArchive - Workflow of archive storage
 # DESCRIPTION
 
 [Sympa::Spindle::ProcessArchive](./Sympa-Spindle-ProcessArchive.3.md) defines workflow to store messages into
-archves.
+archives.
 
 When spin() method is invoked, messages kept in archive spool are
 processed.

@@ -133,7 +133,7 @@ type => $type, \[ content => $content \] )
 
     Returns:
 
-    (Possiblly empty) list of child nodes.
+    (Possibly empty) list of child nodes.
 
 - get\_moderated\_descendants ( )
 
@@ -190,7 +190,7 @@ auth\_method => $auth\_method, scenario\_context => $scenario\_context )
 
 - rmdir ( )
 
-    _instalce method_.
+    _instance method_.
     Removes directory from repository.
     Directory must be empty.
 
@@ -206,7 +206,7 @@ auth\_method => $auth\_method, scenario\_context => $scenario\_context )
 
 - unlink ( )
 
-    _instalce method_.
+    _instance method_.
     Removes file from repository.
 
     Returns:

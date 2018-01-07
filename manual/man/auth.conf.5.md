@@ -299,7 +299,7 @@ Following parameters are used to provide LDAPS (LDAP over TLS/SSL):
 - `http_header_prefix`
 
     Only environment variables starting with the defined prefix will be kept. 
-    Another option is to list HTTP header fields explicitely using 
+    Another option is to list HTTP header fields explicitly using
     `http_header_list` parameter.
 
 - `email_http_header`
@@ -351,7 +351,7 @@ not defined**:
 - `ldap_host`
 
     The LDAP host Sympa will connect to fetch user email. The `ldap_host` 
-    include the port number and it may be a comma separated list of redondant 
+    include the port number and it may be a comma separated list of redundant
     hosts.
 
 - `ldap_bind_dn`
@@ -399,7 +399,7 @@ paragraph may also be used for `generic_sso`.
 
 Note that Sympa will act as a CAS client to validate CAS tickets. During this 
 exchange, Sympa will check the CAS server X.509 certificate. Therefore you 
-should ensure that the certificate autority of the CAS server is known by 
+should ensure that the certificate authority of the CAS server is known by
 Sympa ; this should be configured through the [cafile](./sympa.conf.5.md#cafile) 
 or [capath](./sympa.conf.5.md#capath) `sympa.conf` configuration parameters.
 
@@ -477,7 +477,7 @@ or [capath](./sympa.conf.5.md#capath) `sympa.conf` configuration parameters.
 
     The LDAP host Sympa will connect to fetch user email when user uid is return 
     by CAS service. The `ldap_host` includes the port number and it may be a 
-    comma separated list of redondant hosts.
+    comma separated list of redundant hosts.
 
 - `ldap_bind_dn`
 

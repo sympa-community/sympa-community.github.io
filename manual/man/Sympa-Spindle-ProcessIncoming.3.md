@@ -19,7 +19,7 @@ Sympa::Spindle::ProcessIncoming - Workflow of processing incoming messages
 messages.
 
 When spin() method is invoked, it reads the messages in incoming spool and
-rejects, quarantines or modifyes them.
+rejects, quarantines or modifies them.
 Processing are done in the following order:
 
 - Checks if message has message ID and sender, and if not, quarantines it.
@@ -45,7 +45,7 @@ Some messages are skipped according to these priorities
 (See [Sympa::Spool::Incoming](./Sympa-Spool-Incoming.3.md)):
 
 - Messages with lowest priority (`z` or `Z`) are skipped.
-- Messages with possiblly higher priority are chosen.
+- Messages with possibly higher priority are chosen.
 This is done by skipping messages with lower priority than those already
 found.
 

@@ -45,7 +45,7 @@ Some actions may have optional modifiers (see ["Actions"](#actions)).
 
 - `equal` `(` _var1_`,` _var2_ `)`
 
-    Tests if two arguments are equial.
+    Tests if two arguments are equal.
 
 - `is_subscriber` `(` _listname_`,` _var_ `)`
 - `is_owner` `(` _listname_`,` _var_ `)`
@@ -141,7 +141,7 @@ Some actions may have optional modifiers (see ["Actions"](#actions)).
     It can be used, for example, to require editor validation for multipart
     messages.
     Optional _index_ may be integer (may be less than `0`) to choose particular
-    entry from multile fields.
+    entry from multiple fields.
 
 - `[msg_part->type]`
 - `[msg_part->body]`
@@ -238,7 +238,7 @@ Action names:
 
 - `reject`
 
-    Denys operation.
+    Denies operation.
 
 - `request_auth`
 

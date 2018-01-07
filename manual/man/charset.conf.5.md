@@ -4,7 +4,7 @@ title: 'charset.conf(5)'
 
 # NAME
 
-charset.conf - Configiration file for legacy character set support by Sympa
+charset.conf - Configuration file for legacy character set support by Sympa
 
 # DESCRIPTION
 

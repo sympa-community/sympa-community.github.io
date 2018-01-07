@@ -201,10 +201,10 @@ earlier versions.
 
     - $lang, ...
 
-        Language tags or similer things.
+        Language tags or similar things.
         Old style "locale" by Sympa (see also ["Compatibility"](#compatibility)) will also be
         accepted.
-        If multiple tags are specified, this function trys each of them in order.
+        If multiple tags are specified, this function tries each of them in order.
 
         Note that `'en'` will always succeed.  Thus, putting it at the end of
         argument list may be useful.
@@ -226,7 +226,7 @@ earlier versions.
 - native\_name ( )
 
     _Instance method_.
-    Get the name of the language, ie the one defined in the catalog.
+    Get the name of the language, i.e. the one defined in the catalog.
 
     Parameters:
 

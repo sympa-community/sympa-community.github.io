@@ -4,7 +4,7 @@ title: 'Sympa::DatabaseDescription(3)'
 
 # NAME
 
-Sympa::DatabaseDescription - Dafinition of core database structure
+Sympa::DatabaseDescription - Definition of core database structure
 
 # DESCRIPTION
 
@@ -18,7 +18,7 @@ This module keeps structure of database used by Sympa software.
     Returns a heshref containing definitions of all tables.
     Each item has the name of table as key and definition as value.
 
-    Each definition is hashref containig following keys:
+    Each definition is hashref containing following keys:
 
     - fields
 
@@ -32,7 +32,7 @@ This module keeps structure of database used by Sympa software.
 
         TBD.
 
-    `fields` item is hasref which may contain following items.
+    `fields` item is hashref which may contain following items.
 
     - struct
 

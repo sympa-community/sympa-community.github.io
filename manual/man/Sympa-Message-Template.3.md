@@ -6,7 +6,7 @@ title: 'Sympa::Message::Template(3)'
 
 Sympa::Message::Template - Mail message generated from template
 
-# SYNOPSYS
+# SYNOPSIS
 
     use Sympa::Message::Template;
     my $message = Sympa::Message::Template->new(
@@ -36,7 +36,7 @@ rcpt => $rcpt, \[ data => $data \], \[ options... \] )
 
         Scalar or arrayref: SMTP "RCPT TO:" field.
 
-        If it is a scalar, trys to retrieve information of the user
+        If it is a scalar, tries to retrieve information of the user
         (See also [Sympa::User](./Sympa-User.3.md).
 
     - data => $data

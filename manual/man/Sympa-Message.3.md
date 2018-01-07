@@ -6,7 +6,7 @@ title: 'Sympa::Message(3)'
 
 Sympa::Message - Mail message embedding for internal use in Sympa
 
-# SYNOPSYS
+# SYNOPSIS
 
     use Sympa::Message;
     my $message = Sympa::Message->new($serialized, context => $list);
@@ -99,7 +99,7 @@ easier.
 
     _Instance method_.
     Gets spam status according to spam\_status scenario
-    and sets it as {smap\_status} attribute.
+    and sets it as {spam\_status} attribute.
 
 - dkim\_sign ( dkim\_d => $d, \[ dkim\_i => $i \],
 dkim\_selector => $selector, dkim\_privatekey => $privatekey )
@@ -116,7 +116,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 - remove\_invalid\_dkim\_signature ( )
 
     _Instance method_.
-    Verifys DKIM signatures included in the message,
+    Verifies DKIM signatures included in the message,
     and if any of them are invalid, removes them.
 
 - as\_entity ( )
@@ -253,7 +253,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
     _Instance method_.
     Decrypts message using private key of user.
 
-    Note that this method modifys Message object.
+    Note that this method modifies Message object.
 
     Parameters:
 
@@ -270,7 +270,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
     _Instance method_.
     Encrypts message using certificate of user.
 
-    Note that this method modifys Message object.
+    Note that this method modifies Message object.
 
     Parameters:
 
@@ -301,7 +301,7 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
 - check\_smime\_signature ( )
 
     _Instance method_.
-    Verifys S/MIME signature of the message,
+    Verifies S/MIME signature of the message,
     and if verification succeeded, sets {smime\_signed} item true.
 
     Parameters:
@@ -718,4 +718,4 @@ was initially written by Chris Hastie.  It appeared on Sympa 4.2b.1.
 
     (c) Chris Hastie 2004 - 2008.
 
-Renamed and merged [Sympa::Message](./Sympa-Message.3.md) appeard on Sympa 6.2.
+Renamed and merged [Sympa::Message](./Sympa-Message.3.md) appeared on Sympa 6.2.

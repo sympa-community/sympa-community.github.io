@@ -21,7 +21,7 @@ This package provides some text-related functions.
     _Function_.
     Returns canonical form of e-mail address.
 
-    Leading and trailing whilte spaces are removed.
+    Leading and trailing white spaces are removed.
     Latin letters without accents are lower-cased.
 
     For malformed inputs returns `undef`.

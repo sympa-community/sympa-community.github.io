@@ -34,7 +34,7 @@ See also ["Public methods" in Sympa::Spool](./Sympa-Spool.3.md#public-methods).
 
 - remove ( $handle )
 
-    Trys to remove directory of spool.
+    Tries to remove directory of spool.
     If succeeded, returns true value.
     Otherwise returns false value.
 

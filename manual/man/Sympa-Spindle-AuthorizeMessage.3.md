@@ -24,7 +24,7 @@ is required or when personalization failed);
 failed);
 [Sympa::Spindle::ToModeration](./Sympa-Spindle-ToModeration.3.md) for `editorkey` (except if personalization
 failed);
-[ympa::Spindle::ToEditor](https://metacpan.org/pod/ympa::Spindle::ToEditor) for `editor`;
+[Sympa::Spindle::ToEditor](./Sympa-Spindle-ToEditor.3.md) for `editor`;
 otherwise reject it.
 
 If the message was confirmed, i.e. it has been fetched from held spool and
@@ -39,7 +39,7 @@ See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-method
 - new ( key => value, ... )
 
     In most cases, [Sympa::Spindle::DoMessage](./Sympa-Spindle-DoMessage.3.md)
-    splices meessages to this class.  This method is not used in ordinal case.
+    splices messages to this class.  This method is not used in ordinal case.
 
 - spin ( )
 

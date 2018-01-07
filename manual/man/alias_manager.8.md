@@ -27,7 +27,7 @@ created lists and deleting aliases for closed lists.
 Alias management is performed only if it was setup in `/etc/sympa/sympa.conf`
 (`sendmail_aliases` configuration parameter).
 
-Administrators using MTA functionalities to manage aliases (ie
+Administrators using MTA functionalities to manage aliases (i.e.
 virtual\_regexp and transport\_regexp with postfix) can disable alias
 management by setting
 `sendmail_aliases` configuration parameter to `none`.

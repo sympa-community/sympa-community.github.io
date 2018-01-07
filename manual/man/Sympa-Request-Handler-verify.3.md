@@ -8,7 +8,7 @@ Sympa::Request::Handler::verify - verify request handler
 
 # DESCRIPTION
 
-Verifys S/MIME signature in the message.
+Verifies S/MIME signature in the message.
 
 # SEE ALSO
 

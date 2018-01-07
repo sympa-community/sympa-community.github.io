@@ -21,7 +21,7 @@ See also ["Public methods" in Sympa::Spindle::Incoming](./Sympa-Spindle-Incoming
 - new ( key => value, ... )
 - spin ( )
 
-    In most cases, [Sympa::Spindle::ProcessIncoming](./Sympa-Spindle-ProcessIncoming.3.md) splices meessages
+    In most cases, [Sympa::Spindle::ProcessIncoming](./Sympa-Spindle-ProcessIncoming.3.md) splices messages
     to this class.  These methods are not used in ordinal case.
 
 # SEE ALSO

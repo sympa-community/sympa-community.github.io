@@ -21,7 +21,7 @@ See also ["Public methods" in Sympa::Spindle](./Sympa-Spindle.3.md#public-method
 - new ( key => value, ... )
 
     In most cases, [Sympa::Spindle::ProcessMessage](./Sympa-Spindle-ProcessMessage.3.md)
-    splices meessages to this class.  This method is not used in ordinal case.
+    splices messages to this class.  This method is not used in ordinal case.
 
 - spin ( )
 

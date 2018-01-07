@@ -277,7 +277,7 @@ See [Template::Manual::Filters](https://metacpan.org/pod/Template::Manual::Filte
 
     - init
 
-        Indentation (or its length) of each paragraphm if any.
+        Indentation (or its length) of each paragraph if any.
 
     - subs
 

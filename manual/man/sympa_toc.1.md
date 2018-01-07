@@ -164,7 +164,7 @@ Below is the list of documentation of Sympa.
 
 - [charset.conf(5)](./charset.conf.5.md)
 
-    Configiration file for legacy character set support by Sympa
+    Configuration file for legacy character set support by Sympa
 
 - [crawlers\_detection.conf(5)](./crawlers_detection.conf.5.md)
 
@@ -206,7 +206,7 @@ Below is the list of documentation of Sympa.
 
 - [sympa\_database(5)](./sympa_database.5.md)
 
-    Strutcure of Sympa core database
+    Structure of Sympa core database
 
 # AVAILABILITY
 

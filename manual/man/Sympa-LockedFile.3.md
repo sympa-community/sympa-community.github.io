@@ -28,7 +28,7 @@ Sympa::LockedFile - Filehandle with locking
 
 # DESCRIPTION
 
-This class implements a filehadle with locking.
+This class implements a filehandle with locking.
 
 ## Class Methods
 
@@ -86,8 +86,8 @@ Instances of [Sympa::LockedFile](./Sympa-LockedFile.3.md) support the methods pr
     - $mode
 
         Mode to open file.
-        If it implys any writing operations (`'>'`, `'>>'`,
-        `'+<'`, ...), trys to acquire exclusive lock (`LOCK_EX`),
+        If it implies any writing operations (`'>'`, `'>>'`,
+        `'+<'`, ...), tries to acquire exclusive lock (`LOCK_EX`),
         otherwise shared lock (`LOCK_SH`).
 
         Default is `'<'`.

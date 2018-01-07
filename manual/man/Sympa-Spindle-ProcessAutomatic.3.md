@@ -30,7 +30,7 @@ Some messages are skipped according to these priorities
 (See [Sympa::Spool::Automatic](./Sympa-Spool-Automatic.3.md)):
 
 - Messages with lowest priority (`z` or `Z`) are skipped.
-- Messages with possiblly higher priority are chosen.
+- Messages with possibly higher priority are chosen.
 This is done by skipping messages with lower priority than those already
 found.
 

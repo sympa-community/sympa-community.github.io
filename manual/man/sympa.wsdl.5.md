@@ -8,7 +8,7 @@ sympa.wsdl - Service description of SOAP HTTP interface for Sympa
 
 # DESCRIPTION
 
-`sympa.wsdl` defines services proveded by SOAP HTTP interface for Sympa.
+`sympa.wsdl` defines services provided by SOAP HTTP interface for Sympa.
 
 TBD.
 

@@ -33,7 +33,7 @@ This cass updates statistics information of the list (with digest delivery,
 
 # SEE ALSO
 
-[Sympa::INternals::Workflow](./Sympa-INternals-Workflow.3.md).
+[Sympa::Internals::Workflow](./Sympa-Internals-Workflow.3.md).
 
 [Sympa::Bulk](./Sympa-Bulk.3.md),
 [Sympa::Message](./Sympa-Message.3.md),

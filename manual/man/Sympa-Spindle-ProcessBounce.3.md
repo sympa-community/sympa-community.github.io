@@ -37,7 +37,7 @@ Message Disposition Notification (MDN).
 They are stored into tracking spool
 with envelope ID, and increase bounce score.
 - Others, and messages are E-mail Feedback Report.
-Reports are analyzed, and if opt-out report is found and list configuration
+Reports are analysed, and if opt-out report is found and list configuration
 allows it, original recipient will be deleted.
 
 ## Public methods

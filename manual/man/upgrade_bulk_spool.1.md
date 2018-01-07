@@ -6,7 +6,7 @@ title: 'upgrade_bulk_spool(1)'
 
 upgrade\_bulk\_spool, upgrade\_bulk\_spool.pl - Migrating messages in bulk tables
 
-# SYNOMSIS
+# SYNOPSIS
 
     upgrade_bulk_spool.pl [ --dry_run ]
 
@@ -26,7 +26,7 @@ This program migrates messages with old format in appropriate spool.
 
 # RETURN VALUE
 
-This program exits with status 0 if processing secceeded.
+This program exits with status 0 if processing succeeded.
 Otherwise exits with non-zero status.
 
 # CONFIGURATION OPTIONS

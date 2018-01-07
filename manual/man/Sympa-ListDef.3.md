@@ -95,7 +95,7 @@ This module keeps definition of configuration parameters for each list.
 
     - gettext\_comment
 
-        Deescription text of a parameter.
+        Description text of a parameter.
 
     - group
 
@@ -160,7 +160,7 @@ This module keeps definition of configuration parameters for each list.
 
         - `'visibility'`
 
-            Visibility mode of list memeber.
+            Visibility mode of list member.
 
         Most of field types were introduced on Sympa 6.2.17.
 
@@ -189,7 +189,7 @@ This module keeps definition of configuration parameters for each list.
         _Automatically assigned_.
         TBD.
 
-        Introdueced on Sympa 6.2.17.
+        Introduced on Sympa 6.2.17.
 
 # SEE ALSO
 

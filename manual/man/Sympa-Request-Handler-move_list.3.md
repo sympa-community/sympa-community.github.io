@@ -8,7 +8,7 @@ Sympa::Request::Handler::move\_list - move\_list request handler
 
 # DESCRIPTION
 
-Renames a list or move a list to possiblly beyond another virtual host.
+Renames a list or move a list to possibly beyond another virtual host.
 
 On copy mode, Clone a list config including customization, templates,
 scenario config but without archives, subscribers and shared.

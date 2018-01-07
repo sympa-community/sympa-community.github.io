@@ -6,7 +6,7 @@ title: 'Sympa::Request::Handler(3)'
 
 Sympa::Request::Handler - Base class of request handler classes
 
-# SYNOPSYS
+# SYNOPSIS
 
     package Sympa::Request::Handler::foo;
     use base qw(Sympa::Request::Handler);

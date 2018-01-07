@@ -4,7 +4,7 @@ title: 'sympa_database(5)'
 
 # NAME
 
-sympa\_database - Strutcure of Sympa core database
+sympa\_database - Structure of Sympa core database
 
 # DECRIPTION
 
@@ -127,7 +127,7 @@ Fields:
 
 - password\_user varchar(40)
 
-    password are stored as fringer print
+    password are stored as finger print
 
 - gecos\_user varchar(150)
 
@@ -195,7 +195,7 @@ Fields:
 
 ### exclusion\_table
 
-Exclusion table is used in order to manage unsubscription for subsceriber included from an external data source.
+Exclusion table is used in order to manage unsubscription for subscriber included from an external data source.
 
 Fields:
 
@@ -531,7 +531,7 @@ Fields:
 
 - profile\_admin enum('privileged','normal')
 
-    privilege level for this owner, value //normal// or //privileged//. The related privilege are listed in editlist.conf. 
+    privilege level for this owner, value //normal// or //privileged//. The related privilege are listed in edit\_list.conf. 
 
 - date\_admin datetime not null
 

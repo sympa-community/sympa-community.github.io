@@ -6,7 +6,7 @@ title: 'Sympa::HTMLDecorator(3)'
 
 Sympa::HTMLDecorator - Decorating HTML texts
 
-# SYNOPSYS
+# SYNOPSIS
 
     use Sympa::HTMLDecorator;
     $decorator = Sympa::HTMLDecorator->instance;
@@ -26,7 +26,7 @@ Sympa::HTMLDecorator - Decorating HTML texts
 - decorate ( $html, email => $mode )
 
     _Instance method_.
-    Modifys HTML text.
+    Modifies HTML text.
 
     Parameters:
 

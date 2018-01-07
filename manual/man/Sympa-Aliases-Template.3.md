@@ -35,7 +35,7 @@ Alias management: Aliases file based on template
     If constructor was called with `file` option, it will be used as aliases
     file and `sympa_newaliases` utility will not be executed.
     Otherwise, value of `sendmail_aliases` parameter will be used as aliases
-    file and `sympa_newaliases` utility will be execeuted to update
+    file and `sympa_newaliases` utility will be executed to update
     alias database.
     If `sendmail_aliases` parameter is set to `none`, aliases will never be
     updated.

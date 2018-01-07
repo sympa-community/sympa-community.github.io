@@ -6,7 +6,7 @@ title: 'Sympa::Request(3)'
 
 Sympa::Request - Requests for operation
 
-# SYNOPSYS
+# SYNOPSIS
 
     use Sympa::Request;
     my $request = Sympa::Request->new($serialized, context => $list);
@@ -14,7 +14,7 @@ Sympa::Request - Requests for operation
 
 # DESCRIPTION
 
-[Sympa::Request](./Sympa-Request.3.md) inmplements serializable object representing requests by
+[Sympa::Request](./Sympa-Request.3.md) implements serializable object representing requests by
 users.
 
 ## Methods

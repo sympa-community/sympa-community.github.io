@@ -31,12 +31,12 @@ We had to change encoding of shared documents according to new algorithm.
 - --list LISTNAME --robot DOMAIN
 - --all\_lists
 
-    Specifys target list(s).
+    Specifies target list(s).
 
 - --fix\_qencode
 
     If specified, fixes Q-encoding changed on Sympa 6.1b.5.
-    Otherwise, applys Q-encoding introduced by Sympa 5.3a.8.
+    Otherwise, applies Q-encoding introduced by Sympa 5.3a.8.
 
 # HISTORY
 

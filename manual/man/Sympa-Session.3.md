@@ -76,7 +76,7 @@ Session store is used to keep users' personal data.
 - confirm\_action ( $action, $response, \[ arg => $arg, \]
 \[ previous\_action => $previous\_action \] )
 
-    _Instance metrhod_.
+    _Instance method_.
     Check if action has been confirmed.
 
     Confirmation follows two steps:

@@ -41,7 +41,7 @@ Sympa::List::Config - List configuration
         - When the list will be initially created,
         `undef` must be specified explicitly
         so that default parameter values will be completed.
-        - When exisiting list will be instantiated and config will be loaded,
+        - When existing list will be instantiated and config will be loaded,
         `{}` (default) would be specified
         so that default parameter values except optional ones
         (with occurrence `'0-1'` or `'0-n'`) will be completed.
@@ -72,10 +72,10 @@ Sympa::List::Config - List configuration
     - $ppath
 
         Parameter path,
-        e.g.: `'owner.0.email'` specifys "email" parameter of
+        e.g.: `'owner.0.email'` specifies "email" parameter of
         the first "owner" paragraph;
-        `'owner.0'` specifys the first "owner" paragraph;
-        `'owner'` specifys the array of all "owner" paragraph.
+        `'owner.0'` specifies the first "owner" paragraph;
+        `'owner'` specifies the array of all "owner" paragraph.
 
     Returns:
 
@@ -148,7 +148,7 @@ Sympa::List::Config - List configuration
 - submit ( $new, $user, \\@errors )
 
     _Instance method_.
-    Submits change and verifys it.
+    Submits change and verifies it.
     Submission is done by:
 
     - Sanitizing changes:
