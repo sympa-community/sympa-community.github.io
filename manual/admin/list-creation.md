@@ -98,9 +98,9 @@ Here is an example of XML document that you can map with the following example o
     <owner_include multiple="1">
         <source>my_file</source>
     </owner_include>
-    <moderator>
+    <editor multiple="1">
         <email>user@domain.org</email>
-    </moderator>
+    </editor>
     <topic>Computing</topic>
     <sql>
         <type>Oracle</type>
