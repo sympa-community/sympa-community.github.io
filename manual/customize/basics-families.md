@@ -87,10 +87,10 @@ owner
   [% END %]
 
 [% END %]
-[% IF moderator %]
-   [% FOREACH m = moderator %]
+[% IF editor %]
+   [% FOREACH e = editor %]
 editor
-  email [% m.email %]
+  email [% e.email %]
 
    [% END %]
 [% END %]
