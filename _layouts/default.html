@@ -23,6 +23,11 @@
           display: none;
         }
       }
+      @media print, screen and (max-width: 640px) {
+        nav.pagetoc {
+          display: none;
+        }
+      }
     </style>
 
   </head>
@@ -379,7 +384,7 @@
       {% endunless %}
 
       {% comment %} allejo/jekyll-toc {% endcomment -%}
-      <nav class="toc pagetoc">
+      <nav class="pagetoc">
         <input type="checkbox" class="toc-switch" id="toc-switch" />
         <label for="toc-switch" title="ToC"></label>
         <p><b>{{ page.title }}</b></p>
