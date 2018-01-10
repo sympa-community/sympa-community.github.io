@@ -111,7 +111,7 @@ Some of these alterations can be configured.
     When it fails, a message to inform failure instead of original message is
     sent to recipient.
 
-    See "~~[S/MIME](../customize/smime.md)~~" for further details.
+    See "[S/MIME](../customize/smime.md)" for further details.
 
   - If DKIM support is enabled, DKIM signature invalidated by alterations
     so far is removed, then message is signed using Sympa's private key.

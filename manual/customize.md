@@ -121,7 +121,7 @@ Sympa services: Optional features
 These features need installation of additional software components including
 external Perl modules.
 
-  * S/MIME
+  * [S/MIME](customize/smime.md)
     [&#x1F527;](man/sympa.conf.5.md#s-mime-and-tls)
     [&#x1F4E6;](https://metacpan.org/release/Crypt-OpenSSL-X509 "Crypt-OpenSSL-X509")
     [&#x1F4E6;](https://metacpan.org/release/Crypt-SMIME "Crypt-SMIME")
