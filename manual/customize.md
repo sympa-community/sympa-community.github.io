@@ -97,7 +97,7 @@ needed.
       - ~~[Shared document repository](customize/shared-repository.md)~~
         [&#x1F527;](man/sympa.conf.5.md#default_shared_quota)
         (Work in progress)
-      - ~~[customize/web-mailer.md](Web mailer)~~
+      - ~~[Web mailer](customize/web-mailer.md)~~
         [&#x1F527;](man/sympa.conf.5.md#use_html_editor)
         (Work in progress)
       - Password
