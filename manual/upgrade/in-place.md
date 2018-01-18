@@ -29,7 +29,7 @@ Preparation
 First, read the following notes:
 
   - [Release Notes](https://github.com/sympa-community/sympa/blob/sympa-6.2/NEWS.md).
-  - [Upgrading notes](upgrade/notes.md).
+  - [Upgrading notes](../upgrade/notes.md).
 
 If imcompatible changes had been made, these notes may state them and
 describe measures you can take.
@@ -37,7 +37,7 @@ describe measures you can take.
 Stop the services
 -----------------
 
-See also "[Stopping services](admin/services.md#stopping-services)".
+See also "[Stopping services](../admin/services.md#stopping-services)".
 
   * Sympa services should be stopped.
 
@@ -59,15 +59,15 @@ It is recommended to back up all configurations and database in advance.
 
   * Configurations are saved under following paths.
 
-      - Main configuration file ([``sympa.conf``](layout.md#config)).
-      - Global configuration ([``$SYSCONFDIR``](layout.md#sysconfdir)).
-      - List home ([``$EXPLDIR``](layout.md#expldir)).
+      - Main configuration file ([``sympa.conf``](../layout.md#config)).
+      - Global configuration ([``$SYSCONFDIR``](../layout.md#sysconfdir)).
+      - List home ([``$EXPLDIR``](../layout.md#expldir)).
 
   * To back up database, please consult the documentation of database server.
 
   * Contrary to expectations, default settings, especially default templates,
     are frequently changed on release by release.  Backing up files under
-    [``$DEFAULTDIR``](layout.md#defaultdir) is good idea.
+    [``$DEFAULTDIR``](../layout.md#defaultdir) is good idea.
 
 Install new version of Sympa
 ----------------------------
@@ -80,10 +80,10 @@ See the documentaion of each distribution to know how to update packages.
 ### General instruction
 
   1. Install new version of Sympa distribution according to description in
-     "[Install Sympa distribution](install/install-sympa-distribution.md)".
+     "[Install Sympa distribution](../install/install-sympa-distribution.md)".
 
   2. Update dependent modules if necessary according to description in
-     "[Install dependent modules](install/install-dependent-modules.md)".
+     "[Install dependent modules](../install/install-dependent-modules.md)".
 
 Upgrade data
 ------------
@@ -100,7 +100,7 @@ Upgrade data
 Restart services
 ----------------
 
-See also "[Starting services](admin/services.md#starting-services)".
+See also "[Starting services](../admin/services.md#starting-services)".
 
 Restart services and check if the system will work properly.
 

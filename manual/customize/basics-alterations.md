@@ -66,7 +66,7 @@ Some of these alterations can be configured.
 
   - `Reply-To` header field is altered according to configuration.
 
-     See [`reply_to_header`](../list_config.5.md#reply_to_header).
+     See [`reply_to_header`](../man/list_config.5.md#reply_to_header).
 
   - `X-Sequence` header field is added.  Its value is the sequence number of
      posts.
@@ -79,7 +79,7 @@ Some of these alterations can be configured.
     to satisfy some sender domain validation systems such as DKIM, Sender ID.
 
   - Header fields configured by
-    [`custom_header`](../list_config.5.md#custom_header) are added.
+    [`custom_header`](../man/list_config.5.md#custom_header) are added.
 
   - Some mailing list header fields for
     [RFC 2369](https://tools.ietf.org/html/rfc2369) compliance (see

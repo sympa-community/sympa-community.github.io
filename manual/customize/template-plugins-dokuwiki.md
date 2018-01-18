@@ -59,7 +59,7 @@ If you use SSO [genericsso](https://www.dokuwiki.org/plugin:genericsso) may also
 
 You then have to install the preload file under `/<farm_root>/farmer/inc` (see [DokuWiki preload mecanism](https://www.dokuwiki.org/devel:preload)) :
 
-[preload.php](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=0)  
+`preload.php`:
 ``` code
 <?php
  
@@ -186,7 +186,7 @@ You will most likely have to tweak the first 3 `define` at the top of the file.
 
 Then you have to install the farm dedicated rewrite file under `/<farm_root>/farmer/.htaccess` :
 
-[.htaccess](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=1)  
+`.htaccess`:  
 ``` code
 ## Enable this to restrict editing to logged in users only
  
@@ -296,7 +296,7 @@ You may now configure your farm using the following files (merged in the specifi
 
 Some parameters you have to set :
 
-[farm.protected.php](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=2)  
+`farm.protected.php`:  
 ``` code
 <?php
  
@@ -333,7 +333,7 @@ $conf['remote']      = 0;                  // no API (recommended unless another
 
 <!-- -->
 
-[plugins.barn.protected.php](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=3)  
+`plugins.barn.protected.php`:  
 ``` code
 <?php
  
@@ -346,7 +346,7 @@ $plugins['testing']      = 0;  // no testing either
 
 <!-- -->
 
-[protected.php](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=4)  
+`protected.php`:  
 ``` code
 <?php
  
@@ -357,7 +357,7 @@ $conf['remote']      = 1;   // enable API for the farmer
 
 To enable access from the remote Sympa server to the farm API you must define the `/<farm_root>/farmer/conf/farm_remote_applications.conf` :
 
-[farm_remote_applications.conf](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=5)  
+`farm_remote_applications.conf`:  
 ``` code
 # Farm remote management applications secrets and authorized methods
 remote_application sympa
@@ -373,7 +373,7 @@ You will need the following CPAN modules : `RPC::XML`, `JSON::XS`
 
 Create the directory `/<sympa_bin_path>/Sympa/Template/Plugin` and create the folowing files under it :
 
-[Dokuwiki.pm](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=6)  
+`Dokuwiki.pm`:  
 ``` code
 #!/usr/bin/perl
  
@@ -596,7 +596,7 @@ sub throw {
 
 <!-- -->
 
-[Dokuwiki.conf](/_export/code/templates_plugins/dokuwiki_plugin?codeblock=7)  
+`Dokuwiki.conf`:  
 ``` code
 remote_dokuwiki
     name groupware_wikis

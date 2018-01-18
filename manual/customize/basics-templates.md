@@ -109,7 +109,7 @@ in order:
 
 For example, `mail_tt2/modindex.tt2` file is used to send content of
 moderation spool as the result of `MODINDEX`
-~~[mail command](/manual/mail-commands.md)~~.
+~~[mail command](../mail-commands.md)~~.
 On the other hand, `web_tt2/modindex.tt2` file is used to generate the page
 to list messages waiting for moderation.
 

@@ -6,7 +6,7 @@ up: ../customize.md#extending-sympa
 Custom actions for web interface
 ================================
 
-Starting Sympa 6.1, you can create your own actions, i.e. you can display any [web template](basics-tempates.md#mail-and-web-template-files) in the Sympa web interface. These templates will be processed and completely integrated to Sympa, using its CSS and the data from the server.
+Starting Sympa 6.1, you can create your own actions, i.e. you can display any [web template](basics-templates.md#mail-and-web-template-files) in the Sympa web interface. These templates will be processed and completely integrated to Sympa, using its CSS and the data from the server.
 
 Custom actions are used to run specific code and/or display user defined templates. They can be executed in list or global context (it is up to you to decide what to do in both cases). Previously, a custom action was a simple TT2 template added to the web interface. It could only display data, not process them. They were improved to allow greater expressiveness.
 

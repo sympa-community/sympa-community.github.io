@@ -9,7 +9,7 @@ LDAP authentication
 See also "[Authentication on web interface](authentication-web.md)".
 
 The LDAP
-[authentication mechanism](authenticate-web.md#authentication-mechanisms)
+[authentication mechanism](authentication-web.md#authentication-mechanisms)
 allows to use Sympa web interface (WWSympa) in an intranet without duplicating
 user passwords.
 

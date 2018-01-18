@@ -129,7 +129,7 @@ For example:
   - `true()` succeeds always.
 
   - As an argument, a variable `[custom_vars->`*variable name*`]` allows you
-    to introduce ~~[custom parameters](/manual/customizing#custom_parameters)~~
+    to introduce [custom parameters](../customize/custom-parameters.md)
     in your scenario.
 
 You can also create custom condition writing Perl module:
@@ -384,7 +384,7 @@ It would be false for the following email addresses :
   - verdin@renater.fr
   - olivier.sala@renater.fr
 
-This feature is used by the blacklist implicit scenario rule (see "[Blacklist](../sympa.conf.5.md#use_blacklist)").
+This feature is used by the blacklist implicit scenario rule (see "[Blacklist](../man/sympa.conf.5.md#use_blacklist)").
 
 The method of authentication does not change.
 

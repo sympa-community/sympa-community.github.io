@@ -22,7 +22,7 @@ system administrators.
 
     The destination address of mail command interface.  Messages sent to this
     address will be processed its content as
-    ~~[mail commands](/manual/mail-command)~~.
+    ~~[mail commands](../mail-commands.md)~~.
 
     ----
     Note:

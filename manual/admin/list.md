@@ -2,7 +2,7 @@
 title: 'Managing lists'
 prev: cli.md
 up: ../admin.md
-next: serveradmin.md
+next: web-interface.md
 ---
 
 Managing lists

@@ -116,7 +116,7 @@ Reloading services
 
   * Automatic reloading
 
-    If [``wwsympa.fcgi``](man/wwsympa.8.md) script was updated, it detects
+    If [``wwsympa.fcgi``](../man/wwsympa.8.md) script was updated, it detects
     change of itself and exits.  Then WWSympa will be automatically reloaded.
 
     Exception is the case using nginx with initscripts: If script exits,

@@ -11,6 +11,5 @@ Administering Sympa
   - [Managing services](admin/services.md)
   - [Command line interface](admin/cli.md)
   - [Managing lists](admin/list.md)
-  - ~~[Listmaster portal on web interface](admin/serveradmin.md)~~
-    (Work in progress)
+  - [Web interface for listmaster](admin/web-interface.md)
 

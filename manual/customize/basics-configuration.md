@@ -87,7 +87,7 @@ Exceptions:
     [documentation on each file](../man/sympa_toc.1.md#configuration-files).
 
   - Most of templates are classified further by subdirectories: See
-    "~~[Templates](basics-templates.md)~~".  Task model files are alike: See
+    "[Templates](basics-templates.md)".  Task model files are alike: See
     "[Tasks](basics-tasks.md)".
 
 ### Changing configuration files

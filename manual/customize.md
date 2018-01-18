@@ -55,7 +55,7 @@ needed.
     [&#x2699;](man/edit_list.conf.5.md# "edit_list.conf")
   * Archives
     [&#x1F527;](man/sympa.conf.5.md#archives)
-    [&#x2699;](man/mhonarc_ressources.tt2.5.md# "mhonarc_ressources.tt2")
+    [&#x2699;](man/mhonarc-ressources.tt2.5.md# "mhonarc-ressources.tt2")
   * [Bounce management](customize/bounce-management.md)
     [&#x1F527;](man/sympa.conf.5.md#bounce-management-and-tracking)
   * Loop prevention
@@ -94,10 +94,12 @@ needed.
 
       - Session and cookie
         [&#x1F527;](man/sympa.conf.5.md#cookie_domain)
-      - Shared document repository
+      - ~~[Shared document repository](customize/shared-repository.md)~~
         [&#x1F527;](man/sympa.conf.5.md#default_shared_quota)
-      - Web mailer
+        (Work in progress)
+      - ~~[customize/web-mailer.md](Web mailer)~~
         [&#x1F527;](man/sympa.conf.5.md#use_html_editor)
+        (Work in progress)
       - Password
         [&#x1F527;](man/sympa.conf.5.md#max_wrong_password)
       - One time ticket

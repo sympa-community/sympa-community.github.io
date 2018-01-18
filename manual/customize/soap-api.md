@@ -163,7 +163,7 @@ For more details see appropriate section in
     WSDL service description. Default description is placed under
     [``$DEFAULTDIR``](../layout.md#defaultdir).
 
-  * [``trusted_applications.conf``](../man/trusted_applications.5.md)
+  * [``trusted_applications.conf``](../man/trusted_applications.conf.5.md)
 
     Definitions of trusted SOAP applications.  See also below.
 
