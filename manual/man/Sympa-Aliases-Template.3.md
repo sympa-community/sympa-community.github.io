@@ -74,7 +74,7 @@ Alias management: Aliases file based on template
 
 [Sympa::Aliases](./Sympa-Aliases.3.md),
 [Sympa::Aliases::CheckSMTP](./Sympa-Aliases-CheckSMTP.3.md),
-[sympa\_newaliases(8)](./sympa_newaliases.8.md).
+[sympa\_newaliases(1)](./sympa_newaliases.1.md).
 
 # HISTORY
 

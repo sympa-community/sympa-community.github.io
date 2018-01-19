@@ -50,7 +50,7 @@ context => $list, arc => $arc, message\_id => $message\_id,
 
         Note:
         `arc` parameter will be used by a latter part of processing,
-        [Sympa::Spindle::TransofrmOutgoing](./Sympa-Spindle-TransofrmOutgoing.3.md) to construct `Archived-At` field.
+        [Sympa::Spindle::TransformOutgoing](./Sympa-Spindle-TransformOutgoing.3.md) to construct `Archived-At` field.
 
     - quiet => 1
 

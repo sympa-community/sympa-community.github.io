@@ -16,7 +16,7 @@ and executed.  Otherwise messages will be skipped.
 
 ## Public methods
 
-See also ["Public methods" in Sympa::Spindle::Incoming](./Sympa-Spindle-Incoming.3.md#public-methods).
+See also ["Public methods" in Sympa::Spindle::ProcessIncoming](./Sympa-Spindle-ProcessIncoming.3.md#public-methods).
 
 - new ( key => value, ... )
 - spin ( )

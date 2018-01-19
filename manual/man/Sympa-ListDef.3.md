@@ -193,7 +193,7 @@ This module keeps definition of configuration parameters for each list.
 
 # SEE ALSO
 
-[config(5)](./config.5.md),
+[list\_config(5)](./list_config.5.md),
 [Sympa::List::Config](./Sympa-List-Config.3.md),
 [Sympa::ListOpt](./Sympa-ListOpt.3.md).
 
