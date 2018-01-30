@@ -68,7 +68,12 @@ Visibility of the list
 
 - Format:
 
-    Name of `visibility` scenario.
+    Name of `visibility` scenario:
+
+    - `conceal` - conceal except for subscribers
+    - `intranet` - intranet access
+    - `noconceal` - no conceal
+    - `secret` - conceal even for subscribers
 
 - Default:
 
@@ -438,7 +443,33 @@ Who can send messages
 
 - Format:
 
-    Name of `send` scenario.
+    Name of `send` scenario:
+
+    - `closed` - closed
+    - `confidential` - restricted to subscribers
+    - `editordkim` - Moderated, no authentication needed if DKIM signature from editor is OK
+    - `editorkey` - Moderated
+    - `editorkeyonly` - Moderated, even for moderators
+    - `editorkeyonlyauth` - Moderated, need authentication from editor
+    - `intranet` - restricted to local domain
+    - `intranetorprivate` - restricted to local domain and subscribers
+    - `newsletter` - Newsletter, restricted to moderators
+    - `newsletterkeyonly` - Newsletter, restricted to moderators after confirmation
+    - `owner` - Restricted to list owners only
+    - `ownerauth` - Restricted to list owners with previous MD5 authentication
+    - `private` - restricted to subscribers
+    - `private_smime` - restricted to subscribers and checked smime signature
+    - `privateandeditorkey` - Moderated, restricted to subscribers
+    - `privateandnomultipartoreditorkey` - Moderated, for non subscribers sending multipart messages
+    - `privatekey` - restricted to subscribers with previous md5 authentication
+    - `privatekeyandeditorkeyonly` - Moderated, for subscribers and even moderators themself
+    - `privateoreditorkey` - Private, moderated for non subscribers
+    - `privateorpublickey` - Private, confirmation for non subscribers
+    - `public` - public list
+    - `public_nobcc` - public list, Bcc rejected (anti-spam)
+    - `publickey` - anyone no authentication if DKIM signature is OK
+    - `publicnoattachment` - public list multipart/mixed messages are forwarded to moderator
+    - `publicnomultipart` - public list multipart messages are rejected
 
 - Default:
 
@@ -894,7 +925,11 @@ Who can view list information
 
 - Format:
 
-    Name of `info` scenario.
+    Name of `info` scenario:
+
+    - `conceal` - restricted to subscribers - Silent rejection otherwise.
+    - `open` - for anyone
+    - `private` - restricted to subscribers
 
 - Default:
 
@@ -906,7 +941,23 @@ Who can subscribe to the list
 
 - Format:
 
-    Name of `subscribe` scenario.
+    Name of `subscribe` scenario:
+
+    - `auth` - subscription request confirmed
+    - `auth_notify` - need authentication (notification is sent to owners)
+    - `auth_notifydkim` - need authentication unless DKIM signature is OK. (notification is sent to owners)
+    - `auth_owner` - requires authentication then owner approval
+    - `auth_ownerdkim` - requires authentication unless DKIM signature is OK, then owner approval
+    - `authdkim` - subscription request confirmed
+    - `closed` - subscription is impossible
+    - `intranet` - restricted to local domain users
+    - `intranetorowner` - local domain users or owner approval
+    - `open` - for anyone without authentication
+    - `open_notify` - anyone, notification is sent to list owner
+    - `open_quiet` - anyone, no welcome message
+    - `owner` - owners approval
+    - `smime` - requires S/MIME signed
+    - `smimeorowner` - requires S/MIME signed or owner approval
 
 - Default:
 
@@ -920,7 +971,14 @@ Who can add subscribers
 
 - Format:
 
-    Name of `add` scenario.
+    Name of `add` scenario:
+
+    - `auth` - restricted to owner with authentication
+    - `authdkim` - restricted to owner without authentication if DKIM signature is OK.
+    - `closed` - add impossible
+    - `owner` - add performed by list owner does not need authentication
+    - `owner_notify` - add performed by owner does not need authentication (notification)
+    - `ownerdkim` - add performed by list owner does not need authentication if DKIM signature OK
 
 - Default:
 
@@ -934,7 +992,16 @@ Who can unsubscribe
 
 - Format:
 
-    Name of `unsubscribe` scenario.
+    Name of `unsubscribe` scenario:
+
+    - `auth` - need authentication
+    - `auth_notify` - authentication requested, notification sent to owner
+    - `auth_notifydkim` - authentication requested unless DKIM signature is OK, notification sent to owner
+    - `authdkim` - need authentication unless DKIM signature is OK
+    - `closed` - impossible
+    - `open` - open
+    - `open_notify` - open with mail confirmation, owner is notified
+    - `owner` - owners approval
 
 - Default:
 
@@ -948,7 +1015,14 @@ Who can delete subscribers
 
 - Format:
 
-    Name of `del` scenario.
+    Name of `del` scenario:
+
+    - `auth` - deletion performed only by list owners, need authentication
+    - `authdkim` - deletion performed only by list owners, need authentication unless DKIM signature is OK
+    - `closed` - remove subscriber impossible
+    - `owner` - by owner without authentication
+    - `owner_notify` - list owners, authentication not needed (notification)
+    - `ownerdkim` - by owner without authentication if DKIM signature OK
 
 - Default:
 
@@ -960,7 +1034,12 @@ Who can invite people
 
 - Format:
 
-    Name of `invite` scenario.
+    Name of `invite` scenario:
+
+    - `closed` - closed
+    - `owner` - invite perform by list owner do not need authentication
+    - `private` - restricted to subscribers
+    - `public` - public
 
 - Default:
 
@@ -972,7 +1051,12 @@ Who can start a remind process
 
 - Format:
 
-    Name of `remind` scenario.
+    Name of `remind` scenario:
+
+    - `listmaster` - listmaster only
+    - `listmasterdkim` - listmaster only (do not require authentication if DKIM siganture is OK) 
+    - `owner` - restricted to list owners
+    - `ownerdkim` - restricted to list owners (authentication is not required if a DKIM signature is OK)
 
 - Default:
 
@@ -986,7 +1070,14 @@ Who can review subscribers
 
 - Format:
 
-    Name of `review` scenario.
+    Name of `review` scenario:
+
+    - `closed` - no one can review
+    - `intranet` - restricted to subscribers or local domain users
+    - `listmaster` - listmaster only
+    - `owner` - only owner (and listmaster)
+    - `private` - restricted to subscribers
+    - `public` - anyone can do it!
 
 - Default:
 
@@ -1036,7 +1127,12 @@ Who can view
 
 - Format:
 
-    Name of `d_read` scenario.
+    Name of `d_read` scenario:
+
+    - `owner` - restricted to list owners
+    - `private` - restricted to subscribers
+    - `private-https` - restricted to subscribers authenticated with user cert
+    - `public` - public documents
 
 - Default:
 
@@ -1048,7 +1144,13 @@ Who can edit
 
 - Format:
 
-    Name of `d_edit` scenario.
+    Name of `d_edit` scenario:
+
+    - `editor` - moderated for subscribers
+    - `owner` - restricted to list owners
+    - `private` - restricted to subscribers
+    - `private-https` - restricted to subscribers authenticated with user cert
+    - `public` - public documents
 
 - Default:
 
@@ -1103,7 +1205,14 @@ access right
 
 - Format:
 
-    Name of `access_web_archive` scenario.
+    Name of `access_web_archive` scenario:
+
+    - `closed` - closed
+    - `intranet` - restricted to local domain users
+    - `listmaster` - listmaster
+    - `owner` - by owner
+    - `private` - subscribers only
+    - `public` - public
 
 - Default:
 
@@ -1115,7 +1224,12 @@ access right by mail commands
 
 - Format:
 
-    Name of `archive_mail_access` scenario.
+    Name of `archive_mail_access` scenario:
+
+    - `closed` - closed
+    - `owner` - by owner
+    - `private` - subscribers only
+    - `public` - public
 
 - Default:
 
@@ -1358,7 +1472,10 @@ who can view message tracking
 
 - Format:
 
-    Name of `tracking` scenario.
+    Name of `tracking` scenario:
+
+    - `owner` - only owner (and listmaster)
+    - `private` - restricted to subscribers
 
 - Default:
 
