@@ -10,8 +10,8 @@ S/MIME
 
 Sympa supports features of
 [S/MIME version 2](https://tools.ietf.org/html/rfc2311). It can
-verify electronic signature of incoming message, decrypt incoming message
-and re-encrypt them using users' certificates.
+verify the electronic signature of incoming messages, decrypt and re-encrypt
+them using users' certificates.
 
 Requirements
 ------------
@@ -23,39 +23,38 @@ Requirements
     Note:
 
       * On Sympa prior to 6.2, openssl(1) utility was required.  It is no
-        longer required, however, to install Perl modules above, openssl
-        library is required.
+        longer required but it can be a prerrequisite to install the Perl
+        modules mentioned above.
 
     ----
 
-  - CA certificate: The certificate of certificate authority (CA) which
-    issues users' certificates.
-    To obtain CA certificate, consult the issuer organization.
+  - CA certificate: A certificate from a certificate authority (CA). To
+  obtain a CA certificate, consult the issuer organization.
 
     ----
     Note:
 
       * Several issuers provide one or more additional certificates, so-called
-        "intermediate CA certificate", along with "root CA certificate".
-        If it is the case, you have to obtain all of those certificates.
+        "intermediate CA certificate", along with the "root CA certificate".
+        If this is the case, you have to obtain all of those certificates.
 
     ----
     Certificate files have to be in PEM format.
 
-  - Key pair (certificate and private key) of address of Sympa itself.
-    Certificate is used by users to encrypt messages bound for Sympa.
-    Private key is used by Sympa to decrypt incoming message.
+  - Key pair (certificate and private key) of Sympa's address. The
+    certificate is used by users to encrypt messages bound for Sympa.
+    Sympa's private key is used by Sympa to decrypt these incoming messages.
 
-    You can either issue certificate by your own, or use certificate issued
-    by appropriate CA.
+    You can either issue a certificate by your own, or use a certificate issued
+    by an appropriate CA.
 
 Setup
 -----
 
 ### Sympa configuration parameters
 
-Following parameters in [`sympa.conf`](../layout.md#config) may configure
-S/MIME support.
+The following parameters in [`sympa.conf`](../layout.md#config) are
+necessary to configure S/MIME support.
 
   - [`cafile`](../man/sympa.conf.5.md#cafile) and
     [`capath`](../man/sympa.conf.5.md#capath)
@@ -63,8 +62,8 @@ S/MIME support.
     Paths of trusted certificate stores.
     `cafile` is the path to a file including concatenated one or more
     certificates in PEM format.
-    `capath` is the path to directory containing one or more certificates
-    in PEM format, with file names are linked by hashed name using
+    `capath` is the path to the directory containing one or more certificates
+    in PEM format, whose file names are linked by hashed name using
     [`c_rehash(1)`](https://www.openssl.org/docs/manmaster/man1/c_rehash.html)
     utility.
 
@@ -84,7 +83,7 @@ Note:
   * Message with *decrypted* format may be temporarily put into the directory
     specified by [`tmpdir`](../man/sympa.conf.5.md#tmpdir) (by default
     [``$SPOOLDIR``](../layout.md#spooldir)`/tmp`).
-    Usually it may not be changed, but you should confirm that this directory
+    Usually it should not be changed, but you should confirm that this directory
     is not exposed to public.
 
 ----
@@ -104,8 +103,8 @@ Note:
 
   2. Add appropriate parameters described in previous section to `sympa.conf`.
 
-  3. Install obtained CA certificate(s) (see "[Requirements](#requirements)")
-     into the directory and/or the file.  The CA certificate files must be
+  3. Install the CA certificate(s) (see "[Requirements](#requirements)")
+     into the directory and/or the file. CA certificate files must be
      readable (but not writable) by `sympa` user.
 
   4. Install key pair of Sympa as these names:
@@ -126,11 +125,11 @@ Note:
 
 ### Obtaining users' certificates
 
-User's certificate is used to verify signature of message, or to encrypt
+User's certificate is used to verify the signature of message, or to encrypt
 message delivered to each user.
 
 Sympa obtains user's certificate from the incoming message
-automatically.  Or, you can install it manually into `ssl_cert_dir` directory.
+automatically.  Or, you can manually install it into `ssl_cert_dir` directory.
 Its file name is one of following by its usage:
 
   - *email@add.ress*`@enc`
@@ -152,7 +151,7 @@ Note:
     be escaped to avoid limitation of filesystem encoding.
     By historical reason, escaping scheme is slightly wierd (`escape_chars()`
     in [Sympa::Tools::Text](../man/Sympa-Tools-Text.3.md) is used).
-    This will be fixed on the future release of Sympa.
+    This will be fixed on a future release of Sympa.
 
 ----
 
@@ -176,10 +175,10 @@ How it works
 
 ### Verifying S/MIME signature
 
-  1. A user sends a message signed using their private key.
+  1. A user send a message signed using his/her private key.
 
-  2. Sympa verifies S/MIME signature of incoming message using the
-     certificate included in it (or, use certificate cached in `ssl_cert_dir`
+  2. Sympa verifies the S/MIME signature of the incoming message using the
+     certificate included within it (or, use certificates cached in `ssl_cert_dir`
      directory).
 
   3. If verification succeeds, `smime` authentication method is assigned to
@@ -194,11 +193,12 @@ reception mode (see also
 
 ### Handling encrypted message
 
-At first, users who want to receive encrypted messages though Sympa have to
-send message signed by their private key to Sympa's address.
-Sympa obtains user's certificate extracted from these messages.
+For the first time, users who want to receive encrypted messages through
+Sympa have to send a message signed by their private key to Sympa's address.
+Sympa extracts user's certificate from this message.
 
-Once certificate is obtained by Sympa, message encryption is available:
+Once the certificate is obtained by Sympa, message encryption becomes
+available for that user:
 
   1. A user sends a message encrypted using Sympa's certificate.
 
@@ -208,10 +208,10 @@ Once certificate is obtained by Sympa, message encryption is available:
 
      If decryption fails, encrypted message is delivered intact.
 
-  3. At last when Sympa delivers message, it tries to encrypt message again
-     using certificate of recipient by each, then delivers it.
+  3. Finally, when Sympa delivers the message, it tries to encrypt it again
+     using each recipient's certificate and delivers it.
 
-     If encryption fails (e.g. certificate of the recipient is not found),
+     If encryption fails (e.g. recipient's certificate is not found),
      Sympa delivers a message informing failure instead (a mail template
      `mail_tt2/x509-user-cert-missing.tt2` is used).
 
