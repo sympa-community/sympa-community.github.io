@@ -16,7 +16,7 @@ Location of scenario file
 -------------------------
 
 Each scenario file is named as "_function_`.`_name_". The _function_
-corresponds to a function to be authorized, and the _name_ distingishes the
+corresponds to a function to be authorized, and the _name_ distinguishes the
 policy.  Usually, some scenario files with different names are prepared for
 each function.
 
@@ -26,16 +26,16 @@ For example, a scenario file
 
 may be used to make subscription of a list be open. To do such,
 
-  * Edit list [``config``](../man/list_config.5.md) file to add following
+  * Edit list [``config``](../man/list_config.5.md) file to add the following
     setting:
     ```
     subscribe open
     ```
-  * With web interface, choose "for anyone without authentication (open)"
-    option on "Who can subscribe to the list (subscribe)" in list
+  * In the web interface, choose "for anyone without authentication (open)"
+    option on "Who can subscribe to the list (subscribe)" in the list
     configuration page.
 
-To look for particular scenario, Sympa searches following directories in
+To look for a particular scenario, Sympa searches following directories in
 order (see also
 "[Configuration files](basics-configuration.md#configuration-files)"):
 
@@ -44,23 +44,23 @@ order (see also
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/scenari`
   - [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari`
 
-You can modify Sympa behavior if you are creating a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
+You can modify Sympa behavior if you create a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
 
 See also "[Hiding scenario files](#hiding-scenario-files)".
 
 ----
 Notes:
 
-  * When customizing scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
+  * When customizing a scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
 
-  * When modifying a existing scenario you need to restart Sympa or touch list [`config`](../man/list_config.5.md) file before Sympa use it.
+  * When modifying an existing scenario you need to restart Sympa or touch list [`config`](../man/list_config.5.md) file before Sympa use it.
 
 ----
 
 Content of scenario file
 ------------------------
 
-Basically, content of scenario file is composed of one or more titles on the
+Basically, a scenario file is composed of one or more titles on the
 first lines and a set of rules on the following lines. For example:
 ```
 title.en-US deletion performed only by list owners, need authentication
@@ -74,7 +74,7 @@ true()                         md5,smime  -> do_it
 
 ### Scenario title
 
-The first line of a scenario file can contain its title. This is the text that will later appear in the drop-down menu of your administration web interface. This title can be just plain text:
+The first line of a scenario file can contains its own title. This is the text that will later appear in the drop-down menu of your management web interface. This title can be just plain text:
 ``` code
 title Restricted to subscribers
 ```
@@ -95,7 +95,7 @@ title according to users' language context (see also
 "[Language tag](basics-i18n.md#language-tag)"). If no appropriate line is
 found, `title` will be used as default.
 In the second, the string following `title.gettext` will be translated to
-users' language using Sympa's translation catalog. If there are no entry in
+the users' language using Sympa's translation catalog. If there are no entry in
 catalog, the string itself will be used.
 
 ### Rules
@@ -108,7 +108,7 @@ Note:
 
 ----
 
-One or more lines for rules follow to title. Each rule has following syntax:
+One or more lines for rules follow to title. Each rule has the following syntax:
 
 > *condition* *authentication_methods* `->` *action*
 
@@ -119,12 +119,12 @@ and subsequent rules will no longer be evaluated.
 #### Conditions
 
 A condition is the term with optional arguments.  Each argument may be a
-variable with given value according to context, or a literal string.
+variable with a given value according to context, or a literal string.
 
 For example:
 
-  - `is_owner([listname],[sender])` succeeds if the user requested operation
-    is the member of given list.
+  - `is_owner([listname],[sender])` succeeds if the user that requested the operation
+    is the owner of the list.
 
   - `true()` succeeds always.
 
@@ -132,12 +132,12 @@ For example:
     to introduce [custom parameters](../customize/custom-parameters.md)
     in your scenario.
 
-You can also create custom condition writing Perl module:
+You can also create custom conditions writing a Perl module:
 See "[Custom scenario conditions](custom-scenario-conditions.md)" for details.
 
 #### Authentication methods
 
-You can specify four different authentication methods to base your rules on (in order by lower to higher levels):
+You can specify four different authentication methods to base your rules on (ordered from lower to higher levels):
 
   - `smtp`
   - `dkim`
@@ -193,7 +193,7 @@ An action is one of following keywords:
 
   * `editorkey`
 
-    Hold the message for moderation and sends notification to the moderators.
+    Holds the message for moderation and sends notification to the moderators.
     Only for `send` function.
 
   * `owner`
@@ -203,7 +203,7 @@ An action is one of following keywords:
 
   * `reject`
 
-    Denys operation.
+    Denies operation.
 
 Some actions may have modifiers, for example:
 > `editorkey,quiet`
@@ -221,7 +221,7 @@ Some actions may have modifiers, for example:
     automatic information message telling them that their message has been
     forwarded to the list editor.
 
-  * `notify` modifier sends a report to list owner, if it will not be sent by
+  * `notify` modifier sends a report to the list owner, if it will not be sent by
     default.
 
   * `(reason=...)` modifier returns a key in `mail_tt2/report.tt2` template as
@@ -238,13 +238,13 @@ Some actions may have modifiers, for example:
   * `(tt2=...)` modifier sends the user a rejection message generated from
     specified template (extension `.tt2` will be added).
 
-This is an important issue to prevent *backscatter* messages. backscatter messages are messages you receive as an automatic answer to a message you never sent. The following web page give you more details :
+This is an important issue to prevent *backscatter* messages. Backscatter messages are messages you receive as an automatic answer to a message you never sent. The following web page give you more details :
 
   - [http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html](http://www.spamresource.com/2007/02/backscatter-what-is-it-how-do-i-stop-it.html)
 
   - [http://en.wikipedia.org/wiki/Backscatter](http://en.wikipedia.org/wiki/Backscatter)
 
-Sympa version 6.0 and later of Sympa provide a better mechanism to prevent backscatter. See ~~[https://www.sympa.org/manual/antispam](https://www.sympa.org/manual/antispam)~~.
+Sympa versions 6.0 and later provide a better mechanism to prevent backscatter. See ~~[https://www.sympa.org/manual/antispam](https://www.sympa.org/manual/antispam)~~.
 
 Named Filters
 -------------
@@ -259,7 +259,7 @@ Note that only a subset of variables available in the scenario context are avail
 
 People are selected through an LDAP filter defined in a configuration file. This file must have the extension '.ldap'. It is stored in [``$SYSCONFDIR``](../layout.md#sysconfdir)`/search_filters/`.
 
-You must give a few information in order to create a LDAP Named Filter:
+You must provide some information in order to create a LDAP Named Filter:
 
   - `host`
 
@@ -364,7 +364,7 @@ The variable used by `search` is the name of the LDAP configuration file or a tx
 
 Note that Sympa processes maintain a cache of processed search conditions to limit access to the LDAP directory or SQL server; each entry has a lifetime of one hour in the cache.
 
-When using the '.txt' file extension, each line is used to try to match the sender email address. You can use the "\*" character as a joker to replace any string.
+When using the '.txt' file extension, each line is used to try to match the sender email address. You can use the "\*" character as a wild card to replace any string.
 
 Here is an example of such a file:
 
@@ -414,7 +414,7 @@ For each service listed in parameter [`use_blacklist`](../man/sympa.conf.5.md#us
 search(blacklist.txt)  smtp,md5,dkim,smime -> reject,quiet
 ```
 
-The goal is to block messages or other service requests from unwanted users. The blacklist can be defined for the robot or for the list. At the list level, the blacklist is to be managed by list owner or list editor via the web interface.
+The goal is to block messages or other service requests from unwanted users. The blacklist can be defined for the robot or for the list. At the list level, the blacklist is to be managed by the list owner or the list editor via the web interface.
 
 `spam-status` special scenario
 ------------------------------
