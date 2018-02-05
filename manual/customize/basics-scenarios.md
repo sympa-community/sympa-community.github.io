@@ -132,7 +132,7 @@ For example:
     to introduce [custom parameters](../customize/custom-parameters.md)
     in your scenario.
 
-You can also create custom conditions writing a Perl module:
+You can also create custom conditions by writing a Perl module:
 See "[Custom scenario conditions](custom-scenario-conditions.md)" for details.
 
 #### Authentication methods
