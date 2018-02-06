@@ -175,14 +175,14 @@ How it works
 
 ### Verifying S/MIME signature
 
-  1. A user send a message signed using his/her private key.
+  1. A user sends a message signed using his/her private key.
 
   2. Sympa verifies the S/MIME signature of the incoming message using the
      certificate included within it (or, use certificates cached in `ssl_cert_dir`
      directory).
 
   3. If verification succeeds, `smime` authentication method is assigned to
-     the message, and it is used by scenario (see
+     the message, and it is used by the corresponding scenario (see
      "[Authorization scenarios](basics-scenarios.md)", particularly
      "[Authentication methods](basics-scenarios.md#authentication-methods)").
 
