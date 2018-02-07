@@ -23,7 +23,7 @@ Requirements
     Note:
 
       * On Sympa prior to 6.2, openssl(1) utility was required.  It is no
-        longer required but it can be a prerrequisite to install the Perl
+        longer required but it can be a prerequisite to install the Perl
         modules mentioned above.
 
     ----
