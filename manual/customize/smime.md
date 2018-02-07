@@ -151,7 +151,7 @@ Note:
     be escaped to avoid limitation of filesystem encoding.
     By historical reason, escaping scheme is slightly wierd (`escape_chars()`
     in [Sympa::Tools::Text](../man/Sympa-Tools-Text.3.md) is used).
-    This will be fixed on a future release of Sympa.
+    This will be fixed in a future release of Sympa.
 
 ----
 
@@ -198,20 +198,22 @@ Sympa have to send a message signed by their private key to Sympa's address.
 Sympa extracts user's certificate from this message.
 
 Once the certificate is obtained by Sympa, message encryption becomes
-available for that user:
+available for that user. The publication mechanism for encrypted messages
+is as follows:
 
   1. A user sends a message encrypted using Sympa's certificate.
 
-  2. Sympa tries to decrypt incoming message using its private key
-     (if decrypted message is signed, it also verifies signature as described
-     in previous section).
+  2. Sympa tries to decrypt the incoming message using its private key
+     (if decrypted message is signed, it also verifies the signature as
+     described in the previous section).
 
-     If decryption fails, encrypted message is delivered intact.
+     If decryption fails, the encrypted message is delivered intact.
 
-  3. Finally, when Sympa delivers the message, it tries to encrypt it again
-     using each recipient's certificate and delivers it.
+  3. If decryption succeeds, Sympa will deliver the message to every
+     subscriber in the list, encrypting it with every recipient's
+     certificate.
 
      If encryption fails (e.g. recipient's certificate is not found),
-     Sympa delivers a message informing failure instead (a mail template
-     `mail_tt2/x509-user-cert-missing.tt2` is used).
+     Sympa will deliver a message informing about the failure instead (mail
+     template `mail_tt2/x509-user-cert-missing.tt2` is used).
 
