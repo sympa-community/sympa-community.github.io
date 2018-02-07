@@ -3,6 +3,11 @@
 
 @import "{{ site.theme }}";
 
+nav.toc {
+    max-height: 440px;
+    overflow-y: auto;
+}
+
 h1 {
     font-size: 2.0em;
     border-bottom: solid 1px #e0e0e0;
