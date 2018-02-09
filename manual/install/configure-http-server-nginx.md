@@ -5,13 +5,26 @@ up: configure-http-server.md
 next: configure-http-server.md#tests
 ---
 
-Configure HTTP server: nginx
-============================
+Configure HTTP server: Separating FastCGI service for web interface
+===================================================================
 
 Requirements
 ------------
 
-  * [nginx](https://nginx.org/en/download.html).
+  * HTTP server.
+
+    Currently, [nginx](https://nginx.org/en/download.html)
+    and Apache HTTP Serever (2.4 or later) are reported working.
+
+    ----
+    Note:
+
+      * For Apache HTTP Server: Instruction described here needs
+        mod_proxy_fcgi module introduced by HTTP Server 2.4.
+        See [another instruction](configure-http-server-apache.md) to know
+        about configuration with HTTP Server prior to 2.4.
+
+    ----
 
   * [spawn-fcgi](https://redmine.lighttpd.net/projects/spawn-fcgi/wiki),
     an implementation of FastCGI server.
@@ -20,6 +33,8 @@ Requirements
 
 General instruction
 -------------------
+
+### Install WWSympa FCGI service
 
   1. Register WWSympa FastCGI service.
 
@@ -71,8 +86,15 @@ General instruction
          # chkconfig wwsympa on
          ```
 
-  4. If you have not added configuration for Sympa to nginx, add following
-     excerpt (Note: replace [``$PIDDIR``](../layout.md#piddir),
+### Setup HTTP server
+
+If you have not added configuration for Sympa to HTTP server, follow
+instruction below.
+
+#### nginx
+
+  1. Add following excerpt to nginx configuration (Note:
+     replace [``$PIDDIR``](../layout.md#piddir),
      [``$EXECCGIDIR``](../layout.md#execcgidir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
      ```
@@ -106,12 +128,46 @@ General instruction
 
      ----
 
-  5. Edit it as you prefer.
+  2. Edit it as you prefer.
 
      Note that ``server_name`` directive above should contain host part of
      [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
      Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
      web host name of the service.
 
-  6. Restart nginx.
+  3. Restart nginx.
+     Then test configuration according to
+     [instruction](configure-http-server.md#tests).
 
+#### Apache HTTP Server
+
+  1. Add following excerpt to httpd configuration (Note:
+     replace [``$PIDDIR``](../layout.md#piddir) and
+     [``$STATICDIR``](../layout.md#staticdir) below):
+     ```
+     LoadModule proxy_module modules/mod_proxy.so
+     LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
+
+     ...
+
+     <Location /sympa>
+         SetHandler "proxy:unix:$PIDDIR/wwsympa.socket|fcgi://"
+         Require all granted
+     </Location>
+
+     <Location /static-sympa>
+         Require all granted
+     </Location>
+     Alias /static-sympa $STATICDIR
+     ```
+
+  2. Edit it as you prefer.
+
+     Note that ``ServerName`` directive above should contain host part of
+     [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
+     Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
+     web host name of the service.
+
+  3. Restart httpd.
+     Then test configuration according to
+     [instruction](configure-http-server.md#tests).
