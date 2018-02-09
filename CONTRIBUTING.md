@@ -20,8 +20,8 @@ How to contribute
     reformat your work.  Other formats (OpenDocument, HTML, POD, ...)
     should be converted to Markdown.
 
-Markdown rules
---------------
+Markdown guidelines
+-------------------
 
   * Don't use tab character.
 
