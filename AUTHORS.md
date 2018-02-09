@@ -1,7 +1,7 @@
 Authors
 =======
 
-Here are authors in alphabetical order by surname then by first name.
+Here are authors in alphabetical order by surname then by given name.
 
 If you commit changes or additions at the first time, don't forget to add your
 name here.
