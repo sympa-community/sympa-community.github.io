@@ -19,10 +19,18 @@ Requirements
     ----
     Note:
 
-      * For Apache HTTP Server: Instruction described here needs
-        mod_proxy_fcgi module introduced by HTTP Server 2.4.
-        See [another instruction](configure-http-server-apache.md) to know
-        about configuration with HTTP Server prior to 2.4.
+      * For Apache HTTP Server:
+
+          * Instruction described here needs mod_proxy_fcgi module introduced
+            by HTTP Server 2.4.
+            See [another instruction](configure-http-server-apache.md) to know
+            about configuration with HTTP Server prior to 2.4.
+
+          * Sympa prior to 6.2.25b.1 has
+            [a bug](https://github.com/sympa-community/sympa/pull/164) and
+            doesn't work properly with the method described in this chapter.
+            Upgrading to recent version is recommended, or see
+            [another instruction](configure-http-server-apache.md).
 
     ----
 
@@ -97,7 +105,7 @@ instruction below.
      replace [``$PIDDIR``](../layout.md#piddir),
      [``$EXECCGIDIR``](../layout.md#execcgidir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
-     ```
+     ``` code
      server {
          listen      80;
          server_name localhost.localdomain;  # Change it!
@@ -144,7 +152,8 @@ instruction below.
   1. Add following excerpt to httpd configuration (Note:
      replace [``$PIDDIR``](../layout.md#piddir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
-     ```
+     ``` code
+     LoadModule alias_module modules/mod_alias.so
      LoadModule proxy_module modules/mod_proxy.so
      LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
 
