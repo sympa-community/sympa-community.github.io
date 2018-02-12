@@ -61,6 +61,20 @@ General instruction
 
          ----
 
+       * FreeBSD ports/package
+
+         Configure and activate the service (Note:
+         Replace [``$EXECCGIDIR``](../layout.md#execcgidir) and
+         [``$PIDDIR``](../layout.md#piddir) below):
+         ```
+         # sysrc spawn_fcgi_enable="YES"
+         # sysrc spawn_fcgi_app="$EXECCGIDIR/wwsympa.fcgi"
+         # sysrc spawn_fcgi_bindsocket="$PIDDIR/wwsympa.socket"
+         # sysrc spawn_fcgi_bindsocket_mode="0600 -U www"
+         # sysrc spawn_fcgi_username="sympa"
+         # sysrc spawn_fcgi_groupname"sympa"
+         ```
+
        * System V init script
 
          If your system supports system V init script, edit
