@@ -63,10 +63,10 @@ General instruction
 
        * FreeBSD ports/package
 
-         Configure and activate the service (Note:
+         Configure and activate the spawn-fcgi service (Note:
          Replace [``$EXECCGIDIR``](../layout.md#execcgidir) and
          [``$PIDDIR``](../layout.md#piddir) below):
-         ```
+         ``` bash
          # sysrc spawn_fcgi_enable="YES"
          # sysrc spawn_fcgi_app="$EXECCGIDIR/wwsympa.fcgi"
          # sysrc spawn_fcgi_bindsocket="$PIDDIR/wwsympa.socket"
@@ -90,7 +90,12 @@ General instruction
          # systemctl status wwsympa.service
          ```
 
-       * initscripts or FreeBSD ports
+       * FreeBSD ports/package
+         ```bash
+         # /usr/local/etc/rc.d/spawn-fcgi start
+         ```
+
+       * initscripts
          ```bash
          # service wwsympa start
          # service wwsympa status
