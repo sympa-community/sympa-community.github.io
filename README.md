@@ -28,3 +28,14 @@ We agreed on switching to the following main technologies:
   * include all pre-requesite modules for a Sympa module. Therefore, the line `use Sympatic;` should be enough to include Moo and all required modules,
   * serve as an example and documentation about the coding style.
 This is still a proposal and the exact details should be accepted by the community.
+
+## Running unit tests
+Sympa has a very wide usage of autotools. Illustrating this point if the way you run unit tests.
+
+If you want to run the whole unit tests, just go to the root sources directory and run:
+
+    make check-local
+
+If you want to run a single unit test, let's say on `t/LockedFile.t` and `t/parse_templates.t`, run:
+
+    make check-local TEST_FILES='TEST_FILES='t/LockedFile.t t/parse_templates.t'
