@@ -200,7 +200,7 @@ Note:
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
-| Debian                      | ???? |
+| Debian                      | ``/var/lib/sympa/arc``           |
 | FreeBSD                     | ``/usr/local/share/sympa/arc``   |
 | RPM                         | ``/var/lib/sympa/arc``           |
 | Source distribution default | ``/home/sympa/arc``              |
@@ -215,7 +215,7 @@ Note:
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
-| Debian | ???? |
+| Debian                      | ``/var/lib/sympa/bounce``        |
 | FreeBSD                     | ``/usr/local/share/sympa/bounce`` |
 | RPM                         | ``/var/lib/sympa/bounce``        |
 | Source distribution default | ``/home/sympa/bounce``           |
@@ -230,7 +230,7 @@ Directories specific to web interface
 
 | Distribution                | Path                         |
 |-----------------------------|------------------------------|
-| Debian | ???? |
+| Debian                      | ``/usr/lib/cgi-bin/sympa``   |
 | FreeBSD                     | ``/usr/local/libexec/sympa`` |
 | RPM                         | ``/usr/libexec/sympa``       |
 | Source distribution default | ``/home/sympa/bin``          |
