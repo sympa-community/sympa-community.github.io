@@ -201,7 +201,7 @@ Note:
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
 | Debian                      | ???? |
-| FreeBSD                     | ???? |
+| FreeBSD                     | ``/usr/local/share/sympa/arc``   |
 | RPM                         | ``/var/lib/sympa/arc``           |
 | Source distribution default | ``/home/sympa/arc``              |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/arc`` |
@@ -216,7 +216,7 @@ Note:
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
 | Debian | ???? |
-| FreeBSD| ???? |
+| FreeBSD                     | ``/usr/local/share/sympa/bounce`` |
 | RPM                         | ``/var/lib/sympa/bounce``        |
 | Source distribution default | ``/home/sympa/bounce``           |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/bounce`` |
@@ -231,7 +231,7 @@ Directories specific to web interface
 | Distribution                | Path                         |
 |-----------------------------|------------------------------|
 | Debian | ???? |
-| FreeBSD| ???? |
+| FreeBSD                     | ``/usr/local/libexec/sympa`` |
 | RPM                         | ``/usr/libexec/sympa``       |
 | Source distribution default | ``/home/sympa/bin``          |
 | Suggested configure option  | ``/usr/local/lib/sympa/cgi`` |
@@ -247,7 +247,7 @@ Directories specific to web interface
 | Distribution                | Default path                      |
 |-----------------------------|-----------------------------------|
 | Debian                      | ``/var/lib/sympa/static_content`` |
-| FreeBSD                     | ???? |
+| FreeBSD                     | ``/usr/local/share/sympa/static`` |
 | RPM                         | ``/var/lib/sympa/static_content`` |
 | Source distribution default | ``/home/sympa/static_content``    |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/static_content`` |
