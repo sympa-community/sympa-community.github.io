@@ -1,8 +1,10 @@
 ---
-title: 'Configure HTTP server: nginx'
+title: 'Configure HTTP server: Using separate FastCGI service'
 prev: configure-mail-server.md
 up: configure-http-server.md
 next: configure-http-server.md#tests
+redirect_from:
+  - configure-http-server-nginx.html
 ---
 
 Configure HTTP server: Using separate FastCGI service
