@@ -5,8 +5,8 @@ up: configure-http-server.md
 next: configure-http-server.md#tests
 ---
 
-Configure HTTP server: Separating FastCGI service for web interface
-===================================================================
+Configure HTTP server: Using separate FastCGI service
+=====================================================
 
 Requirements
 ------------
@@ -42,76 +42,75 @@ Requirements
 General instruction
 -------------------
 
+First, install WWSympa FCGI service.  And then configure HTTP server if
+necessary.
+
 ### Install WWSympa FCGI service
+
+#### Systemd
 
   1. Register WWSympa FastCGI service.
 
-       * Systemd
+     Edit [example ``wwsympa.service``](../examples/systemd/wwsympa.service)
+     as you prefer, and copy it to Systemd system directory
+     (such as ``/usr/lib/systemd/system``) as ``wwsympa.service`` file.
 
-         Edit [example ``wwsympa.service``](../examples/systemd/wwsympa.service)
-         as you prefer, and copy it to Systemd system directory
-         (such as ``/lib/systemd/system``) as ``wwsympa.service`` file.
+     ----
+     Note:
 
-         ----
-         Note:
+       * If you installed Sympa from source, you may find a file
+         ``nginx-wwsympa.service`` in ``src/etc/script`` subdirectory of
+         source tree.  Use it as ``wwsympa.service``.
 
-           * If you installed Sympa from source, you may find a file
-             ``nginx-wwsympa.service`` in ``src/etc/script`` subdirectory of
-             source tree.  Use it as ``wwsympa.service``.
-
-         ----
-
-       * FreeBSD ports/package
-
-         Configure and activate the spawn-fcgi service (Note:
-         Replace [``$EXECCGIDIR``](../layout.md#execcgidir) and
-         [``$PIDDIR``](../layout.md#piddir) below):
-         ``` bash
-         # sysrc spawn_fcgi_enable="YES"
-         # sysrc spawn_fcgi_app="$EXECCGIDIR/wwsympa.fcgi"
-         # sysrc spawn_fcgi_bindsocket="$PIDDIR/wwsympa.socket"
-         # sysrc spawn_fcgi_bindsocket_mode="0600 -U www"
-         # sysrc spawn_fcgi_username="sympa"
-         # sysrc spawn_fcgi_groupname"sympa"
-         ```
-
-       * System V init script
-
-         If your system supports system V init script, edit
-         [example init script](../examples/initscripts/wwsympa) as you prefer,
-         and copy it to system V init directory (such as ``/etc/rc.d/init.d``)
-         as the ``wwsympa`` file.
+     ----
 
   2. Start WWSympa FastCGI service.
-
-       * Systemd
-         ```bash
-         # systemctl start wwsympa.service
-         # systemctl status wwsympa.service
-         ```
-
-       * FreeBSD ports/package
-         ```bash
-         # /usr/local/etc/rc.d/spawn-fcgi start
-         ```
-
-       * initscripts
-         ```bash
-         # service wwsympa start
-         # service wwsympa status
-         ```
+     ```bash
+     # systemctl start wwsympa.service
+     # systemctl status wwsympa.service
+     ```
 
   3. Activate WWSympa FastCGI service.
+     ```bash
+     # systemctl enable wwsympa.service
+     ```
 
-       * Systemd
-         ```bash
-         # systemctl enable wwsympa.service
-         ```
+#### FreeBSD ports/package
 
-       * initscripts
-         ```bash
-         # chkconfig wwsympa on
-         ```
+  1. Configure and activate the spawn-fcgi service (Note:
+     Replace [``$EXECCGIDIR``](../layout.md#execcgidir) and
+     [``$PIDDIR``](../layout.md#piddir) below):
+     ``` bash
+     # sysrc spawn_fcgi_enable="YES"
+     # sysrc spawn_fcgi_app="$EXECCGIDIR/wwsympa.fcgi"
+     # sysrc spawn_fcgi_bindsocket="$PIDDIR/wwsympa.socket"
+     # sysrc spawn_fcgi_bindsocket_mode="0600 -U www"
+     # sysrc spawn_fcgi_username="sympa"
+     # sysrc spawn_fcgi_groupname"sympa"
+     ```
+
+  2. Start WWSympa FastCGI service.
+     ```bash
+     # /usr/local/etc/rc.d/spawn-fcgi start
+     ```
+
+#### System V init script
+
+  1. If your system supports system V init script, edit
+     [example init script](../examples/initscripts/wwsympa) as you prefer,
+     and copy it to system V init directory (such as ``/etc/rc.d/init.d``)
+     as the ``wwsympa`` file.
+
+  2. Start WWSympa FastCGI service.
+     ```bash
+     # service wwsympa start
+     # service wwsympa status
+     ```
+
+  3. Activate WWSympa FastCGI service.
+     ```bash
+     # chkconfig wwsympa on
+     ```
 
 ### Setup HTTP server
 
