@@ -27,7 +27,7 @@ General instruction
 
          Edit [example ``wwsympa.service``](../examples/systemd/wwsympa.service)
          as you prefer, and copy it to Systemd system directory
-         (such as ``/usr/lib/systemd/system``) as ``wwsympa.service`` file.
+         (such as ``/lib/systemd/system``) as ``wwsympa.service`` file.
 
          ----
          Note:

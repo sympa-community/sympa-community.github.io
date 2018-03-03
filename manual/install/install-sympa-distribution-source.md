@@ -175,7 +175,7 @@ Note:
 
     Installs system V init scripts into specified directory.
 
-  - ``--without-initdir --with-unitsdir=/usr/lib/systemd/system``
+  - ``--without-initdir --with-unitsdir=/lib/systemd/system``
 
     Installs Systemd unit files into specified directory.
 

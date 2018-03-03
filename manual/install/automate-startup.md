@@ -27,11 +27,12 @@ Systemd
      Note that database service should also start before HTTP service.
 
   2. Some paths may be placed under volatile directory, for example PID
-     directory ``/var/run/sympa`` under ``/var/run``.  They have to be
+     directory ``/run/sympa`` under ``/run`` (usually bound to ``/var/run``).
+     They have to be
      recreated at the next boot-up time.  If it is the case, create
      ``/usr/lib/tmpfiles.d/sympa.conf`` with the content:
      ```
-     d /var/run/sympa 0755 sympa sympa -
+     d /run/sympa 0755 sympa sympa -
      ```
      On binary releases, volatile directories will be managed automatically.
 

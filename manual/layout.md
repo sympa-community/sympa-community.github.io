@@ -56,7 +56,8 @@ Note:
 |-----------------------------|----------------------------------|
 | Debian                      | ``/run/sympa``                   |
 | FreeBSD                     | ``/var/run/sympa``               |
-| RPM                         | ``/var/run/sympa``               |
+| RPM                         | ``/run/sympa``                   |
+| (with RHEL/CentOS 6)        | ``/var/run/sympa``               |
 | Source distribution default | ``/home/sympa``                  |
 | Suggested configure option  | ``/usr/local/var/run/sympa``     |
 
