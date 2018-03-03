@@ -15,8 +15,12 @@ symbols with real paths on your Sympa.
 ----
 Note:
 
-  * All paths below (except ``$EXECCGIDIR``) are defined in an internal module
+  * All paths below are defined in an internal module
     [``$MODULEDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
+
+      * Definitions of [``$EXECCGIDIR``](#execcgidir), [``$CSSDIR``](#cssdir)
+        and [``$PICTURESDIR``](#picturesdir) were added to
+        ``Sympa/Constants.pm`` as of Sympa 6.2.26.
 
 ----
 
@@ -249,7 +253,47 @@ Directories specific to web interface
 |-----------------------------|-----------------------------------|
 | Debian                      | ``/var/lib/sympa/static_content`` |
 | FreeBSD                     | ``/usr/local/share/sympa/static`` |
-| RPM                         | ``/var/lib/sympa/static_content`` |
+| RPM                          | ``/usr/share/sympa/static_content`` |
+| (by version prior to 6.2.26) | ``/var/lib/sympa/static_content``   |
 | Source distribution default | ``/home/sympa/static_content``    |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/static_content`` |
+
+#### ``$CSSDIR``
+
+**Directory of automatically generated cascading style sheets (CSS)**.
+
+  * This path may be overridden by
+    [``css_path``](man/sympa.conf.5.md#css_path)
+    parameter.
+
+| Distribution                | Default path                          |
+|-----------------------------|---------------------------------------|
+| (by version prior to 6.2.26 of any distributions) | [``$STATICDIR``](#staticdir)``/css`` |
+| Debian                      | TBD |
+| FreeBSD                     | TBD |
+| RPM                         | ``/var/lib/sympa/static_content/css`` |
+| Source distribution default | ``/home/sympa/static_content/css``    |
+| Suggested configure option  | ``/usr/local/var/lib/sympa/static_content/css`` |
+
+#### ``$PICTURESDIR``
+
+**Directory for subscribers pictures**.
+
+  * On Sympa 6.2.26 or later, this path may be overridden by
+    [``pictures_path``](man/sympa.conf.5.md#pictures_path)
+    parameter.
+
+  * On Sympa prior to 6.2.26, this path is a subdirectory `pictures` under the
+    path that may be overridden by
+    [``static_content_path``](man/sympa.conf.5.md#static_content_path)
+    parameter.
+
+| Distribution                | Default path                               |
+|-----------------------------|--------------------------------------------|
+| (by version prior to 6.2.26 of any distributions) | [``$STATICDIR``](#staticdir)``/pictures`` |
+| Debian                      | TBD |
+| FreeBSD                     | TBD |
+| RPM                         | ``/var/lib/sympa/static_content/pictures`` |
+| Source distribution default | ``/home/sympa/static_content/pictures``    |
+| Suggested configure option  | ``/usr/local/var/lib/sympa/static_content/pictures`` |
 
