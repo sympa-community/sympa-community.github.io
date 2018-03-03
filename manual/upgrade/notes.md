@@ -15,6 +15,42 @@ Note:
 
 ----
 
+Upgrading from Sympa prior to 6.2.26
+------------------------------------
+
+New configure options and parameters for directory locations were introduced.
+
+  * If you have built Sympa from source and have specified `--staticdir`
+    configure option, you might want to specify `--cssdir` and `--picturesdir`
+    also.
+
+      - With earlier version:
+        ``` bash
+        $ ./configure --staticdir=DIR (...)
+        ```
+      - With recent version:
+        ``` bash
+        $ ./configure --staticdir=DIR --cssdir=DIR/css --picturesdir=DIR/pictures (...)
+        ```
+
+  * If you have specified
+    [`static_content_path`](../man/sympa.conf.5.md#static_content_path)
+    parameter in [``sympa.conf``](../layout.md#config), you might want to
+    specify [`css_path`](../man/sympa.conf.5.md#css_path) (if you have not
+    specified it) and [`pictures_path`](../man/sympa.conf.5.md#pictures_path)
+    also.
+
+      - With earlier version:
+        ``` code
+        static_content_path DIR
+        ```
+      - With recent version:
+        ``` code
+        static_content_path DIR
+        css_path            DIR/css
+        pictures_path       DIR/pictures
+        ```
+
 Upgrading from earlier Sympa 6.2.x
 ----------------------------------
 
