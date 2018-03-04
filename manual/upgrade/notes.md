@@ -20,17 +20,17 @@ Upgrading from Sympa prior to 6.2.26
 
 New configure options and parameters for directory locations were introduced.
 
-  * If you have built Sympa from source and have specified `--staticdir`
-    configure option, you might want to specify `--cssdir` and `--picturesdir`
-    also.
+  * If you have built Sympa from source and have specified `--with-staticdir`
+    configure option, you might want to specify `--with-cssdir` and
+    `--with-picturesdir` also.
 
       - With earlier version:
         ``` bash
-        $ ./configure --staticdir=DIR (...)
+        $ ./configure --with-staticdir=DIR (...)
         ```
       - With recent version:
         ``` bash
-        $ ./configure --staticdir=DIR --cssdir=DIR/css --picturesdir=DIR/pictures (...)
+        $ ./configure --with-staticdir=DIR --with-cssdir=DIR/css --with-picturesdir=DIR/pictures (...)
         ```
 
   * If you have specified
