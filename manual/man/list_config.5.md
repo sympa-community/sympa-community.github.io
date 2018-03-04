@@ -1187,9 +1187,9 @@ Archives
 
 - Single occurrence
 
-Privilege for reading mail archives and frequency of archiving
+Privilege for reading mail archives and frequency of archiving.
 
-Defines who can access the web archive for the list.
+Defines who can access the list's web archive.
 
 #### `archive.period`
 
@@ -3180,7 +3180,7 @@ Insert DKIM signature to messages sent to the list
 
     Value of [`dkim_feature`](./sympa.conf.5.md#dkim_feature) parameter in `sympa.conf` or `robot.conf`.
 
-Enable/Disable DKIM. This feature require Mail::DKIM to installed and may be some custom scenario to be updated
+Enable/Disable DKIM. This feature requires Mail::DKIM to be installed, and maybe some custom scenario to be updated
 
 ### `dkim_parameters`
 
@@ -3299,11 +3299,11 @@ Protection modes
 
     Value of [`dmarc_protection_mode`](./sympa.conf.5.md#dmarc_protection_mode) parameter in `sympa.conf` or `robot.conf`.
 
-Select one or more operation modes.  "Domain matching regular expression" (domain\_regex) matches the specified Domain regexp; "DKIM signature exists" (dkim\_signature) matches any message with a DKIM signature header; "DMARC policy ..." (dmarc\_\*) matches messages from sender domains with a DMARC policy as given; "all" (all) matches all messages.
+Select one or more operation modes.  "Domain matching regular expression" (domain\_regex) matches the specified Domain regular expression; "DKIM signature exists" (dkim\_signature) matches any message with a DKIM signature header; "DMARC policy ..." (dmarc\_\*) matches messages from sender domains with a DMARC policy as given; "all" (all) matches all messages.
 
 #### `dmarc_protection.domain_regex`
 
-Match domain regexp
+Match domain regular expression
 
 - Format:
 
@@ -3313,7 +3313,7 @@ Match domain regexp
 
     Value of [`dmarc_protection_domain_regex`](./sympa.conf.5.md#dmarc_protection_domain_regex) parameter in `sympa.conf` or `robot.conf`.
 
-Regexp match pattern for From domain
+Regular expression match pattern for From domain
 
 #### `dmarc_protection.other_email`
 

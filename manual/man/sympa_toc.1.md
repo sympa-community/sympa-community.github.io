@@ -152,10 +152,6 @@ Below is the list of documentation of Sympa.
 
     TBD.
 
-- [sympa\_smtpc(1)](./sympa_smtpc.1.md)
-
-    SMTP / LMTP client
-
 ## Configuration files
 
 - [auth.conf(5)](./auth.conf.5.md)

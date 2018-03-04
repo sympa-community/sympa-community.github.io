@@ -795,7 +795,7 @@ Fork threshold of bulk daemon
 
     None.
 
-The minimum number of packets before bulk daemon forks the new worker to increase sending rate.
+The minimum number of packets before bulk daemon forks a new worker to increase sending rate.
 
 #### `bulk_max_count`
 
@@ -821,7 +821,7 @@ Idle timeout of bulk workers
 
     None.
 
-The number of seconds a bulk worker will remain running without processing a message before it spontaneously exists.
+The number of seconds a bulk worker will remain running without processing a message before it spontaneously exits.
 
 #### `bulk_sleep`
 
@@ -869,7 +869,7 @@ Path to sendmail
 
 Absolute path to sendmail command line utility (e.g.: a binary named "sendmail" is distributed with Postfix).
 
-Sympa expects this binary to be sendmail compatible (exim, Postfix, qmail and so on provide it). Sympa also bundles "sympa\_smtpc" program which may be a replacement to sendmail binary.
+Sympa expects this binary to be sendmail compatible (exim, Postfix, qmail and so on provide it).
 
 #### `sendmail_args`
 
@@ -884,8 +884,6 @@ Command line parameters passed to sendmail
     None.
 
 Note that "-f", "-N" and "-V" options and recipient addresses need not included, because they will be included by Sympa.
-
-Note: If the path to sympa\_smtpc is set as a value of "sendmail" parameter, "--esmtp" or "--lmtp" option is required.
 
 #### `log_smtp`
 
@@ -1047,7 +1045,7 @@ Example:
 
 #### `owner_domain_min`
 
-Minimum number of list owners that must match owner\_domain restriction
+Minimum number of owners for each list that must match owner\_domain restriction
 
 - Default:
 
@@ -1059,7 +1057,7 @@ Minimum number of list owners that must match owner\_domain restriction
 
     List
 
-Minimum number of list owners that must satisfy the owner\_domain restriction.  The default of zero (0) means \*all\* list owners must match. Setting to 1 requires only one list owner to match owner\_domain; all other owners can be from any domain. This setting can be used to ensure that there is always at least one known contact point for a mailing list.
+Minimum number of owners for each list must satisfy the owner\_domain restriction. The default of zero (0) means \*all\* list owners must match. Setting to 1 requires only one list owner to match owner\_domain; all other owners can be from any domain. This setting can be used to ensure that there is always at least one known contact point for any mailing list.
 
 Example:
 
@@ -1087,7 +1085,7 @@ Note that even if setting this parameter disabled, past archives will not be rem
 
 #### `default_archive_quota`
 
-Default disk quota for lists' archive
+Default disk quota for lists' archives
 
 - Default:
 
@@ -1269,7 +1267,7 @@ Max age of tracking information
 
     List (`tracking.retention_period`)
 
-Tracking information are removed after this number of days
+Tracking information is removed after this number of days
 
 #### `welcome_return_path`
 
@@ -1451,7 +1449,7 @@ Suffix of list return address
 
     None.
 
-The suffix appended to the list name to consist the return-path of messages distributed through the list. This address will receive all non-delivery reports (also called bounces).
+The suffix appended to the list name to form the return-path of messages distributed through the list. This address will receive all non-delivery reports (also called bounces).
 
 ## Loop prevention
 
@@ -1701,7 +1699,7 @@ Name of header field to inform
 
 Value of this parameter is name of `spam_status` scenario.
 
-Messages are supposed to be filtered by an spam filter that add one more headers to messages. This parameter is used to select a special scenario in order to decide the message spam status: ham, spam or unsure. This parameter replace antispam\_tag\_header\_name, antispam\_tag\_header\_spam\_regexp and antispam\_tag\_header\_ham\_regexp.
+Messages are supposed to be filtered by an spam filter that adds them one or more headers. This parameter is used to select a special scenario in order to decide the message's spam status: ham, spam or unsure. This parameter replaces antispam\_tag\_header\_name, antispam\_tag\_header\_spam\_regexp and antispam\_tag\_header\_ham\_regexp.
 
 ## Directories
 
@@ -1759,7 +1757,7 @@ Directory for message incoming spool
 
     None.
 
-This spool is used both by "queue" program and "sympa\_msg.pl" daemon."
+This spool is used both by "queue" program and "sympa\_msg.pl" daemon.
 
 #### `queuemod`
 
@@ -1949,7 +1947,7 @@ Directory for storing archives
 
     Virtual domain
 
-Where to store HTML archives. This parameter is used by the "archived.pl" daemon. It is a good idea to install the archive outside the web document hierarchy to ensure accesses passing WWSympa's access control will be prevented.
+Where to store HTML archives. This parameter is used by the "archived.pl" daemon. It is a good idea to install the archive outside the web document hierarchy to prevent overcoming of WWSympa's access control.
 
 #### `purge_spools_task`
 
@@ -2217,7 +2215,7 @@ Task for expiring inactive users
 
     None.
 
-This task removes rows in the "user\_table" table which hove not corresponding entries in the "subscriber\_table" table.
+This task removes rows in the "user\_table" table which have not corresponding entries in the "subscriber\_table" table.
 
 #### `purge_logs_table_task`
 
@@ -2407,7 +2405,7 @@ Directory for static style sheets (CSS)
 
 - Default:
 
-    None.
+    `$CSSDIR`
 
 - Overrides:
 
@@ -2421,13 +2419,39 @@ URL for style sheets (CSS)
 
 - Default:
 
-    None.
+    `/static-sympa/css`
 
 - Overrides:
 
     Virtual domain
 
 To use auto-generated static CSS, HTTP server have to map it with "css\_path".
+
+#### `pictures_path`
+
+Directory for subscribers pictures
+
+- Default:
+
+    `$PICTURESDIR`
+
+- Overrides:
+
+    Virtual domain
+
+#### `pictures_url`
+
+URL for subscribers pictures
+
+- Default:
+
+    `/static-sympa/pictures`
+
+- Overrides:
+
+    Virtual domain
+
+HTTP server have to map it with "pictures\_path" directory.
 
 #### `color_0`, ..., `color_15`
 
@@ -2525,7 +2549,7 @@ Custom menus
 
     Virtual domain
 
-You may modify the main menu content by editing the menu.tt2 file but you can also edit the these parameters in order to add up to 3 button. Each button is defined by a title (the text in the button), an URL and optionally a target.
+You may modify the main menu content by editing the menu.tt2 file, but you can also edit these parameters in order to add up to 3 buttons. Each button is defined by a title (the text in the button), an URL and, optionally, a target.
 
 Example:
 
@@ -2565,7 +2589,7 @@ HTTP cookies lifetime
 
     None.
 
-This is the default value when not set explicitly by users. "0" means the cookie may be retained during browser session.
+This is the default value when not set explicitly by users. "0" means the cookie may be retained during browser sessions.
 
 #### `cookie_refresh`
 
@@ -2929,7 +2953,7 @@ Directory containing user certificates
 
 ## Data sources setup
 
-Including subscribers, owners and editors from datasources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-SOcket-SSL.
+Including subscribers, owners and editors from datasources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
 
 #### `default_sql_fetch_timeout`
 
@@ -3039,7 +3063,7 @@ The "d=" tag as defined in rfc 4871
 
     List (`dkim_parameters.signer_domain`)
 
-The DKIM "d=" tag, is the domain of the signing entity. Default is virtual host domain name
+The DKIM "d=" tag is the domain of the signing entity. The virtual host domain name is used as its default value
 
 #### `dkim_signer_identity`
 
@@ -3073,7 +3097,7 @@ The selector is used in order to build the DNS query for public key. It is up to
 
 ## DMARC protection
 
-Processes originator addresses to avoid some domains' excessive DMARC protection.  This feature requires external module: Net-DNS.
+Processes originator addresses to avoid some domains' excessive DMARC protection. This feature requires an external module: Net-DNS.
 
 #### `dmarc_protection_mode`
 
@@ -3145,7 +3169,7 @@ New From address
 
 ## List address verification
 
-Checks if ailias with the same name as the list to be created already exists on the SMTP server. This feature requires external module: Net-SMTP.
+Checks if an alias with the same name as the list to be created already exists on the SMTP server. This feature requires an external module: Net-SMTP.
 
 #### `list_check_helo`
 
@@ -3245,7 +3269,7 @@ Notify sender if virus checker detects malicious content
 
 ## Password validation
 
-Checks if the password the users sbmitted has sufficient strength. This feature requires external module: Data-Password.
+Checks if the password the user submitted has sufficient strength. This feature requires an external module: Data-Password.
 
 #### `password_validation`
 
@@ -3267,7 +3291,7 @@ Example:
 
 ## Authentication with LDAP
 
-Authnticates users based on the directory on LDAP server. This feature requires external module: Net-LDAP. And also, if secure connection (LDAPS) is required: IO-Socket-SSL.
+Authenticates users based on the directory on LDAP server. This feature requires an external module: Net-LDAP. And also, if secure connection (LDAPS) is required: IO-Socket-SSL.
 
 #### `ldap_force_canonical_email`
 
@@ -3285,7 +3309,7 @@ When using LDAP authentication, if the identifier provided by the user was a val
 
 ## SOAP HTTP interface
 
-Provides some functions of Sympa through SOAP HTTP interface. This feature requires external module: SOAP-Lite.
+Provides some functions of Sympa through the SOAP HTTP interface. This feature requires an external module: SOAP-Lite.
 
 #### `soap_url`
 
@@ -3437,7 +3461,7 @@ Enable FastCGI
 
     None.
 
-Is FastCGI module for HTTP server installed. This module provide much faster web interface.
+Is FastCGI module for HTTP server installed? This module provides a much faster web interface.
 
 # FILES
 
