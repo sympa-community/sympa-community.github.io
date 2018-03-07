@@ -11,6 +11,8 @@ How to contribute
   * Submit your additions, changes or proofreadings to
     [development site for document](https://github.com/sympa-community/sympa-community.github.io) as issues or pull requests.
 
+      * Note that, if you have bug fix or improvement of Sympa itself, you would be better to submit it to [development site for Sympa](https://github.com/sympa-community/sympa).
+
   * When you submit pull request at first time, please don't forget to include
     addition of your name to [AUTHORS](AUTHORS.md) file.
 
