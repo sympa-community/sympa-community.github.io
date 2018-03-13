@@ -15,8 +15,19 @@ Note:
 
 ----
 
-Upgrading from Sympa prior to 6.2.26
-------------------------------------
+Upgrading from Sympa 6.2.x or earlier
+-------------------------------------
+
+After release of 6.2, several changes on templates are made.
+If you have customized templates with earlier version, you should check if web
+interface will work correctly after upgrading, and reapply customization to new
+templates as necessity.
+
+Following subsections describe changes by particular versions of 6.2.x.
+If you are planning to upgrade from version prior to 6.2, see also sections
+below.
+
+### From versions prior to 6.2.26
 
 New configure options and parameters for directory locations were introduced.
 
@@ -73,16 +84,11 @@ New configure options and parameters for directory locations were introduced.
         pictures_url       PATH/pictures
         ```
 
-Upgrading from earlier Sympa 6.2.x
-----------------------------------
+### From versions prior to 6.2.18
 
-After release of 6.2, several changes on templates are made. Especially on
+Especially on
 6.2.18, web templates for shared document repository and list configuration
 edit form broke backward compatibility in exchange for bug fixes.
-
-If you have customized templates with earlier version, you should check if web
-interface will work correctly after upgrading, and reapply customization to new
-templates as necessity.
 
 Upgrading from Sympa 6.1.x or earlier
 -------------------------------------
