@@ -29,11 +29,27 @@ below.
 
 ### From versions prior to 6.2.26
 
-New configure options and parameters for directory locations were introduced.
+#### Renamed scenarios
+
+  * `access_web_archive.*` scenarios are renamed to `archive_web_access.*`.
+    If you have customized any of these scenarios, you have to rename them
+    under config directory.
+
+#### Changes on `css_path` and `css_url` parameters
+
+  * `css_url` and `css_path` parameters in `robot.conf` are no longer
+     available: Those in `sympa.conf` (if any) are used.
+
+     If you have specified `css_path` parameter by each `robot.conf`,
+     you have to move each directory to subdirectory named by domain
+     under directory specified by `css_path` directory in `sympa.conf`
+     (by default [``$CSSDIR``](../layout.md#cssdir)).
+
+#### New `configure` options and parameters
 
   * If you have used none of `--with-staticdir` configure option,
     `static_content_path` parameter nor `static_content_url` parameter,
-    no changes are required.
+    no changes described below are required.
 
   * If you have built Sympa from source and have specified `--with-staticdir`
     configure option, you might want to specify `--with-cssdir` and

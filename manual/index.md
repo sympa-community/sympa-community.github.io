@@ -1,7 +1,7 @@
 Sympa Administration Manual **[DRAFT]**
 ===========================
 
-Version 6.2.24
+Version 6.2.25b.3
 
 Table of contents
 -----------------
