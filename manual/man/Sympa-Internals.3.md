@@ -43,10 +43,6 @@ To know details of each module, run:
 
     Archives of Sympa
 
-- [Sympa::Auth](./Sympa-Auth.3.md)
-
-    TBD
-
 - [Sympa::Bulk](./Sympa-Bulk.3.md)
 
     Spool for bulk sending
@@ -175,14 +171,6 @@ To know details of each module, run:
 
     Store messages to sendmail
 
-- [Sympa::Marc](./Sympa-Marc.3.md)
-
-    TBD
-
-- [Sympa::Marc::Search](./Sympa-Marc-Search.3.md)
-
-    Search archives of Sympa
-
 - [Sympa::Message](./Sympa-Message.3.md)
 
     Mail message embedding for internal use in Sympa
@@ -211,10 +199,6 @@ To know details of each module, run:
 
     Definition of regular expressions
 
-- [Sympa::Report](./Sympa-Report.3.md)
-
-    TBD
-
 - [Sympa::Request](./Sympa-Request.3.md)
 
     Requests for operation
@@ -236,22 +220,6 @@ To know details of each module, run:
     TBD
 
 - [Sympa::Scenario](./Sympa-Scenario.3.md)
-
-    TBD
-
-- [Sympa::Session](./Sympa-Session.3.md)
-
-    Web session
-
-- [Sympa::SharedDocument](./Sympa-SharedDocument.3.md)
-
-    Shared document repository and its nodes
-
-- [Sympa::SOAP](./Sympa-SOAP.3.md)
-
-    TBD
-
-- [Sympa::SOAP::Transport](./Sympa-SOAP-Transport.3.md)
 
     TBD
 
@@ -475,10 +443,6 @@ To know details of each module, run:
 
     Time-related functions
 
-- [Sympa::Tools::WWW](./Sympa-Tools-WWW.3.md)
-
-    TBD
-
 - [Sympa::Topic](./Sympa-Topic.3.md)
 
     Message topic
@@ -494,6 +458,42 @@ To know details of each module, run:
 - [Sympa::User](./Sympa-User.3.md)
 
     All Users Identified by Sympa
+
+- [Sympa::WWW::Auth](./Sympa-WWW-Auth.3.md)
+
+    TBD
+
+- [Sympa::WWW::Marc](./Sympa-WWW-Marc.3.md)
+
+    TBD
+
+- [Sympa::WWW::Marc::Search](./Sympa-WWW-Marc-Search.3.md)
+
+    Search archives of Sympa
+
+- [Sympa::WWW::Report](./Sympa-WWW-Report.3.md)
+
+    TBD
+
+- [Sympa::WWW::Session](./Sympa-WWW-Session.3.md)
+
+    Web session
+
+- [Sympa::WWW::SharedDocument](./Sympa-WWW-SharedDocument.3.md)
+
+    Shared document repository and its nodes
+
+- [Sympa::WWW::SOAP](./Sympa-WWW-SOAP.3.md)
+
+    TBD
+
+- [Sympa::WWW::SOAP::Transport](./Sympa-WWW-SOAP-Transport.3.md)
+
+    TBD
+
+- [Sympa::WWW::Tools](./Sympa-WWW-Tools.3.md)
+
+    TBD
 
 ## Workflow
 

@@ -67,13 +67,13 @@ Fields:
 
     FIXME
 
-- date\_subscriber datetime not null
+- date\_epoch\_subscriber int(11) not null
 
     date of subscription
 
-- update\_subscriber datetime
+- update\_epoch\_subscriber int(11)
 
-    the latest date where subscription is confirmed by subscriber
+    the last time when subscription is confirmed by subscriber
 
 - comment\_subscriber varchar(150)
 
@@ -125,7 +125,7 @@ Fields:
 
     email of user
 
-- password\_user varchar(40)
+- password\_user varchar(64)
 
     password are stored as finger print
 
@@ -533,13 +533,13 @@ Fields:
 
     privilege level for this owner, value //normal// or //privileged//. The related privilege are listed in edit\_list.conf. 
 
-- date\_admin datetime not null
+- date\_epoch\_admin int(11) not null
 
     date this user become a list admin
 
-- update\_admin datetime
+- update\_epoch\_admin int(11)
 
-    last update timestamp
+    last update time
 
 - reception\_admin varchar(20)
 
@@ -559,7 +559,7 @@ Fields:
 
 - included\_admin int(1)
 
-    set to 1 if user is admin by an external data source
+    set to 1 if user is admin by an external data source. Note that included\_admin and subscribed\_admin can both value 1
 
 - include\_sources\_admin varchar(50)
 

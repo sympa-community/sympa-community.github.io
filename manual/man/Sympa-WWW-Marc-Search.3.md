@@ -1,10 +1,10 @@
 ---
-title: 'Sympa::Marc::Search(3)'
+title: 'Sympa::WWW::Marc::Search(3)'
 ---
 
 # NAME
 
-Sympa::Marc::Search - Search archives of Sympa
+Sympa::WWW::Marc::Search - Search archives of Sympa
 
 # SYNOPSIS
 
@@ -16,6 +16,6 @@ TBD.
 
 # HISTORY
 
-[Sympa::Marc::Search](./Sympa-Marc-Search.3.md) was originally taken from
+[Sympa::WWW::Marc::Search](./Sympa-WWW-Marc-Search.3.md) was originally taken from
 [Marc::Search](https://metacpan.org/pod/Marc::Search) in MHonArc Search Engine by Eric D. Friedman:
 [http://www.mhonarc.org/contrib/marc-search/](http://www.mhonarc.org/contrib/marc-search/).

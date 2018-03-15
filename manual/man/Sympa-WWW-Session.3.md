@@ -1,17 +1,17 @@
 ---
-title: 'Sympa::Session(3)'
+title: 'Sympa::WWW::Session(3)'
 ---
 
 # NAME
 
-Sympa::Session - Web session
+Sympa::WWW::Session - Web session
 
 # SYNOPSIS
 
-    use Sympa::Session;
+    use Sympa::WWW::Session;
     
-    my $session = Sympa::Session->new($robot,
-        {cookie => Sympa::Session::get_session_cookie($ENV{'HTTP_COOKIE'})}
+    my $session = Sympa::WWW::Session->new($robot,
+        {cookie => Sympa::WWW::Session::get_session_cookie($ENV{'HTTP_COOKIE'})}
     );
     $session->renew();
     $session->store();
@@ -35,7 +35,7 @@ Sympa::Session - Web session
 
 # DESCRIPTION
 
-[Sympa::Session](./Sympa-Session.3.md) provides web session for Sympa web interface.
+[Sympa::WWW::Session](./Sympa-WWW-Session.3.md) provides web session for Sympa web interface.
 HTTP cookie is required to determine users.
 Session store is used to keep users' personal data.
 
@@ -175,6 +175,7 @@ TBD.
 
 [SympaSession](https://metacpan.org/pod/SympaSession) appeared on Sympa 5.4a3.
 
-It was renamed to [Sympa::Session](./Sympa-Session.3.md) on Sympa 6.2a.41.
+It was renamed to [Sympa::Session](./Sympa-Session.3.md) on Sympa 6.2a.41,
+then [Sympa::WWW::Session](./Sympa-WWW-Session.3.md) on Sympa 6.2.26.
 
 ["confirm\_action"](#confirm_action) method was added on Sympa 6.2.17.

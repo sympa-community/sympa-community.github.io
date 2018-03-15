@@ -1,16 +1,16 @@
 ---
-title: 'Sympa::SharedDocument(3)'
+title: 'Sympa::WWW::SharedDocument(3)'
 ---
 
 # NAME
 
-Sympa::SharedDocument - Shared document repository and its nodes
+Sympa::WWW::SharedDocument - Shared document repository and its nodes
 
 # SYNOPSIS
 
-    use Sympa::SharedDocument;
+    use Sympa::WWW::SharedDocument;
     
-    $shared = Sympa::SharedDocument->new($list, $path);
+    $shared = Sympa::WWW::SharedDocument->new($list, $path);
     
     %access = $shared->get_privileges('read', $email, 'md5', {...});
     @children = $shared->get_children;
@@ -18,7 +18,7 @@ Sympa::SharedDocument - Shared document repository and its nodes
 
 # DESCRIPTION
 
-[Sympa::SharedDocument](./Sympa-SharedDocument.3.md) implements shared document repository of lists.
+[Sympa::WWW::SharedDocument](./Sympa-WWW-SharedDocument.3.md) implements shared document repository of lists.
 
 ## Methods
 
@@ -249,7 +249,7 @@ auth\_method => $auth\_method, scenario\_context => $scenario\_context )
 
 ## Attributes
 
-Instance of [Sympa::SharedDocument](./Sympa-SharedDocument.3.md) may have following attributes.
+Instance of [Sympa::WWW::SharedDocument](./Sympa-WWW-SharedDocument.3.md) may have following attributes.
 
 - {context}
 
@@ -312,7 +312,7 @@ Instance of [Sympa::SharedDocument](./Sympa-SharedDocument.3.md) may have follow
 
 - {parent}
 
-    Parent node if any.  [Sympa::SharedDocument](./Sympa-SharedDocument.3.md) instance.
+    Parent node if any.  [Sympa::WWW::SharedDocument](./Sympa-WWW-SharedDocument.3.md) instance.
 
 - {paths}
 
@@ -394,3 +394,5 @@ Such conversion will be hidden behind object methods.
 
 Rewritten [Sympa::SharedDocument](./Sympa-SharedDocument.3.md) began to provide OO interface on
 Sympa 6.2.17.
+
+It was renamed to [Sympa::WWW::SharedDocument](./Sympa-WWW-SharedDocument.3.md) on Sympa 6.2.26.

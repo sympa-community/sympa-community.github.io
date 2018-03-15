@@ -2409,7 +2409,7 @@ Directory for static style sheets (CSS)
 
 - Overrides:
 
-    Virtual domain
+    None.
 
 After an upgrade, static CSS files are upgraded with the newly installed "css.tt2" template. Therefore, this is not a good place to store customized CSS files.
 
@@ -2423,7 +2423,7 @@ URL for style sheets (CSS)
 
 - Overrides:
 
-    Virtual domain
+    None.
 
 To use auto-generated static CSS, HTTP server have to map it with "css\_path".
 
@@ -2437,7 +2437,7 @@ Directory for subscribers pictures
 
 - Overrides:
 
-    Virtual domain
+    None.
 
 #### `pictures_url`
 
@@ -2449,7 +2449,7 @@ URL for subscribers pictures
 
 - Overrides:
 
-    Virtual domain
+    None.
 
 HTTP server have to map it with "pictures\_path" directory.
 
@@ -2755,6 +2755,54 @@ If set to "insensitive", WWSympa's password check will be insensitive. This only
 
 Should not be changed! May invalid all user password.
 
+#### `password_hash`
+
+Password hashing algorithm
+
+- Default:
+
+    `md5`
+
+- Overrides:
+
+    None.
+
+"md5" or "bcrypt".
+
+If set to "md5", Sympa will use MD5 password hashes. If set to "bcrypt", bcrypt hashes will be used instead. This only concerns passwords stored in the Sympa database, not the ones in LDAP.
+
+Should not be changed! May invalid all user passwords.
+
+#### `password_hash_update`
+
+Update password hashing algorithm when users log in
+
+- Default:
+
+    `1`
+
+- Overrides:
+
+    None.
+
+On successful login, update the encrypted user password to use the algorithm specified by "password\_hash". This allows for a graceful transition to a new password hash algorithm. A value of 0 disables updating of existing password hashes.  New and reset passwords will use the "password\_hash" setting in all cases.
+
+#### `bcrypt_cost`
+
+Bcrypt hash cost
+
+- Default:
+
+    `12`
+
+- Overrides:
+
+    None.
+
+When "password\_hash" is set to "bcrypt", this sets the "cost" parameter of the bcrypt hash function. The default of 12 is expected to require approximately 250ms to calculate the password hash on a 3.2GHz CPU. This only concerns passwords stored in the Sympa database, not the ones in LDAP.
+
+Can be changed but any new cost setting will only apply to new passwords.
+
 #### `one_time_ticket_lifetime`
 
 Age of one time ticket
@@ -2812,6 +2860,8 @@ Pictures
     `on`
 
 - Overrides:
+
+    Virtual domain
 
     List
 

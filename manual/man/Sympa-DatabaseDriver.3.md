@@ -88,6 +88,8 @@ separator => $separator, substring\_length => $substring\_length } )
 
 - get\_formatted\_date ( { mode => $mode, target => $target } )
 
+    **Deprecated** as of Sympa 6.2.25b.3.
+
     _Mandatory for SQL driver_.
     Returns a character string corresponding to the expression to use in a query
     involving a date.

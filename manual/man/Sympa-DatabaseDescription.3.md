@@ -86,6 +86,8 @@ This module keeps structure of database used by Sympa software.
         - datetime
 
             Timestamp.
+            **Deprecated** as of Sympa 6.2.25b.3.
+            Use `int(11)` (Unix time) instead.
 
         - mediumblob
 

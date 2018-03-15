@@ -54,6 +54,16 @@ Sympa::User - All Users Identified by Sympa
 
     Returns the password finger print.
 
+- hash\_type ( )
+
+    detect the type of password fingerprint used for a hashed password
+
+    Returns undef if no supported hash type is detected
+
+- update\_password\_hash ( )
+
+    If needed, update the hash used for the user's encrypted password entry
+
 ## OLD STYLE FUNCTIONS
 
 - add\_global\_user

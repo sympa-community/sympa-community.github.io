@@ -1205,7 +1205,7 @@ access right
 
 - Format:
 
-    Name of `access_web_archive` scenario:
+    Name of `archive_web_access` scenario:
 
     - `closed` - closed
     - `intranet` - restricted to local domain users
@@ -3517,7 +3517,7 @@ Allow picture display? (must be enabled for the current robot)
     - `off` - disabled
 - Default:
 
-    Value of [`pictures_feature`](./sympa.conf.5.md#pictures_feature) parameter in `sympa.conf`.
+    Value of [`pictures_feature`](./sympa.conf.5.md#pictures_feature) parameter in `sympa.conf` or `robot.conf`.
 
 ### `remind_task`
 
