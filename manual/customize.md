@@ -89,19 +89,20 @@ needed.
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-appearances)
   * [Authentication on web interface](customize/authentication-web.md)
     [&#x2699;](man/auth.conf.5.md# "auth.conf")
+  * Session and cookie
+    [&#x1F527;](man/sympa.conf.5.md#cookie_domain)
+  * ~~[Shared document repository](customize/shared-repository.md)~~
+    [&#x1F527;](man/sympa.conf.5.md#default_shared_quota)
+    (Work in progress)
+  * ~~[Web mailer](customize/web-mailer.md)~~
+    [&#x1F527;](man/sympa.conf.5.md#use_html_editor)
+    (Work in progress)
+  * ~~[Password](customize/password.md)~~
+    [&#x1F527;](man/sympa.conf.5.md#max_wrong_password)
+    (Work in progress)
   * Miscelaneous
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-miscelaneous)
 
-      - Session and cookie
-        [&#x1F527;](man/sympa.conf.5.md#cookie_domain)
-      - ~~[Shared document repository](customize/shared-repository.md)~~
-        [&#x1F527;](man/sympa.conf.5.md#default_shared_quota)
-        (Work in progress)
-      - ~~[Web mailer](customize/web-mailer.md)~~
-        [&#x1F527;](man/sympa.conf.5.md#use_html_editor)
-        (Work in progress)
-      - Password
-        [&#x1F527;](man/sympa.conf.5.md#max_wrong_password)
       - One time ticket
         [&#x1F527;](man/sympa.conf.5.md#one_time_ticket_lifetime)
       - Pictures
