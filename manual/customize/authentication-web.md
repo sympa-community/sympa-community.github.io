@@ -39,7 +39,7 @@ mail and web accesses; therefore some authentication methods are considered
 to be equivalent: See
 "[Authentication methods](basics-scenarios.md#authentication-methods)".
 
-### Default authentication mechanism
+### Built-in authentication mechanism
 
 By default, only this mechanism is enabled.
 
@@ -48,7 +48,7 @@ Sympa stores the data relative to users in the
 Among these data, password and email address are used during the web
 authentication. 
 
-Default authentication mechanism is described by
+Built-in authentication mechanism is described by
 [`user_table`](../man/auth.conf.5.md#user_table-paragraph) paragraph in
 [`auth.conf`](../man/auth.conf.5.md) configuration file.  Below is an example
 of the paragraph:
@@ -56,6 +56,8 @@ of the paragraph:
 user_table
     negative_regexp             ((univ-rennes1)|(univ-nancy2))\.fr
 ```
+
+See "[Built-in authentication](builtin-auth.md)" for more details.
 
 ### LDAP authentication
 

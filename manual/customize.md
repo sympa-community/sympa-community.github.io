@@ -97,9 +97,9 @@ needed.
   * ~~[Web mailer](customize/web-mailer.md)~~
     [&#x1F527;](man/sympa.conf.5.md#use_html_editor)
     (Work in progress)
-  * ~~[Password](customize/password.md)~~
+  * [Password](customize/builtin-auth.md)
+    [&#x2699;](man/auth.conf.5.md#user_table-paragraph "auth.conf")
     [&#x1F527;](man/sympa.conf.5.md#max_wrong_password)
-    (Work in progress)
   * Miscelaneous
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-miscelaneous)
 

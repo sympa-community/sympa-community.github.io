@@ -72,7 +72,7 @@ Note that:
 
   - `logout_url` is the URL the user will be redirected to for logging out. Note the `return` parameter provided here to make the user come back to Sympa web interface after logout is completed.
 
-  - [`user_table` authentication mechanism](authentication-web.md#default-authentication-mechanism) is disabled, thus providing Shibboleth authentication ONLY; the standard Sympa login banner will disappear from the web interface.
+  - [`user_table` authentication mechanism](builtin-auth.md) is disabled, thus providing Shibboleth authentication ONLY; the standard Sympa login banner will disappear from the web interface.
 
 You'll need to restart your Apache server to make Sympa web server take these changes into account, such as doing:
 
