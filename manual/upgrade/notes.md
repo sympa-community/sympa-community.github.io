@@ -27,7 +27,7 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
-### From versions prior to 6.2.26
+### From versions prior to 6.2.28
 
 #### Renamed scenarios
 
