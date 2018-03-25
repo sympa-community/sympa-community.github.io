@@ -11,8 +11,7 @@ Install Sympa distribution
 Instruction by distributions
 ----------------------------
 
-  - ~~[Debian/Ubuntu package](install-sympa-distribution-debian.md)~~
-    (Work in progress)
+  - [Debian/Ubuntu package](install-sympa-distribution-debian.md)
 
   - [FreeBSD Ports/Packages](install-sympa-distribution-freebsd.md)
 
