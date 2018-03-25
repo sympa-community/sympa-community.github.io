@@ -34,6 +34,11 @@ Sympa defines two profiles for list owners: normal and privileged. Privileged ow
 
 List owners and moderators are defined in the list configuration file, however, for performances reasons, list owners are also listed in the [`admin_table` DB table](../man/sympa_database.5.md#admin_table). This cache is updated by Sympa processes whenever the list configuration has changed on disk.
 
+Importing subscribers from text file
+------------------------------------
+
+You can import subscribers from text file.  See `--import`` option in [sympa(1)](../man/symap.1.md) for details.
+
 Dynamic mailing lists
 ---------------------
 
