@@ -1,7 +1,7 @@
-Sympa Administration Manual **[DRAFT]**
+Sympa Administration Manual
 ===========================
 
-Version 6.2.25b.3
+Version 6.2.30
 
 Table of contents
 -----------------
@@ -9,12 +9,53 @@ Table of contents
   - [Audiences and scope](scope.md)
   - [Requirements](requirements.md)
   - [Installing Sympa](install.md)
+
+      - [Install Sympa distribution](install/install-sympa-distribution.md)
+      - [Install dependent modules](install/install-dependent-modules.md)
+      - [Generate initial configuration](install/generate-initial-configuration.md)
+      - [Setup database](install/setup-database.md)
+      - [Configure system log](install/configure-system-log.md)
+      - [Configure mail server](install/configure-mail-server.md)
+      - [Configure HTTP server](install/configure-http-server.md)
+      - [Start mailing list service](install/start-mailing-list-service.md)
+      - [Automate startup](install/automate-startup.md)
+
   - [Upgrading Sympa](upgrade.md)
+
+      - [Upgrading Sympa in place](upgrade/in-place.md)
+      - [Moving to another server](upgrade/move.md)
+      - [Upgrading notes](upgrade/notes.md)
+
   - [Administering Sympa](admin.md)
+
+      - [Managing services](admin/services.md)
+      - [Command line interface](admin/cli.md)
+      - [Managing lists](admin/list.md)
+      - [Web interface for listmaster](admin/web-interface.md)
+
   - [Customizing Sympa](customize.md)
 
+      - [Customization basics](customize.md#customization-basics)
+      - [Customizing Sympa services](customize.md#customizing-sympa-services)
+      - [Customizing web interface](customize.md#customizing-web-interface)
+      - [Sympa services: Optional features](customize.md#sympa-services-optional-features)
+      - [Web interface: Optional features](customize.md#web-interface-optional-features)
+      - [Extending Sympa](customize.md#extending-sympa)
+      - [Sympa and other systems](customize.md#sympa-and-other-systems)
+      - [Other topics](customize.md#other-topics)
+
 Appendices
+
   - [References](man/sympa_toc.1.md)
+
+      - [Reference manual](man/sympa_toc.1.md#reference-manual)
+      - [Daemons](man/sympa_toc.1.md#daemons)
+      - [Web interface](man/sympa_toc.1.md#web-interface)
+      - [Shell Interface](man/sympa_toc.1.md#shell-interface)
+      - [Auxiliary Programs](man/sympa_toc.1.md#auxiliary-programs)
+      - [Configuration files](man/sympa_toc.1.md#configuration-files)
+      - [Internals](man/sympa_toc.1.md#internals)
+
   - [Directory layout](layout.md)
 
 Manual convention
