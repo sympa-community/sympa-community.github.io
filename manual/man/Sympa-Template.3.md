@@ -295,8 +295,8 @@ extracted during packaging process and are added to translation catalog.
 ## Plugins
 
 Plugins may be placed under `LIBDIR/Sympa/Template/Plugin`.
-See &lt;https://www.sympa.org/manual/templates\_plugins> about usage of
-plugins.
+See &lt;https://sympa-community.github.io/manual/customize/template-plugins.html>
+about usage of plugins.
 
 # SEE ALSO
 

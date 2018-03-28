@@ -503,5 +503,5 @@ See [Sympa::Internals::Workflow](./Sympa-Internals-Workflow.3.md).
 
 [sympa\_toc(1)](./sympa_toc.1.md).
 
-_Sympa, Mailing List Management Software - Reference Manual_.
-[https://www.sympa.org/manual/](https://www.sympa.org/manual/).
+_Sympa Administration Manual_.
+[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).

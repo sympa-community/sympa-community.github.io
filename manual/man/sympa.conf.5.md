@@ -1599,9 +1599,9 @@ Definition of automatic list families
 
 Defines the families the automatic lists are based on. It is a character string structured as follows:
 
-\* each family is separated from the other by a semi-column (;)
+\* each family is separated from the other by a semicolon (;)
 
-\* inside a family definition, each field is separated from the other by a column (:)
+\* inside a family definition, each field is separated from the other by a colon (:)
 
 \* each field has the structure: "&lt;field name>=&lt;filed value>"
 
@@ -3530,5 +3530,5 @@ or `$EXPLDIR/<robot name>/<list name>/config`
 
 # SEE ALSO
 
-_Sympa, Mailing List Management Software - Reference Manual_.
-[http://www.sympa.org/manual/](http://www.sympa.org/manual/).
+_Sympa Administration Manual_.
+[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).

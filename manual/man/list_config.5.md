@@ -3700,5 +3700,5 @@ or `$EXPLDIR/<mail domain name>/<list name>/config`
 
 [sympa.conf(5)](./sympa.conf.5.md).
 
-_Sympa, Mailing List Management Software - Reference Manual_.
-[http://www.sympa.org/manual/](http://www.sympa.org/manual/).
+_Sympa Administration Manual_.
+[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).

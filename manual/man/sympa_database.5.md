@@ -685,5 +685,5 @@ Fields:
 
 # SEE ALSO
 
-_Sympa and its database_.
-[https://www.sympa.org/manual/database](https://www.sympa.org/manual/database).
+_Sympa Administration Manual_.
+[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).

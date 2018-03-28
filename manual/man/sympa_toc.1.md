@@ -23,9 +23,9 @@ Below is the list of documentation of Sympa.
 
 ## Reference manual
 
-- _Sympa, Mailing List Management Software - Reference manual_
+- _Sympa Administration Manual_
 
-    [http://www.sympa.org/manual/](http://www.sympa.org/manual/).
+    [https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
 
 ## Daemons
 
@@ -206,15 +206,16 @@ Below is the list of documentation of Sympa.
 
 # AVAILABILITY
 
-Latest version of **Sympa** is available from [http://www.sympa.org/](http://www.sympa.org/).
+Latest version of **Sympa** is available from
+[https://github.com/sympa-community/sympa/releases](https://github.com/sympa-community/sympa/releases).
 
 # MORE DOCUMENTATION
 
 The full documentation in HTML format can be found in
-[http://www.sympa.org/manual/](http://www.sympa.org/manual/).
+[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
 
 The mailing lists (with web archives) can be accessed at
-[http://listes.renater.fr/sympa/lists/informatique/sympa](http://listes.renater.fr/sympa/lists/informatique/sympa).
+[https://listes.renater.fr/sympa/lists/informatique/sympa](https://listes.renater.fr/sympa/lists/informatique/sympa).
 
 # BUGS
 

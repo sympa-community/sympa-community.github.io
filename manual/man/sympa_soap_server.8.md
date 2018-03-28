@@ -10,8 +10,8 @@ sympa\_soap\_server, sympa\_soap\_server.fcgi - Sympa SOAP server
 
 Sympa SOAP server allows one to access Sympa service though SOAP.
 
-To know details on Sympa SOAP server, see Reference Manual:
-[https://www.sympa.org/manual/soap](https://www.sympa.org/manual/soap).
+To know details on Sympa SOAP server, see Sympa Administration Manual:
+[https://sympa-community.github.io/manual/customize/soap-api.html](https://sympa-community.github.io/manual/customize/soap-api.html).
 
 # HISTORY
 

@@ -59,11 +59,11 @@ of `archived.pl`.
 
 # MORE DOCUMENTATION
 
-The full documentation in HTML and PDF formats can be found in
-[http://www.sympa.org/manual/](http://www.sympa.org/manual/).
+The full documentation in HTML format can be found in
+[https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
 
 The mailing lists (with web archives) can be accessed at
-[http://listes.renater.fr/sympa/lists/informatique/sympa](http://listes.renater.fr/sympa/lists/informatique/sympa).
+[https://listes.renater.fr/sympa/lists/informatique/sympa](https://listes.renater.fr/sympa/lists/informatique/sympa).
 
 # HISTORY
 

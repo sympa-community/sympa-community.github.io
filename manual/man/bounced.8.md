@@ -60,10 +60,10 @@ of `bounced.pl`.
 # MORE DOCUMENTATION
 
 The full documentation can be
-found in [http://www.sympa.org/manual/](http://www.sympa.org/manual/).
+found in [https://sympa-community.github.io/manual/](https://sympa-community.github.io/manual/).
 
 The mailing lists (with web archives) can be accessed at
-[http://listes.renater.fr/sympa/lists/informatique/sympa](http://listes.renater.fr/sympa/lists/informatique/sympa).
+[https://listes.renater.fr/sympa/lists/informatique/sympa](https://listes.renater.fr/sympa/lists/informatique/sympa).
 
 # HISTORY
 
