@@ -23,8 +23,6 @@ See also "[Requirements](../requirements.md)".
     Currently, Perl 5.8.1 and later are supported, however, recent version of
     Perl 5 is recommended.
 
-  * [GNU gettext](https://www.gnu.org/software/gettext/).
-
   * make(1) utility. [GNU make](https://www.gnu.org/software/make/)
     (sometimes called "gmake") is recommended.
 
@@ -34,7 +32,7 @@ See also "[Requirements](../requirements.md)".
       - [Git](https://git-scm.com/downloads).
       - [GNU autoconf](https://www.gnu.org/software/autoconf/).
       - [GNU automake](https://www.gnu.org/software/automake/).
-      - [GNU gettext](https://www.gnu.org/software/gettext/) development
+      - [GNU gettext](https://www.gnu.org/software/gettext/), and its development
         files.
 
         ----
