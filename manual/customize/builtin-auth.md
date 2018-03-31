@@ -8,7 +8,7 @@ Built-in authentication
 
 See also "[Authentication on web interface](authentication-web.md)".
 
-The build-in
+The built-in
 [authentication mechanism](authentication-web.md#authentication-mechanisms)
 provides authentication for user of web interface (WWSympa) using their
 e-mail addresses and passwords.  It is enabled by default.
@@ -112,8 +112,8 @@ the [``bcrypt``](../man/sympa.conf.5.md#password_hash) password hashes.
 The ``bcrypt`` algorithm is designed to be CPU-intensive as a defense against
 password hash cracking.
 The default [``bcrypt_cost``](../man/sympa.conf.5.md#bcrypt_cost) setting of
-12 has been measured to consume approximately 250 milliseconds of CPU time on
-a typical 3.2GHz CPU. At that speed a site with 1000 users would take 250
+`12` has been measured to consume approximately 250 milliseconds of CPU time
+on a typical 3.2GHz CPU. At that speed a site with 1000 users would take 250
 seconds to upgrade hashes, while a site with 100,000 users would take nearly 7
 hours.
 
@@ -123,7 +123,11 @@ large Sympa installations with small upgrade windows.)
         
   - Create an alternate configuration file that uses the intended new hash,
     e.g. ``sympa.conf.bcrypt``
-  - Run ``upgrade_sympa_password.pl`` using the intended new config file. The
+    ``` bash
+    # cp -p /etc/sympa/sympa.conf /etc/sympa/sympa.conf.bcrypt
+    ```
+  - Run [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md)
+    using the intended new config file. The
     ``--cache`` option specifies the path where hashes will be stored, and the
     ``--noupdateuser`` option prevents updating the user database.
    
@@ -135,11 +139,11 @@ large Sympa installations with small upgrade windows.)
   - During the final upgrade, put the new config file in place and use the
     precalculated hashes to save time:
     ``` bash
-    # cp /etc/sympa/sympa.conf /etc/sympa.conf.old
-    # cp /etc/sympa/sympa.conf.bcrypt /etc/sympa.conf
+    # cp -p /etc/sympa/sympa.conf /etc/sympa/sympa.conf.old
+    # cp -p /etc/sympa/sympa.conf.bcrypt /etc/sympa/sympa.conf
     # upgrade_sympa_password.pl --cache /root/sympa.hashes >& /tmp/upgrade.log
     ```
-  - Remember to remove the precalculated hashes once done with them
+  - Remember to remove the precalculated hashes once done with them.
     ``` bash
     # rm /root/sympa.hashes
     ```
