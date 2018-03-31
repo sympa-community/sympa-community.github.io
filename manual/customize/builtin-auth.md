@@ -16,10 +16,10 @@ e-mail addresses and passwords.  It is enabled by default.
 Requirements
 ------------
 
-  * To use bcrypt hash (see below), you have to install
+  * To use bcrypt hash (see below), you have to install the
     [Crypt-Eksblowfish](http://search.cpan.org/dist/Crypt-Eksblowfish/)
     Perl module.
-    It is recommented.
+    It is recommended.
 
 Sympa configuration
 -------------------
@@ -38,7 +38,7 @@ In [`sympa.conf`](../layout.md#config), following parameters are available:
     case-insensitive.
 
     Note that, once you set this parameter, you should not change it.
-    Or all user password may be invalidated.
+    Or all user passwords may be invalidated.
 
   * [`password_hash`](../man/sympa.conf.5.md#password_hash)
 
@@ -66,11 +66,18 @@ In [`sympa.conf`](../layout.md#config), following parameters are available:
 
   * [`password_hash_update`](../man/sympa.conf.5.md#password_hash_update)
 
-    If this parameter is set to `1` and `password_hash` is `bcrypt`,
-    Sympa updates MD5 password hash to bcrypt hash on succsessful login.
-
-    Otherwise this parameter is not set, only the method specified by
-    `password_hash` parameter is available.
+    If this parameter is set to `1` any supported password hash type (currently `md5` or `bcrypt`) 
+    that does not match the current setting of `password_hash` is updated to
+    the current hash type upon successful login.
+    
+    For instance, if `password_hash_update` is `1` and `password_hash` has been set to
+    `bcrypt`, Sympa  will update an MD5 password hash to a bcrypt hash on successful login.
+    
+    If this parameter is set to `0`, only the hash type specified by the `password_hash` parameter is available.
+    All previously set passwords are effectively invalidated.
+    
+    The default value is `1`, which is intended to support a graceful transition to a
+    new hash type over a period of time.
 
   * [`bcrypt_cost`](../man/sympa.conf.5.md#bcrypt_cost)
 
