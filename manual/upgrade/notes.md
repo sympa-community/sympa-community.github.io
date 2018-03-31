@@ -100,6 +100,13 @@ below.
         pictures_url       PATH/pictures
         ```
 
+#### New password hash format
+
+It is not forced, but it is recommended to upgrade password storage format of
+web interface using `bcrypt`, more secure hash function.  See
+"[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)"
+for details.
+
 ### From versions prior to 6.2.18
 
 Especially on
@@ -225,45 +232,8 @@ under separate directory, keeping installation and data of earlier version.
          are updating from.  Doing this, configuration and database structure
          will be upgraded.
 
-       - Upgrade format of web interface password in the database:
-         ``` bash
-         # upgrade_sympa_password.pl
-         ```
-         For details see the manual page of
-         [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md).
-         
-       - A note for sites with thousands of users that intend to upgrade to
-         the [``bcrypt``](../man/sympa.conf.5.md#password_hash) password hashes.
-         
-         The ``bcrypt`` algorithm is designed to be CPU-intensive as a defense against password hash cracking.
-         The default [``bcrypt_cost``](../man/sympa.conf.5.md#bcrypt_cost)
-         setting of 12 has been measured to consume approximately 250 milliseconds of CPU time on
-         a typical 3.2GHz CPU. At that speed a site with 1000 users would take 250 seconds to upgrade hashes,
-         while a site with 100,000 users would take nearly 7 hours.
-         
-         If the estimated time required to upgrade passwords is a concern, it is possible to precalculate
-         hashes in advance.  (This process is only advised for large Sympa installations with small upgrade windows.)
-        
-            - Create an alternate configuration file that uses the intended new hash, e.g. ``sympa.conf.bcrypt``
-            - Run ``upgrade_sympa_password.pl`` using the intended new config file. The ``--cache`` option specifies
-              the path where hashes will be stored, and the ``--noupdateuser`` option prevents updating the user database.
-            
-            ``` bash
-            # upgrade_sympa_password.pl --config /etc/sympa/sympa.conf.bcrypt \
-                                        --cache /root/sympa.hashes \
-                                        --noupdateuser >&/tmp/precalc.log
-            ```
-            - During the final upgrade, put the new config file in place and use the precalculated
-              hashes to save time:
-            ``` bash
-            # cp /etc/sympa/sympa.conf /etc/sympa.conf.old
-            # cp /etc/sympa/sympa.conf.bcrypt /etc/sympa.conf
-            # upgrade_sympa_password.pl --cache /root/sympa.hashes >& /tmp/upgrade.log
-            ```
-            - Remember to remove the precalculated hashes once done with them
-            ``` bash
-            # rm /root/sympa.hashes
-            ```
+       - Upgrade format of web interface password in the database.  See
+         "[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)".
 
        - Check customizations of templates, scenarios and list creation
          templates on earlier version,
