@@ -10,6 +10,7 @@ name here.
   - Geoffroy Desvernay
   - Stefan Hornburg
   - Soji Ikeda
+  - Mic Kaczmarczik
   - Luis Martínez
   - Etienne Meleard
   - Olivier Salaün
