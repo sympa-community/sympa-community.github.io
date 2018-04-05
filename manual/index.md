@@ -31,11 +31,25 @@ Table of contents
       - [Managing services](admin/services.md)
       - [Command line interface](admin/cli.md)
       - [Managing lists](admin/list.md)
+
+          - [List creation, editing and removal](admin/list-creation.md)
+          - [Managing list members, owners and moderators](admin/list-members.md)
+
       - [Web interface for listmaster](admin/web-interface.md)
 
   - [Customizing Sympa](customize.md)
 
       - [Customization basics](customize.md#customization-basics)
+
+          - [Message workflow](customize/basics-workflow.md)
+          - [Roles and privileges](customize/basics-roles.md)
+          - [Configuration hierarchy](customize/basics-configuration.md)
+          - [Templates](customize/basics-templates.md)
+          - [Authorization scenarios](customize/basics-scenarios.md)
+          - [Tasks](customize/basics-tasks.md)
+          - [Internationalization](customize/basics-i18n.md)
+          - [List families](customize/basics-families.md)
+
       - [Customizing Sympa services](customize.md#customizing-sympa-services)
       - [Customizing web interface](customize.md#customizing-web-interface)
       - [Sympa services: Optional features](customize.md#sympa-services-optional-features)
