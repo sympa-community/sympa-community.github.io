@@ -6,7 +6,7 @@ up: ../customize.md#sympa-services-optional-features
 Data sources
 ============
 
-Sympa can include list subscribers, owners and editors from external data
+Sympa can include list subscribers, owners and moderators from external data
 sources.
 The supported data sources should all return a set of email addresses, because
 that's the information Sympa needs to define a list user. You can define as
@@ -108,7 +108,7 @@ Sympa looks for them in the following order:
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*mail domain*`/data_sources/`*file*`.incl`.
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/data_sources/`*file*`.incl`;
 
-These files are used by Sympa to load administrative data in a relational database: owners or editors are defined *intensively* (definition of criteria owners or editors must satisfy). Includes can be performed by extracting email addresses using an SQL query or LDAP search operation, or by including other mailing lists.
+These files are used by Sympa to load administrative data in a relational database: owners or moderators are defined *intensively* (definition of criteria owners or moderators must satisfy). Includes can be performed by extracting email addresses using an SQL query or LDAP search operation, or by including other mailing lists.
 
 A data inclusion file is made of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_remote_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query`, `include_ldap_query` and `include_ldap_2level_query`. They are described in the [List configuration parameters](../man/list_config.5.md#data-sources-setup) chapter.
 

@@ -1,11 +1,11 @@
 ---
-title: 'Managing list members, owners and editors'
+title: 'Managing list members, owners and moderators'
 prev: list-creation.md
 up: ../admin.md
 ---
 
-Managing list members, owners and editors
-=========================================
+Managing list members, owners and moderators
+============================================
 
 The standard way to define list members is to make them subscribe to the list (or be added by the list owner). However, you may have users groups already defined in your LDAP directory or in a relational database. Therefore Sympa allows you to automatically map list membership to such data sources. The term **include** is used to designate these dynamic mailing list membership managements.
 
@@ -28,7 +28,7 @@ Sympa stores the list membership data in its database, in the [`subscriber_table
 
 A list owner is assigned to a list at the list creation time ; it corresponds to the user who requests the list creation. Additional list owners can later be addded by existing list owners or by the listmaster; this is achieved through the list admin web interface. List owners are defined by the [owner list configuration parameter](../man/list_config.5.md#owner).
 
-List moderators are managed the same way, defined by the [editor list configuration parameter](../man/list_config.5.md#editor). Note that if no list moderator is defined, then the list owners are taken as defaults for them.
+List moderators are managed the same way, defined by the [`editor` list configuration parameter](../man/list_config.5.md#editor). Note that if no list moderator is defined, then the list owners are taken as defaults for them.
 
 Sympa defines two profiles for list owners: normal and privileged. Privileged owners have extended privileges, including the right to edit some list configuration parameters; this can be customized through the ~~[edit_list.conf configuration file](list-creation.md#list_editing)~~.
 

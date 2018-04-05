@@ -23,7 +23,7 @@ You can define a different set of listmasters at a virtual host level (in the [`
 Privileged list owners
 ----------------------
 
-The first defined privileged owner is the person who requested the list creation. Later it can be changed or extended. They inherit (basic) owner privileges and are also responsible for managing the list owners and editors themselves (through the web interface). With Sympa's default behavior, privileged owners can edit more list parameters than (basic) owners can do; but this can be customized via the [`edit_list.conf`](../man/edit_list.conf.5.md) file.
+The first defined privileged owner is the person who requested the list creation. Later it can be changed or extended. They inherit (basic) owner privileges and are also responsible for managing the list owners and moderators themselves (through the web interface). With Sympa's default behavior, privileged owners can edit more list parameters than (basic) owners can do; but this can be customized via the [`edit_list.conf`](../man/edit_list.conf.5.md) file.
 
 (Basic) list owners
 -------------------

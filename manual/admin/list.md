@@ -9,5 +9,5 @@ Managing lists
 ==============
 
   - [List creation, editing and removal](list-creation.md)
-  - [Managing list members, owners and editors](list-members.md)
+  - [Managing list members, owners and moderators](list-members.md)
 

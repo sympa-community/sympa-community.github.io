@@ -68,7 +68,7 @@ In order to configure Sympa for signing outgoing messages, you have to decide **
 
       - received with a valid DKIM signature;
 
-      - validated by one of the list editors;
+      - validated by one of the list moderators;
 
       - other messages.
 

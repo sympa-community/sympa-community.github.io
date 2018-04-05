@@ -163,7 +163,7 @@ Here is a description of what is evaluated to authenticate the user depending of
 | `md5`   | confirmation/approval with the authentication key in the message [1] | authentication mechanisms with username/password |
 | `smime` | valid S/MIME signature of the message [2] | TLS client authentication with X.509 certificate installed in the user's browser |
 
-  - [1] `md5` will be used, in a mail context, when users answer to an authentication request, or when editors moderate a message by replying to a moderation request mail.
+  - [1] `md5` will be used, in a mail context, when users answer to an authentication request, or when moderators moderate a message by replying to a moderation request mail.
   - [2] Sympa also deals with S/MIME encrypted messages.
 
 In most cases, `smtp` or `dkim` will be used for mails, and `md5` for the web.
@@ -219,7 +219,7 @@ Some actions may have modifiers, for example:
     For example, if a scenario rule is applied and result in
     `editorkey,quiet`, the sender of the message will not receive the
     automatic information message telling them that their message has been
-    forwarded to the list editor.
+    forwarded to the list moderator.
 
   * `notify` modifier sends a report to the list owner, if it will not be sent by
     default.
@@ -414,7 +414,7 @@ For each service listed in parameter [`use_blacklist`](../man/sympa.conf.5.md#us
 search(blacklist.txt)  smtp,md5,dkim,smime -> reject,quiet
 ```
 
-The goal is to block messages or other service requests from unwanted users. The blacklist can be defined for the robot or for the list. At the list level, the blacklist is to be managed by the list owner or the list editor via the web interface.
+The goal is to block messages or other service requests from unwanted users. The blacklist can be defined for the robot or for the list. At the list level, the blacklist is to be managed by the list owner or the list moderator via the web interface.
 
 `spam-status` special scenario
 ------------------------------
