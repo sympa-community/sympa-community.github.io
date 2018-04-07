@@ -94,14 +94,17 @@ is possible.
 
 To perform upgrade, basically:
 
-  1. Stop web interface (See
+  1. Stop web interface (See also
      "[Stopping services](../admin/services.md#stopping-services)").
 
-  2. Run [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md):
+  2. Update Sympa configuration.  See "[Sympa configuration](#sympa-configuration)"
+     and "[Requirements](#requirements)" for details.
+
+  3. Run [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md):
      ``` bash
      # upgrade_sympa_password.pl
      ```
-  3. Restart web interface (See
+  4. Restart web interface (See also
      "[Starting services](../admin/services.md#starting-services)").
 
 ### Upgrading on large site
