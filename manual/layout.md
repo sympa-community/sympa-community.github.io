@@ -270,7 +270,7 @@ Directories specific to web interface
 |-----------------------------|---------------------------------------|
 | (by version prior to 6.2.26 of any distributions) | [``$STATICDIR``](#staticdir)``/css`` |
 | Debian                      | TBD |
-| FreeBSD                     | TBD |
+| FreeBSD                     | ``/usr/local/share/sympa/static/css`` |
 | RPM                         | ``/var/lib/sympa/css``                |
 | Source distribution default | ``/home/sympa/static_content/css``    |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/static_content/css`` |
@@ -292,7 +292,7 @@ Directories specific to web interface
 |-----------------------------|--------------------------------------------|
 | (by version prior to 6.2.26 of any distributions) | [``$STATICDIR``](#staticdir)``/pictures`` |
 | Debian                      | TBD |
-| FreeBSD                     | TBD |
+| FreeBSD                     | ``/usr/local/share/sympa/static/pictures`` |
 | RPM                         | ``/var/lib/sympa/pictures``                |
 | Source distribution default | ``/home/sympa/static_content/pictures``    |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/static_content/pictures`` |
