@@ -367,6 +367,25 @@
             </li>
           </ol>
         {% endif %}
+
+          <p>
+          <a href="{{ site.github.url }}/help/">
+            {% if page.path contains 'help/' %}<strong>{% endif %}
+            Sympa Help
+            {% if page.path contains 'help/' %}</strong>{% endif %}
+          </a>
+          </p>
+
+          <p></p>
+
+          <p>
+          <a href="{{ site.github.url }}/security/">
+            {% if page.path contains 'security/' %}<strong>{% endif %}
+            Security advisories
+            {% if page.path contains 'security/' %}</strong>{% endif %}
+          </a>
+          </p>
+
         </nav>
 
       </header>
