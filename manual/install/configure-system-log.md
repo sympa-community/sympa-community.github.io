@@ -30,8 +30,8 @@ Instruction by syslog servers
 
   1. Create log file:
      ```bash
-     # touch /var/log/syslog
-     # chmod 640 /var/log/syslog
+     # touch /var/log/sympa.log
+     # chmod 640 /var/log/sympa.log
      ```
 
   2. Add following line to syslog.conf:
