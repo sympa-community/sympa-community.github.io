@@ -81,268 +81,6 @@ Visibility of the list
 
 This parameter indicates whether the list should feature in the output generated in response to a LISTS command or should be shown in the list overview of the web-interface.
 
-### `owner`
-
-Owner
-
-- Multiple occurrences allowed, _mandatory_
-
-Owners are managing subscribers of the list. They may review subscribers and add or delete email addresses from the mailing list. If you are a privileged owner of the list, you can choose other owners for the mailing list. Privileged owners may edit a few more options than other owners. 
-
-#### `owner.email`
-
-email address
-
-- Format:
-
-    /`$email`/
-
-- Default:
-
-    None, _mandatory_.
-
-#### `owner.gecos`
-
-name
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
-
-#### `owner.info`
-
-private information
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
-
-#### `owner.profile`
-
-profile
-
-- Format:
-    - `privileged` - privileged owner
-    - `normal` - normal owner
-- Default:
-
-    `normal`
-
-#### `owner.reception`
-
-reception mode
-
-- Format:
-    - `mail` - receive notification email
-    - `nomail` - no notifications
-- Default:
-
-    `mail`
-
-#### `owner.visibility`
-
-visibility
-
-- Format:
-    - `conceal` - concealed from list menu
-    - `noconceal` - listed on the list menu
-- Default:
-
-    `noconceal`
-
-### `owner_include`
-
-Owners defined in an external data source
-
-- Multiple occurrences allowed
-
-#### `owner_include.source`
-
-the datasource
-
-- Format:
-
-    /`[\w-]+`/
-
-- Default:
-
-    None, _mandatory_.
-
-#### `owner_include.source_parameters`
-
-datasource parameters
-
-- Format:
-
-    /`.*`/
-
-- Default:
-
-    None.
-
-#### `owner_include.profile`
-
-profile
-
-- Format:
-    - `privileged` - privileged owner
-    - `normal` - normal owner
-- Default:
-
-    `normal`
-
-#### `owner_include.reception`
-
-reception mode
-
-- Format:
-    - `mail` - receive notification email
-    - `nomail` - no notifications
-- Default:
-
-    `mail`
-
-#### `owner_include.visibility`
-
-visibility
-
-- Format:
-    - `conceal` - concealed from list menu
-    - `noconceal` - listed on the list menu
-- Default:
-
-    `noconceal`
-
-### `editor`
-
-Moderators
-
-- Multiple occurrences allowed
-
-Editors are responsible for moderating messages. If the mailing list is moderated, messages posted to the list will first be passed to the editors, who will decide whether to distribute or reject it.
-
-FYI: Defining editors will not make the list moderated; you will have to set the "send" parameter.
-
-FYI: If the list is moderated, any editor can distribute or reject a message without the knowledge or consent of the other editors. Messages that have not been distributed or rejected will remain in the moderation spool until they are acted on.
-
-#### `editor.email`
-
-email address
-
-- Format:
-
-    /`$email`/
-
-- Default:
-
-    None, _mandatory_.
-
-#### `editor.gecos`
-
-name
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
-
-#### `editor.info`
-
-private information
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
-
-#### `editor.reception`
-
-reception mode
-
-- Format:
-    - `mail` - receive notification email
-    - `nomail` - no notifications
-- Default:
-
-    `mail`
-
-#### `editor.visibility`
-
-visibility
-
-- Format:
-    - `conceal` - concealed from list menu
-    - `noconceal` - listed on the list menu
-- Default:
-
-    `noconceal`
-
-### `editor_include`
-
-Moderators defined in an external data source
-
-- Multiple occurrences allowed
-
-#### `editor_include.source`
-
-the data source
-
-- Format:
-
-    /`[\w-]+`/
-
-- Default:
-
-    None, _mandatory_.
-
-#### `editor_include.source_parameters`
-
-data source parameters
-
-- Format:
-
-    /`.*`/
-
-- Default:
-
-    None.
-
-#### `editor_include.reception`
-
-reception mode
-
-- Format:
-    - `mail` - receive notification email
-    - `nomail` - no notifications
-- Default:
-
-    `mail`
-
-#### `editor_include.visibility`
-
-visibility
-
-- Format:
-    - `conceal` - concealed from list menu
-    - `noconceal` - listed on the list menu
-- Default:
-
-    `noconceal`
-
 ### `topics`
 
 Topics for the list
@@ -361,17 +99,7 @@ This parameter allows the classification of lists. You may define multiple topic
 
 ### `host`
 
-Internet domain
-
-- Format:
-
-    /`$host`/
-
-- Default:
-
-    Value of [`host`](./sympa.conf.5.md#host) parameter in `sympa.conf` or `robot.conf`.
-
-Domain name of the list, default is the robot domain name set in the related robot.conf file or in file sympa.conf.
+Deprecated.
 
 ### `lang`
 
@@ -945,7 +673,7 @@ Who can subscribe to the list
 
     - `auth` - subscription request confirmed
     - `auth_notify` - need authentication (notification is sent to owners)
-    - `auth_notifydkim` - need authentication unless DKIM signature is OK. (notification is sent to owners)
+    - `auth_notifydkim` - need authentication unless DKIM signature is OK (notification is sent to owners)
     - `auth_owner` - requires authentication then owner approval
     - `auth_ownerdkim` - requires authentication unless DKIM signature is OK, then owner approval
     - `authdkim` - subscription request confirmed
@@ -1534,7 +1262,7 @@ Notify subscribers when they are included from a data source?
 
 ### `member_include`
 
-Users included from parameterizable data sources
+Subscribers defined in an external data source
 
 - Multiple occurrences allowed
 
@@ -1561,6 +1289,121 @@ data source parameters
 - Default:
 
     None.
+
+### `owner_include`
+
+Owners defined in an external data source
+
+- Multiple occurrences allowed
+
+#### `owner_include.source`
+
+the data source
+
+- Format:
+
+    /`[\w-]+`/
+
+- Default:
+
+    None, _mandatory_.
+
+#### `owner_include.source_parameters`
+
+data source parameters
+
+- Format:
+
+    /`.*`/
+
+- Default:
+
+    None.
+
+#### `owner_include.profile`
+
+profile
+
+- Format:
+    - `privileged` - privileged owner
+    - `normal` - normal owner
+- Default:
+
+    `normal`
+
+#### `owner_include.reception`
+
+reception mode
+
+- Format:
+    - `mail` - receive notification email
+    - `nomail` - no notifications
+- Default:
+
+    `mail`
+
+#### `owner_include.visibility`
+
+visibility
+
+- Format:
+    - `conceal` - concealed from list menu
+    - `noconceal` - listed on the list menu
+- Default:
+
+    `noconceal`
+
+### `editor_include`
+
+Moderators defined in an external data source
+
+- Multiple occurrences allowed
+
+#### `editor_include.source`
+
+the data source
+
+- Format:
+
+    /`[\w-]+`/
+
+- Default:
+
+    None, _mandatory_.
+
+#### `editor_include.source_parameters`
+
+data source parameters
+
+- Format:
+
+    /`.*`/
+
+- Default:
+
+    None.
+
+#### `editor_include.reception`
+
+reception mode
+
+- Format:
+    - `mail` - receive notification email
+    - `nomail` - no notifications
+- Default:
+
+    `mail`
+
+#### `editor_include.visibility`
+
+visibility
+
+- Format:
+    - `conceal` - concealed from list menu
+    - `noconceal` - listed on the list menu
+- Default:
+
+    `noconceal`
 
 ### `sql_fetch_timeout`
 
@@ -3234,7 +3077,7 @@ DKIM "d=" tag, you should probably use the default value
 
     Value of [`dkim_signer_domain`](./sympa.conf.5.md#dkim_signer_domain) parameter in `sympa.conf` or `robot.conf`.
 
-The DKIM "d=" tag, is the domain of the signing entity. the list domain MUST be included in the "d=" domain
+The DKIM "d=" tag, is the domain of the signing entity. The list domain MUST be included in the "d=" domain
 
 #### `dkim_parameters.signer_identity`
 

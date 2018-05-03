@@ -70,8 +70,11 @@ Some actions may have optional modifiers (see ["Actions"](#actions)).
     _perl\_regexp_ is a perl regular expression.
     Don't forget to escape special characters (`^`, `$`, `{`, `(`, ...):
     Check [perlre(1)](./perlre.1.md) for regular expression syntax.
-    It can contain the string `[host]` (interpreted at run time as the list or
+    It can contain the string `[domain]` (interpreted at run time as the list or
     robot domain). 
+
+    Note:
+    Sympa prior to 6.2.32 recognized `[host]` instead of `[domain]`.
 
 - `newer` `(` _date_`,` _date_ `)`
 
@@ -115,6 +118,14 @@ Some actions may have optional modifiers (see ["Actions"](#actions)).
 - `[date]`
 
     Date of reception of the message.
+
+- `[domain]`
+
+    Mail domain of current list.
+
+    Note:
+    This variable was introduced by Sympa 6.2.32.
+    Previous versions used a variable `[conf->host]` (obsoleted) instead.
 
 - `[env->`_env\_var_`]` 
 
@@ -350,7 +361,7 @@ subscriber\_key\_word : "email"
 
 list\_key\_word : "name"  
     | "address"  
-    | "host"  
+    | "domain"  
     | "lang"  
     | "max\_size"  
     | "priority"  

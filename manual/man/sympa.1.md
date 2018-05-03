@@ -16,7 +16,8 @@ sympa, sympa.pl - Command line utility to manage Sympa
 \[ `--close_list`=_list_\[_@robot_\] \]
 \[ `--purge_list`=_list_\[_@robot_\] \]
 \[ `--lowercase` \] \[ `--make_alias_file` \]
-\[ `--dump`=_listname_ | ALL \]
+\[ `--dump_users` `--list`=_list_@_domain_|ALL \[ `--role`=_roles_ \] \]
+\[ `--restore_users` `--list`=_list_@_domain_|ALL \[ `--role`=_roles_ \] \]
 
 # DESCRIPTION
 
@@ -81,10 +82,25 @@ With the following options `sympa.pl` will run in batch mode:
 
     Create a list with the XML file under robot robot\_name.
 
-- `--dump=`_list_@_dom_|`ALL`
+- `--dump=`_list_@_domain_|`ALL`
 
-    Dumps subscribers of for \`listname' list or all lists. Subscribers are 
-    dumped in subscribers.db.dump.
+    Obsoleted option.  Use `--dump_users`.
+
+- `--dump_users` `--list=`_list_@_domain_|`ALL` \[ `--role=`_roles_ \]
+
+    Dumps users of a list or all lists.
+
+    `--role` may specify `member`, `owner`, `editor` or any of them separated
+    by comma (`,`). Only `member` is chosen by default.
+
+    Users are dumped in files _role_`.dump` in each list directory.
+
+    Note: On Sympa prior to 6.2.31b.1, subscribers were dumped in
+    `subscribers.db.dump` file, and owners and moderators could not be dumped.
+
+    See also `--restore_users`.
+
+    Note: This option replaced `--dump` on Sympa 6.2.34.
 
 - `--health_check`
 
@@ -156,6 +172,12 @@ With the following options `sympa.pl` will run in batch mode:
 
     Send digest right now.
     If `--keep_digest` is specified, stocked digest will not be removed.
+
+- `--restore_users` `--list=`_list_@_domain_|`ALL` \[ `--role=`_roles_ \]
+
+    Restore users from files dumped by `--dump_users`.
+
+    Note: This option was added on Sympa 6.2.34.
 
 - `--sync_include=`_listname_@_robot_
 

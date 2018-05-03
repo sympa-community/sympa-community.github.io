@@ -883,7 +883,7 @@ Command line parameters passed to sendmail
 
     None.
 
-Note that "-f", "-N" and "-V" options and recipient addresses need not included, because they will be included by Sympa.
+Note that "-f", "-N" and "-V" options and recipient addresses should not be included, because they will be included by Sympa.
 
 #### `log_smtp`
 
@@ -3003,7 +3003,7 @@ Directory containing user certificates
 
 ## Data sources setup
 
-Including subscribers, owners and editors from datasources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
+Including subscribers, owners and editors from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
 
 #### `default_sql_fetch_timeout`
 
@@ -3402,8 +3402,6 @@ URL of SympaSOAP behind proxy
 - Overrides:
 
     Virtual domain
-
-    List
 
 #### `log_condition`
 
