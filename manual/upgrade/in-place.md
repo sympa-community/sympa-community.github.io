@@ -43,8 +43,8 @@ See also "[Stopping services](../admin/services.md#stopping-services)".
 
   * HTTP server should be stopped.
 
-    On nginx, WWSympa FastCGI service should be stopped at least: nginx itself
-    may not be stopped.
+    If you are running separate FastCGI service, that service should be
+    stopped at least: HTTP server itself may not be stopped.
 
   * Mail transfer agent (MTA) is recommended to be stopped.
     If it was not stopped, incoming messages will be queued into the spools of

@@ -1,12 +1,22 @@
 ---
-title: 'Configure HTTP server: Apache HTTP Server'
+title: 'Configure HTTP server: Apache HTTP Server (compatible with earlier version)'
 prev: configure-mail-server.md
 up: configure-http-server.md
 next: configure-http-server.md#tests
 ---
 
-Configure HTTP server: Apache HTTP Server
-=========================================
+Configure HTTP server: Apache HTTP Server (compatible with earlier version)
+===========================================================================
+
+----
+Note:
+
+  * This chapter describes configuration compatible with earlier version of
+    Apache HTTP Server (prior to 2.4).  If you are using version 2.4 or later
+    of Apache HTTP Server, see recommended instruction
+    [using separate FastCGI service](configure-http-server-spawnfcgi.md).
+
+----
 
 Requirements
 ------------
