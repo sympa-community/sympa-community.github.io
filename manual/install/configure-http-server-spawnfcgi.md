@@ -7,8 +7,8 @@ redirect_from:
   - configure-http-server-nginx.html
 ---
 
-Configure HTTP server: Using separate FastCGI service
-=====================================================
+Configure HTTP server: Running separate FastCGI service
+=======================================================
 
 Requirements
 ------------
@@ -16,15 +16,17 @@ Requirements
   * HTTP server.
 
     Currently, [nginx](https://nginx.org/en/download.html)
-    and Apache HTTP Serever (2.4 or later) are reported working.
+    and [Apache HTTP Serever](https://httpd.apache.org/download.cgi)
+    (2.4 or later) are reported working.
 
     ----
     Note:
 
       * For Apache HTTP Server:
 
-          * Instruction described here needs mod_proxy_fcgi module introduced
-            by HTTP Server 2.4.
+          * Instruction described here needs
+            [mod_proxy_fcgi](https://httpd.apache.org/docs/mod/mod_proxy_fcgi.html)
+            module introduced by HTTP Server 2.4.
             See [another instruction](configure-http-server-apache.md) to know
             about configuration with HTTP Server prior to 2.4.
 

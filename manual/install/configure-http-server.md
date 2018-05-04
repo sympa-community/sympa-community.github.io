@@ -150,9 +150,11 @@ Single domain setting
 Instruction by HTTP servers
 ---------------------------
 
-  - [Apache HTTP Server](configure-http-server-apache.md)
+  - [Apache HTTP Server](configure-http-server-spawnfcgi.md) (2.4 or later)
+  - [Apache HTTP Server](configure-http-server-apache.md) (setting compatible
+    with earlier version)
+  - [nginx](configure-http-server-spawnfcgi.md)
   - [lighttpd](configure-http-server-lighttpd.md)
-  - [nginx](configure-http-server-nginx.md)
 
 Tests
 -----

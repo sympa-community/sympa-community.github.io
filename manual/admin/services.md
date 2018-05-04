@@ -119,7 +119,8 @@ Reloading services
     If [``wwsympa.fcgi``](../man/wwsympa.8.md) script was updated, it detects
     change of itself and exits.  Then WWSympa will be automatically reloaded.
 
-    Exception is the case using nginx with initscripts: If script exits,
+    Exception is the case running separate FastCGI service with initscripts:
+    If script exits,
     it have to be restared manually by executing such as:
     ```
     # service wwsympa start
@@ -129,8 +130,9 @@ Reloading services
 
     To force reloading, restart HTTP server.
 
-    Exception is the case using nginx (either with Systemd or initscripts):
-    Only WWSympa FastCGI service (``wwsympa``) may be reloaded by
+    Exception is the case running separate FastCGI service (either with
+    Systemd or initscripts):
+    Only that service (``wwsympa``) may be reloaded by
     ``service wwsympa restart`` or ``systemctl restart wwsympa``.
 
 Stopping and starting services
@@ -140,8 +142,9 @@ Stopping and starting services
 
   1. Ensure that HTTP server is stopping.
 
-     On nginx, only WWSympa FastCGI service (``wwsympa``) may be stopped
-     in many cases: nginx itself may not be stopped.
+     If you are running separate FastCGI service, only that service
+     (``wwsympa``) may be stopped
+     in many cases: HTTP server itself may not be stopped.
 
   2. Ensure that mail server is stopping.
 
@@ -183,6 +186,7 @@ Stopping and starting services
 
   4. Start HTTP server, if necessary.
 
-     On nginx, WWSympa FastCGI service (``wwsympa``) must be started
-     along with nginx itself.
+     If you are running separate FastCGI service, that service
+     (``wwsympa``) must be started
+     along with HTTP server itself.
 
