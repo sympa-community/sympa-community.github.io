@@ -84,7 +84,7 @@ necessary.
      [``$PIDDIR``](../layout.md#piddir) below):
      ``` bash
      # sysrc spawn_fcgi_enable="YES"
-     # sysrc spawn_fcgi_app="$EXECCGIDIR/wwsympa.fcgi"
+     # sysrc spawn_fcgi_app="/usr/local/bin/perl"
      # sysrc spawn_fcgi_bindsocket="$PIDDIR/wwsympa.socket"
      # sysrc spawn_fcgi_bindsocket_mode="0600 -U www"
      # sysrc spawn_fcgi_username="sympa"
