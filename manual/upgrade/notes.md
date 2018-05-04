@@ -27,6 +27,12 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From versions prior to 6.2.30
+
+  * If `sympa.pl --upgrade` crashes due to undefined variable `$pictures_dir`, remove following files and retry:
+      - **`sympa.conf.bin`** placed in the same directory as [``sympa.conf``](../layout.md#config) file.
+      - **`robot.conf.bin`** placed in the same directory as each ``robot.conf`` file, if any.
+
 ### From versions prior to 6.2.28
 
 #### Renamed scenarios
