@@ -113,11 +113,22 @@ web interface using `bcrypt`, more secure hash function.  See
 "[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)"
 for details.
 
+### From versions prior to 6.2.24
+
+  - Data sources: "`%`" sign in SQL data source no longer need escaping by
+    duplicating it, i.e. "`%%`". Administrators on the sites allowing SQL
+    data sources are recommended to check data source settings and modify
+    them as necessity. 
+
+  - WWSympa: FastCGI support became mandatory. CGI mode was deprecated.
+    See "[Configure HTTP server](../install/configure-http-server.md)
+    for details about configuration.
+
 ### From versions prior to 6.2.18
 
-Especially on
-6.2.18, web templates for shared document repository and list configuration
-edit form broke backward compatibility in exchange for bug fixes.
+  - Especially on
+    6.2.18, web templates for shared document repository and list configuration
+    edit form broke backward compatibility in exchange for bug fixes.
 
 Upgrading from Sympa 6.1.x or earlier
 -------------------------------------
@@ -180,6 +191,28 @@ After the process above, the following changes will have occured:
     Indeed, as most of the Sympa templates have been changed for the new skin,
     your customizations could not be compliant to the new web interface. You
     should see how to reintroduce them to the new templates.
+
+Additionally, you may have to fix up configuration manually:
+
+  - New parameter:
+    [`process_archive`](../man/list_config.md#process_archive) controls
+    archiving.
+    The default is "`off`": To enable archiving, it must be set to "`on`"
+    explicitly (in `sympa.conf`, `robot.conf` or each list `config` file).
+
+  - Renamed list parameters:
+    `web_archive.access` to `archive.web_access`;
+    `archive.access` to `archive.mail_access`;
+    `web_archive.quota` to `archive.quota`;
+    `web_archive.max_month` to `archive.max_month`.
+
+  - Deprecated list parameter:
+    `user_data_source`.  All subscribers are stored in database.
+    The `subscribers` file in list directory will no longer be imported.
+
+  - Administrators are strongly recommended to check new configuration.
+    Customized scenarios, list creation templeates and edit_list.conf will
+    never be upgraded automatically. 
 
 Upgrading from Sympa 5.4.x or earlier
 -------------------------------------
