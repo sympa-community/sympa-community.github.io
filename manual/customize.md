@@ -8,12 +8,17 @@ Customizing Sympa
 =================
 
 ----
-Note:
+Notes:
 
   * This chapter is work in progress.
 
     Please consider adding description and instruction written by your own
     (See [CONTRIBUTING](../CONTRIBUTING.md)).
+
+  * See related links of each feature:
+      - &#x1F527; for configuration parameters,
+      - &#x2699; for configuration files and
+      - &#x1F4E6; for optional external modules.
 
 ----
 
@@ -31,16 +36,6 @@ Customization basics
 
 Customizing Sympa services
 --------------------------
-
-----
-Note:
-
-  * See related links of each feature:
-      - &#x1F527; for configuration parameters,
-      - &#x2699; for configuration files and
-      - &#x1F4E6; for optional external modules.
-
-----
 
 To manage these features, listmaster privileges and/or console login are
 needed.
