@@ -4,7 +4,7 @@ prev: configure-mail-server.md
 up: configure-http-server.md
 next: configure-http-server.md#tests
 redirect_from:
-  - configure-http-server-nginx.html
+  - 'configure-http-server-nginx.html'
 ---
 
 Configure HTTP server: Running separate FastCGI service

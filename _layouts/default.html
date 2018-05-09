@@ -230,9 +230,16 @@
               {% if page.path contains 'manual/install/configure-http-server' %}
                 <ol>
                 <li>
+                <a href="{{ site.github.url }}/manual/install/configure-http-server-spawnfcgi.html">
+                  {% if page.path == 'manual/install/configure-http-server-spawnfcgi.md' %}<strong>{% endif %}
+                  nginx, Apache HTTP Server (2.4+)
+                  {% if page.path == 'manual/install/configure-http-server-spawnfcgi.md' %}</strong>{% endif %}
+                </a>
+                </li>
+                <li>
                 <a href="{{ site.github.url }}/manual/install/configure-http-server-apache.html">
                   {% if page.path == 'manual/install/configure-http-server-apache.md' %}<strong>{% endif %}
-                  Apache HTTP Server
+                  Apache HTTP Server (earlier)
                   {% if page.path == 'manual/install/configure-http-server-apache.md' %}</strong>{% endif %}
                 </a>
                 </li>
@@ -241,13 +248,6 @@
                   {% if page.path == 'manual/install/configure-http-server-lighttpd.md' %}<strong>{% endif %}
                   lighttpd
                   {% if page.path == 'manual/install/configure-http-server-lighttpd.md' %}</strong>{% endif %}
-                </a>
-                </li>
-                <li>
-                <a href="{{ site.github.url }}/manual/install/configure-http-server-nginx.html">
-                  {% if page.path == 'manual/install/configure-http-server-nginx.md' %}<strong>{% endif %}
-                  nginx
-                  {% if page.path == 'manual/install/configure-http-server-nginx.md' %}</strong>{% endif %}
                 </a>
                 </li>
                 </ol>
