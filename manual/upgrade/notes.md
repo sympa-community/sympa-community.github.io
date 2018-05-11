@@ -138,12 +138,16 @@ upgrading. Here is the ordered list of operations to perform.
 
   1. [_Source distribution only_] Check the options for ``configure`` script.
 
-     As some Sympa binaries have been renamed, your sympa init script have to
-     be updated. Please make sure your configure options have been correctly
-     set, so that this script ends up in the correct location.
+       - As some Sympa binaries have been renamed, your sympa init script have
+         to be updated. Please make sure your configure options have been
+         correctly set, so that this script ends up in the correct location.
+         See
+         "[Run configure script](../install/install-sympa-distribution-source.md#run-configure-script)"
+         for details.
 
-     See "[Run configure script](../install/install-sympa-distribution-source.md#run-configure-script)"
-     for details.
+       - Options `--with-sendmail_aliases` and `--with-virtual_aliases` were
+         deprecated.  Use --with-aliases_file instead.
+         Option `--with-postmap_arg` was removed.
 
   2. [_Source distribution only_] Run additional commands after
      ``make install``:
@@ -194,19 +198,28 @@ After the process above, the following changes will have occured:
 
 Additionally, you may have to fix up configuration manually:
 
-  - New parameter:
+  - New parameters:
+
     [`process_archive`](../man/list_config.md#process_archive) controls
     archiving.
     The default is "`off`": To enable archiving, it must be set to "`on`"
     explicitly (in `sympa.conf`, `robot.conf` or each list `config` file).
 
+    If you have used `virtualwrapper`, it was replaced with new programs
+    `sympa_newaliases.pl` and its wrapper: You may have to add new parameters
+    [`aliases_program`](../man/sympa.conf.5.md#aliases_program) and
+    optionally [`aliases_db_type`](../man/sympa.conf.5.md#aliases_db_type)
+    to `sympa.conf`.
+
   - Renamed list parameters:
+
     `web_archive.access` to `archive.web_access`;
     `archive.access` to `archive.mail_access`;
     `web_archive.quota` to `archive.quota`;
     `web_archive.max_month` to `archive.max_month`.
 
   - Deprecated list parameter:
+
     `user_data_source`.  All subscribers are stored in database.
     The `subscribers` file in list directory will no longer be imported.
 
