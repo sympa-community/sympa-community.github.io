@@ -2,7 +2,7 @@
 title: 'Configuration hierarchy'
 prev: basics-roles.md
 up: ../customize.md#customization-basics
-next: basics-templates.md
+next: basics-list-config.md
 ---
 
 Configuration hierarchy

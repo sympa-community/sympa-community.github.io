@@ -50,9 +50,8 @@ In this directory, you must provide the following files:
 
 #### config.tt2
 
-This is a list creation template, this file is mandatory. It provides default values for parameters. This file is an almost complete list configuration, with a number of missing fields (such as owner email) to be replaced by data obtained at the time of family instantiation. It is easy to create new list templates by modifying existing ones. See
-"~~[List template files](../customize/list-definition.md#list-template-files)~~"
-and "[Syntax](../customize/basics-templates.md#syntax)".
+This is a list creation template, this file is mandatory. It provides default values for parameters. This file is an almost complete list configuration, with a number of missing fields (such as owner email) to be replaced by data obtained at the time of family instantiation. It is easy to create new list templates by modifying existing ones.
+See "[Templates](basics-templates.md#list-template-files)".
 
 Example:
 

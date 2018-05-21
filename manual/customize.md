@@ -28,6 +28,7 @@ Customization basics
   * [Message workflow](customize/basics-workflow.md)
   * [Roles and privileges](customize/basics-roles.md)
   * [Configuration hierarchy](customize/basics-configuration.md)
+  * [Configuration for each list](customize/basics-list-config.md)
   * [Templates](customize/basics-templates.md)
   * [Authorization scenarios](customize/basics-scenarios.md)
   * [Tasks](customize/basics-tasks.md)
