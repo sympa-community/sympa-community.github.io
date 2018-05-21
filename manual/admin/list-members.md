@@ -30,7 +30,8 @@ A list owner is assigned to a list at the list creation time ; it corresponds to
 
 List moderators are managed the same way, defined by the [`editor` list configuration parameter](../man/list_config.5.md#editor). Note that if no list moderator is defined, then the list owners are taken as defaults for them.
 
-Sympa defines two profiles for list owners: normal and privileged. Privileged owners have extended privileges, including the right to edit some list configuration parameters; this can be customized through the ~~[edit_list.conf configuration file](list-creation.md#list_editing)~~.
+Sympa defines two profiles for list owners: normal and privileged. Privileged owners have extended privileges, including the right to edit some list configuration parameters; this can be customized through the [`edit_list.conf`](../man/edit_list.conf.5.md) configuration file.
+See also "[List editing](list-creation.md#list-editing)".
 
 List owners and moderators are defined in the list configuration file, however, for performances reasons, list owners are also listed in the [`admin_table` DB table](../man/sympa_database.5.md#admin_table). This cache is updated by Sympa processes whenever the list configuration has changed on disk.
 

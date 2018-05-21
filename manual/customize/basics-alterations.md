@@ -161,7 +161,7 @@ Additionally with `mail`, `not_me`, `txt` or `urlize` mode,
 "header" and/or "footer" may be added. They are either added as separate MIME
 parts, or within the message body if it is of text type.
 See
-"~~[Message header and footer](/manual/list-definition#message_header_and_footer)~~").
+"~~[Message header and footer](list-definition.md#message-header-and-footer)~~").
 
 *However*, `mail` and `not_me` modes do not alter S/MIME signed message (i.e.
 its MIME type is `multipart/signed`) so that integrity of signature will not

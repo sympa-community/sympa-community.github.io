@@ -10,7 +10,7 @@ List creation, editing and removal
 
 The list creation can be done in two ways, according to listmaster needs:
 
-  - family instanciation, to create and manage a large number of related lists. In this case, lists are linked to their family all along their life (moreover, you can let Sympa automatically create lists when needed. See "~~[Automatic lists](../customize/automatic-lists.md)~~").
+  - family instanciation, to create and manage a large number of related lists. In this case, lists are linked to their family all along their life (moreover, you can let Sympa automatically create lists when needed. See "[Automatic lists](../customize/automatic-lists.md)").
   - command line creation of individual list with `sympa.pl` or on the web interface according to privileges defined by listmasters. In this case, lists are free from their creation model.
 
 Management of mailing lists by list owners is usually done through the web interface: when a list is created, whatever its status (`pending` or `open`), the owners can use *WWSympa* administration features to modify list parameters, to edit the welcome message, and so on.
@@ -258,7 +258,7 @@ include_ldap_query
 …
 ```
 
-For more details on tt2 customization, templates path and so on, see "~~[Templates](../customize/basics-templates.md)~~".
+For more details on tt2 customization, templates path and so on, see "[Templates](../customize/basics-templates.md)".
 
 ### List editing
 
@@ -311,7 +311,7 @@ info        privileged_owner        read
 
 (Work in progress)
 
-Concerning list editing in a family context, see "~~[Editing list parameters in a family context](../customize/basics-families#editing-list-parameters-in-a-family-context)~~".
+Concerning list editing in a family context, see "[Editing list parameters in a family context](../customize/basics-families#editing-list-parameters-in-a-family-context)".
 
 Removing a list
 ---------------

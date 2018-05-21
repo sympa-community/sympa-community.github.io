@@ -64,7 +64,9 @@ You define in the list configuration file the model and the version you want to 
 
   - [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models/`.
 
-See also ~~[List model files](/manual/list-definition#list_model_files)~~ to know more about standard list models provided with Sympa.
+See also
+"~~[List model files](../customize/list-definition.md#list-model-files)~~"
+to know more about standard list models provided with Sympa.
 
 ### List model names
 
@@ -154,7 +156,9 @@ Model files are composed of comments, labels, references, variables, date values
 
   - Label lines begin by '/' and are used by the next command (see below).
 
-  - References are enclosed between brackets '\[\]'. They refer to a value depending on the object of the task (for instance `[list→name]`). Those variables are instantiated when a task file is created from a model file. The list of available variables is the same as for templates (see ~~[List template files](/manual/list-definition#list_template_files)~~) plus `[creation_date]` (see below).
+  - References are enclosed between brackets '\[\]'. They refer to a value depending on the object of the task (for instance `[list->name]`). Those variables are instantiated when a task file is created from a model file. The list of available variables is the same as for templates (see
+"~~[List template files](../customize/list-definition.md#list-template-files)~~")
+plus `[creation_date]` (see below).
 
   - Variables store results of some commands and are parameters for others. Their names begin with '@'.
 

@@ -244,7 +244,7 @@ This is an important issue to prevent *backscatter* messages. Backscatter messag
 
   - [http://en.wikipedia.org/wiki/Backscatter](http://en.wikipedia.org/wiki/Backscatter)
 
-Sympa versions 6.0 and later provide a better mechanism to prevent backscatter. See ~~[https://www.sympa.org/manual/antispam](https://www.sympa.org/manual/antispam)~~.
+[comment]: # Sympa versions 6.0 and later provide a better mechanism to prevent backscatter. See "~~[](antispam.md)~~".
 
 Named Filters
 -------------

@@ -119,7 +119,8 @@ For another example, users using languages with right-to-left scripts (Arabic, H
 Translating titles of topics, scenarios and description of list creation templates
 ----------------------------------------------------------------------------------
 
-Topics are defined in a `topics.conf` file. In this file, each entry can be given a title in different languages, see ~~[Topics](/manual/customizing#topics)~~.
+List topics are defined in a [`topics.conf`](../man/topics.conf.5.md) file.
+In this file, each entry can be given a title in different languages.  See "~~[List topics](../customize/list-topics.md)~~".
 
 Scenarios and comments in list creation templates can have titles by multiple languages. See "[Content of scenario file](basics-scenarios.md#content-of-scenario-file)" and "[comment.tt2](../admin/list-creation.md#commenttt2)".
 

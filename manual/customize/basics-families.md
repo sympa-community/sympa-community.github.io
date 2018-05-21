@@ -50,7 +50,9 @@ In this directory, you must provide the following files:
 
 #### config.tt2
 
-This is a list creation template, this file is mandatory. It provides default values for parameters. This file is an almost complete list configuration, with a number of missing fields (such as owner email) to be replaced by data obtained at the time of family instantiation. It is easy to create new list templates by modifying existing ones. See "~~[List template files](../admin/list-definition#list-template-files)~~" and "[Syntax](../customize/basics-templates.md#syntax)".
+This is a list creation template, this file is mandatory. It provides default values for parameters. This file is an almost complete list configuration, with a number of missing fields (such as owner email) to be replaced by data obtained at the time of family instantiation. It is easy to create new list templates by modifying existing ones. See
+"~~[List template files](../customize/list-definition.md#list-template-files)~~"
+and "[Syntax](../customize/basics-templates.md#syntax)".
 
 Example:
 
@@ -203,7 +205,7 @@ The subject of the list is "create and share our passion of scrap cooking", clic
 
 #### customizable files
 
-Families provide a new level of customization for scenarios (see "[Authorization scenarios](../customize/basics-scenarios.md)"), templates for service messages (see "~~[Site template files](../cusromize/basics-templates.md#site-template-files)~~") and templates for web pages (see "~~[web template files](../customize/basics-templates.md#web-template-files)~~"). Sympa looks for these files in the following level order: list, family, robot, server site or distribution.
+Families provide a new level of customization for scenarios (see "[Authorization scenarios](../customize/basics-scenarios.md)"), templates for service messages (see "~~[Site template files](../customize/basics-templates.md#site-template-files)~~") and templates for web pages (see "~~[web template files](../customize/basics-templates.md#web-template-files)~~"). Sympa looks for these files in the following level order: list, family, robot, server site or distribution.
 
 Example of custom hierarchy:
 
