@@ -68,3 +68,32 @@ Tests
 
 If something went unexpected, check mail system log and configuration of MTA.
 
+### Telnet Example
+
+  1. Open your favorite telnet tools (telnet or putty for example)
+  
+  2. Open a session to your postfix server and use this command (replace example by your lists)
+
+  helo example.fr  
+    ``250 yourserverpostfix  ``
+  mail from:<userlist@example.fr>
+   `` 250 2.1.0 Ok  ``
+  rcpt to:<testlist@lists.example.com>
+    ``250 2.1.5 Ok  ``
+  DATA
+  Message-ID:Something
+  Sender:<userlist@example.fr>
+  From:<userlist@example.fr>
+  Return-Path:<userlist@example.fr>
+  Subject: Hello
+  Hello World
+  .
+    ``250 2.0.0 from MTA(smtp:[127.0.0.1]:10025): 250 2.0.0 Ok: queued as XXXXXXXXXXXXXX  ``
+  
+  This should be enought to test your lists and see if everything is ok on the MTA Side.
+
+Remember your logs:
+  ``/var/log/syslog|messages``
+  ``/var/log/maillog  ``
+  ``/var/log/sympa.log  ``
+
