@@ -33,6 +33,14 @@ Tests
 
   1. Start mail user agent (MUA) on your PC or PDA.
 
+     ----
+     Note:
+
+       * If you are not allowed to use MUA, you may use telnet client instead:
+         See also "[Telnet example](#telnet-example)" below.
+
+     ----
+
   2. Send any message to ``sympa-request@mail.example.org``.
      And confirm that your message will be delivered to ``postmaster``.
 
@@ -70,30 +78,32 @@ If something went unexpected, check mail system log and configuration of MTA.
 
 ### Telnet Example
 
-  1. Open your favorite telnet tools (telnet or putty for example)
-  
-  2. Open a session to your postfix server and use this command (replace example by your lists)
+  1. Open your favorite telnet tools (telnet or putty for example).
 
-  helo example.fr  
-    ``250 yourserverpostfix  ``
-  mail from:<userlist@example.fr>
-   `` 250 2.1.0 Ok  ``
-  rcpt to:<testlist@lists.example.com>
-    ``250 2.1.5 Ok  ``
-  DATA
-  Message-ID:Something
-  Sender:<userlist@example.fr>
-  From:<userlist@example.fr>
-  Return-Path:<userlist@example.fr>
-  Subject: Hello
-  Hello World
-  .
-    ``250 2.0.0 from MTA(smtp:[127.0.0.1]:10025): 250 2.0.0 Ok: queued as XXXXXXXXXXXXXX  ``
-  
-  This should be enought to test your lists and see if everything is ok on the MTA Side.
+  2. Open a session to your postfix server and use this command (replace example by your lists).
+     ```
+     HELO example.fr
+     250 yourserver
+     MAIL FROM:<user@example.fr>
+     250 2.1.0 Ok
+     RCPT TO:<sympa-request@mail.example.org>
+     250 2.1.5 Ok
+     RCPT TO:<sympa@mail.example.org>
+     250 2.1.5 Ok
+     RCPT TO:<bounce+hogehoge@mail.example.org>
+     250 2.1.5 Ok
+     DATA
+     354 End data with <CR><LF>.<CR><LF>
+     Message-ID:Something
+     Sender:<user@example.fr>
+     From:<user@example.fr>
+     Subject: Hello
 
-Remember your logs:
-  ``/var/log/syslog|messages``
-  ``/var/log/maillog  ``
-  ``/var/log/sympa.log  ``
+     Hello World
+     .
+     250 2.0.0 Ok: queued as XXXXXXXXXXXXXX
+     QUIT
+     221 2.0.0 Bye
+     ```
+This should be enough to see if everything is ok on the MTA side.
 
