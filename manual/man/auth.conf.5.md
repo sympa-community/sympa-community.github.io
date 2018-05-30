@@ -36,6 +36,25 @@ After the first paragraph, they are considered as paragraph separators. There
 should only be one directive per line, but their order in the paragraph is of 
 no importance.
 
+Example: enabling both CAS and native authentication:
+
+```
+cas
+    base_url                        https://yourhost.yourdomain:8443
+    auth_service_friendly_name      Your authentication Server
+    auth_service_name               your_authn_server
+	ldap_host			ldap.yourdomain:389
+    ldap_get_email_by_uid_filter    (uid=[uid])
+	ldap_timeout			7
+	ldap_suffix			dc=yourdomain,dc=fr
+	ldap_scope			sub
+	ldap_email_attribute		mail
+
+user_table
+        regexp                 .*
+```
+Adding this to auth.conf will transform the login banner into a drop-down menu in which people will get to either fill a username+passwrod (native) or click a button the will redirect them to the CAS server.
+
 Succeeding subsections describe available parameters in each paragraph.
 
 ## `user_table` paragraph
@@ -47,8 +66,15 @@ This is the simplest one.
 - `regexp` _regexp_
 - `negative_regexp`
 
-    Perl regular expressions applied on an email address provided, to select or
-    block this authentication mechanism for a subset of email addresses.
+Perl regular expressions applied on an email address provided, to select or
+block this authentication mechanism for a subset of email addresses.
+
+Example: enabling native authentication for everyone:
+
+```
+user_table
+        regexp                 .*
+```
 
 ## `ldap` paragraph
 
@@ -267,6 +293,19 @@ Following parameters are used to provide LDAPS (LDAP over TLS/SSL):
 
     Introduced on Sympa 6.2.
 
+Example ldap paragraph:
+
+```
+ldap
+        host                            ldap1.yourdomain:392,ldap2.yourdomain:392
+        timeout                         20
+        suffix                          dc=yourOrg,dc=fr
+        get_dn_by_uid_filter            (uid=[sender])
+        get_dn_by_email_filter          (mail=[sender])
+        email_attribute                 mail
+        scope                           sub
+```
+
 ## `generic_sso` paragraph
 
 - `regexp`
@@ -319,6 +358,16 @@ Following parameters are used to provide LDAPS (LDAP over TLS/SSL):
     This optional parameter allows to specify the SSO logout URL. If defined, 
     Sympa will redirect the user to this URL after the Sympa logout has been 
     performed.
+
+Example:
+
+```
+generic_sso
+        service_name       InQueue Federation
+        service_id         inqueue
+        http_header_prefix HTTP_SHIB
+        email_http_header  HTTP_SHIB_EMAIL_ADDRESS
+```
 
 ### netID mapping parameters
 
@@ -389,6 +438,21 @@ not defined**:
 - `ldap_timeout`
 
     The time out for the search.
+
+Example:
+
+```
+cas
+    base_url                        https://yourhost.yourdomain:8443
+    auth_service_friendly_name      Your authentication Server
+    auth_service_name               your_authn_server
+    ldap_host			ldap.yourdomain:389
+    ldap_get_email_by_uid_filter    (uid=[uid])
+	ldap_timeout			7
+	ldap_suffix			dc=yourdomain,dc=fr
+	ldap_scope			sub
+	ldap_email_attribute		mail
+```
 
 ### TLS parameters
 
