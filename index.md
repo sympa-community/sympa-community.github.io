@@ -5,6 +5,7 @@ Sympa Documentation
   - ~~[Sympa Help](help/)~~ (coming soon)
   - ~~[Sympa FAQ](faq/)~~ (coming soon)
 
+  - [Community and support](community/)
   - [Security advisories](security/)
 
 ----
