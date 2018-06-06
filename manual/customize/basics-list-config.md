@@ -78,16 +78,18 @@ Among them, `config` file is required.
 The others may be created during list creation, or configuration works by
 listmasters or owners.
 
-### `config`
+### Main configuration
 
-The file which keeps most of list configuration.
-See also
-"[Configuration files](basics-configuration.md#configuration-files)"
-in "Configuration hierarchy".
-See [`list_config(5)`](../man/list_config.5.md) for details of format and
-configuration parameters.
+  * `config`
 
-### `info` file and `homepage` file
+    The file keeps most of list configuration.
+    See also
+    "[Configuration files](basics-configuration.md#configuration-files)"
+    in "Configuration hierarchy".
+    See [`list_config(5)`](../man/list_config.5.md) for details of format and
+    configuration parameters.
+
+### `info` and `homepage` files
 
   * `info`
 
@@ -122,22 +124,27 @@ configuration parameters.
 
 ### Templates
 
-Mail templates (_list directory_`/mail_tt2/`_file name_`.tt2`)
-and web templates (_list directory_`/web_tt2/`_file name_`.tt2`)
-for specific list may customize templates.
-See also "[Templates](basics-templates.md)".
+  * `mail_tt2/`_file name_`.tt2`
+  * `web_tt2/`_file name_`.tt2`
+
+    Mail templates (`mail_tt2/`_file name_`.tt2`)
+    and web templates (`mail_tt2/`_file name_`.tt2`)
+    for specific list may customize templates.
+    See also "[Templates](basics-templates.md)".
 
 ### Tasks
 
-List task files (_list directory_`/`_file name_`.task`)
-for specific list may customize data source definitions.
-See also "[Data sources](basics-tasks.md)".
+  * _file name_`.task`
+
+    Task files for specific list.
+    See also "[Tasks](basics-tasks.md)".
 
 ### Data inclusion files
 
-Data inclusion files (_list directory_`/data_sources/`_file name_`.incl`)
-for specific list may customize data source definitions.
-See also "[Data sources](../customize/data-sources.md)".
+  * `data_sources/`_file name_`.incl`
+
+    Data inclusion files for specific list may customize data source definitions.
+    See also "[Data sources](../customize/data-sources.md)".
 
 Control files
 -------------
@@ -153,56 +160,44 @@ Note:
 
 (Work in progress)
 
-### `stats`
+### Other files
 
-`stats` file under list directory contains accumulated amount of message
-delivery.  It contains following four integer numbers separated by space
-characters:
+In general, these files should not be modified manually.
 
-  1. Number of messages the list has distributed.
-     This number is assigned as value of `list.sequence` template variable
-     used with [`custom_subject`](../man/list_config.5.md#custom_subject)
-     parameter.
-  2. Total number of messages the list has distributed.
-  3. Sum of message sizes the list has distributed.
-  4. Total sum of message sizes the list has distributed.
+  * `stats`
 
-----
-Note:
+    `stats` file under list directory contains accumulated amount of message
+    delivery.  It contains following four integer numbers separated by space
+    characters:
 
-  * In general, this file should not be modified manually.
+      1. Number of messages the list has distributed.
+         This number is assigned as value of `list.sequence` template variable
+         used with [`custom_subject`](../man/list_config.5.md#custom_subject)
+         parameter.
+      2. Total number of messages the list has distributed.
+      3. Sum of message sizes the list has distributed.
+      4. Total sum of message sizes the list has distributed.
 
-  * This file on earlier versions of Sympa might contain additional
-    information.  Format of this file may be changed in the future.
+    ----
+    Note:
 
-----
+      * This file on earlier versions of Sympa might contain additional
+        information.  Format of this file may be changed in the future.
 
-### `msg_count`
+    ----
 
-----
-Note:
+  * `msg_count`
 
-  * This file should not be modified manually.
+    `msg_count` file under list directory contains number of messages distributed
+    by days.  Its content will be imported in database, and shown in
+    "List statistics" page of web interface.
 
-----
+  * `config_changes`
 
-`msg_count` file under list directory contains number of messages distributed
-by days.  Its content will be imported in database, and shown in
-"List statistics" page of web interface.
+    `config_changes` file under list directory tracks modification of list
+    configuration by users, if the list belongs to family.
 
-### `config_changes`
-
-----
-Note:
-
-  * This file should not be modified manually.
-
-----
-
-`config_changes` file under list directory tracks modification of list
-configuration by users, if the list belongs to family.
-
-(Work in progress)
+    (Work in progress)
 
 Deprecated files
 ----------------
