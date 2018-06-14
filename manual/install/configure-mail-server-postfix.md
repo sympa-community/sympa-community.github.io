@@ -23,11 +23,13 @@ Two ways to integrate
 
 There are two ways to integrate Sympa into Postfix:
 
-  * _Virtual domain_ setting (using ``postmap`` and transports).
-  * _Single domain_ setting (using ``postalias`` and alias database).
+  * [_Virtual domain_ setting](#virtual-domain-setting) (using ``postmap`` and transports).
+  * [_Single domain_ setting](#single-domain-setting) (using ``postalias`` and alias database).
 
 The former is recommended.  However, if you will never have plan to manage
 multiple domains, the latter is easier way.
+
+You can not mix both ways.  Following sections describe these two ways by each.
 
 Virtual domain setting
 ----------------------
