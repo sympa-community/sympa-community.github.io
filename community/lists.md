@@ -1,6 +1,6 @@
 ---
 title: 'Mailing lists'
-up: ../community.md
+up: ./
 ---
 
 Mailing lists
