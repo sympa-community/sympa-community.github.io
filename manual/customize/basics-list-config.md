@@ -162,7 +162,7 @@ Note:
   * `editor.dump`
   * `member.dump`
 
-    This files include snapshots of list users:
+    These files include snapshots of list users:
     `owner.dump` for list owners, `editor.dump` for moderators and
     `member.dump` for subscribers.
 
