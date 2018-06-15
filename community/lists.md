@@ -29,9 +29,8 @@ Mailing lists
     List for people interesting in developping and using Sympa packages
 
   - [`sympa-security@listes.renater.fr`](https://listes.renater.fr/sympa/info/sympa-security)
-    (Coming soon)
 
-    Sympa security response team
+    Security contact and discussion list for Sympa
 
     Closed subscription, private archives.
 
