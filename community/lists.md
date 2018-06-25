@@ -38,3 +38,6 @@ Mailing lists
 
     The mailing list for listmasters using Sympa
 
+  - [`lets@translate.sympa.org`](https://translate.sympa.org/sympa/info/lets)
+
+    Announcements for prople translating user interface of Sympa
