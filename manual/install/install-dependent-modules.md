@@ -18,7 +18,15 @@ dependent modules may have been installed: You can
 General instruction
 -------------------
 
-### Using sympa_wizard
+### Using `sympa_wizard`
+
+----
+Note:
+
+  * `sympa_wizard` may be deprecated in near future.  Use of `cpanm`
+    described in below is recommended for recent version of Sympa.
+
+----
 
 Run ``sympa_wizard`` to install dependent modules.
 ```
@@ -26,6 +34,17 @@ Run ``sympa_wizard`` to install dependent modules.
 ```
 It checks your system, gets lacking or outdated modules from
 [CPAN](https://www.cpan.org/) and installs them.
+
+### Using `cpanm`
+
+----
+Note:
+
+  * Support for `cpanm` will be introduced on Sympa 6.2.34.
+
+----
+
+(Work in progress)
 
 ### Using package management tools
 
