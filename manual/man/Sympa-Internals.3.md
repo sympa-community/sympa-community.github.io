@@ -55,6 +55,10 @@ To know details of each module, run:
 
     Definition of site and robot configuration parameters
 
+- [Sympa::Config](./Sympa-Config.3.md)
+
+    List configuration
+
 - [Sympa::Config\_XML](./Sympa-Config_XML.3.md)
 
     TBD
@@ -151,6 +155,10 @@ To know details of each module, run:
 
     List configuration
 
+- [Sympa::List::Users](./Sympa-List-Users.3.md)
+
+    List users
+
 - [Sympa::ListDef](./Sympa-ListDef.3.md)
 
     Definition of list configuration parameters
@@ -186,10 +194,6 @@ To know details of each module, run:
 - [Sympa::Message::Template](./Sympa-Message-Template.3.md)
 
     Mail message generated from template
-
-- [Sympa::ModDef](./Sympa-ModDef.3.md)
-
-    Definition of dependent modules
 
 - [Sympa::Process](./Sympa-Process.3.md)
 

@@ -1,15 +1,15 @@
 ---
-title: 'Sympa::List::Config(3)'
+title: 'Sympa::List::Users(3)'
 ---
 
 # NAME
 
-Sympa::List::Config - List configuration
+Sympa::List::Users - List users
 
 # SYNOPSIS
 
-     use Sympa::List::Config;
-     my $config = Sympa::List::Config->new($list, {...});
+     use Sympa::List::Users;
+     my $config = Sympa::List::Users->new($list, {...});
     
      my $errors = []; 
      my $validity = $config->submit({...}, $user, $errors);
@@ -26,7 +26,7 @@ Sympa::List::Config - List configuration
 \[ no\_family => 1 \] )
 
     _Constructor_.
-    Creates new instance of [Sympa::List::Config](./Sympa-List-Config.3.md) object.
+    Creates new instance of [Sympa::List::Users](./Sympa-List-Users.3.md) object.
 
     Parameters:
 
@@ -41,7 +41,7 @@ Sympa::List::Config - List configuration
         Won't apply family constraint.
         By default, the constraint will be applied if the list is belonging to
         family.
-        See also ["Family constraint"](#family-constraint).
+        See also ["Family constraint" in Sympa::List::Config](./Sympa-List-Config.3.md#family-constraint).
 
 - get\_schema ( \[ $user \] )
 
@@ -61,16 +61,6 @@ Sympa::List::Config - List configuration
 
 See ["Attribute" in Sympa::Config](./Sympa-Config.3.md#attribute).
 
-## Family constraint
-
-The family (see [Sympa::Family](./Sympa-Family.3.md)) adds additional constraint to schema.
-
-- restricts options for particular scalar parameters to the set of values
-or single value,
-- makes occurrence of them be required (`'1'` or `'1-n'`), and
-- if the occurrence became `'1'`,
-makes their privilege be unwritable (`'read'` if it was not `'hidden'`).
-
 ## Filters
 
 TBD.
@@ -82,9 +72,9 @@ TBD.
 # SEE ALSO
 
 [Sympa::Config](./Sympa-Config.3.md),
-[Sympa::List](./Sympa-List.3.md),
+[Sympa::List::Config](./Sympa-List-Config.3.md),
 [Sympa::ListDef](./Sympa-ListDef.3.md).
 
 # HISTORY
 
-[Sympa::List::Config](./Sympa-List-Config.3.md) appeared on Sympa 6.2.17.
+[Sympa::List::Users](./Sympa-List-Users.3.md) appeared on Sympa 6.2.33b.2.

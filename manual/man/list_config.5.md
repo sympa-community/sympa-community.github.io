@@ -174,7 +174,7 @@ Who can send messages
     Name of `send` scenario:
 
     - `closed` - closed
-    - `confidential` - restricted to subscribers
+    - `confidential` - restricted to subscribers, messages from others are discarded
     - `editordkim` - Moderated, no authentication needed if DKIM signature from editor is OK
     - `editorkey` - Moderated
     - `editorkeyonly` - Moderated, even for moderators

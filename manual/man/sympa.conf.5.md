@@ -2301,7 +2301,7 @@ URL prefix of web interface
 
 - Default:
 
-    None, _mandatory_.
+    None.
 
 - Overrides:
 
@@ -2311,7 +2311,7 @@ This is used to construct URLs of web interface.
 
 Example:
 
-    wwsympa_url http://web.example.org/sympa
+    wwsympa_url https://web.example.org/sympa
 
 #### `http_host`
 
