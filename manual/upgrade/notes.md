@@ -27,6 +27,17 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From versions prior to 6.2.34
+
+  * [`host`](../man/sympa_config.5.md#host) list parameter was deprecated. If you have used this parameter, you
+    may have to check [`list_aliases.tt2`](../man/list_aliases.tt2.5.md) and may have to regenerate alias file
+    after upgrading as:
+    ``` bash
+    # sympa.pl --make_alias_file --robot <mail domain>
+    # sympa_newaliases.pl --domain <mail domain>
+    ```
+    Note that you are recommended to back up older alias files in advance.
+
 ### From versions prior to 6.2.30
 
   * If `sympa.pl --upgrade` crashes due to undefined variable `$pictures_dir`, remove following files and retry:
