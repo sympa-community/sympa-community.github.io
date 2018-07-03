@@ -31,7 +31,7 @@ General instruction
 
      alias.url += ( "/static-sympa/" => "$STATICDIR/" )
 
-     $HTTP["url"] =~ "\^/sympa" {
+     $HTTP["url"] =~ "^/sympa" {
      fastcgi.server = ( "/sympa" =>
          ((    "check-local"    =>    "disable",
              "bin-path"    =>    "$EXECCGIDIR/wwsympa-wrapper.fcgi",
