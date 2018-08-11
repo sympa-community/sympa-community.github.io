@@ -74,15 +74,15 @@ You can use two model names in your list task model files :
 
   - `remind` : generally used to remind subscribers that they subscribed to this list;
 
-  - `expire`: generally used as an extended remind: it reminds users of theirs subscription and, if they don't validate their subscription again, they are deleted.
+  - `sync_include`: synchronize users with data sources (see also "[Data sources](../customize/data-sources.md)").
 
 ### List model version definition parameters
 
 List tasks are defined through specific parameters in the `config` file. As of this writing, the following parameters are available :
 
-  - [remind_task](../man/list_config.5.md#remind_task);
+  - [remind_task](../man/list_config.5.md#remind_task) for `remind` task;
 
-  - [expire_task](../man/list_config.5.md#expire_task);
+  - [ttl](../man/list_config.5.md#ttl) for `sync_include` task.
 
 Global task creation
 --------------------
@@ -140,7 +140,7 @@ The `sync_include` model is an exception, as it doesn't have a single dedicated 
 The ''sync\_include'' task
 --------------------------
 
-An exception in the realm of tasks in Sympa, the `sync-include` task accepts one and only one model : `sync-include.ttl.task`. It's useless to try and create other versions of this task, they will be ignored. There exist a configuration parameter related to `sync_include`, though, but it doesn't set the model used. It is the [ttl](../man/list_config.5.md#ttl) parameter. It will just set the length of time between two synchronizations.
+An exception in the realm of tasks in Sympa, the `sync_include` task accepts one and only one model : `sync_include.ttl.task`. It's useless to try and create other versions of this task, they will be ignored. There exist a configuration parameter related to `sync_include`, though, but it doesn't set the model used. It is the [ttl](../man/list_config.5.md#ttl) parameter. It will just set the length of time between two synchronizations.
 
 Model files constitution
 ========================
@@ -150,13 +150,13 @@ This section describes what you can write in your model files and how to define 
 Model file format
 -----------------
 
-Model files are composed of comments, labels, references, variables, date values and commands. All those syntactical elements are composed of alphanumerics (0-9a-zA-Z) and underscores (\_).
+Model files are composed of comments, labels, references, variables, date values and commands. All those syntactical elements are composed of alphanumerics (`0-9a-zA-Z`) and underscores (`_`).
 
-  - Comment lines begin by '\#' and are not interpreted by the task manager.
+  - Comment lines begin by `#` and are not interpreted by the task manager.
 
-  - Label lines begin by '/' and are used by the next command (see below).
+  - Label lines begin by `/` and are used by the next command (see below).
 
-  - References are enclosed between brackets '\[\]'. They refer to a value depending on the object of the task (for instance `[list->name]`). Those variables are instantiated when a task file is created from a model file. The list of available variables is the same as for templates plus `[creation_date]` (see below).
+  - References are enclosed between brackets `[` ... `]`. They refer to a value depending on the object of the task (for instance `[list.name]`). Those variables are instantiated when a task file is created from a model file. The list of available variables is the same as for templates plus `[creation_date]` (see below).
 
 <!---
 (see "[Templates](basics-list-config.md#templates)")
@@ -168,9 +168,9 @@ Model files are composed of comments, labels, references, variables, date values
 
       - Absolute dates follow the format: xxxxYxxMxxDxxHxxMin. Y is the year, M the month (1-12), D the day (1-28|30|31, leap-years are not managed), H the hour (0-23), Min the minute (0-59). H and Min are optional. For instance, 2001y12m4d44min is the 4th of December 2001 at 00h44.
 
-      - Relative dates use the `[creation_date]` or `[execution_date]` references. `[creation_date]` is the date when the task file is created, `[execution_date]` when the command line is executed. A duration may follow with the '+' or '-' operators. The duration is expressed like an absolute date whose all parameters are optional. Examples: \[creation\_date\], \[execution\_date\]+1y, \[execution\_date\]-6m4d.
+      - Relative dates use the `[creation_date]` or `[execution_date]` references. `[creation_date]` is the date when the task file is created, `[execution_date]` when the command line is executed. A duration may follow with the '+' or '-' operators. The duration is expressed like an absolute date whose all parameters are optional. Examples: `[creation_date]`, `[execution_date]+1y`, `[execution_date]-6m4d`.
 
-  - Command arguments are separated by commas and enclosed between parenthesis '()'.
+  - Command arguments are separated by commas and enclosed between parenthesis `(` ... `)`.
 
 Here is the list of the currently available commands:
 
@@ -197,14 +197,6 @@ Here is the list of the currently available commands:
   - `create (global | list (<list name>), <model type>, <model>)`
 
     Creates a task for object with model file `~model type.model.task`;
-
-  - `chk_cert_expiration (<template>, <date value>)`
-
-    Sends the template message to emails whose certificate has expired or will expire before the date value;
-
-  - `update_crl (<file name>, <date value>)`
-
-    Updates certificate revocation lists (CRL) which are expired or will expire before the date value. The file stores the CRL's URLs;
 
   - `purge_logs_table()`
 
@@ -257,15 +249,16 @@ Model file examples
 
 You will find plenty of examples in the [``$DEFAULTDIR``](../layout.md#defaultdir)`/global_task_models` and [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models` directories. Such examples look like:
 
-  - remind.annual.task;
-
-  - expire.annual.task;
-
-  - crl\_update.daily.task.
+  - `remind.annual.task`
 
 ``` code
-    title.gettext daily update of the certificate revocation list
-    /ACTION
-    update_crl (CA_list, [execution_date]+1d)
-    next ([execution_date] + 1d, ACTION)
+title reminder message sent to subscribers weekly
+
+/INIT
+next([execution_date] + 1w, EXEC)
+
+/EXEC
+@selection = select_subs (older([execution_date]))
+send_msg (@selection, remind)
+next([execution_date] + 1w, EXEC)
 ```
