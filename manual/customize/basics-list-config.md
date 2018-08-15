@@ -9,7 +9,7 @@ Configuration for each list
 ===========================
 
 A list has a directory of its own.  Most of configuration files and
-control files specific to the list is placed there.
+control files specific to the list are placed there.
 List also has several other directories to provide extensive features.
 
 Directories
