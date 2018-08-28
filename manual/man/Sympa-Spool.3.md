@@ -287,10 +287,7 @@ $marshal\_regexp, $marshal\_keys )
 
 - \_glob\_pattern ( )
 
-    _Instance method_.
-    If implemented and returns non-empty string,
-    glob() is used to search entries in the spool.
-    Otherwise readdir() is used for filesystem spool to get all entries.
+    Deprecated.  See \_no\_glob\_pattern ( )
 
 - \_init ( $state )
 
@@ -322,6 +319,14 @@ $marshal\_regexp, $marshal\_keys )
     \_marshal\_format() and \_marshal\_keys() are used to marshal metadata.
     \_marshal\_keys() and \_marshal\_regexp() are used to unmarshal metadata.
     See also marshal\_metadata() and unmarshal\_metadata().
+
+- \_no\_glob\_pattern ( )
+
+    _Class or instance method_, _overridable for filesystem spool_.
+    If it returns false value,
+    glob() is used as much as possible to scan the spool faster.
+    Otherwise readdir() is used for filesystem spool to get all entries.
+    By default returns false value.
 
 - \_store\_key ( )
 
@@ -400,3 +405,5 @@ were introduced on Sympa 6.2.8.
 \_filter\_pre() was introduced on Sympa 6.2.10.
 marshal(), unmarshal() and `no_filter` option of next()
 were introduced on Sympa 6.2.22.
+\_no\_glob\_pattern() was introduced and \_glob\_pattern() was deprecated
+on Sympa 6.2.36.

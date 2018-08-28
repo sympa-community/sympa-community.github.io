@@ -175,10 +175,10 @@ Who can send messages
 
     - `closed` - closed
     - `confidential` - restricted to subscribers, messages from others are discarded
-    - `editordkim` - Moderated, no authentication needed if DKIM signature from editor is OK
+    - `editordkim` - Moderated, no authentication needed if DKIM signature from moderator is OK
     - `editorkey` - Moderated
     - `editorkeyonly` - Moderated, even for moderators
-    - `editorkeyonlyauth` - Moderated, need authentication from editor
+    - `editorkeyonlyauth` - Moderated, need authentication from moderator
     - `intranet` - restricted to local domain
     - `intranetorprivate` - restricted to local domain and subscribers
     - `newsletter` - Newsletter, restricted to moderators
@@ -1079,7 +1079,7 @@ action for this population
 
     `notify_bouncers`
 
-This parameter defines which task is automaticaly applied on level 1 bouncers.
+This parameter defines which task is automatically applied on level 1 bouncers.
 
 #### `bouncers_level1.notification`
 
@@ -1131,7 +1131,7 @@ action for this population
 
     `remove_bouncers`
 
-This parameter defines which task is automaticaly applied on level 2 bouncers.
+This parameter defines which task is automatically applied on level 2 bouncers.
 
 #### `bouncers_level2.notification`
 
@@ -2491,7 +2491,7 @@ extracted attribute
 
 - Format:
 
-    /`$ldap_attrdesc`/
+    /`$ldap_attrdesc(\s*,\s*$ldap_attrdesc)?`/
 
 - Default:
 
@@ -3104,7 +3104,7 @@ The categories of messages sent to the list that will be signed using DKIM.
     - `md5_authenticated_messages` - authenticated by password
     - `smime_authenticated_messages` - authenticated by S/MIME signature
     - `dkim_authenticated_messages` - authenticated by DKIM signature
-    - `editor_validated_messages` - approved by editor
+    - `editor_validated_messages` - approved by moderator
     - `none` - do nothing
     - `any` - any messages
 

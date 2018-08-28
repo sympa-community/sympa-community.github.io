@@ -1037,7 +1037,7 @@ List of required domains for list owner addresses
 
     List
 
-Restrict list ownership to addresses in the specified domains. This can be used to reserve list ownership to a group of trusted users from a set of domains associated with an organization, while allowing editors and subscribers from the Internet at large.
+Restrict list ownership to addresses in the specified domains. This can be used to reserve list ownership to a group of trusted users from a set of domains associated with an organization, while allowing moderators and subscribers from the Internet at large.
 
 Example:
 
@@ -1107,7 +1107,7 @@ Ignore "X-no-archive:" header field
 
     None.
 
-Sympa's default behavior is to skip archiving of incoming messages that have an "X-no-archive:" header field set. This parameter allows to change this behavior.
+Sympa's default behavior is to skip archiving of incoming messages that have an "X-no-archive:" header field set. This parameter allows one to change this behavior.
 
 Example:
 
@@ -2933,7 +2933,7 @@ Script to report spam
 
     Virtual domain
 
-If set, when a list editor report undetected spams for list moderation, this external script is invoked and the message is injected into standard input of the script.
+If set, when a list moderator report undetected spams for list moderation, this external script is invoked and the message is injected into standard input of the script.
 
 ## S/MIME and TLS
 
@@ -3003,7 +3003,7 @@ Directory containing user certificates
 
 ## Data sources setup
 
-Including subscribers, owners and editors from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
+Including subscribers, owners and moderators from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
 
 #### `default_sql_fetch_timeout`
 

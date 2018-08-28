@@ -13,6 +13,7 @@ sympa, sympa.pl - Command line utility to manage Sympa
 \[ `-h, --help` \] \[ `-v, --version` \]
 
 \[ `--import`=_listname_ \]
+\[ `--open_list`=_list_\[_@robot_\] \]
 \[ `--close_list`=_list_\[_@robot_\] \]
 \[ `--purge_list`=_list_\[_@robot_\] \]
 \[ `--lowercase` \] \[ `--make_alias_file` \]
@@ -151,6 +152,11 @@ With the following options `sympa.pl` will run in batch mode:
 
     Modify the existing list installed under the robot robot\_name and that
     belongs to the family family\_name. The new description is in the `file.xml`.
+
+- `--open_list=`_list_\[_@robot_\]
+
+    Restore the closed list (changing its status to open), add aliases and restore
+    users to DB (dump files in the list directory are imported).
 
 - `--purge_list`=_list_\[@_robot_\]
 

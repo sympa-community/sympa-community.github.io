@@ -52,7 +52,7 @@ This is the simplest one.
 
 ## `ldap` paragraph
 
-This paragraph allows to login to Sympa using data taken from an LDAP 
+This paragraph allows one to login to Sympa using data taken from an LDAP 
 directory. Login is done in two steps:
 
 - User provide a user ID or an email address, with a password. These are used 
@@ -316,7 +316,7 @@ Following parameters are used to provide LDAPS (LDAP over TLS/SSL):
 
 - `logout_url`
 
-    This optional parameter allows to specify the SSO logout URL. If defined, 
+    This optional parameter allows one to specify the SSO logout URL. If defined, 
     Sympa will redirect the user to this URL after the Sympa logout has been 
     performed.
 
