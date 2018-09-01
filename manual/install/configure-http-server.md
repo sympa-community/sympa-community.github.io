@@ -79,10 +79,13 @@ Two ways to integrate
 ---------------------
 
 There are two ways to integrate Sympa into HTTP server:
-_virtual domain_ setting and _single domain_ setting.
+  - [_virtual domain_ setting](#virtual-domain-setting) (managing one _or_ more mail domains)
+  - [_single domain_ setting](#single-domain-setting) (managing only one mail domain)
 
 The former is recommended.  However, if you will never have plan to manage
 multiple domains, the latter is easier way.
+
+You can not mix both ways. Following sections describe these two ways by each.
 
 Virtual domain setting
 ----------------------
