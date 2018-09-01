@@ -19,7 +19,7 @@ Requirements
     In the instructions below, ``mail.example.org`` will be used for example.
 
   * If you are planning to use
-    [message tracking](../customize/bounce-management.md#message-tracking)
+    [message tracking](../customize/message-tracking.md)
     feature, [smtpc](https://github.com/ikedas/smtpc).
     See the [description](../customize/lmtp-delivery.md#installation) to
     get and install it.
@@ -27,7 +27,7 @@ Requirements
 Sympa configuration parameters
 ------------------------------
 
-  * [``aliases_program``](../man/sympa.conf.5.md#alias_program)
+  * [``aliases_program``](../man/sympa.conf.5.md#aliases_program)
 
     This parameter must be set to full path to makemap(1) utility bundled in
     OpenSMTPD:
@@ -40,7 +40,7 @@ Sympa configuration parameters
     [``sendmail_args``](../man/sympa.conf.5.md#sendmail_args)
 
       - If you are planning to use
-        [message tracking](../customize/bounce-management.md#message-tracking)
+        [message tracking](../customize/message-tracking.md)
         feature, add these lines:
         ``` code
         sendmail /path/to/sympa_smtpc
