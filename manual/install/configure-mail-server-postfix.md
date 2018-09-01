@@ -43,7 +43,7 @@ Steps in this section may be done once at the first time.
      ``/usr/sbin/sendmail``, define it in
      [``sympa.conf``](../layout.md#config).  For example:
 
-     ```
+     ``` code
      sendmail /usr/local/sbin/sendmail
      ```
 
@@ -63,7 +63,7 @@ Steps in this section may be done once at the first time.
 
      Edit [``sympa.conf``](../layout.md#config) to add following lines (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
-     ```
+     ``` code
      sendmail_aliases $SYSCONFDIR/sympa_transport
      aliases_program postmap
      aliases_db_type hash
@@ -73,7 +73,7 @@ Steps in this section may be done once at the first time.
 
   3. Create empty map files (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
-     ```
+     ``` bash
      # touch $SYSCONFDIR/transport.sympa
      # touch $SYSCONFDIR/virtual.sympa
      # touch $SYSCONFDIR/sympa_transport
@@ -82,15 +82,15 @@ Steps in this section may be done once at the first time.
      ```
      and create databases (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir)):
-     ```
+     ``` bash
      # postmap hash:$SYSCONFDIR/transport.sympa
      # postmap hash:$SYSCONFDIR/virtual.sympa
      # sympa_newaliases.pl
      ```
 
-  4. Edit Postfix master.cf to add transport definitions (Note:
+  4. Edit Postfix ``master.cf`` file to add transport definitions (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
-     ```
+     ``` code
      sympa   unix    -       n       n       -       -       pipe
        flags=hqRu user=sympa argv=$LIBEXECDIR/queue ${nexthop}
      sympabounce unix -      n       n       -       -       pipe
@@ -98,9 +98,9 @@ Steps in this section may be done once at the first time.
      ```
      Note that ``flags`` option have to contain ``R``. ``F`` is unnecessary.
 
-  5. Edit Postfix main.cf file to add configuration for virtual domains (Note:
-     replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
-     ```
+  5. Edit Postfix ``main.cf`` file to add configuration for virtual domains
+     (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
+     ``` code
      # virtual(8) maps
      virtual_mailbox_domains = (...existing parameter value...),
        hash:$SYSCONFDIR/transport.sympa
@@ -124,7 +124,7 @@ Steps in this section may be done once at the first time.
 
        * If
          [``mydestination``](http://www.postfix.org/postconf.5.html#mydestination)
-         parameter in main.cf includes the virtual domain listed in
+         parameter in ``main.cf`` file includes the virtual domain listed in
          ``virtual_mailbox_domains``, Postfix outputs warnings to system log.
          Remove virtual domain(s) from ``mydestination``.
 
@@ -137,7 +137,7 @@ Steps in this section have to be done every time the new domain is added.
   1. Create directories for virtual domain configurations (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
      [``$EXPLDIR``](../layout.md#expldir) and ``mail.example.org`` below):
-     ```
+     ``` bash
      # mkdir -m 755 $SYSCONFDIR/mail.example.org
      # touch $SYSCONFDIR/mail.example.org/robot.conf
      # chown -r sympa:sympa $SYSCONFDIR/mail.example.org
@@ -148,16 +148,16 @@ Steps in this section have to be done every time the new domain is added.
   2. If you want to override global settings in
      [``sympa.conf``](../layout.md#config) (such as
      [``lang``](../man/sympa.conf.5.md#lang)) by each domain, you can add it
-     to ``robot.conf`` above.
+     to ``robot.conf`` file above.
 
   3. If Sympa services have already been running, reload them
      (see "[Reloading Sympa services](../admin/services.md#reloading-sympa-services)").
 
-  4. Add following contents to ``transport.sympa`` and ``virtual.sympa``
+  4. Add following contents to ``transport.sympa`` and ``virtual.sympa`` files
      and edit them as you prefer (Note: replace ``mail.example.org`` below).
 
      ``transport.sympa``:
-     ```
+     ``` code
      mail.example.org                error:User unknown in recipient table
      sympa@mail.example.org          sympa:sympa@mail.example.org
      listmaster@mail.example.org     sympa:listmaster@mail.example.org
@@ -167,7 +167,7 @@ Steps in this section have to be done every time the new domain is added.
      ```
 
      ``virtual.sympa``:
-     ```
+     ``` code
      sympa-request@mail.example.org  postmaster@localhost
      sympa-owner@mail.example.org    postmaster@localhost
 
@@ -183,7 +183,7 @@ Steps in this section have to be done every time the new domain is added.
 
      Then, update databases for transport map and virtual alias map (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
-     ```
+     ``` bash
      # postmap hash:$SYSCONFDIR/transport.sympa
      # postmap hash:$SYSCONFDIR/virtual.sympa
      ```
@@ -197,7 +197,7 @@ Single domain setting
 
   1. Edit [``sympa.conf``](../layout.md#config) to add following lines (Note:
      replace ``mail.example.org``):
-     ```
+     ``` code
      domain mail.example.org
      aliases_program postalias
      sendmail /usr/local/sbin/sendmail  (If path is differ from the default)
@@ -207,7 +207,7 @@ Single domain setting
      [``$SYSCONFDIR``](../layout.md#sysconfdir) and edit it as you prefer
      (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      ``mail.example.org`` below):
-     ```
+     ``` code
      # Robot aliases for Sympa.
      sympa:                 "| $LIBEXECDIR/queue sympa@mail.example.org"
      listmaster:            "| $LIBEXECDIR/queue listmaster@mail.example.org"
@@ -224,14 +224,14 @@ Single domain setting
      If [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) file does not
      exist, create it (Note:
      replace [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below):
-     ```
+     ``` bash
      # touch $SENDMAIL_ALIASES
      # chmod 640 $SENDMAIL_ALIASES
      # chown sympa:sympa $SENDMAIL_ALIASES
      ```
      and create alias databases (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir)):
-     ```
+     ``` bash
      # postalias hash:$SYSCONFDIR/aliases.sympa.postfix
      # sympa_newaliases.pl
      ```
@@ -240,7 +240,7 @@ Single domain setting
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
      [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) and
      ``mail.example.org`` below):
-     ```
+     ``` code
      mydestination = (...existing parameter value...), mail.example.org
      alias_maps = (...existing parameter value...),
        hash:$SYSCONFDIR/aliases.sympa.postfix,

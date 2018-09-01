@@ -25,13 +25,13 @@ General instruction
   1. Set [``domain``](../man/sympa.conf.5.md#domain) parameter.
      Add following line to [``sympa.conf``](../man/sympa.conf.5.md#config)
      (Note: replace ``mail.example.org``):
-     ```
+     ``` code
      domain mail.example.org
      ```
      Also, if path of ``sendmail`` executable file is differ from the default
      value of [``sendmail``](../man/sympa.conf.5.md#sendmail) parameter,
      ``/usr/sbin/sendmail``, define it.  For example:
-     ```
+     ``` code
      sendmail /usr/lib/sendmail
      ```
 
@@ -40,14 +40,14 @@ General instruction
      [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below):
 
        * Add ``AliasFile`` lines to sendmail.cf:
-         ```
+         ``` code
          O AliasFile=$SYSCONFDIR/aliases.sympa.sendmail
          O AliasFile=$SENDMAIL_ALIASES
          ```
 
        * Or, if you are generating sendmail.cf by "cf" package, edit
          sendmail.mc to add paths to argument of ``ALIAS_FILE`` macro:
-         ```
+         ``` code
          define(`ALIAS_FILE', `(...exisitng value...),$SYSCONFDIR/aliases.sympa.sendmail,$SENDMAIL_ALIASES')
          ```
          then recompile sendmail.cf.
@@ -56,7 +56,7 @@ General instruction
      [``$SYSCONFDIR``](../layout.md#sysconfdir) and edit it as you prefer
      (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      ``mail.example.org`` below):
-     ```
+     ``` code
      # Robot aliases for Sympa.
      sympa:                 "| $LIBEXECDIR/queue sympa@mail.example.org"
      listmaster:            "| $LIBEXECDIR/queue listmaster@mail.example.org"
@@ -73,7 +73,7 @@ General instruction
   4. Create empty [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) file
      (Note: replace [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases)
      below):
-     ```
+     ``` bash
      touch $SENDMAIL_ALIASES
      chmod 640 $SENDMAIL_ALIASES
      chown sympa:sympa $SENDMAIL_ALIASES
