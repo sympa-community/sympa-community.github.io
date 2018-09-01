@@ -38,6 +38,15 @@ General instruction
          another host name or IP address is set, TCP socket will be used (If
         ``db_port`` is not specified, ``3306`` will be used as port).
 
+       Example:
+       ``` code
+       db_type MySQL
+       db_name sympa
+       db_host localhost
+       db_user sympa
+       db_passwd (secret)
+       ```
+
   2. Create database and database user:
      ```
      $ mysql
@@ -48,7 +57,7 @@ General instruction
      ```
 
   3. Create table structure:
-     ```
+     ``` bash
      # sympa.pl --health_check
      ```
 

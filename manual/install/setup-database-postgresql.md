@@ -34,6 +34,15 @@ General instruction
          used as port), or directory of the Unix domain sockets (sockets must
          be writable by ``sympa`` group).
 
+       Example:
+       ``` code
+       db_type PostgreSQL
+       db_name sympa
+       db_host localhost
+       db_user sympa
+       db_passwd (secret)
+       ```
+
   2. Create database and role:
      ```
      $ psql
@@ -44,7 +53,7 @@ General instruction
      ```
 
   3. Create table structure:
-     ```
+     ``` bash
      # sympa.pl --health_check
      ```
 

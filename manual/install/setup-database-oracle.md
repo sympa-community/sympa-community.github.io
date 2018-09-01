@@ -32,6 +32,17 @@ General instruction
        * ``db_name`` must be the same as Oracle SID.
 
        * ``db_env`` should include definition of NLS_LANG and ORACLE_HOME.
+         Character set should be `AL32UTF8`.
+
+       Example:
+       ``` code
+       db_type Oracle
+       db_name ORCL
+       db_host localhost
+       db_user sympa
+       db_passwd (secret)
+       db_env NLS_LANG=American_America.AL32UTF8;ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+       ```
 
   2. Create database user:
      ```
@@ -54,7 +65,7 @@ General instruction
      ```
 
   3. Create table structure:
-     ```
+     ``` bash
      # sympa.pl --health_check
      ```
 
