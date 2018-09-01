@@ -30,8 +30,14 @@ General instruction
        * ``db_name`` must be absolute path to database file you want to
          create.
 
+       Example:
+       ``` code
+       db_type SQLite
+       db_name /var/lib/sympa/sympa.sqlite
+       ```
+
   2. Create database file and table structure:
-     ```
+     ``` bash
      # touch <db_name>
      # chown sympa:sympa <db_name>
      # sympa.pl --health_check
