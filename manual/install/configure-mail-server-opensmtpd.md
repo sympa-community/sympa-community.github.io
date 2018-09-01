@@ -20,9 +20,9 @@ Requirements
 
   * If you are planning to use
     [message tracking](../customize/bounce-management.md#message-tracking)
-    feature, [sympa_smtpc](../man/sympa_smtpc.1.md).
+    feature, [smtpc](https://github.com/ikedas/smtpc).
     See the [description](../customize/lmtp-delivery.md#installation) to
-    get it.
+    get and install it.
 
 Sympa configuration parameters
 ------------------------------
@@ -31,7 +31,7 @@ Sympa configuration parameters
 
     This parameter must be set to full path to makemap(1) utility bundled in
     OpenSMTPD:
-    ```
+    ``` code
     aliases_program /path/to/makemap
     ```
     Note that setting a keyword ``makemap`` _will not_ work.
@@ -42,14 +42,14 @@ Sympa configuration parameters
       - If you are planning to use
         [message tracking](../customize/bounce-management.md#message-tracking)
         feature, add these lines:
-        ```
+        ``` code
         sendmail /path/to/sympa_smtpc
         sendmail_args --esmtp localhost
         ```
-        Note that smtpd must listen on ``localhost``.
+        Note that smtpd daemon must listen on ``localhost``.
 
       - Otherwise, add this line:
-        ```
+        ``` code
         sendmail /path/to/sendmail
         ```
         If the full path to sendmail(1) utility bundled in OpenSMTPD is the
@@ -65,15 +65,15 @@ Steps in this section may be done once at the first time.
 
   1. Edit [``sympa.conf``](../layout.md#config) to add parameters described
      in the section above, for example:
-     ```
-     aliases_program /usr/local/sbin/makemap
-     sendmail /usr/local/sbin/sendmail
+     ``` code
+     aliases_program /path/to/makemap
+     sendmail /path/to/sendmail
      ```
      Then create ``list_aliases.tt2`` file in
      [``$SYSCONFDIR``](../layout.md#sysconfdir) directory with following
      content, and edit it as you prefer (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
-     ```
+     ``` code
      #--- [% list.name %]@[% list.domain %]: list virtual table created at [% date %]
      [% list.name %]@[% list.domain %]               "| $LIBEXECDIR/queue [% list.name %]@[% list.domain %]"
      [% list.name %]-request@[% list.domain %]       "| $LIBEXECDIR/queue [% list.name %]-request@[% list.domain %]"
@@ -108,7 +108,7 @@ Steps in this section may be done once at the first time.
   3. Edit OpenSMTPD ``smtpd.conf`` file to add configuration for virtual
      domains (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir) and
      [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) below):
-     ```
+     ``` code
      table sympa db:$SYSCONFIDR/sympa_domain_aliases.db
      accept from any for any recipient <sympa> virtual <sympa>
      
@@ -122,6 +122,8 @@ Steps in this section may be done once at the first time.
      table sympa_domains { "mail.example.org" }
      reject from any for domain <sympa_domains>
      ```
+     Note: In the configuration above, brackets `<` ... `>` and their contents
+     are not examples: They have to be typed as shown.
 
 ### Adding new domain
 
@@ -147,7 +149,7 @@ Steps in this section have to be done every time the new domain is added.
      "[Reloading Sympa services](../admin/services.md#reloading-sympa-services)").
 
   4. Edit ``smtpd.conf`` file to add the new domain to ``sympa_domains`` table:
-     ```
+     ``` code
      ...
      table sympa_domains { ...existing domains..., "mail.example.org" }
      ...
@@ -157,7 +159,7 @@ Steps in this section have to be done every time the new domain is added.
      and edit them as you prefer (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      ``mail.example.org`` below):
-     ```
+     ``` code
      sympa@mail.example.org             "| $LIBEXECDIR/queue sympa@mail.example.org"
      listmaster@mail.example.org        "| $LIBEXECDIR/queue listmaster@mail.example.org"
      bounce@mail.example.org            "| $LIBEXECDIR/bouncequeue sympa@mail.example.org"
@@ -177,4 +179,6 @@ Steps in this section have to be done every time the new domain is added.
      ```
 
   6. Reload OpenSMTPD.
+     Then test configuration according to
+     [instruction](configure-mail-server.md#tests).
 
