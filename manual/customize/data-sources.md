@@ -56,9 +56,8 @@ Requirements
     [DBD-mysql](https://metacpan.org/release/DBD-mysql),
     [DBD-ODBC](https://metacpan.org/release/DBD-ODBC),
     [DBD-Oracle](https://metacpan.org/release/DBD-Oracle),
-    [DBD-Pg](https://metacpan.org/release/DBD-Pg),
-    [DBD-SQLite](https://metacpan.org/release/DBD-SQLite) and/or
-    [DBD-Sybase](https://metacpan.org/release/DBD-Sybase).
+    [DBD-Pg](https://metacpan.org/release/DBD-Pg) and/or
+    [DBD-SQLite](https://metacpan.org/release/DBD-SQLite).
 
   - To use datasources based on LDAP search operation,
     [Net-LDAP](https://metacpan.org/release/Net-LDAP) Perl module has to be

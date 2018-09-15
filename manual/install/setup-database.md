@@ -13,7 +13,7 @@ Database setup overview
 
   1. Appropriate DBI driver (DBD) suitable for chosen RDBMS should be
      installed:
-     For example DBD-mysql, DBD-Pg, DBD-Oracle, DBD-Sybase or DBD-SQLite.
+     DBD-mysql, DBD-Pg, DBD-Oracle or DBD-SQLite.
 
   2. Create a database and a database user dedicated for Sympa.  The user
      must have most of privileges on database.

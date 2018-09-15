@@ -132,7 +132,6 @@ external Perl modules.
     [&#x1F4E6;](https://metacpan.org/release/DBD-Oracle "DBD-Oracle")
     [&#x1F4E6;](https://metacpan.org/release/DBD-Pg "DBD-Pg")
     [&#x1F4E6;](https://metacpan.org/release/DBD-SQLite "DBD-SQLite")
-    [&#x1F4E6;](https://metacpan.org/release/DBD-Sybase "DBD-Sybase")
     [&#x1F4E6;](https://metacpan.org/release/Net-LDAP "Net-LDAP")
     [&#x1F4E6;](https://metacpan.org/release/IO-Socket-SSL "IO-Socket-SSL")
   * [DKIM](customize/dkim.md)

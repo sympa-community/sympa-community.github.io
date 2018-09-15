@@ -314,7 +314,7 @@ Here, all database parameters have to be grouped in one `sql_named_filter_query`
 
   - `db_type`
 
-    Format: `db_type mysql|SQLite|Pg|Oracle|Sybase`; Database management system used. Mandatory and case sensitive.
+    Format: `db_type MySQL|Oracle|PostgreSQL|SQLite`; Database management system used. Mandatory and case sensitive.
 
   - `db_host`
 
