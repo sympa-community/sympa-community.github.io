@@ -71,7 +71,8 @@ Additionally, following address have to be managed:
     to particular list.
 
     Messages bound for this address _must not_ be forwarded to any addresses
-    described in this chapter.
+    described in this chapter:
+    Address of postmaster is recommended destination.
 
 Addresses by list
 -----------------
