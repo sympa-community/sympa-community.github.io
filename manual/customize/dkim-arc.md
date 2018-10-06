@@ -1,10 +1,10 @@
 ---
-title: 'DKIM features for Sympa'
+title: 'DKIM and ARC features for Sympa'
 up: ../customize.md#sympa-services-optional-features
 ---
 
-DKIM features for Sympa
-=======================
+DKIM and ARC features for Sympa
+===============================
 
   * DKIM has been introduced in Sympa version **6.1**.
   * ARC has been introduced in Sympa version **6.2**.
@@ -20,18 +20,18 @@ The mailing list server can take advantage of incoming DKIM signature in order t
 
 In addition, you must consider signature of outgoing messages. Should messages brodcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?  In most cases Sympa should sign all the mail it sends to get the most benefit from DKIM.
 
-ARC seals only make sense on mail forwarded by Sympa, that is, individual messages sent through to mailing lists. The ARC feature will only add seals to those messages.
+ARC seals only make sense on mail forwarded by Sympa, that is, individual messages sent through to mailing lists. The ARC feature will only add seals to those messages.  ARC checks the ARC seals, if any, on incoming messages, 
 
 Prerequisites
 -------------
 
 DKIM features in Sympa are based on the **[Mail::DKIM](https://metacpan.org/release/Mail-DKIM)** cpan module ; you should install it first. Check [the documentation related to cpan modules installation](../install/install-dependent-modules.md).
 
-ARC requires Mail::DKIM version 0.60 or later which includes ARC support.  It also requires that the MTA that delivers emails to Sympa adds an `Authentication-Results:` header that shows how a message was (or wasn't) authenticated as it arrived.  Several Postfix milters can add the header, with opendmarc or the [Fastmail authentication milter](https://github.com/fastmail/authentication_milter) being widely used.
+ARC requires Mail::DKIM version 0.60 or later which includes ARC support.  It also requires that the MTA that delivers emails to Sympa adds an `Authentication-Results:` header that shows how a message was (or wasn't) authenticated as it arrived.  Several Postfix milters can add the header, with opendmarc or the [Fastmail authentication milter](https://github.com/fastmail/authentication_milter) being widely used.  Each `Authentication-Results:` header includes 
 
 
-Incoming messages
------------------
+Incoming messages DKIM
+----------------------
 
 To make Sympa check the DKIM signature of incoming messages, you need to set the [dkim_feature](../man/sympa.conf.5.md#dkim_feature) configuration parameter to `on`. Before doing that you must first update your customized scenario to introduce `dkim` authentication method, **otherwise Sympa may reject messages because they include a valid DKIM signature !**. All default scenario starting at version 6.1 already include rules for DKIM, both for command and lists messages.
 
@@ -60,10 +60,10 @@ If you choose the second solution, you accept DKIM as a valid authentication mec
 
 If the front MTA adds the [`Authentication-results`](https://tools.ietf.org/html/rfc7001) header field, Sympa can of course check this SMTP header field using standard match() and equal() scenario conditions.
 
-Outgoing messages
------------------
+Outgoing messages DKIM
+----------------------
 
-You may want to make Sympa sign outgoing messages. Almost every aspects of DKIM signature behavior can be customized via Sympa configuration parameters. Please check the [DKIM parameters section](../man/sympa.conf.5.md#dkim) for further details. Note that each parameter can also be set for a given virtual robot; and most of them are available as list parameter.
+You may want to make Sympa sign outgoing messages. Almost every aspects of DKIM signature behavior can be customized via Sympa configuration parameters. Please check the [DKIM parameters section](../man/sympa.conf.5.md#dkim) for further details. Note that each parameter can also be set for a given virtual robot; and most of them are available as list parameters.
 
 ### Which messages should be signed
 
@@ -71,7 +71,7 @@ In order to configure Sympa for signing outgoing messages, you have to decide **
 
   - Services messages : these are all messages sent by Sympa itself : welcome messages, answers to mail commands, various notification such as *remind message* and digest messages;
 
-  - List messages : messages distributed to list members (where the initial `From:` header is preserved). These messages will fall is one one the following subcategory:
+  - List messages : messages distributed to list members (where the initial `From:` header is preserved). These messages will fall info one of these subcategories:
 
       - authenticated messages (using S/MIME signature, challenge or password);
 
@@ -82,6 +82,8 @@ In order to configure Sympa for signing outgoing messages, you have to decide **
       - other messages.
 
 This behavior is controlled by [dkim_add_signature_to](../man/sympa.conf.5.md#dkim_add_signature_to) and [dkim_signature_apply_on](../man/sympa.conf.5.md#dkim_signature_apply_on) parameters.
+
+In most cases Sympa should sign **all** outgoing messages to get the maximum advantage from DKIM.
 
 ### Prerequisites for DKIM signing
 
@@ -100,8 +102,8 @@ In order to generate the public and private keys, you may use `openssl` or `dkim
   * http://www.socketlabs.com/services/dkwiz
   * http://www.port25.com/support/support_dkwz.php
 
-Summary of parameters
----------------------
+Summary of DKIM parameters
+--------------------------
 
 | parameter name ([``sympa.conf``](../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
 |---|---|---|
@@ -115,3 +117,24 @@ Summary of parameters
 | ~~[dkim_header_list](../man/sympa.conf.5.md#dkim_header_list)~~ | as recommended in RFC 6376 | Not yet implemented |
 
 <sup><a href="#fnt__1" id="fn__1" class="fn_bot">1)</a></sup> The private key can't be encrypted with a passphase
+
+Incoming messages ARC
+---------------------
+
+Incoming messages will be checked for ARC seals automatically if the [arc_feature](../man/sympa.conf.5.md#arc_feature) is enabled.  The [arc_srvid](../man/sympa.conf.5.md#arc_srvid) configuration parameter must be set to the srvid in the local MTA's `Authentication-Results:` headers if the srvid is not the same as the ARC signer domain.  There is no parameter to control which messages to check because the software automatically checks as needed.
+
+Outgoing messsages ARC
+----------------------
+
+Outgoing forwarded messages will have ARC seals added if the [arc_feature](../man/sympa.conf.5.md#arc_feature) is enabled.  ARC uses the same signatures and keys as DKIM, and DKIM is a prerequisite for ARC, so if your ARC seals use the same signer domain and selector as DKIM signatures, as they usually do, they need no further configuration.  If you want to use a different domain or selector which uses a different private key, they can be set in the same way as the DKIM domain, selector, and key. See the parameters below.
+
+Summary of ARC parameters
+-------------------------
+
+| parameter name ([``sympa.conf``](../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
+|---|---|---|
+| [arc_feature](../man/sympa.conf.5.md#dkim_feature) | `off` | not pertinent |
+| [arc_srvid](../man/sympa.conf.5.md#arc_srvid) | arc_signer_domain | not pertinent |
+| [arc_signer_domain](../man/sympa.conf.5.md#arc_signer_domain) | dkim_signer_domain | dkim > `arc_signer_domain` |
+| [arc_selector](../man/sympa.conf.5.md#arc_selector) | dkim_selector | dkim > `arc_selector` |
+| [arc_private_key_path](../man/sympa.conf.5.md#arc_private_key_path) | dkim_private_key_path | dkim > `arc_private_key_path` |
