@@ -7,19 +7,26 @@ DKIM features for Sympa
 =======================
 
   * DKIM has been introduced in Sympa version **6.1**.
+  * ARC has been introduced in Sympa version ^^6.2**.
 
-DKIM is a crytographic signature method designed to prevent spam, phishing etc. As postmaster or listmaster you should consider 1) checking the DKIM status of each incoming message and 2) signing all or a subset of outgoing messages.
+
+DKIM is a crytographic signature method designed to prevent phishing. As postmaster or listmaster you should consider 1) checking the DKIM status of each incoming message and 2) signing all or a subset of outgoing messages.
+
+ARC is intended to fix the problems introduced by [DMARC](dmarc-protection.md) by adding signature "seals" that show the chain of servers that processed a message.  Once ARC is more widely implemented, DMARC workarounds shouldn't be needed.  Once you have DKIM set up, adding ARC seals is straightforward.
 
 Processing of DKIM status of incoming messages is done by the MTA (Message transfert Agent) that delivers emails to the Sympa server Sympa domain (in order to reject some messages). This topic is not addressed in the chapter of the documentation.
 
 The mailing list server can take advantage of incoming DKIM signature in order to measure the trust of the message while evaluating message workflow. This is based on [scenario mechanism](basics-scenarios.md). An authentication level named `dkim` can be used within scenario rules to check that an incoming message has a valid DKIM signature (dkim signature status = pass).
 
-In addition, you must consider signature of outgoing messages. Should messages brodcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?
+In addition, you must consider signature of outgoing messages. Should messages brodcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?  In most cases Sympa should sign all the mail it sends to get the most benefit from DKIM.
 
 Prerequisites
 -------------
 
 DKIM features in Sympa are based on the **[Mail::DKIM](https://metacpan.org/release/Mail-DKIM)** cpan module ; you should install it first. Check [the documentation related to cpan modules installation](../install/install-dependent-modules.md).
+
+ARC requires Mail::DKIM version 0.60 or later which includes ARC support.  It also requires that the MTA that delivers emails to Sympa adds an `Authentication-Results:` header that shows how a message was (or wasn't) authenticated as it arrived.  Several Postfix milters can add the header, with opendmarc or the [Fastmail authentication milter](https://github.com/fastmail/authentication_milter) being widely used.
+
 
 Incoming messages
 -----------------
