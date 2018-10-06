@@ -167,7 +167,7 @@ Type of the database
 
     None.
 
-Possible types are "MySQL", "PostgreSQL", "Oracle", "Sybase" and "SQLite".
+Possible types are "MySQL", "PostgreSQL", "Oracle" and "SQLite".
 
 #### `db_host`
 
@@ -2713,16 +2713,6 @@ Example:
 
     html_editor_init tinymce.init({selector:"#body",language:lang.split(/[^a-zA-Z]+/).join("_")});
 
-#### `htmlarea_url`
-
-- Default:
-
-    None.
-
-- Overrides:
-
-    None.
-
 #### `max_wrong_password`
 
 Count limit of wrong password submission
@@ -3003,7 +2993,7 @@ Directory containing user certificates
 
 ## Data sources setup
 
-Including subscribers, owners and moderators from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite, DBD-Sybase and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
+Including subscribers, owners and moderators from data sources. Appropriate database driver (DBD) modules are required: DBD-CSV, DBD-mysql, DBD-ODBC, DBD-Oracle, DBD-Pg, DBD-SQLite and/or Net-LDAP. And also, if secure connection (LDAPS) to LDAP server is required: IO-Socket-SSL.
 
 #### `default_sql_fetch_timeout`
 
@@ -3033,7 +3023,7 @@ Default of inclusion timeout
 
 Default timeout between two scheduled synchronizations of list members with data sources.
 
-## DKIM
+## DKIM and ARC
 
 DKIM signature verification and re-signing. It requires an external module: Mail-DKIM.
 
@@ -3144,6 +3134,84 @@ Selector for DNS lookup of DKIM public key
     List (`dkim_parameters.selector`)
 
 The selector is used in order to build the DNS query for public key. It is up to you to choose the value you want but verify that you can query the public DKIM key for "&lt;selector>.\_domainkey.your\_domain"
+
+#### `arc_feature`
+
+Enable ARC
+
+- Default:
+
+    `off`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+If set to "on", Sympa may add ARC seals to outgoing messages.
+
+#### `arc_srvid`
+
+SRV ID for Authentication-Results used in ARC seal
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    Virtual domain
+
+Typically the domain of the mail server
+
+#### `arc_signer_domain`
+
+The "d=" tag as defined in ARC
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    Virtual domain
+
+    List (`arc_parameters.arc_signer_domain`)
+
+The ARC "d=" tag is the domain of the signing entity. The DKIM d= domain name is used as its default value
+
+#### `arc_selector`
+
+Selector for DNS lookup of ARC public key
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    Virtual domain
+
+    List (`arc_parameters.arc_selector`)
+
+The selector is used in order to build the DNS query for public key. It is up to you to choose the value you want but verify that you can query the public DKIM key for "&lt;selector>.\_domainkey.your\_domain". Default is the same selector as for DKIM signatures
+
+#### `arc_private_key_path`
+
+File path for ARC private key
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    Virtual domain
+
+    List (`arc_parameters.arc_private_key_path`)
+
+The file must contain a PEM encoded private key. Defaults to same file as DKIM private key
 
 ## DMARC protection
 
@@ -3510,6 +3578,16 @@ Enable FastCGI
     None.
 
 Is FastCGI module for HTTP server installed? This module provides a much faster web interface.
+
+#### `htmlarea_url`
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    None.
 
 # FILES
 

@@ -3114,6 +3114,69 @@ The categories of messages sent to the list that will be signed using DKIM.
 
 This parameter controls in which case messages must be signed using DKIM, you may sign every message choosing 'any' or a subset. The parameter value is a comma separated list of keywords
 
+### `arc_feature`
+
+Add ARC seals to messages sent to the list
+
+- Format:
+    - `on` - enabled
+    - `off` - disabled
+- Default:
+
+    Value of [`arc_feature`](./sympa.conf.5.md#arc_feature) parameter in `sympa.conf` or `robot.conf`.
+
+Enable/Disable ARC. This feature requires Mail::DKIM::ARC to be installed, and maybe some custom scenario to be updated
+
+### `arc_parameters`
+
+ARC configuration
+
+- Single occurrence
+
+A set of parameters in order to define outgoing ARC seal
+
+#### `arc_parameters.arc_private_key_path`
+
+File path for list ARC private key
+
+- Format:
+
+    /`\S+`/
+
+- Default:
+
+    Value of [`arc_private_key_path`](./sympa.conf.5.md#arc_private_key_path) parameter in `sympa.conf` or `robot.conf`.
+
+The file must contain a RSA pem encoded private key. Default is DKIM private key.
+
+#### `arc_parameters.arc_selector`
+
+Selector for DNS lookup of ARC public key
+
+- Format:
+
+    /`\S+`/
+
+- Default:
+
+    Value of [`arc_selector`](./sympa.conf.5.md#arc_selector) parameter in `sympa.conf` or `robot.conf`.
+
+The selector is used in order to build the DNS query for public key. It is up to you to choose the value you want but verify that you can query the public DKIM key for &lt;selector>.\_domainkey.your\_domain.  Default is selector for DKIM signature
+
+#### `arc_parameters.arc_signer_domain`
+
+ARC "d=" tag, you should probably use the default value
+
+- Format:
+
+    /`\S+`/
+
+- Default:
+
+    Value of [`arc_signer_domain`](./sympa.conf.5.md#arc_signer_domain) parameter in `sympa.conf` or `robot.conf`.
+
+The ARC "d=" tag, is the domain of the sealing entity. The list domain MUST be included in the "d=" domain
+
 ### `dmarc_protection`
 
 DMARC Protection

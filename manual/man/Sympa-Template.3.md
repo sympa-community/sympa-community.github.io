@@ -110,9 +110,18 @@ See [Template::Manual::Filters](https://metacpan.org/pod/Template::Manual::Filte
 
     No longer used.
 
+- escape\_cstr
+
+    Applies C-style escaping of a string (not enclosed by quotes).
+
+    This filter was added on Sympa 6.2.38.
+
 - escape\_quote
 
     Escape quotation marks.
+
+    **Deprecated**.
+    Use escape\_cstr.
 
 - escape\_url
 
