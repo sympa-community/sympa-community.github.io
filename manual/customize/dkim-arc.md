@@ -7,7 +7,7 @@ DKIM features for Sympa
 =======================
 
   * DKIM has been introduced in Sympa version **6.1**.
-  * ARC has been introduced in Sympa version ^^6.2**.
+  * ARC has been introduced in Sympa version **6.2**.
 
 
 DKIM is a crytographic signature method designed to prevent phishing. As postmaster or listmaster you should consider 1) checking the DKIM status of each incoming message and 2) signing all or a subset of outgoing messages.
@@ -19,6 +19,8 @@ Processing of DKIM status of incoming messages is done by the MTA (Message trans
 The mailing list server can take advantage of incoming DKIM signature in order to measure the trust of the message while evaluating message workflow. This is based on [scenario mechanism](basics-scenarios.md). An authentication level named `dkim` can be used within scenario rules to check that an incoming message has a valid DKIM signature (dkim signature status = pass).
 
 In addition, you must consider signature of outgoing messages. Should messages brodcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?  In most cases Sympa should sign all the mail it sends to get the most benefit from DKIM.
+
+ARC seals only make sense on mail forwarded by Sympa, that is, individual messages sent through to mailing lists. The ARC feature will only add seals to those messages.
 
 Prerequisites
 -------------
