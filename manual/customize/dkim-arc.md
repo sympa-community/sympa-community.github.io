@@ -1,13 +1,16 @@
 ---
 title: 'DKIM and ARC features for Sympa'
 up: ../customize.md#sympa-services-optional-features
+redirect_from:
+  - dkim.html
 ---
 
 DKIM and ARC features for Sympa
 ===============================
 
   * DKIM has been introduced in Sympa version **6.1**.
-  * ARC has been introduced in Sympa version **6.2**.
+  * ARC will be introduced in Sympa version **6.2.38**
+    (currently under beta testing).
 
 
 DKIM is a crytographic signature method designed to prevent phishing. As postmaster or listmaster you should consider 1) checking the DKIM status of each incoming message and 2) signing all or a subset of outgoing messages.
@@ -63,7 +66,7 @@ If the front MTA adds the [`Authentication-results`](https://tools.ietf.org/html
 Outgoing messages DKIM
 ----------------------
 
-You may want to make Sympa sign outgoing messages. Almost every aspects of DKIM signature behavior can be customized via Sympa configuration parameters. Please check the [DKIM parameters section](../man/sympa.conf.5.md#dkim) for further details. Note that each parameter can also be set for a given virtual robot; and most of them are available as list parameters.
+You may want to make Sympa sign outgoing messages. Almost every aspects of DKIM signature behavior can be customized via Sympa configuration parameters. Please check the [DKIM parameters section](../man/sympa.conf.5.md#dkim-and-arc) for further details. Note that each parameter can also be set for a given virtual robot; and most of them are available as list parameters.
 
 ### Which messages should be signed
 

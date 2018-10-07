@@ -116,7 +116,7 @@ Some of these alterations can be configured.
   - If DKIM support is enabled, DKIM signature invalidated by alterations
     so far is removed, then message is signed using Sympa's private key.
 
-    See "[DKIM features for Sympa](../customize/dkim.md)".
+    See "[DKIM features for Sympa](../customize/dkim-arc.md)".
 
 Eventually, the message is delivered to recipient by the MTA.
 
