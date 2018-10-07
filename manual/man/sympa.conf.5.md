@@ -3027,6 +3027,8 @@ Default timeout between two scheduled synchronizations of list members with data
 
 DKIM signature verification and re-signing. It requires an external module: Mail-DKIM.
 
+ARC seals on forwarded messages. It requires an external module: Mail-DKIM.
+
 #### `dkim_feature`
 
 Enable DKIM
