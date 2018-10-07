@@ -12,6 +12,7 @@ name here.
   - Stefan Hornburg
   - Soji Ikeda
   - Mic Kaczmarczik
+  - John Levine
   - Luis Martínez
   - Etienne Meleard
   - Olivier Salaün
