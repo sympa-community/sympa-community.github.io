@@ -12,6 +12,8 @@ DMARC protection
 
 This is a quick update for now. If you want to learn more about DMARC and what awful things its rough application did to mailing lists manager, please read [Related posts](#related-posts) below.
 
+ARC is intended to fix the problems introduced by DMARC by adding signature "seals" that show the chain of servers that processed a message.  It is implemented [along witn DKIM](dkim-arc.md).  Once ARC is more widely implemented, DMARC workarounds shouldn't be needed.
+
 To make a long story short: yahoo, then aol and probably others set the "`p=reject`" tag in their DMARC DNS record. This means: _reject anything that doesn't match my security policies_. OK. But Sympa and most mailing lists managers would break this policy, simply by changing the mail subject or the `Return-Path` because:
 
   - yahoo requires DKIM valid - yahoo domain-signed - signature for any mails from its domain
