@@ -115,10 +115,6 @@ To know details of each module, run:
 
     Database driver for SQLite
 
-- [Sympa::DatabaseDriver::Sybase](./Sympa-DatabaseDriver-Sybase.3.md)
-
-    Database driver for Adaptive Server Enterprise
-
 - [Sympa::DatabaseManager](./Sympa-DatabaseManager.3.md)
 
     Managing schema of Sympa core database

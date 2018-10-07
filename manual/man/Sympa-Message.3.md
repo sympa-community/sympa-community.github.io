@@ -119,6 +119,18 @@ dkim\_selector => $selector, dkim\_privatekey => $privatekey )
     Verifies DKIM signatures included in the message,
     and if any of them are invalid, removes them.
 
+- check\_arc\_chain ( )
+
+    _Instance method_.
+    Checks ARC chain of the message
+    and sets {shelved}{arc\_cv} item of the message object.
+
+- arc\_seal ( )
+
+    _Instance method_.
+    Adds a new ARC seal if there's an arc\_cv from check\_arc\_chain and
+    the cv is none or valid.
+
 - as\_entity ( )
 
     _Instance method_.
