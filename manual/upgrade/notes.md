@@ -27,6 +27,23 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From versions prior to 6.2.38
+
+  * If you have used Oracle Database, review
+    [`db_*`](../man/sympa.conf.5.md#database-related) parameters in
+    [`sympa.conf`](../layout.md#config):
+
+      - If you want to continue using SID (only method supported before) and
+        you have not set `db_host` parameter explicitly, add a line
+        ``` code
+        db_host localhost
+        ```
+        to `sympa.conf`.
+      - Or, you may choose the other methods.
+
+    For details see
+    [the instruction](../install/setup-database-oracle.md#general-instruction).
+
 ### From versions prior to 6.2.34
 
   * [`host`](../man/list_config.5.md#host) list parameter was deprecated. If you have used this parameter:
