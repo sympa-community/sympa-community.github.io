@@ -162,7 +162,8 @@ Before you register your mailing list in a production federation you should do s
   - [French test federation](https://services.renater.fr/federation/en/test-federation)
   - [Test federation in Japan](https://www.gakunin.jp/join/test/)
 
-or setup a bilateral trust relationship with a single Identity Provider ([documentation in French to setup a bilateral relationship](https://services.renater.fr/federation/docs/fiches/fedadeux).
+or setup a bilateral trust relationship with a single Identity Provider: See the documentation to setup a bilateral relationship
+([French](https://services.renater.fr/federation/docs/fiches/fedadeux), [Japanese](https://meatwiki.nii.ac.jp/confluence/x/SoW5)).
 
 You'll need to make sure all Identity Providers will provide the user email address; therefore they'll need to configure their *attribute release policy*.
 
