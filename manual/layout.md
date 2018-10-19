@@ -13,7 +13,7 @@ are used to stand for particular paths.  You may have to replace uppercase
 symbols with real paths on your Sympa.
 
 ----
-Note:
+Notes:
 
   * All paths below are defined in an internal module
     [``$MODULEDIR/Sympa/Constants.pm``](man/Sympa-Constants.3.md).
@@ -21,6 +21,13 @@ Note:
       * Definitions of [``$EXECCGIDIR``](#execcgidir), [``$CSSDIR``](#cssdir)
         and [``$PICTURESDIR``](#picturesdir) were added to
         ``Sympa/Constants.pm`` as of Sympa 6.2.26.
+
+  * Default paths below are determined with options fed to `configure`
+    script in the time of building packages by each distribution.
+
+      * About the "suggested configure option" in below, see
+        "Run configure script" -
+        "[New installation](install/install-sympa-distribution-source.md#new-installation)".
 
 ----
 
@@ -35,7 +42,7 @@ Note:
 | RPM                         | ``/etc/sympa/sympa.conf``        |
 | Source distribution default | ``/etc/sympa/sympa.conf``        |
 | (by version prior to 6.2)   | ``/etc/sympa.conf``              |
-| [Suggested configure option](install/install-sympa-distribution-source.md#new-installation) | ``/etc/sympa/sympa.conf`` |
+| Suggested configure option  | ``/etc/sympa/sympa.conf``        |
 
 #### ``$SENDMAIL_ALIASES``
 
@@ -296,4 +303,7 @@ Directories specific to web interface
 | RPM                         | ``/var/lib/sympa/pictures``                |
 | Source distribution default | ``/home/sympa/static_content/pictures``    |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/static_content/pictures`` |
+
+
+*[Suggested configure option]: See the note above.
 
