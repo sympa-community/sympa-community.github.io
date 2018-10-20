@@ -140,7 +140,7 @@ Steps in this section have to be done every time the new domain is added.
      ``` bash
      # mkdir -m 755 $SYSCONFDIR/mail.example.org
      # touch $SYSCONFDIR/mail.example.org/robot.conf
-     # chown -r sympa:sympa $SYSCONFDIR/mail.example.org
+     # chown -R sympa:sympa $SYSCONFDIR/mail.example.org
      # mkdir -m 750 $EXPLDIR/mail.example.org
      # chown sympa:sympa $EXPLDIR/mail.example.org
      ```
