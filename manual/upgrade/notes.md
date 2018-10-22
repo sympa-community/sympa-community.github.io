@@ -38,6 +38,12 @@ below.
     ```
     Note that you are recommended to back up older alias files in advance.
 
+  * If you managed multiple domains and used web interface,
+    [`wwsympa_url`](../man/sympa_config.5.md#wwsympa_url) parameter in each
+    [`robot.conf`](../man/sympa.conf.5.md) file is now mandatory.
+    Though it will be automatically added during upgrading process, if you used HTTPS protocol,
+    you may have to edit value of `wwsympa_url` parameter in each `robot.conf` file.
+
 ### From versions prior to 6.2.30
 
   * If `sympa.pl --upgrade` crashes due to undefined variable `$pictures_dir`, remove following files and retry:
