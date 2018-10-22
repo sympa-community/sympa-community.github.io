@@ -29,14 +29,28 @@ below.
 
 ### From versions prior to 6.2.34
 
-  * [`host`](../man/sympa_config.5.md#host) list parameter was deprecated. If you have used this parameter, you
-    may have to check [`list_aliases.tt2`](../man/list_aliases.tt2.5.md) and may have to regenerate alias file
-    after upgrading as:
-    ``` bash
-    # sympa.pl --make_alias_file --robot <mail domain>
-    # sympa_newaliases.pl --domain <mail domain>
-    ```
-    Note that you are recommended to back up older alias files in advance.
+  * [`host`](../man/sympa_config.5.md#host) list parameter was deprecated. If you have used this parameter:
+
+      1. Create new domain with the same name as value of `host` list parameter (Note:
+         replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
+         [``$EXPLDIR``](../layout.md#expldir) and ``<host>`` below):
+         ``` bash
+         # mkdir -m 755 $SYSCONFDIR/<host>
+         # touch $SYSCONFDIR/<host>/robot.conf
+         # chown -R sympa:sympa $SYSCONFDIR/<host>
+         # mkdir -m 750 $EXPLDIR/<host>
+         # chown sympa:sympa $EXPLDIR/<host>
+         ```
+         And rename list `listname@domain` to `listname@host`, using web interface or
+         [`sympa.pl`](../man/sympa.pl.1.md) command line tool.
+
+      2. you may have to check [`list_aliases.tt2`](../man/list_aliases.tt2.5.md) and may have to regenerate
+         alias file after upgrading as:
+         ``` bash
+         # sympa.pl --make_alias_file --robot <mail domain>
+         # sympa_newaliases.pl --domain <mail domain>
+         ```
+      Note that you are recommended to back up database and older alias files in advance.
 
   * If you managed multiple domains and used web interface,
     [`wwsympa_url`](../man/sympa_config.5.md#wwsympa_url) parameter in each
