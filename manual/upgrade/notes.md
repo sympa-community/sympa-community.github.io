@@ -29,7 +29,7 @@ below.
 
 ### From versions prior to 6.2.34
 
-  * [`host`](../man/sympa_config.5.md#host) list parameter was deprecated. If you have used this parameter:
+  * [`host`](../man/list_config.5.md#host) list parameter was deprecated. If you have used this parameter:
 
       1. Create new domain with the same name as value of `host` list parameter (Note:
          replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
@@ -44,8 +44,8 @@ below.
          And rename list `listname@domain` to `listname@host`, using web interface or
          [`sympa.pl`](../man/sympa.pl.1.md) command line tool.
 
-      2. you may have to check [`list_aliases.tt2`](../man/list_aliases.tt2.5.md) and may have to regenerate
-         alias file after upgrading as:
+      2. Also, you may have to check [`list_aliases.tt2`](../man/list_aliases.tt2.5.md) and may have to
+         regenerate alias file after upgrading as:
          ``` bash
          # sympa.pl --make_alias_file --robot <mail domain>
          # sympa_newaliases.pl --domain <mail domain>
