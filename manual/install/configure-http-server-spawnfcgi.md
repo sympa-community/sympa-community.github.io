@@ -16,7 +16,7 @@ Requirements
   * HTTP server.
 
     Currently, [nginx](https://nginx.org/en/download.html)
-    and [Apache HTTP Serever](https://httpd.apache.org/download.cgi)
+    and [Apache HTTP Server](https://httpd.apache.org/download.cgi)
     (2.4 or later) are reported working.
 
     ----
