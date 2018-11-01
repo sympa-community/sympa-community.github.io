@@ -168,8 +168,9 @@ Note:
 
 #### Creation, opening, modifying, closing or restoring lists
 
-Dump files are created when a list is created using list creation template
-(see "[List creation](../admin/list-creation.md#list-creation)), and imported
+When a list is created using list creation template
+(see "[List creation](../admin/list-creation.md#list-creation)"), dump files
+are created and imported
 to backend database immediately.
 
 When a family list is modified (see
@@ -178,7 +179,7 @@ dump files including new owners and moderators are created, and owners and
 moderators in backend database are replaced with content of dump files.
 
 When a list is closed (see
-"[Removing a list](../admin/list-creation.md#removing-a-list)),
+"[Removing a list](../admin/list-creation.md#removing-a-list)"),
 list users are exported into dump files, and users are
 removed from backaend database.  When the list is restored by listmaster,
 users in dump files are imported again.
