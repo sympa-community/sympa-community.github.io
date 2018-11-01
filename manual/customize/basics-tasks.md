@@ -15,9 +15,17 @@ A task is a sequence of simple actions which realize a complex routine. It is ex
 
 A task is created with a task model. It is a text file which describes a sequence of simple actions. It may have different versions (for instance reminding subscribers every year or semester). A task model file name has the following format: `<model name>.<model version>.task`. For instance `remind.annual.task` or `remind.semestrial.task`.
 
-Sympa provides several task models stored in the [``$DEFAULTDIR``](../layout.md#defaultdir)`/global_task_models` and [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models` directories. Others can be designed by listmasters.
+Sympa provides several task models stored in the [``$DEFAULTDIR``](../layout.md#defaultdir)`/tasks` directory. Others can be designed by listmasters.
 
 A task can be either global or related to a list.
+
+----
+Note:
+
+  * On Sympa 6.2.36 or earlier, global and list tasks were placed in different
+    directories.  See below for details.
+
+----
 
 Basics
 ------
@@ -56,13 +64,21 @@ List task creation
 
 You define in the list configuration file the model and the version you want to use. Then the task manager daemon will automatically create the task by looking for the appropriate model file in different directories in the following order:
 
-  - [``$EXPLDIR``](../layout.md#expldir)`/<list path>/`;
+  - [``$EXPLDIR``](../layout.md#expldir)`/<list path>/tasks`;
 
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/<virtual host name>/list_task_models/`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/<mail domain name>/tasks/`;
 
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/list_task_models/`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/tasks/`;
 
-  - [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models/`.
+  - [``$DEFAULTDIR``](../layout.md#defaultdir)`/tasks/`.
+
+----
+Note:
+
+  * On Sympa 6.2.36 or earlier, directory `list_task_models` was used
+    instead of `tasks` for list tasks.
+
+----
 
 <!---
 See also "[Tasks](basics-list-config.md#tasks)" in "Configuration for each list" to know more about standard list models provided with Sympa.
@@ -91,11 +107,17 @@ Global task creation
 
 The task manager daemon checks if a version of a global task model exists in different directories in the following order:
 
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/<virtual host name>/global_task_models/`;
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/tasks/`;
 
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/global_task_models/`;
+  - [``$DEFAULTDIR``](../layout.md#defaultdir)`/tasks/`.
 
-  - [``$DEFAULTDIR``](../layout.md#defaultdir)`/global_task_models/`.
+----
+Note:
+
+  * On Sympa 6.2.36 or earlier, directory `global_task_models` was used
+    instead of `tasks` for global tasks.
+
+----
 
 ### Global model names
 
@@ -247,7 +269,9 @@ When you change a configuration file by hand, and a task parameter is created or
 Model file examples
 -------------------
 
-You will find plenty of examples in the [``$DEFAULTDIR``](../layout.md#defaultdir)`/global_task_models` and [``$DEFAULTDIR``](../layout.md#defaultdir)`/list_task_models` directories. Such examples look like:
+You will find plenty of examples in the
+[``$DEFAULTDIR``](../layout.md#defaultdir)`/tasks` directory.
+Such examples look like:
 
   - `remind.annual.task`
 
