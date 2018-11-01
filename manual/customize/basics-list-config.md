@@ -170,22 +170,24 @@ Note:
 
 Dump files are created when a list is created using list creation template
 (see "[List creation](../admin/list-creation.md#list-creation)), and imported
-to backend database when the list is open.
+to backend database immediately.
 
 When a family list is modified (see
 "[Modifying a family list](basics-families.md#modifying-a-family-list)"),
 dump files including new owners and moderators are created, and owners and
 moderators in backend database are replaced with content of dump files.
 
-When a list is closed, list users are exported in dump files, and users are
+When a list is closed (see
+"[Removing a list](../admin/list-creation.md#removing-a-list)),
+list users are exported into dump files, and users are
 removed from backaend database.  When the list is restored by listmaster,
 users in dump files are imported again.
 
 #### Handling dump files with command line interface
 
 Additionally, administrator can export users to dump files using command line
-`sympa.pl --dump_users`, or import dump files using
-`sympa.pl --restore_users` (see [`sympa.pl(1)`](../man/sympa.1.md)).
+`sympa.pl --dump_users` anytime, or import dump files using
+`sympa.pl --restore_users` (see [`sympa.pl(1)`](../man/sympa.1.md)) anytime.
 `sympa.pl --dump_users` does not remove users in database backend.
 
 ### Other files
