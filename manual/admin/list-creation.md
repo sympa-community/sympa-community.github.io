@@ -324,4 +324,4 @@ You can remove (close) a list either from the command line or by using the web i
 # sympa.pl --close_list=mylist@mydomain
 ```
 
-Privileged owners can remove a mailing list through the list administration part of the web interface. Removing the mailing list consists in removing its subscribers from the database and setting its status to *closed*. Once removed, the list can still be restored by the listmaster; list members are saved in a `subscribers.closed.dump` file.
+Privileged owners can remove a mailing list through the list administration part of the web interface. Removing the mailing list consists in removing its subscribers from the database and setting its status to *closed*. Once removed, the list can still be restored by the listmaster; list members are saved in a [`member.dump`](../customize/basics-list-config.md#dump-files) file.
