@@ -37,12 +37,16 @@ Notes:
 
 | Distribution                | Path                             |
 |-----------------------------|----------------------------------|
-| Debian                      | ``/etc/sympa/sympa.conf``        |
+| Debian                      | ``/etc/sympa/sympa.conf`` or ``/etc/sympa/sympa/sympa.conf`` (see note) |
 | FreeBSD                     | ``/usr/local/etc/sympa/sympa.conf`` |
 | RPM                         | ``/etc/sympa/sympa.conf``        |
 | Source distribution default | ``/etc/sympa/sympa.conf``        |
 | (by version prior to 6.2)   | ``/etc/sympa.conf``              |
 | Suggested configure option  | ``/etc/sympa/sympa.conf``        |
+
+(Note) On Debian 8 (jessie) or earlier, ``/etc/sympa/sympa.conf`` is used.
+On Debian 9 (stretch) or later, ``/etc/sympa/sympa.conf`` may also be used,
+though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 
 #### ``$SENDMAIL_ALIASES``
 
