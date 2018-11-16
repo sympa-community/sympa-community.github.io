@@ -378,9 +378,9 @@ $logger->syslog('info','My log message %s',$variable);
 
 Your plugin can manipulate the Sympa database. Even create tables if needed. Take care, though, that you can *also* alter the main Sympa database's tables. If you need to add a table, we strongly suggest that the table name would be called after your plugin and prefixed in a way that explicitely tells users that this is a plugin-related table.
 
-We suggest the following naming scheme: "plugin\_\[plugin\_name\]\_\[function\]"
+We suggest the following naming scheme: "`plugin_`[plugin_name]`_`[function]"
 
-This could lead to, for example, the following table name: "plugin\_sponsoring\_godsons". For the godsons table in the Sponsoring plugin.
+This could lead to, for example, the following table name: "`plugin_sponsoring_godsons`". For the godsons table in the Sponsoring plugin.
 
 ``` perl
 # Use the main Sympa process database handler singleton

@@ -180,7 +180,7 @@ ttl 360
 The XML file format should comply with the following rules:
 
   - The root element is `<list>`.
-  - One XML element is mandatory: `<listname>` contains the name of the list. That does not exclude mandatory parameters for list creation ("listname, subject,owner.email and/or owner\_include.source").
+  - One XML element is mandatory: `<listname>` contains the name of the list. That does not exclude mandatory parameters for list creation (listname, subject, `owner.email` and/or `owner_include.source`).
   - `<type>`: this element contains the name of template list creation, it is used for list creation on command line with `sympa.pl`. In a family context, this element is no used.
   - `<description>`: the text contained in this element is written in list `info` file (it can be a CDATA section).
   - For other elements, the name is the name of the var to assign in the list creation template.
@@ -239,7 +239,7 @@ defaults read
 
 ### customize `create_list_request.tt2`
 
-The list creation form is in a template named create\_list\_request.tt2 . You may modify this template in order to some other input that will be used to modify the created list. Any new input variable will be catched by wwsympa.fcgi and available in the tt2 hash \[% custom\_input %\] when using the list template to create teh list.
+The list creation form is in a template named `web_tt2/create_list_request.tt2`. You may modify this template in order to some other input that will be used to modify the created list. Any new input variable will be catched by wwsympa.fcgi and available in the tt2 hash `[% custom_input %]` when using the list template to create teh list.
 
 Example:
 ``` code
@@ -264,40 +264,46 @@ For more details on tt2 customization, templates path and so on, see "[Templates
 
 (Work in progress)
 
-**Parameter** can be any list config parameter or the name of a template (thus controlling the edition of the template through the *customize* web admin feature. You can refer to a subentry of a structured list parameter using the '.' as a separator (examples: **owner.email** or **web\_archive.quota**). **default** is a reserved parameter name that means *any other parameter*.
+**Parameter** can be any list config parameter or the name of a template (thus controlling the edition of the template through the *customize* web admin feature. You can refer to a subentry of a structured list parameter using the "``.``" as a separator (examples: `owner.email` or `archive.quota`). **``default``** is a reserved parameter name that means *any other parameter*.
 
 (Work in progress)
 
-Using `edit_list.conf`, you can define privileges on the following lists parameters:
+Using [`edit_list.conf`](../man/edit_list.conf.5.md),
+you can define privileges on the following lists parameters:
 
   - All the lists config parameters ([those used in the config file](../man/list_config.5.md)),
 
   - Any file used in list context and likely to be edited through the web interface:
 
-      - homepage
-      - info
-      - welcome.tt2
-      - rejection messages
-      - invite.tt2
-      - remind.tt2
-      - message.footer
-      - message.header
-      - bye.tt2
-      - removed.tt2
-      - your\_infected\_msg.tt2
+    optional configuration files
+
+      - `info`
+      - `homepage`
+      - `message.footer`
+      - `message.header`
+
+    mail templates
+
+      - `welcome.tt2`
+      - `bye.tt2`
+      - `removed.tt2`
+      - `remind.tt2`
+      - rejection messages (including `reject.tt2`)
+      - `invite.tt2`
+      - `your_infected_msg.tt2`
 
 ----
 Notes:
 
-Starting Sympa 6.1.10, a **unique** exception exists in the matching between file names and edition rights in the edit\_list.conf: the "info" term.
+Starting Sympa 6.1.10, a _unique_ exception exists in the matching between file names and edition rights in the `edit_list.conf`: the "info" term.
 
 "info" represents both a list parameter and a list file:
 
-  - The info **list parameter** controls the authorization scenario that will be used to know who can view the lists information text, both in the list welcome page and by using the "info" command. the value to use in the edit\_list.conf to control who can edit this parameter's value is "info".
+  - The info **list parameter** controls the authorization scenario that will be used to know who can view the lists information text, both in the list welcome page and by using the "info" command. the value to use in the `edit_list.conf` to control who can edit this parameter's value is `info`.
 
-  - The info **file** contains the text to be displayed when somebody requests to see the list's informations. This is the content whose access is controlled by the info **list parameter**. the value to use in the edit\_list.conf to control who can edit this parameter's value is "info.file".
+  - The info **file** contains the text to be displayed when somebody requests to see the list's informations. This is the content whose access is controlled by the info **list parameter**. the value to use in the `edit_list.conf` to control who can edit this parameter's value is `info.file`.
 
-Obviously, there is no reason why the exact same people would have the same rights on these two informations. But as they have the same name, one must use differetn keys in the "edit\_list.conf" file to discriminate them.
+Obviously, there is no reason why the exact same people would have the same rights on these two informations. But as they have the same name, one must use differetn keys in the `edit_list.conf` file to discriminate them.
 
 In the following example, an owner and a privileged owner can both edit the info file, but only the privileged owner can change the info scenario to be used (the owner is only allowed to read it):
 

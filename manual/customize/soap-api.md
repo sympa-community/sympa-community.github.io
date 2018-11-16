@@ -202,7 +202,7 @@ $ sympa_soap_client.pl --soap_url=http://web.example.org/sympasoap \
  --service_parameters='listA,someone@some;domain,name'
 ```
 
-Below is a sample Perl code that does a SOAP procedure call (for a SUBSCRIBE sympa command) using the trusted\_application feature :
+Below is a sample Perl code that does a SOAP procedure call (for a SUBSCRIBE sympa command) using the `trusted_application` feature :
 
 ``` perl
 use SOAP::Lite;
@@ -350,7 +350,7 @@ It is done by calling the script and providing two kind of arguments :
 
 #### Authentication using an HTTP session cookie
 
-Actually, providing the HTTP cookie to a command line sums up in providing a session id, i.e. a simple number. You must use the value of a session cookie actually used at the time you launch the command. It is the “sympa\_session” cookie set when accessing to the Sympa web interface.
+Actually, providing the HTTP cookie to a command line sums up in providing a session id, i.e. a simple number. You must use the value of a session cookie actually used at the time you launch the command. It is the “`sympa_session`” cookie set when accessing to the Sympa web interface.
 
 ``` bash
 $ sympa_soap_client.pl --soap_url=<SOAP server URL> \
@@ -361,7 +361,7 @@ $ sympa_soap_client.pl --soap_url=<SOAP server URL> \
 
 The options used are:
 
-  - ``--soap\_url``
+  - ``--soap_url``
 
     The URL to your Sympa SOAP server.
 
@@ -449,7 +449,7 @@ The options used are:
 
   - ``--proxy_vars``
 
-    The proxy vars of the trusted application as defined in `trusted_applications.conf`. This is a comma-separated list of values. For example, if you have defined in `trusted_applications.conf` the following variables: `proxy_for_variables USER_EMAIL,remote_host`, then you will use it this way in the proxy\_vars option: `--proxy_vars=USER_EMAIL=user.email@domain.tld,remote_host=remote.host.domain.tld`.
+    The proxy vars of the trusted application as defined in `trusted_applications.conf`. This is a comma-separated list of values. For example, if you have defined in `trusted_applications.conf` the following variables: `proxy_for_variables USER_EMAIL,remote_host`, then you will use it this way in the `proxy_vars` option: `--proxy_vars=USER_EMAIL=user.email@domain.tld,remote_host=remote.host.domain.tld`.
 
 ### Sympa SOAP services and the command line tool
 

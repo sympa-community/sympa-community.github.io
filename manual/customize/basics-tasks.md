@@ -127,13 +127,13 @@ You can use the following model names for global tasks. The description below co
 
   - `purge_orphan_bounces`: deletes bounce archive for unsubscribed users;
 
-  - `eval_bouncers`: evaluates all bouncing users for all lists, and fill the field bounce\_score\_suscriber in table suscriber\_table with a score. This score allows the auto-management of bouncing users;
+  - `eval_bouncers`: evaluates all bouncing users for all lists, and fill the field `bounce_score_suscriber` in table `suscriber_table` with a score. This score allows the auto-management of bouncing users;
 
   - `process_bouncers`: executes configured actions on bouncing users, according to their score. The association between score and actions has to be done in List configuration. This parameter defines the frequency of execution for this task;
 
   - `remind`: reminds subscribers that they are suscribed to this list;
 
-  - `purge_user_table`: removes entries in the user\_table table that have no corresponding entries in the subscriber\_table table;
+  - `purge_user_table`: removes entries in the `user_table` table that have no corresponding entries in the `subscriber_table` table;
 
   - `purge_logs_table`: removes all the logs from the database;
 
@@ -143,23 +143,23 @@ See the synonyms commands below. These models are usually employed to apply thes
 
 The version of a global model to be used is specified in [``sympa.conf``](../layout.md#config). These are the parameters you can set in this configuration file:
 
-  - [expire_bounce_task](../man/sympa.conf.5.md#expire_bounce_task): expire\_bounce model definition;
+  - [`expire_bounce_task`](../man/sympa.conf.5.md#expire_bounce_task): `expire_bounce` model definition;
 
-  - [purge_orphan_bounces_task](../man/sympa.conf.5.md#purge_orphan_bounces_task): purge\_orphan\_bounces model definition;
+  - [`purge_orphan_bounces_task`](../man/sympa.conf.5.md#purge_orphan_bounces_task): `purge_orphan_bounces` model definition;
 
-  - [eval_bouncers_task](../man/sympa.conf.5.md#eval_bouncers_task) : eval\_bouncers model definition;
+  - [`eval_bouncers_task`](../man/sympa.conf.5.md#eval_bouncers_task) : `eval_bouncers` model definition;
 
-  - [process_bouncers_task](../man/sympa.conf.5.md#process_bouncers_task) : process\_bouncers model definition;
+  - [`process_bouncers_task`](../man/sympa.conf.5.md#process_bouncers_task) : `process_bouncers` model definition;
 
-  - [default_remind_task](../man/sympa.conf.5.md#default_remind_task) : the remind model used by default in lists;
+  - [`default_remind_task`](../man/sympa.conf.5.md#default_remind_task) : the `remind` model used by default in lists;
 
-  - [purge_user_table_task](../man/sympa.conf.5.md#purge_user_table_task) : purge\_user\_table model definition;
+  - [`purge_user_table_task`](../man/sympa.conf.5.md#purge_user_table_task) : `purge_user_table` model definition;
 
-  - [purge_logs_table_task](../man/sympa.conf.5.md#purge_logs_table_task) : purge\_logs\_table model definition;
+  - [`purge_logs_table_task`](../man/sympa.conf.5.md#purge_logs_table_task) : `purge_logs_table` model definition;
 
 The `sync_include` model is an exception, as it doesn't have a single dedicated configuration parameter.
 
-The ''sync\_include'' task
+The ``sync_include`` task
 --------------------------
 
 An exception in the realm of tasks in Sympa, the `sync_include` task accepts one and only one model : `sync_include.ttl.task`. It's useless to try and create other versions of this task, they will be ignored. There exist a configuration parameter related to `sync_include`, though, but it doesn't set the model used. It is the [ttl](../man/list_config.5.md#ttl) parameter. It will just set the length of time between two synchronizations.

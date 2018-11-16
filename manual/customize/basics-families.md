@@ -48,7 +48,7 @@ In this directory, you must provide the following files:
   - `message.footer.tt2`,`message.header.tt2`,`message.footer.mime.tt2`,`message.header.mime.tt2`,`info.tt2`;
   - customizable files.
 
-#### config.tt2
+#### `config.tt2`
 
 This is a list creation template, this file is mandatory. It provides default values for parameters. This file is an almost complete list configuration, with a number of missing fields (such as owner email) to be replaced by data obtained at the time of family instantiation. It is easy to create new list templates by modifying existing ones.
 See "[Templates](basics-templates.md#list-template-files)".
@@ -109,7 +109,7 @@ include_sql_query
 ttl 360
 ```
 
-#### param\_constraint.conf
+#### `param_constraint.conf`
 
 This file is mandatory. It defines constraints on parameters. There are three kinds of constraints:
 
@@ -131,12 +131,12 @@ shared_doc.d_read   public
 shared_doc.d_edit   editor
 ```
 
-#### edit\_list.conf
+#### `edit_list.conf`
 
 This is an optional file. It defines which parameters/files are editable by owners. See "[List editing](../admin/list-creation#list-editing)". If the family does not have this file, Sympa will look for the one defined on robot level, server site level or distribution level (this file already exists without family context).
 Note that by default, the `family_name` parameter is not writable, you should not change this editing right.
 
-#### automatic\_lists\_description.conf
+#### `automatic_lists_description.conf`
 
 This file is used if you want to let users create / access to automatic lists using the Sympa web interface. Please, see the [documentation related to this functionnality](friendly-automatic-lists.md).
 
@@ -224,8 +224,8 @@ sympa.pl --instantiate_family my_family --robot samplerobot --input_file /path/t
 
 This means lists that belong to family `my_family` will be created under the robot `my_robot` and these lists are described in the file `my_file.xml`. Sympa will split this file into several XML files describing lists. Each list XML file is put in each list directory.
 
-**–close\_unknown** option can be added to automatically close undefined lists during a new instantation
-**–quiet** option can be added to skip the report printed to STDOUT
+**``--close_unknown``** option can be added to automatically close undefined lists during a new instantation
+**``--quiet``** option can be added to skip the report printed to STDOUT
 
 Example:
 
