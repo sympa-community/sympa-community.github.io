@@ -188,7 +188,7 @@ Model files are composed of comments, labels, references, variables, date values
 
   - A date value may be written in two ways:
 
-      - Absolute dates follow the format: xxxxYxxMxxDxxHxxMin. Y is the year, M the month (1-12), D the day (1-28|30|31, leap-years are not managed), H the hour (0-23), Min the minute (0-59). H and Min are optional. For instance, 2001y12m4d44min is the 4th of December 2001 at 00h44.
+      - Absolute dates follow the format: xxxxYxxMxxDxxHxxMin. Y is the year, M the month (1-12), D the day (1-28, 30 or 31, leap-years are not managed), H the hour (0-23), Min the minute (0-59). H and Min are optional. For instance, 2001y12m4d44min is the 4th of December 2001 at 00h44.
 
       - Relative dates use the `[creation_date]` or `[execution_date]` references. `[creation_date]` is the date when the task file is created, `[execution_date]` when the command line is executed. A duration may follow with the '+' or '-' operators. The duration is expressed like an absolute date whose all parameters are optional. Examples: `[creation_date]`, `[execution_date]+1y`, `[execution_date]-6m4d`.
 
