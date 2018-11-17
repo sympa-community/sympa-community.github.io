@@ -17,4 +17,5 @@ name here.
   - Etienne Meleard
   - Olivier Salaün
   - David Verdin
+  - Luc Didry
 

@@ -60,11 +60,17 @@ necessary.
      (such as ``/usr/lib/systemd/system``) as ``wwsympa.service`` file.
 
      ----
-     Note:
+     Notes:
 
        * If you installed Sympa from source, you may find a file
          ``nginx-wwsympa.service`` in ``src/etc/script`` subdirectory of
          source tree.  Use it as ``wwsympa.service``.
+       * You can also serve Sympa SOAP interface with this method. Follow the
+         same instructions but with the
+         [example ``sympasoap.service](../examples/systemd/sympasoap.service)
+         or the ``nginx-sympasoap.service`` file in ``src/etc/script``
+         subdirectory of source tree if you installed Sympa from source (use it
+         as ``sympasoap.service``).
 
      ----
 
@@ -106,6 +112,15 @@ necessary.
      and copy it to system V init directory (such as ``/etc/rc.d/init.d``)
      as the ``wwsympa`` file.
 
+     ----
+     Note:
+
+       * You can also serve Sympa SOAP interface with this method. Follow the
+         same instructions but with this
+         [example init script](../examples/initscripts/sympasoap). Copy it as
+         the ``sympasoap`` file.
+
+     ----
   2. Start WWSympa FastCGI service.
      ```bash
      # service wwsympa start
@@ -147,6 +162,17 @@ instruction below.
              alias $STATICDIR;
          }
      }
+     ```
+
+     For the SOAP interface, add this in your ``server`` configuration:
+     ```code
+         location /sympasoap {
+             include       /etc/nginx/fastcgi_params;
+             fastcgi_pass  unix:$PIDDIR/sympasoap.socket;
+
+             fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/sympa_soap_server.fcgi;
+             fastcgi_param PATH_INFO $fastcgi_path_info;
+         }
      ```
 
      ----
@@ -191,6 +217,15 @@ instruction below.
          Require all granted
      </Location>
      Alias /static-sympa $STATICDIR
+     ```
+
+     For SOAP interface, add:
+
+     ```
+     <Location /sympasoap>
+         SetHandler "proxy:unix:$PIDDIR/sympasoap.socket|fcgi://"
+         Require all granted
+     </Location>
      ```
 
   2. Edit it as you prefer.
