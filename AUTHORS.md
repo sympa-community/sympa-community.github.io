@@ -9,6 +9,7 @@ name here.
   - Serge Aumont
   - Olivier Calzi
   - Geoffroy Desvernay
+  - Luc Didry
   - Stefan Hornburg
   - Soji Ikeda
   - Mic Kaczmarczik
@@ -17,5 +18,4 @@ name here.
   - Etienne Meleard
   - Olivier Salaün
   - David Verdin
-  - Luc Didry
 
