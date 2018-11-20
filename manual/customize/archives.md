@@ -64,6 +64,75 @@ the MHonArc output uses Sympa TT2 template format. When modifying
 `mhonarc-ressources.tt2` you may change the way MHonArc prepare archives or
 you may change the way wwsympa.fcgi show them.
 
+For example, you may want to customize the archiving in order to reduce disk
+usage.
+
+To change MHonArc behavior, we need to override its settings, configured in
+``default/mhonarc-ressources.tt2``.
+
+First, we need to copy that file to override it to keep our changes through
+Sympa upgrades.
+
+```
+cp default/mhonarc-ressources.tt2 etc/
+```
+
+Then edit ``etc/mhonarc-ressources.tt2`` to add
+[``MIMEIncs``](https://www.mhonarc.org/MHonArc/doc/resources/mimeincs.html)
+and/or
+[``MIMEExcs``](https://www.mhonarc.org/MHonArc/doc/resources/mimeexcs.html)
+sections.
+
+### ``MIMEIncs``
+
+MHonArc archives all parts it can find in the mail. ``MIMEIncs`` allows to
+specify the [media types](https://en.wikipedia.org/wiki/Media_type) of the
+parts that you want to archive, excluding anything else.
+
+For example, to only archive text parts of a mail, add this to
+``etc/mhonarc-ressources.tt2``:
+
+```
+<MIMEIncs>
+text/plain
+text/html
+</MIMEIncs>
+```
+
+With this snippet, images (for example) attached to a mail will not be
+archived, but the plain text and HTML version of the body of the mail will be
+archived (along with any attachment matching those media types)
+
+You can use a more generic media type:
+
+```
+<MIMEIncs>
+text
+</MIMEIncs>
+```
+
+---
+Note:
+
+  * MHonArc will archive parts of the mail matching a media type defined
+    in ``MIMEIncs`` *and* not matching a media type defined in ``MIMEExcs``.
+    That allows you to have a generic media type in ``MIMEIncs`` and block
+    archiving some more specific media types.
+
+### ``MIMEExcs``
+
+``MIMEExcs`` prevents MHonArc to archive mail parts matching one of the defined
+media type, even if it matches a media type defined in ``MIMEIncs``.
+
+Example:
+```
+<MIMEExcs>
+image/jpg
+image/gif
+text/xml
+</MIMEExcs>
+```
+
 See [MHonArc manual](https://www.mhonarc.org/MHonArc/doc/mhonarc.html) for
 more informations on customization.
 
