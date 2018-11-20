@@ -19,7 +19,7 @@ This is probably the most interesting part of the Sympa web archives : you can
 restrict access to a list web archives to a certain population (members of the
 current list, members of another list, intranet users, users defined in an
 SQL/LDAP base). This fine tuning is defined via the
-[`archive.access`](../man/list_config.5.md#archive) list parameter. This
+[`archive.web_access`](../man/list_config.5.md#archive) list parameter. This
 parameter refers to the corresponding
 [authorization scenario](../costomize/basics-scenarios.md).
 
