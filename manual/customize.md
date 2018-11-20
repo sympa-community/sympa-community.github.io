@@ -49,7 +49,7 @@ needed.
   * Privileges
     [&#x1F527;](man/sympa.conf.5.md#privileges)
     [&#x2699;](man/edit_list.conf.5.md# "edit_list.conf")
-  * Archives
+  * [Archives](customize/archives.md)
     [&#x1F527;](man/sympa.conf.5.md#archives)
     [&#x2699;](man/mhonarc-ressources.tt2.5.md# "mhonarc-ressources.tt2")
   * [Bounce management](customize/bounce-management.md)
