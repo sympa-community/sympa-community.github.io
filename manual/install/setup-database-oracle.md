@@ -31,65 +31,65 @@ General instruction
        * ``db_type`` must be ``Oracle``.
 
        * ``db_name`` and related parameters may be chosen with one of
-         following three methods:
+         following three methods (a) to (c):
 
-          * Specifying instance with system identifier (SID):
+         **(a) Specifying instance with system identifier (SID):**
 
-            ``db_name`` specifies SID.
-            ``db_host`` must be set
-            (if ``db_port`` is not set, `1521` is used as port).
+         ``db_name`` specifies SID.
+         ``db_host`` must be set
+         (if ``db_port`` is not set, `1521` is used as port).
 
-            Example:
-            ``` code
-            db_name ORCL
-            db_host localhost
-            ```
+         Example:
+         ``` code
+         db_name ORCL
+         db_host localhost
+         ```
 
-          * Specifying instance(s) with local naming:
+         **(b) Specifying instance(s) with local naming:**
 
-             ----
-             Note:
+         ----
+         Note:
 
-               * Local naming is available on Sympa 6.2.37b.2 or later.
+           * Local naming is available on Sympa 6.2.37b.2 or later.
 
-             ----
+         ----
 
-            ``db_name`` specifies net service name.
-            ``db_host`` must be `none` or must not be set.
+         ``db_name`` specifies net service name.
+         ``db_host`` must be `none` or must not be set.
 
-            Example:
-            ``` code
-            db_name net_service_name
-            ```
+         Example:
+         ``` code
+         db_name net_service_name
+         ```
 
-            `tnsnames.ora` file on Sympa server has to include an entry for
-            specified net service name.
-            `tnsnames.ora` file is usually placed in the directory
-            `$ORACLE_HOME/network/admin`
-            (If you want to use this file in another place, specify the
-            directory by adding `TNS_ADMIN` environment variable to `db_env`
-            parameter described in below).
+         `tnsnames.ora` file on Sympa server has to include an entry for
+         specified net service name.
+         `tnsnames.ora` file is usually placed in the directory
+         `$ORACLE_HOME/network/admin`
+         (If you want to use this file in another place, specify the
+         directory by adding `TNS_ADMIN` environment variable to `db_env`
+         parameter described in below).
 
-          * Specifying connection with easy connection identifier:
+         **(c) Specifying connection with easy connection identifier:**
 
-             ----
-             Note:
+         ----
+         Note:
 
-               * Use of connection identifier is available on
-                 Sympa 6.2.37b.2 or later.
+           * Use of connection identifier is available on
+             Sympa 6.2.37b.2 or later.
 
-             ----
+         ----
 
-            ``db_name`` specifies easy connection identifier.
-            ``db_host`` must be `none` or must not be set.
+         ``db_name`` specifies easy connection identifier.
+         ``db_host`` must be `none` or must not be set.
 
-            Examples:
-            ``` code
-            db_name db.example.org/service_name
-            ```
-            ``` code
-            db_name db.example.org:1521/name.dom.ain
-            ```
+         Examples:
+         ``` code
+         db_name db.example.org/service_name
+         ```
+         ``` code
+         db_name db.example.org:1521/name.dom.ain
+         ```
 
        * ``db_env`` should include definition of NLS_LANG and ORACLE_HOME.
          Character set should be `AL32UTF8`.
