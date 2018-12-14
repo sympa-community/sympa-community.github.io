@@ -134,10 +134,12 @@ listmasters or owners.
 
 ### Tasks
 
-  * _file name_`.task`
+  * `tasks/`_file name_`.task`
 
     Task files for specific list.
-    See also "[Tasks](basics-tasks.md)".
+    Note that, with earlier versions, `list_task_models` directory was used instead of
+    `tasks`.
+    See "[Tasks](basics-tasks.md)" for details.
 
 ### Data inclusion files
 
