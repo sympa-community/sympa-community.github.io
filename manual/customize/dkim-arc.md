@@ -9,9 +9,7 @@ DKIM and ARC features for Sympa
 ===============================
 
   * DKIM has been introduced in Sympa version **6.1**.
-  * ARC will be introduced in Sympa version **6.2.38**
-    (currently under beta testing).
-
+  * ARC has been introduced in Sympa version **6.2.38**.
 
 DKIM is a crytographic signature method designed to prevent phishing. As postmaster or listmaster you should consider 1) checking the DKIM status of each incoming message and 2) signing all or a subset of outgoing messages.
 
