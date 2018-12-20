@@ -115,7 +115,7 @@ Indexes:
 
 ### user\_table
 
-The user\_table is mainly used to manage login from web interface. A subscriber may not appear in the user\_table if he never log through the web interface.
+The user\_table is mainly used to manage login from web interface. A subscriber may not appear in the user\_table if they never log through the web interface.
 
 Fields:
 
@@ -274,6 +274,12 @@ Fields:
 - data\_session text
 
     parameters attached to this session that don't have a dedicated column in the database
+
+Indexes:
+
+- session\_prev\_id\_index
+
+    prev\_id\_session
 
 ### one\_time\_ticket\_table
 

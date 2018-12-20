@@ -81,10 +81,11 @@ This package provides some text-related functions.
 
     Note that `'/'` will also be encoded.
 
-- encode\_html ( $str )
+- encode\_html ( $str, \[ $additional\_unsafe \] )
 
     _Function_.
     Encodes characters in a string $str to HTML entities.
+    By default
     `'<'`, `'>'`, `'&'` and `'"'` are encoded.
 
     Parameter:
@@ -92,6 +93,12 @@ This package provides some text-related functions.
     - $str
 
         String to be encoded.
+
+    - $additional\_unsafe
+
+        Character or range of characters additionally encoded as entity references.
+
+        This optional parameter was introduced on Sympa 6.2.37b.3.
 
     Returns:
 

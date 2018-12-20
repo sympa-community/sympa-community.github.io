@@ -51,7 +51,7 @@ Below is the list of documentation of Sympa.
 
 - [task\_manager(8)](./task_manager.8.md)
 
-    Daemon to Process Periodical Sympa Tasks
+    Daemon to process periodical Sympa tasks
 
 ## Web interface
 

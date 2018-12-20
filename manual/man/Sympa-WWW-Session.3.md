@@ -141,7 +141,7 @@ Session store is used to keep users' personal data.
 - check\_cookie\_extern ( )
 
     _Function_.
-    TBD.
+    Deprecated.
 
 - decrypt\_session\_id ( )
 
@@ -161,6 +161,16 @@ Session store is used to keep users' personal data.
 - purge\_old\_sessions ( )
 
     _Function_.
+    Deprecated.
+
+- set\_cookie ( $cookie\_domain, $expires, \[ $use\_ssl \] )
+
+    _Instance method_.
+    TBD.
+
+- set\_cookie\_extern ( $cookie\_domain, \[ $use\_ssl \] )
+
+    _Instance method_.
     TBD.
 
 ## Attributes

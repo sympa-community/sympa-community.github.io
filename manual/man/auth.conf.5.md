@@ -165,7 +165,7 @@ Here is how to configure the LDAP authentication:
     these attributes separated by commas (`,`).
 
     With this list, Sympa creates a cookie which contains various information: 
-    Whether the user is authenticated via LDAP or not, his alternate email. 
+    Whether the user is authenticated via LDAP or not, their alternate email. 
     Storing the alternate email is interesting when you want to canonify your 
     preferences and subscriptions, that is to say you want to use a unique 
     address in `user_table` and `subscriber_table`, which is the canonic email.

@@ -175,7 +175,7 @@ Hostname of the database server
 
 - Default:
 
-    `localhost`
+    None.
 
 - Overrides:
 
@@ -211,7 +211,9 @@ Name of the database
 
     None.
 
-With SQLite, this must be the full path to database file. With Oracle Database, this must be Oracle SID.
+With SQLite, this must be the full path to database file.
+
+With Oracle Database, this must be SID, net service name or easy connection identifier (to use net service name, db\_host should be set to "none" and HOST, PORT and SERVICE\_NAME should be defined in tnsnames.ora file).
 
 #### `db_user`
 
@@ -1603,7 +1605,7 @@ Defines the families the automatic lists are based on. It is a character string 
 
 \* inside a family definition, each field is separated from the other by a colon (:)
 
-\* each field has the structure: "&lt;field name>=&lt;filed value>"
+\* each field has the structure: "&lt;field name>=&lt;field value>"
 
 Basically, each time Sympa uses the automatic lists families, the values defined in this parameter will be available in the family object.
 
@@ -3493,26 +3495,6 @@ URL of SympaSOAP behind proxy
 
     Virtual domain
 
-#### `purge_challenge_table_task`
-
-- Default:
-
-    `daily`
-
-- Overrides:
-
-    None.
-
-#### `challenge_table_ttl`
-
-- Default:
-
-    `5d`
-
-- Overrides:
-
-    None.
-
 #### `filesystem_encoding`
 
 - Default:
@@ -3590,6 +3572,20 @@ Is FastCGI module for HTTP server installed? This module provides a much faster 
 - Overrides:
 
     None.
+
+#### `show_report_abuse`
+
+Add a "Report abuse" link in the side menu of the lists (0|1)
+
+- Default:
+
+    `0`
+
+- Overrides:
+
+    None.
+
+The link is a mailto link, you can change that by overriding web\_tt2/report\_abuse.tt2
 
 # FILES
 

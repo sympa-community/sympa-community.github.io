@@ -15,6 +15,8 @@ configuration.
 
 - get\_option\_description ( $that, $value, \[ $type, \[ $withval \] \] )
 
+    **Deprecated**.
+
     _Function_.
     Gets i18n-ed title of option.
     Language context must be set in advance (See [Sympa::Language](./Sympa-Language.3.md)).
@@ -45,7 +47,6 @@ configuration.
 
 # SEE ALSO
 
-[Sympa::Language](./Sympa-Language.3.md),
 [Sympa::ListDef](./Sympa-ListDef.3.md).
 
 # HISTORY

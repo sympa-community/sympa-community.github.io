@@ -59,6 +59,7 @@ This module is the base class for subclasses to manage list aliases of Sympa.
     - $listname
 
         Name of the list.
+        Mandatory.
 
     - $robot\_id
 
@@ -109,6 +110,36 @@ This module is the base class for subclasses to manage list aliases of Sympa.
     `undef` if not applicable.
 
     By default, this method always returns `0`.
+
+## Function
+
+- check\_new\_listname ( $listname, $robot )
+
+    _Function_.
+    Checks if a new listname is allowed.
+
+    TBD.
+
+    Parameteres:
+
+    - $listname
+
+        A list name to be checked.
+
+    - $robot
+
+        Robot context.
+
+    Returns:
+
+    If check fails, an array including information of errors.
+    If it succeeds, empty array.
+
+    **Note**:
+    This should be used to check name of list to be created.
+    Names of existing lists may not necessarily pass checks by this function.
+
+    This function was added on Sympa 6.2.37b.2.
 
 # SEE ALSO
 

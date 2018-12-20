@@ -28,7 +28,11 @@ Sympa Database Manager (SDM).
 
     _Overridable_.
     Returns an arrayref including names of required (not optional) parameters.
-    By default, returns `['db_host', 'db_name', 'db_user']`.
+    By default, returns `['db_name', 'db_user']`.
+
+    _Note_:
+    On Sympa prior to 6.2.37b.2, it by default returned
+    `['db_host', 'db_name', 'db_user']`.
 
 - optional\_modules ( )
 

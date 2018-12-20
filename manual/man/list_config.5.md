@@ -1658,6 +1658,7 @@ SSL version
     - `tlsv1` - TLS version 1
     - `tlsv1_1` - TLS version 1.1
     - `tlsv1_2` - TLS version 1.2
+    - `tlsv1_3` - TLS version 1.3
 - Default:
 
     `tlsv1`
@@ -1855,6 +1856,7 @@ SSL version
     - `tlsv1` - TLS version 1
     - `tlsv1_1` - TLS version 1.1
     - `tlsv1_2` - TLS version 1.2
+    - `tlsv1_3` - TLS version 1.3
 - Default:
 
     `tlsv1`
@@ -2385,6 +2387,7 @@ SSL version
     - `tlsv1` - TLS version 1
     - `tlsv1_1` - TLS version 1.1
     - `tlsv1_2` - TLS version 1.2
+    - `tlsv1_3` - TLS version 1.3
 - Default:
 
     `tlsv1`
@@ -2592,6 +2595,7 @@ SSL version
     - `tlsv1` - TLS version 1
     - `tlsv1_1` - TLS version 1.1
     - `tlsv1_2` - TLS version 1.2
+    - `tlsv1_3` - TLS version 1.3
 - Default:
 
     `tlsv1`
@@ -2880,7 +2884,7 @@ remote host
 
 - Default:
 
-    None, _mandatory_.
+    None.
 
 #### `include_sql_ca.db_port`
 
@@ -3390,17 +3394,7 @@ var value
 
 ### `expire_task`
 
-Periodical subscription expiration task
-
-- Format:
-
-    /`\w+`/
-
-- Default:
-
-    None.
-
-This parameter states which model is used to create an expire task. An expire task regularly checks the subscription or resubscription  date of subscribers and asks them to renew their subscription. If they don't they are deleted.
+Deprecated.
 
 ### `loop_prevention_regex`
 

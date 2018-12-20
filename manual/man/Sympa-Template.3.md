@@ -114,7 +114,7 @@ See [Template::Manual::Filters](https://metacpan.org/pod/Template::Manual::Filte
 
     Applies C-style escaping of a string (not enclosed by quotes).
 
-    This filter was added on Sympa 6.2.38.
+    This filter was added on Sympa 6.2.37b.1.
 
 - escape\_quote
 

@@ -299,6 +299,10 @@ To know details of each module, run:
 
     Workflow of request processing
 
+- [Sympa::Spindle::ProcessTask](./Sympa-Spindle-ProcessTask.3.md)
+
+    Workflow of task processing
+
 - [Sympa::Spindle::ProcessTemplate](./Sympa-Spindle-ProcessTemplate.3.md)
 
     Workflow of template sending
@@ -403,9 +407,13 @@ To know details of each module, run:
 
     Spool for held messages waiting for moderation
 
+- [Sympa::Spool::Task](./Sympa-Spool-Task.3.md)
+
+    Spool for tasks
+
 - [Sympa::Task](./Sympa-Task.3.md)
 
-    TBD
+    Tasks of Sympa
 
 - [Sympa::Template](./Sympa-Template.3.md)
 

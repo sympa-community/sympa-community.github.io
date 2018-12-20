@@ -102,6 +102,12 @@ workflow of Sympa.  For more details see documentation on each class.
     Request::Collection       /                                  *3 
            => [ProcessRequest]
 
+## Task processing
+
+    <<task_manager.pl>>
+    
+    Task => [ProcessTask] => Task
+
 ## Legend
 
 - `_ClassName_`
