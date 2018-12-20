@@ -96,6 +96,7 @@ needed.
   * [Password](customize/builtin-auth.md)
     [&#x2699;](man/auth.conf.5.md#user_table-paragraph "auth.conf")
     [&#x1F527;](man/sympa.conf.5.md#max_wrong_password)
+    [&#x1F4E6;](http://search.cpan.org/dist/Crypt-Eksblowfish/)
   * Miscellaneous
     [&#x1F527;](man/sympa.conf.5.md#web-interface-parameters-miscelaneous)
 
@@ -152,10 +153,10 @@ external Perl modules.
     ([&#x1F4E6;](https://metacpan.org/pod/Net::SMTP "Net::SMTP"))
   * [Antivirus plug-in](customize/antivirus.md)
 
-  * Miscellaneous
-
-    &#x1F4E6; Optionally [Clone](https://metacpan.org/release/Clone),
-    [Encode-Locale](https://metacpan.org/release/Encode-Locale) etc.
+  * [Miscellaneous modules](customize/misc-sympa.md)
+    [&#x1F4E6;](https://metacpan.org/release/Clone)
+    [&#x1F4E6;](https://metacpan.org/release/Encode-Locale)
+    ...
 
 Web interface: Optional features
 --------------------------------
@@ -184,11 +185,10 @@ external Perl modules.
     [&#x2699;](man/sympa.wsdl.5.md# "sympa.wsdl")
     [&#x1F4E6;](https://metacpan.org/release/SOAP-Lite "SOAP-Lite")
 
-  * Miscellaneous
-
-    &#x1F4E6; Optionally
-    [Crypt-CipherSaber](https://metacpan.org/release/Crypt-CipherSaber),
-    [Unicode-Nomalize](https://metacpan.org/release/Unicode-Nomalize).
+  * [Miscellaneous modules](customize/misc-web.md)
+    [&#x1F4E6;](https://metacpan.org/release/Unicode-Nomalize)
+    [&#x1F4E6;](https://metacpan.org/release/Crypt-CipherSaber)
+    ...
 
 Extending Sympa
 ---------------
