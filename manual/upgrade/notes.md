@@ -233,12 +233,12 @@ After the process above, the following changes will have occured:
         (copy, then stripped of `color_*` parameters).
 
   - Older `sympa.conf` will have need copied to
-    "`sympa.conf.upgrade.`_dd_`.`_Month_`.`_yyyy_`-`_hh_`.`_mm_`.`_ss_".
+    "`sympa.conf.upgrade.`_number_".
   - Any customized "**`web_tt2`**" directory (either in
     [``$SYSCONFDIR``](../layout.md#sysconfdir)`/` or in
     [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_robot_`/`)
     will have been renamed to
-    "`web_tt2.upgrade.`_dd_`.`_Month_`.`_yyyy_`-`_hh_`.`_mm_`.`_ss_".
+    "`web_tt2.upgrade.`_number_".
 
     Indeed, as most of the Sympa templates have been changed for the new skin,
     your customizations could not be compliant to the new web interface. You
