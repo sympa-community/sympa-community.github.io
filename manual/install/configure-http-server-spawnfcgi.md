@@ -71,6 +71,9 @@ necessary.
          or the ``nginx-sympasoap.service`` file in ``src/etc/script``
          subdirectory of source tree if you installed Sympa from source (use it
          as ``sympasoap.service``).
+       * At any rate, you will likely need to customize wwsympa.service file, at least
+         to it use the correct username, because the web server environment is not
+         predictable at install time.
 
      ----
 
