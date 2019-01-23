@@ -71,9 +71,11 @@ necessary.
          or the ``nginx-sympasoap.service`` file in ``src/etc/script``
          subdirectory of source tree if you installed Sympa from source (use it
          as ``sympasoap.service``).
-       * At any rate, you will likely need to customize wwsympa.service file, at least
-         to it use the correct username, because the web server environment is not
-         predictable at install time.
+       * Whichever web server you use, the distributed service file will work. The only thing
+         to take care of is the user defined by the -U option in FCGI_OPTS:
+         ```FCGI_OPTS="-M 0600 -U apache"```
+         The value of this parameter ('apache' in the example) must be set to the username
+         used by your web server (www-data for Apache in Debian, nginx for Nginx, etc.)
 
      ----
 
