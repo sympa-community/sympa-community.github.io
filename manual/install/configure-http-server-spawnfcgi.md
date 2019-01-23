@@ -76,6 +76,9 @@ necessary.
          ```FCGI_OPTS="-M 0600 -U apache"```
          The value of this parameter ('apache' in the example) must be set to the username
          used by your web server (www-data for Apache in Debian, nginx for Nginx, etc.)
+       * the service file defined a parameter called EnvironmentFile. thie parameter defines
+         a file where you can store the environment options (such as 'EnvironmentFile').
+         if you prefe, you can keep a minimal service file and store your parameters there.
 
      ----
 
