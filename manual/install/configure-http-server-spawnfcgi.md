@@ -24,7 +24,7 @@ Requirements
 
       * For Apache HTTP Server:
 
-          * Instruction described here needs
+          * Instruction described in this chapter needs
             [mod_proxy_fcgi](https://httpd.apache.org/docs/mod/mod_proxy_fcgi.html)
             module introduced by HTTP Server 2.4.
             See [another instruction](configure-http-server-apache.md) to know
@@ -53,32 +53,56 @@ necessary.
 
 #### Systemd
 
+----
+Note:
+
+  * Systemd support with FastCGI services was introduced on Sympa 6.2.15.
+
+----
+
   1. Register WWSympa FastCGI service.
 
-     Edit [example ``wwsympa.service``](../examples/systemd/wwsympa.service)
-     as you prefer, and copy it to Systemd system directory
-     (such as ``/usr/lib/systemd/system``) as ``wwsympa.service`` file.
+     Put ``wwsympa.service`` file into Systemd system directory
+     (such as ``/usr/lib/systemd/system``).
+
+       * With binary distributions, ``wwsympa.service`` file may have already
+         been installed, if that package supports Systemd.
+
+       * If you have installed Sympa from source, and you have given
+         ``--with-unitsdir=DIR`` option to `configure` script,
+         you may find a file
+         ``wwsympa.service`` in ``src/etc/script`` subdirectory of
+         source tree.
+
+         ----
+         Note:
+
+           * On Sympa prior to 6.2.36, you may find a file
+             ``nginx-wwsympa.service``.  Use it as ``wwsympa.service``.
+
+         ----
+
+     Whichever web server you use, the distributed service file will work.
+     The only thing to take care of is the user defined by the -U option
+     in FCGI_OPTS:
+     ``` code
+     FCGI_OPTS="-M 0600 -U apache"
+     ```
+     The value of this parameter ('``apache``' in the example) must be set
+     to the username used by your web server (``www-data`` for
+     Apache HTTP Server in Debian, ``nginx`` for nginx on most of
+     distributions, etc.)
+
+     You can keep this parameter by adding the line above to a file
+     ``/etc/sysconfig/sympa``.
 
      ----
-     Notes:
+     Note:
 
-       * If you installed Sympa from source, you may find a file
-         ``nginx-wwsympa.service`` in ``src/etc/script`` subdirectory of
-         source tree.  Use it as ``wwsympa.service``.
-       * You can also serve Sympa SOAP interface with this method. Follow the
-         same instructions but with the
-         [example ``sympasoap.service](../examples/systemd/sympasoap.service)
-         or the ``nginx-sympasoap.service`` file in ``src/etc/script``
-         subdirectory of source tree if you installed Sympa from source (use it
-         as ``sympasoap.service``).
-       * Whichever web server you use, the distributed service file will work. The only thing
-         to take care of is the user defined by the -U option in FCGI_OPTS:
-         ```FCGI_OPTS="-M 0600 -U apache"```
-         The value of this parameter ('apache' in the example) must be set to the username
-         used by your web server (www-data for Apache in Debian, nginx for Nginx, etc.)
-       * The service file defines a parameter called EnvironmentFile. This parameter specifies
-         a file where you can store the environment options (such as 'EnvironmentFile').
-         If you prefer, you can keep a minimal service file and store your parameters there.
+       * You can also serve
+         [Sympa SOAP interface](../customize/soap-api.md) with this method.
+         Follow the same instructions but with
+         ``sympasoap.service`` (or ``nginx-sympasoap.service``) file.
 
      ----
 
