@@ -45,8 +45,8 @@ In this directory, you must provide the following files:
   - `param_constraint.conf` (mandatory);
   - `edit_list.conf`;
   - `automatic_lists_description.conf`;
-  - `message.footer.tt2`,`message.header.tt2`,`message.footer.mime.tt2`,`message.header.mime.tt2`,`info.tt2`;
-  - customizable files.
+  - `info.tt2`;
+  - other customizable files.
 
 #### `config.tt2`
 
@@ -142,13 +142,26 @@ This file is used if you want to let users create / access to automatic lists us
 
 #### Common list files
 
-You can parse several files at list creation, later used by the list. Here are the files you can parse:
+You can parse several files at list creation, later used by the list. Here are
+the files you can parse (See also a note below):
 
-  - `message.footer.tt2`,
-  - `message.header.tt2`,
-  - `message.footer.mime.tt2`,
-  - `message.header.mime.tt2`,
+  - `message_footer.tt2`,
+  - `message_header.tt2`,
+  - `message_footer.mime.tt2`,
+  - `message_header.mime.tt2`,
   - `info.tt2`
+
+----
+Note:
+
+  * On Sympa 6.2.40 or earlier, files for footer and header should be named:
+    `message.footer.tt2`, `message.header.tt2`,
+    `message.footer.mime.tt2` and/or `message.header.mime.tt2`.
+
+    These files with older names are also usable on recent version of Sympa,
+    but newer names are prefered.
+
+----
 
 These files will be parsed using the list family data defined in the XML file. You can use the same data in these files as in the [config.tt2](#config-tt2) file.
 

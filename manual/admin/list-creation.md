@@ -279,8 +279,8 @@ you can define privileges on the following lists parameters:
 
       - `info`
       - `homepage`
-      - `message.footer`
-      - `message.header`
+      - `message_footer` (`message.footer` on 6.2.40 or earlier)
+      - `message_header` (`message.header` on 6.2.40 or earlier)
 
     mail templates
 

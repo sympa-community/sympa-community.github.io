@@ -109,15 +109,33 @@ listmasters or owners.
 
 ### Message header and footer
 
-  * `message.footer`
-  * `message.footer.mime`
+  * `message_footer`
+  * `message_footer.mime`
+
+    ----
+    Note:
+
+      * On Sympa 6.2.40 or earlier, these were named `message.footer`
+        and `message.footer.mime`.
+
+    ----
 
     If either of these files exists, it will be appended at end of
-    distributed messages (see also
+    distributed messages.
+
+    `message_footer.mime` is used only when footer type is "mime" (see also
     [`footer_type`](../man/list_config.5.md#footer_type) parameter).
 
-  * `message.header`
-  * `message.header.mime`
+  * `message_header`
+  * `message_header.mime`
+
+    ----
+    Note:
+
+      * On Sympa 6.2.40 or earlier, these were named `message.header`
+        and `message.header.mime`.
+
+    ----
 
     Similar to files above, but they will be appended at beginning of
     distributed messages.

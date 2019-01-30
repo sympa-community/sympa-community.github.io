@@ -27,6 +27,33 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From versions prior to 6.2.42 (coming later)
+
+  * Authorization schearios:
+    The "default" scenario files named `*.default` (regular file or symbolic
+    link) are no longer available: Default list scenariios have to be
+    specified by parameters in `robot.conf` or `sympa.conf`.
+
+    For details on parameters see
+    "[Default privileges for the lists](../man/sympa.conf.5.md) in
+    `sympa.conf(5)` manual page.
+    Previous default settings using symbolic links are automatically migrated
+    during upgrading process. However you should review the changes in
+    `sympa.conf` (and `robot.conf`).
+
+  * WWSympa:
+    If a virtual domain setting does not have `auth.conf`,
+    `crawlers_detection.conf` or `trusted_applications.conf` while it is
+    there in [`$SYSCONFDIR`](../layout.md#sysconfdir), the latter will be
+    used.  Previously in such case, the latter was ignored and only
+    built-in authnetication was enabled.
+
+  * LDAP authentication:
+    Now entry of authenticating user is retrieved by the LDAP account
+    specified by `bind_dn` parameter.
+    Previously, the second search operation to retrieve user entry was
+    performed under the privilege of the user of their own.
+
 ### From versions prior to 6.2.38
 
   * If you have used Oracle Database, review
