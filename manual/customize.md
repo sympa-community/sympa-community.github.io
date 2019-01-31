@@ -211,7 +211,7 @@ Sympa and other systems
   - [LMTP delivery](customize/lmtp-delivery.md)
   - ~~OpenSocial integration~~ (under development)
   - Placing Sympa behind mail relay
-  - Placing WWSympa behind reverse proxy
+  - [Placing WWSympa behind reverse proxy](customize/reverse-proxy.md)
   - Sympa high availability (HA) cluster
 
 ### Other topics
