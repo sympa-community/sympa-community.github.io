@@ -77,7 +77,7 @@ Visibility of the list
 
 - Default:
 
-    `default`
+    Value of [`visibility`](./sympa.conf.5.md#visibility) parameter in `sympa.conf` or `robot.conf`.
 
 This parameter indicates whether the list should feature in the output generated in response to a LISTS command or should be shown in the list overview of the web-interface.
 
@@ -201,7 +201,7 @@ Who can send messages
 
 - Default:
 
-    `default`
+    Value of [`send`](./sympa.conf.5.md#send) parameter in `sympa.conf` or `robot.conf`.
 
 This parameter specifies who can send messages to the list.
 
@@ -661,7 +661,7 @@ Who can view list information
 
 - Default:
 
-    `default`
+    Value of [`info`](./sympa.conf.5.md#info) parameter in `sympa.conf` or `robot.conf`.
 
 ### `subscribe`
 
@@ -689,7 +689,7 @@ Who can subscribe to the list
 
 - Default:
 
-    `default`
+    Value of [`subscribe`](./sympa.conf.5.md#subscribe) parameter in `sympa.conf` or `robot.conf`.
 
 The subscribe parameter defines the rules for subscribing to the list.
 
@@ -710,7 +710,7 @@ Who can add subscribers
 
 - Default:
 
-    `default`
+    Value of [`add`](./sympa.conf.5.md#add) parameter in `sympa.conf` or `robot.conf`.
 
 Privilege for adding (ADD command) a subscriber to the list
 
@@ -733,7 +733,7 @@ Who can unsubscribe
 
 - Default:
 
-    `default`
+    Value of [`unsubscribe`](./sympa.conf.5.md#unsubscribe) parameter in `sympa.conf` or `robot.conf`.
 
 This parameter specifies the unsubscription method for the list. Use open\_notify or auth\_notify to allow owner notification of each unsubscribe command.
 
@@ -754,7 +754,7 @@ Who can delete subscribers
 
 - Default:
 
-    `default`
+    Value of [`del`](./sympa.conf.5.md#del) parameter in `sympa.conf` or `robot.conf`.
 
 ### `invite`
 
@@ -771,7 +771,7 @@ Who can invite people
 
 - Default:
 
-    `default`
+    Value of [`invite`](./sympa.conf.5.md#invite) parameter in `sympa.conf` or `robot.conf`.
 
 ### `remind`
 
@@ -788,7 +788,7 @@ Who can start a remind process
 
 - Default:
 
-    `default`
+    Value of [`remind`](./sympa.conf.5.md#remind) parameter in `sympa.conf` or `robot.conf`.
 
 This parameter specifies who is authorized to use the remind command.
 
@@ -809,7 +809,7 @@ Who can review subscribers
 
 - Default:
 
-    `default`
+    Value of [`review`](./sympa.conf.5.md#review) parameter in `sympa.conf` or `robot.conf`.
 
 This parameter specifies who can access the list of members. Since subscriber addresses can be abused by spammers, it is strongly recommended that you only authorize owners or subscribers to access the subscriber list. 
 
@@ -864,7 +864,7 @@ Who can view
 
 - Default:
 
-    `default`
+    Value of [`d_read`](./sympa.conf.5.md#d_read) parameter in `sympa.conf` or `robot.conf`.
 
 #### `shared_doc.d_edit`
 
@@ -882,7 +882,7 @@ Who can edit
 
 - Default:
 
-    `default`
+    Value of [`d_edit`](./sympa.conf.5.md#d_edit) parameter in `sympa.conf` or `robot.conf`.
 
 #### `shared_doc.quota`
 
@@ -944,7 +944,7 @@ access right
 
 - Default:
 
-    None.
+    Value of [`archive_web_access`](./sympa.conf.5.md#archive_web_access) parameter in `sympa.conf` or `robot.conf`.
 
 #### `archive.mail_access`
 
@@ -961,7 +961,7 @@ access right by mail commands
 
 - Default:
 
-    `default`
+    Value of [`archive_mail_access`](./sympa.conf.5.md#archive_mail_access) parameter in `sympa.conf` or `robot.conf`.
 
 #### `archive.quota`
 
@@ -1207,7 +1207,7 @@ who can view message tracking
 
 - Default:
 
-    `default`
+    Value of [`tracking`](./sympa.conf.5.md#tracking) parameter in `sympa.conf` or `robot.conf`.
 
 #### `tracking.retention_period`
 

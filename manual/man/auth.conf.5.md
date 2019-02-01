@@ -160,15 +160,12 @@ Here is how to configure the LDAP authentication:
 
 - `alternative_email_attribute`
 
-    The name of the attribute for the alternate email in your directory: for 
-    instance `alternate_email`, `mailalternateaddress`, ... You make a list of 
-    these attributes separated by commas (`,`).
+    _Obsoleted_.
 
-    With this list, Sympa creates a cookie which contains various information: 
-    Whether the user is authenticated via LDAP or not, their alternate email. 
-    Storing the alternate email is interesting when you want to canonify your 
-    preferences and subscriptions, that is to say you want to use a unique 
-    address in `user_table` and `subscriber_table`, which is the canonic email.
+    On Sympa 6.2.38 or earlier, web interface provided a cookie named
+    `sympa_altemails` which contained attribute values specified by this
+    parameter along with authenticated email address.
+    This feature was deprecated.
 
 - `scope`
 

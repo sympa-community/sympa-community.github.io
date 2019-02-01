@@ -10,7 +10,9 @@ Sympa::Request::Handler::add - add request handler
 
 Adds a user to a list (requested by another user). Verifies
 the proper authorization and sends acknowledgements unless
-quiet add.
+quiet add has been chosen (which requires the
+quiet\_subscription setting to be "optional") or forced (which
+requires the quiet\_subscription setting to be "on").
 
 ## Attributes
 

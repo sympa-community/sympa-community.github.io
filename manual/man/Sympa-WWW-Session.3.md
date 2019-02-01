@@ -171,7 +171,7 @@ Session store is used to keep users' personal data.
 - set\_cookie\_extern ( $cookie\_domain, \[ $use\_ssl \] )
 
     _Instance method_.
-    TBD.
+    Deprecated.
 
 ## Attributes
 

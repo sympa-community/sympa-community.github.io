@@ -78,6 +78,11 @@ With the following options `sympa.pl` will run in batch mode:
 
     Load sympa.conf and each robot.conf into database.
 
+- `--copy_list=`_listname_@_robot_
+`--new_listname=`_newlistname_ `--new_listrobot=`_newrobot_
+
+    Copy a list.
+
 - `--create_list` `--robot=`_robot\_name_
 `--input_file=`_/path/to/file.xml _
 

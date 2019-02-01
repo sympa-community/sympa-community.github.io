@@ -431,6 +431,10 @@ To know details of each module, run:
 
     TBD
 
+- [Sympa::Tools::Domains](./Sympa-Tools-Domains.3.md)
+
+    Domains-related functions
+
 - [Sympa::Tools::File](./Sympa-Tools-File.3.md)
 
     File-related functions

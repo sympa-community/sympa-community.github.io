@@ -1065,6 +1065,248 @@ Example:
 
     owner_domain_min 1
 
+## Default privileges for the lists
+
+#### `visibility`
+
+Visibility of the list
+
+- Default:
+
+    `conceal`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `visibility` scenario.
+
+#### `send`
+
+Who can send messages
+
+- Default:
+
+    `private`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `send` scenario.
+
+#### `info`
+
+Who can view list information
+
+- Default:
+
+    `open`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `info` scenario.
+
+#### `subscribe`
+
+Who can subscribe to the list
+
+- Default:
+
+    `open`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `subscribe` scenario.
+
+#### `add`
+
+Who can add subscribers
+
+- Default:
+
+    `owner`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `add` scenario.
+
+#### `unsubscribe`
+
+Who can unsubscribe
+
+- Default:
+
+    `open`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `unsubscribe` scenario.
+
+#### `del`
+
+Who can delete subscribers
+
+- Default:
+
+    `owner`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `del` scenario.
+
+#### `invite`
+
+Who can invite people
+
+- Default:
+
+    `private`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `invite` scenario.
+
+#### `remind`
+
+Who can start a remind process
+
+- Default:
+
+    `owner`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `remind` scenario.
+
+#### `review`
+
+Who can review subscribers
+
+- Default:
+
+    `owner`
+
+- Overrides:
+
+    Virtual domain
+
+    List
+
+Value of this parameter is name of `review` scenario.
+
+#### `d_read`
+
+Who can view
+
+- Default:
+
+    `private`
+
+- Overrides:
+
+    Virtual domain
+
+    List (`shared_doc.d_read`)
+
+Value of this parameter is name of `d_read` scenario.
+
+#### `d_edit`
+
+Who can edit
+
+- Default:
+
+    `owner`
+
+- Overrides:
+
+    Virtual domain
+
+    List (`shared_doc.d_edit`)
+
+Value of this parameter is name of `d_edit` scenario.
+
+#### `archive_web_access`
+
+access right
+
+- Default:
+
+    `closed`
+
+- Overrides:
+
+    Virtual domain
+
+    List (`archive.web_access`)
+
+Value of this parameter is name of `archive_web_access` scenario.
+
+#### `archive_mail_access`
+
+access right by mail commands
+
+- Default:
+
+    `closed`
+
+- Overrides:
+
+    Virtual domain
+
+    List (`archive.mail_access`)
+
+Value of this parameter is name of `archive_mail_access` scenario.
+
+#### `tracking`
+
+who can view message tracking
+
+- Default:
+
+    `owner`
+
+- Overrides:
+
+    Virtual domain
+
+    List (`tracking.tracking`)
+
+Value of this parameter is name of `tracking` scenario.
+
 ## Archives
 
 #### `process_archive`
@@ -1623,7 +1865,7 @@ Parsed files for families
 
 - Default:
 
-    `message.footer,message.header,message.footer.mime,message.header.mime,info`
+    `message_header,message_header.mime,message_footer,message_footer.mime,info`
 
 - Overrides:
 
@@ -2927,6 +3169,38 @@ Script to report spam
 
 If set, when a list moderator report undetected spams for list moderation, this external script is invoked and the message is injected into standard input of the script.
 
+#### `domains_blacklist`
+
+Prevent people to subscribe to a list with adresses using these domains
+
+- Default:
+
+    None.
+
+- Overrides:
+
+    None.
+
+This parameter is a comma-separated list.
+
+Example:
+
+    domains_blacklist example.org,spammer.com
+
+#### `quiet_subscription`
+
+Quiet subscriptions policy
+
+- Default:
+
+    `optional`
+
+- Overrides:
+
+    None.
+
+Global policy for quiet subscriptions: "on" means that subscriptions will never send a notice to the subscriber, "off" will enforce a notice sending, "optional" (default) let use the list policy.
+
 ## S/MIME and TLS
 
 S/MIME authentication, decryption and re-encryption. It requires these external modules: Crypt-OpenSSL-X509 and Crypt-SMIME.
@@ -3586,6 +3860,20 @@ Add a "Report abuse" link in the side menu of the lists (0|1)
     None.
 
 The link is a mailto link, you can change that by overriding web\_tt2/report\_abuse.tt2
+
+#### `allow_account_deletion`
+
+EXPERIMENTAL! Allow users to delete their account. If enabled, shows a "delete my account" form in user's preferences page.
+
+- Default:
+
+    `0`
+
+- Overrides:
+
+    None.
+
+Account deletion usubscribe the users from his/her lists and remove him/her from lists ownership. Only usable by users using internal authentication (i.e. no LDAP, no SSO…). See https://github.com/sympa-community/sympa/issues/300 for details
 
 # FILES
 
