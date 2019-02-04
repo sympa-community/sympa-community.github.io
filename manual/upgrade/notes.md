@@ -35,8 +35,8 @@ below.
     specified by parameters in `robot.conf` or `sympa.conf`.
 
     For details on parameters see
-    "[Default privileges for the lists](../man/sympa.conf.5.md) in
-    `sympa.conf(5)` manual page.
+    "[Default privileges for the lists](../man/sympa.conf.5.md#default-privileges-for-the-lists)"
+    in `sympa.conf(5)` manual page.
     Previous default settings using symbolic links are automatically migrated
     during upgrading process. However you should review the changes in
     `sympa.conf` (and `robot.conf`).
