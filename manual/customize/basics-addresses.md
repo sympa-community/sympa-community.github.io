@@ -25,12 +25,16 @@ system administrators.
     ~~[mail commands](../mail-commands.md)~~.
 
     ----
-    Note:
+    Notes:
 
       * If you decided not to provide mail command interface to users, this
         `sympa` address may be disabled.
         However, you have to modify many mail templates to remove links to
         this address from system messages.
+
+      * Though you might use the other mailbox than `sympa` by setting
+        [`email`](../man/sympa.conf.5.md#email) parameter, you will have to
+        change mail aliases as well.
 
     ----
 
@@ -38,7 +42,16 @@ system administrators.
 
     The public address to contact the [listmasters](basics-roles.md).  Messages
     sent to this address will be forwarded to the people configured by
-    [`listmaster`](../man/sympa.conf.5.md) parameter.
+    [`listmaster`](../man/sympa.conf.5.md#listmaster) parameter.
+    
+    ----
+    Note:
+    
+      * Though you might use the other mailbox than `listmaster` by setting
+        [`listmaster_email`](../man/sympa.conf.5.md#listmaster_email)
+        parameter, you will have to change mail aliases as well.
+    
+    ----
 
   * `bounce+`*parameters*`@mail.example.org`
 
@@ -53,6 +66,16 @@ system administrators.
     This address also is used for [message tracking](message-tracking.md). In
     such case *parameters* will contain envelope ID along with information of
     original recipient.
+    
+    ----
+    Note:
+    
+      * Though you might use the other mailboxes than `bounce` and so on by
+        setting
+        [`bounce_email_prefix`](../man/sympa.conf.5.md#bounce_email_prefix)
+        parameter, you will have to change mail aliases as well.
+    
+    ----
 
   * `abuse-feedback-report@mail.example.org`
 
@@ -125,5 +148,3 @@ them.
 If automatic list feature is enabled, arbitrary addresses will accept incoming
 messages and the list corresponding to that address will be created.  See
 "[Automatic list creation](automatic-lists.md)" for more details.
-
-
