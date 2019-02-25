@@ -277,6 +277,15 @@ instruction below.
      </Location>
      ```
 
+     ----
+     Note:
+
+       * Some binary distributions ship configuration ready to edit:
+
+           - On RPM (RHEL/CentOS 7 or Fedora), ``/etc/httpd/conf.d/sympa.conf``
+             file is prepared by ``sympa-httpd`` package.
+
+     ----
   2. Edit it as you prefer.
 
      Note that ``ServerName`` directive above should contain host part of
