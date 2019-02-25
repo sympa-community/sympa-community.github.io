@@ -67,7 +67,14 @@ Note:
 
        * With binary distributions, ``wwsympa.service`` file may have already
          been installed, if that package supports Systemd.
+ 
+         ----
+         Note:
+         
+           * With RPM (RHEL/CentOS 7 or Fedora), this file is prepared by
+             `sympa-httpd` package. 
 
+         ----
        * If you have installed Sympa from source, and you have given
          ``--with-unitsdir=DIR`` option to `configure` script,
          you may find a file
@@ -131,6 +138,16 @@ Note:
      # sysrc spawn_fcgi_username="sympa"
      # sysrc spawn_fcgi_groupname"sympa"
      ```
+
+     ----
+     Note:
+
+       * If you also want to serve
+         [Sympa SOAP interface](../customize/soap-api.md) with this method,
+         you may have to write an rc script to start another spawn-fcgi
+         service.  Contribution by readers will be appreciated.
+
+     ----
 
   2. Start WWSympa FastCGI service.
      ```bash
