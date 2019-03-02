@@ -73,3 +73,47 @@ Note:
 
 ----
 
+Instruction for earlier releases of Sympa
+-----------------------------------------
+
+----
+Note:
+
+  * This section describes instruction with Sympa prior to 6.2.
+
+----
+
+  1. Set appropriate parameters in `sympa.conf` as described in above.
+
+  2. Create database and table structure (Note: replace
+     [``$SCRIPTDIR``](../layout.md#scriptdir)):
+
+     ``` bash
+     $ mysql < $SCRIPTDIR/create_db.mysql
+     ```
+  3. Grant database privileges:
+
+     ``` bash
+     $ mysql
+     mysql> GRANT ALL PRIVILEGES ON sympa.* TO <db_user>@<client host>
+         -> IDENTIFIED BY '<db_passwd>';
+     mysql> QUIT
+     ```
+
+### Tuning
+
+With Sympa 6.0.x and 6.1.x, Sympa uses database as message spool.
+Thus, size of database server's communication buffer has to be as large as
+it can accept messages.
+
+To know maximum message size allowed to be stored in database, run:
+
+``` bash
+# sympa.pl --test_database_message_buffer
+```
+
+Then, if the result was smaller than what you expect, make
+[`max_allowed_packet`](https://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_max_allowed_packet)
+parameter in `my.cnf` larger, and run the command above again.
+
+

@@ -129,3 +129,25 @@ General instruction
      # sympa.pl --health_check
      ```
 
+Instruction for earlier releases of Sympa
+-----------------------------------------
+
+----
+Note:
+
+  * This section describes instruction with Sympa prior to 6.2.
+
+----
+
+  1. Set appropriate parameters in `sympa.conf` as described in above.
+
+  2. Edit [``$SCRIPTDIR``](../layout.md#scriptdir)``/create_db.Oracle` to
+     fit in your environment.
+
+  3. Create user and table structure (Note: replace
+     [``$SCRIPTDIR``](../layout.md#scriptdir)):
+
+     ``` bash
+     $ sh $SCRIPTDIR/create_db.Oracle
+     ```
+

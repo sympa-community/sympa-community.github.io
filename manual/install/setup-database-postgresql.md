@@ -57,3 +57,24 @@ General instruction
      # sympa.pl --health_check
      ```
 
+Instruction for earlier releases of Sympa
+-----------------------------------------
+
+----
+Note:
+
+  * This section describes instruction with Sympa prior to 6.2.
+
+----
+
+  1. Set appropriate parameters in `sympa.conf` as described in above.
+
+  2. Create database and role as described in above.
+
+  3. Create table structure (Note: replace
+     [``$SCRIPTDIR``](../layout.md#scriptdir)):
+
+     ``` bash
+     $ psql -U <db_user> -d sympa < $SCRIPTDIR/create_db.Pg
+     ```
+

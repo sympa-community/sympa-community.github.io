@@ -43,3 +43,31 @@ General instruction
      # sympa.pl --health_check
      ```
 
+Instruction for earlier releases of Sympa
+-----------------------------------------
+
+----
+Note:
+
+  * This section describes instruction with Sympa prior to 6.2.
+
+----
+
+  1. Set appropriate parameters in `sympa.conf` as described in above.
+
+  2. Create database file (note that `<db_name>` is the ful path to database
+     file you want to create).
+
+     ``` bash
+     # touch <db_name>
+     # chown sympa:sympa <db_name>
+     ```
+  3. Create table structure (Note: replace
+     [``$SCRIPTDIR``](../layout.md#scriptdir)):
+
+     ``` bash
+     $ sqlite3 <db_name>
+     sqlite> .read $SCRIPTDIR/create_db.SQLite
+     sqlite> .quit
+     ```
+
