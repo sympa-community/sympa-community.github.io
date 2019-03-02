@@ -117,33 +117,8 @@ Setup
 
 ### HTTP server setup
 
-Here are excerpts of HTTP server configuration with a SOAP server (Note:
-replace [``$EXECCGIDIR``](../layout.md#execcgidir) below).
-For more details see appropriate section in
+See appropriate section in
 "[Configure HTTP server](../install/configure-http-server.md)".
-
-  * Apache HTTP Server
-
-    ``` code
-    <Location /sympasoap>
-        SetHandler fcgid-script
-    
-        ...
-    
-    </Location>
-    ScriptAlias /sympasoap $EXECCGIDIR/sympa_soap_server-wrapper.fcgi
-    ```
-
-    ----
-    Note:
-
-      * Starting Sympa 5.4, the
-        [`sympa_soap_server.fcgi`](../man/sympa_soap_server.8.md) is wrapped
-        in small C program, [`sympa_soap_server-wrapper.fcgi`](../man/sympa_soap_server-wrapper.8.md),
-        in order to avoid to use the --- insecure and no longer
-        maintained --- setuid perl mode.
-
-    ----
 
 ### Sympa configuration parameters
 

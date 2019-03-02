@@ -20,6 +20,18 @@ Requirements
 
   * [FCGI](https://metacpan.org/release/FCGI), FastCGI interface for Perl.
 
+----
+Note:
+
+  * [`wwsympa.fcgi`](../man/wwsympa.8.md) is wrapped in small setuid program
+    written in C, [`wwsympa-wrapper.fcgi`](../man/wwsympa-wrapper.8.md).
+
+    Setuid wrapper was introduced on Sympa 5.4
+    in order to avoid to use the --- insecure and no longer
+    maintained --- setuid perl mode.
+
+----
+
 General instruction
 -------------------
 

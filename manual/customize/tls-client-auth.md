@@ -20,6 +20,9 @@ client certificate.  No additional setting is needed on the side of Sympa.
 Requirements
 ------------
 
+  - TLS support with HTTP server, for example mod_ssl with
+    Apache HTTP Server.
+
   - [Crypt-OpenSSL-X509](https://metacpan.org/release/Crypt-OpenSSL-X509)
     Perl module.
 
@@ -35,8 +38,9 @@ SSLVerifyDepth  10
 ...
 <Location /sympa>
     SSLOptions +StdEnvVars +ExportCertData
-    SetHandler fcgid-script
+
     ...
+
 </Location>
 ```
 
