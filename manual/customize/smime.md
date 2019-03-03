@@ -67,6 +67,16 @@ necessary to configure S/MIME support.
     [`c_rehash(1)`](https://www.openssl.org/docs/manmaster/man1/c_rehash.html)
     utility.
 
+    ----
+    Note:
+    
+      * Some binary distributions provide `c_rehash` script with openssl
+        package.
+        Some others provide alternative script (for example, RHEL/CentOS
+        provides `cacertdir_rehash` script with `authconfig` package).
+
+    ----
+
   - [`key_passwd`](../man/sympa.conf.5.md#key_passwd)
 
     Passphrase to decrypt private key by which encrypted messages are
