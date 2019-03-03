@@ -29,6 +29,21 @@ below.
 
 ### From versions prior to 6.2.42 (coming later)
 
+  * RC4 reversible encryption of password storage in database was dropped.
+    If you have been using it, run
+    [``upgrade_sympa_passowrd.pl``](../man/upgrade_sympa_password.1.md) to
+    rehash passwords stored in database.
+
+    ----
+    Note:
+
+      * Though it is not forced, it is recommended to upgrade password storage
+        format using `bcrypt`, more secure hash function.  See
+        "[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)"
+        for details.
+
+    ----
+
   * Authorization schearios:
     The "default" scenario files named `*.default` (regular file or symbolic
     link) are no longer available: Default list scenariios have to be
@@ -42,11 +57,15 @@ below.
     `sympa.conf` (and `robot.conf`).
 
   * WWSympa:
-    If a virtual domain setting does not have `auth.conf`,
-    `crawlers_detection.conf` or `trusted_applications.conf` while it is
-    there in [`$SYSCONFDIR`](../layout.md#sysconfdir), the latter will be
-    used.  Previously in such case, the latter was ignored and only
-    built-in authnetication was enabled.
+
+      * If a virtual domain setting does not have `auth.conf`,
+        `crawlers_detection.conf` or `trusted_applications.conf` while it is
+        there in [`$SYSCONFDIR`](../layout.md#sysconfdir), the latter will be
+        used.  Previously in such case, the latter was ignored and only
+        built-in authnetication was enabled.
+      * Format of session cookie was changed.  Even if you have been used
+        web interface with Sympa 6.2 or later, all users may have to login
+        again after upgrade.
 
   * LDAP authentication:
     Now entry of authenticating user is retrieved by the LDAP account
