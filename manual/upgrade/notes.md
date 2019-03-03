@@ -29,21 +29,6 @@ below.
 
 ### From versions prior to 6.2.42 (coming later)
 
-  * RC4 reversible encryption of password storage in database was dropped.
-    If you have been using it, run
-    [``upgrade_sympa_passowrd.pl``](../man/upgrade_sympa_password.1.md) to
-    rehash passwords stored in database.
-
-    ----
-    Note:
-
-      * Though it is not forced, it is recommended to upgrade password storage
-        format using `bcrypt`, more secure hash function.  See
-        "[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)"
-        for details.
-
-    ----
-
   * Authorization schearios:
     The "default" scenario files named `*.default` (regular file or symbolic
     link) are no longer available: Default list scenariios have to be
@@ -56,22 +41,36 @@ below.
     during upgrading process. However you should review the changes in
     `sympa.conf` (and `robot.conf`).
 
-  * WWSympa:
+  * WWSympa and SympaSOAP:
 
       * If a virtual domain setting does not have `auth.conf`,
         `crawlers_detection.conf` or `trusted_applications.conf` while it is
         there in [`$SYSCONFDIR`](../layout.md#sysconfdir), the latter will be
         used.  Previously in such case, the latter was ignored and only
         built-in authnetication was enabled.
+      * Built-in authantication:
+        RC4 reversible encryption of password storage in database using
+        Crypt::CipherSaber was dropped.  If you have been using it, run
+        [``upgrade_sympa_passowrd.pl``](../man/upgrade_sympa_password.1.md) to
+        rehash passwords stored in database.
+
+        ----
+        Note:
+
+          * Though it is not forced, it is recommended to upgrade password storage
+            format using `bcrypt`, more secure hash function.  See
+            "[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)"
+            for details.
+
+        ----
+      * LDAP authentication:
+        Now entry of authenticating user is retrieved by the LDAP account
+        specified by `bind_dn` parameter.
+        Previously, the second search operation to retrieve user entry was
+        performed under the privilege of the user of their own.
       * Format of session cookie was changed.  Even if you have been used
         web interface with Sympa 6.2 or later, all users may have to login
         again after upgrade.
-
-  * LDAP authentication:
-    Now entry of authenticating user is retrieved by the LDAP account
-    specified by `bind_dn` parameter.
-    Previously, the second search operation to retrieve user entry was
-    performed under the privilege of the user of their own.
 
 ### From versions prior to 6.2.38
 
