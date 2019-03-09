@@ -146,12 +146,12 @@ Session store is used to keep users' personal data.
 - decrypt\_session\_id ( )
 
     _Function_.
-    TBD.
+    Deprecated.
 
 - encrypt\_session\_id ( )
 
     _Function_.
-    TBD.
+    Deprecated.
 
 - list\_sessions ( )
 

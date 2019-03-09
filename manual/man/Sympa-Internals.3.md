@@ -221,7 +221,7 @@ To know details of each module, run:
 
 - [Sympa::Scenario](./Sympa-Scenario.3.md)
 
-    TBD
+    Authorization scenarios
 
 - [Sympa::Spindle](./Sympa-Spindle.3.md)
 

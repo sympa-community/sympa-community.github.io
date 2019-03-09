@@ -2245,60 +2245,6 @@ Time ranges when inclusion is not allowed
 
     None.
 
-### `include_voot_group`
-
-VOOT group inclusion
-
-- Multiple occurrences allowed
-
-#### `include_voot_group.name`
-
-short name for this source
-
-- Format:
-
-    /`.+`/
-
-- Default:
-
-    None.
-
-#### `include_voot_group.user`
-
-user
-
-- Format:
-
-    /`\S+`/
-
-- Default:
-
-    None, _mandatory_.
-
-#### `include_voot_group.provider`
-
-provider
-
-- Format:
-
-    /`\S+`/
-
-- Default:
-
-    None, _mandatory_.
-
-#### `include_voot_group.group`
-
-group
-
-- Format:
-
-    /`\S+`/
-
-- Default:
-
-    None, _mandatory_.
-
 ### `ttl`
 
 Inclusions timeout

@@ -2887,6 +2887,20 @@ Format of values is a string without spaces including "y" for years, "m" for mon
 
     None.
 
+#### `shared_feature`
+
+Enable shared repository
+
+- Default:
+
+    `off`
+
+- Overrides:
+
+    Virtual domain
+
+If set to "on", list owners can open shared repository.
+
 #### `default_shared_quota`
 
 Default disk quota for shared repository
@@ -3199,7 +3213,7 @@ Quiet subscriptions policy
 
     None.
 
-Global policy for quiet subscriptions: "on" means that subscriptions will never send a notice to the subscriber, "off" will enforce a notice sending, "optional" (default) let use the list policy.
+Global policy for quiet subscriptions: "on" means that subscriptions will never send a notice to the subscriber, "off" will enforce a notice sending, and "optional" (default) allows the use of the list policy.
 
 ## S/MIME and TLS
 
@@ -3803,16 +3817,6 @@ Default timeout between two action-triggered synchronizations of list members wi
 
     None.
 
-#### `voot_feature`
-
-- Default:
-
-    `off`
-
-- Overrides:
-
-    None.
-
 #### `edit_list`
 
 - Default:
@@ -3873,7 +3877,7 @@ EXPERIMENTAL! Allow users to delete their account. If enabled, shows a "delete m
 
     None.
 
-Account deletion usubscribe the users from his/her lists and remove him/her from lists ownership. Only usable by users using internal authentication (i.e. no LDAP, no SSO…). See https://github.com/sympa-community/sympa/issues/300 for details
+Account deletion unsubscribes the users from his/her lists and removes him/her from lists ownership. It is only available to users using internal authentication (i.e. no LDAP, no SSO...). See https://github.com/sympa-community/sympa/issues/300 for details
 
 # FILES
 

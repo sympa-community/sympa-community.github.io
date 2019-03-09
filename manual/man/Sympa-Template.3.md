@@ -83,10 +83,6 @@ Instance of [Sympa::Template](./Sympa-Template.3.md) may have following attribut
     _Read only_.
     Error occurred at the last execution of parse, or `undef`.
 
-- {plugins}
-
-    TBD.
-
 - {subdir}, {lang}, {lang\_only}
 
     TBD.
