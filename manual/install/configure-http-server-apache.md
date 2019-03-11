@@ -117,8 +117,11 @@ General instruction
 
        * Some binary distributions ship configuration ready to edit:
 
-           - On RPM, ``/etc/httpd/conf.d/sympa.conf`` file is prepared by
-             ``sympa-httpd`` package.
+           - On Debian (10 "buster" or earlier),
+             ``/etc/apache2/conf-available/sympa.conf`` file is prepared.
+
+           - On RPM (RHEL/CentOS 6), ``/etc/httpd/conf.d/sympa.conf`` file is
+             prepared by ``sympa-httpd`` package.
 
      ----
 
