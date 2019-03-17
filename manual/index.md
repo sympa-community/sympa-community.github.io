@@ -73,6 +73,8 @@ Appendices
 
   - [Directory layout](layout.md)
 
+  - [Documentation on older versions](/gpldoc/manual-old/)
+
 Manual convention
 -----------------
 
