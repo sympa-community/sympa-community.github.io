@@ -1,11 +1,3 @@
 ---
-title: 'Sympa::DatabaseDriver::Sybase(3)'
+redirect_to: /gpldoc/man/Sympa-DatabaseDriver-Sybase.3.html
 ---
-
-# NAME
-
-Sympa::DatabaseDriver::Sybase - Database driver for Adaptive Server Enterprise
-
-# SEE ALSO
-
-[Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md).

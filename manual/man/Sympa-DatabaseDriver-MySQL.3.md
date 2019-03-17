@@ -1,11 +1,3 @@
 ---
-title: 'Sympa::DatabaseDriver::MySQL(3)'
+redirect_to: /gpldoc/man/Sympa-DatabaseDriver-MySQL.3.html
 ---
-
-# NAME
-
-Sympa::DatabaseDriver::MySQL - Database driver for MySQL / MariaDB
-
-# SEE ALSO
-
-[Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md).

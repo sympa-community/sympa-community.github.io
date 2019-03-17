@@ -1,11 +1,3 @@
 ---
-title: 'Sympa::DatabaseDriver::SQLite(3)'
+redirect_to: /gpldoc/man/Sympa-DatabaseDriver-SQLite.3.html
 ---
-
-# NAME
-
-Sympa::DatabaseDriver::SQLite - Database driver for SQLite
-
-# SEE ALSO
-
-[Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md).

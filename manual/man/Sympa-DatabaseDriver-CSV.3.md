@@ -1,11 +1,3 @@
 ---
-title: 'Sympa::DatabaseDriver::CSV(3)'
+redirect_to: /gpldoc/man/Sympa-DatabaseDriver-CSV.3.html
 ---
-
-# NAME
-
-Sympa::DatabaseDriver::CSV - Database driver for CSV
-
-# SEE ALSO
-
-[Sympa::DatabaseDriver](./Sympa-DatabaseDriver.3.md).

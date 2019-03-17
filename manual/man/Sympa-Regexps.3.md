@@ -1,11 +1,3 @@
 ---
-title: 'Sympa::Regexps(3)'
+redirect_to: /gpldoc/man/Sympa-Regexps.3.html
 ---
-
-# NAME
-
-Sympa::Regexps - Definition of regular expressions
-
-# DESCRIPTION
-
-This module keeps definition of regular expressions used by Sympa software.

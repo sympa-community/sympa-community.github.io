@@ -1,11 +1,3 @@
 ---
-title: 'Sympa::Constants(3)'
+redirect_to: /gpldoc/man/Sympa-Constants.3.html
 ---
-
-# NAME
-
-Sympa::Constants - Definition of constants
-
-# DESCRIPTION
-
-This module keeps definition of constants used by Sympa software.
