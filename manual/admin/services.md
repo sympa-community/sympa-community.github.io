@@ -15,31 +15,31 @@ Services overview
 
 Several daemons collaboratively provide mailing list service.
 
-  * [``archived.pl``](../man/archived.8.md)
+  * [``archived.pl``](/gpldoc/man/archived.8.html)
 
     Archiving daemon.
 
-  * [``bounced.pl``](../man/bounced.8.md)
+  * [``bounced.pl``](/gpldoc/man/bounced.8.html)
 
     Bounce processing daemon.
 
-  * [``bulk.pl``](../man/bulk.8.md)
+  * [``bulk.pl``](/gpldoc/man/bulk.8.html)
 
     Daemon for submitting messages to mail transfer agent (MTA).
     It may fork several workers as necessity.
 
-  * [``sympa_msg.pl``](../man/sympa_msg.8.md)
+  * [``sympa_msg.pl``](/gpldoc/man/sympa_msg.8.html)
 
     Daemon to handle incoming messages.
     It may fork several workers as necessity.
 
-  * [``task_manager.pl``](../man/task_manager.8.md)
+  * [``task_manager.pl``](/gpldoc/man/task_manager.8.html)
 
     Daemon to process periodical tasks.
 
 And optionally:
 
-  * [``sympa_automatic.pl``](../man/sympa_automatic.8.md)
+  * [``sympa_automatic.pl``](/gpldoc/man/sympa_automatic.8.html)
 
     Automatic list creation daemon.
     It may be invoked by ``sympa_msg.pl`` as necessity.
@@ -53,7 +53,7 @@ Internet.
 ### HTTP server and WWSympa
 
 HTTP server provides users web interface on behalf of WWSympa
-([``wwsympa.fcgi``](../man/wwsympa.8.md)), the FastCGI server.
+([``wwsympa.fcgi``](/gpldoc/man/wwsympa.8.html)), the FastCGI server.
 
 WWSympa may either be invoked by HTTP server or launch as an independent
 daemon.
@@ -116,7 +116,7 @@ Reloading services
 
   * Automatic reloading
 
-    If [``wwsympa.fcgi``](../man/wwsympa.8.md) script was updated, it detects
+    If [``wwsympa.fcgi``](/gpldoc/man/wwsympa.8.html) script was updated, it detects
     change of itself and exits.  Then WWSympa will be automatically reloaded.
 
     Exception is the case running separate FastCGI service with initscripts:

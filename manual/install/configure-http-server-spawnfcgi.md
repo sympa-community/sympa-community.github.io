@@ -237,7 +237,7 @@ instruction below.
   2. Edit it as you prefer.
 
      Note that ``server_name`` directive above should contain host part of
-     [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
+     [``wwsympa_url``](/gpldoc/man/sympa.conf.5.html#wwsympa_url) parameter.  Because
      Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
      web host name of the service.
 
@@ -289,7 +289,7 @@ instruction below.
   2. Edit it as you prefer.
 
      Note that ``ServerName`` directive above should contain host part of
-     [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url) parameter.  Because
+     [``wwsympa_url``](/gpldoc/man/sympa.conf.5.html#wwsympa_url) parameter.  Because
      Sympa refers to ``SERVER_NAME`` CGI environment variable to determine
      web host name of the service.
 

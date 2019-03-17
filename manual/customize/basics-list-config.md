@@ -33,7 +33,7 @@ The others will be created as their necessities.
 
       * Exceptionally, [``$EXPLDIR``](../layout.md#expldir)`/`_list name_`/`
         is also allowed for primary mail domain (mail domain defined by
-        `domain` parameter in [``sympa.conf``](../man/sympa.conf.5.md)).
+        `domain` parameter in [``sympa.conf``](/gpldoc/man/sympa.conf.5.html)).
         However, full path described above is recommended for new
         installation.
 
@@ -86,7 +86,7 @@ listmasters or owners.
     See also
     "[Configuration files](basics-configuration.md#configuration-files)"
     in "Configuration hierarchy".
-    See [`list_config(5)`](../man/list_config.5.md) for details of format and
+    See [`list_config(5)`](/gpldoc/man/list_config.5.html) for details of format and
     configuration parameters.
 
 ### `info` and `homepage` files
@@ -124,7 +124,7 @@ listmasters or owners.
     distributed messages.
 
     `message_footer.mime` is used only when footer type is "mime" (see also
-    [`footer_type`](../man/list_config.5.md#footer_type) parameter).
+    [`footer_type`](/gpldoc/man/list_config.5.html#footer_type) parameter).
 
   * `message_header`
   * `message_header.mime`
@@ -208,7 +208,7 @@ users in dump files are imported again.
 
 Additionally, administrator can export users to dump files using command line
 `sympa.pl --dump_users` anytime, or import dump files using
-`sympa.pl --restore_users` (see [`sympa.pl(1)`](../man/sympa.1.md)) anytime.
+`sympa.pl --restore_users` (see [`sympa.pl(1)`](/gpldoc/man/sympa.1.html)) anytime.
 `sympa.pl --dump_users` does not remove users in database backend.
 
 ### Other files
@@ -223,7 +223,7 @@ In general, these files should not be modified manually.
 
       1. Number of messages the list has distributed.
          This number is assigned as value of `list.sequence` template variable
-         used with [`custom_subject`](../man/list_config.5.md#custom_subject)
+         used with [`custom_subject`](/gpldoc/man/list_config.5.html#custom_subject)
          parameter.
       2. Total number of messages the list has distributed.
       3. Sum of message sizes the list has distributed.

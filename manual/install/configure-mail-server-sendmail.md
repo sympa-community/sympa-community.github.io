@@ -22,14 +22,14 @@ Requirements
 General instruction
 -------------------
 
-  1. Set [``domain``](../man/sympa.conf.5.md#domain) parameter.
-     Add following line to [``sympa.conf``](../man/sympa.conf.5.md#config)
+  1. Set [``domain``](/gpldoc/man/sympa.conf.5.html#domain) parameter.
+     Add following line to [``sympa.conf``](/gpldoc/man/sympa.conf.5.html#config)
      (Note: replace ``mail.example.org``):
      ``` code
      domain mail.example.org
      ```
      Also, if path of ``sendmail`` executable file is differ from the default
-     value of [``sendmail``](../man/sympa.conf.5.md#sendmail) parameter,
+     value of [``sendmail``](/gpldoc/man/sympa.conf.5.html#sendmail) parameter,
      ``/usr/sbin/sendmail``, define it.  For example:
      ``` code
      sendmail /usr/lib/sendmail

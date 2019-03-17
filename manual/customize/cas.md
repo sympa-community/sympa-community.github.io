@@ -32,7 +32,7 @@ Sympa configuration
 -------------------
 
 Listmasters should define one or more
-[`cas`](../man/auth.conf.5.md#cas-paragraph) paragraph in `auth.conf`
+[`cas`](/gpldoc/man/auth.conf.5.html#cas-paragraph) paragraph in `auth.conf`
 configuration file. Below is an example of the paragraph:
 ``` code
 cas

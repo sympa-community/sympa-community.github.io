@@ -41,7 +41,7 @@ Once desired file is found in a directory, Sympa no longer does search
 subsequent directories.  By this hierarchical system, configuration applied
 to wider scopes can be customized for particular domains and/or lists.
 
-For example, given following [`edit_list.conf`](../man/edit_list.conf.5.md)
+For example, given following [`edit_list.conf`](/gpldoc/man/edit_list.conf.5.html)
 configuration files placed:
 
   - `$EXPLDIR/mail.example.org/list1/edit_list.conf`
@@ -64,7 +64,7 @@ Note:
     > `$EXPLDIR/`*mail domain name*`/`*list name*`/`
 
     However, by historical reason, the lists of primary domain (the mail
-    domain defined by [`domain`](../man/sympa.conf.5.md#domain) parameter in
+    domain defined by [`domain`](/gpldoc/man/sympa.conf.5.html#domain) parameter in
     [``sympa.conf``](../layout.md#config)) also allows the path in a style:
     > `$EXPLDIR/`*list name*`/`.
 
@@ -78,13 +78,13 @@ Exceptions:
   - Some configuration files are not available in "list" and/or "mail domain"
     scopes.  For example:
 
-      - [`auth.conf`](../man/auth.conf.5.md) is available only in
+      - [`auth.conf`](/gpldoc/man/auth.conf.5.html) is available only in
         "mail domain" or "site" scope;
-      - [`charset.conf`](../man/charset.conf.5.md) is available only in "site"
+      - [`charset.conf`](/gpldoc/man/charset.conf.5.html) is available only in "site"
         scope.
 
     See also
-    [documentation on each file](../man/sympa_toc.1.md#configuration-files).
+    [documentation on each file](/gpldoc/man/sympa_toc.1.html#configuration-files).
 
   - Most of templates are classified further by subdirectories: See
     "[Templates](basics-templates.md)".  Task model files are alike: See
@@ -116,6 +116,6 @@ Main configuration files have different names by each scope:
 
 These files will not override the others.  Instead, several parameters in
 these files override parameters in wider scopes by each.  See documentation on
-parameters in [`sympa.conf`, `robot.conf`](../man/sympa.conf.5.md) and
-[`config`](../man/list_config.5.md) files.
+parameters in [`sympa.conf`, `robot.conf`](/gpldoc/man/sympa.conf.5.html) and
+[`config`](/gpldoc/man/list_config.5.html) files.
 

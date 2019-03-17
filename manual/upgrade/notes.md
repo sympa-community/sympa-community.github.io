@@ -35,7 +35,7 @@ below.
     specified by parameters in `robot.conf` or `sympa.conf`.
 
     For details on parameters see
-    "[Default privileges for the lists](../man/sympa.conf.5.md#default-privileges-for-the-lists)"
+    "[Default privileges for the lists](/gpldoc/man/sympa.conf.5.html#default-privileges-for-the-lists)"
     in `sympa.conf(5)` manual page.
     Previous default settings using symbolic links are automatically migrated
     during upgrading process. However you should review the changes in
@@ -51,7 +51,7 @@ below.
       * Built-in authantication:
         RC4 reversible encryption of password storage in database using
         Crypt::CipherSaber was dropped.  If you have been using it, run
-        [``upgrade_sympa_passowrd.pl``](../man/upgrade_sympa_password.1.md) to
+        [``upgrade_sympa_passowrd.pl``](/gpldoc/man/upgrade_sympa_password.1.html) to
         rehash passwords stored in database.
 
         ----
@@ -75,7 +75,7 @@ below.
 ### From versions prior to 6.2.38
 
   * If you have used Oracle Database, review
-    [`db_*`](../man/sympa.conf.5.md#database-related) parameters in
+    [`db_*`](/gpldoc/man/sympa.conf.5.html#database-related) parameters in
     [`sympa.conf`](../layout.md#config):
 
       - If you want to continue using SID (only method supported before) and
@@ -91,7 +91,7 @@ below.
 
 ### From versions prior to 6.2.34
 
-  * [`host`](../man/list_config.5.md#host) list parameter was deprecated. If you have used this parameter:
+  * [`host`](/gpldoc/man/list_config.5.html#host) list parameter was deprecated. If you have used this parameter:
 
       1. Create new domain with the same name as value of `host` list parameter (Note:
          replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
@@ -104,9 +104,9 @@ below.
          # chown sympa:sympa $EXPLDIR/<host>
          ```
          And rename list `listname@domain` to `listname@host`, using web interface or
-         [`sympa.pl`](../man/sympa.pl.1.md) command line tool.
+         [`sympa.pl`](/gpldoc/man/sympa.pl.1.html) command line tool.
 
-      2. Also, you may have to check [`list_aliases.tt2`](../man/list_aliases.tt2.5.md) and may have to
+      2. Also, you may have to check [`list_aliases.tt2`](/gpldoc/man/list_aliases.tt2.5.html) and may have to
          regenerate alias file after upgrading as:
          ``` bash
          # sympa.pl --make_alias_file --robot <mail domain>
@@ -115,8 +115,8 @@ below.
       Note that you are recommended to back up database and older alias files in advance.
 
   * If you managed multiple domains and used web interface,
-    [`wwsympa_url`](../man/sympa_config.5.md#wwsympa_url) parameter in each
-    [`robot.conf`](../man/sympa.conf.5.md) file is now mandatory.
+    [`wwsympa_url`](/gpldoc/man/sympa_config.5.html#wwsympa_url) parameter in each
+    [`robot.conf`](/gpldoc/man/sympa.conf.5.html) file is now mandatory.
     Though it will be automatically added during upgrading process, if you used HTTPS protocol,
     you may have to edit value of `wwsympa_url` parameter in each `robot.conf` file.
 
@@ -164,10 +164,10 @@ below.
         ```
 
   * If you have specified
-    [`static_content_path`](../man/sympa.conf.5.md#static_content_path)
+    [`static_content_path`](/gpldoc/man/sympa.conf.5.html#static_content_path)
     parameter in [``sympa.conf``](../layout.md#config), you might want to
-    specify [`css_path`](../man/sympa.conf.5.md#css_path) (if you have not
-    specified it) and [`pictures_path`](../man/sympa.conf.5.md#pictures_path)
+    specify [`css_path`](/gpldoc/man/sympa.conf.5.html#css_path) (if you have not
+    specified it) and [`pictures_path`](/gpldoc/man/sympa.conf.5.html#pictures_path)
     also.
 
       - With earlier version:
@@ -182,10 +182,10 @@ below.
         ```
 
   * If you have specified
-    [`static_content_url`](../man/sympa.conf.5.md#static_content_url)
+    [`static_content_url`](/gpldoc/man/sympa.conf.5.html#static_content_url)
     parameter in [``sympa.conf``](../layout.md#config), you might want to
-    specify [`css_url`](../man/sympa.conf.5.md#css_url) (if you have not
-    specified it) and [`pictures_url`](../man/sympa.conf.5.md#pictures_url)
+    specify [`css_url`](/gpldoc/man/sympa.conf.5.html#css_url) (if you have not
+    specified it) and [`pictures_url`](/gpldoc/man/sympa.conf.5.html#pictures_url)
     also.
 
       - With earlier version:
@@ -259,8 +259,8 @@ upgrading. Here is the ordered list of operations to perform.
      # upgrade_send_spool.pl              # move messages sent through web interface to the new format
      ```
      For details, read manual pages of
-     [upgrade_bulk_spool.pl](../man/upgrade_bulk_spool.1.md) and
-     [upgrade_send_spool.pl](../man/upgrade_send_spool.1.md).
+     [upgrade_bulk_spool.pl](/gpldoc/man/upgrade_bulk_spool.1.html) and
+     [upgrade_send_spool.pl](/gpldoc/man/upgrade_send_spool.1.html).
 
   4. For all your **custom action** templates, move them into
      **[``$SYSCONFDIR``](../layout.md#sysconfdir)`/custom_actions`**
@@ -293,15 +293,15 @@ Additionally, you may have to fix up configuration manually:
 
   - New parameters:
 
-    [`process_archive`](../man/list_config.md#process_archive) controls
+    [`process_archive`](/gpldoc/man/list_config.html#process_archive) controls
     archiving.
     The default is "`off`": To enable archiving, it must be set to "`on`"
     explicitly (in `sympa.conf`, `robot.conf` or each list `config` file).
 
     If you have used `virtualwrapper`, it was replaced with new programs
     `sympa_newaliases.pl` and its wrapper: You may have to add new parameters
-    [`aliases_program`](../man/sympa.conf.5.md#aliases_program) and
-    optionally [`aliases_db_type`](../man/sympa.conf.5.md#aliases_db_type)
+    [`aliases_program`](/gpldoc/man/sympa.conf.5.html#aliases_program) and
+    optionally [`aliases_db_type`](/gpldoc/man/sympa.conf.5.html#aliases_db_type)
     to `sympa.conf`.
 
   - Renamed list parameters:

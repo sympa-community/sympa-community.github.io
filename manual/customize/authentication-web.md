@@ -44,13 +44,13 @@ to be equivalent: See
 By default, only this mechanism is enabled.
 
 Sympa stores the data relative to users in the
-[`user_table`](../man/sympa_database.5.md#user_table) database table.
+[`user_table`](/gpldoc/man/sympa_database.5.html#user_table) database table.
 Among these data, password and email address are used during the web
 authentication. 
 
 Built-in authentication mechanism is described by
-[`user_table`](../man/auth.conf.5.md#user_table-paragraph) paragraph in
-[`auth.conf`](../man/auth.conf.5.md) configuration file.  Below is an example
+[`user_table`](/gpldoc/man/auth.conf.5.html#user_table-paragraph) paragraph in
+[`auth.conf`](/gpldoc/man/auth.conf.5.html) configuration file.  Below is an example
 of the paragraph:
 ```code
 user_table
@@ -62,7 +62,7 @@ See "[Built-in authentication](builtin-auth.md)" for more details.
 ### LDAP authentication
 
 Authentication based on information stored in LDAP directory.  This mechanism
-may be defined by [`ldap`](../man/auth.conf.5.md#ldap-paragraph) paragraph in
+may be defined by [`ldap`](/gpldoc/man/auth.conf.5.html#ldap-paragraph) paragraph in
 `auth.conf` configuration file.  See "[LDAP authentication](ldap-auth.md)"
 for more details.
 
@@ -76,9 +76,9 @@ This authentication mechanism has first been introduced to allow interaction wit
 
 Sympa will get user attributes via environment variables. In the most simple case, the SSO will provide the user email address. If not, Sympa can be configured to check an email address provided by the user, or to look for the user email address in a LDAP directory (the search filter will make use of user information inherited from the SSO Apache module).
 
-Apart from the user email address, the SSO can provide other user attributes that Sympa will store in the [`user_table`](../man/sympa_database.5.md#user_table) database table (for persistancy), and make available in the `[user_attributes->`*keyword*`]` variable that you can use within [authorization scenarios](basics-scenarios.md) or in [web templates](basics-templates.md#mail-and-web-template files) via the `[%user.attributes.`*keyword*`%]` variable.
+Apart from the user email address, the SSO can provide other user attributes that Sympa will store in the [`user_table`](/gpldoc/man/sympa_database.5.html#user_table) database table (for persistancy), and make available in the `[user_attributes->`*keyword*`]` variable that you can use within [authorization scenarios](basics-scenarios.md) or in [web templates](basics-templates.md#mail-and-web-template files) via the `[%user.attributes.`*keyword*`%]` variable.
 
-To plug a new SSO server in your Sympa server, you should add a [`generic_sso`](../man/auth.conf.5.md#generic_sso-paragraph) paragraph describing the SSO service in your `auth.conf` configuration file.
+To plug a new SSO server in your Sympa server, you should add a [`generic_sso`](/gpldoc/man/auth.conf.5.html#generic_sso-paragraph) paragraph describing the SSO service in your `auth.conf` configuration file.
 Once this paragraph has been added, the SSO service name will be automatically added to the web login menu.
 
 Below is an example of the paragraph:
@@ -127,7 +127,7 @@ Sympa configuration overview
 
 ### Location
 
-The [`auth.conf`](../man/auth.conf.5.md) configuration file contains numerous
+The [`auth.conf`](/gpldoc/man/auth.conf.5.html) configuration file contains numerous
 parameters which are read on start-up of Sympa.  Its location is:
 
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*mail domain*`/auth.conf`
@@ -151,7 +151,7 @@ Note:
 ----
 Note:
 
-  * See [`auth.conf(5)`](../man/auth.conf.5.md) manual page for detailed
+  * See [`auth.conf(5)`](/gpldoc/man/auth.conf.5.html) manual page for detailed
     definition on content of `auth.conf` file.
 
 ----

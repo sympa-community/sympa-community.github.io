@@ -75,23 +75,23 @@ Data source definition comes from a separate `.inc` file located in the
 `data_sources/` directory (See "[Data inclusion file](#data-inclusion-file)").
 Any of following list configuration parameters then refers to this data source
 file.
-  - [`member_include`](../man/list_config.5.md#member_include) for members.
-  - [`owner_include`](../man/list_config.5.md#owner_include) for owners.
-  - [`editor_include`](../man/list_config.5.md#editor_include) for moderators.
+  - [`member_include`](/gpldoc/man/list_config.5.html#member_include) for members.
+  - [`owner_include`](/gpldoc/man/list_config.5.html#owner_include) for owners.
+  - [`editor_include`](/gpldoc/man/list_config.5.html#editor_include) for moderators.
 
 This configuration approach has been adopted to lessen the number of list
 configuration parameters.
 
 There is another way to define member data sources: Member data source may
 also be defined using
-[`include_*`](../man/list_config.5.md#data-sources-setup) configuration
+[`include_*`](/gpldoc/man/list_config.5.html#data-sources-setup) configuration
 parameters; they can be edited through the list admin web interface of Sympa.
 
 ----
 Note:
 
   * As of Sympa 6.2,
-    [`user_data_source`](../man/list_config.5.md#user_data_source)
+    [`user_data_source`](/gpldoc/man/list_config.5.html#user_data_source)
     list configuration parameter is no more used (hard-coded include2 value);
     it has been introduced to support different members data management modes.
 
@@ -99,7 +99,7 @@ Note:
 
 ### Data inclusion file
 
-Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `member_include`, `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [list configuration parameters](../man/list_config.5.md#data-sources-setup)).  These files can be processed as template files.
+Every file has the `.incl` extension. Moreover, these files must be declared in paragraphs `member_include`, `owner_include` or `editor_include` in the list configuration file (without the `.incl` extension) (see [list configuration parameters](/gpldoc/man/list_config.5.html#data-sources-setup)).  These files can be processed as template files.
 
 Sympa looks for them in the following order:
 
@@ -109,7 +109,7 @@ Sympa looks for them in the following order:
 
 These files are used by Sympa to load administrative data in a relational database: owners or moderators are defined *intensively* (definition of criteria owners or moderators must satisfy). Includes can be performed by extracting email addresses using an SQL query or LDAP search operation, or by including other mailing lists.
 
-A data inclusion file is made of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_remote_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query`, `include_ldap_query` and `include_ldap_2level_query`. They are described in the [List configuration parameters](../man/list_config.5.md#data-sources-setup) chapter.
+A data inclusion file is made of paragraphs separated by blank lines and introduced by a keyword. Valid paragraphs are `include_file`, `include_remote_file`, `include_list`, `include_remote_sympa_list`, `include_sql_query`, `include_ldap_query` and `include_ldap_2level_query`. They are described in the [List configuration parameters](/gpldoc/man/list_config.5.html#data-sources-setup) chapter.
 
 When this file is a template, the variables used are array elements (`param` array). This array is instantiated by values contained in the subparameter `source_parameter` of `owner_include` or `editor_include`.
 
@@ -157,7 +157,7 @@ manually, and those users may be able to subscribe or unsubscribe themselves
 (if they are allowed).
 
 Information of excluded users are stored in
-[`exclusion_table`](../man/sympa_database.5.md#exclusion_table) table of
+[`exclusion_table`](/gpldoc/man/sympa_database.5.html#exclusion_table) table of
 database.  List owners can update the information in one of following ways:
 
   - Using "Manage list members" -- "Exclude" in list administration menu,
@@ -184,17 +184,17 @@ Note:
 Cache management
 ----------------
 
-Sympa maintains a cache of included list members in the [`subscriber_table`](../man/sympa_database.5.md#subscriber_table) database table. The update of the cache is mainly performed by the [task_manager.pl](../man/task_manager.8.md) process (via the `sync_include` task) ; the frequency of the updates is defined by the [`ttl`](../man/list_config.5.md#ttl) list configuration parameter. However, an update can be performed by other processes under the following circumstances:
+Sympa maintains a cache of included list members in the [`subscriber_table`](/gpldoc/man/sympa_database.5.html#subscriber_table) database table. The update of the cache is mainly performed by the [task_manager.pl](/gpldoc/man/task_manager.8.html) process (via the `sync_include` task) ; the frequency of the updates is defined by the [`ttl`](/gpldoc/man/list_config.5.html#ttl) list configuration parameter. However, an update can be performed by other processes under the following circumstances:
 
-  - [wwsympa.fcgi](../man/wwsympa.8.md), using the "Synchronize members with data source" button, from the members review page;
+  - [wwsympa.fcgi](/gpldoc/man/wwsympa.8.html), using the "Synchronize members with data source" button, from the members review page;
 
   - wwsympa.fcgi, after a data-source related list configuration parameter has been edited;
 
-  - [sympa.pl](../man/sympa.1.md) in command line, using the `--sync_include` option;
+  - [sympa.pl](/gpldoc/man/sympa.1.html) in command line, using the `--sync_include` option;
 
-  - sympa.pl, before sending a message for a list (depends on the [`distribution_ttl` parameter](../man/list_config.5.md#distribution_ttl));
+  - sympa.pl, before sending a message for a list (depends on the [`distribution_ttl` parameter](/gpldoc/man/list_config.5.html#distribution_ttl));
 
-  - sympa.pl or wwsympa.fcgi or [sympa_soap_server.fcgi](../man/sympa_soap_server.8.md), while performing a members review (depends on the [`distribution_ttl` parameter](../man/list_config.5.md#distribution_ttl)).
+  - sympa.pl or wwsympa.fcgi or [sympa_soap_server.fcgi](/gpldoc/man/sympa_soap_server.8.html), while performing a members review (depends on the [`distribution_ttl` parameter](/gpldoc/man/list_config.5.html#distribution_ttl)).
 
 If one or more data source is unreachable, the latest data will stay in the cache.
 

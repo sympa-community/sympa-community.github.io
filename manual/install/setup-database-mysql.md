@@ -24,12 +24,12 @@ General instruction
 
   1. Ensure that [``sympa.conf``](../layout.md#config) includes appropriate
      values for these parameters:
-     [``db_type``](../man/sympa.conf.5.md#db_type),
-     [``db_name``](../man/sympa.conf.5.md#db_name),
-     [``db_host``](../man/sympa.conf.5.md#db_host),
-     [``db_port``](../man/sympa.conf.5.md#db_host) (optional),
-     [``db_user``](../man/sympa.conf.5.md#db_user) and
-     [``db_passwd``](../man/sympa.conf.5.md#db_passwd) (optional).
+     [``db_type``](/gpldoc/man/sympa.conf.5.html#db_type),
+     [``db_name``](/gpldoc/man/sympa.conf.5.html#db_name),
+     [``db_host``](/gpldoc/man/sympa.conf.5.html#db_host),
+     [``db_port``](/gpldoc/man/sympa.conf.5.html#db_host) (optional),
+     [``db_user``](/gpldoc/man/sympa.conf.5.html#db_user) and
+     [``db_passwd``](/gpldoc/man/sympa.conf.5.html#db_passwd) (optional).
 
        * ``db_type`` must be ``MySQL`` or ``mysql`` (obsoleted).
 

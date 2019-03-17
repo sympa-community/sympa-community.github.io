@@ -56,8 +56,8 @@ Setup
 The following parameters in [`sympa.conf`](../layout.md#config) are
 necessary to configure S/MIME support.
 
-  - [`cafile`](../man/sympa.conf.5.md#cafile) and
-    [`capath`](../man/sympa.conf.5.md#capath)
+  - [`cafile`](/gpldoc/man/sympa.conf.5.html#cafile) and
+    [`capath`](/gpldoc/man/sympa.conf.5.html#capath)
 
     Paths of trusted certificate stores.
     `cafile` is the path to a file including concatenated one or more
@@ -77,12 +77,12 @@ necessary to configure S/MIME support.
 
     ----
 
-  - [`key_passwd`](../man/sympa.conf.5.md#key_passwd)
+  - [`key_passwd`](/gpldoc/man/sympa.conf.5.html#key_passwd)
 
     Passphrase to decrypt private key by which encrypted messages are
     decrypted, if the key is encrypted.
 
-  - [`ssl_cert_dir`](../man/sympa.conf.5.md#ssl_cert_dir)
+  - [`ssl_cert_dir`](/gpldoc/man/sympa.conf.5.html#ssl_cert_dir)
 
     Users' S/MIME certificates are saved in this directory
     (by default [``$EXPLDIR``](../layout.md#expldir)`/X509-user-certs`).
@@ -91,7 +91,7 @@ necessary to configure S/MIME support.
 Note:
 
   * Message with *decrypted* format may be temporarily put into the directory
-    specified by [`tmpdir`](../man/sympa.conf.5.md#tmpdir) (by default
+    specified by [`tmpdir`](/gpldoc/man/sympa.conf.5.html#tmpdir) (by default
     [``$SPOOLDIR``](../layout.md#spooldir)`/tmp`).
     Usually it should not be changed, but you should confirm that this directory
     is not exposed to public.
@@ -160,7 +160,7 @@ Note:
   * In fact, some punctuation characters included in *email@add.ress* have to
     be escaped to avoid limitation of filesystem encoding.
     By historical reason, escaping scheme is slightly wierd (`escape_chars()`
-    in [Sympa::Tools::Text](../man/Sympa-Tools-Text.3.md) is used).
+    in [Sympa::Tools::Text](/gpldoc/man/Sympa-Tools-Text.3.html) is used).
     This will be fixed in a future release of Sympa.
 
 ----

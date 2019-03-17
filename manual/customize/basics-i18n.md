@@ -119,7 +119,7 @@ For another example, users using languages with right-to-left scripts (Arabic, H
 Translating titles of topics, scenarios and description of list creation templates
 ----------------------------------------------------------------------------------
 
-List topics are defined in a [`topics.conf`](../man/topics.conf.5.md) file.
+List topics are defined in a [`topics.conf`](/gpldoc/man/topics.conf.5.html) file.
 In this file, each entry can be given a title in different languages.  See "~~[List topics](../customize/list-topics.md)~~".
 
 Scenarios and comments in list creation templates can have titles by multiple languages. See "[Content of scenario file](basics-scenarios.md#content-of-scenario-file)" and "[comment.tt2](../admin/list-creation.md#commenttt2)".
@@ -133,6 +133,6 @@ Note that the shared documents (see "~~[Shared document repository](../customize
 
 ### Support for legacy character sets
 
-Sympa fully supports Unicode. By default, all messages sent by Sympa will be encoded by `utf-8` character set. However, in some language environments legacy character sets are preferred, for example `iso-2022-jp` in Japanese language. Messages sent by Sympa may be encoded using legacy character sets spesific to each language. See [`legacy_character_support_feature`](../man/sympa.conf.5.md#legacy_character_support_feature) parameter.
+Sympa fully supports Unicode. By default, all messages sent by Sympa will be encoded by `utf-8` character set. However, in some language environments legacy character sets are preferred, for example `iso-2022-jp` in Japanese language. Messages sent by Sympa may be encoded using legacy character sets spesific to each language. See [`legacy_character_support_feature`](/gpldoc/man/sympa.conf.5.html#legacy_character_support_feature) parameter.
 
 Note that this setting does not affect messages sent by users but only the messages mailing list robot will send.

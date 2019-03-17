@@ -41,7 +41,7 @@ List members can select a reception mode for messages sent through the list.
 With one of [regular delivery](basics-alterations.md#regular-delivery) modes,
 The message is delivered immediately, if it is allowed.
 
-*However*, if [`delivery_time`](../man/list_config.5.md#delivery_time)
+*However*, if [`delivery_time`](/gpldoc/man/list_config.5.html#delivery_time)
 list configuration parameter is set, messages will be delivered at that time,
 and delivery of messages sent after that time will be postponed to the next
 day.
@@ -50,7 +50,7 @@ With one of [digest delivery](basics-alterations.md#digest-delivery) modes,
 multiple messages are compiled in one message which is delivered periodically.
 
 The list owner can set the days and time to deliver compiled message using
-[`digest`](../man/list_config.5.md#digest) list parameter.
+[`digest`](/gpldoc/man/list_config.5.html#digest) list parameter.
 
 Message topics
 --------------
@@ -58,7 +58,7 @@ Message topics
 ----
 Note:
 
-  * Don't confuse with [list topics](../man/list_config.5.md#topics).
+  * Don't confuse with [list topics](/gpldoc/man/list_config.5.html#topics).
 
 ----
 
@@ -77,7 +77,7 @@ To filter messages using message topics by each user, steps below are followed:
 
      The list owner defines available message topics by list parameters. For
      each new message topic, they create a new
-     [`msg_topic`](../man/list_config.5.md#msg_topic) paragraph that defines
+     [`msg_topic`](/gpldoc/man/list_config.5.html#msg_topic) paragraph that defines
      the name, the title of the topic and optional keywords.
 
   2. Subscribing to message topics for list members.
@@ -87,12 +87,12 @@ To filter messages using message topics by each user, steps below are followed:
      (To receive messages that were not tagged, users can
      subscribe to the topic `other`).
      The message topics selected by a list member are stored in the
-     [`subscriber_table`](../man/sympa_database.5.md#subscriber_table) table
+     [`subscriber_table`](/gpldoc/man/sympa_database.5.html#subscriber_table) table
      of Sympa database.
 
   3. Message tagging
 
-     If one or more [`msg_topic`](../man/list_config.5.md#msg_topic) are
+     If one or more [`msg_topic`](/gpldoc/man/list_config.5.html#msg_topic) are
      defined, Sympa tries to tag messages:
 
        - If the list is held for moderation by scenario,
@@ -106,11 +106,11 @@ To filter messages using message topics by each user, steps below are followed:
 
        - Otherwise, if `msg_topic.keyword` defined,
          Sympa tries automatic tagging.  The
-         [`msg_topic_keywords_apply_on`](../man/list_config.5.md#msg_topic_keywords_apply_on)
+         [`msg_topic_keywords_apply_on`](/gpldoc/man/list_config.5.html#msg_topic_keywords_apply_on)
          determines which part of the message (subject, body or both) is used.
 
        - Otherwise, if
-         [`msg_topic_tagging`](../man/list_config.5.md#msg_topic_tagging)
+         [`msg_topic_tagging`](/gpldoc/man/list_config.5.html#msg_topic_tagging)
          defines that topic tagging is required, the message is held
          (whether the list is moderated or not) and
          the list moderator or the sender is asked to tag the message.
@@ -122,7 +122,7 @@ To filter messages using message topics by each user, steps below are followed:
 Special scenario variables are available to customize tagging:
 `topic`, `topic-sender`, `topic-editor`, `topic-auto` and `topic-needed`
 (see [Authorization scenarios](basics-scenarios.md) and
-"[Variables](../man/sympa_scenario.5.md#variables)" in `sympa_scenario(5)`).
+"[Variables](/gpldoc/man/sympa_scenario.5.html#variables)" in `sympa_scenario(5)`).
 
 Tagging a message will create a topic information file in "topic spool",
 the [``$SPOOLDIR``](../layout.md#spooldir)`/topic/` directory. Its name

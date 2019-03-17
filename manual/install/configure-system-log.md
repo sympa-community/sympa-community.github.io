@@ -14,11 +14,11 @@ Sympa configuration parameters
 ------------------------------
 
   * The log facility is ``LOCAL1`` by default, and it may be changed by
-    [``syslog``](../man/sympa.conf.5.md#syslog) parameter in
+    [``syslog``](/gpldoc/man/sympa.conf.5.html#syslog) parameter in
     [``sympa.conf``](../layout.md#config).
 
   * The default value of
-    [``log_socket_type``](../man/sympa.conf.5.md#log_socket_type) parameter
+    [``log_socket_type``](/gpldoc/man/sympa.conf.5.html#log_socket_type) parameter
     is ``unix``, using Unix domain socket to communicate with syslog
     server.  Some platforms including Solaris prefer to ``stream``.  The value
     may also be ``inet``, using TCP or UDP connection.
@@ -44,7 +44,7 @@ Instruction by syslog servers
 Tests
 -----
 
-  1. Run [``testlogs``](../man/testlogs.1.md) utility (Note: replace
+  1. Run [``testlogs``](/gpldoc/man/testlogs.1.html) utility (Note: replace
      [``$SCRIPTDIR``](../layout.md#scriptdir) below):
      ```bash
      # $SCRIPTDIR/testlogs.pl

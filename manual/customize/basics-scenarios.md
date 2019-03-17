@@ -26,7 +26,7 @@ For example, a scenario file
 
 may be used to make subscription of a list be open. To do such,
 
-  * Edit list [``config``](../man/list_config.5.md) file to add the following
+  * Edit list [``config``](/gpldoc/man/list_config.5.html) file to add the following
     setting:
     ```
     subscribe open
@@ -53,7 +53,7 @@ Notes:
 
   * When customizing a scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
 
-  * When modifying an existing scenario you need to restart Sympa or touch list [`config`](../man/list_config.5.md) file before Sympa use it.
+  * When modifying an existing scenario you need to restart Sympa or touch list [`config`](/gpldoc/man/list_config.5.html) file before Sympa use it.
 
 ----
 
@@ -104,7 +104,7 @@ catalog, the string itself will be used.
 Note:
 
   * About detailed description on rules, see also
-    [sympa_scenario(5)](../man/sympa_scenario.5.md) manual page.
+    [sympa_scenario(5)](/gpldoc/man/sympa_scenario.5.html) manual page.
 
 ----
 
@@ -308,7 +308,7 @@ People are selected through an SQL filter defined in a configuration file. This 
 
 To create an SQL Named Filter, you have to configure SQL host, database and options, the same way you did it for the main Sympa database in `sympa.conf`. Of course, you can use different database and options. Sympa will open a new Database connection to execute your statement.
 
-Please refer to section "[Database related](../man/sympa.conf.5.md#database-related)" for a detailed explanation of each parameter.
+Please refer to section "[Database related](/gpldoc/man/sympa.conf.5.html#database-related)" for a detailed explanation of each parameter.
 
 Here, all database parameters have to be grouped in one `sql_named_filter_query` paragraph.
 
@@ -332,12 +332,12 @@ Here, all database parameters have to be grouped in one `sql_named_filter_query`
 
     Please refer to main `sympa.conf` section for description.
 
-      - [`db_user`](../man/sympa.conf.5.md#db_user)
-      - [`db_password`](../man/sympa.conf.5.md#db_password)
-      - [`db_options`](../man/sympa.conf.5.md#db_options)
-      - [`db_env`](../man/sympa.conf.5.md#db_env)
-      - [`db_port`](../man/sympa.conf.5.md#db_port)
-      - [`db_timeout`](../man/sympa.conf.5.md#db_timeout)
+      - [`db_user`](/gpldoc/man/sympa.conf.5.html#db_user)
+      - [`db_password`](/gpldoc/man/sympa.conf.5.html#db_password)
+      - [`db_options`](/gpldoc/man/sympa.conf.5.html#db_options)
+      - [`db_env`](/gpldoc/man/sympa.conf.5.html#db_env)
+      - [`db_port`](/gpldoc/man/sympa.conf.5.html#db_port)
+      - [`db_timeout`](/gpldoc/man/sympa.conf.5.html#db_timeout)
 
 `example.sql`: we want to select the teachers of mathematics in the University of Rennes 1 in France:
 
@@ -386,7 +386,7 @@ It would be false for the following email addresses :
   - verdin@renater.fr
   - olivier.sala@renater.fr
 
-This feature is used by the blacklist implicit scenario rule (see "[Blacklist](../man/sympa.conf.5.md#use_blacklist)").
+This feature is used by the blacklist implicit scenario rule (see "[Blacklist](/gpldoc/man/sympa.conf.5.html#use_blacklist)").
 
 The method of authentication does not change.
 
@@ -410,7 +410,7 @@ You can define a set of common scenario rules, used by all lists. `include.<acti
 Blacklist implicit rule
 -----------------------
 
-For each service listed in parameter [`use_blacklist`](../man/sympa.conf.5.md#use_blacklist), the following implicit scenario rule is added at the beginning of the scenario:
+For each service listed in parameter [`use_blacklist`](/gpldoc/man/sympa.conf.5.html#use_blacklist), the following implicit scenario rule is added at the beginning of the scenario:
 
 ``` code
 search(blacklist.txt)  smtp,md5,dkim,smime -> reject,quiet

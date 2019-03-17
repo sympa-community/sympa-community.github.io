@@ -24,15 +24,15 @@ Requirements
 Sympa configuration
 -------------------
 
-  * Make sure that [`user_table`](../man/auth.conf.5.md#ldap-paragraph)
-    paragraph in [`auth.conf`](../man/auth.conf.5.md) exists.  It enables
+  * Make sure that [`user_table`](/gpldoc/man/auth.conf.5.html#ldap-paragraph)
+    paragraph in [`auth.conf`](/gpldoc/man/auth.conf.5.html) exists.  It enables
     default authentication.
 
     If this paragraph is omitted, built-in authentication is disabled.
 
 In [`sympa.conf`](../layout.md#config), following parameters are available:
 
-  * [`password_case`](../man/sympa.conf.5.md#password_case)
+  * [`password_case`](/gpldoc/man/sympa.conf.5.html#password_case)
 
     If set to be `insensitive`, storing and checking password will be
     case-insensitive.
@@ -40,10 +40,10 @@ In [`sympa.conf`](../layout.md#config), following parameters are available:
     Note that, once you set this parameter, you should not change it.
     Or all user passwords may be invalidated.
 
-  * [`password_hash`](../man/sympa.conf.5.md#password_hash)
+  * [`password_hash`](/gpldoc/man/sympa.conf.5.html#password_hash)
 
     Information of users are stored in database table
-    [`user_table`](../man/sympa_database.5.md#user_table).
+    [`user_table`](/gpldoc/man/sympa_database.5.html#user_table).
     This parameter specifies a method to generate password hash.  Currently
     these values are possible:
 
@@ -64,7 +64,7 @@ In [`sympa.conf`](../layout.md#config), following parameters are available:
 
     ----
 
-  * [`password_hash_update`](../man/sympa.conf.5.md#password_hash_update)
+  * [`password_hash_update`](/gpldoc/man/sympa.conf.5.html#password_hash_update)
 
     If this parameter is set to `1` any supported password hash type (currently `md5` or `bcrypt`) 
     that does not match the current setting of `password_hash` is updated to
@@ -79,7 +79,7 @@ In [`sympa.conf`](../layout.md#config), following parameters are available:
     The default value is `1`, which is intended to support a graceful transition to a
     new hash type over a period of time.
 
-  * [`bcrypt_cost`](../man/sympa.conf.5.md#bcrypt_cost)
+  * [`bcrypt_cost`](/gpldoc/man/sympa.conf.5.html#bcrypt_cost)
 
     This parameter controls cost of hash stretching by bcrypt hash function.
     Available value is a positive integer less than or equal to `99`.
@@ -100,7 +100,7 @@ To perform upgrade, basically:
   2. Update Sympa configuration.  See "[Sympa configuration](#sympa-configuration)"
      and "[Requirements](#requirements)" for details.
 
-  3. Run [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md):
+  3. Run [``upgrade_sympa_password.pl``](/gpldoc/man/upgrade_sympa_password.1.html):
      ``` bash
      # upgrade_sympa_password.pl
      ```
@@ -110,11 +110,11 @@ To perform upgrade, basically:
 ### Upgrading on large site
 
 A note for sites with thousands of users that intend to upgrade to
-the [``bcrypt``](../man/sympa.conf.5.md#password_hash) password hashes.
+the [``bcrypt``](/gpldoc/man/sympa.conf.5.html#password_hash) password hashes.
 
 The ``bcrypt`` algorithm is designed to be CPU-intensive as a defense against
 password hash cracking.
-The default [``bcrypt_cost``](../man/sympa.conf.5.md#bcrypt_cost) setting of
+The default [``bcrypt_cost``](/gpldoc/man/sympa.conf.5.html#bcrypt_cost) setting of
 `12` has been measured to consume approximately 250 milliseconds of CPU time
 on a typical 3.2GHz CPU. At that speed a site with 1000 users would take 250
 seconds to upgrade hashes, while a site with 100,000 users would take nearly 7
@@ -129,7 +129,7 @@ large Sympa installations with small upgrade windows.)
     ``` bash
     # cp -p /etc/sympa/sympa.conf /etc/sympa/sympa.conf.bcrypt
     ```
-  - Run [``upgrade_sympa_password.pl``](../man/upgrade_sympa_password.1.md)
+  - Run [``upgrade_sympa_password.pl``](/gpldoc/man/upgrade_sympa_password.1.html)
     using the intended new config file. The
     ``--cache`` option specifies the path where hashes will be stored, and the
     ``--noupdateuser`` option prevents updating the user database.

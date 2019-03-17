@@ -63,8 +63,8 @@ Sympa configuration
 -------------------
 
 You can add LDAP authentication mechanism with
-[`ldap`](../man/auth.conf.5.md#ldap-paragraph) paragraph in
-[`auth.conf`](../man/auth.conf.5.md) configuration file.  Below is an example
+[`ldap`](/gpldoc/man/auth.conf.5.html#ldap-paragraph) paragraph in
+[`auth.conf`](/gpldoc/man/auth.conf.5.html) configuration file.  Below is an example
 of the paragraph:
 ```code
 ldap

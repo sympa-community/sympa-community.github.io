@@ -119,7 +119,7 @@ This file is mandatory. It defines constraints on parameters. There are three ki
 
 The parameters constraints will be checked at every list loading.
 
-**WARNING**: Some parameters cannot be constrained, they are: `msg_topic.keywords` (see [`msg_topic`](../man/list_config.5.md#msg_topic)), `owner_include.source_parameter` (see [`owner_include`](../man/list_config.5.md#owner_include)) and `editor_include.source_parameter` (see [`editor_include`](../man/list_config.5.md#editor_include)). About `digest` parameter (see [`digest`](../man/list_config.5.md#digest)), only days can be constrained.
+**WARNING**: Some parameters cannot be constrained, they are: `msg_topic.keywords` (see [`msg_topic`](/gpldoc/man/list_config.5.html#msg_topic)), `owner_include.source_parameter` (see [`owner_include`](/gpldoc/man/list_config.5.html#owner_include)) and `editor_include.source_parameter` (see [`editor_include`](/gpldoc/man/list_config.5.html#editor_include)). About `digest` parameter (see [`digest`](/gpldoc/man/list_config.5.html#digest)), only days can be constrained.
 
 Example:
 
@@ -209,7 +209,7 @@ Once the family has been instantiated, each list directory will contain a messag
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
 ```
 
-Each time a message is sent to the list (provided you set the [`merge_feature`](../man/list_config.5.md#merge_feature) parameter to `on`), this file will be parsed and allow to display the following text at the bottom of each message:
+Each time a message is sent to the list (provided you set the [`merge_feature`](/gpldoc/man/list_config.5.html#merge_feature) parameter to `on`), this file will be parsed and allow to display the following text at the bottom of each message:
 
 ``` code
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : http://lists.domain.tld/auto_signoff/mylist/bob.mcbob%40domain.tld

@@ -48,7 +48,7 @@ example, with the `loc` filter directive, the text:
 will be replaced with localized phrase of `A text` using translation catalogs
 (see also "[Internationalization](basics-i18n.md)").
 
-See ["Filters" in Sympa::Template(3)](../man/Sympa-Template.3.md#filters)
+See ["Filters" in Sympa::Template(3)](/gpldoc/man/Sympa-Template.3.html#filters)
 on custom filter directives proveded by Sympa.
 
 ### Attached message in mail template
@@ -137,7 +137,7 @@ To know how to generate template files using template, see also "[Custom tag del
 
 ### Archive template
 
-[`mhonarc-ressources.tt2`](../man/mhonarc-ressources.tt2.5.md) (take care of
+[`mhonarc-ressources.tt2`](/gpldoc/man/mhonarc-ressources.tt2.5.html) (take care of
 spelling) is used to generate message archives available on web interface.
 It may be customized by each mail domain and/or each list: See
 "[Location](basics-configuration.md#location) in "Configuration hierarchy".
@@ -154,12 +154,12 @@ domain: See
 
 ### Other uses
 
-  - Value of [`custom_subject`](../man/list_config.5.md#custom_subject)
+  - Value of [`custom_subject`](/gpldoc/man/list_config.5.html#custom_subject)
     list configuration parameter may include template syntax:
     `[% list.name %]` and `[% list.sequence %]` variables may be used.
 
   - On the lists
-    [Message personalization](../man/list_config.5.md#merge_feature) enabled,
+    [Message personalization](/gpldoc/man/list_config.5.html#merge_feature) enabled,
     Sympa treats the bodies of incoming messages as templates, and delivers
     messages customized by each member.  See
     "~~[Message personalization](../customize/web-mailer.md#message-personalization)~~"

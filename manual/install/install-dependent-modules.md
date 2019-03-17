@@ -96,7 +96,7 @@ installed, it is put in [`$MODULEDIR`](../layout.md#moduledir) directory.
 Note:
 
   * On Sympa prior to version 6.2.34, modules to be installed were defined in
-    [``$MODULEDIR/Sympa/ModDef.pm``](../man/Sympa-ModDef.3.md).
+    [``$MODULEDIR/Sympa/ModDef.pm``](/gpldoc/man/Sympa-ModDef.3.html).
 
 ----
 

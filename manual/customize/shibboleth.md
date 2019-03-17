@@ -180,5 +180,5 @@ You might not trust the email address user attribute provided by some Identity P
 This issue can be addressed by Sympa thanks to an extension developped by JP Robinson that allows Sympa to either validate the user's email address or even collect it (later associated to a Shibboleth user identifier).
 
 Please read the documentation for further informations:
-  * [generic_sso configuration documentation](../man/auth.conf.5.md#generic_sso-paragraph)
+  * [generic_sso configuration documentation](/gpldoc/man/auth.conf.5.html#generic_sso-paragraph)
 

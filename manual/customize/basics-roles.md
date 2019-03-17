@@ -13,22 +13,22 @@ You can assign roles to users (identified by their email addresses) at different
 (Super) listmasters
 -------------------
 
-These are the persons administrating the service, defined in the [`sympa.conf`](../man/sympa.conf.5.md) file. They inherit the listmaster role in virtual hosts and are the default set of listmasters for virtual hosts.
+These are the persons administrating the service, defined in the [`sympa.conf`](/gpldoc/man/sympa.conf.5.html) file. They inherit the listmaster role in virtual hosts and are the default set of listmasters for virtual hosts.
 
 (Robot) listmasters
 -------------------
 
-You can define a different set of listmasters at a virtual host level (in the [`robot.conf`](../man/sympa.conf.5.md) file). They are responsible for moderating mailing lists creation (if list creation is configured this way), editing default templates, providing help to list owners and moderators. Users defined as listmasters get a privileged access to the Sympa web interface. Listmasters also inherit the privileges of list owners (for any list defined in the virtual host), but not the moderator privileges.
+You can define a different set of listmasters at a virtual host level (in the [`robot.conf`](/gpldoc/man/sympa.conf.5.html) file). They are responsible for moderating mailing lists creation (if list creation is configured this way), editing default templates, providing help to list owners and moderators. Users defined as listmasters get a privileged access to the Sympa web interface. Listmasters also inherit the privileges of list owners (for any list defined in the virtual host), but not the moderator privileges.
 
 Privileged list owners
 ----------------------
 
-The first defined privileged owner is the person who requested the list creation. Later it can be changed or extended. They inherit (basic) owner privileges and are also responsible for managing the list owners and moderators themselves (through the web interface). With Sympa's default behavior, privileged owners can edit more list parameters than (basic) owners can do; but this can be customized via the [`edit_list.conf`](../man/edit_list.conf.5.md) file.
+The first defined privileged owner is the person who requested the list creation. Later it can be changed or extended. They inherit (basic) owner privileges and are also responsible for managing the list owners and moderators themselves (through the web interface). With Sympa's default behavior, privileged owners can edit more list parameters than (basic) owners can do; but this can be customized via the [`edit_list.conf`](/gpldoc/man/edit_list.conf.5.html) file.
 
 (Basic) list owners
 -------------------
 
-They are responsible for managing the members of the list, editing the list configuration and templates. Owners (and privileged owners) are defined in the list [`config`](../man/list_config.5.md) file.
+They are responsible for managing the members of the list, editing the list configuration and templates. Owners (and privileged owners) are defined in the list [`config`](/gpldoc/man/list_config.5.html) file.
 
 Moderators (also called "editors")
 ----------------------------------

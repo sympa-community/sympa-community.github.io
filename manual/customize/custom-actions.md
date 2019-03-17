@@ -36,9 +36,9 @@ You can also create a *your_action*`.tt2` file at the same place to display your
 
 Your custom action is reachable using URL:
 
-  - `http://`[*wwsympa_url*](../man/sympa.conf.5.md#wwsympa_url)`/ca/`*your_action*`/`*param1*`/`*param2*`/`*param3*`/...`
+  - `http://`[*wwsympa_url*](/gpldoc/man/sympa.conf.5.html#wwsympa_url)`/ca/`*your_action*`/`*param1*`/`*param2*`/`*param3*`/...`
     in global context
-  - `http://`[*wwsympa_url*](../man/sympa.conf.5.md#wwsympa_url)`/lca/`*your_action*`/`*listname*`/`*param1*`/`*param2*`/`*param3*`/...`
+  - `http://`[*wwsympa_url*](/gpldoc/man/sympa.conf.5.html#wwsympa_url)`/lca/`*your_action*`/`*listname*`/`*param1*`/`*param2*`/`*param3*`/...`
     in list context
 
 *param1*, *param2* etc. are parameters that can be later used by the custom action.

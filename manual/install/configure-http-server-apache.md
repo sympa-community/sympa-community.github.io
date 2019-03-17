@@ -32,8 +32,8 @@ Requirements
 ----
 Note:
 
-  * [`wwsympa.fcgi`](../man/wwsympa.8.md) is wrapped in small setuid program
-    written in C, [`wwsympa-wrapper.fcgi`](../man/wwsympa-wrapper.8.md).
+  * [`wwsympa.fcgi`](/gpldoc/man/wwsympa.8.html) is wrapped in small setuid program
+    written in C, [`wwsympa-wrapper.fcgi`](/gpldoc/man/wwsympa-wrapper.8.html).
 
     Setuid wrapper was introduced on Sympa 5.4
     in order to avoid to use the --- insecure and no longer
@@ -128,7 +128,7 @@ General instruction
   2. Edit it as you prefer.
 
      Note that ``ServerName`` or ``ServerAlias`` directive should define
-     the host part of [``wwsympa_url``](../man/sympa.conf.5.md#wwsympa_url)
+     the host part of [``wwsympa_url``](/gpldoc/man/sympa.conf.5.html#wwsympa_url)
      parameter.  Because Sympa refers to ``SERVER_NAME`` CGI environment
      variable to determine host name of web service.
 
