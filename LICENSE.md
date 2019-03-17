@@ -7,7 +7,7 @@ the [Creative Commons Attribution-ShareAlike](https://creativecommons.org/licens
 
 See [AUTHORS](AUTHORS.md) file about authors.
 
-However, pages under ``man/`` directory are automatically generated
+However, pages under ``/gpldoc/`` directory are automatically generated
 from the source distribution of Sympa.  For details about these pages
 see each original source file.
 
