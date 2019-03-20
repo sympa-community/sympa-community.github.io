@@ -27,7 +27,7 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
-### From versions prior to 6.2.42 (coming later)
+### From versions prior to 6.2.42
 
   * Authorization schearios:
     The "default" scenario files named `*.default` (regular file or symbolic
