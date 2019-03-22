@@ -44,3 +44,23 @@ SSLVerifyDepth  10
 </Location>
 ```
 
+### nginx
+
+``` code
+server {
+    ...
+
+    ssl_verify_client optional;
+    ssl_client_certificate <<a file including trusted CA certificate(s)>>;
+    #ssl_verify_depth 1;
+
+    location /sympa {
+        ...
+
+        fastcgi_param SSL_CLIENT_VERIFY $ssl_client_verify;
+        fastcgi_param SSL_CLIENT_CERT $ssl_client_raw_cert;
+    }
+
+    ...
+}
+```
