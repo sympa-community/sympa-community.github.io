@@ -28,7 +28,7 @@ Prerequisites
 
 DKIM features in Sympa are based on the **[Mail::DKIM](https://metacpan.org/release/Mail-DKIM)** cpan module ; you should install it first. Check [the documentation related to cpan modules installation](../install/install-dependent-modules.md).
 
-ARC requires Mail::DKIM version 0.51 or later which includes ARC support.  It also requires that the MTA that delivers emails to Sympa adds an `Authentication-Results:` header that shows how a message was (or wasn't) authenticated as it arrived.  Several Postfix milters can add the header, with opendmarc or the [Fastmail authentication milter](https://github.com/fastmail/authentication_milter) being widely used. 
+ARC requires Mail::DKIM version 0.55 or later which includes ARC support.  It also requires that the MTA that delivers emails to Sympa adds an `Authentication-Results:` header that shows how a message was (or wasn't) authenticated as it arrived.  Several Postfix milters can add the header, with opendmarc or the [Fastmail authentication milter](https://github.com/fastmail/authentication_milter) being widely used. 
 
 
 Incoming messages DKIM
