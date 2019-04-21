@@ -75,7 +75,7 @@ Install new version of Sympa
 ### Binary distributions
 
 Update all packages you have installed, including Sympa itself.
-See the documentaion of each distribution to know how to update packages.
+See the documentation of each distribution to know how to update packages.
 
 ### General instruction
 
