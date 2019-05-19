@@ -8,7 +8,7 @@ Bounce management
 
 Automatic bounce management is a key feature in a modern mailing list server. Sympa provide automatic handling of delivery Status notification (DSN) and message disposition notification (MDN). This is mainly used in order to detect wrong subscriber email address and remove them from list. But you can use it to block list with too many wrong addresses or for message tracking.
 
-The default Sympa configuration is good enough to automatically remove users that are in error for a long time and keep bounce rate low enough. This is important because list server with many invalid address may be blacklisted as a spam source. In addition, sending messages to wrong address is usefulness and may stress the relaying MTA.
+The default Sympa configuration is good enough to automatically remove users that are in error for a long time and keep bounce rate low enough. This is important because a list server with many invalid addresses may be blacklisted as a spam source. In addition, sending messages to wrong addresses consumes resources without reason.
 
 About message tracking feature, see also "[Message tracking](../customize/message-tracking.md)".
 
@@ -50,7 +50,7 @@ To avoid making decisions (i.e. defining a score) without enough relevant data, 
 
 Bouncing list member entries expire after a given period of time. The default period is 10 days, but it can be customized if you write a new `expire_bounce` task (see [`expire_bounce_task`](/gpldoc/man/sympa.conf.5.html#expire_bounce_task)).
 
-You can define the limit between each level through the **List configuration panel**, in subsection "[Bounce menagement](/gpldoc/man/list_config.5.html#bouncers_level1)". The principle consists in associating a score interval with a level.
+You can define the limit between each level through the **List configuration panel**, in subsection "[Bounce management](/gpldoc/man/list_config.5.html#bouncers_level1)". The principle consists in associating a score interval with a level.
 
 You can also define which action must be applied on each category of user. Each time an action will be performed, a notification email will be sent to the person of your choice.
 
