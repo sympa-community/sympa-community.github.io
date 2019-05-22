@@ -27,6 +27,14 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.44 (coming later)
+
+  * WWSympa: TLS client authentication:
+    Now it gets `rfc822Name` in X.509v3 `subjectAltName`, otherwise
+    `emailAddress` attribute in subject DN.
+    Note that earlier efforts getting attribute such as `MAIL`,
+    `Email` in subject DN are no longer supported.
+
 ### From versions prior to 6.2.42
 
   * Authorization schearios:
