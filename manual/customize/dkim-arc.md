@@ -26,10 +26,18 @@ ARC seals only make sense on mail forwarded by Sympa, that is, individual messag
 Prerequisites
 -------------
 
+### Prerequisites for DKIM
+
 DKIM features in Sympa are based on the **[Mail::DKIM](https://metacpan.org/release/Mail-DKIM)** cpan module ; you should install it first. Check [the documentation related to cpan modules installation](../install/install-dependent-modules.md).
 
-ARC requires Mail::DKIM version 0.55 or later which includes ARC support.  It also requires that the MTA that delivers emails to Sympa adds an `Authentication-Results:` header that shows how a message was (or wasn't) authenticated as it arrived.  Several Postfix milters can add the header, with opendmarc or the [Fastmail authentication milter](https://github.com/fastmail/authentication_milter) being widely used. 
+### Prerequisites for ARC
 
+ARC requires Mail::DKIM version 0.55 or later which includes ARC support.
+
+It also requires that the MTA that delivers emails to Sympa adds an `Authentication-Results:` header that shows how a message was (or wasn't) authenticated as it arrived.
+
+  * Several Postfix milters can add the header, with opendmarc or the [Fastmail authentication milter](https://github.com/fastmail/authentication_milter) being widely used. 
+  * [amavisd-new](https://www.ijs.si/software/amavisd/) also may add this field.
 
 Incoming messages DKIM
 ----------------------
