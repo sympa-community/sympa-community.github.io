@@ -39,19 +39,19 @@ Requirements
     Among clones, at least [CentOS](https://www.centos.org/download/) 6 or 7
     is reported working.
 
-  * On RHEL, the "optional repository" should be enabled: Some dependent
-    packages are shipped in this repository.
+  * With RHEL/CentOS, add
+    [Extra Packages for Enterprise Linux](https://fedoraproject.org/wiki/EPEL)
+    (EPEL) repository.  It can be done by installing ``epel-release``
+    package.  For more details see
+    [EPEL description](https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
+
+  * On RHEL, in addition, the "optional repository" should be enabled:
+    Some dependent packages are shipped in this repository.
 
 Installing
 ----------
 
-  1. With RHEL/CentOS, add
-     [Extra Packages for Enterprise Linux](https://fedoraproject.org/wiki/EPEL)
-     (EPEL) repository.  It can be done by installing ``epel-release``
-     package.  For more details see
-     [EPEL description](https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
-
-  2. Add Sympa repository.
+  1. Add Sympa repository.
 
      Download a configuration file of either repository:
      
@@ -70,7 +70,7 @@ Installing
      # dnf makecache
      ```
 
-  3. Install Sympa:
+  2. Install Sympa:
      ```bash
      # yum install sympa
      ```
