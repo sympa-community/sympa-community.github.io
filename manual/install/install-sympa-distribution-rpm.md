@@ -45,7 +45,7 @@ Requirements
 Installing
 ----------
 
-  1. Add
+  1. With RHEL/CentOS, add
      [Extra Packages for Enterprise Linux](https://fedoraproject.org/wiki/EPEL)
      (EPEL) repository.  It can be done by installing ``epel-release``
      package.  For more details see
