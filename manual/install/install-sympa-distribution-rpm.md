@@ -21,8 +21,9 @@ If you have been using _Repository on Sympa-JA.org_, you are recommended
 to use it for the recent release.
 Otherwise, you are recommended to use _COPR ``sympa`` repository_.
 
-If you wish to used pre-release (beta) versions of Sympa, use
-_COPR ``sympa-beta`` repository_.
+If you wish to use pre-release (beta) versions of Sympa, use
+_COPR ``sympa-beta`` repository_ which is compatible to
+_COPR ``sympa`` repository_.
 
 ----
 Note:
