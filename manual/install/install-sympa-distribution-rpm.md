@@ -92,7 +92,7 @@ Upgrading
      ```
      or (if you are using `DNF`)
      ```bash
-     # dnf update yum
+     # dnf update dnf
      # dnf update --exclude='sympa*'
      # dnf update sympa
      ```
