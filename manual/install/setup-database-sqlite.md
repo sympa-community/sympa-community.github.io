@@ -55,7 +55,7 @@ Note:
 
   1. Set appropriate parameters in `sympa.conf` as described in above.
 
-  2. Create database file (note that `<db_name>` is the ful path to database
+  2. Create database file (note that `<db_name>` is the full path to database
      file you want to create).
 
      ``` bash
