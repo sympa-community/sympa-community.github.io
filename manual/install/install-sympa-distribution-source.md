@@ -20,8 +20,7 @@ See also "[Requirements](../requirements.md)".
     or [clang](https://clang.llvm.org/).
 
   * [Perl 5 interpreter](https://www.perl.org/get.html) is required.
-    Currently, Perl 5.8.1 and later are supported, however, recent version of
-    Perl 5 is recommended.
+    See "[Requirements](../requirements.md)" for available version of Perl.
 
   * make(1) utility. [GNU make](https://www.gnu.org/software/make/)
     (sometimes called "gmake") is recommended.
