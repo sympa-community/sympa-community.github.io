@@ -37,9 +37,14 @@ Using cpanminus (`cpanm`)
 -------------------------
 
 ----
-Note:
+Notes:
 
   * Support for cpanminus was introduced on Sympa 6.2.34.
+
+  * If you are using Perl _earlier than_ 5.16.0, in addition to
+    modules installed in this section, you have to install manually
+    [`Unicode::CaseFold`](https://metacpan.org/pod/Unicode::CaseFold)
+    which is not included in `cpanfile`, or Sympa won't work correctly.
 
 ----
 
