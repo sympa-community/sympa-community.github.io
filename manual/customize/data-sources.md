@@ -46,11 +46,11 @@ Currently, these types of data sources are supported:
 Requirements
 ------------
 
-  - To use datasources for remote file or remote Sympa list,
+  - To use data sources for remote file or remote Sympa list,
     [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL) Perl module
     has to be installed.
 
-  - To use datasources based on SQL query, appropriate DBI driver (DBD)
+  - To use data sources based on SQL query, appropriate DBI driver (DBD)
     Perl modules corresponding to the database systems have to be installed: 
     [DBD-CSV](https://metacpan.org/release/DBD-CSV),
     [DBD-mysql](https://metacpan.org/release/DBD-mysql),
@@ -59,12 +59,16 @@ Requirements
     [DBD-Pg](https://metacpan.org/release/DBD-Pg) and/or
     [DBD-SQLite](https://metacpan.org/release/DBD-SQLite).
 
-  - To use datasources based on LDAP search operation,
+  - To use data sources based on LDAP search operation,
     [Net-LDAP](https://metacpan.org/release/Net-LDAP) Perl module has to be
     installed.  Additionally, if TLS connection to LDAP server --- LDAPS
     (LDAP over TLS) or Start_TLS extension --- should be supported,
     [IO-Socket-SSL](https://metacpan.org/release/IO-Socket-SSL) Perl module
     also has to be installed.
+
+  - Naturally, to use data sources on remote servers (SQL, LDAP, remote
+    file or remote Sympa list), your Sympa server must be able to access
+    them: Check configuration of network such as firewall setting.
 
 Defining the data sources
 -------------------------
