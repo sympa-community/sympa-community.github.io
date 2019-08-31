@@ -13,6 +13,7 @@ name here.
   - Stefan Hornburg
   - Soji Ikeda
   - Mic Kaczmarczik
+  - Schplurtz le Déboulonné
   - John Levine
   - Luis Martínez
   - Etienne Meleard

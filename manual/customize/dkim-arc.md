@@ -106,7 +106,7 @@ example with selector = 'lists' and domain 'sympa.org':
   lists._domainkey.sympa.org. IN TXT "v=DKIM1; g=*; k=rsa; t=y; p=MDB34............DB"
 ```
 
-In order to generate the public and private keys, you may use `openssl` or `dkim-genkey` included in [milter_dkim software](http://sourceforge.net/projects/dkim-milter/). There are also online tools to generate them, but those services will generate the private key for you (is it still a private key?).
+In order to generate the public and private keys, you may use `openssl` or `opendkim-genkey` included in [OpenDKIM software](http://opendkim.org/). There are also online tools to generate them, but those services will generate the private key for you (is it still a private key?).
 
   * http://www.socketlabs.com/services/dkwiz
   * http://www.port25.com/support/support_dkwz.php
