@@ -27,6 +27,22 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.46 (coming later)
+
+  * Inclusion feature of members, owners or moderators has been reconstructed.
+    Slightly long time can be spent to refresh inclusion of users entirely
+    at the first time just after upgrade.
+
+  * Perl version 5.10.1 or later will be supported.
+
+    ----
+    Note:
+
+      * As of Sympa 6.2.45b, support for Perl 5.10.0 or earlier has been
+        dropped.
+
+    ----
+
 ### From version prior to 6.2.44
 
   * WWSympa: TLS client authentication:
