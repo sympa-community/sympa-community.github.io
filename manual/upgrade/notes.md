@@ -27,7 +27,7 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
-### From version prior to 6.2.46 (coming later)
+### From version prior to 6.2.46
 
   * Inclusion feature of members, owners or moderators has been reconstructed.
     Slightly long time can be spent to refresh inclusion of users entirely
