@@ -102,10 +102,6 @@ Note:
      ```bash
      # yum makecache
      ```
-     or (if you are using `DNF`)
-     ```bash
-     # dnf makecache
-     ```
 
   3. Install Sympa:
      ```bash
