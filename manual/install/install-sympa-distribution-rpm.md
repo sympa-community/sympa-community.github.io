@@ -72,6 +72,7 @@ Upgrading
      # dnf update --exclude='sympa*'
      # dnf update sympa
      ```
+
 Installing earlier version
 --------------------------
 
