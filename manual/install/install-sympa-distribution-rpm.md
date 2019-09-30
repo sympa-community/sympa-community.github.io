@@ -88,9 +88,6 @@ Note:
 
 ----
 
-Installing
-----------
-
   1. Install EPEL repository (see "[Requirements](#requirements)" above).
 
   2. Add Sympa repository.
