@@ -18,7 +18,7 @@ Currently, YUM/DNF repositories provide RPM packages of Sympa.
 ----
 Note:
 
-  * Packages for RHEL/CentOS 8 is working in progress.
+  * Packages for RHEL/CentOS 8 are work in progress.
 
   * If you have been using _Repository on Sympa-JA.org_, you may
     seamlessly upgrade `sympa` package with EPEL.
