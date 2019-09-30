@@ -8,25 +8,20 @@ next: generate-initial-configuration.md
 Install Sympa distribution: RPM package
 =======================================
 
-Currently, these YUM/DNF repositories are provided by volunteers.
+Currently, YUM/DNF repositories provide RPM packages of Sympa.
 
-  * [Repository on Sympa-JA.org](http://sympa-ja.org/download/rhel/):
-    Stable packages for RHEL/CentOS 6 and 7.
-  * [COPR ``sympa`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa/):
-    Stable packages for Fedora/RHEL/CentOS.
-  * [COPR ``sympa-beta`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa-beta/):
-    Pre-release packages for Fedora/RHEL/CentOS.
+  * Stable packages of Sympa for Fedora/RHEL/CentOS are provided.
 
-If you have been using _Repository on Sympa-JA.org_, you are recommended
-to use it for the recent release.
-Otherwise, you are recommended to use _COPR ``sympa`` repository_.
-
-If you wish to use pre-release (beta) versions of Sympa, use
-_COPR ``sympa-beta`` repository_ which is compatible to
-_COPR ``sympa`` repository_.
+  * Pre-release packages for Fedora/RHEL/CentOS are provided by
+    [COPR ``sympa-beta`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa-beta/).
 
 ----
 Note:
+
+  * Packages for RHEL/CentOS 8 is working in progress.
+
+  * If you have been using _Repository on Sympa-JA.org_, you may
+    seamlessly upgrade `sympa` package with EPEL.
 
   * Packages for RHEL/CentOS 5 will no longer be provided.
 
@@ -51,13 +46,58 @@ Requirements
 Installing
 ----------
 
-  1. Add Sympa repository.
+  1. Install Sympa:
+     ```bash
+     # yum install sympa
+     ```
+     or (if you are using `DNF`)
+     ```bash
+     # dnf install sympa
+     ```
+
+Thus, Sympa and dependent packages will be installed.
+
+Upgrading
+---------
+
+  1. Update yum/DNF, dependent packages and then Sympa packages:
+     ```bash
+     # yum update yum
+     # yum update --exclude='sympa*'
+     # yum update sympa
+     ```
+     or (if you are using `DNF`)
+     ```bash
+     # dnf update dnf
+     # dnf update --exclude='sympa*'
+     # dnf update sympa
+     ```
+Installing earlier version
+--------------------------
+
+If you have to (re)install RPMs of Sympa prior to 6.2.44, they are
+provided by
+[repository on Sympa-JA.org](http://sympa-ja.org/download/rhel/).
+
+----
+Note:
+
+  * Sympa-JA.org repository will no longer be updated.
+    Unless you needed particular historic version of Sympa,
+    follow the instruction described in above.
+
+----
+
+Installing
+----------
+
+  1. Install EPEL repository (see "[Requirements](#requirements)" above).
+
+  2. Add Sympa repository.
 
      Download a configuration file of either repository:
      
        * [Repository on Sympa-JA.org](http://sympa-ja.org/download/rhel/sympa-ja.org.rhel.repo)
-       * [COPR ``sympa`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa/)
-       * [COPR ``sympa-beta`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa-beta/)
 
      and save it in ``/etc/yum.repos.d/`` directory.
 
@@ -70,29 +110,9 @@ Installing
      # dnf makecache
      ```
 
-  2. Install Sympa:
+  3. Install Sympa:
      ```bash
      # yum install sympa
      ```
-     or (if you are using `DNF`)
-     ```bash
-     # dnf install sympa
-     ```
 
 By the steps above, Sympa and dependent packages will be installed.
-
-Upgrading
----------
-
-  1. Update yum, dependent packages and then Sympa packages:
-     ```bash
-     # yum update yum
-     # yum update --exclude='sympa*'
-     # yum update sympa
-     ```
-     or (if you are using `DNF`)
-     ```bash
-     # dnf update dnf
-     # dnf update --exclude='sympa*'
-     # dnf update sympa
-     ```
