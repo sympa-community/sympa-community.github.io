@@ -119,6 +119,8 @@ General instruction
 
            - On Debian (10 "buster" or earlier),
              ``/etc/apache2/conf-available/sympa.conf`` file is prepared.
+             Also, separate ``/etc/apache2/conf-available/sympa-soap.conf``
+             file is prepared for SympaSOAP feature.
 
            - On RPM (RHEL/CentOS 6), ``/etc/httpd/conf.d/sympa.conf`` file is
              prepared by ``sympa-httpd`` package.

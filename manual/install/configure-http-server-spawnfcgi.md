@@ -23,18 +23,27 @@ Requirements
     Note:
 
       * For Apache HTTP Server:
+        If you fall under any of following,
+        see [another instruction](configure-http-server-apache.md) to know
+        about configuration with HTTP Server.
 
-          * Instruction described in this chapter needs
+          * You are using HTTP Server prior to version 2.4.
+            Instruction described in this chapter needs
             [mod_proxy_fcgi](https://httpd.apache.org/docs/mod/mod_proxy_fcgi.html)
             module introduced by HTTP Server 2.4.
-            See [another instruction](configure-http-server-apache.md) to know
-            about configuration with HTTP Server prior to 2.4.
 
-          * Sympa prior to 6.2.25b.1 has
+          * Sympa prior to 6.2.25b.1.  It has
             [a bug](https://github.com/sympa-community/sympa/pull/164) and
             doesn't work properly with the method described in this chapter.
-            Upgrading to recent version is recommended, or see
-            [another instruction](configure-http-server-apache.md).
+            If possible, upgrading to recent version is recommended.
+
+         * Some binary distributions such as:
+
+             - Debian (at least buster or earlier).
+
+             - RPM for RHEL/CentOS 6.
+
+           They have not introduced the method described in this chapter.
 
     ----
 
