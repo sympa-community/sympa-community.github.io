@@ -27,6 +27,28 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.50 (coming later)
+
+  * Some scenarios and list creation templates for "intranet" use cases were made
+    optional: They have been moved into `samples/`.
+
+    If you have to use following scenario files, copy those files in
+    `samples/intranet/scenari/` to appropriate `scenari/` directory:
+      - `archive_web_access.intranet`
+      - `create_list.intranet`
+      - `review.intranet`
+      - `send.intranet`
+      - `send.intranetorprivate`
+      - `subscribe.intranet`
+      - `subscribe.intranetorowner`
+      - `visibility.intranet`
+
+    If you have to use these files in a list creation template, copy those files
+    in `samples/intranet/create_list_templates` to a subdirectory of appropriate
+    `create_list_template/` directory:
+      - `intranet/comment.tt2`
+      - `intranet/config.tt2`
+
 ### From version prior to 6.2.48
 
   * Inclusion feature of members, owners or moderators has been reconstructed.
