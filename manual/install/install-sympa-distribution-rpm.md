@@ -10,7 +10,7 @@ Install Sympa distribution: RPM package
 
 Currently, YUM/DNF repositories provide RPM packages of Sympa.
 
-  * Stable packages of Sympa for Fedora/RHEL/CentOS are provided.
+  * Stable packages of Sympa for RHEL/CentOS are provided by EPEL, and packages for Fedora are also provided.
 
   * Pre-release packages for Fedora/RHEL/CentOS are provided by
     [COPR ``sympa-beta`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa-beta/).
