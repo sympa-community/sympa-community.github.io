@@ -27,7 +27,7 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
-### From version prior to 6.2.50 (coming later)
+### From version prior to 6.2.50
 
   * Some scenarios and list creation templates for "intranet" use cases were made
     optional: They have been moved into `samples/`.
