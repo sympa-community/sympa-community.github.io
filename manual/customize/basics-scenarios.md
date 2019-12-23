@@ -430,5 +430,5 @@ Because Sympa is distributed with many default scenario files, you may want to h
 
 Example:
 
-By creating [``$SYSCONFDIR``](../layout.md#sysconfdir)`/mail.example.org/scenari/send.intranetorprivate:ignore`, the `intranetorprivate` `send` scenario will be hidden (on the web admin interface), at the `mail.example.org` robot level only.
+By creating [``$SYSCONFDIR``](../layout.md#sysconfdir)`/mail.example.org/scenari/send.public_nobcc:ignore`, the `public_nobcc` `send` scenario will be hidden (on the web admin interface), at the `mail.example.org` robot level only.
 
