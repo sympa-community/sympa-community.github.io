@@ -192,13 +192,14 @@ Message footers and headers are likely to contain TT2 code themselves (for examp
 
 In that case, you can use the capacity, offered by TT2, to define [custom tag delimitors](http://template-toolkit.org/docs/manual/Config.html#section_START_TAG_END_TAG).
 
-Here's an example of such usage. Let's say I want to create lists with a family, and I want that each list automatically adds an unsubscription URL at the bottom of each message. For this, I'll need to use a message.footer file in each list.
+Here's an example of such usage. Let's say you want to create lists with a family, and you want that each list automatically adds an unsubscription URL at the bottom of each message. For this, you'll need to use a `message.footer` file in each list.
 
-I add a file named `message.footer.tt2` to the family directory. It contains the following code :
+A file named `message.footer.tt2` was added to the family directory. It contains the following code:
 
 ``` code
 [% TAGS <+ +> -%]
-The subject of the list is "<+ subject +>", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
+The subject of the list is "<+ subject +>", click here to unsubscribe : [% 'auto_signoff' | url_abs([listname],{email=user.email}) %]
+<+- TAGS [% %] +>
 ```
 
 "Subject" corresponds to a tag in the XML file. Let's say it contains a short description of the list.
@@ -206,14 +207,27 @@ The subject of the list is "<+ subject +>", click here to unsubscribe : [% wwsym
 Once the family has been instantiated, each list directory will contain a message.footer file containing the following code :
 
 ``` code
-The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
+The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : [% 'auto_signoff' | url_abs([listname],{email=user.email}) %]
 ```
 
 Each time a message is sent to the list (provided you set the [`merge_feature`](/gpldoc/man/list_config.5.html#merge_feature) parameter to `on`), this file will be parsed and allow to display the following text at the bottom of each message:
 
 ``` code
-The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : http://lists.domain.tld/auto_signoff/mylist/bob.mcbob%40domain.tld
+The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : http://lists.domain.tld/auto_signoff/mylist?email=bob.mcbob%40domain.tld
 ```
+
+----
+Note:
+
+  * With Sympa 6.2.18 or earlier, content of the `message.footer.tt2` have to be such as:
+    ``` code
+    [% TAGS <+ +> -%]
+    The subject of the list is "<+ subject +>", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
+    <+- TAGS [% %] +>
+    ```
+    and you may get the same result.
+
+----
 
 #### customizable files
 
