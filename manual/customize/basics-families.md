@@ -404,8 +404,23 @@ Using a global family message.footer.tt2 file, you can add at the end of each me
 
 ``` code
 [% TAGS <+ +> -%]
-To stop receiving messages from <+ family_config.display +>, click on this link: [% wwsympa_url %]/family_signoff_request/<+ family_config.name +>/[% user.escaped_email %]
+To stop receiving messages from <+ family_config.display +>, click on this link: [% 'family_signoff' | url_abs(['<+ family_config.name +>'],{email=user.email}) %]
+<+ TAGS [% %] -+>
 ```
 
 By clicking this link, the user will be redirected to the Sympa web interface where she will be informed that a confirmation message was just sent to her. If she clicks the confirmation link in this mesasge, she will be removed from all the past and future lists of this family.
+
+----
+Note:
+
+  * The line above is an example for Sympa 6.2.54 or later.
+    With Sympa 6.2.52 or earlier it should be:
+
+    ``` code
+    [% TAGS <+ +> -%]
+    To stop receiving messages from <+ family_config.display +>, click on this link: [% wwsympa_url %]/family_signoff_request/<+ family_config.name +>/[% user.escaped_email %]
+    <+ TAGS [% %] -+>
+    ```
+
+----
 

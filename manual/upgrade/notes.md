@@ -27,6 +27,17 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.54
+
+(This version is coming later.)
+
+  * If you are using the family_signoff link (the URL link in message footer
+    that allows unsubscribing from all the lists in a family), you have to
+    modify `message.footer.tt2` of the family according to new format (See
+    "[Family unsubscription](../customize/basics-families.md#family-unsubscription)"
+    for details).
+
+
 ### From version prior to 6.2.50
 
   * Some scenarios and list creation templates for "intranet" use cases were made
