@@ -63,7 +63,7 @@ needed.
   * Directories
     [&#x1F527;](/gpldoc/man/sympa.conf.5.html#directories)
   * Miscellaneous
-    [&#x1F527;](/gpldoc/man/sympa.conf.5.html#miscelaneous)
+    [&#x1F527;](/gpldoc/man/sympa.conf.5.html#miscellaneous)
   * Others
 
       - [Custom list parameters](customize/custom-parameters.md)
@@ -98,7 +98,7 @@ needed.
     [&#x1F527;](/gpldoc/man/sympa.conf.5.html#max_wrong_password)
     [&#x1F4E6;](http://search.cpan.org/dist/Crypt-Eksblowfish/)
   * Miscellaneous
-    [&#x1F527;](/gpldoc/man/sympa.conf.5.html#web-interface-parameters-miscelaneous)
+    [&#x1F527;](/gpldoc/man/sympa.conf.5.html#web-interface-parameters-miscellaneous)
 
       - One time ticket
         [&#x1F527;](/gpldoc/man/sympa.conf.5.html#one_time_ticket_lifetime)
