@@ -11,15 +11,19 @@ DKIM and ARC features for Sympa
   * DKIM has been introduced in Sympa version **6.1**.
   * ARC has been introduced in Sympa version **6.2.38**.
 
-DKIM is a crytographic signature method designed to prevent phishing. As postmaster or listmaster you should consider 1) checking the DKIM status of each incoming message and 2) signing all or a subset of outgoing messages.
+DKIM is a cryptographic signature method designed to prevent phishing. As
+postmaster or listmaster you should consider
+
+ 1. checking the DKIM status of each incoming message
+ 2. signing all or a subset of outgoing messages
 
 ARC is intended to fix the problems introduced by [DMARC](dmarc-protection.md) by adding signature "seals" that show the chain of servers that processed a message.  Once ARC is more widely implemented, DMARC workarounds shouldn't be needed.  Once you have DKIM set up, adding ARC seals is straightforward.
 
-Processing of DKIM status of incoming messages is done by the MTA (Message transfert Agent) that delivers emails to the Sympa server Sympa domain (in order to reject some messages). This topic is not addressed in the chapter of the documentation.
+Processing of DKIM status of incoming messages is done by the MTA (Mail transfer agent) that delivers emails to the Sympa server Sympa domain (in order to reject some messages). This topic is not addressed in the chapter of the documentation.
 
-The mailing list server can take advantage of incoming DKIM signature in order to measure the trust of the message while evaluating message workflow. This is based on [scenario mechanism](basics-scenarios.md). An authentication level named `dkim` can be used within scenario rules to check that an incoming message has a valid DKIM signature (dkim signature status = pass).
+The mailing list server can take advantage of incoming DKIM signatures in order to measure the trust of the message while evaluating message workflow. This is based on [scenario mechanism](basics-scenarios.md). An authentication level named `dkim` can be used within scenario rules to check that an incoming message has a valid DKIM signature (dkim signature status = pass).
 
-In addition, you must consider signature of outgoing messages. Should messages brodcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?  In most cases Sympa should sign all the mail it sends to get the most benefit from DKIM.
+In addition, you must consider signature of outgoing messages. Should messages broadcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?  In most cases Sympa should sign all the mail it sends to get the most benefit from DKIM.
 
 ARC seals only make sense on mail forwarded by Sympa, that is, individual messages sent through to mailing lists. The ARC feature will only add seals to those messages.  ARC checks the ARC seals, if any, on incoming messages, 
 
@@ -42,7 +46,7 @@ It also requires that the MTA that delivers emails to Sympa adds an `Authenticat
 Incoming messages DKIM
 ----------------------
 
-To make Sympa check the DKIM signature of incoming messages, you need to set the [dkim_feature](/gpldoc/man/sympa.conf.5.html#dkim_feature) configuration parameter to `on`. Before doing that you must first update your customized scenario to introduce `dkim` authentication method, **otherwise Sympa may reject messages because they include a valid DKIM signature !**. All default scenario starting at version 6.1 already include rules for DKIM, both for command and lists messages.
+To make Sympa check the DKIM signature of incoming messages, you need to set the [dkim_feature](/gpldoc/man/sympa.conf.5.html#dkim_feature) configuration parameter to `on`. Before doing that you must first update your customized scenario to introduce `dkim` authentication method, **otherwise Sympa may reject messages because they include a valid DKIM signature !**. All default scenarios starting at version 6.1 already include rules for DKIM, both for command and lists messages.
 
 **What kind of changes is required in scenarios?**
 
