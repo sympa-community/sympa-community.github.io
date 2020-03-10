@@ -316,10 +316,6 @@ Here, all database parameters have to be grouped in one `sql_named_filter_query`
 
     Format: `db_type MySQL|Oracle|PostgreSQL|SQLite`; Database management system used. Mandatory and case sensitive.
 
-  - `db_host`
-
-    Database host name. Mandatory.
-
   - `db_name`
 
     Name of database to query. Mandatory.
@@ -332,6 +328,7 @@ Here, all database parameters have to be grouped in one `sql_named_filter_query`
 
     Please refer to main `sympa.conf` section for description.
 
+      - [`db_host`](/gpldoc/man/sympa.conf.5.html#db_host)
       - [`db_user`](/gpldoc/man/sympa.conf.5.html#db_user)
       - [`db_password`](/gpldoc/man/sympa.conf.5.html#db_password)
       - [`db_options`](/gpldoc/man/sympa.conf.5.html#db_options)
