@@ -198,8 +198,7 @@ instruction below.
 #### nginx
 
   1. Add following excerpt to nginx configuration (Note:
-     replace [``$PIDDIR``](../layout.md#piddir),
-     [``$EXECCGIDIR``](../layout.md#execcgidir) and
+     replace [``$PIDDIR``](../layout.md#piddir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
      ``` code
      server {
@@ -217,7 +216,8 @@ instruction below.
      }
      ```
 
-     For the SOAP interface, add this in your ``server`` configuration:
+     For the SOAP interface, add this in your ``server`` configuration (Note:
+     replace [``$PIDDIR``](../layout.md#piddir)):
      ```code
          location /sympasoap {
              include       /etc/nginx/fastcgi_params;
@@ -248,8 +248,9 @@ instruction below.
              fastcgi_param PATH_INFO $fastcgi_path_info;
              ```
 
-           - Additionally, with Sympa 6.2.19b.2 or earlier, insert these
-             into the section of "`location /sympa`":
+           - Additionally, with Sympa 6.2.19b.2 or earlier, insert this
+             into the section of "`location /sympa`" (Note:
+             replace [``$EXECCGIDIR``](../layout.md#execcgidir)).
              ``` code
              fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/wwsympa.fcgi;
              ```
