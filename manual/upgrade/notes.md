@@ -27,6 +27,24 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.56
+
+(Coming later)
+
+  * [`http_host`](/gpldoc/man/sympa.conf.5.md#http_host) parameter:
+    Path component of this parameter is no longer optional.
+
+    If you are using this parameter in `sympa.conf` or `robot.conf`, such as
+    ``` code
+    http_host www.example.org
+    ```
+    it should be modified as
+    ``` code
+    http_host www.example.org/sympa
+    ```
+    Additionally, if you have added the `http_host` line as of Sympa prior to
+    6.2.20, it may simply be removed.
+
 ### From version prior to 6.2.54
 
   * If you are using the family_signoff link (the URL link in message footer
