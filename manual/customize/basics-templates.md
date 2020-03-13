@@ -82,7 +82,7 @@ be attached with their contents not being altered.
 
 ### Line wrapping in mail templates
 
-By default, text body of mail template (exept attached part described in above)
+By default, text body of mail template (except attached part described in above)
 is wrapped.  `X-Sympa-NoWrap` pseudo-header field prevents line wrapping.
 
 Location
