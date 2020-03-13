@@ -31,19 +31,29 @@ below.
 
 (Coming later)
 
-  * [`http_host`](/gpldoc/man/sympa.conf.5.md#http_host) parameter:
-    Path component of this parameter is no longer optional.
+  * If you have set [`http_host`](/gpldoc/man/sympa.conf.5.md#http_host)
+    parameter in `sympa.conf` or `robot.conf`, you may have to change it.
 
-    If you are using this parameter in `sympa.conf` or `robot.conf`, such as
-    ``` code
-    http_host www.example.org
-    ```
-    it should be modified as
-    ``` code
-    http_host www.example.org/sympa
-    ```
-    Additionally, if you have added the `http_host` line as of Sympa prior to
-    6.2.20, it may simply be removed.
+      - If the value of `http_host` is identical to the host part of
+        `wwsympa_url` parameter, remove it.  For example,
+        ``` code
+        wwsympa_url http://web .example.org/sympa
+        http_host   web.example.org
+        ```
+        should be changed to
+        ``` code
+        wwsympa_url http://web.example.org/sympa
+        ```
+      - Otherwise, `http_host` has to contain path component.  For example,
+        ``` code
+        wwsympa_url http://web.example.org/sympa
+        http_host   backend.example.org
+        ```
+        should be modified as
+        ``` code
+        wwsympa_url http://web.example.org/sympa
+        http_host   backend.example.org/sympa
+        ```
 
 ### From version prior to 6.2.54
 
