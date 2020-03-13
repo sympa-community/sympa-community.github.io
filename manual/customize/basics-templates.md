@@ -49,7 +49,7 @@ will be replaced with localized phrase of `A text` using translation catalogs
 (see also "[Internationalization](basics-i18n.md)").
 
 See ["Filters" in Sympa::Template(3)](/gpldoc/man/Sympa-Template.3.html#filters)
-on custom filter directives proveded by Sympa.
+on custom filter directives provided by Sympa.
 
 ### Attached message in mail template
 
