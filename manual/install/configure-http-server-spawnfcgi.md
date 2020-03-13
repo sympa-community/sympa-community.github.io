@@ -209,11 +209,6 @@ instruction below.
          location /sympa {
              include       /etc/nginx/fastcgi_params;
              fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
-
-             # If you changed wwsympa_url in sympa.conf, change this regex too!
-             fastcgi_split_path_info ^(/sympa)(.*)$;
-             fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/wwsympa.fcgi;
-             fastcgi_param PATH_INFO $fastcgi_path_info;
          }
 
          location /static-sympa {
@@ -227,20 +222,37 @@ instruction below.
          location /sympasoap {
              include       /etc/nginx/fastcgi_params;
              fastcgi_pass  unix:$PIDDIR/sympasoap.socket;
-
-             fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/sympa_soap_server.fcgi;
-             fastcgi_param PATH_INFO $fastcgi_path_info;
          }
      ```
+     See also a note below.
 
      ----
-     Note:
+     Notes:
 
        * Some binary distributions ship configuration ready to edit:
 
            - On RPM, ``/etc/nginx/conf.d/sympa.conf`` file is prepared by
              ``sympa-nginx`` package.
 
+       * With earlier version of Sympa, you may have to add following things:
+
+           - With Sympa 6.2.54 or earlier, insert these into the section of
+             "`location /sympa`":
+             ``` code
+             fastcgi_split_path_info ^(/sympa)(.*)$;
+             fastcgi_param PATH_INFO $fastcgi_path_info;
+             ```
+             and these into the section of "`location /sympasoap`", if any:
+             ``` code
+             fastcgi_split_path_info ^(/sympasoap)(.*)$;
+             fastcgi_param PATH_INFO $fastcgi_path_info;
+             ```
+
+           - Additionally, with Sympa 6.2.19b.2 or earlier, insert these
+             into the section of "`location /sympa`":
+             ``` code
+             fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/wwsympa.fcgi;
+             ```
      ----
 
   2. Edit it as you prefer.
