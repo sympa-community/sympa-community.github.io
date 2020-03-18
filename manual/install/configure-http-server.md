@@ -125,8 +125,7 @@ Virtual domain setting
          wwsympa_url http://web.example.org/sympa
          http_host web.example.org/sympa
          ```
-         On recent releases, this parameter is not necessary.
-         ``http_host`` parameter may be obsoleted in the future.
+         There is no reason to use ``http_host`` on later releases.
 
      ----
 
