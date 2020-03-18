@@ -17,10 +17,10 @@ You can define as many attributes as you like.
 Custom attributes provisioning
 ------------------------------
 
-Custom attributes can be provionned using two mutually exclusive ways:
+Custom attributes can be provided using two mutually exclusive ways:
 
   1. manually by the user
-  2. extracted from and LDAP or SQL repository
+  2. extracted from an LDAP or SQL repository
      (see [`include_ldap_ca`](/gpldoc/man/list_config.5.html#include_ldap_ca)
      and [`include_sql_ca`](/gpldoc/man/list_config.5.html#include_sql_ca)
      list configuration parameters).
@@ -28,7 +28,7 @@ Custom attributes can be provionned using two mutually exclusive ways:
 How are the custom attributes values obtained from users?
 ---------------------------------------------------------
 
-Users can provide the information expected by your custom attributes on two occasions :
+Users can provide the information expected by your custom attributes in two places:
 
   - when *subscribing* to the list through the web interface. After hitting the "subscribe" button, the user is presented a form, each field of which corresponds to a custom attribute.
 
@@ -67,5 +67,5 @@ So, what can you do with that feature?
 
 The custom attributes are displayed for each user in the subscribers review of the web interface.
 
-You can use these attributes to ~~[message personalization](web-mailer.md#message-personalization)~~.
+You can use these attributes for ~~[message personalization](web-mailer.md#message-personalization)~~.
 
