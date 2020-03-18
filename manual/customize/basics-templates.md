@@ -49,7 +49,7 @@ will be replaced with localized phrase of `A text` using translation catalogs
 (see also "[Internationalization](basics-i18n.md)").
 
 See ["Filters" in Sympa::Template(3)](/gpldoc/man/Sympa-Template.3.html#filters)
-on custom filter directives proveded by Sympa.
+on custom filter directives provided by Sympa.
 
 ### Attached message in mail template
 
@@ -82,7 +82,7 @@ be attached with their contents not being altered.
 
 ### Line wrapping in mail templates
 
-By default, text body of mail template (exept attached part described in above)
+By default, text body of mail template (except attached part described in above)
 is wrapped.  `X-Sympa-NoWrap` pseudo-header field prevents line wrapping.
 
 Location
