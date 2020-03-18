@@ -35,24 +35,26 @@ below.
     parameter in `sympa.conf` or `robot.conf`, you may have to change it.
 
       - If the value of `http_host` is identical to the host part of
-        `wwsympa_url` parameter, remove it.  For example,
+        `wwsympa_url` parameter, it may simply be removed.  For example,
         ``` code
-        wwsympa_url http://web .example.org/sympa
-        http_host   web.example.org
+        wwsympa_url       http://web .example.org/sympa
+        http_host         web.example.org
         ```
-        should be changed to
+        may be changed to
         ``` code
-        wwsympa_url http://web.example.org/sympa
+        wwsympa_url       http://web.example.org/sympa
         ```
-      - Otherwise, `http_host` has to contain path component.  For example,
+      - Otherwise, you have to replace it with appropriate
+        [`wwsympa_url_local`](/gpldoc/man/sympa.conf.5.md#wwsympa_url_local)
+        parameter.  For example,
         ``` code
-        wwsympa_url http://web.example.org/sympa
-        http_host   backend.example.org
+        wwsympa_url       http://web.example.org/sympa
+        http_host         backend.example.org
         ```
         should be modified as
         ``` code
-        wwsympa_url http://web.example.org/sympa
-        http_host   backend.example.org/sympa
+        wwsympa_url       http://web.example.org/sympa
+        wwsympa_url_local http://backend.example.org/sympa
         ```
 
 ### From version prior to 6.2.54
