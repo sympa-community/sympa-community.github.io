@@ -27,6 +27,36 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.56
+
+(Coming later)
+
+  * If you have set [`http_host`](/gpldoc/man/sympa.conf.5.md#http_host)
+    parameter in `sympa.conf` or `robot.conf`, you may have to change it.
+
+      - If the value of `http_host` is identical to the host part of
+        `wwsympa_url` parameter, it may simply be removed.  For example,
+        ``` code
+        wwsympa_url       http://web .example.org/sympa
+        http_host         web.example.org
+        ```
+        may be changed to
+        ``` code
+        wwsympa_url       http://web.example.org/sympa
+        ```
+      - Otherwise, you have to replace it with appropriate
+        [`wwsympa_url_local`](/gpldoc/man/sympa.conf.5.md#wwsympa_url_local)
+        parameter.  For example,
+        ``` code
+        wwsympa_url       http://web.example.org/sympa
+        http_host         backend.example.org
+        ```
+        should be modified as
+        ``` code
+        wwsympa_url       http://web.example.org/sympa
+        wwsympa_url_local http://backend.example.org/sympa
+        ```
+
 ### From version prior to 6.2.54
 
   * If you are using the family_signoff link (the URL link in message footer
