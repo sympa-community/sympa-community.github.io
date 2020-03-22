@@ -104,7 +104,7 @@ Some of these alterations can be configured.
 
   - If DMARC protection is enabled, `From` header field is consealed.
 
-    See "[DMRAC protection](../customize/dmarc-protection.md)".
+    See "[DMARC protection](../customize/dmarc-protection.md)".
 
   - If original message has been decrypted (i.e. originally encrypted:
     See above), re-encryption using certificate of recipient is tried.
