@@ -1,6 +1,6 @@
 ---
 title: 'Message alteration'
-prev: basics-addresses.md
+prev: basics-acceptance.md
 up: basics-workflow.md
 next: basics-delivery.md
 ---
@@ -73,7 +73,7 @@ Some of these alterations can be configured.
 
   - Some header fields are added/removed to prevent mail loop.
 
-    See "~~[Loop prevention](../customize/loop-prevention.md)~~".
+    See "[Loop prevention](basics-acceptance#loop-prevention)".
 
   - `Sender` header field is added/altered.  It should have appropriate value
     to satisfy some sender domain validation systems such as DKIM, Sender ID.
