@@ -8,7 +8,7 @@ next: basics-alteration.md
 Message acceptance
 ==================
 
-Just after when Synmpa's
+Just after when Sympa's
 [`sympa_msg.pl`](/gpldoc/man/sympa_msg.8.html) daemon fetches an incoming
 message from the incoming spool ([``$SPOOLDIR``](../layout.md#spooldir)`/msg`
 directory), it executes some sorts of inspection on the message,
