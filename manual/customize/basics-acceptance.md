@@ -46,13 +46,13 @@ the `bad` directory in incoming spool and will no longer be processed.
 
       - If sender address (see above) includes any of well-known mailbox
         names, it may be ignored (See
-        [`reject_mail_from_automates_feature`](/gpldoc/man/list_config.5.html#reject_mail_from_automates_feature)).
+        [`loop_prevention_regex`](/gpldoc/man/list_config.5.html#loop_prevention_regex)).
 
       - If message header contains a field signifying automated message,
         message will be ignored.
         In particular, `Auto-Submitted:` (RFC 3834),
-        `Conntent-Identifier:` and `X400-Conntent-Identifier:`
-        (RFC 2156) are available.
+        `Conntent-Identifier:` (nonstandard) and `X400-Conntent-Identifier:`
+        (RFC 2156) are supported.
 
       - If incoming message has `X-Loop:` header field including the same address
         as target list, the message will be ignored.
