@@ -31,7 +31,7 @@ below.
 
 (Coming later)
 
-  * If you have set [`http_host`](/gpldoc/man/sympa.conf.5.md#http_host)
+  * If you have set [`http_host`](/gpldoc/man/sympa.conf.5.html#http_host)
     parameter in `sympa.conf` or `robot.conf`, you may have to change it.
 
       - If the value of `http_host` is identical to the host part of
@@ -45,7 +45,7 @@ below.
         wwsympa_url       http://web.example.org/sympa
         ```
       - Otherwise, you have to replace it with appropriate
-        [`wwsympa_url_local`](/gpldoc/man/sympa.conf.5.md#wwsympa_url_local)
+        [`wwsympa_url_local`](/gpldoc/man/sympa.conf.5.html#wwsympa_url_local)
         parameter.  For example,
         ``` code
         wwsympa_url       http://web.example.org/sympa

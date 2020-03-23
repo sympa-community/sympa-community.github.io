@@ -35,18 +35,18 @@ the `bad` directory in incoming spool and will no longer be processed.
     The "sender address" is an originator address of the message suggested
     by message header fields.
     By default, it is taken from `From:` header field (See also
-    "[`sender_headers`](/gpldoc/man/sympa.conf.5.md#sender_headers)"
+    "[`sender_headers`](/gpldoc/man/sympa.conf.5.html#sender_headers)"
     parameter).
 
 ### Loop prevention
 
   * Some sorts of automated messages may be ignored.
     This feature is enabled by default (See
-    [`reject_mail_from_automates_feature`](/gpldoc/man/list_config.5.md#reject_mail_from_automates_feature)).
+    [`reject_mail_from_automates_feature`](/gpldoc/man/list_config.5.html#reject_mail_from_automates_feature)).
 
       - If sender address (see above) includes any of well-known mailbox
         names, it may be ignored (See
-        [`reject_mail_from_automates_feature`](/gpldoc/man/list_config.5.md#reject_mail_from_automates_feature)).
+        [`reject_mail_from_automates_feature`](/gpldoc/man/list_config.5.html#reject_mail_from_automates_feature)).
 
       - If message header contains a field signifying automated message,
         message will be ignored.
@@ -60,20 +60,20 @@ the `bad` directory in incoming spool and will no longer be processed.
         as target list, the message will be ignored.
 
   * If already known message ID was found, the message will be ignored.
-    [`sympa_msg.pl`](/gpldoc/man/sympa_msg.8.md) keeps message IDs of
+    [`sympa_msg.pl`](/gpldoc/man/sympa_msg.8.html) keeps message IDs of
     recently delivererd messages and detects duplication.
     This feature cannot be disabled.
 
-See also "[Loop prevention](/gpldoc/man/sympa.conf.5.md#loop-prevention)".
+See also "[Loop prevention](/gpldoc/man/sympa.conf.5.html#loop-prevention)".
 
 ### The other criteria
 
   * Sympa can ignore message that looks containing
     "[mail commands](../mail-commands.md)" (See
-    "[`misaddressed_commands`](/gpldoc/man/sympa.conf.5.md#misaddressed_commands)" parameter).
+    "[`misaddressed_commands`](/gpldoc/man/sympa.conf.5.html#misaddressed_commands)" parameter).
 
   * Sympa can ignore message that excceeds specified message size (See
-    "[`max_size`](/gpldoc/man/list_config.5.md#max_size)" parameter).
+    "[`max_size`](/gpldoc/man/list_config.5.html#max_size)" parameter).
 
   * Optional Antivirus plug-in may ignore the message containing potentially
     insecure content (See "[Antivirus plug-in](../customize/antivirus.md)").
@@ -84,7 +84,7 @@ Check by authorization scenario
 The list owner can choose `send` authorization scenario to control
 who can send to the list (See also
 "[Authorization scenarios](basics-scenarios.md)" and
-"[`send`](/gpldoc/man/list_config.5.md#send)" parameter).
+"[`send`](/gpldoc/man/list_config.5.html#send)" parameter).
 
 This scenario may return one of following results:
 
