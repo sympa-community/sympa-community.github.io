@@ -25,7 +25,7 @@ Some of requirements by Sympa are mandatory and the others are optional.
 The messages ignored according to any of requirements will be kept in
 the `bad` directory in incoming spool and will no longer be processed.
 
-### Existance of mandatory header fields
+### Existence of mandatory header fields
 
   * If the message did not have `Messsage-ID:` header field, it will be
     ignored.
