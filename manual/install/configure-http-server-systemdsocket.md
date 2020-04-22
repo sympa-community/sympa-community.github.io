@@ -62,7 +62,7 @@ WantedBy = sockets.target
 If the socket should be read by the other user, you may add a
 configuration file such as:
 
-`/etc/systemd/system/wwsympa.socet.d/socket.conf`:
+`/etc/systemd/system/wwsympa.socket.d/socket.conf`:
 ``` code
 [Socket]
 SocketUser=apache
