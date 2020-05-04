@@ -122,6 +122,18 @@ Instructions in
 "[Configure HTTP server: Using separate FastCGI service](configure-http-server-spawnfcgi.md)"
 are also applicable to this chapter.
 
+Stopping and starting service
+-----------------------------
+
+### Stopping service
+
+To stop WWSympa service, stop Systemd socket also:
+
+     ``` bash
+     # systemctl stop wwsympa.socket
+     # systemctl stop wwsympa.service
+     ```
+
 ### Starting service
 
 To start WWSympa service, start Systemd socket:
@@ -130,5 +142,4 @@ To start WWSympa service, start Systemd socket:
      # systemctl start wwsympa.socket
      ```
 
-`wwsympa.service` will be invoked automatically.
-
+`wwsympa.service` will be invoked automatically when the socket will be accessed.
