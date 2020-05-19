@@ -184,7 +184,7 @@ messages are compiled in one message and delivered periodically.
   - `digest`:
     Digest delivery (MIME `multipart/digest` format).
   - `digestplain`:
-    Digest delivery (plain text format).
+    Digest delivery (plain text format according to RFC 1153).
   - `summary`:
     Digest delivery, sort of: Sends the list of links to message archive.
 
