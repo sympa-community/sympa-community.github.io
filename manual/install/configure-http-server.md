@@ -158,6 +158,10 @@ Instruction by HTTP servers
   - [nginx](configure-http-server-spawnfcgi.md)
   - [lighttpd](configure-http-server-lighttpd.md)
 
+  - See also
+    [Configuration using Systemd socket](configure-http-server-systemdsocket.md)
+    applicable to Apache, nginx and lighttpd.
+
 Tests
 -----
 
