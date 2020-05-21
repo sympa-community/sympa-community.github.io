@@ -156,7 +156,8 @@ Instruction by HTTP servers
   - [Apache HTTP Server](configure-http-server-apache.md) (setting compatible
     with earlier version)
   - [nginx](configure-http-server-spawnfcgi.md)
-  - [lighttpd](configure-http-server-lighttpd.md)
+  - [lighttpd](configure-http-server-spawnfcgi.md)
+  - [lighttpd](configure-http-server-lighttpd.md) (no longer recommended)
 
   - See also
     [Configuration using Systemd socket](configure-http-server-systemdsocket.md)

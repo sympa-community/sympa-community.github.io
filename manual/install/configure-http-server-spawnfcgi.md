@@ -17,7 +17,8 @@ Requirements
 
     Currently, [nginx](https://nginx.org/en/download.html)
     and [Apache HTTP Server](https://httpd.apache.org/download.cgi)
-    (2.4 or later) are reported working.
+    (2.4 or later) and [lighttpd](https://www.lighttpd.net/)
+    are reported working.
 
     ----
     Note:
@@ -318,3 +319,29 @@ instruction below.
   3. Restart httpd.
      Then test configuration according to
      [instruction](configure-http-server.md#tests).
+
+#### lighttpd
+
+  1. Add following excerpt to lighttpd configuration (Note:
+     replace [``$PIDDIR``](../layout.md#piddir) and
+     [``$STATICDIR``](../layout.md#staticdir)):
+     ```
+     server.modules += ("mod_fastcgi")
+
+     alias.url += ( "/static-sympa/" => "$STATICDIR/" )
+
+     $HTTP["url"] =~ "^/sympa" {
+     fastcgi.server = ( "/sympa" =>
+         ((  "check-local" => "disable",
+             "socket"      => "$PIDDIR/wwsympa.socket",
+         ))
+     )
+     }
+     ```
+
+  2. Edit it as you prefer.
+
+  3. Restart lighttpd.
+     Then test configuration according to
+     [instruction](configure-http-server.md#tests).
+
