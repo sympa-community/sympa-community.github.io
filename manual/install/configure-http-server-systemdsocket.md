@@ -119,7 +119,7 @@ WantedBy = multi-user.target
 ### Setup HTTP server
 
 Instructions in
-"[Configure HTTP server: Using separate FastCGI service](configure-http-server-spawnfcgi.md)"
+"[Configure HTTP server: Using separate FastCGI service](configure-http-server-spawnfcgi.md#setup-http-server)"
 are also applicable to this chapter.
 
 Stopping and starting service
