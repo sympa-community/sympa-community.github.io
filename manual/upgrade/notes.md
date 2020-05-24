@@ -29,8 +29,6 @@ below.
 
 ### From version prior to 6.2.56
 
-(Coming later)
-
   * If you have set [`http_host`](/gpldoc/man/sympa.conf.5.html#http_host)
     parameter in `sympa.conf` or `robot.conf`, you may have to change it.
 
