@@ -153,7 +153,7 @@ Instruction by HTTP servers
 ---------------------------
 
 These methods are reported to be applicable to Apache HTTP Server (2.4 or later),
-nginx and lighbttpd.
+nginx and lighttpd.
 
   - [Configuration using spawn-fcgi](configure-http-server-spawnfcgi.md)
 
