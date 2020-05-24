@@ -152,16 +152,23 @@ Single domain setting
 Instruction by HTTP servers
 ---------------------------
 
-  - [Apache HTTP Server](configure-http-server-spawnfcgi.md) (2.4 or later)
-  - [Apache HTTP Server](configure-http-server-apache.md) (setting compatible
-    with earlier version)
-  - [nginx](configure-http-server-spawnfcgi.md)
-  - [lighttpd](configure-http-server-spawnfcgi.md)
-  - [lighttpd](configure-http-server-lighttpd.md) (no longer recommended)
+These methods are reported to be applicable to Apache HTTP Server (2.4 or later),
+nginx and lighbttpd.
+
+  - [Configuration using spawn-fcgi](configure-http-server-spawnfcgi.md)
 
   - See also
     [Configuration using Systemd socket](configure-http-server-systemdsocket.md)
-    applicable to Apache, nginx and lighttpd.
+    available on some Linux environments adopting Systemd.
+
+### Obsoleted methods
+
+These pages describe the method using setuid wrappers (`wwsympa-wrapper.fcgi`
+and `sympa_soap_server-wrapper.fcgi`) which are no longer recommended.
+
+  - [Apache HTTP Server](configure-http-server-apache.md) (HTTP Server 2.2.x or
+    earlier needs this method)
+  - [lighttpd](configure-http-server-lighttpd.md)
 
 Tests
 -----
