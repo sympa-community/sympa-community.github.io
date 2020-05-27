@@ -40,6 +40,7 @@ General instruction
      [``$STATICDIR``](../layout.md#staticdir)):
      ```
      server.modules += ("mod_fastcgi")
+     server.modules += ("mod_alias")
 
      alias.url += ( "/static-sympa/" => "$STATICDIR/" )
 

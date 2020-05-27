@@ -15,8 +15,8 @@ Requirements
 
   * HTTP server.
 
-    Currently, [nginx](https://nginx.org/en/download.html)
-    and [Apache HTTP Server](https://httpd.apache.org/download.cgi)
+    Currently, [nginx](https://nginx.org/en/download.html),
+    [Apache HTTP Server](https://httpd.apache.org/download.cgi)
     (2.4 or later) and [lighttpd](https://www.lighttpd.net/)
     are reported working.
 
@@ -327,6 +327,7 @@ instruction below.
      [``$STATICDIR``](../layout.md#staticdir)):
      ```
      server.modules += ("mod_fastcgi")
+     server.modules += ("mod_alias")
 
      alias.url += ( "/static-sympa/" => "$STATICDIR/" )
 
