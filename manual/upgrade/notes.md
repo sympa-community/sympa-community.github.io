@@ -59,7 +59,7 @@ below.
 
   * If you are using the family_signoff link (the URL link in message footer
     that allows unsubscribing from all the lists in a family), you have to
-    modify `message.footer.tt2` of the family according to new format (See
+    modify `message_footer.tt2` of the family according to new format (See
     "[Family unsubscription](../customize/basics-families.md#family-unsubscription)"
     for details).
 

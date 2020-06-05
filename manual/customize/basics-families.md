@@ -192,9 +192,9 @@ Message footers and headers are likely to contain TT2 code themselves (for examp
 
 In that case, you can use the capacity, offered by TT2, to define [custom tag delimitors](http://template-toolkit.org/docs/manual/Config.html#section_START_TAG_END_TAG).
 
-Here's an example of such usage. Let's say you want to create lists with a family, and you want that each list automatically adds an unsubscription URL at the bottom of each message. For this, you'll need to use a `message.footer` file in each list.
+Here's an example of such usage. Let's say you want to create lists with a family, and you want that each list automatically adds an unsubscription URL at the bottom of each message. For this, you'll need to use a `message_footer` file in each list.
 
-A file named `message.footer.tt2` was added to the family directory. It contains the following code:
+A file named `message_footer.tt2` was added to the family directory. It contains the following code:
 
 ``` code
 [% TAGS <+ +> -%]
@@ -204,7 +204,7 @@ The subject of the list is "<+ subject +>", click here to unsubscribe : [% 'auto
 
 "Subject" corresponds to a tag in the XML file. Let's say it contains a short description of the list.
 
-Once the family has been instantiated, each list directory will contain a message.footer file containing the following code :
+Once the family has been instantiated, each list directory will contain a `message_footer` file containing the following code :
 
 ``` code
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : [% 'auto_signoff' | url_abs([listname],{email=>user.email}) %]
@@ -400,7 +400,7 @@ Note: in order to preserve list customization for instantiation, every parameter
 
 ### Family unsubscription
 
-Using a global family message.footer.tt2 file, you can add at the end of each message sent from a family list a global unsubscription link. Here's what you could put in such message.footer.tt2:
+Using a global family `message_footer.tt2` file, you can add at the end of each message sent from a family list a global unsubscription link. Here's what you could put in such `message_footer.tt2`:
 
 ``` code
 [% TAGS <+ +> -%]
