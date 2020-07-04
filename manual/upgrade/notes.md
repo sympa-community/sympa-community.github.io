@@ -470,9 +470,3 @@ under separate directory, keeping installation and data of earlier version.
   5. Start services of recent version (see
      "[Starting services](../admin/services.md#starting-services)"),
      then check if everything goes well.
-
-Upgrading from Sympa prior to 5.0
----------------------------------
-
-(Not yet written)
-
