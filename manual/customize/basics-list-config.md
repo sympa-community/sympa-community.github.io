@@ -250,12 +250,3 @@ In general, these files should not be modified manually.
 
     (Work in progress)
 
-Deprecated files
-----------------
-
-  * `/subscribers`
-
-    On Sympa prior to 5.4, this file retained subscriber information.
-    Recently, information of subscribers are solely stored in database,
-    and this file has been deprecated.
-
