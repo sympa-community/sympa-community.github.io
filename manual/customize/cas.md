@@ -49,7 +49,7 @@ cas
 
 Note:
 
-  - `base_url` specifys base URL of CAS server.
+  - `base_url` specifies base URL of CAS server.
 
   - If the `non_blocking_redirection` parameter was set for a CAS server, then
     WWSympa will try a transparent login on this server when the user accesses
