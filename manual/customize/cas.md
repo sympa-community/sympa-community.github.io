@@ -8,8 +8,8 @@ CAS single sign-on
 
 See also "[Authentication on web interface](authentication-web.md)".
 
-[CAS](https://developers.yale.edu/documentation/Administrative/cas) is the
-Yale University SSO software. Sympa's web interface (WWSympa) provides
+[CAS](https://github.com/apereo/cas) is the Apero CAS SSO software
+(originally developed by the Yale University). Sympa's web interface (WWSympa) provides
 [authentication mechanism](authentication-web.md#authentication-mechanisms)
 to use the CAS authentication service.
 
