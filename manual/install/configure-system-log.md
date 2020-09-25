@@ -36,7 +36,7 @@ Instruction by syslog servers
 
   2. Add following line to syslog.conf:
      ```
-     local1.* /var/log/sympa.log
+     local1.* -/var/log/sympa.log
      ```
 
   3. Reload syslog service.
