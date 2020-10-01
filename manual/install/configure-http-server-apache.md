@@ -130,7 +130,7 @@ General instruction
   2. Edit it as you prefer.
 
      Note that ``ServerName`` or ``ServerAlias`` directive should define
-     the host part of [``wwsympa_url``](/gpldoc/man/sympa.conf.5.html#wwsympa_url)
+     the host part of [``wwsympa_url``](/gpldoc/man/sympa_config.5.html#wwsympa_url)
      parameter.  Because Sympa refers to ``SERVER_NAME`` CGI environment
      variable to determine host name of web service.
 

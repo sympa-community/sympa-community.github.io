@@ -27,7 +27,7 @@ Requirements
 Sympa configuration parameters
 ------------------------------
 
-  * [``aliases_program``](/gpldoc/man/sympa.conf.5.html#aliases_program)
+  * [``aliases_program``](/gpldoc/man/sympa_config.5.html#aliases_program)
 
     This parameter must be set to full path to makemap(1) utility bundled in
     OpenSMTPD:
@@ -36,8 +36,8 @@ Sympa configuration parameters
     ```
     Note that setting a keyword ``makemap`` _will not_ work.
 
-  * [``sendmail``](/gpldoc/man/sympa.conf.5.html#sendmail) and
-    [``sendmail_args``](/gpldoc/man/sympa.conf.5.html#sendmail_args)
+  * [``sendmail``](/gpldoc/man/sympa_config.5.html#sendmail) and
+    [``sendmail_args``](/gpldoc/man/sympa_config.5.html#sendmail_args)
 
       - If you are planning to use
         [message tracking](../customize/message-tracking.md)
@@ -142,7 +142,7 @@ Steps in this section have to be done every time the new domain is added.
 
   2. If you want to override global settings in
      [``sympa.conf``](../layout.md#config) (such as
-     [``lang``](/gpldoc/man/sympa.conf.5.html#lang)) by each domain, you can add it
+     [``lang``](/gpldoc/man/sympa_config.5.html#lang)) by each domain, you can add it
      to ``robot.conf`` above.
 
   3. If Sympa services have already been running, reload them (see

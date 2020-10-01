@@ -45,12 +45,12 @@ The score formula is:
 
 To avoid making decisions (i.e. defining a score) without enough relevant data, the score is not evaluated if:
 
-  - The number of received bounces is lower than [`minimum_bouncing_count`](/gpldoc/man/sympa.conf.5.html#minimum_bouncing_count).
-  - The bouncing period is shorter than [`minimum_bouncing_period`](/gpldoc/man/sympa.conf.5.html#minimum_bouncing_period).
+  - The number of received bounces is lower than [`minimum_bouncing_count`](/gpldoc/man/sympa_config.5.html#minimum_bouncing_count).
+  - The bouncing period is shorter than [`minimum_bouncing_period`](/gpldoc/man/sympa_config.5.html#minimum_bouncing_period).
 
-Bouncing list member entries expire after a given period of time. The default period is 10 days, but it can be customized if you write a new `expire_bounce` task (see [`expire_bounce_task`](/gpldoc/man/sympa.conf.5.html#expire_bounce_task)).
+Bouncing list member entries expire after a given period of time. The default period is 10 days, but it can be customized if you write a new `expire_bounce` task (see [`expire_bounce_task`](/gpldoc/man/sympa_config.5.html#expire_bounce_task)).
 
-You can define the limit between each level through the **List configuration panel**, in subsection "[Bounce management](/gpldoc/man/list_config.5.html#bouncers_level1)". The principle consists in associating a score interval with a level.
+You can define the limit between each level through the **List configuration panel**, in subsection "[Bounce management](/gpldoc/man/sympa_config.5.html#bouncers_level1)". The principle consists in associating a score interval with a level.
 
 You can also define which action must be applied on each category of user. Each time an action will be performed, a notification email will be sent to the person of your choice.
 
@@ -59,7 +59,7 @@ VERP
 
 VERP (Variable Envelop Return Path) is used to ease automatic recognition of subscribers email addresses when receiving a bounce. If VERP is enabled, the subscriber address is encoded in the return path itself, so that the Sympa bounce management process (bounced) will use the address the bounce was received for to retrieve the subscriber email. This is very useful because sometimes, non delivery report do not contain the initial subscriber email address but an alternative address where messages are forwarded. VERP is the only solution to detect automatically these subscriber errors. However, the cost of VERP is significant, indeed VERP requires to distribute a separate message for each subscriber and breaks the bulk emailer grouping optimization.
 
-In order to benefit from VERP and keep the distribution process fast, Sympa enables VERP only for a share of the list members. If [`verp_rate`](/gpldoc/man/sympa.conf.5.html#verp_rate) is `10%`, then after 10 messages distributed in the list all subscribers have received at least one message where VERP was enabled. Later, distribution message enables VERP also for all users where some bounces were collected and analyzed by the previous VERP mechanism.
+In order to benefit from VERP and keep the distribution process fast, Sympa enables VERP only for a share of the list members. If [`verp_rate`](/gpldoc/man/sympa_config.5.html#verp_rate) is `10%`, then after 10 messages distributed in the list all subscribers have received at least one message where VERP was enabled. Later, distribution message enables VERP also for all users where some bounces were collected and analyzed by the previous VERP mechanism.
 
 If VERP is enabled, the format of the messages return path are as follows:
 ``` code

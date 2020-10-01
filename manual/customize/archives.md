@@ -19,12 +19,12 @@ This is probably the most interesting part of the Sympa web archives : you can
 restrict access to a list web archives to a certain population (members of the
 current list, members of another list, clients in particular IP address ranges,
 users defined in an SQL/LDAP base). This fine tuning is defined via the
-[`archive.web_access`](/gpldoc/man/list_config.5.html#archive) list parameter. This
+[`archive.web_access`](/gpldoc/man/sympa_config.5.html#archive) list parameter. This
 parameter refers to the corresponding
 [authorization scenario](../costomize/basics-scenarios.md).
 
 Access via mail command (`INDEX` and `GET`) may also be controlled with
-[`archive.mail_access`](/gpldoc/man/list_config.5.html#archive) list parameter.
+[`archive.mail_access`](/gpldoc/man/sympa_config.5.html#archive) list parameter.
 
 ### Search engine
 
@@ -141,7 +141,7 @@ Archives structure
 
 The web archives are gathered in a common directory
 [`$ARCDIR`](../layout.md#arcdir) (location may be customized by the
-[`arc_path`](/gpldoc/man/sympa.conf.5.html#arc_path) sympa.conf parameter).
+[`arc_path`](/gpldoc/man/sympa_config.5.html#arc_path) sympa.conf parameter).
 This directory contains a subdirecty for each archived mailing list.
 The list archive directory is structured a subdirectory for each month.
 Eath month directory contains both the HTML pages for messages and indexes
@@ -187,7 +187,7 @@ Configuration parameters
   * `process_archive`
   * `web_archive_spam_protection`
 
-See also "[Archives](/gpldoc/man/list_config.5.html#archives)" section of manpage.
+See also "[Archives](/gpldoc/man/sympa_config.5.html#archives)" section of manpage.
 
 `archived.pl` daemon
 --------------------
@@ -198,7 +198,7 @@ rebuilding HTML files). This process is running as the `sympa` user; messages
 to archive and removal/rebuild commands are fetched from the archive spool
 located at [``$SPOOLDIR``](../layout.md#spooldir)``/outgoing`` directory
 (location may be customized by
-[queueoutgoing](/gpldoc/man/sympa.conf.5.html#queueoutgoing) site parameter).
+[queueoutgoing](/gpldoc/man/sympa_config.5.html#queueoutgoing) site parameter).
 
 When it archives the first message ever for a given list, `archived.pl` will
 try to create its archive directory. If it can't, it copies the message into a

@@ -29,7 +29,7 @@ below.
 
 ### From version prior to 6.2.56
 
-  * If you have set [`http_host`](/gpldoc/man/sympa.conf.5.html#http_host)
+  * If you have set [`http_host`](/gpldoc/man/sympa_config.5.html#http_host)
     parameter in `sympa.conf` or `robot.conf`, you may have to change it.
 
       - If the value of `http_host` is identical to the host part of
@@ -43,7 +43,7 @@ below.
         wwsympa_url       http://web.example.org/sympa
         ```
       - Otherwise, you have to replace it with appropriate
-        [`wwsympa_url_local`](/gpldoc/man/sympa.conf.5.html#wwsympa_url_local)
+        [`wwsympa_url_local`](/gpldoc/man/sympa_config.5.html#wwsympa_url_local)
         parameter.  For example,
         ``` code
         wwsympa_url       http://web.example.org/sympa
@@ -118,7 +118,7 @@ below.
     specified by parameters in `robot.conf` or `sympa.conf`.
 
     For details on parameters see
-    "[Default privileges for the lists](/gpldoc/man/sympa.conf.5.html#default-privileges-for-the-lists)"
+    "[Default privileges for the lists](/gpldoc/man/sympa_config.5.html#default-privileges-for-the-lists)"
     in `sympa.conf(5)` manual page.
     Previous default settings using symbolic links are automatically migrated
     during upgrading process. However you should review the changes in
@@ -158,7 +158,7 @@ below.
 ### From versions prior to 6.2.38
 
   * If you have used Oracle Database, review
-    [`db_*`](/gpldoc/man/sympa.conf.5.html#database-related) parameters in
+    [`db_*`](/gpldoc/man/sympa_config.5.html#database-related) parameters in
     [`sympa.conf`](../layout.md#config):
 
       - If you want to continue using SID (only method supported before) and
@@ -174,7 +174,7 @@ below.
 
 ### From versions prior to 6.2.34
 
-  * [`host`](/gpldoc/man/list_config.5.html#host) list parameter was deprecated. If you have used this parameter:
+  * [`host`](/gpldoc/man/sympa_config.5.html#host) list parameter was deprecated. If you have used this parameter:
 
       1. Create new domain with the same name as value of `host` list parameter (Note:
          replace [``$SYSCONFDIR``](../layout.md#sysconfdir),
@@ -199,7 +199,7 @@ below.
 
   * If you managed multiple domains and used web interface,
     [`wwsympa_url`](/gpldoc/man/sympa_config.5.html#wwsympa_url) parameter in each
-    [`robot.conf`](/gpldoc/man/sympa.conf.5.html) file is now mandatory.
+    [`robot.conf`](/gpldoc/man/sympa_config.5.html) file is now mandatory.
     Though it will be automatically added during upgrading process, if you used HTTPS protocol,
     you may have to edit value of `wwsympa_url` parameter in each `robot.conf` file.
 
@@ -247,10 +247,10 @@ below.
         ```
 
   * If you have specified
-    [`static_content_path`](/gpldoc/man/sympa.conf.5.html#static_content_path)
+    [`static_content_path`](/gpldoc/man/sympa_config.5.html#static_content_path)
     parameter in [``sympa.conf``](../layout.md#config), you might want to
-    specify [`css_path`](/gpldoc/man/sympa.conf.5.html#css_path) (if you have not
-    specified it) and [`pictures_path`](/gpldoc/man/sympa.conf.5.html#pictures_path)
+    specify [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) (if you have not
+    specified it) and [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
     also.
 
       - With earlier version:
@@ -265,10 +265,10 @@ below.
         ```
 
   * If you have specified
-    [`static_content_url`](/gpldoc/man/sympa.conf.5.html#static_content_url)
+    [`static_content_url`](/gpldoc/man/sympa_config.5.html#static_content_url)
     parameter in [``sympa.conf``](../layout.md#config), you might want to
-    specify [`css_url`](/gpldoc/man/sympa.conf.5.html#css_url) (if you have not
-    specified it) and [`pictures_url`](/gpldoc/man/sympa.conf.5.html#pictures_url)
+    specify [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) (if you have not
+    specified it) and [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
     also.
 
       - With earlier version:
@@ -383,8 +383,8 @@ Additionally, you may have to fix up configuration manually:
 
     If you have used `virtualwrapper`, it was replaced with new programs
     `sympa_newaliases.pl` and its wrapper: You may have to add new parameters
-    [`aliases_program`](/gpldoc/man/sympa.conf.5.html#aliases_program) and
-    optionally [`aliases_db_type`](/gpldoc/man/sympa.conf.5.html#aliases_db_type)
+    [`aliases_program`](/gpldoc/man/sympa_config.5.html#aliases_program) and
+    optionally [`aliases_db_type`](/gpldoc/man/sympa_config.5.html#aliases_db_type)
     to `sympa.conf`.
 
   - Renamed list parameters:

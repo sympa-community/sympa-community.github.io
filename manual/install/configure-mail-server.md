@@ -46,7 +46,7 @@ Tests
 
   3. Send a message with a subject "help" to ``sympa@mail.example.org``.
      And confirm that the message will be stored into
-     [incoming spool directory](/gpldoc/man/sympa.conf.5.html#queue) (by default
+     [incoming spool directory](/gpldoc/man/sympa_config.5.html#queue) (by default
      it is ``msg`` subdirectory in [``$SPOOLDIR``](../layout.md#spooldir)
      directory).
 
@@ -61,7 +61,7 @@ Tests
 
   4. Send any message to ``bounce+hogehoge@mail.example.org``.
      And confirm that the message will be stored into
-     [bounce spool directory](/gpldoc/man/sympa.conf.5.html#queuebounce) (by default
+     [bounce spool directory](/gpldoc/man/sympa_config.5.html#queuebounce) (by default
      it is ``bounce`` subdirectory in [``$SPOOLDIR``](../layout.md#spooldir)
      directory).
 

@@ -21,9 +21,9 @@ General instruction
 
   1. Ensure that [``sympa.conf``](../layout.md#config) includes appropriate
      values for these parameters:
-     [``db_type``](/gpldoc/man/sympa.conf.5.html#db_type),
-     [``db_name``](/gpldoc/man/sympa.conf.5.html#db_name) and
-     [``db_timeout``](/gpldoc/man/sympa.conf.5.html#db_timeout) (optional).
+     [``db_type``](/gpldoc/man/sympa_config.5.html#db_type),
+     [``db_name``](/gpldoc/man/sympa_config.5.html#db_name) and
+     [``db_timeout``](/gpldoc/man/sympa_config.5.html#db_timeout) (optional).
 
        * ``db_type`` must be ``SQLite``.
 

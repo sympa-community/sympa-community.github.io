@@ -271,7 +271,7 @@ For more details on tt2 customization, templates path and so on, see "[Templates
 Using [`edit_list.conf`](/gpldoc/man/edit_list.conf.5.html),
 you can define privileges on the following lists parameters:
 
-  - All the lists config parameters ([those used in the config file](/gpldoc/man/list_config.5.html)),
+  - All the lists config parameters ([those used in the config file](/gpldoc/man/sympa_config.5.html)),
 
   - Any file used in list context and likely to be edited through the web interface:
 

@@ -39,38 +39,38 @@ Requirements
 Sympa configuration parameters
 ------------------------------
 
-  * [``wwsympa_url``](/gpldoc/man/sympa.conf.5.html#wwsympa_url)
+  * [``wwsympa_url``](/gpldoc/man/sympa_config.5.html#wwsympa_url)
 
     This is URL prefix of WWSympa service _without_ trailing slash (``/``).
 
-  * [``static_content_url``](/gpldoc/man/sympa.conf.5.html#static_content_url)
+  * [``static_content_url``](/gpldoc/man/sympa_config.5.html#static_content_url)
 
     This is URL path or full URL of static content.  Default value is
     ``/static-sympa``.  HTTP server have to map it with
     [``$STATICDIR``](../layout.md#staticdir).
 
-  * [``mhonarc``](/gpldoc/man/sympa.conf.5.html#mhonarc)
+  * [``mhonarc``](/gpldoc/man/sympa_config.5.html#mhonarc)
 
     This is full path to executable file of MHonArc used to provide archives
     browseable by web interface.
 
-See ["Web interface parameters" in sympa.conf(5)](/gpldoc/man/sympa.conf.5.html#web-interface-parameters) for more parameters for web interface.
+See ["Web interface parameters" in sympa.conf(5)](/gpldoc/man/sympa_config.5.html#web-interface-parameters) for more parameters for web interface.
 
 And following parameter in [``sympa.conf``](../layout.md#config) may be
 useful:
 
-  * [``log_facility``](/gpldoc/man/sympa.conf.5.html#log_facility)
+  * [``log_facility``](/gpldoc/man/sympa_config.5.html#log_facility)
 
     Setting this, you can record logs about web interface into separate log
     file.  Default value is the same as
-    [``syslog``](/gpldoc/man/sympa.conf.5.html#syslog) parameter.
+    [``syslog``](/gpldoc/man/sympa_config.5.html#syslog) parameter.
 
 ----
 Note:
 
   * On Sympa 6.2.22 or earlier,
-    value of [``use_fast_cgi``](/gpldoc/man/sympa.conf.5.html#use_fast_cgi) parameter
-    in [``sympa.conf``](/gpldoc/man/sympa.conf.5.html#config) must be ``1``,
+    value of [``use_fast_cgi``](/gpldoc/man/sympa_config.5.html#use_fast_cgi) parameter
+    in [``sympa.conf``](/gpldoc/man/sympa_config.5.html#config) must be ``1``,
     the default.
 
 ----
@@ -91,7 +91,7 @@ Virtual domain setting
 ----------------------
 
   1. If path of MHonArc executable file is differ from the default of
-     [``mhonarc``](/gpldoc/man/sympa.conf.5.html#mhonarc) parameter,
+     [``mhonarc``](/gpldoc/man/sympa_config.5.html#mhonarc) parameter,
      ``/usr/bin/mhonarc``, define it in
      [``sympa.conf``](../layout.md#config).  For example:
 
@@ -120,7 +120,7 @@ Virtual domain setting
      Note:
 
        * On Sympa 6.2.18 or earlier, ``robot.conf`` had to contain additional
-         [``http_host``](/gpldoc/man/sympa.conf.5.html#http_host) parameter, like:
+         [``http_host``](/gpldoc/man/sympa_config.5.html#http_host) parameter, like:
          ```
          wwsympa_url http://web.example.org/sympa
          http_host web.example.org/sympa

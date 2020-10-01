@@ -41,18 +41,18 @@ Some of these alterations can be configured.
   - If anonymization mode is enabled, several header fields are removed or
     consealed.
 
-    See [`anonymous_sender`](/gpldoc/man/list_config.5.html#anonymous_sender) and
-    [`anonymous_header_fields`](/gpldoc/man/sympa.conf.5.html#anonymous_header_fields)
+    See [`anonymous_sender`](/gpldoc/man/sympa_config.5.html#anonymous_sender) and
+    [`anonymous_header_fields`](/gpldoc/man/sympa_config.5.html#anonymous_header_fields)
     parameters.
 
   - The subject of the message might be changed to add a custom subject tag.
 
-    See [`custom_subject`](/gpldoc/man/list_config.5.html#custom_subject).
+    See [`custom_subject`](/gpldoc/man/sympa_config.5.html#custom_subject).
 
   - Additional header fields are removed according to customizations.
 
-    See [`remove_headers`](/gpldoc/man/list_config.5.html#remove_headers) and
-    [`remove_outgoing_headers`](/gpldoc/man/list_config.5.html#remove_outgoing_headers).
+    See [`remove_headers`](/gpldoc/man/sympa_config.5.html#remove_headers) and
+    [`remove_outgoing_headers`](/gpldoc/man/sympa_config.5.html#remove_outgoing_headers).
 
     ----
     Note:
@@ -66,7 +66,7 @@ Some of these alterations can be configured.
 
   - `Reply-To` header field is altered according to configuration.
 
-     See [`reply_to_header`](/gpldoc/man/list_config.5.html#reply_to_header).
+     See [`reply_to_header`](/gpldoc/man/sympa_config.5.html#reply_to_header).
 
   - `X-Sequence` header field is added.  Its value is the sequence number of
      posts.
@@ -79,11 +79,11 @@ Some of these alterations can be configured.
     to satisfy some sender domain validation systems such as DKIM, Sender ID.
 
   - Header fields configured by
-    [`custom_header`](/gpldoc/man/list_config.5.html#custom_header) are added.
+    [`custom_header`](/gpldoc/man/sympa_config.5.html#custom_header) are added.
 
   - Some mailing list header fields for
     [RFC 2369](https://tools.ietf.org/html/rfc2369) compliance (see
-    [`rfc2369_header_fields`](/gpldoc/man/list_config.5.html#rfc2369_header_fields))
+    [`rfc2369_header_fields`](/gpldoc/man/sympa_config.5.html#rfc2369_header_fields))
     are added.
     Also, `List-Id` ([RFC 2919](https://tools.ietf.org/html/rfc2919)) and
     `Archived-At` ([RFC 5064](https://tools.ietf.org/html/rfc5064)) fields are
@@ -128,10 +128,10 @@ interface or via the `SET `*list*` `*mode* mail command.
 
 The available reception modes can be restricted by listmasters and/or list
 owners with the
-[`available_user_options`](/gpldoc/man/list_config.5.html#available_user_options)
+[`available_user_options`](/gpldoc/man/sympa_config.5.html#available_user_options)
 list/global parameter.  list owners can define default reception mode for
 users added to the list with
-[`default_user_options`](/gpldoc/man/list_config.5.html#default_user_options)
+[`default_user_options`](/gpldoc/man/sympa_config.5.html#default_user_options)
 list parameter.
 
 Following changes are made by each mode:
@@ -149,7 +149,7 @@ Following changes are made by each mode:
   - `urlize`:
     Replaces attachments with the links to the file in message archive.
     This "urlizization" depends on the size of each message part: See also
-    [`urlize_min_size`](/gpldoc/man/list_config.5.html#urlize_min_size) parameter.
+    [`urlize_min_size`](/gpldoc/man/sympa_config.5.html#urlize_min_size) parameter.
 
   - `not_me`:
     Same as `mail`, however if the recipient is originator of the message,

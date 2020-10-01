@@ -62,7 +62,7 @@ sympafamily  unix  -       n       n       -       -       pipe
   flags=R user=sympa argv=$LIBEXECDIR/familyqueue ${user} age-occupation
 ```
 
-A mail sent to `auto-cto.50@lists.domain.com` will be queued to the [``$SPOOLDIR``](../layout.md#spooldir)`/automatic` spool, defined by the `queueautomatic` `sympa.conf` parameter (see [`queueautomatic`](/gpldoc/man/sympa.conf.5.html#queueautomatic)). The mail will first be processed by an instance of the `sympa.pl` process dedicated to automatic list creation, then the mail will be sent to the newly created mailing list.
+A mail sent to `auto-cto.50@lists.domain.com` will be queued to the [``$SPOOLDIR``](../layout.md#spooldir)`/automatic` spool, defined by the `queueautomatic` `sympa.conf` parameter (see [`queueautomatic`](/gpldoc/man/sympa_config.5.html#queueautomatic)). The mail will first be processed by an instance of the `sympa.pl` process dedicated to automatic list creation, then the mail will be sent to the newly created mailing list.
 
 ### The sympa-milter solution (with Postfix or Sendmail)
 
@@ -257,10 +257,10 @@ Configuring Sympa
 
 Now we need to enable automatic list creation in Sympa. To do so, we have to:
 
-  - set the [`automatic_list_feature`](/gpldoc/man/sympa.conf.5.html#automatic_list_feature) parameter to `on` and define who can create automatic lists via the [`automatic_list_creation`](/gpldoc/man/sympa.conf.5.html#automatic_list_creation) (points to an `automatic_list_creation` scenario);
+  - set the [`automatic_list_feature`](/gpldoc/man/sympa_config.5.html#automatic_list_feature) parameter to `on` and define who can create automatic lists via the [`automatic_list_creation`](/gpldoc/man/sympa_config.5.html#automatic_list_creation) (points to an `automatic_list_creation` scenario);
   - set the `queueautomatic` `sympa.conf` parameter to the spool location where we want these messages to be stored (it has to be different from the [``$SPOOLDIR``](../layout.md#spooldir)`/msg` spool).
 
-You can make Sympa delete automatic lists that were created with zero list members; to do so, you should set the [`automatic_list_removal`](/gpldoc/man/sympa.conf.5.html#automatic_list_removal) parameter to `if_empty`.
+You can make Sympa delete automatic lists that were created with zero list members; to do so, you should set the [`automatic_list_removal`](/gpldoc/man/sympa_config.5.html#automatic_list_removal) parameter to `if_empty`.
 
 [``sympa.conf``](../layout.md#config)
 ``` code

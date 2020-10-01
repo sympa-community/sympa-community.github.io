@@ -122,11 +122,11 @@ See appropriate section in
 
 ### Sympa configuration parameters
 
-  * [``soap_url``](/gpldoc/man/sympa.conf.5.html#soap_url)
+  * [``soap_url``](/gpldoc/man/sympa_config.5.html#soap_url)
 
     The URL of SOAP/HTTP service itself.
 
-  * [``wwsympa_url``](/gpldoc/man/sympa.conf.5.html#soap_url)
+  * [``wwsympa_url``](/gpldoc/man/sympa_config.5.html#soap_url)
 
     This is URL prefix of WWSympa service _without_ trailing slash (``/``).
     WSDL service description is published using a URL _wwsympa_url_`/wsdl`.

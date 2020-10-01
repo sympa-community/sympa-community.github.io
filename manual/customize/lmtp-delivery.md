@@ -51,11 +51,11 @@ Setup
 
 ### Sympa configuration parameter
 
-  * [``sendmail``](/gpldoc/man/sympa.conf.5.html#sendmail)
+  * [``sendmail``](/gpldoc/man/sympa_config.5.html#sendmail)
 
     Absolute path to sendmail command line utility. 
 
-  * [``sendmail_args``](/gpldoc/man/sympa.conf.5.html#sendmail_args)
+  * [``sendmail_args``](/gpldoc/man/sympa_config.5.html#sendmail_args)
 
     Arguments fed to utility above, separated by spaces.
 

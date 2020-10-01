@@ -11,7 +11,7 @@ If the user description parameters available in Sympa don't suit your needs, you
 Custom attributes definition
 ----------------------------
 
-These attributes are defined in the list configuration by the [`custom_attribute`](/gpldoc/man/list_config.5.html#custom_attribute) parameter.
+These attributes are defined in the list configuration by the [`custom_attribute`](/gpldoc/man/sympa_config.5.html#custom_attribute) parameter.
 You can define as many attributes as you like.
 
 Custom attributes provisioning
@@ -21,8 +21,8 @@ Custom attributes can be provided using two mutually exclusive ways:
 
   1. manually by the user
   2. extracted from an LDAP or SQL repository
-     (see [`include_ldap_ca`](/gpldoc/man/list_config.5.html#include_ldap_ca)
-     and [`include_sql_ca`](/gpldoc/man/list_config.5.html#include_sql_ca)
+     (see [`include_ldap_ca`](/gpldoc/man/sympa_config.5.html#include_ldap_ca)
+     and [`include_sql_ca`](/gpldoc/man/sympa_config.5.html#include_sql_ca)
      list configuration parameters).
 
 How are the custom attributes values obtained from users?

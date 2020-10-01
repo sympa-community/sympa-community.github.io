@@ -33,7 +33,7 @@ system administrators.
         this address from system messages.
 
       * Though you might use the other mailbox than `sympa` by setting
-        [`email`](/gpldoc/man/sympa.conf.5.html#email) parameter, you will have to
+        [`email`](/gpldoc/man/sympa_config.5.html#email) parameter, you will have to
         change mail aliases as well.
 
     ----
@@ -42,13 +42,13 @@ system administrators.
 
     The public address to contact the [listmasters](basics-roles.md).  Messages
     sent to this address will be forwarded to the people configured by
-    [`listmaster`](/gpldoc/man/sympa.conf.5.html#listmaster) parameter.
+    [`listmaster`](/gpldoc/man/sympa_config.5.html#listmaster) parameter.
     
     ----
     Note:
     
       * Though you might use the other mailbox than `listmaster` by setting
-        [`listmaster_email`](/gpldoc/man/sympa.conf.5.html#listmaster_email)
+        [`listmaster_email`](/gpldoc/man/sympa_config.5.html#listmaster_email)
         parameter, you will have to change mail aliases as well.
     
     ----
@@ -72,7 +72,7 @@ system administrators.
     
       * Though you might use the other mailboxes than `bounce` and so on by
         setting
-        [`bounce_email_prefix`](/gpldoc/man/sympa.conf.5.html#bounce_email_prefix)
+        [`bounce_email_prefix`](/gpldoc/man/sympa_config.5.html#bounce_email_prefix)
         parameter, you will have to change mail aliases as well.
     
     ----

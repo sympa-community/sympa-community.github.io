@@ -53,7 +53,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 **Aliases file**
 
   * This path may be overridden by
-    [``sendmail_aliases``](/gpldoc/man/sympa.conf.5.html#sendmail_aliases) parameter.
+    [``sendmail_aliases``](/gpldoc/man/sympa_config.5.html#sendmail_aliases) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -81,7 +81,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 **List home**.  Base directory of list configurations.
 
   * This path may be overridden by
-    [``home``](/gpldoc/man/sympa.conf.5.html#home) parameter.
+    [``home``](/gpldoc/man/sympa_config.5.html#home) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -97,19 +97,19 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 **Base directory of spools**.
 
   * Location of each spool may be overridden by
-    [queue](/gpldoc/man/sympa.conf.5.html#queue),
-    [queueauth](/gpldoc/man/sympa.conf.5.html#queueauth),
-    [queueautomatic](/gpldoc/man/sympa.conf.5.html#queueautomatic),
-    [queuebounce](/gpldoc/man/sympa.conf.5.html#queuebounce),
-    [queuebulk](/gpldoc/man/sympa.conf.5.html#queuebulk),
-    [queuedigest](/gpldoc/man/sympa.conf.5.html#queuedigest),
-    [queuemod](/gpldoc/man/sympa.conf.5.html#queuemod),
-    [queueoutgoing](/gpldoc/man/sympa.conf.5.html#queueoutgoing),
-    [queuesubscribe](/gpldoc/man/sympa.conf.5.html#queuesubscribe),
-    [queuetask](/gpldoc/man/sympa.conf.5.html#queuetask),
-    [queuetopic](/gpldoc/man/sympa.conf.5.html#queuetopic),
-    [tmpdir](/gpldoc/man/sympa.conf.5.html#tmpdir) or
-    [viewmail_dir](/gpldoc/man/sympa.conf.5.html#viewmail_dir) parameter.
+    [queue](/gpldoc/man/sympa_config.5.html#queue),
+    [queueauth](/gpldoc/man/sympa_config.5.html#queueauth),
+    [queueautomatic](/gpldoc/man/sympa_config.5.html#queueautomatic),
+    [queuebounce](/gpldoc/man/sympa_config.5.html#queuebounce),
+    [queuebulk](/gpldoc/man/sympa_config.5.html#queuebulk),
+    [queuedigest](/gpldoc/man/sympa_config.5.html#queuedigest),
+    [queuemod](/gpldoc/man/sympa_config.5.html#queuemod),
+    [queueoutgoing](/gpldoc/man/sympa_config.5.html#queueoutgoing),
+    [queuesubscribe](/gpldoc/man/sympa_config.5.html#queuesubscribe),
+    [queuetask](/gpldoc/man/sympa_config.5.html#queuetask),
+    [queuetopic](/gpldoc/man/sympa_config.5.html#queuetopic),
+    [tmpdir](/gpldoc/man/sympa_config.5.html#tmpdir) or
+    [viewmail_dir](/gpldoc/man/sympa_config.5.html#viewmail_dir) parameter.
 
 | Distribution                | Path                             |
 |-----------------------------|----------------------------------|
@@ -124,7 +124,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 **Base directory of global configuration** (except ``sympa.conf``).
 
   * This path may be overridden by
-    [``etc``](/gpldoc/man/sympa.conf.5.html#etc) parameter.
+    [``etc``](/gpldoc/man/sympa_config.5.html#etc) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -212,7 +212,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 **Base directory of archives**.
 
   * This path may be overridden by
-    [``arc_path``](/gpldoc/man/sympa.conf.5.html#arc_path) parameter.
+    [``arc_path``](/gpldoc/man/sympa_config.5.html#arc_path) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -227,7 +227,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 **Base directory of bounce and tracking information**.
 
   * This path may be overridden by
-    [``bounce_path``](/gpldoc/man/sympa.conf.5.html#bounce_path) parameter.
+    [``bounce_path``](/gpldoc/man/sympa_config.5.html#bounce_path) parameter.
 
 | Distribution                | Default path                     |
 |-----------------------------|----------------------------------|
@@ -257,7 +257,7 @@ Directories specific to web interface
 **Base path of static web contents**.
 
   * This path may be overridden by
-    [``static_content_path``](/gpldoc/man/sympa.conf.5.html#static_content_path)
+    [``static_content_path``](/gpldoc/man/sympa_config.5.html#static_content_path)
     parameter.
 
 | Distribution                | Default path                      |
@@ -274,7 +274,7 @@ Directories specific to web interface
 **Directory of automatically generated cascading style sheets (CSS)**.
 
   * This path may be overridden by
-    [``css_path``](/gpldoc/man/sympa.conf.5.html#css_path)
+    [``css_path``](/gpldoc/man/sympa_config.5.html#css_path)
     parameter.
 
 | Distribution                | Default path                          |
@@ -291,12 +291,12 @@ Directories specific to web interface
 **Directory for subscribers pictures**.
 
   * On Sympa 6.2.26 or later, this path may be overridden by
-    [``pictures_path``](/gpldoc/man/sympa.conf.5.html#pictures_path)
+    [``pictures_path``](/gpldoc/man/sympa_config.5.html#pictures_path)
     parameter.
 
   * On Sympa prior to 6.2.26, this path is a subdirectory `pictures` under the
     path that may be overridden by
-    [``static_content_path``](/gpldoc/man/sympa.conf.5.html#static_content_path)
+    [``static_content_path``](/gpldoc/man/sympa_config.5.html#static_content_path)
     parameter.
 
 | Distribution                | Default path                               |

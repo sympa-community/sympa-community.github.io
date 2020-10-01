@@ -20,12 +20,12 @@ General instruction
 
   1. Ensure that [``sympa.conf``](../layout.md#config) includes appropriate
      values for these parameters:
-     [``db_type``](/gpldoc/man/sympa.conf.5.html#db_type),
-     [``db_name``](/gpldoc/man/sympa.conf.5.html#db_name),
-     [``db_host``](/gpldoc/man/sympa.conf.5.html#db_host),
-     [``db_port``](/gpldoc/man/sympa.conf.5.html#db_port) (optional),
-     [``db_user``](/gpldoc/man/sympa.conf.5.html#db_user) and
-     [``db_passwd``](/gpldoc/man/sympa.conf.5.html#db_passwd) (optional).
+     [``db_type``](/gpldoc/man/sympa_config.5.html#db_type),
+     [``db_name``](/gpldoc/man/sympa_config.5.html#db_name),
+     [``db_host``](/gpldoc/man/sympa_config.5.html#db_host),
+     [``db_port``](/gpldoc/man/sympa_config.5.html#db_port) (optional),
+     [``db_user``](/gpldoc/man/sympa_config.5.html#db_user) and
+     [``db_passwd``](/gpldoc/man/sympa_config.5.html#db_passwd) (optional).
 
        * ``db_type`` must be ``PostgreSQL`` or ``Pg`` (obsoleted).
 

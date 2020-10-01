@@ -96,9 +96,9 @@ You can use two model names in your list task model files :
 
 List tasks are defined through specific parameters in the `config` file. As of this writing, the following parameters are available :
 
-  - [remind_task](/gpldoc/man/list_config.5.html#remind_task) for `remind` task;
+  - [remind_task](/gpldoc/man/sympa_config.5.html#remind_task) for `remind` task;
 
-  - [ttl](/gpldoc/man/list_config.5.html#ttl) for `sync_include` task.
+  - [ttl](/gpldoc/man/sympa_config.5.html#ttl) for `sync_include` task.
 
 Global task creation
 --------------------
@@ -143,26 +143,26 @@ See the synonyms commands below. These models are usually employed to apply thes
 
 The version of a global model to be used is specified in [``sympa.conf``](../layout.md#config). These are the parameters you can set in this configuration file:
 
-  - [`expire_bounce_task`](/gpldoc/man/sympa.conf.5.html#expire_bounce_task): `expire_bounce` model definition;
+  - [`expire_bounce_task`](/gpldoc/man/sympa_config.5.html#expire_bounce_task): `expire_bounce` model definition;
 
-  - [`purge_orphan_bounces_task`](/gpldoc/man/sympa.conf.5.html#purge_orphan_bounces_task): `purge_orphan_bounces` model definition;
+  - [`purge_orphan_bounces_task`](/gpldoc/man/sympa_config.5.html#purge_orphan_bounces_task): `purge_orphan_bounces` model definition;
 
-  - [`eval_bouncers_task`](/gpldoc/man/sympa.conf.5.html#eval_bouncers_task) : `eval_bouncers` model definition;
+  - [`eval_bouncers_task`](/gpldoc/man/sympa_config.5.html#eval_bouncers_task) : `eval_bouncers` model definition;
 
-  - [`process_bouncers_task`](/gpldoc/man/sympa.conf.5.html#process_bouncers_task) : `process_bouncers` model definition;
+  - [`process_bouncers_task`](/gpldoc/man/sympa_config.5.html#process_bouncers_task) : `process_bouncers` model definition;
 
-  - [`default_remind_task`](/gpldoc/man/sympa.conf.5.html#default_remind_task) : the `remind` model used by default in lists;
+  - [`default_remind_task`](/gpldoc/man/sympa_config.5.html#default_remind_task) : the `remind` model used by default in lists;
 
-  - [`purge_user_table_task`](/gpldoc/man/sympa.conf.5.html#purge_user_table_task) : `purge_user_table` model definition;
+  - [`purge_user_table_task`](/gpldoc/man/sympa_config.5.html#purge_user_table_task) : `purge_user_table` model definition;
 
-  - [`purge_logs_table_task`](/gpldoc/man/sympa.conf.5.html#purge_logs_table_task) : `purge_logs_table` model definition;
+  - [`purge_logs_table_task`](/gpldoc/man/sympa_config.5.html#purge_logs_table_task) : `purge_logs_table` model definition;
 
 The `sync_include` model is an exception, as it doesn't have a single dedicated configuration parameter.
 
 The ``sync_include`` task
 --------------------------
 
-An exception in the realm of tasks in Sympa, the `sync_include` task accepts one and only one model : `sync_include.ttl.task`. It's useless to try and create other versions of this task, they will be ignored. There exist a configuration parameter related to `sync_include`, though, but it doesn't set the model used. It is the [ttl](/gpldoc/man/list_config.5.html#ttl) parameter. It will just set the length of time between two synchronizations.
+An exception in the realm of tasks in Sympa, the `sync_include` task accepts one and only one model : `sync_include.ttl.task`. It's useless to try and create other versions of this task, they will be ignored. There exist a configuration parameter related to `sync_include`, though, but it doesn't set the model used. It is the [ttl](/gpldoc/man/sympa_config.5.html#ttl) parameter. It will just set the length of time between two synchronizations.
 
 Model files constitution
 ========================

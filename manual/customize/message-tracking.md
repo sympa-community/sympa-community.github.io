@@ -43,7 +43,7 @@ Setup
     tracking_message_disposition_notification on 
     ```
     These settings can be overridden by configuration of each list: See
-    [list tracking configuration parameters](/gpldoc/man/list_config.5.html#tracking).
+    [list tracking configuration parameters](/gpldoc/man/sympa_config.5.html#tracking).
 
     ----
     Note:

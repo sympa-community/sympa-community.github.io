@@ -154,12 +154,12 @@ domain: See
 
 ### Other uses
 
-  - Value of [`custom_subject`](/gpldoc/man/list_config.5.html#custom_subject)
+  - Value of [`custom_subject`](/gpldoc/man/sympa_config.5.html#custom_subject)
     list configuration parameter may include template syntax:
     `[% list.name %]` and `[% list.sequence %]` variables may be used.
 
   - On the lists
-    [Message personalization](/gpldoc/man/list_config.5.html#merge_feature) enabled,
+    [Message personalization](/gpldoc/man/sympa_config.5.html#merge_feature) enabled,
     Sympa treats the bodies of incoming messages as templates, and delivers
     messages customized by each member.  See
     "~~[Message personalization](../customize/web-mailer.md#message-personalization)~~"

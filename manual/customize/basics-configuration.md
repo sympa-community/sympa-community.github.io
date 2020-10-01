@@ -64,7 +64,7 @@ Note:
     > `$EXPLDIR/`*mail domain name*`/`*list name*`/`
 
     However, by historical reason, the lists of primary domain (the mail
-    domain defined by [`domain`](/gpldoc/man/sympa.conf.5.html#domain) parameter in
+    domain defined by [`domain`](/gpldoc/man/sympa_config.5.html#domain) parameter in
     [``sympa.conf``](../layout.md#config)) also allows the path in a style:
     > `$EXPLDIR/`*list name*`/`.
 
@@ -116,6 +116,6 @@ Main configuration files have different names by each scope:
 
 These files will not override the others.  Instead, several parameters in
 these files override parameters in wider scopes by each.  See documentation on
-parameters in [`sympa.conf`, `robot.conf`](/gpldoc/man/sympa.conf.5.html) and
-[`config`](/gpldoc/man/list_config.5.html) files.
+parameters in [`sympa.conf`, `robot.conf`](/gpldoc/man/sympa_config.5.html) and
+[`config`](/gpldoc/man/sympa_config.5.html) files.
 

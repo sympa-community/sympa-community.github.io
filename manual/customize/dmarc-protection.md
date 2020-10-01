@@ -42,7 +42,7 @@ This will have the following effect: mails from domains whose pollicy is to reje
 
   4. previous value of the DKIM signature is saved in `X-Original-DKIM-Signature:` field for later inspection.
 
-You can get further customization of how to deal with DMARC by using the different Sympa [dmarc_protection*](/gpldoc/man/sympa.conf.5.html#dmarc-protection) parameters.
+You can get further customization of how to deal with DMARC by using the different Sympa [dmarc_protection*](/gpldoc/man/sympa_config.5.html#dmarc-protection) parameters.
 
 Related posts
 -------------

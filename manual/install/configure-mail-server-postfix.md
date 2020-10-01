@@ -39,7 +39,7 @@ Virtual domain setting
 Steps in this section may be done once at the first time.
 
   1. If path of ``sendmail`` executable file is differ from the default value
-     of [``sendmail``](/gpldoc/man/sympa.conf.5.html#sendmail) parameter,
+     of [``sendmail``](/gpldoc/man/sympa_config.5.html#sendmail) parameter,
      ``/usr/sbin/sendmail``, define it in
      [``sympa.conf``](../layout.md#config).  For example:
 
@@ -147,7 +147,7 @@ Steps in this section have to be done every time the new domain is added.
 
   2. If you want to override global settings in
      [``sympa.conf``](../layout.md#config) (such as
-     [``lang``](/gpldoc/man/sympa.conf.5.html#lang)) by each domain, you can add it
+     [``lang``](/gpldoc/man/sympa_config.5.html#lang)) by each domain, you can add it
      to ``robot.conf`` file above.
 
   3. If Sympa services have already been running, reload them

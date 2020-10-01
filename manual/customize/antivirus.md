@@ -6,7 +6,7 @@ up: ../customize.md#sympa-services-optional-features
 Antivirus plug-in
 =================
 
-Sympa lets you use an external antivirus solution to check incoming mails. In this case you must set the `antivirus_path` and `antivirus_args` configuration parameters (see "[Antivirus plug-in](/gpldoc/man/sympa.conf.5.html#antivirus-plug-in)"). Sympa supports at least following products:
+Sympa lets you use an external antivirus solution to check incoming mails. In this case you must set the `antivirus_path` and `antivirus_args` configuration parameters (see "[Antivirus plug-in](/gpldoc/man/sympa_config.5.html#antivirus-plug-in)"). Sympa supports at least following products:
 
   - McAfee/uvscan
   - Fsecure/fsav
