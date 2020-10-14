@@ -96,7 +96,11 @@ Steps in this section may be done once at the first time.
      sympabounce unix -      n       n       -       -       pipe
        flags=hqRu null_sender= user=sympa argv=$LIBEXECDIR/bouncequeue ${nexthop}
      ```
-     Note that ``flags`` option have to contain ``R``. ``F`` is unnecessary.
+     A few notes:
+
+      * ``flags`` attribute has to contain ``R``. ``F`` is unnecessary.
+      * ``null_sender`` attribute with empty value is required for
+        Postfix 2.3 or later.
 
   5. Edit Postfix ``main.cf`` file to add configuration for virtual domains
      (Note: replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):
