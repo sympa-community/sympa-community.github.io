@@ -55,11 +55,11 @@ local_recipient_maps = pcre:/etc/postfix/local_recipient_regexp unix:passwd.byna
 /etc/postfix/master.cf (Note: Replace [``$LIBEXECDIR``](../layout.md#libexecdir) below)
 ``` code
 sympa     unix  -       n       n       -       -       pipe
-  flags=R user=sympa argv=$LIBEXECDIR/queue ${recipient}
+  flags=R null_sender= user=sympa argv=$LIBEXECDIR/queue ${recipient}
 sympabounce  unix  -       n       n       -       -       pipe
-  flags=R user=sympa argv=$LIBEXECDIR/bouncequeue ${user}
+  flags=R null_sender= user=sympa argv=$LIBEXECDIR/bouncequeue ${user}
 sympafamily  unix  -       n       n       -       -       pipe
-  flags=R user=sympa argv=$LIBEXECDIR/familyqueue ${user} age-occupation
+  flags=R null_sender= user=sympa argv=$LIBEXECDIR/familyqueue ${user} age-occupation
 ```
 
 A mail sent to `auto-cto.50@lists.domain.com` will be queued to the [``$SPOOLDIR``](../layout.md#spooldir)`/automatic` spool, defined by the `queueautomatic` `sympa.conf` parameter (see [`queueautomatic`](/gpldoc/man/sympa_config.5.html#queueautomatic)). The mail will first be processed by an instance of the `sympa.pl` process dedicated to automatic list creation, then the mail will be sent to the newly created mailing list.

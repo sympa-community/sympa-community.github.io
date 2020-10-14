@@ -92,9 +92,9 @@ Steps in this section may be done once at the first time.
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
      ``` code
      sympa   unix    -       n       n       -       -       pipe
-       flags=hqRu user=sympa argv=$LIBEXECDIR/queue ${nexthop}
+       flags=hqRu null_sender= user=sympa argv=$LIBEXECDIR/queue ${nexthop}
      sympabounce unix -      n       n       -       -       pipe
-       flags=hqRu user=sympa argv=$LIBEXECDIR/bouncequeue ${nexthop}
+       flags=hqRu null_sender= user=sympa argv=$LIBEXECDIR/bouncequeue ${nexthop}
      ```
      Note that ``flags`` option have to contain ``R``. ``F`` is unnecessary.
 
