@@ -36,7 +36,10 @@ below.
     The restrictions can be configured with the new `personalization` list parameter. Listmasters are advised to review the current usage of template        variables and adjust the configuration accordingly.
     See also [\#1037](https://github.com/sympa-community/sympa/issues/1037).
 
-  - Now the setuid wrappers may be disabled, if installation process allows. Packagers are encouraged to provide configuration not using setuid wrappers as possible.  See also [\#943](https://github.com/sympa-community/sympa/issues/943) and related issues/PRs.
+  - Now the setuid wrappers may be disabled, if installation process allows.
+      - The new options for `configure` script `--disable-setuid` and so on may be used to disable setuid features.  See [the manual](../install/install-sympa-distribution-source.md#run-configure-script) for details.
+      - The new parameter `aliases_wrapper` in `sympa.conf` may be ``off`` not to use setuid program `sympa_newaliases-wrapper` and it may be removed.
+    Packagers are encouraged to provide configuration not using setuid wrappers as possible.  See also [\#943](https://github.com/sympa-community/sympa/issues/943) and related issues/PRs.
 
 ### From version prior to 6.2.56
 
