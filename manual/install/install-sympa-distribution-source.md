@@ -168,6 +168,36 @@ Note:
 
 ### Other useful options
 
+  - ``--disable-setuid``
+  
+    Disables all setuid features.  Each part of them may be disabled by
+    following suboptions:
+
+      - ``--disable-setuid_fcgi``
+
+        Won't install setuid wrappers for web interface
+        (``wwsympa-wrapper.fcgi`` and ``sympa_soap_server-wrapper.fcgi``).
+        If they have already been installed, will remove them.
+
+      - ``--disable-setuid_newaliases``
+
+        Won't install setuid wrappers for alias management
+        (``sympa_newaliases-wrapper``).
+        If they have already been installed, will remove them.
+
+      - ``--disable-setuid_queue``
+
+        Disables setuid bit of queue program
+        (``queue``, ``bouncequeue`` and ``familyqueue``).
+        If setuid bits have already been enabled, will disable them.
+
+    ----
+    Note:
+
+      * ``--disable-setuid*`` options were introduced on Sympa 6.2.60.
+
+    ----
+
   - ``--with-initdir=/etc/rc.d/init.d``
 
     Installs system V init scripts into specified directory.
