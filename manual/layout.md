@@ -280,7 +280,7 @@ Directories specific to web interface
 | Distribution                | Default path                          |
 |-----------------------------|---------------------------------------|
 | (by version prior to 6.2.26 of any distributions) | [``$STATICDIR``](#staticdir)``/css`` |
-| Debian                      | TBD |
+| Debian                      | ``/var/lib/sympa/css``                |
 | FreeBSD                     | ``/usr/local/share/sympa/static/css`` |
 | RPM                         | ``/var/lib/sympa/css``                |
 | Source distribution default | ``/home/sympa/static_content/css``    |
