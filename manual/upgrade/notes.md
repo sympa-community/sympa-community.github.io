@@ -33,8 +33,7 @@ below.
     - Allowed only for messages posted from the web interface
     - Applied only to the header and the footer of the message
     
-    The restrictions can be configured with the new `personalization` list parameter. Listmasters are advised to review the current usage of template        variables and adjust the configuration accordingly.
-    See also [\#1037](https://github.com/sympa-community/sympa/issues/1037) and [\#1062](https://github.com/sympa-community/sympa/issues/1062).
+    The restrictions can be configured with the new [`personalization`](/gpldoc/man/sympa_config.5.html#personalization) list parameter. Listmasters are advised to review the current usage of template variables and adjust the configuration accordingly.
 
   - Now the setuid wrappers may be disabled, if installation process allows.
       - The new options for `configure` script `--disable-setuid` and so on may be used to disable setuid features.  See [the manual](../install/install-sympa-distribution-source.md#run-configure-script) for details.
