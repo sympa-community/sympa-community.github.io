@@ -207,12 +207,26 @@ instruction below.
          server_name localhost.localdomain;  # Change it!
 
          location /sympa {
+             # set $fastcgi_script_name (first capture, always /sympa here) 
+             # and $fastcgi_path_info (2nd capture, eg /lists)
+             fastcgi_split_path_info ^(/sympa)(.+)$;
+     
+             # generic vars settings
              include       /etc/nginx/fastcgi_params;
+
+             # and this one, depending on fastcgi_split_path_info
+             fastcgi_param PATH_INFO $fastcgi_path_info;
+
              fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
          }
 
          location /static-sympa {
              alias $STATICDIR;
+         }
+     
+         # under debian buster, this is also needed
+         location /css-sympa {
+             alias /var/lib/sympa/css;
          }
      }
      ```
