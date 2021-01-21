@@ -73,7 +73,7 @@ Note:
   1. Register WWSympa FastCGI service.
 
      Put ``wwsympa.service`` file into Systemd system directory
-     (such as ``/usr/lib/systemd/system``).
+     (such as ``/usr/lib/systemd/system``, see [theses examples](configure-http-server-systemdsocket.md#install-wwsympa-fastcgi-service)).
 
        * With binary distributions, ``wwsympa.service`` file may have already
          been installed, if that package supports Systemd.
