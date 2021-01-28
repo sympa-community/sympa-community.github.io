@@ -282,11 +282,15 @@ instruction below.
 
      <Location /sympa>
          SetHandler "proxy:unix:$PIDDIR/wwsympa.socket|fcgi://"
-         Require all granted
+	       # Don't forget to edit lines below!
+         Require local
+         #Require all granted
      </Location>
 
      <Location /static-sympa>
-         Require all granted
+	       # Don't forget to edit lines below!
+         Require local
+         #Require all granted
      </Location>
      Alias /static-sympa $STATICDIR
      ```
@@ -296,7 +300,9 @@ instruction below.
      ```
      <Location /sympasoap>
          SetHandler "proxy:unix:$PIDDIR/sympasoap.socket|fcgi://"
-         Require all granted
+	       # Don't forget to edit lines below!
+         Require local
+         #Require all granted
      </Location>
      ```
 
