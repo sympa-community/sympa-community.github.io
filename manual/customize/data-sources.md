@@ -132,9 +132,9 @@ Example:
     ``` code
     include_sql_query
     db_type [% param.0 %]
-    host sqlserv.admin.univ-[% param.1 %].fr
-    user [% param.2 %]
-    passwd [% param.3 %]
+    db_host sqlserv.admin.univ-[% param.1 %].fr
+    db_user [% param.2 %]
+    db_passwd [% param.3 %]
     db_name [% param.4 %]
     sql_query SELECT DISTINCT email FROM [% param.5 %]
     ```
@@ -144,12 +144,14 @@ Example:
     ``` code
     include_sql_query
     db_type mysql
-    host sqlserv.admin.univ-rennes1.fr
-    user stduser
-    passwd mysecret
+    db_host sqlserv.admin.univ-rennes1.fr
+    db_user stduser
+    db_passwd mysecret
     db_name studentbody
     sql_query SELECT DISTINCT email FROM student
     ```
+
+it is possible to provide the port as well using `db_port`.
 
 Excluding members from dynamic update
 -------------------------------------
