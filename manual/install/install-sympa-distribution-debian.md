@@ -8,9 +8,10 @@ next: generate-initial-configuration.md
 Install Sympa distribution: Debian / Ubuntu
 ===========================================
 
-Binary packages of Sympa are prepared for Debian, Ubuntu or their derivatives.
+Binary packages of Sympa are prepared for Debian, Ubuntu and other derivatives.
+
 To install Sympa and dependent packages:
 
 ```bash
-$ apt-get --no-install-recommends install sympa doc-base locales logrotate
+$ apt install sympa
 ```
