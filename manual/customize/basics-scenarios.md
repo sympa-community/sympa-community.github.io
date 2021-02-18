@@ -356,7 +356,7 @@ The syntax of this rule is:
 
 ``` code
 search(example.ldap)      smtp,smime,md5    -> do_it
-search(blacklist.txt)     smtp,smime,md5    -> do_it
+search(example.txt)       smtp,smime,md5    -> do_it
 ```
 
 The variable used by `search` is the name of the LDAP configuration file or a txt matching enumeration.
@@ -383,7 +383,8 @@ It would be false for the following email addresses :
   - verdin@renater.fr
   - olivier.sala@renater.fr
 
-This feature is used by the blacklist implicit scenario rule (see "[Blacklist](/gpldoc/man/sympa_config.5.html#use_blacklist)").
+This feature is used by the blocklist implicit scenario rule (see
+"[Blocklist implicit rule](#blocklist-implicit-rule)").
 
 The method of authentication does not change.
 
@@ -404,16 +405,30 @@ In this case, Sympa applies recursively the scenario named `include.commonreject
 
 You can define a set of common scenario rules, used by all lists. `include.<action>.header` is automatically added to evaluated scenarios. Note that you will need to restart Sympa processes to force reloading of list config files.
 
-Blacklist implicit rule
+Blocklist implicit rule
 -----------------------
 
-For each service listed in parameter [`use_blacklist`](/gpldoc/man/sympa_config.5.html#use_blacklist), the following implicit scenario rule is added at the beginning of the scenario:
+For each service listed in parameter
+[`use_blocklist`](/gpldoc/man/sympa_config.5.html#use_blocklist), the
+following implicit scenario rule is added at the beginning of the scenario:
 
 ``` code
-search(blacklist.txt)  smtp,md5,dkim,smime -> reject,quiet
+search(blocklist.txt)  smtp,md5,dkim,smime -> reject,quiet
 ```
 
-The goal is to block messages or other service requests from unwanted users. The blacklist can be defined for the robot or for the list. At the list level, the blacklist is to be managed by the list owner or the list moderator via the web interface.
+The goal is to block messages or other service requests from unwanted
+users. The blocklist can be defined for the robot or for the list. At
+the list level, the blocklist is to be managed by the list owner or the
+list moderator via the web interface.
+
+----
+Note:
+
+On Sympa 6.2.60 or earlier, the file named `blacklist.txt` was used for
+this implicit rule, and the name of corresponding parameter was
+`use_blacklist`.
+
+----
 
 `spam-status` special scenario
 ------------------------------
