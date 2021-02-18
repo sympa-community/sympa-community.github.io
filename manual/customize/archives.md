@@ -58,26 +58,34 @@ many other mailing list softwares. The may Sympa uses MHonArc concentrates on
 integration.
 
 You can customize the behavior of `mhonarc` via the
-[`mhonarc-ressources.tt2`](/gpldoc/man/mhonarc-ressources.tt2.5.html) resource file.
+[`mhonarc_rc.tt2`](/gpldoc/man/mhonarc_rc.tt2.5.html) resource file.
 The HTML view of archives is being delivered by the `wwsympa.fcgi` process so
 the MHonArc output uses Sympa TT2 template format. When modifying
-`mhonarc-ressources.tt2` you may change the way MHonArc prepare archives or
+`mhonarc_rc.tt2` you may change the way MHonArc prepare archives or
 you may change the way wwsympa.fcgi show them.
+
+----
+Note:
+
+On Sympa 6.2.60 or earlier, the name of resource file was
+`mhonarc-ressources.tt2`.
+
+----
 
 For example, you may want to customize the archiving in order to reduce disk
 usage.
 
 To change MHonArc behavior, we need to override its settings, configured in
-``default/mhonarc-ressources.tt2``.
+``default/mhonarc_rc.tt2``.
 
 First, we need to copy that file to override it to keep our changes through
 Sympa upgrades.
 
 ```
-cp default/mhonarc-ressources.tt2 etc/
+cp default/mhonarc_rc.tt2 etc/
 ```
 
-Then edit ``etc/mhonarc-ressources.tt2`` to add
+Then edit ``etc/mhonarc_rc.tt2`` to add
 [``MIMEIncs``](https://www.mhonarc.org/MHonArc/doc/resources/mimeincs.html)
 and/or
 [``MIMEExcs``](https://www.mhonarc.org/MHonArc/doc/resources/mimeexcs.html)
@@ -90,7 +98,7 @@ specify the [media types](https://en.wikipedia.org/wiki/Media_type) of the
 parts that you want to archive, excluding anything else.
 
 For example, to only archive text parts of a mail, add this to
-``etc/mhonarc-ressources.tt2``:
+``etc/mhonarc_rc.tt2``:
 
 ```
 <MIMEIncs>

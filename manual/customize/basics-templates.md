@@ -137,12 +137,21 @@ To know how to generate template files using template, see also "[Custom tag del
 
 ### Archive template
 
-[`mhonarc-ressources.tt2`](/gpldoc/man/mhonarc-ressources.tt2.5.html) (take care of
-spelling) is used to generate message archives available on web interface.
+[`mhonarc_rc.tt2`](/gpldoc/man/mhonarc_rc.tt2.5.html)
+is used to generate message archives available on web interface.
 It may be customized by each mail domain and/or each list: See
 "[Location](basics-configuration.md#location) in "Configuration hierarchy".
 
 [Custom tag delimiters](#custom-tag-delimiters) are used in this file.
+
+----
+Note:
+
+On Sympa 6.2.60 or earlier, the name of this file was
+`mhonarc-ressources.tt2` (take care of spelling), and the variable tag
+delimiters were used.
+
+----
 
 ### Template file for mail aliases
 

@@ -51,7 +51,7 @@ needed.
     [&#x2699;](/gpldoc/man/edit_list.conf.5.html# "edit_list.conf")
   * [Archives](customize/archives.md)
     [&#x1F527;](/gpldoc/man/sympa_config.5.html#archives)
-    [&#x2699;](/gpldoc/man/mhonarc-ressources.tt2.5.html# "mhonarc-ressources.tt2")
+    [&#x2699;](/gpldoc/man/mhonarc_rc.tt2.5.html# "mhonarc_rc.tt2")
   * [Bounce management](customize/bounce-management.md)
     [&#x1F527;](/gpldoc/man/sympa_config.5.html#bounce-management-and-tracking)
   * Loop prevention
