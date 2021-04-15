@@ -211,6 +211,8 @@ below.
          ```
       Note that you are recommended to back up database and older alias files in advance.
 
+  * `[conf->host]` in scenario was depreceated. If you have used it, replace it with `[domain]`.
+
   * If you managed multiple domains and used web interface,
     [`wwsympa_url`](/gpldoc/man/sympa_config.5.html#wwsympa_url) parameter in each
     [`robot.conf`](/gpldoc/man/sympa_config.5.html) file is now mandatory.
