@@ -148,7 +148,7 @@ Following changes are made by each mode:
     text/plain.
   - `urlize`:
     Replaces attachments with the links to the file in message archive.
-    This "urlizization" depends on the size of each message part: See also
+    This "urlization" depends on the size of each message part: See also
     [`urlize_min_size`](/gpldoc/man/sympa_config.5.html#urlize_min_size) parameter.
 
   - `not_me`:
