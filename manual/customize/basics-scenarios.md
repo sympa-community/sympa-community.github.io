@@ -433,7 +433,22 @@ this implicit rule, and the name of corresponding parameter was
 `spam-status` special scenario
 ------------------------------
 
-(Work in progress)
+The scenario `spam_status.x-spam-status` determines whether an incoming
+message is tagged as SPAM.
+
+You can use the result in your *send* scenarios, common use cases are below.
+
+Reject the message:
+
+``` code
+equal([msg->spam_status],'spam')  smtp,md5,dkim,smime -> reject,quiet
+```
+
+Force moderation:
+
+``` code
+equal([msg->spam_status],'spam')  smtp,md5,dkim,smime -> editorkey,quiet
+```
 
 Hiding scenario files
 ---------------------
