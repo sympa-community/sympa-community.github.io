@@ -27,6 +27,18 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.62
+
+  * Perl version 5.16.0 or later will be supported.
+
+    ----
+    Note:
+
+      * As of Sympa 6.2.61b, support for Perl 5.14.x or earlier has been
+        dropped.
+
+    ----
+
 ### From version prior to 6.2.60
 
   - Personalization (also known as "merge feature") is now subject to the following restrictions:
