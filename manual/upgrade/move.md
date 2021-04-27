@@ -15,7 +15,24 @@ The migration process requires that you move the following data from the old ser
   - The user database. For example if you are using MySQL, you can probably just stop `mysqld` and copy the database directory to the new server.
   - The [``$EXPLDIR``](../layout.md#expldir) directory that contains list configurations.
   - The [``$SPOOLDIR``](../layout.md#spooldir) directory that contains the spools.
-  - The [``sympa.conf``](../layout.md#config), and the file `wwsympa.conf` if it exists. Sympa new installation creates a file `sympa.conf` and randomly initializes the cookie parameter. Changing this parameter will break all passwords. When upgrading Sympa on a new server, take care that you start with the same value of this parameter, otherwise you might have problems!
+  - The [``sympa.conf``](../layout.md#config), and the file `wwsympa.conf`
+    if it exists.
+
+    ----
+    **Note**:
+
+    If you plan to upgrade to Sympa 6.2.60 _or earlier_,
+    make sure that the `cookie` parameter in `sympa.conf` won't be changed.
+    Some distributions randomly initialize this parameter in new installation.
+
+    When upgrading Sympa on a new server, take care that you start with the
+    same value of this parameter, otherwise you might have problems,
+    such as breakage of all passwords for web interface.
+
+    The note above won't be applied to Sympa 6.2.62 or later which no longer
+    uses the `cookie` parameter.
+
+    ----
   - The [``$SYSCONFDIR``](../layout.md#sysconfdir) directory that contains customized scenarios, templates and so on.
   - The [``$ARCDIR``](../layout.md#arcdir) directory that contains archives.
 
