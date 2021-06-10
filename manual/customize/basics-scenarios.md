@@ -424,9 +424,9 @@ list moderator via the web interface.
 ----
 Note:
 
-On Sympa 6.2.60 or earlier, the file named `blacklist.txt` was used for
-this implicit rule, and the name of corresponding parameter was
-`use_blacklist`.
+  * On Sympa 6.2.60 or earlier, the file named `blacklist.txt` was used
+    for this implicit rule, and the name of corresponding parameter was
+    `use_blacklist`.
 
 ----
 
