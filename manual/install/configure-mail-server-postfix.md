@@ -94,7 +94,7 @@ Steps in this section may be done once at the first time.
          people may know all of the names of existing lists.
          To prevent it, follow the steps below after the steps above:
          ``` bash
-         # chmod 640 $SYSCONFDIR/sympa_transport
+         # chmod 640 $SYSCONFDIR/sympa_transport $SYSCONFDIR/sympa_transport.db
          # chgrp postfix $SYSCONFDIR/sympa_transport $SYSCONFDIR/sympa_transport.db
          ```
          where `postfix` is the group the service processes of Postfix belong to.
