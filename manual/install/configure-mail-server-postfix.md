@@ -77,7 +77,7 @@ Steps in this section may be done once at the first time.
      # touch $SYSCONFDIR/transport.sympa
      # touch $SYSCONFDIR/virtual.sympa
      # touch $SYSCONFDIR/sympa_transport
-     # chmod 640 $SYSCONFDIR/sympa_transport
+     # chmod 644 $SYSCONFDIR/sympa_transport
      # chown sympa:sympa $SYSCONFDIR/sympa_transport
      ```
      and create databases (Note:
@@ -87,6 +87,18 @@ Steps in this section may be done once at the first time.
      # postmap hash:$SYSCONFDIR/virtual.sympa
      # sympa_newaliases.pl
      ```
+     ----
+     Note:
+     
+       * With steps above, `sympa_transport` file is world-readable and
+         people may know all of the names of existing lists.
+         To prevent it, follow the steps below after the steps above:
+         ``` bash
+         # chmod 640 $SYSCONFDIR/sympa_transport
+         # chgrp postfix $SYSCONFDIR/sympa_transport $SYSCONFDIR/sympa_transport.db
+         ```
+         where `postfix` is the group the service processes of Postfix belong to.
+     ----
 
   4. Edit Postfix ``master.cf`` file to add transport definitions (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
