@@ -67,8 +67,8 @@ you may change the way wwsympa.fcgi show them.
 ----
 Note:
 
-On Sympa 6.2.60 or earlier, the name of resource file was
-`mhonarc-ressources.tt2`.
+  * On Sympa 6.2.60 or earlier, the name of resource file was
+    `mhonarc-ressources.tt2`.
 
 ----
 

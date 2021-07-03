@@ -43,9 +43,9 @@ Setup
     ----
     Note:
 
-    ``smtpc`` itself does not provide features included in mail server,
-    such as mail routing, message queuing, rtrying delivery after temporary
-    failure.
+      * ``smtpc`` itself does not provide features included in mail server,
+        such as mail routing, message queuing, rtrying delivery after temporary
+        failure.
 
     ----
 
