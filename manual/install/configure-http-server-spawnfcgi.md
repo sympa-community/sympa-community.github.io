@@ -73,7 +73,7 @@ Note:
   1. Register WWSympa FastCGI service.
 
      Put ``wwsympa.service`` file into Systemd system directory
-     (such as ``/usr/lib/systemd/system``).
+     (such as ``/usr/lib/systemd/system``, see [theses examples](configure-http-server-systemdsocket.md#install-wwsympa-fastcgi-service)).
 
        * With binary distributions, ``wwsympa.service`` file may have already
          been installed, if that package supports Systemd.
@@ -207,12 +207,18 @@ instruction below.
          server_name localhost.localdomain;  # Change it!
 
          location /sympa {
+             # for 6.2.54 or earlier, see note below about fastcgi_split_path_info  
              include       /etc/nginx/fastcgi_params;
              fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
          }
 
          location /static-sympa {
              alias $STATICDIR;
+         }
+     
+         # needed for debian buster
+         location /css-sympa {
+             alias /var/lib/sympa/css;
          }
      }
      ```
