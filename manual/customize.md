@@ -44,7 +44,13 @@ needed.
   * Receiving
     [&#x1F527;](/gpldoc/man/sympa_config.5.html#receiving)
   * Sending related
-    [&#x1F527;](/gpldoc/man/sympa_config.5.html#sending-related)
+    [&#x1F527;](/gpldoc/man/sympa_config.5.html#sendingreceiving-setup)
+
+      - ~~[Personalization](customize/message-personalization.md)~~
+        [&#x1F527;](/gpldoc/man/sympa_config.5.html#personalization_feature)
+
+  * Distribution
+    [&#x1F527;](/gpldoc/man/sympa_config.5.html#distribution)
     [&#x2699;](/gpldoc/man/nrcpt_by_domain.conf.5.html# "nrcpt_by_domain.conf")
   * Privileges
     [&#x1F527;](/gpldoc/man/sympa_config.5.html#privileges)
@@ -53,7 +59,7 @@ needed.
     [&#x1F527;](/gpldoc/man/sympa_config.5.html#archives)
     [&#x2699;](/gpldoc/man/mhonarc_rc.tt2.5.html# "mhonarc_rc.tt2")
   * [Bounce management](customize/bounce-management.md)
-    [&#x1F527;](/gpldoc/man/sympa_config.5.html#bounce-management-and-tracking)
+    [&#x1F527;](/gpldoc/man/sympa_config.5.html#bounces)
   * Loop prevention
     [&#x1F527;](/gpldoc/man/sympa_config.5.html#loop-prevention)
   * [Automatic list creation](customize/automatic-lists.md)
