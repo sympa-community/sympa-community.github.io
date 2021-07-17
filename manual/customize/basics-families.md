@@ -145,11 +145,11 @@ This file is used if you want to let users create / access to automatic lists us
 You can parse several files at list creation, later used by the list. Here are
 the files you can parse (See also a note below):
 
+  - `info.tt2`
   - `message_footer.tt2`,
   - `message_header.tt2`,
   - `message_footer.mime.tt2`,
   - `message_header.mime.tt2`,
-  - `info.tt2`
 
 ----
 Note:
@@ -164,6 +164,8 @@ Note:
 ----
 
 These files will be parsed using the list family data defined in the XML file. You can use the same data in these files as in the [config.tt2](#config-tt2) file.
+
+##### List description
 
 For example, if you add to the family directory a file named `info.tt2` containing the following code :
 
@@ -188,7 +190,9 @@ List mylist home page
 A loooong text describing the purpose of the list
 ```
 
-Message footers and headers are likely to contain TT2 code themselves (for example, to create ~~[unsubscription links](/manual/message-handling#unsubscription_url)~~ at the bottom of the list messages).
+##### Message footers and headers
+
+Message footers and headers are likely to contain TT2 code themselves (for example, to create [unsubscription links](../customize/message-personalization.md#adding-unsubscription-links) at the bottom of the list messages).
 
 In that case, you can use the capacity, offered by TT2, to define [custom tag delimitors](http://template-toolkit.org/docs/manual/Config.html#section_START_TAG_END_TAG).
 
@@ -210,7 +214,7 @@ Once the family has been instantiated, each list directory will contain a `messa
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : [% 'auto_signoff' | url_abs([listname],{email=>user.email}) %]
 ```
 
-Each time a message is sent to the list (provided you set the [`merge_feature`](/gpldoc/man/sympa_config.5.html#merge_feature) parameter to `on`), this file will be parsed and allow to display the following text at the bottom of each message:
+Each time a message is sent to the list (provided you set the [`personalization_feature`](/gpldoc/man/sympa_config.5.html#personalization_feature) parameter to `on`), this file will be parsed and allow to display the following text at the bottom of each message:
 
 ``` code
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : http://lists.domain.tld/auto_signoff/mylist?email=bob.mcbob%40domain.tld
@@ -219,7 +223,9 @@ The subject of the list is "create and share our passion of scrap cooking", clic
 ----
 Note:
 
-  * The line above is an example for Sympa 6.2 later than Aug 2016. With earlier versions it shouold be:
+  * `personalization_feature` parameter was named "`merge_feature`" on Sympa earlier than 6.2.60.
+
+  * The line above is an example for Sympa 6.2 later than Aug 2016. With earlier versions it should be:
     ``` code
     [% TAGS <+ +> -%]
     The subject of the list is "<+ subject +>", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
