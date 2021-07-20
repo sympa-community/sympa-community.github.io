@@ -49,8 +49,9 @@ Notes:
 
   * On Sympa earlier than 6.2.42:
 
-      - `message_footer` file was named "`message.footer`".
-      - `message_header` file was named "`message.header`".
+      - `message_footer` file was named "`message.footer`", and so on.
+        See the notes in
+        "[Message header and footer](../customize/basics-list-config.md#message-header-and-footer)".
 
   * The line above is an example for Sympa 6.2 later than Aug 2016.
     With earlier versions it should be:
