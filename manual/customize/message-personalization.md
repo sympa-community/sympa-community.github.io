@@ -35,6 +35,54 @@ message footer/header will be extracted.
   - `[% wwsympa_url %]`
 
     URL prefix of web interface, if enabled.
+    
+  - `[% headers %]`
+
+    A hash containing some header fields of original message.
+
+      - `[% headers.date %]`
+      - `[% headers.from %]`
+      - `[% headers.subject %]`
+      - `[% headers.to %]`
+      - `[% headers.item('content-type') %]`
+      - `[% headers.item('message-id') %]`
+
+        Values of header fields. These are unfolded but not decoded
+        (see also `[% subject %]` below).
+        
+        Additionally, following less useful fields are also provided,
+        if the message has them.
+
+      - `[% headers.item('thread-topic') %]`
+      - `[% headers.item('x-original-to') %]`
+      - `[% headers.item('x-originating-ip') %]`
+
+  - `[% part %]`
+
+    A hash containing the MIME information of original message (if it is single-part)
+    or the current part (if the message consists of multiple MIME parts).
+    
+      - `[% part.description %]`
+
+        Value of Content-Description field, decoded.
+
+      - `[% part.disposition %]`
+
+        Value of Content-Disposition field without options, lowercased.
+
+      - `[% part.encoding %]`
+
+        MIME body encoding, i.e. the value of Content-Transfer-Encoding
+        field, lowercased.
+
+      - `[% part.type %]`
+
+        MIME type, i.e. the effective value of Content-Type field without
+        options, lowercased.
+
+  - `[% subject %]`
+
+    Decoded subject of original message.
 
   - `[% user %]`
 
@@ -62,14 +110,16 @@ message footer/header will be extracted.
 
         ----
         Note:
-          - On Sympa 6.2.44 or earlier, use `[% user.inclusion %]`
+          - On Sympa 6.2.44 or earlier, use `[% user.included %]`
             that has true value if the subscriber is included.
 
         ----
 
       - `[% user.subscribed %]`
 
-        True value if the subscriber has been added manually.
+        True value if the subscriber has been added manually,
+        i.e. with subscription request by the member or addition by the
+        list administrator.
 
       - `[% user.suspend %]`
       - `[% user.startdate %]`
@@ -90,7 +140,7 @@ message footer/header will be extracted.
       - `[% user.visibiity %]`
 
         Visibility mode, i.e. whether the subscriber is listed in the list
-        review page or not.  `conceal` or `noconceal`.
+        review page or not.  Either `noconceal` or `conceal`.
 
       - `[% user.date %]`
 
@@ -102,11 +152,11 @@ message footer/header will be extracted.
 
       - `[% user.number_messages %]`
 
-        Number of messages this subscriber has received through this list.
+        Number of messages this subscriber has sent through this list.
 
       - `[% user.custom_attribute.<id>.value %]`
 
-        Custom attribute if any.  See also
+        Custom attributes if any.  See also
         "[Custom user attributes](https://sympa-community.github.io/manual/customize/custom-user-attributes.html)".
 
 ### Obsoleted template variables
@@ -121,8 +171,10 @@ These variables were obsoleted.
 
     Preferred: `[% user.date | optdesc('unixtime') %]`
 
-Adding unsubscription links
----------------------------
+Examples
+--------
+
+### Adding unsubscription links
 
 This is an example of an application of message personalization feature.
 
