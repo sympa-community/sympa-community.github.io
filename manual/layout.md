@@ -262,7 +262,7 @@ Directories specific to web interface
 
 | Distribution                | Default path                      |
 |-----------------------------|-----------------------------------|
-| Debian                      | ``/var/lib/sympa/static_content`` |
+| Debian                      | ``/var/lib/sympa/static_content`` or ``/usr/share/sympa/static_content``|
 | FreeBSD                     | ``/usr/local/share/sympa/static`` |
 | RPM                          | ``/usr/share/sympa/static_content`` |
 | (by version prior to 6.2.26) | ``/var/lib/sympa/static_content``   |
