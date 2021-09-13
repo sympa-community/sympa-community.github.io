@@ -81,7 +81,7 @@ After = syslog.target sympa.service
 [Service]
 User = sympa
 Group = sympa
-ExecStart = /usr/libexec/sympa/wwsympa.fcgi
+ExecStart = /usr/libexec/sympa/wwsympa.fcgi # or for debian /usr/lib/cgi-bin/sympa/wwsympa.fcgi
 StandardOutput = null
 StandardInput = socket
 StandardError = null
