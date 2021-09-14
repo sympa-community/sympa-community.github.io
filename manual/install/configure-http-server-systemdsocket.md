@@ -70,7 +70,8 @@ SocketUser=apache
 
 ### Install WWSympa FastCGI service
 
-Prepare service unit file.
+Prepare service unit file (Note:
+Replace [``$EXECCGIDIR``](../layout.md#execcgidir) below).
 
 `/lib/systemd/system/wwsympa.service`:
 ``` code
@@ -81,7 +82,7 @@ After = syslog.target sympa.service
 [Service]
 User = sympa
 Group = sympa
-ExecStart = /usr/libexec/sympa/wwsympa.fcgi # or for debian /usr/lib/cgi-bin/sympa/wwsympa.fcgi
+ExecStart = $EXECCGIDIR/wwsympa.fcgi
 StandardOutput = null
 StandardInput = socket
 StandardError = null
@@ -91,7 +92,9 @@ Restart=on-failure
 WantedBy = multi-user.target
 ```
 
-Or, you might want to use multiwatch to run multiple workers.
+Or, you might want to use multiwatch to run multiple workers (Note:
+Replace [``$EXECCGIDIR``](../layout.md#execcgidir) below, but _do not_
+replace ``$FCGI_CHILDREN``).
 
 `wwsympa.service`:
 ``` code
@@ -104,7 +107,7 @@ User = sympa
 Group = sympa
 ExecStart = /usr/local/multiwatch/bin/multiwatch \
     -f $FCGI_CHILDREN -- \
-    /usr/libexec/sympa/wwsympa.fcgi
+    $EXECCGIDIR/wwsympa.fcgi
 StandardOutput = null
 StandardInput = socket
 StandardError = null
