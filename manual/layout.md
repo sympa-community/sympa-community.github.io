@@ -140,7 +140,8 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 
 | Distribution                | Path                             |
 |-----------------------------|----------------------------------|
-| Debian                      | ``/usr/lib/sympa/locale`` |
+| Debian                      | ``/usr/share/locale``            |
+| (by Debian 9 (stretch) or earlier) | ``/usr/lib/sympa/locale`` |
 | FreeBSD                     | ``/usr/local/share/locale``      |
 | RPM                         | ``/usr/share/locale``            |
 | Source distribution default | ``/home/sympa/locale``           |
