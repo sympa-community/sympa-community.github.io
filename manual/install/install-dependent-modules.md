@@ -87,6 +87,12 @@ $ cd <top of source>
 # cpanm --installdeps --with-recommends --with-develop .
 ```
 
+To install specific module (even if it is not listed in `cpanfile` file):
+
+``` bash
+# cpanm Name::Of::Module
+```
+
 Using package management tools
 ------------------------------
 
