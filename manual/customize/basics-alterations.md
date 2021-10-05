@@ -98,7 +98,7 @@ Some of these alterations can be configured.
 
   - If message personalization is enabled, message body is altered further.
 
-    See "~~[Message personalization](../customize/web-mailer.md#message-personalization)~~".
+    See "[Message personalization](../customize/message-personalization.md)".
 
 ### Encrypting and signing
 
