@@ -87,11 +87,15 @@ $ cd <top of source>
 # cpanm --installdeps --with-recommends --with-develop .
 ```
 
-To install specific module (even if it is not listed in `cpanfile` file):
+To install the latest version of specific module (even if it is not listed
+in `cpanfile` file):
 
 ``` bash
 # cpanm Name::Of::Module
 ```
+
+For details about usage of `cpanm`, see
+[the documentation](https://metacpan.org/dist/App-cpanminus/view/bin/cpanm).
 
 Using package management tools
 ------------------------------
