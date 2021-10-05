@@ -116,7 +116,9 @@ Some of these alterations can be configured.
   - If DKIM support is enabled, DKIM signature invalidated by alterations
     so far is removed, then message is signed using Sympa's private key.
 
-    See "[DKIM features for Sympa](../customize/dkim-arc.md)".
+    If ARC support is enabled, ARC seal is added using Sympa's private key.
+
+    See "[DKIM and ARC features for Sympa](../customize/dkim-arc.md)".
 
 Eventually, the message is delivered to recipient by the MTA.
 
