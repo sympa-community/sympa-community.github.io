@@ -8,7 +8,7 @@ Web mailer
 
 (Work in progress)
 
-Message personalization
------------------------
-
-(Work in progress)
+If message personalization is enabled, message body sent by web mailer
+will be altered (See
+"[Message personalization](../customize/message-personalization.md)" for
+details).
