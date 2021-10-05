@@ -46,7 +46,7 @@ needed.
   * Sending related
     [&#x1F527;](/gpldoc/man/sympa_config.5.html#sendingreceiving-setup)
 
-      - ~~[Personalization](customize/message-personalization.md)~~
+      - [Message personalization](customize/message-personalization.md)
         [&#x1F527;](/gpldoc/man/sympa_config.5.html#personalization_feature)
 
   * Distribution
