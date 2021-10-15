@@ -19,4 +19,5 @@ name here.
   - Etienne Meleard
   - Olivier Salaün
   - David Verdin
+  - Thomas vO
 
