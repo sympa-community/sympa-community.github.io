@@ -51,7 +51,7 @@ From this page, they can download a ZIP of their list web archives. The ZIP is
 organized by month, each month containing original emails.
 
 If you want to reimport archives from the ZIP file, you need to go to
-`$ARCDIR/your-list@mail.example.org/` and unzip the file. After that, you
+[`$ARCDIR`](../layout.md#arcdir)`/your-list@mail.example.org/` and unzip the file. After that, you
 should rename every directory `your-list_yyyy-mm` to `yyyy-mm/arctxt`. Once
 this is done, as a listmaster you have to connect to sympa, go to Listmaster
 admin menu, archives and then rebuild archives for the list `your-list`.
