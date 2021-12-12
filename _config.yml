@@ -1,9 +1,10 @@
 markdown: kramdown
-theme: jekyll-theme-minimal
+remote_theme: pages-themes/minimal@v0.2.0
 include:
   - CONTRIBUTING.md
   - LICENSE.md
   - README.md
 plugins:
   - jekyll-redirect-from
+  - jekyll-remote-theme
 
