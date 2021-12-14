@@ -27,6 +27,12 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.68
+
+  * `sympa.pl`: The option `--import` is now deprecated. Instead, use the new
+    option `--add`.
+    See [sympa.pl(1)](/gpldoc/man/sympa.1.html) about usagfe of the new option.
+
 ### From version prior to 6.2.62
 
   * Perl version 5.16.0 or later will be supported.
