@@ -1,5 +1,5 @@
 markdown: kramdown
-remote_theme: pages-themes/minimal@v0.2.0
+remote_theme: sympa-community/sympa-pages-theme
 include:
   - CONTRIBUTING.md
   - LICENSE.md
