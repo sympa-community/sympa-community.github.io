@@ -23,7 +23,7 @@ Note:
   * If you have been using _Repository on Sympa-JA.org_, you may
     seamlessly upgrade `sympa` package with EPEL.
 
-  * Packages for RHEL/CentOS 5 will no longer be provided.
+  * Packages for RHEL/CentOS 6 or earlier will no longer be provided.
 
 ----
 
