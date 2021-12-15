@@ -40,4 +40,4 @@ Mailing lists
 
   - [`lets@translate.sympa.org`](https://translate.sympa.org/sympa/info/lets)
 
-    Announcements for prople translating user interface of Sympa
+    Announcements for people translating user interface of Sympa
