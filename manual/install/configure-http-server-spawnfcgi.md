@@ -227,6 +227,33 @@ instruction below.
      ```
      See also a note below.
 
+     Additionally with Sympa 6.2.28 or later, it is possible to set
+     separate paths for style sheets and pictures.
+
+       - If either or both of parameters
+         [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) and
+         [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) were changed
+         from the default, you also need to add the following settings
+         (Note: replace `$css_url` and `$css_path` below):
+         ``` code
+         location $css_url {
+             alias $css_path;
+         }
+         ```
+
+       - If either or both of parameters
+         [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
+         and
+         [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
+         were changed from the default, you also need to add the following
+         settings (Note: replace `$pictures_url` and `$pictures_path`
+         below):
+         ``` code
+         location $pictures_url {
+             alias $pictures_path;
+         }
+         ```
+
      ----
      Notes:
 
@@ -306,6 +333,35 @@ instruction below.
      </Location>
      ```
 
+     Additionally with Sympa 6.2.28 or later, it is possible to set
+     separate paths for style sheets and pictures.
+
+       - If either or both of parameters
+         [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) and
+         [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) were changed
+         from the default, you also need to add the following settings
+         (Note: replace `$css_url` and `$css_path` below):
+         ``` code
+         <Location $css_url>
+             Require all granted
+         </Location>
+         Alias $css_url $css_path
+         ```
+
+       - If either or both of parameters
+         [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
+         and
+         [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
+         were changed from the default, you also need to add the following
+         settings (Note: replace `$pictures_url` and `$pictures_path`
+         below):
+         ``` code
+         <Location $pictures_url>
+             Require all granted
+         </Location>
+         Alias $pictures_url $pictures_path
+         ```
+
      ----
      Note:
 
@@ -345,6 +401,29 @@ instruction below.
      )
      }
      ```
+
+     Additionally with Sympa 6.2.28 or later, it is possible to set
+     separate paths for style sheets and pictures.
+
+       - If either or both of parameters
+         [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) and
+         [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) were changed
+         from the default, you also need to add the following settings
+         (Note: replace `$css_url` and `$css_path` below):
+         ``` code
+         alias.url += ( "$css_url/" => "$css_path/" )
+         ```
+
+       - If either or both of parameters
+         [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
+         and
+         [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
+         were changed from the default, you also need to add the following
+         settings (Note: replace `$pictures_url` and `$pictures_path`
+         below):
+         ``` code
+         alias.url += ( "$pictures_url/" => "$pictures_path/" )
+         ```
 
   2. Edit it as you prefer.
 
