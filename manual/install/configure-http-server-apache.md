@@ -112,6 +112,29 @@ General instruction
      #RewriteRule ^/?$ /sympa [R=301]
      ```
 
+     Additionally with Sympa 6.2.28 or later, it is possible to set
+     separate paths for style sheets and pictures.
+
+       - If either or both of parameters
+         [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) and
+         [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) were changed
+         from the default, you also need to add the following settings
+         (Note: replace `$css_url` and `$css_path` below):
+         ``` code
+         Alias $css_url $css_path
+         ```
+
+       - If either or both of parameters
+         [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
+         and
+         [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
+         were changed from the default, you also need to add the following
+         settings (Note: replace `$pictures_url` and `$pictures_path`
+         below):
+         ``` code
+         Alias $pictures_url $pictures_path
+         ```
+
      ----
      Note:
 
