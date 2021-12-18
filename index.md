@@ -1,12 +1,10 @@
-Sympa Documentation
-===================
+---
+layout: home
+title: Sympa - Mailing List Management Software
+---
 
-  - [Sympa Administration Manual](manual/)
-  - ~~[Sympa Help](help/)~~ (coming soon)
-  - ~~[Sympa FAQ](faq/)~~ (coming soon)
-
+  - [Documentation](docs.html)
   - [Community and support](community/)
-  - [Security advisories](security/)
 
 ----
   - [About this site...](README.md)
