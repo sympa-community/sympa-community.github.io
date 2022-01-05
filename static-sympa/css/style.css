@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 
-/**
- * CSS Reset (extended)
- * Base : http://meyerweb.com/eric/tools/css/reset/ | v2.0 | 20110126
- */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -23,37 +23,31 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
     font: inherit;
     vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, nav, section {
+footer, header, hgroup, menu, nav, section {
     display: block;
 }
-
 body {
     line-height: 1;
 }
-
 ol, ul {
     list-style: none;
 }
-ul.styled-list {
-    list-style: disc;
-}
-
 blockquote, q {
     quotes: none;
 }
-
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /***
@@ -99,12 +93,12 @@ q:before, q:after {
 
 /* Proportional fonts */
 * {
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     font-size: 1em;
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: sans-serif;
     font-size: 0.85em;
     -webkit-text-size-adjust:100%;
     line-height: 1.4;
@@ -171,6 +165,10 @@ dfn {
     font-style: italic;
 }
 
+em {
+    font-style: italic;
+}
+
 hr {
     display: block;
     height: 1px;
@@ -192,8 +190,7 @@ mark {
 }
 
 pre, code, kbd, samp {
-    font-family: monospace, serif;
-    _font-family: 'courier new', monospace;
+    font-family: monospace, monospace;
     font-size: 1em;
 }
 
@@ -234,12 +231,12 @@ sub {
 ul, ol, dl {
     margin: 1em 0;
     padding: 0 0 0 1rem;
-    font-size: 13px;
     color: #5e5e5e;
     list-style-position: outside;
 }
 
 nav ul, nav ol {
+    font-size: 13px;
     list-style: none;
     list-style-image: none;
 }
@@ -278,7 +275,7 @@ main form form{
 label {
     color: #4c4c4c;
     margin-top:0.5rem;
-    /*display: inline-block;*/    padding-left:0!important;
+    padding-left:0!important;
     font-weight:700;
     cursor: pointer;
 }
@@ -295,15 +292,6 @@ label[for="connected_only"] {
     display: inline;
 }
 
-input {
-    /*border: 1px solid #ffe7e7;
-    border-radius: 3px;
-    font-size: 16px;
-    padding: 10px 9px;
-    margin-right: 10px;
-    outline:none;*/
-}
-
 input[type="checkbox"], input[type="radio"] {
     border: none;
     box-sizing: border-box;
@@ -317,14 +305,7 @@ input[type="file"]{
     display: block;
         margin-top:0.5rem;
 }
-select {
-    /*border: 1px solid #ffe7e7;
-    border-radius: 3px;
-    font-size: 16px;
-    padding: 6px 4px;
-    margin-right: 10px;
-    outline:none;*/
-}
+
 @media only screen and (min-width: 40em) {
     select, input {
         max-width: 550px;
@@ -332,17 +313,6 @@ select {
 }
 select[name="size"] {
    max-width: 60px;
-}
-textarea {
-    /*font-size: 13px;
-    color: #4c4c4c;
-    min-height: 60px;
-    padding: 6px 9px;
-    border: 1px solid #ffe7e7;
-    border-radius: 3px;
-    width: 94%;
-    line-height: 20px;
-    outline:none;*/
 }
 
 legend {
@@ -1092,16 +1062,11 @@ footer {
     width:100%;
     height:1.5em;
     margin: 0;
-    font-size: 1.1em;
+    font-size: x-small;
     text-align: center;
     padding-top:0.5rem;
     padding-bottom:2.5rem;
         clear:both;
-}
-
-footer a {
-    font-weight: normal;
-    font-size: 11px;
 }
 
 footer img {
@@ -1153,27 +1118,6 @@ a img.Pictures {
     display: none;
     height:0px;
     width:0px;
-}
-
-/*
-.title {
-    position: absolute;
-    top: 60px;
-    font-size: 1.6em;
-    text-indent: 30px;
-}
-*/
-
-a.actionMenuLinksCurrentPage {
-    border: none;
-    text-decoration: none;
-    padding: 5px;
-    margin: 0 0.5em 0 0;
-    cursor:pointer;
-    background-color: #983222;
-    color: #ffffff;
-    font-size: 0.9em;
-    border-radius:2px;
 }
 
 a.actionMenuLinks,
@@ -1278,25 +1222,11 @@ h7 strong {
     font-size: 1em;
 }
 
-/*
-#ErrorBlock {
-    position:absolute;
-    left:0;
-    top:0;
-    z-index:600;
-    opacity:0.4;
-    width:100%;
-    height:100%;
-    background: none repeat scroll 0 0 #222222
-}
- */
-
 #ErrorMsg {
     position:absolute;
     width:60%;
     margin:20% 19%;
     padding:0;
-    /* z-index:610!important; */
     font-size: 1.4em;
     font-weight: bold;
     text-align:center;
@@ -1478,10 +1408,6 @@ p {
 
 p.spacer {
     clear: both;
-}
-
-code {
-    font-weight: bold;
 }
 
 a.input {
@@ -1696,7 +1622,6 @@ main .top-bar {
 }
 
 #sympa-nav-bar menu ul li a {
-    /* padding: 0 10px; */
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -1880,7 +1805,6 @@ span.fa-stack i.fa-plus-circle {
 .doc li {
     display: list-item;
     margin: 0;
-    /* text-align: -webkit-match-parent; */
 }
 
 p.retraitita, span.retraitita {
@@ -1942,7 +1866,6 @@ p.retraitita, span.retraitita {
 
 @media only screen and (min-width: 40em) {
     #sympa-top-bar menu ul li a:not(.button) {
-      /* padding: 0 10px; */
         padding-top: 0;
         padding-bottom: 0;
     }
@@ -1966,7 +1889,6 @@ p.retraitita, span.retraitita {
         height: 45px;
         line-height: 45px;
         padding: 0 1rem;
-        /* text-align:left; */
     }
     .title-bar .menu-text {
         font-size: 13px;
