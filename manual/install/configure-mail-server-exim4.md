@@ -106,7 +106,7 @@ Exim4 configuration
      update-exim4.conf
      ```
 
-  4. Add `sympa` in system aliases, in /etc/aliases
+ 4. Add `sympa` in system aliases, in /etc/aliases or in  [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases)
 
      ``` code
      sympa: "| $LIBEXECDIR/queue sympa"
@@ -116,16 +116,26 @@ Exim4 configuration
 
      postmaster: postmaster@mail.example.org
      ```
+     
+  5. Update `/etc/exim4/exim4.conf.localmacros` to grant pipe transport
+     
+     ```code```
+     SYSTEM_ALIASES_PIPE_TRANSPORT = address_pipe
+     SYSTEM_ALIASES_FILE_TRANSPORT = address_file
+     ```
+     
+     This step is unnecessary if you decide to put the `sympa` alias definition in [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases)
 
-  5. Restart `sympa` and `exim4` service
+  6. Restart `sympa` and `exim4` service
 
      ``` code
      /etc/init.d/sympa restart
      /etc/init.d/exim4 restart
      ```
 
-  6. Test the routing plan
+  7. Test the routing plan
 
      ``` code
      exim4 -bt mail.example.org
      ```
+ 
