@@ -16,7 +16,7 @@ Requirements
   * A mail domain name for the mailing list service.
     See also "[Requirements](../requirements.md#network-requirements)".
 
-    In the instructions below, ``mail.example.org`` will be used for example.$
+    In the instructions below, ``mail.example.org`` will be used for example.
 
   * [``$SYSCONFDIR``](../layout.md#sysconfdir) is the samba configuration
     directory.
@@ -44,8 +44,8 @@ Steps in this section may be done once at the first time.
 
      ``` code
      sendmail_aliases $SENDMAIL_ALIASES.db
-     aliases_program newaliases
-     aliases_db_type hash
+     # aliases_program newaliases
+     # aliases_db_type hash
      ```
 
   3. It is seem that the alias file is created with .db extension. Do a link to
@@ -58,6 +58,7 @@ Steps in this section may be done once at the first time.
 
   4. Create the `list_aliases.tt2` template file in [``$SYSCONFDIR``](../layout.md#sysconfdir)
      directory with following content:
+
      ``` code
      #--- [% list.name %]@[% list.domain %]: list map created at [% date %]
      [% list.name %]@[% list.domain %]: "| $LIBEXECDIR/queue [% list.name %]@[% list.domain %]"
@@ -70,72 +71,117 @@ Steps in this section may be done once at the first time.
 
 Exim4 configuration
 -------------------
+### Exim4 Architecture configuration
 
-`Exim4` configuration steps
+  _Exim4_ may work with a single monolithic configuration template file or
+  with several spited files according to your installation choice.
+  Filling the bad the configuration have no effect.
 
-  1. `Exim4` may work with a single monolithic configuration template file or
-     with several spited files according to your installation choice. If you
-     choose single monolithic way, you have to edit the
-     ``/etc/exim4/exim4.conf.template`` and put the following configuration
-     after the `system_aliases` section.
+  If you choose single monolithic way, you have to edit the
+  ``/etc/exim4/exim4.conf.template`` and put the router configuration part after
+  ``"begin router"`` message and before "begin otherThing". You can put it
+  typically next to the `"system_aliases"` section. The transport configuration
+  should take place after ``"begin transport"``, typically next to the
+  `"address_directory"` section.
 
-     However, if you chose to split exim4
-     configuration template in several file, you have to create a new file in
-     router directory, named for instance:
-     ``/etc/exim4/conf.d/router/401_exim4-config_sympa_aliases``.
-     In doubt, you can make the both way.
+  However, if you choose to split _Exim4_ configuration template in several file,
+  you have to create a new router file under `router` directory, for instance
+  ``/etc/exim4/conf.d/router/401_exim4-config_sympa_aliases``, and a new
+  transport file under `transport` directory like
+  ``/etc/exim4/conf.d/router/401_exim4-config_sympa_aliases``
 
-  2. So add the following section to the `exim4` configuration
+### Router part
+
+  Is it unnecessary to filling /etc/aliases with _Sympa_ address like
+  ``sympa: "| $LIBEXECDIR/queue sympa`` as theses aliases will be managed into
+  exim configuration file.
+
+  1. **Routing the _Sympa_ common aliases**
+     This describe the _Sympa_ routing aliases. Transport part will be defined after.
 
      ``` code
+     # in "begin router"
+
+     # Sympa generic aliases for sympa, sympa-request, sympa-owner, listmaster
+     sympa_queue_aliases:
+       debug_print = "R: sympa queue aliases for $local_part@$domain"
+       driver = accept
+       domains = mail.example.org
+       local_parts = sympa : sympa-request : sympa-owner : sympa-owner : listmaster
+       transport = sympa_queue_transport
+       no_more
+
+     # Sympa generic aliases for "bounce" and "abuse-feedback-report"
+     sympa_bouncequeue_aliases:
+       debug_print = "R: sympa bouncequeue aliases for $local_part@$domain"
+       driver = accept
+       domains = mail.example.org
+       local_parts = bounce : abuse-feedback-report
+       transport = sympa_bounce_queue_transport
+       no_more
+     ```
+
+  2. **Routing mailing list**
+     Tell to _Exim4_ to use the _Sympa_ mailing list file.
+
+     ``` code
+     # Sympa list aliases
      sympa_aliases:
        debug_print = "R: sympa_aliases for $local_part@$domain"
        driver = redirect
        allow_fail
        allow_defer
+       require_files = "{$SENDMAIL_ALIASES.db}"
        data = ${lookup{$local_part@$domain}lsearch{$SENDMAIL_ALIASES.db}}
        user = sympa
        group = sympa
        file_transport = address_file
        pipe_transport = address_pipe
+       return_path_add
      ```
 
-  3. Run update-exim4 program to regenerate configuration
+### Transport part
+
+  Tell to _Exim4_ the definition of _Sympa_ command. Should be added in transport
+  section.
+
+  ``` code
+  # begin transports
+
+  # Sympa transport for queue program
+  sympa_queue_transport:
+    driver = pipe
+    command = /usr/lib/sympa/bin/queue ${local_part}\@$domain
+    user = sympa
+    group = sympa
+    return_fail_output
+
+  # Sympa transport for bouncequeue program
+  sympa_bounce_queue_transport:
+    driver = pipe
+    command = /usr/lib/sympa/bin/bouncequeue ${local_part}\@$domain
+    user = sympa
+    group = sympa
+    return_fail_output
+  ```
+
+### System steps
+
+  1. Run _update-exim4_ program to regenerate the _Exim4_ configuration
 
      ``` code
      update-exim4.conf
      ```
 
- 4. Add `sympa` in system aliases, in /etc/aliases or in  [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases)
-
-     ``` code
-     sympa: "| $LIBEXECDIR/queue sympa"
-     sympa-request: "| $LIBEXECDIR/queue sympa"
-     sympa-owner: "| $LIBEXECDIR/queue sympa"
-     sympa-listmaster: postmaster
-
-     postmaster: postmaster@mail.example.org
-     ```
-     
-  5. Update `/etc/exim4/exim4.conf.localmacros` to grant pipe transport
-     
-     ```code```
-     SYSTEM_ALIASES_PIPE_TRANSPORT = address_pipe
-     SYSTEM_ALIASES_FILE_TRANSPORT = address_file
-     ```
-     
-     This step is unnecessary if you decide to put the `sympa` alias definition in [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases)
-
-  6. Restart `sympa` and `exim4` service
+  2. Restart `sympa` and `exim4` service
 
      ``` code
      /etc/init.d/sympa restart
      /etc/init.d/exim4 restart
      ```
 
-  7. Test the routing plan
+  3. Test the routing plan
 
      ``` code
      exim4 -bt mail.example.org
      ```
- 
