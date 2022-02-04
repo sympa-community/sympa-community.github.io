@@ -1,7 +1,7 @@
 ---
 title: 'Configure HTTP server: Using Systemd socket'
 prev: configure-mail-server.md
-up: configure-http-server-.md
+up: configure-http-server.md
 next: configure-http-server.md#tests
 ---
 
