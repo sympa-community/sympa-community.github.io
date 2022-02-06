@@ -18,7 +18,7 @@ Requirements
 
     In the instructions below, ``mail.example.org`` will be used for example.
 
-  * [``$SYSCONFDIR``](../layout.md#sysconfdir) is the samba configuration
+  * [``$SYSCONFDIR``](../layout.md#sysconfdir) is the Sympa configuration
     directory.
     [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) designated
     file alias.
@@ -40,23 +40,14 @@ Steps in this section may be done once at the first time.
      sendmail /usr/local/sbin/sendmail
      ```
 
-  2. Add the following to `sympa` configuration file [``sympa.conf``](../layout.md#config)
+  2. Add the following to `Sympa` configuration file [``sympa.conf``](../layout.md#config)
 
      ``` code
-     sendmail_aliases $SENDMAIL_ALIASES.db
-     # aliases_program newaliases
-     # aliases_db_type hash
+     sendmail_aliases $SENDMAIL_ALIASES
+     aliases_program none
      ```
 
-  3. It is seem that the alias file is created with .db extension. Do a link to
-     the original [``$SENDMAIL_ALIASES``](../layout.md#sendmail_aliases) to
-     ensure aliases is understood by both program
-
-     ``` code
-     ln -s "$SENDMAIL_ALIASES" "$SENDMAIL_ALIASES".db
-     ```
-
-  4. Create the `list_aliases.tt2` template file in [``$SYSCONFDIR``](../layout.md#sysconfdir)
+  3. Create the `list_aliases.tt2` template file in [``$SYSCONFDIR``](../layout.md#sysconfdir)
      directory with following content:
 
      ``` code
@@ -131,13 +122,13 @@ Exim4 configuration
        driver = redirect
        allow_fail
        allow_defer
-       require_files = "{$SENDMAIL_ALIASES.db}"
-       data = ${lookup{$local_part@$domain}lsearch{$SENDMAIL_ALIASES.db}}
+       require_files = "+$SENDMAIL_ALIASES"
+       data = ${lookup{$local_part@$domain}lsearch{$SENDMAIL_ALIASES}}
        user = sympa
        group = sympa
        file_transport = address_file
        pipe_transport = address_pipe
-       return_path_add
+	   no_more
      ```
 
 ### Transport part
@@ -155,6 +146,7 @@ Exim4 configuration
     user = sympa
     group = sympa
     return_fail_output
+	return_path_add
 
   # Sympa transport for bouncequeue program
   sympa_bounce_queue_transport:
@@ -163,6 +155,7 @@ Exim4 configuration
     user = sympa
     group = sympa
     return_fail_output
+	return_path_add
   ```
 
 ### System steps
@@ -183,5 +176,5 @@ Exim4 configuration
   3. Test the routing plan
 
      ``` code
-     exim4 -bt mail.example.org
+     exim4 -bt list@mail.example.org
      ```
