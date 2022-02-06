@@ -79,7 +79,7 @@ Exim4 configuration
   you have to create a new router file under `router` directory, for instance
   ``/etc/exim4/conf.d/router/401_exim4-config_sympa_aliases``, and a new
   transport file under `transport` directory like
-  ``/etc/exim4/conf.d/router/401_exim4-config_sympa_aliases``
+  ``/etc/exim4/conf.d/transport/401_exim4-config_sympa_transport``
 
 ### Router part
 
