@@ -128,7 +128,7 @@ Exim4 configuration
        group = sympa
        file_transport = address_file
        pipe_transport = address_pipe
-	   no_more
+       no_more
      ```
 
 ### Transport part
@@ -146,7 +146,7 @@ Exim4 configuration
     user = sympa
     group = sympa
     return_fail_output
-	return_path_add
+    return_path_add
 
   # Sympa transport for bouncequeue program
   sympa_bounce_queue_transport:
@@ -155,7 +155,7 @@ Exim4 configuration
     user = sympa
     group = sympa
     return_fail_output
-	return_path_add
+    return_path_add
   ```
 
 ### System steps
@@ -177,4 +177,4 @@ Exim4 configuration
 
      ``` code
      exim4 -bt list@mail.example.org
-     ```
+     `
