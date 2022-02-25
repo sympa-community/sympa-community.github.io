@@ -8,7 +8,7 @@ next: generate-initial-configuration.md
 Install Sympa distribution: RPM package
 =======================================
 
-Currently, YUM/DNF repositories provide RPM packages of Sympa.
+Currently, DNF (YUM) repositories provide RPM packages of Sympa.
 
   * Stable packages of Sympa for RHEL/CentOS are provided by EPEL, and packages for Fedora are also provided.
 
@@ -45,11 +45,11 @@ Installing
 
   1. Install Sympa:
      ```bash
-     # yum install sympa
-     ```
-     or (if you are using `DNF`)
-     ```bash
      # dnf install sympa
+     ```
+     or (if you are using `yum`)
+     ```bash
+     # yum install sympa
      ```
 
 Thus, Sympa and dependent packages will be installed.
@@ -57,17 +57,17 @@ Thus, Sympa and dependent packages will be installed.
 Upgrading
 ---------
 
-  1. Update yum/DNF, dependent packages and then Sympa packages:
-     ```bash
-     # yum update yum
-     # yum update --exclude='sympa*'
-     # yum update sympa
-     ```
-     or (if you are using `DNF`)
+  1. Update DNF (yum), dependent packages and then Sympa packages:
      ```bash
      # dnf update dnf
      # dnf update --exclude='sympa*'
      # dnf update sympa
+     ```
+     or (if you are using `yum`)
+     ```bash
+     # yum update yum
+     # yum update --exclude='sympa*'
+     # yum update sympa
      ```
 
 Installing earlier version
