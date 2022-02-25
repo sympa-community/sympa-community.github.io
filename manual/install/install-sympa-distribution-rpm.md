@@ -18,10 +18,7 @@ Currently, YUM/DNF repositories provide RPM packages of Sympa.
 ----
 Note:
 
-  * Packages for RHEL/CentOS 8 are work in progress.
-
-  * If you have been using _Repository on Sympa-JA.org_, you may
-    seamlessly upgrade `sympa` package with EPEL.
+  * Packages for RHEL/CentOS 8 and 9 are work in progress.
 
   * Packages for RHEL/CentOS 6 or earlier will no longer be provided.
 
@@ -30,18 +27,18 @@ Note:
 Requirements
 ------------
 
-  * Fedora, Red Hat Enterprise Linux (RHEL) 6 or 7 or its clones.
-    Among clones, at least [CentOS](https://www.centos.org/download/) 6 or 7
+  * Fedora, Red Hat Enterprise Linux (RHEL) 7 or its clones.
+    Among clones, at least [CentOS](https://www.centos.org/download/) 7
     is reported working.
 
   * With RHEL/CentOS, add
-    [Extra Packages for Enterprise Linux](https://fedoraproject.org/wiki/EPEL)
+    [Extra Packages for Enterprise Linux](https://docs.fedoraproject.org/en-US/epel/)
     (EPEL) repository.  It can be done by installing ``epel-release``
     package.  For more details see
-    [EPEL description](https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F).
-
-  * On RHEL, in addition, the "optional repository" should be enabled:
-    Some dependent packages are shipped in this repository.
+    [EPEL description](https://docs.fedoraproject.org/en-US/epel/#_quickstart).
+    
+    Note that some distributions need enabling additional repository:
+    Some dependent packages are shipped in those repositories.
 
 Installing
 ----------
@@ -84,8 +81,12 @@ provided by
 Note:
 
   * Sympa-JA.org repository will no longer be updated.
+    And _it may be shut down_ in the near future.
     Unless you needed particular historic version of Sympa,
     follow the instruction described in above.
+
+  * If you have been using Sympa-JA.org repository, you may
+    seamlessly upgrade `sympa` package with EPEL.
 
 ----
 
