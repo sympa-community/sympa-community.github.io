@@ -37,7 +37,7 @@ Requirements
     package.  For more details see
     [EPEL description](https://docs.fedoraproject.org/en-US/epel/#_quickstart).
     
-    Note that some distributions need enabling additional repository:
+    Note that some distributions need enabling additional repository/ies:
     Some dependent packages are shipped in those repositories.
 
 Installing
