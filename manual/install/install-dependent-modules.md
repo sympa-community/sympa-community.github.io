@@ -15,24 +15,6 @@ If you installed binary distribution (apt, RPM, ports, ...), required
 dependent modules may have been installed: You can
 [skip this section](generate-initial-configuration.md).
 
-Using `sympa_wizard`
---------------------
-
-----
-Note:
-
-  * `sympa_wizard` may be deprecated in near future.  Use of `cpanm`
-    described in below is recommended for recent version of Sympa.
-
-----
-
-Run ``sympa_wizard`` to install dependent modules.
-```
-# sympa_wizard.pl --check
-```
-It checks your system, gets lacking or outdated modules from
-[CPAN](https://www.cpan.org/) and installs them.
-
 Using cpanminus (`cpanm`)
 -------------------------
 
@@ -115,4 +97,23 @@ Note:
     [``$MODULEDIR/Sympa/ModDef.pm``](/gpldoc/man/Sympa-ModDef.3.html).
 
 ----
+
+Using `sympa_wizard`
+--------------------
+_Obsoleted mwthod__.
+
+----
+Note:
+
+  * `sympa_wizard` will be deprecated on Sympa 6.2.70.  Use of `cpanm`
+    described in above is recommended for recent version of Sympa.
+
+----
+
+Run ``sympa_wizard`` to install dependent modules.
+```
+# sympa_wizard.pl --check
+```
+It checks your system, gets lacking or outdated modules from
+[CPAN](https://www.cpan.org/) and installs them.
 

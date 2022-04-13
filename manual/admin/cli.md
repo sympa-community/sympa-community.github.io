@@ -22,7 +22,16 @@ Administration tools
 
     Alias database maintenance.
 
-  - [`sympa_wizard.pl`](/gpldoc/man/sympa_wizard.1.html)
+  - `sympa_wizard.pl`
 
     Help performing Sympa initial setup.
+
+    ----
+    Note:
+
+      * `sympa_wizard.pl` will be deprecated on Sympa 6.2.70.
+        The manual page for earlier versions is
+        [here](/gpldoc/man/sympa_wizard.1.html).
+
+    ----
 

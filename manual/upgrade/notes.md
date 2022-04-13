@@ -27,6 +27,11 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.70
+
+  * `sympa_wizard.pl` was deprecated.  About alternatives see
+     [issue \#508](/sympa-community/sympa/issues/508).
+
 ### From version prior to 6.2.68
 
   * `sympa.pl`: The option `--import` is now deprecated. Instead, use the new
@@ -361,8 +366,13 @@ upgrading. Here is the ordered list of operations to perform.
 
   2. [_Source distribution only_] Run additional commands after
      ``make install``:
+
+     First, update dependent modules: See
+     "[Install dependent modules](../install/install-dependent-modules.html)".
+
+     Next, run these commands to upgrade configuration and user data.
+
      ``` bash
-     # sympa_wizard.pl --check            # Update dependent modules
      # sympa.pl --upgrade_config_location # move existing configs to /etc/sympa/ directory
      # sympa.pl --upgrade                 # merge sympa.conf and wwsympa.conf
      ```
