@@ -129,7 +129,7 @@ Virtual domain setting
 
      ----
 
-  4. Setup HTTP server according to description in
+  4. Continue setting according to description in
      "[Instruction by HTTP servers](#instruction-by-http-servers)".
 
 If you want to add another domain, repeat steps in this section by each domain.
@@ -146,20 +146,23 @@ Single domain setting
      mhonarc /usr/local/bin/mhonarc     (If path is differ from the default)
      ```
 
-  2. Setup HTTP server according to description in
+  2. Continue setting according to description in
      "[Instruction by HTTP servers](#instruction-by-http-servers)" section.
 
 Instruction by HTTP servers
 ---------------------------
 
-These methods are reported to be applicable to Apache HTTP Server (2.4 or later),
-nginx and lighttpd.
+These methods are reported to be applicable to Apache HTTP Server
+(2.4 or later), nginx and lighttpd.
 
-  - [Configuration using spawn-fcgi](configure-http-server-spawnfcgi.md)
+**Linux environments with Systemd support**
 
-  - See also
-    [Configuration using Systemd socket](configure-http-server-systemdsocket.md)
-    available on some Linux environments adopting Systemd.
+See "[Using Systemd socket](configure-http-server-systemdsocket.md)".
+It is recommended method.
+
+**Other environments**
+
+See "[Using separate FastCGI service](configure-http-server-spawnfcgi.md)".
 
 ### Obsoleted methods
 

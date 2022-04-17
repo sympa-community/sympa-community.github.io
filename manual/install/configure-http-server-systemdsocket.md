@@ -2,7 +2,7 @@
 title: 'Configure HTTP server: Using Systemd socket'
 prev: configure-mail-server.md
 up: configure-http-server.md
-next: configure-http-server.md#tests
+next: configure-http-server-proxy.md
 ---
 
 Configure HTTP server: Using Systemd socket
@@ -43,30 +43,38 @@ configure HTTP server if necessary.
 
 ### Install Systemd socket
 
-Prepare socket unit file.
+Prepare socket unit file (Note:
+Replace [``$PIDDIR``](../layout.md#piddir) below).
 
 `/lib/systemd/system/wwsympa.socket`:
 ``` code
 [Unit]
-Description = WWSympa - Web interface for Sympa mailing list manager (socket)
+Description=Sympa web interface socket
 
 [Socket]
-SocketUser = nginx
-SocketMode = 0600
-ListenStream = /run/sympa/wwsympa.socket
+SocketUser=nobody
+SocketMode=0600
+ListenStream=$PIDDIR/wwsympa.socket
 
 [Install]
-WantedBy = sockets.target
+WantedBy=sockets.target
 ```
 
-If the socket should be read by the other user, you may add a
-configuration file such as:
+If the socket should be read by the other user than `nobody`,
+you may create a drop-in snippet file such as:
 
-`/etc/systemd/system/wwsympa.socket.d/socket.conf`:
+`/etc/systemd/system/wwsympa.socket.d/override.conf`:
 ``` code
 [Socket]
 SocketUser=apache
 ```
+And run:
+``` bash
+# systemctl daemon-reload
+```
+
+Note that you may also run `systemctl edit wwsympa.socket`
+to create snippet and reload daemon at once.
 
 ### Install WWSympa FastCGI service
 
@@ -99,31 +107,71 @@ replace ``$FCGI_CHILDREN``).
 `wwsympa.service`:
 ``` code
 [Unit]
-Description = WWSympa - Web interface for Sympa mailing list manager (service)
-After = syslog.target sympa.service
+Description=Sympa web interface FastCGI backend
+After=sympa.service
+Requires=wwsympa.socket
 
 [Service]
-User = sympa
-Group = sympa
-ExecStart = /usr/local/multiwatch/bin/multiwatch \
-    -f $FCGI_CHILDREN -- \
-    $EXECCGIDIR/wwsympa.fcgi
-StandardOutput = null
-StandardInput = socket
-StandardError = null
+User=sympa
+Group=sympa
+ExecStart=/usr/bin/multiwatch \
+          -f $FCGI_CHILDREN -- \
+          $EXECCGIDIR/wwsympa.fcgi
+StandardOutput=null
+StandardInput=socket
+StandardError=journal
 Environment="FCGI_CHILDREN=5"
-EnvironmentFile=-/etc/sysconfig/sympa
-Restart=on-failure
+Restart=always
+RestartSec=5
 
 [Install]
-WantedBy = multi-user.target
+Also=wwsympa.socket
+WantedBy=multi-user.target
 ```
+
+By default, five processes will run.  To change number of processes,
+you may create a drop-in snippet file such as:
+
+`/etc/systemd/system/wwsympa.service.d/override.conf`:
+``` code
+[Service]
+Environment="FCGI_CHILDREN=2"
+```
+And run:
+``` bash
+# systemctl daemon-reload
+```
+
+Note that you may also run `systemctl edit wwsympa.service`
+to create snippet and reload daemon at once.
+
+----
+Note:
+
+  * Some distributions bundle unit files in their binary packages,
+    so it is recommended to use them.  Examples are:
+    RHEL/CentOS 8 or later, Debian 12 (bookworm) or later.
+
+    Since these are subject to modifications by each distribution,
+    recommended method of customization may vary.
+    Check the documentation comes with the package of each distribution.
+
+----
+
+----
+Note:
+
+  * You can also serve
+    [Sympa SOAP interface](../customize/soap-api.md) with this method.
+    Follow the same instructions in this chapter but with unit files
+    ``sympasoap.socket`` and ``sympasoap.service``.
+
+----
 
 ### Setup HTTP server
 
-Instructions in
-"[Configure HTTP server: Using separate FastCGI service](configure-http-server-spawnfcgi.md#setup-http-server)"
-are also applicable to this chapter.
+Proceed to
+[Setup HTTP server as FastCGI proxy](configure-http-server-proxy.md).
 
 Stopping and starting service
 -----------------------------
