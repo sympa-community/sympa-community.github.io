@@ -104,10 +104,10 @@ Before Sympa is able to DKIM-sign messages, you need to set several related para
 
 The private key is a PEM encoded RSA key <sup><a href="#fn__1" id="fnt__1" class="fn_top">1)</a></sup> (a PEM encoded key include base64 encoded informations and starts with `—–BEGIN RSA PRIVATE KEY—–`.). The public key associated with that private key must be published in a DNS TXT record for entry `<selector>._domainkey.<domain>` where `<selector>` is [dkim_selector](/gpldoc/man/sympa_config.5.html#dkim_selector) and `<domain>` is [dkim_signer_domain](/gpldoc/man/sympa_config.5.html#dkim_signer_domain). The signer domain should be the domain of the list ; this is the default, don't change it unless you have strong reason for it.
 
-example with selector = 'lists' and domain 'sympa.org':
+example with selector = 'lists' and domain 'mail.example.org':
 
 ``` code
-  lists._domainkey.sympa.org. IN TXT "v=DKIM1; g=*; k=rsa; t=y; p=MDB34............DB"
+  lists._domainkey.mail.example.org. IN TXT "v=DKIM1; g=*; k=rsa; t=y; p=MDB34............DB"
 ```
 
 In order to generate the public and private keys, you may use `openssl` or `opendkim-genkey` included in [OpenDKIM software](http://opendkim.org/). There are also online tools to generate them, but those services will generate the private key for you (is it still a private key?).

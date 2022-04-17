@@ -6,7 +6,7 @@ up: ../customize.md#web-interface-optional-features
 Setting up a Shibboleth-enabled Sympa server
 ============================================
 
-[Sympa](http://www.sympa.org) is an open source mailing list software, provided by the CRU.
+[Sympa](https://sympa-community.github.io/) is an open source mailing list software, provided by the CRU.
 
 [Shibboleth](http://shibboleth.internet2.edu) is an open source distributed authentication software, provided by Internet2 consortium; it implements the SAML 2.0 protocol.
 
