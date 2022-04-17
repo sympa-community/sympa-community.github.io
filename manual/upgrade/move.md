@@ -36,10 +36,17 @@ The migration process requires that you move the following data from the old ser
   - The [``$SYSCONFDIR``](../layout.md#sysconfdir) directory that contains customized scenarios, templates and so on.
   - The [``$ARCDIR``](../layout.md#arcdir) directory that contains archives.
 
-In some cases, you may want to install the new version and run it for a few days before switching the existing service to the new Sympa server. In this case, perform a new installation with an empty database and play with it. When you decide to move the existing service to the new server:
+In some cases, you may want to install the new version and run it for a few days before switching the existing service to the new Sympa server. In this case, perform a new installation with an empty database and play with it.
+
+When you decide to move the existing service to the new server:
 
   1. Stop all sympa processes on both servers.
-  2. Transfer the database.
-  3. Edit the `data_structure.version` file on the new server to change the version value to reflect the old number.
-  4. Run "``sympa.pl --upgrade``". It will upgrade the database structure according to the hop you do.
+  2. Transfer all the data described in above from the old server.
+  3. Check "[Upgrading notes](notes.md)" and make appropriate manual
+     adjustments as necessity.
+  4. Run "``sympa.pl --upgrade --from=X.X.X``"
+     (replace `X.X.X` with the exact version number of Sympa on the old
+     server).
+     It will upgrade the database structure and several configuration files
+     according to the hop you do.
 
