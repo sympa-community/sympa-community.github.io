@@ -30,7 +30,7 @@ below.
 ### From version prior to 6.2.70
 
   * `sympa_wizard.pl` was deprecated.  About alternatives see
-     [issue \#508](/sympa-community/sympa/issues/508).
+     [issue \#508](https://github.com/sympa-community/sympa/issues/508).
 
 ### From version prior to 6.2.68
 
