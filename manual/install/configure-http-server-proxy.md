@@ -196,7 +196,13 @@ Instruction by HTTP servers
 
        * Some binary distributions ship configuration ready to edit:
 
-           - On RPM (RHEL/CentOS 7 or Fedora), ``/etc/httpd/conf.d/sympa.conf``
+           - On Debian (12 "bookworm" or later),
+             ``/etc/apache2/conf-available/sympa.conf`` file is prepared.
+             Also, separate ``/etc/apache2/conf-available/sympa-soap.conf``
+             file is prepared for SympaSOAP feature.
+
+           - On RPM (RHEL/CentOS 7 or later and Fedora),
+             ``/etc/httpd/conf.d/sympa.conf``
              file is prepared by ``sympa-httpd`` package.
 
      ----

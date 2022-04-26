@@ -80,21 +80,28 @@ Note:
  
          ----
          Note:
+
+           * Some binary distributions ship configuration ready to edit:
          
-           * With RPM (RHEL/CentOS 7 or Fedora), this file is prepared by
-             `sympa-httpd` package. 
+               * With RPM (RHEL/CentOS 7) this file is prepared by
+                 `sympa-httpd` or `sympa-nginx` package.
 
          ----
        * If you have installed Sympa from source, and you have given
          ``--with-unitsdir=DIR`` option to `configure` script,
          you may find a file
-         ``wwsympa.service`` in ``src/etc/script`` subdirectory of
-         source tree.
+         ``wwsympa-spawn-fcgi.service`` in ``service`` subdirectory of
+         source tree.  Use it as ``wwsympa.service`` (however also check
+         the notes below).
 
          ----
          Note:
 
-           * On Sympa prior to 6.2.36, you may find a file
+           * On Sympa prior to 6.2.70, you may find a file
+             ``wwsympa.service`` in
+             ``src/etc/script`` subdirectory of source tree.
+
+           * Additinally, on Sympa prior to 6.2.36, you may find a file
              ``nginx-wwsympa.service``.  Use it as ``wwsympa.service``.
 
          ----
@@ -119,7 +126,8 @@ Note:
        * You can also serve
          [Sympa SOAP interface](../customize/soap-api.md) with this method.
          Follow the same instructions but with
-         ``sympasoap.service`` (or ``nginx-sympasoap.service``) file.
+         ``sympasoap-spawn-fcgi.service`` (or ``sympasoap.service``,
+         ``nginx-sympasoap.service``) file.
 
      ----
 

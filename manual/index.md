@@ -1,7 +1,7 @@
 Sympa Administration Manual
 ===========================
 
-Version 6.2.66+
+Version 6.2.68+
 
 Table of contents
 -----------------

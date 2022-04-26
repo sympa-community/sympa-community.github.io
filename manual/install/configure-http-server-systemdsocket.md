@@ -34,9 +34,19 @@ Requirements
     [multiwatch](https://redmine.lighttpd.net/projects/multiwatch/wiki)
     is strongly recommended, especially on the sites with high traffic.
 
-
 General instruction
 -------------------
+
+----
+Note:
+
+  * Do not mix the instructions in this chapter with
+    ones in the chapter
+    "[Using separate FastCGI service](configure-http-server-spawnfcgi.md)".
+    They are incompatible each other, and even though they have the same
+    name in the configuration files, their contents are different.
+
+----
 
 First, install Systemd socket and WWSympa FastCGI service.  And then
 configure HTTP server if necessary.
