@@ -27,7 +27,9 @@ Instruction by HTTP servers
 ### nginx
 
   1. Add following excerpt to nginx configuration (Note:
-     replace [``$PIDDIR``](../layout.md#piddir) and
+     replace [``$PIDDIR``](../layout.md#piddir),
+     [``$CSSDIR``](../layout.md#cssdir),
+     [``$PICTURESDIR``](../layout.md#picturesdir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
      ``` code
      server {
@@ -39,11 +41,25 @@ Instruction by HTTP servers
              fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
          }
 
+         # Section below is needed for 6.2.28 or later.
+         location /static-sympa/css {
+             alias $CSSDIR;
+         }
+         # Section below is needed for 6.2.28 or later.
+         location /static-sympa/pictures {
+             alias $PICTURESDIR;
+         }
          location /static-sympa {
              alias $STATICDIR;
          }
      }
      ```
+     In above, `/static-sympa/css`, `/static-sympa/pictures` and
+     `/static-sympa` are the default values of
+     [`css_url`](/gpldoc/man/sympa_config.5.html#css_url),
+     [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url) and
+     [`statoc_content_url`](/gpldoc/man/sympa_config.5.html#static_content_url),
+     respectively.
 
      For the SOAP interface, add this in your ``server`` configuration (Note:
      replace [``$PIDDIR``](../layout.md#piddir)):
@@ -53,34 +69,7 @@ Instruction by HTTP servers
              fastcgi_pass  unix:$PIDDIR/sympasoap.socket;
          }
      ```
-     See also a note below.
-
-     Additionally with Sympa 6.2.28 or later, it is possible to set
-     separate paths for style sheets and pictures.
-
-       - If either or both of parameters
-         [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) and
-         [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) were changed
-         from the default, you also need to add the following settings
-         (Note: replace `$css_url` and `$css_path` below):
-         ``` code
-         location $css_url {
-             alias $css_path;
-         }
-         ```
-
-       - If either or both of parameters
-         [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
-         and
-         [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
-         were changed from the default, you also need to add the following
-         settings (Note: replace `$pictures_url` and `$pictures_path`
-         below):
-         ``` code
-         location $pictures_url {
-             alias $pictures_path;
-         }
-         ```
+     See also the notes below.
 
      ----
      Notes:
@@ -127,7 +116,9 @@ Instruction by HTTP servers
 ### Apache HTTP Server
 
   1. Add following excerpt to httpd configuration (Note:
-     replace [``$PIDDIR``](../layout.md#piddir) and
+     replace [``$PIDDIR``](../layout.md#piddir),
+     [``$CSSDIR``](../layout.md#cssdir),
+     [``$PICTURESDIR``](../layout.md#picturesdir) and
      [``$STATICDIR``](../layout.md#staticdir) below):
      ``` code
      LoadModule alias_module modules/mod_alias.so
@@ -138,15 +129,25 @@ Instruction by HTTP servers
 
      <Location /sympa>
          SetHandler "proxy:unix:$PIDDIR/wwsympa.socket|fcgi://"
-	       # Don't forget to edit lines below!
+	 # Don't forget to edit lines below!
          Require local
          #Require all granted
      </Location>
 
+     # Lines below are needed for 6.2.28 or later.
+     <Location "/static-sympa/css">
+         Require all granted
+     </Location>
+     Alias /static-sympa/css $CSSDIR
+
+     # Lines below are needed for 6.2.28 or later.
+     <Location "/static-sympa/pictures">
+         Require all granted
+     </Location>
+     Alias /static-sympa/pictures $PICTURESDIR
+
      <Location /static-sympa>
-	       # Don't forget to edit lines below!
-         Require local
-         #Require all granted
+         Require all granted
      </Location>
      Alias /static-sympa $STATICDIR
      ```
@@ -161,35 +162,12 @@ Instruction by HTTP servers
          #Require all granted
      </Location>
      ```
-
-     Additionally with Sympa 6.2.28 or later, it is possible to set
-     separate paths for style sheets and pictures.
-
-       - If either or both of parameters
-         [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) and
-         [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) were changed
-         from the default, you also need to add the following settings
-         (Note: replace `$css_url` and `$css_path` below):
-         ``` code
-         <Location $css_url>
-             Require all granted
-         </Location>
-         Alias $css_url $css_path
-         ```
-
-       - If either or both of parameters
-         [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
-         and
-         [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
-         were changed from the default, you also need to add the following
-         settings (Note: replace `$pictures_url` and `$pictures_path`
-         below):
-         ``` code
-         <Location $pictures_url>
-             Require all granted
-         </Location>
-         Alias $pictures_url $pictures_path
-         ```
+     In above, `/static-sympa/css`, `/static-sympa/pictures` and
+     `/static-sympa` are the default values of
+     [`css_url`](/gpldoc/man/sympa_config.5.html#css_url),
+     [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url) and
+     [`statoc_content_url`](/gpldoc/man/sympa_config.5.html#static_content_url),
+     respectively.
 
      ----
      Note:
@@ -221,12 +199,18 @@ Instruction by HTTP servers
 ### lighttpd
 
   1. Add following excerpt to lighttpd configuration (Note:
-     replace [``$PIDDIR``](../layout.md#piddir) and
+     replace [``$PIDDIR``](../layout.md#piddir),
+     [``$CSSDIR``](../layout.md#cssdir),
+     [``$PICTURESDIR``](../layout.md#picturesdir) and
      [``$STATICDIR``](../layout.md#staticdir)):
      ```
      server.modules += ("mod_fastcgi")
      server.modules += ("mod_alias")
 
+     # Line below is needed for 6.2.28 or later.
+     alias.url += ( "/static-sympa/css/" => "$CSSDIR/" )
+     # Line below is needed for 6.2.28 or later.
+     alias.url += ( "/static-sympa/pictures/" => "$PICTURESDIR/" )
      alias.url += ( "/static-sympa/" => "$STATICDIR/" )
 
      $HTTP["url"] =~ "^/sympa" {
@@ -237,29 +221,12 @@ Instruction by HTTP servers
      )
      }
      ```
-
-     Additionally with Sympa 6.2.28 or later, it is possible to set
-     separate paths for style sheets and pictures.
-
-       - If either or both of parameters
-         [`css_path`](/gpldoc/man/sympa_config.5.html#css_path) and
-         [`css_url`](/gpldoc/man/sympa_config.5.html#css_url) were changed
-         from the default, you also need to add the following settings
-         (Note: replace `$css_url` and `$css_path` below):
-         ``` code
-         alias.url += ( "$css_url/" => "$css_path/" )
-         ```
-
-       - If either or both of parameters
-         [`pictures_path`](/gpldoc/man/sympa_config.5.html#pictures_path)
-         and
-         [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url)
-         were changed from the default, you also need to add the following
-         settings (Note: replace `$pictures_url` and `$pictures_path`
-         below):
-         ``` code
-         alias.url += ( "$pictures_url/" => "$pictures_path/" )
-         ```
+     In above, `/static-sympa/css`, `/static-sympa/pictures` and
+     `/static-sympa` are the default values of
+     [`css_url`](/gpldoc/man/sympa_config.5.html#css_url),
+     [`pictures_url`](/gpldoc/man/sympa_config.5.html#pictures_url) and
+     [`statoc_content_url`](/gpldoc/man/sympa_config.5.html#static_content_url),
+     respectively.
 
   2. Edit it as you prefer.
 
