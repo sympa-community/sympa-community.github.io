@@ -7,6 +7,9 @@ next: configure-http-server.md#tests
 Configure HTTP server: Setup HTTP server as FastCGI proxy
 =========================================================
 
+----
+Note:
+
   * Instructions in this chepter are applied to the HTTP servers
     accompany with any of these setting methods:
 
@@ -16,7 +19,7 @@ Configure HTTP server: Setup HTTP server as FastCGI proxy
     They are not applied to servers with earlier (no longer recommended)
     methods.
 
----
+----
 
 If you have not added configuration for Sympa to HTTP server, follow
 instruction below.
