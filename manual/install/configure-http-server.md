@@ -155,14 +155,11 @@ Instruction by HTTP servers
 These methods are reported to be applicable to Apache HTTP Server
 (2.4 or later), nginx and lighttpd.
 
-**Linux environments with Systemd support**
+  - **Linux environments with Systemd support**:
+    See "[Using Systemd socket](configure-http-server-systemdsocket.md)".
 
-See "[Using Systemd socket](configure-http-server-systemdsocket.md)".
-It is recommended method.
-
-**Other environments**
-
-See "[Using separate FastCGI service](configure-http-server-spawnfcgi.md)".
+  - **Other environments**:
+    See "[Using separate FastCGI service](configure-http-server-spawnfcgi.md)".
 
 ### Obsoleted methods
 
