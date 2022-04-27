@@ -64,7 +64,13 @@ necessary.
 #### Systemd
 
 ----
-Note:
+Notes:
+
+  * Do not mix the instructions in this section with
+    ones in the chapter
+    "[Using Systemd socket](configure-http-server-systemdsocket.md)".
+    They are incompatible each other, and even though they have the same
+    name in the configuration files, their contents are different.
 
   * Systemd support with FastCGI services was introduced on Sympa 6.2.15.
 
