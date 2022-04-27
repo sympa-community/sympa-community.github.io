@@ -38,14 +38,6 @@ Requirements
             doesn't work properly with the method described in this chapter.
             If possible, upgrading to recent version is recommended.
 
-         * Some binary distributions such as:
-
-             - Debian (at least buster or earlier).
-
-             - RPM for RHEL/CentOS 6.
-
-           They have not introduced the method described in this chapter.
-
     ----
 
   * [spawn-fcgi](https://redmine.lighttpd.net/projects/spawn-fcgi/wiki),
