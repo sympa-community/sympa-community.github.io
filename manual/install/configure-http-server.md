@@ -48,6 +48,14 @@ Sympa configuration parameters
     This is URL path or full URL of static content.  Default value is
     ``/static-sympa``.  HTTP server have to map it with
     [``$STATICDIR``](../layout.md#staticdir).
+    
+  * [``css_url``](/gpldoc/man/sympa_config.5.html#css_url) and
+    [``pictures_url``](/gpldoc/man/sympa_config.5.html#pictures_url)
+    (Sympa 6.2.28 or later)
+    
+    URL path of auto-generated style sheets and subscribers pictures.
+    HTTP sever have to map them with [``$CSSDIR``](../layout.md#cssdir)
+    and [``$PICTURESDIR``](../layout.md#picturesdir), respectively.
 
   * [``mhonarc``](/gpldoc/man/sympa_config.5.html#mhonarc)
 
