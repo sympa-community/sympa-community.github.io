@@ -44,9 +44,8 @@ When you decide to move the existing service to the new server:
   2. Transfer all the data described in above from the old server.
   3. Check "[Upgrading notes](notes.md)" and make appropriate manual
      adjustments as necessity.
-  4. Run "``sympa.pl --upgrade --from=X.X.X``"
-     (replace `X.X.X` with the exact version number of Sympa on the old
-     server).
+  4. Edit the `data_structure.version` file on the new server to change the version value to reflect the old number.
+  5. Run "``sympa.pl --upgrade``".
      It will upgrade the database structure and several configuration files
      according to the hop you do.
 
