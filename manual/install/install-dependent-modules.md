@@ -100,7 +100,7 @@ Note:
 
 Using `sympa_wizard`
 --------------------
-_Obsoleted mwthod__.
+_Obsoleted method_.
 
 ----
 Note:
