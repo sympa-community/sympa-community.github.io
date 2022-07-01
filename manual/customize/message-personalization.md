@@ -38,7 +38,7 @@ message footer/header will be extracted.
     
   - `[% headers %]`
 
-    A hash containing some header fields of original message.
+    A hash array containing some header fields of original message.
 
       - `[% headers.date %]`
       - `[% headers.from %]`
@@ -50,8 +50,8 @@ message footer/header will be extracted.
         Values of header fields. These are unfolded but not decoded
         (see also `[% subject %]` below).
         
-        Additionally, following less useful fields are also provided,
-        if the message has them.
+    Additionally, following less useful fields are also provided,
+    if the message has them.
 
       - `[% headers.item('thread-topic') %]`
       - `[% headers.item('x-original-to') %]`
@@ -59,7 +59,7 @@ message footer/header will be extracted.
 
   - `[% part %]`
 
-    A hash containing the MIME information of original message (if it is single-part)
+    A hash array containing the MIME information of original message (if it is single-part)
     or the current part (if the message consists of multiple MIME parts).
     
       - `[% part.description %]`
@@ -86,7 +86,7 @@ message footer/header will be extracted.
 
   - `[% user %]`
 
-    A hash containing the information of the subscriber.
+    A hash array containing the information of the subscriber.
 
       - `[% user.email %]`
 
