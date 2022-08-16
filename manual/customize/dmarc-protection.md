@@ -49,7 +49,7 @@ Related posts
 
   - [A post by John Levine exposing the problem](https://jl.ly/Email/yahoobomb.html),
 
-  - [The crucial discussion about it on sympa-users](https://listes.renater.fr/sympa/arc/sympa-users/2014-04/msg00026.html).
+  - [The crucial discussion about it on sympa-users](https://lists.sympa.community/msg/en/2014-04/Wj1SFwl0SwSXPkdMg0T-wQ).
 
 Acknowledgement
 ---------------

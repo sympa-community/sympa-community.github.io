@@ -48,7 +48,7 @@ Translation catalogs and templates
 
 Sympa is designed to allow easy internationalization of its user interface (service mail messages and web interface). All translations for one language are gathered in a single .po file that can be manipulated by standard [GNU gettext tools](https://www.gnu.org/software/gettext/#introduction).
 
-[Instructions for translating Sympa](https://translate.sympa.org/pages/help) are maintained.
+[Instructions for translating Sympa](https://translate.sympa.community/pages/help) are maintained.
 
 ----
 Note:

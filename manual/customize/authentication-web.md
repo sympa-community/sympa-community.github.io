@@ -281,9 +281,11 @@ print '</body></html>';
 
 Chris Hastie has sumitted a [contrib for sharing Sympa sessions with PHP applications](https://www.sympa.org/contribs/index#how_to_share_sympa_session_with_other_php_applications).
 
+<!--
 ### What about using SOAP/HTTP API to access Sympa sessions
 
 Not yet possible but of course this the best way to do it. There is a [feature request](https://sourcesup.renater.fr/tracker/index.php?func=detail&aid=4056&group_id=23&atid=170) for it.
+-->
 
 Provide a Sympa login form in another application
 -------------------------------------------------
