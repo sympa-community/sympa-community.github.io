@@ -6,38 +6,42 @@ up: ./
 Mailing lists
 =============
 
-  - [`sympa-announce@listes.renater.fr`](https://listes.renater.fr/sympa/info/sympa-announce)
+  - [`announce@sympa.community`](https://lists.sympa.community/info/announce) (ex. `sympa-announce`)
 
     Announce of new Sympa release
 
-    Subscribers of following lists are automatically included in this list:
-      - `sympa-developpers`
-      - `sympa-fr`
-      - `sympa-packagers`
-      - `sympa-users`
+    Subscribers of following lists are automatically included in this list.
 
-  - [`sympa-developpers@listes.renater.fr`](https://listes.renater.fr/sympa/info/sympa-developpers)
+  - [`devel@sympa.community`](https://lists.sympa.community/info/devel) (ex. `sympa-developpers`)
 
     The mailing list for Sympa developers
 
-  - [`sympa-fr@listes.renater.fr`](https://listes.renater.fr/sympa/info/sympa-fr)
+  - [`en@sympa.community`](https://lists.sympa.community/info/en) (ex. `sympa-users`)
 
-    Pour les administrateurs de serveurs de listes utilisant le logiciel Sympa
+    The mailing list for listmasters using Sympa [English]
 
-  - [`sympa-packagers@listes.renater.fr`](https://listes.renater.fr/sympa/info/sympa-packagers)
+  - [`es@sympa.community`](https://lists.sympa.community/info/es) (ex. `sympa-es`)
+
+    Lista hispanófona de Sympa [español]
+
+  - [`fr@sympa.community`](https://lists.sympa.community/info/fr) (ex. `sympa-fr`)
+
+    Pour les administrateurs de serveurs de listes utilisant le logiciel Sympa [français]
+
+  - [`ja@sympa.community`](https://lists.sympa.community/info/ja) (ex. `users@sympa-ja.org`)
+
+    Sympa日本語ユーザ [日本語]
+
+  - [`packagers@sympa.community`](https://lists.sympa.community/info/packagers) (ex. `sympa-packagers`)
 
     List for people interesting in developping and using Sympa packages
 
-  - [`sympa-security@listes.renater.fr`](https://listes.renater.fr/sympa/info/sympa-security)
+  - [`security@sympa.community`](https://lists.sympa.community/info/security) (ex. `sympa-security`)
 
     Security contact and discussion list for Sympa
 
     Closed subscription, private archives.
 
-  - [`sympa-users@listes.renater.fr`](https://listes.renater.fr/sympa/info/sympa-users)
-
-    The mailing list for listmasters using Sympa
-
-  - [`lets@translate.sympa.org`](https://translate.sympa.org/sympa/info/lets)
+  - [`translate@sympa.community`](https://lists.sympa.community/info//translate) (ex. `lets@translate.sympa.org`)
 
     Announcements for people translating user interface of Sympa
