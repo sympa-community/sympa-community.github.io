@@ -3,7 +3,7 @@ title: Community has a new domain name
 ---
 
 Community has a new domain name: Lists and web sites have moved
-===============================================================
+---------------------------------------------------------------
 
 Dear users of Sympa mailing lists and Sympa web site,
 
@@ -50,7 +50,7 @@ You will need to create a dedicated password to log in to the web
 interface of the new lists.
 
 To create your password, go to the page of web interface
-<https://lists.sympa.community/>, click [Login] button on the
+[https://lists.sympa.community/](https://lists.sympa.community/), click [Login] button on the
 menu, and select the link "First login?".
 
 
