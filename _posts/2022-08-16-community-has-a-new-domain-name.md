@@ -37,7 +37,7 @@ However, please note:
 
 See "Mailing lists" page about the new addresses:
 
-  * https://www.sympa.community/community/lists.html
+  * [https://www.sympa.community/community/lists.html](https://www.sympa.community/community/lists.html)
 
 Note that older addresses are no longer usable.  If you have these
 addresses in your address book, please update them.
@@ -60,7 +60,7 @@ New web site URL
 The web site for the community of Sympa have moved to the new
 domain "sympa.community".
 
-  * https://www.sympa.community
+  * [https://www.sympa.community](https://www.sympa.community)
 
 Notes:
 
