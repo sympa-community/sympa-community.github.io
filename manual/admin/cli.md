@@ -21,8 +21,8 @@ Administration tools
     ----
     Note:
 
-    On Sympa prior to 6.2.70, most distributions use only the name
-    `sympa.pl`. On 6.2.70 or later, `sympa.pl` is a symbolic link to
+    On Sympa prior to 6.2.68, most distributions use only the name
+    `sympa.pl`. On 6.2.68 or later, `sympa.pl` is a symbolic link to
     `sympa`.
 
     ----
