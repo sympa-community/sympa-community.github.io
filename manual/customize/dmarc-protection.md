@@ -12,7 +12,12 @@ DMARC protection
 
 This is a quick update for now. If you want to learn more about DMARC and what awful things its rough application did to mailing lists manager, please read [Related posts](#related-posts) below.
 
-ARC is intended to fix the problems introduced by DMARC by adding signature "seals" that show the chain of servers that processed a message.  It is implemented [along witn DKIM](dkim-arc.md).  Once ARC is more widely implemented, DMARC workarounds shouldn't be needed.
+ARC is intended to fix the problems introduced by DMARC by adding signature
+"seals" that show the chain of servers that processed a message.  It is
+implemented [along with DKIM](dkim-arc.md).  Once ARC is more widely
+implemented, DMARC workarounds shouldn't be needed.
+So [setting up ARC](dkim-arc.md) on your mailing list server is recommended,
+so that impact by DMARC protection would be reduced.
 
 To make a long story short: yahoo, then aol and probably others set the "`p=reject`" tag in their DMARC DNS record. This means: _reject anything that doesn't match my security policies_. OK. But Sympa and most mailing lists managers would break this policy, simply by changing the mail subject or the `Return-Path` because:
 
@@ -27,10 +32,19 @@ To fix it:
   1. Install [Net-DNS](https://metacpan.org/release/Net-DNS) Perl module, if
      it have not been installed.
 
-  2. Set the `dmarc_protection_mode` to the value you wish. For a quick correction on the most restrictive DMARc records, just add the following line to your sympa.conf:
+  2. Set the `dmarc_protection.mode` to the value you wish. For a quick
+     correction on the most restrictive DMARC records, just add the
+     following line to your sympa.conf:
      ``` code
-     dmarc_protection_mode dmarc_reject
+     dmarc_protection.mode dmarc_reject
      ```
+     ----
+     Note:
+
+       * On Sympa 6.2.56 or earlier, the name of the parameter above should
+         be `dmarc_protection_mode`.
+
+     ----
 
 This will have the following effect: mails from domains whose pollicy is to reject any mail not respecting its DMARC policy will be processed this way:
 
