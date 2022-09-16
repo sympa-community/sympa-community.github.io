@@ -1,6 +1,8 @@
 ---
 title: 'DKIM and ARC: Setup MTA: Using Rspamd'
 up: dkim-arc-setup-mta.md
+prev: dkim-arc-setup-keys.md
+next: dkim-arc-setup-mta.md#tests
 ---
 
 DKIM and ARC: Setup MTA: Using Rspamd
@@ -9,25 +11,23 @@ DKIM and ARC: Setup MTA: Using Rspamd
 Requirements
 ------------
 
-  * MTA: Postfix, Sendmail, or maybe OpenSMTPD
-  * [Rspamd](https://www.rspamd.com/)
+  * MTA: Postfix, Sendmail, or maybe OpenSMTPD.
+  * [Rspamd](https://www.rspamd.com/) 3.3 STABLE or later.
 
-  * You have to choose **authserv-id** to determine the results of domain
-    validation.
+    ----
+    Note:
 
-    With Sendmail, it should be the same as `j` macro, FQDN of real host
-    name of mail server.  With Postfix, you may choose any name you prefer.
+      * While Rspamd 3.3 STABLE has not been released, HEAD of master
+        branch in the
+        [source repository](https://github.com/rspamd/rspamd) may be
+        used instead.
+        Earlier version of Rspamd does not work as expected with Sympa.
+
+    ----
+
+  * You have to choose (or confirm) **authserv-id** to determine the
+    results of domain validation.  See descriptions below for details.
     In this document `mx.example.org` is used for example.
-
-----
-Note:
-
-
-  * Rspamd 3.3 stable or later is required (as it has not been released,
-    use HEAD of master branch instead).  Earlier version of Rspamd did not
-    work as expected with Sympa.
-
-----
 
 Configuration
 -------------
@@ -61,10 +61,12 @@ For details see the
     milter_default_action = accept
     milter_macro_daemon_name = mx.example.org
     ```
+    If `milter_macro_daemon_name` is not specified, value of `myhostname`
+    is used as authserv-id.
 
   * Sendmail
 
-    Edit `sendmai.cf` to add following settings:
+    Edit `sendmail.cf` to add following settings:
     ``` code
     O InputMailFilters=rspamd
     Xrspamd, S=inet:11332@localhost
@@ -74,6 +76,10 @@ For details see the
     ``` code
     define(`confINPUT_MAIL_FILTERS', `rspamd')
     MAIL_FILTER(`rspamd', `S=inet:11332@localhost')
+    ```
+    Above is equivalent to below:
+    ``` code
+    INPUT_MAIL_FILTER(`rspamd', `S=inet:11332@localhost')
     ```
 
     With sendmail, the authserv-id is the value of `j` macro in `sendmail.cf`
@@ -89,4 +95,8 @@ For details see the
     Rspamd with OpenSMTPD.  For more details see related documents.
 
     The authserv-id is the value of `hostname` option in `smtpd.conf`.
+
+----
+
+After you finished setting up MTA, [test](dkim-arc-setup-mta.md#tests) it.
 

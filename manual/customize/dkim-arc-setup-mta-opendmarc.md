@@ -2,7 +2,7 @@
 title: 'DKIM and ARC: Setup MTA: Using OpenDMARC'
 up: dkim-arc-setup-mta.md
 prev: dkim-arc-setup-keys.md
-next: dkim-arc-setup-sympa.md
+next: dkim-arc-setup-mta.md#tests
 ---
 
 DKIM and ARC: Setup MTA: Using OpenDMARC
@@ -77,7 +77,7 @@ SPFSelfValidate true
 
   * Sendmail
 
-    Edit `sendmai.cf` to add following settings:
+    Edit `sendmail.cf` to add following settings:
     ``` code
     O InputMailFilters=opendkim, opendmarc
     Xopendkim, S=inet:8891@localhost
@@ -90,4 +90,13 @@ SPFSelfValidate true
     MAIL_FILTER(`opendkim', `S=inet:8891@localhost')
     MAIL_FILTER(`opendmarc', `S=inet:8893@localhost')
     ```
+    Above is equivalent to below:
+    ``` code
+    INPUT_MAIL_FILTER(`opendkim', `S=inet:8891@localhost')
+    INPUT_MAIL_FILTER(`opendmarc', `S=inet:8893@localhost')
+    ```
+
+----
+
+After you finished setting up MTA, [test](dkim-arc-setup-mta.md#tests) it.
 
