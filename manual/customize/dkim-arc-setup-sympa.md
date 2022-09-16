@@ -69,7 +69,19 @@ In most cases Sympa should sign **all** outgoing messages to get the maximum adv
 
 #### Parameters for DKIM signing
 
-Before Sympa is able to DKIM-sign messages, you need to set several related parameters. The most important ones are [dkim_private_key_path](/gpldoc/man/sympa_config.5.html#dkim_private_key_path) (private key file location) and [dkim_selector](/gpldoc/man/sympa_config.5.html#dkim_selector). Other parameters related to [RFC 6376](https://tools.ietf.org/html/rfc6376): [dkim_signer_domain](/gpldoc/man/sympa_config.5.html#dkim_signer_domain), [dkim_signer_identity](/gpldoc/man/sympa_config.5.html#dkim_signer_identity),[dkim_header_list](/gpldoc/man/sympa_config.5.html#dkim_header_list).
+Before Sympa is able to DKIM-sign messages, you need to set several related
+parameters.  The most important ones are
+[dkim_private_key_path](/gpldoc/man/sympa_config.5.html#dkim_private_key_path)
+(private key file location) and
+[dkim_selector](/gpldoc/man/sympa_config.5.html#dkim_selector).
+Other parameters related to [RFC 6376](https://tools.ietf.org/html/rfc6376):
+[dkim_signer_domain](/gpldoc/man/sympa_config.5.html#dkim_signer_domain),
+[dkim_signer_identity](/gpldoc/man/sympa_config.5.html#dkim_signer_identity)
+(for domain) /
+[dkim_parameters.signer_identity](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity)
+(for lists),
+[dkim_header_list](/gpldoc/man/sympa_config.5.html#dkim_header_list)
+(not yet implemented).
 
 ### Summary of DKIM parameters
 
@@ -81,7 +93,8 @@ Before Sympa is able to DKIM-sign messages, you need to set several related para
 | [dkim_private_key_path](/gpldoc/man/sympa_config.5.html#dkim_private_key_path) | | `dkim_parameters` > `private_key_path` |
 | [dkim_signer_domain](/gpldoc/man/sympa_config.5.html#dkim_signer_domain) | the robot domain | `dkim_parameters` > `signer_domain` |
 | [dkim_selector](/gpldoc/man/sympa_config.5.html#dkim_selector) | no default | `dkim_parameters` > `selector` |
-| [dkim_signer_identity](/gpldoc/man/sympa_config.5.html#dkim_signer_identity) | none for robot's messages, _`listname`_`-request@robot` for lists | `dkim_parameters` > `signer_identity` |
+| [dkim_signer_identity](/gpldoc/man/sympa_config.5.html#dkim_signer_identity) | (for robot's messages) none | none |
+| [dkim_parameters > signer_identity](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity) | (for lists) _`listname`_`-request@robot` | - |
 | ~~[dkim_header_list](/gpldoc/man/sympa_config.5.html#dkim_header_list)~~ | as recommended in RFC 6376 | Not yet implemented |
 
 ----
@@ -92,7 +105,6 @@ Notes:
       - `dkim_private_key_path` to `dkim_parameters.private_key_path`
       - `dkim_signer_domain` to `dkim_parameters.signer_domain`
       - `dkim_selector` to `dkim_parameters.selector`
-      - `dkim_signer_identity` to `dkim_parameters.signer_identity`
 
 ----
 
