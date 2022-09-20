@@ -17,7 +17,7 @@ Requirements
 
   * You have to choose **authserv-id** to determine the results of domain
     validation.
-    In this document `mail.example.org` is used for example.
+    In this document `mx.example.org` is used for example.
 
 ----
 Note:
@@ -49,7 +49,7 @@ The minimum configuration is as follows.
 for details):
 ``` code
 AlwaysAddARHeader yes
-AuthservID mail.example.org
+AuthservID mx.example.org
 Mode v
 Socket inet:8891@localhost
 ```
@@ -58,8 +58,8 @@ Socket inet:8891@localhost
 [manual of OpenDMARC](http://www.trusteddomain.org/opendmarc/opendmarc.conf.5.html)
 for details):
 ``` code
-AuthservID mail.example.org
-TrustedAuthservIDs mail.example.org
+AuthservID mx.example.org
+TrustedAuthservIDs mx.example.org
 Socket inet:8893@localhost
 SPFSelfValidate true
 ```

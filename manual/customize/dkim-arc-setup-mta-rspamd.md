@@ -17,7 +17,7 @@ Requirements
 
     With Sendmail, it should be the same as `j` macro, FQDN of real host
     name of mail server.  With Postfix, you may choose any name you prefer.
-    In this document `mail.example.org` is used for example.
+    In this document `mx.example.org` is used for example.
 
 ----
 Note:
@@ -59,7 +59,7 @@ For details see the
     ``` code
     smtpd_milters = (existing settings) inet:localhost:11332
     milter_default_action = accept
-    milter_macro_daemon_name = mail.example.org
+    milter_macro_daemon_name = mx.example.org
     ```
 
   * Sendmail
