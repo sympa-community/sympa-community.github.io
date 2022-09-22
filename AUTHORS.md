@@ -15,6 +15,7 @@ name here.
   - Mic Kaczmarczik
   - Schplurtz le Déboulonné
   - John Levine
+  - MALMARTEL Rémy
   - Luis Martínez
   - Etienne Meleard
   - Olivier Salaün
