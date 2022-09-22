@@ -17,7 +17,7 @@ Sympa supports POSIX-based Unix-like operating systems.  At least following
 operating systems have been reported working:
 
   - Several GNU/Linux distributions: Debian / Ubuntu / Linux Mint,
-    RHEL / CentOS / Fedora, Slackware, etc.
+    RHEL / CentOS / Fedora, Slackware, SLES / openSUSE, etc.
   - FreeBSD (2.x or later), NetBSD, OpenBSD.
   - macOS.
   - Tru64 UNIX.
@@ -63,9 +63,9 @@ local storage.  Using it on the sites with low volume is worth consideration.
 Mail server is required.  At least following products are reported working
 with Sympa:
 
-  - [Sendmail](https://www.proofpoint.com/us/sendmail-open-source) (V8).
-  - [Postfix](http://www.postfix.org/) (2.x or 3.x).
-  - [exim](http://www.exim.org/mirrors.html).
+  - [Sendmail](https://www.proofpoint.com/us/products/email-protection/open-source-email-solution) (V8).
+  - [Postfix](https://www.postfix.org/) (2.x or 3.x).
+  - [exim](https://www.exim.org/mirrors.html).
   - [OpenSMTPD](https://www.opensmtpd.org/).
   - qmail.  Use of this is discouraged because it lacks modern features.
 
@@ -74,8 +74,8 @@ with Sympa:
 To provide web interface, HTTP server is required.  At least following
 products are reported working with Sympa:
 
-  - [Apache HTTP Server](http://httpd.apache.org/download.cgi).
-  - [lighttpd](http://redmine.lighttpd.net/projects/lighttpd/wiki/GetLighttpd).
+  - [Apache HTTP Server](https://httpd.apache.org/download.cgi).
+  - [lighttpd](https://redmine.lighttpd.net/projects/lighttpd/wiki/GetLighttpd).
   - [nginx](https://nginx.org/en/download.html).
 
 ### Other software components
