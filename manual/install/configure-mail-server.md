@@ -23,7 +23,7 @@ Requirements
 Instruction by MTAs
 -------------------
 
-  - ~~[exim](configure-mail-server-exim.md)~~ (Work in progress)
+  - [Exim](configure-mail-server-exim4.md)
   - [OpenSMTPD](configure-mail-server-opensmtpd.md)
   - [Postfix](configure-mail-server-postfix.md)
   - [Sendmail](configure-mail-server-sendmail.md)
