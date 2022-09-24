@@ -31,9 +31,7 @@ the mail domain name of the service.
 Instruction by MTAs
 -------------------
 
-  * ~[Exim](dkim-arc-setup-mta-exim.md)~
-
-    (Instruction is work in progress)
+  * [Exim](dkim-arc-setup-mta-exim4.md)
 
   * Using Milter (mail filter for Postfix and Sendmail):
 
