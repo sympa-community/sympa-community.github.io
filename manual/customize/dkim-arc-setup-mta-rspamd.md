@@ -54,7 +54,8 @@ For details see the
 
   * Postfix
 
-    Add following settings to `main.cf`:
+    Add following settings to `main.cf` (Note:
+    Replace `mx.example.org` in below):
 
     ``` code
     smtpd_milters = (existing settings) inet:localhost:11332

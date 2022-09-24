@@ -42,7 +42,8 @@ Configuration
 Sympa is responsible for the DKIM signing. That is, on OpenDKIM, the value
 of `Mode` parameter below may only include `v`, for verification.
 
-The minimum configuration is as follows.
+The minimum configuration is as follows (Note:
+Replace `mx.example.org` in below).
 
 `opendkim.conf` (see the
 [manual of OpenDKIM](http://www.opendkim.org/opendkim.conf.5.html)
