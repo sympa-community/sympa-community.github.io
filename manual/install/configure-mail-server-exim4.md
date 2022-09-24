@@ -65,15 +65,15 @@ Exim4 configuration
 ### Exim4 Architecture configuration
 
   _Exim4_ may work with a single monolithic configuration template file or
-  with several spited files according to your installation choice.
+  with several splitted files according to your installation choice.
   Filling the bad the configuration have no effect.
 
   If you choose single monolithic way, you have to edit the
   ``/etc/exim4/exim4.conf.template`` and put the router configuration part after
-  ``"begin router"`` message and before "begin otherThing". You can put it
-  typically next to the `"system_aliases"` section. The transport configuration
-  should take place after ``"begin transport"``, typically next to the
-  `"address_directory"` section.
+  "``begin router``" message and before "``begin ``_otherThing_ ". You can put it
+  typically next to the "``system_aliases``" section. The transport configuration
+  should take place after "``begin transport``", typically next to the
+  "``address_directory``" section.
 
   However, if you choose to split _Exim4_ configuration template in several file,
   you have to create a new router file under `router` directory, for instance
@@ -177,4 +177,4 @@ Exim4 configuration
 
      ``` code
      exim4 -bt list@mail.example.org
-     `
+     ```
