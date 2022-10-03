@@ -14,17 +14,6 @@ Requirements
   * MTA: Postfix, Sendmail, or maybe OpenSMTPD.
   * [Rspamd](https://www.rspamd.com/) 3.3 STABLE or later.
 
-    ----
-    Note:
-
-      * While Rspamd 3.3 STABLE has not been released, HEAD of master
-        branch in the
-        [source repository](https://github.com/rspamd/rspamd) may be
-        used instead.
-        Earlier version of Rspamd does not work as expected with Sympa.
-
-    ----
-
   * You have to choose (or confirm) **authserv-id** to determine the
     results of domain validation.  See descriptions below for details.
     In this document `mx.example.org` is used for example.
