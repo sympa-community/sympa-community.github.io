@@ -26,7 +26,7 @@ Sympa stores the list membership data in its database, in the [`subscriber_table
 
 ### Declaring list owners or moderators
 
-A list owner is assigned to a list at the list creation time ; it corresponds to the user who requests the list creation. Additional list owners can later be addded by existing list owners or by the listmaster; this is achieved through the list admin web interface. List owners are defined by the [owner list configuration parameter](/gpldoc/man/sympa_config.5.html#owner).
+A list owner is assigned to a list at the list creation time ; it corresponds to the user who requests the list creation. Additional list owners can later be added by existing list owners or by the listmaster; this is achieved through the list admin web interface. List owners are defined by the [owner list configuration parameter](/gpldoc/man/sympa_config.5.html#owner).
 
 List moderators are managed the same way, defined by the [`editor` list configuration parameter](/gpldoc/man/sympa_config.5.html#editor). Note that if no list moderator is defined, then the list owners are taken as defaults for them.
 
