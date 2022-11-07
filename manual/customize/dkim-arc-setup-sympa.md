@@ -175,6 +175,7 @@ Summary of parameters
 | [arc_signer_domain](/gpldoc/man/sympa_config.5.html#arc_signer_domain) | dkim_signer_domain | `arc_parameters` > `arc_signer_domain` |
 | [arc_selector](/gpldoc/man/sympa_config.5.html#arc_selector) | dkim_selector | `arc_parameters` > `arc_selector` |
 | [arc_private_key_path](/gpldoc/man/sympa_config.5.html#arc_private_key_path) | dkim_private_key_path | `arc_parameters` > `arc_private_key_path` |
+| [dmarc_protection > mode](/gpldoc/man/sympa_config.5.html#dmarc_protectionmode) | no default | `dmarc_protection` > `mode` |
 
 Tests
 -----
