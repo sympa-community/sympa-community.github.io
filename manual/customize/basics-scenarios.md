@@ -134,7 +134,6 @@ See "[Custom scenario conditions](custom-scenario-conditions.md)" for details.
 You can specify four different authentication methods to base your rules on (ordered from lower to higher levels):
 
   - `smtp`
-  - `dkim`
   - `md5`
   - `smime`
 
@@ -153,14 +152,23 @@ Here is a description of what is evaluated to authenticate the user depending of
 | Method  | Mail context | Web context |
 |---------|--------------|-------------|
 | `smtp`  | sender ("`From:`" field etc.) in the message header | anonymous user (`nobody`) |
-| `dkim`  | valid DKIM signature of the message | *Nothing - unused in web context* |
 | `md5`   | confirmation/approval with the authentication key in the message [1] | authentication mechanisms with username/password |
 | `smime` | valid S/MIME signature of the message [2] | TLS client authentication with X.509 certificate installed in the user's browser |
 
   - [1] `md5` will be used, in a mail context, when users answer to an authentication request, or when moderators moderate a message by replying to a moderation request mail.
   - [2] Sympa also deals with S/MIME encrypted messages.
 
-In most cases, `smtp` or `dkim` will be used for mails, and `md5` for the web.
+In most cases, `smtp` will be used for mails, and `md5` for the web.
+
+----
+Note:
+
+  * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
+    have to update your customized scenario to introduce `dkim`
+    authentication method.  See
+    "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
+
+----
 
 #### Actions
 
@@ -404,7 +412,7 @@ For each service listed in parameter
 following implicit scenario rule is added at the beginning of the scenario:
 
 ``` code
-search(blocklist.txt)  smtp,md5,dkim,smime -> reject,quiet
+search(blocklist.txt)  smtp,md5,smime -> reject,quiet
 ```
 
 The goal is to block messages or other service requests from unwanted

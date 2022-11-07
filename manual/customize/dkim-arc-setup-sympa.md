@@ -15,33 +15,16 @@ and ARC verification / sealing.
 Additionally, a workaround is recommended for sites with unsatisfactory
 support for ARC.
 
-DKIM signature verification for incoming messages
--------------------------------------------------
+----
+Note:
 
-To make Sympa check the DKIM signature of incoming messages, you need to set the [dkim_feature](/gpldoc/man/sympa_config.5.html#dkim_feature) configuration parameter to `on`. Before doing that you must first update your customized scenario to introduce `dkim` authentication method, **otherwise Sympa may reject messages because they include a valid DKIM signature !**. All default scenarios starting at version 6.1 already include rules for DKIM, both for command and lists messages.
+  * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
+    have to update your customized scenario to introduce `dkim`
+    authentication method.  See
+    "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
 
-**Possible changes in scenarios**
+----
 
-Turning on the [dkim_feature](/gpldoc/man/sympa_config.5.html#dkim_feature) configuration parameter will provide a new authentication level to the scenario engine. Scenario evaluation for incoming messages with a valid DKIM signature (but no S/MIME signature) will be evaluated with authentication method `dkim`. So rules that use authentication method `smtp` will not match.
-
-Example:
-
-``` code
-  is_subscriber([listname],[sender])   smtp      request_auth
-  is_subscriber([listname],[sender])   md5,smime do_it
-```
-
-Those 2 rules will not match any messsage with a valid DKIM signature, you must replace them with one of the following:
-
-``` code
-  is_subscriber([listname],[sender])   smtp,dkim request_auth
-  is_subscriber([listname],[sender])   md5,smime do_it
-
-  is_subscriber([listname],[sender])   smtp           request_auth
-  is_subscriber([listname],[sender])   dkim,md5,smime do_it
-```
-
-If you choose the second solution, you accept DKIM as a valid authentication mecanism.
 <!--
 [Content of AR field has to be parsed.  Matching by regexp does not make sense]
 

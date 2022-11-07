@@ -29,9 +29,13 @@ so that impact by DMARC protection would be reduced
 
 Processing of DKIM status of incoming messages is done by the MTA (Mail transfer agent) that delivers emails to the Sympa server Sympa domain (in order to reject some messages). This topic is not addressed in the chapter of the documentation.
 
-The mailing list server can take advantage of incoming DKIM signatures in order to measure the trust of the message while evaluating message workflow. This is based on [scenario mechanism](basics-scenarios.md). An authentication level named `dkim` can be used within scenario rules to check that an incoming message has a valid DKIM signature (dkim signature status = pass).
-
-In addition, you must consider signature of outgoing messages. Should messages broadcasted by Sympa to list subscribers be signed by your organization? Should all of them be signed? Should a subset of trusted messages be signed? Should service messages (automatic answer, welcome messages etc) be signed ?  In most cases Sympa should sign all the mail it sends to get the most benefit from DKIM.
+You must consider signature of outgoing messages.
+Should messages broadcasted by Sympa to list subscribers be signed by your
+organization?  Should all of them be signed? Should a subset of trusted
+messages be signed?  Should service messages (automatic answer, welcome
+messages etc) be signed?
+In most cases Sympa should sign all the mail it sends to get the most
+benefit from DKIM.
 
 ARC seals only make sense on mail forwarded by Sympa, that is, individual messages sent through to mailing lists. The ARC feature will only add seals to those messages.  ARC checks the ARC seals, if any, on incoming messages, 
 
@@ -43,6 +47,11 @@ Note:
     and list moderators.
     On previous versions, ARC seals are added to only the messages sent
     through the list posting addresses.
+
+  * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
+    have to update your customized scenario to introduce `dkim`
+    authentication method.  See
+    "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
 
 ----
 
