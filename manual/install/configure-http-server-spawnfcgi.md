@@ -85,6 +85,7 @@ Notes:
                  `sympa-httpd` or `sympa-nginx` package.
 
          ----
+
        * If you have installed Sympa from source, and you have given
          ``--with-unitsdir=DIR`` option to `configure` script,
          you may find a file
@@ -186,6 +187,7 @@ Notes:
          the ``sympasoap`` file.
 
      ----
+
   2. Start WWSympa FastCGI service.
      ```bash
      # service wwsympa start

@@ -183,6 +183,7 @@ below.
             for details.
 
         ----
+
       * LDAP authentication:
         Now entry of authenticating user is retrieved by the LDAP account
         specified by `bind_dn` parameter.

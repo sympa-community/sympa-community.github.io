@@ -187,6 +187,7 @@ Instruction by HTTP servers
              file is prepared by ``sympa-httpd`` package.
 
      ----
+
   2. Edit it as you prefer.
 
      Note that ``ServerName`` directive above should contain host part of

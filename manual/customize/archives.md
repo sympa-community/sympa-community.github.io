@@ -135,6 +135,8 @@ Note:
     That allows you to have a generic media type in ``MIMEIncs`` and block
     archiving some more specific media types.
 
+---
+
 ### ``MIMEExcs``
 
 ``MIMEExcs`` prevents MHonArc to archive mail parts matching one of the defined
