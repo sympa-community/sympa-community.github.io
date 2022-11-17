@@ -37,15 +37,12 @@ listmaster your@e-mail.addr.ess,other@email.addr.ess
     sent to those addresses must not be forwarded to any addresses managed by
     Sympa.
 
-----
-Note:
-
-  * On Sympa prior to 6.2.34,
-    [``wwsympa_url``](/gpldoc/man/sympa_config.5.html#wwsympa_url) parameter was also
-    required.  If it is the case, you may specify appropriate value at this
-    time.
-
-----
+> **Note**
+>
+>   * On Sympa prior to 6.2.34,
+>     [``wwsympa_url``](/gpldoc/man/sympa_config.5.html#wwsympa_url) parameter was also
+>     required.  If it is the case, you may specify appropriate value at this
+>     time.
 
 Additionally, following parameter may be useful:
 

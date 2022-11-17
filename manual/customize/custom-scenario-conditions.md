@@ -114,10 +114,7 @@ sub verify {
 1;
 ```
 
-----
-Note:
-
-  * this will work in included scenario if the include contains two rules: one with `msg_body` and with `msg_part->body`.
-
-----
+> **Note**
+>
+>   * this will work in included scenario if the include contains two rules: one with `msg_body` and with `msg_part->body`.
 

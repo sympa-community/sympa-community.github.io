@@ -33,13 +33,10 @@ Sympa does not support Microsoft Windows.
 Currently, Perl 5.16.0 and later are supported, however, recent version of
 Perl 5 is recommended.
 
-----
-Note:
-
-  * As of Sympa 6.2.61b, support for Perl 5.14.x or earlier has been dropped.
-  * As of Sympa 6.2.45b, support for Perl 5.10.0 or earlier has been dropped.
-
-----
+> **Note**
+>
+>   * As of Sympa 6.2.61b, support for Perl 5.14.x or earlier has been dropped.
+>   * As of Sympa 6.2.45b, support for Perl 5.10.0 or earlier has been dropped.
 
 ### RDBMS
 

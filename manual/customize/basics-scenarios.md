@@ -48,14 +48,11 @@ You can modify Sympa behavior if you create a new scenario with the same name as
 
 See also "[Hiding scenario files](#hiding-scenario-files)".
 
-----
-Notes:
-
-  * When customizing a scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
-
-  * When modifying an existing scenario you need to restart Sympa or touch list [`config`](/gpldoc/man/sympa_config.5.html) file before Sympa use it.
-
-----
+> **Note**
+>
+>   * When customizing a scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
+>
+>   * When modifying an existing scenario you need to restart Sympa or touch list [`config`](/gpldoc/man/sympa_config.5.html) file before Sympa use it.
 
 Content of scenario file
 ------------------------
@@ -100,13 +97,10 @@ catalog, the string itself will be used.
 
 ### Rules
 
-----
-Note:
-
-  * About detailed description on rules, see also
-    [sympa_scenario(5)](/gpldoc/man/sympa_scenario.5.html) manual page.
-
-----
+> **Note**
+>
+>   * About detailed description on rules, see also
+>     [sympa_scenario(5)](/gpldoc/man/sympa_scenario.5.html) manual page.
 
 One or more lines for rules follow to title. Each rule has the following syntax:
 
@@ -227,13 +221,10 @@ Some actions may have modifiers, for example:
   * `(reason=...)` modifier returns a key in `mail_tt2/report.tt2` template as
     the reason of rejection.
 
-    ----
-    Note:
-
-      * On Sympa 6.2.18 or earlier, `mail_tt2/authorization_reject.tt2`
-        template was referred instead.
-
-    ----
+    > **Note**
+    >
+    >   * On Sympa 6.2.18 or earlier, `mail_tt2/authorization_reject.tt2`
+    >     template was referred instead.
 
   * `(tt2=...)` modifier sends the user a rejection message generated from
     specified template (extension `.tt2` will be added).
@@ -421,14 +412,11 @@ users. The blocklist can be defined for the robot or for the list. At
 the list level, the blocklist is to be managed by the list owner or the
 list moderator via the web interface.
 
-----
-Note:
-
-  * On Sympa 6.2.60 or earlier, the file named `blacklist.txt` was used
-    for this implicit rule, and the name of corresponding parameter was
-    `use_blacklist`.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.60 or earlier, the file named `blacklist.txt` was used
+>     for this implicit rule, and the name of corresponding parameter was
+>     `use_blacklist`.
 
 `spam-status` special scenario
 ------------------------------

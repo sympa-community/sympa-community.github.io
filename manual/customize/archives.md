@@ -72,13 +72,10 @@ the MHonArc output uses Sympa TT2 template format. When modifying
 `mhonarc_rc.tt2` you may change the way MHonArc prepare archives or
 you may change the way wwsympa.fcgi show them.
 
-----
-Note:
-
-  * On Sympa 6.2.60 or earlier, the name of resource file was
-    `mhonarc-ressources.tt2`.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.60 or earlier, the name of resource file was
+>     `mhonarc-ressources.tt2`.
 
 For example, you may want to customize the archiving in order to reduce disk
 usage.
@@ -127,15 +124,12 @@ text
 </MIMEIncs>
 ```
 
----
-Note:
-
-  * MHonArc will archive parts of the mail matching a media type defined
-    in ``MIMEIncs`` *and* not matching a media type defined in ``MIMEExcs``.
-    That allows you to have a generic media type in ``MIMEIncs`` and block
-    archiving some more specific media types.
-
----
+> **Note**
+>
+>   * MHonArc will archive parts of the mail matching a media type defined
+>     in ``MIMEIncs`` *and* not matching a media type defined in ``MIMEExcs``.
+>     That allows you to have a generic media type in ``MIMEIncs`` and block
+>     archiving some more specific media types.
 
 ### ``MIMEExcs``
 

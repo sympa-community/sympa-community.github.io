@@ -7,13 +7,10 @@ up: ../upgrade.md
 Upgrading notes
 ===============
 
-----
-Note:
-
-  * See also "[Upgrading Sympa](../upgrade.md)" for general upgrading
-    instruction.
-
-----
+> **Note**
+>
+>   * See also "[Upgrading Sympa](../upgrade.md)" for general upgrading
+>     instruction.
 
 Upgrading from Sympa 6.2.x or earlier
 -------------------------------------
@@ -42,13 +39,10 @@ below.
 
   * Perl version 5.16.0 or later will be supported.
 
-    ----
-    Note:
-
-      * As of Sympa 6.2.61b, support for Perl 5.14.x or earlier has been
-        dropped.
-
-    ----
+    > **Note**
+    >
+    >   * As of Sympa 6.2.61b, support for Perl 5.14.x or earlier has been
+    >     dropped.
 
 ### From version prior to 6.2.60
 
@@ -131,13 +125,10 @@ below.
 
   * Perl version 5.10.1 or later will be supported.
 
-    ----
-    Note:
-
-      * As of Sympa 6.2.45b, support for Perl 5.10.0 or earlier has been
-        dropped.
-
-    ----
+    > **Note**
+    >
+    >   * As of Sympa 6.2.45b, support for Perl 5.10.0 or earlier has been
+    >     dropped.
 
 ### From version prior to 6.2.44
 
@@ -174,15 +165,12 @@ below.
         [``upgrade_sympa_passowrd.pl``](/gpldoc/man/upgrade_sympa_password.1.html) to
         rehash passwords stored in database.
 
-        ----
-        Note:
-
-          * Though it is not forced, it is recommended to upgrade password storage
-            format using `bcrypt`, more secure hash function.  See
-            "[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)"
-            for details.
-
-        ----
+        > **Note**
+        >
+        >   * Though it is not forced, it is recommended to upgrade password storage
+        >     format using `bcrypt`, more secure hash function.  See
+        >     "[Upgrading password storage on earlier version](../customize/builtin-auth.md#upgrading-password-storage-on-earlier-version)"
+        >     for details.
 
       * LDAP authentication:
         Now entry of authenticating user is retrieved by the LDAP account
@@ -483,17 +471,14 @@ under separate directory, keeping installation and data of earlier version.
          will upgrade content and structure of database and those changes are
          not recoverable.
 
-         ----
-         Note:
-
-           * On this occation, you might want to check if database schema
-             support Unicode-aware character set, e.g. `utf8`, `UNICODE`,
-             `AL32UTF8`. Even if it does not, Sympa will work, however
-             it is desirable.  To know how to convert your database to be
-             Unicode-aware, please consult to documentation of database
-             server.
-
-         ----
+         > **Note**
+         >
+         >   * On this occation, you might want to check if database schema
+         >     support Unicode-aware character set, e.g. `utf8`, `UNICODE`,
+         >     `AL32UTF8`. Even if it does not, Sympa will work, however
+         >     it is desirable.  To know how to convert your database to be
+         >     Unicode-aware, please consult to documentation of database
+         >     server.
 
   4. Upgrade configuration and data:
 

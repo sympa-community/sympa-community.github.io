@@ -27,14 +27,11 @@ interface.
 Regular delivery and digest delivery
 ------------------------------------
 
-----
-Note:
-
-  * See also
-    "[Message reception modes](basics-alterations.md#message-reception-modes)"
-    in "Message alteration".
-
-----
+> **Note**
+>
+>   * See also
+>     "[Message reception modes](basics-alterations.md#message-reception-modes)"
+>     in "Message alteration".
 
 List members can select a reception mode for messages sent through the list.
 
@@ -55,12 +52,9 @@ The list owner can set the days and time to deliver compiled message using
 Message topics
 --------------
 
-----
-Note:
-
-  * Don't confuse with [list topics](/gpldoc/man/sympa_config.5.html#topics).
-
-----
+> **Note**
+>
+>   * Don't confuse with [list topics](/gpldoc/man/sympa_config.5.html#topics).
 
 This feature is available only with regular delivery described above.
 

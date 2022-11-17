@@ -47,12 +47,9 @@ General instruction
 
          **(b) Specifying instance(s) with local naming:**
 
-         ----
-         Note:
-
-           * Local naming is available on Sympa 6.2.37b.2 or later.
-
-         ----
+         > **Note**
+         >
+         >   * Local naming is available on Sympa 6.2.37b.2 or later.
 
          ``db_name`` specifies net service name.
          ``db_host`` must be `none` or must not be set.
@@ -72,13 +69,10 @@ General instruction
 
          **(c) Specifying connection with easy connection identifier:**
 
-         ----
-         Note:
-
-           * Use of connection identifier is available on
-             Sympa 6.2.37b.2 or later.
-
-         ----
+         > **Note**
+         >
+         >   * Use of connection identifier is available on
+         >     Sympa 6.2.37b.2 or later.
 
          ``db_name`` specifies easy connection identifier.
          ``db_host`` must be `none` or must not be set.
@@ -132,12 +126,9 @@ General instruction
 Instruction for earlier releases of Sympa
 -----------------------------------------
 
-----
-Note:
-
-  * This section describes instruction with Sympa prior to 6.2.
-
-----
+> **Note**
+>
+>   * This section describes instruction with Sympa prior to 6.2.
 
   1. Set appropriate parameters in `sympa.conf` as described in above.
 

@@ -12,24 +12,21 @@ distribution you have installed.  Therefore, in this document, several symbols
 are used to stand for particular paths.  You may have to replace uppercase
 symbols with real paths on your Sympa.
 
-----
-Notes:
-
-  * All paths below are defined in an internal module
-    [``$MODULEDIR/Sympa/Constants.pm``](/gpldoc/man/Sympa-Constants.3.html).
-
-      * Definitions of [``$EXECCGIDIR``](#execcgidir), [``$CSSDIR``](#cssdir)
-        and [``$PICTURESDIR``](#picturesdir) were added to
-        ``Sympa/Constants.pm`` as of Sympa 6.2.26.
-
-  * Default paths below are determined with options fed to `configure`
-    script in the time of building packages by each distribution.
-
-      * About the "suggested configure option" in below, see
-        "Run configure script" -
-        "[New installation](install/install-sympa-distribution-source.md#new-installation)".
-
-----
+> **Note**
+>
+>   * All paths below are defined in an internal module
+>     [``$MODULEDIR/Sympa/Constants.pm``](/gpldoc/man/Sympa-Constants.3.html).
+>
+>       * Definitions of [``$EXECCGIDIR``](#execcgidir), [``$CSSDIR``](#cssdir)
+>         and [``$PICTURESDIR``](#picturesdir) were added to
+>         ``Sympa/Constants.pm`` as of Sympa 6.2.26.
+>
+>   * Default paths below are determined with options fed to `configure`
+>     script in the time of building packages by each distribution.
+>
+>       * About the "suggested configure option" in below, see
+>         "Run configure script" -
+>         "[New installation](install/install-sympa-distribution-source.md#new-installation)".
 
 #### ``$CONFIG``
 

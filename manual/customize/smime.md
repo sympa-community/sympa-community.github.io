@@ -19,26 +19,20 @@ Requirements
   - [Crypt-OpenSSL-X509](https://metacpan.org/release/Crypt-OpenSSL-X509)
     and [Crypt-SMIME](https://metacpan.org/release/Crypt-SMIME) Perl modules.
 
-    ----
-    Note:
-
-      * On Sympa prior to 6.2, openssl(1) utility was required.  It is no
-        longer required but it can be a prerequisite to install the Perl
-        modules mentioned above.
-
-    ----
+    > **Note**
+    >
+    >   * On Sympa prior to 6.2, openssl(1) utility was required.  It is no
+    >     longer required but it can be a prerequisite to install the Perl
+    >     modules mentioned above.
 
   - CA certificate: A certificate from a certificate authority (CA). To
   obtain a CA certificate, consult the issuer organization.
 
-    ----
-    Note:
-
-      * Several issuers provide one or more additional certificates, so-called
-        "intermediate CA certificate", along with the "root CA certificate".
-        If this is the case, you have to obtain all of those certificates.
-
-    ----
+    > **Note**
+    >
+    >   * Several issuers provide one or more additional certificates, so-called
+    >     "intermediate CA certificate", along with the "root CA certificate".
+    >     If this is the case, you have to obtain all of those certificates.
     Certificate files have to be in PEM format.
 
   - Key pair (certificate and private key) of Sympa's address. The
@@ -67,15 +61,12 @@ necessary to configure S/MIME support.
     [`c_rehash(1)`](https://www.openssl.org/docs/manmaster/man1/c_rehash.html)
     utility.
 
-    ----
-    Note:
-    
-      * Some binary distributions provide `c_rehash` script with openssl
-        package.
-        Some others provide alternative script (for example, RHEL/CentOS
-        provides `cacertdir_rehash` script with `authconfig` package).
-
-    ----
+    > **Note**
+    >
+    >   * Some binary distributions provide `c_rehash` script with openssl
+    >     package.
+    >     Some others provide alternative script (for example, RHEL/CentOS
+    >     provides `cacertdir_rehash` script with `authconfig` package).
 
   - [`key_passwd`](/gpldoc/man/sympa_config.5.html#key_passwd)
 
@@ -87,16 +78,13 @@ necessary to configure S/MIME support.
     Users' S/MIME certificates are saved in this directory
     (by default [``$EXPLDIR``](../layout.md#expldir)`/X509-user-certs`).
 
-----
-Note:
-
-  * Message with *decrypted* format may be temporarily put into the directory
-    specified by [`tmpdir`](/gpldoc/man/sympa_config.5.html#tmpdir) (by default
-    [``$SPOOLDIR``](../layout.md#spooldir)`/tmp`).
-    Usually it should not be changed, but you should confirm that this directory
-    is not exposed to public.
-
-----
+> **Note**
+>
+>   * Message with *decrypted* format may be temporarily put into the directory
+>     specified by [`tmpdir`](/gpldoc/man/sympa_config.5.html#tmpdir) (by default
+>     [``$SPOOLDIR``](../layout.md#spooldir)`/tmp`).
+>     Usually it should not be changed, but you should confirm that this directory
+>     is not exposed to public.
 
 ### Sympa setup
 
@@ -154,16 +142,13 @@ Its file name is one of following by its usage:
 
     For both usages.
 
-----
-Note:
-
-  * In fact, some punctuation characters included in *email@add.ress* have to
-    be escaped to avoid limitation of filesystem encoding.
-    By historical reason, escaping scheme is slightly wierd (`escape_chars()`
-    in [Sympa::Tools::Text](/gpldoc/man/Sympa-Tools-Text.3.html) is used).
-    This will be fixed in a future release of Sympa.
-
-----
+> **Note**
+>
+>   * In fact, some punctuation characters included in *email@add.ress* have to
+>     be escaped to avoid limitation of filesystem encoding.
+>     By historical reason, escaping scheme is slightly wierd (`escape_chars()`
+>     in [Sympa::Tools::Text](/gpldoc/man/Sympa-Tools-Text.3.html) is used).
+>     This will be fixed in a future release of Sympa.
 
 ### User side setup
 
@@ -173,12 +158,9 @@ to trusted certificate store in the MUA (mailer) of their own.
   - CA certificate(s).
   - Certificate of Sympa.
 
-----
-Note:
-
-  * Private key *must never* be distributed.
-
-----
+> **Note**
+>
+>   * Private key *must never* be distributed.
 
 How it works
 ------------

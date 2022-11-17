@@ -24,19 +24,16 @@ system administrators.
     address will be processed its content as
     ~~[mail commands](../mail-commands.md)~~.
 
-    ----
-    Notes:
-
-      * If you decided not to provide mail command interface to users, this
-        `sympa` address may be disabled.
-        However, you have to modify many mail templates to remove links to
-        this address from system messages.
-
-      * Though you might use the other mailbox than `sympa` by setting
-        [`email`](/gpldoc/man/sympa_config.5.html#email) parameter, you will have to
-        change mail aliases as well.
-
-    ----
+    > **Note**
+    >
+    >   * If you decided not to provide mail command interface to users, this
+    >     `sympa` address may be disabled.
+    >     However, you have to modify many mail templates to remove links to
+    >     this address from system messages.
+    >
+    >   * Though you might use the other mailbox than `sympa` by setting
+    >     [`email`](/gpldoc/man/sympa_config.5.html#email) parameter, you will have to
+    >     change mail aliases as well.
 
   * `listmaster@mail.example.org`
 
@@ -44,14 +41,11 @@ system administrators.
     sent to this address will be forwarded to the people configured by
     [`listmaster`](/gpldoc/man/sympa_config.5.html#listmaster) parameter.
     
-    ----
-    Note:
-    
-      * Though you might use the other mailbox than `listmaster` by setting
-        [`listmaster_email`](/gpldoc/man/sympa_config.5.html#listmaster_email)
-        parameter, you will have to change mail aliases as well.
-    
-    ----
+    > **Note**
+    >
+    >   * Though you might use the other mailbox than `listmaster` by setting
+    >     [`listmaster_email`](/gpldoc/man/sympa_config.5.html#listmaster_email)
+    >     parameter, you will have to change mail aliases as well.
 
   * `bounce+`*parameters*`@mail.example.org`
 
@@ -67,15 +61,12 @@ system administrators.
     such case *parameters* will contain envelope ID along with information of
     original recipient.
     
-    ----
-    Note:
-    
-      * Though you might use the other mailboxes than `bounce` and so on by
-        setting
-        [`bounce_email_prefix`](/gpldoc/man/sympa_config.5.html#bounce_email_prefix)
-        parameter, you will have to change mail aliases as well.
-    
-    ----
+    > **Note**
+    >
+    >   * Though you might use the other mailboxes than `bounce` and so on by
+    >     setting
+    >     [`bounce_email_prefix`](/gpldoc/man/sympa_config.5.html#bounce_email_prefix)
+    >     parameter, you will have to change mail aliases as well.
 
   * `abuse-feedback-report@mail.example.org`
 

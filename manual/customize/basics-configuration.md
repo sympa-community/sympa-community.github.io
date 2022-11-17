@@ -11,14 +11,11 @@ Configuration hierarchy
 Configuration of Sympa may be classified into multiple scopes:
 "_List_", "_mail domain_", "_site_" and distribution default.
 
-----
-Note:
-
-  * In earlier documentations, a term "**robot**" was chosen to refer to
-    "mail domain" scope.  If you see this word in the other place of this
-    document, please replace it with "mail domain".
-
-----
+> **Note**
+>
+>   * In earlier documentations, a term "**robot**" was chosen to refer to
+>     "mail domain" scope.  If you see this word in the other place of this
+>     document, please replace it with "mail domain".
 
 Configuration files
 -------------------
@@ -57,21 +54,18 @@ file will be used.
 The last file, distribution default, will never be used in this example,
 because the other file supersedes it.
 
-----
-Note:
-
-  * On list scope, canonical path of configuration is:
-    > `$EXPLDIR/`*mail domain name*`/`*list name*`/`
-
-    However, by historical reason, the lists of primary domain (the mail
-    domain defined by [`domain`](/gpldoc/man/sympa_config.5.html#domain) parameter in
-    [``sympa.conf``](../layout.md#config)) also allows the path in a style:
-    > `$EXPLDIR/`*list name*`/`.
-
-    The former style is recommended.  The latter style may be deprecated
-    by the future version of Sympa.
-
-----
+> **Note**
+>
+>   * On list scope, canonical path of configuration is:
+>     > `$EXPLDIR/`*mail domain name*`/`*list name*`/`
+>
+>     However, by historical reason, the lists of primary domain (the mail
+>     domain defined by [`domain`](/gpldoc/man/sympa_config.5.html#domain) parameter in
+>     [``sympa.conf``](../layout.md#config)) also allows the path in a style:
+>     > `$EXPLDIR/`*list name*`/`.
+>
+>     The former style is recommended.  The latter style may be deprecated
+>     by the future version of Sympa.
 
 Exceptions:
 

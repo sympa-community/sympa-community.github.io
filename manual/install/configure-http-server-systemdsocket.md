@@ -21,14 +21,11 @@ Requirements
     (2.4 or later) and [lighttpd](https://www.lighttpd.net/)
     are reported working.
 
-    ----
-    Note:
-
-      * Notes in
-        "[Configure HTTP server: Using separate FastCGI service](configure-http-server-spawnfcgi.md)"
-        also apply to this chapter.
-
-    ----
+    > **Note**
+    >
+    >   * Notes in
+    >     "[Configure HTTP server: Using separate FastCGI service](configure-http-server-spawnfcgi.md)"
+    >     also apply to this chapter.
 
   * Installing
     [multiwatch](https://redmine.lighttpd.net/projects/multiwatch/wiki)
@@ -37,16 +34,13 @@ Requirements
 General instruction
 -------------------
 
-----
-Note:
-
-  * Do not mix the instructions in this chapter with
-    ones in the chapter
-    "[Using separate FastCGI service](configure-http-server-spawnfcgi.md)".
-    They are incompatible each other, and even though they have the same
-    name in the configuration files, their contents are different.
-
-----
+> **Note**
+>
+>   * Do not mix the instructions in this chapter with
+>     ones in the chapter
+>     "[Using separate FastCGI service](configure-http-server-spawnfcgi.md)".
+>     They are incompatible each other, and even though they have the same
+>     name in the configuration files, their contents are different.
 
 First, install Systemd socket and WWSympa FastCGI service.  And then
 configure HTTP server if necessary.
@@ -155,28 +149,22 @@ And run:
 Note that you may also run `systemctl edit wwsympa.service`
 to create snippet and reload daemon at once.
 
-----
-Note:
+> **Note**
+>
+>   * Some distributions bundle unit files in their binary packages,
+>     so it is recommended to use them.  Examples are:
+>     RHEL/CentOS 8 or later, Debian 12 (bookworm) or later.
+>
+>     Since these are subject to modifications by each distribution,
+>     recommended method of customization may vary.
+>     Check the documentation comes with the package of each distribution.
 
-  * Some distributions bundle unit files in their binary packages,
-    so it is recommended to use them.  Examples are:
-    RHEL/CentOS 8 or later, Debian 12 (bookworm) or later.
-
-    Since these are subject to modifications by each distribution,
-    recommended method of customization may vary.
-    Check the documentation comes with the package of each distribution.
-
-----
-
-----
-Note:
-
-  * You can also serve
-    [Sympa SOAP interface](../customize/soap-api.md) with this method.
-    Follow the same instructions in this chapter but with unit files
-    ``sympasoap.socket`` and ``sympasoap.service``.
-
-----
+> **Note**
+>
+>   * You can also serve
+>     [Sympa SOAP interface](../customize/soap-api.md) with this method.
+>     Follow the same instructions in this chapter but with unit files
+>     ``sympasoap.socket`` and ``sympasoap.service``.
 
 ### Setup HTTP server
 

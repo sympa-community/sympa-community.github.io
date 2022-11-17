@@ -6,12 +6,9 @@ up: ../customize.md#customizing-web-interface
 User-friendly automatic lists
 =============================
 
-----
-Note:
-
-  * This feature is available starting Sympa 6.1.12
-
-----
+> **Note**
+>
+>   * This feature is available starting Sympa 6.1.12
 
 While [automatic lists](automatic-lists.md) save a lot of efforts to listmasters, they still remain hard to use for users. Most of the difficulty resides in the proper constitution of a list name. For example, if you use three fields to build your lists names, users will need to know, in order to use an automatic list:
 

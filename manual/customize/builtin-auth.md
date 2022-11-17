@@ -55,14 +55,11 @@ In [`sympa.conf`](../layout.md#config), following parameters are available:
 
          Uses bcrypt hash function.
 
-    ----
-    Note:
-
-      * The bcrypt hash was introduced on Sympa 6.2.26.  See also
-        "[History of password storage format of Sympa](#history-of-password-storage-format-of-sympa)"
-        below.
-
-    ----
+    > **Note**
+    >
+    >   * The bcrypt hash was introduced on Sympa 6.2.26.  See also
+    >     "[History of password storage format of Sympa](#history-of-password-storage-format-of-sympa)"
+    >     below.
 
   * [`password_hash_update`](/gpldoc/man/sympa_config.5.html#password_hash_update)
 

@@ -46,12 +46,9 @@ General instruction
 Instruction for earlier releases of Sympa
 -----------------------------------------
 
-----
-Note:
-
-  * This section describes instruction with Sympa prior to 6.2.
-
-----
+> **Note**
+>
+>   * This section describes instruction with Sympa prior to 6.2.
 
   1. Set appropriate parameters in `sympa.conf` as described in above.
 

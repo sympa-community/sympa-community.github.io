@@ -28,16 +28,13 @@ The others will be created as their necessities.
     Default location is
     [``$EXPLDIR``](../layout.md#expldir)`/`_mail domain_`/`_list name_`/`.
 
-    ----
-    Note:
-
-      * Exceptionally, [``$EXPLDIR``](../layout.md#expldir)`/`_list name_`/`
-        is also allowed for primary mail domain (mail domain defined by
-        `domain` parameter in [``sympa.conf``](/gpldoc/man/sympa_config.5.html)).
-        However, full path described above is recommended for new
-        installation.
-
-    ----
+    > **Note**
+    >
+    >   * Exceptionally, [``$EXPLDIR``](../layout.md#expldir)`/`_list name_`/`
+    >     is also allowed for primary mail domain (mail domain defined by
+    >     `domain` parameter in [``sympa.conf``](/gpldoc/man/sympa_config.5.html)).
+    >     However, full path described above is recommended for new
+    >     installation.
 
   * Bounce directory
 
@@ -112,13 +109,10 @@ listmasters or owners.
   * `message_footer`
   * `message_footer.mime`
 
-    ----
-    Note:
-
-      * On Sympa 6.2.40 or earlier, these were named `message.footer`
-        and `message.footer.mime`.
-
-    ----
+    > **Note**
+    >
+    >   * On Sympa 6.2.40 or earlier, these were named `message.footer`
+    >     and `message.footer.mime`.
 
     If either of these files exists, it will be appended at end of
     distributed messages.
@@ -129,13 +123,10 @@ listmasters or owners.
   * `message_header`
   * `message_header.mime`
 
-    ----
-    Note:
-
-      * On Sympa 6.2.40 or earlier, these were named `message.header`
-        and `message.header.mime`.
-
-    ----
+    > **Note**
+    >
+    >   * On Sympa 6.2.40 or earlier, these were named `message.header`
+    >     and `message.header.mime`.
 
     Similar to files above, but they will be appended at beginning of
     distributed messages.
@@ -171,12 +162,9 @@ Control files
 
 ### Dump files
 
-----
-Note:
-
-  * Feature of dump files was introduced on Sympa 6.2.33b.1.
-
-----
+> **Note**
+>
+>   * Feature of dump files was introduced on Sympa 6.2.33b.1.
 
   * `owner.dump`
   * `editor.dump`
@@ -229,13 +217,10 @@ In general, these files should not be modified manually.
       3. Sum of message sizes the list has distributed.
       4. Total sum of message sizes the list has distributed.
 
-    ----
-    Note:
-
-      * This file on earlier versions of Sympa might contain additional
-        information.  Format of this file may be changed in the future.
-
-    ----
+    > **Note**
+    >
+    >   * This file on earlier versions of Sympa might contain additional
+    >     information.  Format of this file may be changed in the future.
 
   * `msg_count`
 

@@ -6,13 +6,10 @@ up: ../customize.md#customizing-sympa-services
 Automatic list creation
 =======================
 
-----
-Note:
-
-  * **Situation**: you want to create lists according to specified criteria (age, geographical location, etc.).
-  * **Problem**: Creating all the possible lists would result in thousands of list creation, many of them (but you don't know which one...) would never be used.
-
-----
+> **Note**
+>
+>   * **Situation**: you want to create lists according to specified criteria (age, geographical location, etc.).
+>   * **Problem**: Creating all the possible lists would result in thousands of list creation, many of them (but you don't know which one...) would never be used.
 
 Automatic list creation allows you to define those potential lists through family parameters, but they will not be created at once. The mailing list creation is triggered when Sympa receives a message addressed to this list.
 
@@ -77,12 +74,9 @@ What it does is checking all incoming mails and, if it recognizes a message to a
 
 Sympa-milter will work with Sendmail 8 or Postfix built with milter support.
 
-----
-Note:
-
-  * As of Sympa 6.2, sympa-milter 0.7 or better is required and `file_prefix` configuration should be added.  If you were using earlier versions, please consider upgrading.
-
-----
+> **Note**
+>
+>   * As of Sympa 6.2, sympa-milter 0.7 or better is required and `file_prefix` configuration should be added.  If you were using earlier versions, please consider upgrading.
 
 This is the procedure to make it work:
 

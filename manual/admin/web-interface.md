@@ -79,14 +79,11 @@ By this page, you can edit parameters in site-wide configuration file
 (`sympa.conf`) and in configuration specific to accessing mail domain
 (`robot.conf`) using web interface.
 
-----
-Note:
-
-  * By default, this page is read-only: Parameters can not be changed.
-    To enable changing, you have to customize `web_tt2/edit_config.tt2`
-    web template file.
-
-----
+> **Note**
+>
+>   * By default, this page is read-only: Parameters can not be changed.
+>     To enable changing, you have to customize `web_tt2/edit_config.tt2`
+>     web template file.
 
 List management page
 --------------------

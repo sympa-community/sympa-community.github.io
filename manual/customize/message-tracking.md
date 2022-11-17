@@ -45,12 +45,9 @@ Setup
     These settings can be overridden by configuration of each list: See
     [list tracking configuration parameters](/gpldoc/man/sympa_config.5.html#tracking).
 
-    ----
-    Note:
-
-      * The parameters above can not be overridden by `robot.conf`.
-
-    ----
+    > **Note**
+    >
+    >   * The parameters above can not be overridden by `robot.conf`.
 
 Acknowledgements
 ----------------

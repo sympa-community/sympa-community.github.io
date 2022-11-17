@@ -15,14 +15,11 @@ Currently, DNF (YUM) repositories provide RPM packages of Sympa.
   * Pre-release packages for Fedora/RHEL/CentOS are provided by
     [COPR ``sympa-beta`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa-beta/).
 
-----
-Note:
-
-  * Packages for RHEL/CentOS 8 and 9 are work in progress.
-
-  * Packages for RHEL/CentOS 6 or earlier will no longer be provided.
-
-----
+> **Note**
+>
+>   * Packages for RHEL/CentOS 8 and 9 are work in progress.
+>
+>   * Packages for RHEL/CentOS 6 or earlier will no longer be provided.
 
 Requirements
 ------------
@@ -77,18 +74,15 @@ If you have to (re)install RPMs of Sympa prior to 6.2.44, they are
 provided by
 [repository on Sympa-JA.org](http://sympa-ja.org/download/rhel/).
 
-----
-Note:
-
-  * Sympa-JA.org repository will no longer be updated.
-    And _it may be shut down_ in the near future.
-    Unless you needed particular historic version of Sympa,
-    follow the instruction described in above.
-
-  * If you have been using Sympa-JA.org repository, you may
-    seamlessly upgrade `sympa` package with EPEL.
-
-----
+> **Note**
+>
+>   * Sympa-JA.org repository will no longer be updated.
+>     And _it may be shut down_ in the near future.
+>     Unless you needed particular historic version of Sympa,
+>     follow the instruction described in above.
+>
+>   * If you have been using Sympa-JA.org repository, you may
+>     seamlessly upgrade `sympa` package with EPEL.
 
   1. Install EPEL repository (see "[Requirements](#requirements)" above).
 

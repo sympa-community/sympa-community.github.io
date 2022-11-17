@@ -7,19 +7,16 @@ next: configure-http-server.md#tests
 Configure HTTP server: Setup HTTP server as FastCGI proxy
 =========================================================
 
-----
-Note:
-
-  * Instructions in this chepter are applied to the HTTP servers
-    accompany with any of these setting methods:
-
-      - [Using Systemd socket](configure-http-server-systemdsocket.md)
-      - [Running separate FastCGI service](configure-http-server-spawnfcgi.md)
-
-    They are not applied to servers with earlier (no longer recommended)
-    methods.
-
-----
+> **Note**
+>
+>   * Instructions in this chepter are applied to the HTTP servers
+>     accompany with any of these setting methods:
+>
+>       - [Using Systemd socket](configure-http-server-systemdsocket.md)
+>       - [Running separate FastCGI service](configure-http-server-spawnfcgi.md)
+>
+>     They are not applied to servers with earlier (no longer recommended)
+>     methods.
 
 If you have not added configuration for Sympa to HTTP server, follow
 instruction below.
@@ -74,35 +71,33 @@ Instruction by HTTP servers
      ```
      See also the notes below.
 
-     ----
-     Notes:
-
-       * Some binary distributions ship configuration ready to edit:
-
-           - On RPM, ``/etc/nginx/conf.d/sympa.conf`` file is prepared by
-             ``sympa-nginx`` package.
-
-       * With earlier version of Sympa, you may have to add following things:
-
-           - With Sympa 6.2.54 or earlier, insert these into the section of
-             "`location /sympa`":
-             ``` code
-             fastcgi_split_path_info ^(/sympa)(.*)$;
-             fastcgi_param PATH_INFO $fastcgi_path_info;
-             ```
-             and these into the section of "`location /sympasoap`", if any:
-             ``` code
-             fastcgi_split_path_info ^(/sympasoap)(.*)$;
-             fastcgi_param PATH_INFO $fastcgi_path_info;
-             ```
-
-           - Additionally, with Sympa 6.2.19b.2 or earlier, insert this
-             into the section of "`location /sympa`" (Note:
-             replace [``$EXECCGIDIR``](../layout.md#execcgidir)).
-             ``` code
-             fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/wwsympa.fcgi;
-             ```
-     ----
+     > **Note**
+     >
+     >   * Some binary distributions ship configuration ready to edit:
+     >
+     >       - On RPM, ``/etc/nginx/conf.d/sympa.conf`` file is prepared by
+     >         ``sympa-nginx`` package.
+     >
+     >   * With earlier version of Sympa, you may have to add following things:
+     >
+     >       - With Sympa 6.2.54 or earlier, insert these into the section of
+     >         "`location /sympa`":
+     >         ``` code
+     >         fastcgi_split_path_info ^(/sympa)(.*)$;
+     >         fastcgi_param PATH_INFO $fastcgi_path_info;
+     >         ```
+     >         and these into the section of "`location /sympasoap`", if any:
+     >         ``` code
+     >         fastcgi_split_path_info ^(/sympasoap)(.*)$;
+     >         fastcgi_param PATH_INFO $fastcgi_path_info;
+     >         ```
+     >
+     >       - Additionally, with Sympa 6.2.19b.2 or earlier, insert this
+     >         into the section of "`location /sympa`" (Note:
+     >         replace [``$EXECCGIDIR``](../layout.md#execcgidir)).
+     >         ``` code
+     >         fastcgi_param SCRIPT_FILENAME $EXECCGIDIR/wwsympa.fcgi;
+     >         ```
 
   2. Edit it as you prefer.
 
@@ -172,21 +167,18 @@ Instruction by HTTP servers
      [`statoc_content_url`](/gpldoc/man/sympa_config.5.html#static_content_url),
      respectively.
 
-     ----
-     Note:
-
-       * Some binary distributions ship configuration ready to edit:
-
-           - On Debian (12 "bookworm" or later),
-             ``/etc/apache2/conf-available/sympa.conf`` file is prepared.
-             Also, separate ``/etc/apache2/conf-available/sympa-soap.conf``
-             file is prepared for SympaSOAP feature.
-
-           - On RPM (RHEL/CentOS 7 or later and Fedora),
-             ``/etc/httpd/conf.d/sympa.conf``
-             file is prepared by ``sympa-httpd`` package.
-
-     ----
+     > **Note**
+     >
+     >   * Some binary distributions ship configuration ready to edit:
+     >
+     >       - On Debian (12 "bookworm" or later),
+     >         ``/etc/apache2/conf-available/sympa.conf`` file is prepared.
+     >         Also, separate ``/etc/apache2/conf-available/sympa-soap.conf``
+     >         file is prepared for SympaSOAP feature.
+     >
+     >       - On RPM (RHEL/CentOS 7 or later and Fedora),
+     >         ``/etc/httpd/conf.d/sympa.conf``
+     >         file is prepared by ``sympa-httpd`` package.
 
   2. Edit it as you prefer.
 

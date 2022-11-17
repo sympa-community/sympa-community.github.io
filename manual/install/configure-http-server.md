@@ -59,15 +59,12 @@ useful:
     file.  Default value is the same as
     [``syslog``](/gpldoc/man/sympa_config.5.html#syslog) parameter.
 
-----
-Note:
-
-  * On Sympa 6.2.22 or earlier,
-    value of [``use_fast_cgi``](/gpldoc/man/sympa_config.5.html#use_fast_cgi) parameter
-    in [``sympa.conf``](/gpldoc/man/sympa_config.5.html#config) must be ``1``,
-    the default.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.22 or earlier,
+>     value of [``use_fast_cgi``](/gpldoc/man/sympa_config.5.html#use_fast_cgi) parameter
+>     in [``sympa.conf``](/gpldoc/man/sympa_config.5.html#config) must be ``1``,
+>     the default.
 
 Two ways to integrate
 ---------------------
@@ -110,18 +107,15 @@ Virtual domain setting
      wwsympa_url http://web.example.org/sympa
      ```
 
-     ----
-     Note:
-
-       * On Sympa 6.2.18 or earlier, ``robot.conf`` had to contain additional
-         [``http_host``](/gpldoc/man/sympa_config.5.html#http_host) parameter, like:
-         ```
-         wwsympa_url http://web.example.org/sympa
-         http_host web.example.org/sympa
-         ```
-         There is no reason to use ``http_host`` on later releases.
-
-     ----
+     > **Note**
+     >
+     >   * On Sympa 6.2.18 or earlier, ``robot.conf`` had to contain additional
+     >     [``http_host``](/gpldoc/man/sympa_config.5.html#http_host) parameter, like:
+     >     ```
+     >     wwsympa_url http://web.example.org/sympa
+     >     http_host web.example.org/sympa
+     >     ```
+     >     There is no reason to use ``http_host`` on later releases.
 
   4. Continue setting according to description in
      "[Instruction by HTTP servers](#instruction-by-http-servers)".

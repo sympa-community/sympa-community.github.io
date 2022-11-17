@@ -26,12 +26,9 @@ $ make
 # make install
 ```
 
-----
-Note:
-
-  * As of Sympa 6.2.26, ``smtpc`` was no longer bundled in Sympa.
-
-----
+> **Note**
+>
+>   * As of Sympa 6.2.26, ``smtpc`` was no longer bundled in Sympa.
 
 Setup
 -----
@@ -40,14 +37,11 @@ Setup
 
   * LMTP or SMTP server to deliver messages received from ``smtpc``.
 
-    ----
-    Note:
-
-      * ``smtpc`` itself does not provide features included in mail server,
-        such as mail routing, message queuing, rtrying delivery after temporary
-        failure.
-
-    ----
+    > **Note**
+    >
+    >   * ``smtpc`` itself does not provide features included in mail server,
+    >     such as mail routing, message queuing, rtrying delivery after temporary
+    >     failure.
 
 ### Sympa configuration parameter
 

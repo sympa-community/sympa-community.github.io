@@ -137,24 +137,18 @@ parameters which are read on start-up of Sympa.  Its location is:
 
 See also "[Configuration files](basics-configuration.md#configuration-files).
 
-----
-Note:
-
-  * If you change this file, do not forget that you will need to restart
-    web interface afterwards.  See also
-    "[Reloading WWSympa](../admin/services.md#reloading-wwsympa).
-
-----
+> **Note**
+>
+>   * If you change this file, do not forget that you will need to restart
+>     web interface afterwards.  See also
+>     "[Reloading WWSympa](../admin/services.md#reloading-wwsympa).
 
 ### Syntax
 
-----
-Note:
-
-  * See [`auth.conf(5)`](/gpldoc/man/auth.conf.5.html) manual page for detailed
-    definition on content of `auth.conf` file.
-
-----
+> **Note**
+>
+>   * See [`auth.conf(5)`](/gpldoc/man/auth.conf.5.html) manual page for detailed
+>     definition on content of `auth.conf` file.
 
 The `auth.conf` is organized in paragraphs. Each paragraph describes an authentication service with all parameters required to perform an authentication using this service. Sympa's current version can perform authentication through LDAP directories, using an external Single Sign-On Service (like CAS or Shibboleth), or using the internal `user_table` table.
 

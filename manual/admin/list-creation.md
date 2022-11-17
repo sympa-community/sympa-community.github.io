@@ -59,12 +59,9 @@ title.gettext Public discussion mailing list
 </ul>
 ```
 
-----
-Note:
-
-  * Title lines are available as of Sympa 6.2.
-
-----
+> **Note**
+>
+>   * Title lines are available as of Sympa 6.2.
 
 ### XML file format
 
@@ -292,28 +289,25 @@ you can define privileges on the following lists parameters:
       - `invite.tt2`
       - `your_infected_msg.tt2`
 
-----
-Notes:
-
-Starting Sympa 6.1.10, a _unique_ exception exists in the matching between file names and edition rights in the `edit_list.conf`: the "info" term.
-
-"info" represents both a list parameter and a list file:
-
-  - The info **list parameter** controls the authorization scenario that will be used to know who can view the lists information text, both in the list welcome page and by using the "info" command. the value to use in the `edit_list.conf` to control who can edit this parameter's value is `info`.
-
-  - The info **file** contains the text to be displayed when somebody requests to see the list's informations. This is the content whose access is controlled by the info **list parameter**. the value to use in the `edit_list.conf` to control who can edit this parameter's value is `info.file`.
-
-Obviously, there is no reason why the exact same people would have the same rights on these two informations. But as they have the same name, one must use differetn keys in the `edit_list.conf` file to discriminate them.
-
-In the following example, an owner and a privileged owner can both edit the info file, but only the privileged owner can change the info scenario to be used (the owner is only allowed to read it):
-
-``` code
-info.file    owner,privileged_owner        write
-info        privileged_owner        write
-info        privileged_owner        read
-```
-
-----
+> **Note**
+>
+> Starting Sympa 6.1.10, a _unique_ exception exists in the matching between file names and edition rights in the `edit_list.conf`: the "info" term.
+>
+> "info" represents both a list parameter and a list file:
+>
+>   - The info **list parameter** controls the authorization scenario that will be used to know who can view the lists information text, both in the list welcome page and by using the "info" command. the value to use in the `edit_list.conf` to control who can edit this parameter's value is `info`.
+>
+>   - The info **file** contains the text to be displayed when somebody requests to see the list's informations. This is the content whose access is controlled by the info **list parameter**. the value to use in the `edit_list.conf` to control who can edit this parameter's value is `info.file`.
+>
+> Obviously, there is no reason why the exact same people would have the same rights on these two informations. But as they have the same name, one must use differetn keys in the `edit_list.conf` file to discriminate them.
+>
+> In the following example, an owner and a privileged owner can both edit the info file, but only the privileged owner can change the info scenario to be used (the owner is only allowed to read it):
+>
+> ``` code
+> info.file    owner,privileged_owner        write
+> info        privileged_owner        write
+> info        privileged_owner        read
+> ```
 
 (Work in progress)
 

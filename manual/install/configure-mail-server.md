@@ -33,13 +33,10 @@ Tests
 
   1. Start mail user agent (MUA) on your PC or PDA.
 
-     ----
-     Note:
-
-       * If you are not allowed to use MUA, you may use telnet client instead:
-         See also "[Telnet example](#telnet-example)" below.
-
-     ----
+     > **Note**
+     >
+     >   * If you are not allowed to use MUA, you may use telnet client instead:
+     >     See also "[Telnet example](#telnet-example)" below.
 
   2. Send any message to ``sympa-request@mail.example.org``.
      And confirm that your message will be delivered to ``postmaster``.
@@ -50,14 +47,11 @@ Tests
      it is ``msg`` subdirectory in [``$SPOOLDIR``](../layout.md#spooldir)
      directory).
 
-     ----
-     Note:
-
-       * If the services have already started (or once they start), this
-         message will be removed immediately, and a help messsage will be sent
-         back to you.
-
-     ----
+     > **Note**
+     >
+     >   * If the services have already started (or once they start), this
+     >     message will be removed immediately, and a help messsage will be sent
+     >     back to you.
 
   4. Send any message to ``bounce+hogehoge@mail.example.org``.
      And confirm that the message will be stored into
@@ -65,14 +59,11 @@ Tests
      it is ``bounce`` subdirectory in [``$SPOOLDIR``](../layout.md#spooldir)
      directory).
 
-     ----
-     Note:
-
-       * If the services have already started (or once they start), this
-         message will be immediately moved into ``bad`` subdirectory of the
-         spool.
-
-     ----
+     > **Note**
+     >
+     >   * If the services have already started (or once they start), this
+     >     message will be immediately moved into ``bad`` subdirectory of the
+     >     spool.
 
 If something went unexpected, check mail system log and configuration of MTA.
 

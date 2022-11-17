@@ -206,14 +206,11 @@ Note: the `login()` function maintains a login session using HTTP cookies. If yo
 
 ### Writing a Java client with Axis
 
-----
-Note:
-
-  * This section should be updated to support Apache Axis2.
-    Please consider contributing your work (See
-    [CONTRIBUTING](../../CONTRIBUTING.md)).
-
-----
+> **Note**
+>
+>   * This section should be updated to support Apache Axis2.
+>     Please consider contributing your work (See
+>     [CONTRIBUTING](../../CONTRIBUTING.md)).
 
 First, download
 [Apache Axis](http://axis.apache.org/axis2/java/core/download.html).
@@ -430,22 +427,19 @@ The options used are:
 
 This is a description of how to use the Sympa SOAP services using the command line tool. The parameters are given in the same order they must be found in the command tool option `service_parameters`. They must be provided as a comma separated list, without spaces. Don't forget to escape characters that would break the command line, such as spaces, exclamation marks and so on.
 
-----
-Note:
-
-  * If the list of parameters is:
-
-      - list name
-
-      - user email
-
-    then the `service_parameters` option will look like:
-
-    ```
-    --service_parameters=mylist,mail@my.dom.ain
-    ```
-
-----
+> **Note**
+>
+>   * If the list of parameters is:
+>
+>       - list name
+>
+>       - user email
+>
+>     then the `service_parameters` option will look like:
+>
+>     ```
+>     --service_parameters=mylist,mail@my.dom.ain
+>     ```
 
 #### login
 

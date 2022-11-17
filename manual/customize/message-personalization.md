@@ -25,12 +25,9 @@ message footer/header will be extracted.
 
     Mail domain name of the list.
 
-    ----
-    Note:
-
-      * On Sympa prior to 6.2.54, `[% robot %]` may be used.
-
-    ----
+    > **Note**
+    >
+    >   * On Sympa prior to 6.2.54, `[% robot %]` may be used.
 
   - `[% wwsympa_url %]`
 
@@ -108,12 +105,10 @@ message footer/header will be extracted.
 
         Information of inclusion (Sympa 6.2.45b or later).
 
-        ----
-        Note:
-          - On Sympa 6.2.44 or earlier, use `[% user.included %]`
-            that has true value if the subscriber is included.
-
-        ----
+        > **Note**
+        >
+        >   - On Sympa 6.2.44 or earlier, use `[% user.included %]`
+        >     that has true value if the subscriber is included.
 
       - `[% user.subscribed %]`
 
@@ -201,25 +196,22 @@ and allow to display the following text at the bottom of each message:
 Click here to unsubscribe: https://web.example.org/sympa/auto_signoff/mylist?email=bob.mcbob%40domain.tld
 ```
 
-----
-Notes:
-
-  * On Sympa earlier than 6.2.60:
-
-      - `personalization_feature` parameter was named "`merge_feature`".
-      - `personalization.mail_apply_on` was not required (not implemented).
-
-  * On Sympa earlier than 6.2.42:
-
-      - `message_footer` file was named "`message.footer`", and so on.
-        See the notes in
-        "[Message header and footer](../customize/basics-list-config.md#message-header-and-footer)".
-
-  * The line above is an example for Sympa 6.2 later than Aug 2016.
-    With earlier versions it should be:
-    ``` code
-    Click here to unsubscribe: [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
-    ```
-
-----
+> **Note**
+>
+>   * On Sympa earlier than 6.2.60:
+>
+>       - `personalization_feature` parameter was named "`merge_feature`".
+>       - `personalization.mail_apply_on` was not required (not implemented).
+>
+>   * On Sympa earlier than 6.2.42:
+>
+>       - `message_footer` file was named "`message.footer`", and so on.
+>         See the notes in
+>         "[Message header and footer](../customize/basics-list-config.md#message-header-and-footer)".
+>
+>   * The line above is an example for Sympa 6.2 later than Aug 2016.
+>     With earlier versions it should be:
+>     ``` code
+>     Click here to unsubscribe: [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
+>     ```
 

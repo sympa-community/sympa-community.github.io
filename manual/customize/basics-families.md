@@ -151,17 +151,14 @@ the files you can parse (See also a note below):
   - `message_footer.mime.tt2`,
   - `message_header.mime.tt2`,
 
-----
-Note:
-
-  * On Sympa 6.2.40 or earlier, files for footer and header should be named:
-    `message.footer.tt2`, `message.header.tt2`,
-    `message.footer.mime.tt2` and/or `message.header.mime.tt2`.
-
-    These files with older names are also usable on recent version of Sympa,
-    but newer names are prefered.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.40 or earlier, files for footer and header should be named:
+>     `message.footer.tt2`, `message.header.tt2`,
+>     `message.footer.mime.tt2` and/or `message.header.mime.tt2`.
+>
+>     These files with older names are also usable on recent version of Sympa,
+>     but newer names are prefered.
 
 These files will be parsed using the list family data defined in the XML file. You can use the same data in these files as in the [config.tt2](#config-tt2) file.
 
@@ -220,19 +217,16 @@ Each time a message is sent to the list (provided you set the [`personalization_
 The subject of the list is "create and share our passion of scrap cooking", click here to unsubscribe : http://lists.domain.tld/auto_signoff/mylist?email=bob.mcbob%40domain.tld
 ```
 
-----
-Note:
-
-  * `personalization_feature` parameter was named "`merge_feature`" on Sympa earlier than 6.2.60.
-
-  * The line above is an example for Sympa 6.2 later than Aug 2016. With earlier versions it should be:
-    ``` code
-    [% TAGS <+ +> -%]
-    The subject of the list is "<+ subject +>", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
-    <+- TAGS [% %] +>
-    ```
-
-----
+> **Note**
+>
+>   * `personalization_feature` parameter was named "`merge_feature`" on Sympa earlier than 6.2.60.
+>
+>   * The line above is an example for Sympa 6.2 later than Aug 2016. With earlier versions it should be:
+>     ``` code
+>     [% TAGS <+ +> -%]
+>     The subject of the list is "<+ subject +>", click here to unsubscribe : [% wwsympa_url %]/auto_signoff/[% listname %]/[% user.escaped_email %]
+>     <+- TAGS [% %] +>
+>     ```
 
 #### customizable files
 
@@ -416,17 +410,14 @@ To stop receiving messages from <+ family_config.display +>, click on this link:
 
 By clicking this link, the user will be redirected to the Sympa web interface where she will be informed that a confirmation message was just sent to her. If she clicks the confirmation link in this mesasge, she will be removed from all the past and future lists of this family.
 
-----
-Note:
-
-  * The line above is an example for Sympa 6.2.54 or later.
-    With Sympa 6.2.52 or earlier it should be:
-
-    ``` code
-    [% TAGS <+ +> -%]
-    To stop receiving messages from <+ family_config.display +>, click on this link: [% wwsympa_url %]/family_signoff_request/<+ family_config.name +>/[% user.escaped_email %]
-    <+ TAGS [% %] -+>
-    ```
-
-----
+> **Note**
+>
+>   * The line above is an example for Sympa 6.2.54 or later.
+>     With Sympa 6.2.52 or earlier it should be:
+>
+>     ``` code
+>     [% TAGS <+ +> -%]
+>     To stop receiving messages from <+ family_config.display +>, click on this link: [% wwsympa_url %]/family_signoff_request/<+ family_config.name +>/[% user.escaped_email %]
+>     <+ TAGS [% %] -+>
+>     ```
 

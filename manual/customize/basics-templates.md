@@ -144,14 +144,11 @@ It may be customized by each mail domain and/or each list: See
 
 [Custom tag delimiters](#custom-tag-delimiters) are used in this file.
 
-----
-Note:
-
-  * On Sympa 6.2.60 or earlier, the name of this file was
-    `mhonarc-ressources.tt2` (take care of spelling), and the variable tag
-    delimiters were used.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.60 or earlier, the name of this file was
+>     `mhonarc-ressources.tt2` (take care of spelling), and the variable tag
+>     delimiters were used.
 
 ### Template file for mail aliases
 

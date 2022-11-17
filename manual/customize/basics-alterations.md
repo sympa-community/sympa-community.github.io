@@ -54,15 +54,12 @@ Some of these alterations can be configured.
     See [`remove_headers`](/gpldoc/man/sympa_config.5.html#remove_headers) and
     [`remove_outgoing_headers`](/gpldoc/man/sympa_config.5.html#remove_outgoing_headers).
 
-    ----
-    Note:
-
-      * `remove_headers` does not remove header fields described after this,
-        but `remove_outgoing_headers` can do.  Use the latter one only when
-        you know what you are doing, or messages might not be distributed
-        correctly.
-
-    ----
+    > **Note**
+    >
+    >   * `remove_headers` does not remove header fields described after this,
+    >     but `remove_outgoing_headers` can do.  Use the latter one only when
+    >     you know what you are doing, or messages might not be distributed
+    >     correctly.
 
   - `Reply-To` header field is altered according to configuration.
 
@@ -169,14 +166,11 @@ See
 its MIME type is `multipart/signed`) so that integrity of signature will not
 be broken.
 
-----
-Note:
-
-  * `html` reception mode was deprecated on Sympa 6.2.24. Like `txt` mode,
-    this mode intended to keep only *HTML part* of multipart messages, and
-    therefore not practically useful.
-
-----
+> **Note**
+>
+>   * `html` reception mode was deprecated on Sympa 6.2.24. Like `txt` mode,
+>     this mode intended to keep only *HTML part* of multipart messages, and
+>     therefore not practically useful.
 
 ### Digest delivery
 

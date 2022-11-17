@@ -19,13 +19,10 @@ Sympa provides several task models stored in the [``$DEFAULTDIR``](../layout.md#
 
 A task can be either global or related to a list.
 
-----
-Note:
-
-  * On Sympa 6.2.36 or earlier, global and list tasks were placed in different
-    directories.  See below for details.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.36 or earlier, global and list tasks were placed in different
+>     directories.  See below for details.
 
 Basics
 ------
@@ -72,13 +69,10 @@ You define in the list configuration file the model and the version you want to 
 
   - [``$DEFAULTDIR``](../layout.md#defaultdir)`/tasks/`.
 
-----
-Note:
-
-  * On Sympa 6.2.36 or earlier, directory `list_task_models` was used
-    instead of `tasks` for list tasks.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.36 or earlier, directory `list_task_models` was used
+>     instead of `tasks` for list tasks.
 
 <!---
 See also "[Tasks](basics-list-config.md#tasks)" in "Configuration for each list" to know more about standard list models provided with Sympa.
@@ -111,13 +105,10 @@ The task manager daemon checks if a version of a global task model exists in dif
 
   - [``$DEFAULTDIR``](../layout.md#defaultdir)`/tasks/`.
 
-----
-Note:
-
-  * On Sympa 6.2.36 or earlier, directory `global_task_models` was used
-    instead of `tasks` for global tasks.
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.36 or earlier, directory `global_task_models` was used
+>     instead of `tasks` for global tasks.
 
 ### Global model names
 

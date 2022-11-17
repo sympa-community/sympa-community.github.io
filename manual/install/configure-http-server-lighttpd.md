@@ -20,17 +20,14 @@ Requirements
 
   * [FCGI](https://metacpan.org/release/FCGI), FastCGI interface for Perl.
 
-----
-Note:
-
-  * [`wwsympa.fcgi`](/gpldoc/man/wwsympa.8.html) is wrapped in small setuid program
-    written in C, [`wwsympa-wrapper.fcgi`](/gpldoc/man/wwsympa-wrapper.8.html).
-
-    Setuid wrapper was introduced on Sympa 5.4
-    in order to avoid to use the --- insecure and no longer
-    maintained --- setuid perl mode.
-
-----
+> **Note**
+>
+>   * [`wwsympa.fcgi`](/gpldoc/man/wwsympa.8.html) is wrapped in small setuid program
+>     written in C, [`wwsympa-wrapper.fcgi`](/gpldoc/man/wwsympa-wrapper.8.html).
+>
+>     Setuid wrapper was introduced on Sympa 5.4
+>     in order to avoid to use the --- insecure and no longer
+>     maintained --- setuid perl mode.
 
 General instruction
 -------------------
@@ -68,20 +65,17 @@ General instruction
      [`statoc_content_url`](/gpldoc/man/sympa_config.5.html#static_content_url),
      respectively.
 
-     ----
-     Note:
-
-       * Some binary distributions ship configuration ready to edit:
-
-           - On RPM, ``/etc/lighttpd/conf.d/sympa.conf`` file is prepared by
-             ``sympa-lighttpd`` package.  To add it
-             to configuration, you might want to add a line at the bottom in
-             ``lighttpd.conf``:
-             ```
-             include conf.d/sympa.conf
-             ```
-
-     ----
+     > **Note**
+     >
+     >   * Some binary distributions ship configuration ready to edit:
+     >
+     >       - On RPM, ``/etc/lighttpd/conf.d/sympa.conf`` file is prepared by
+     >         ``sympa-lighttpd`` package.  To add it
+     >         to configuration, you might want to add a line at the bottom in
+     >         ``lighttpd.conf``:
+     >         ```
+     >         include conf.d/sympa.conf
+     >         ```
 
   2. Edit it as you prefer.
 

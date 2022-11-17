@@ -34,14 +34,11 @@ See also "[Requirements](../requirements.md)".
       - [GNU gettext](https://www.gnu.org/software/gettext/), and its development
         files.
 
-        ----
-        Note:
-
-          * On several binary releases, GNU gettext development files
-            (``po.m4`` etc.) may be shipped in separate "development package"
-            named such as ``gettext-dev`` or ``gettext-devel``.
-
-        ----
+        > **Note**
+        >
+        >   * On several binary releases, GNU gettext development files
+        >     (``po.m4`` etc.) may be shipped in separate "development package"
+        >     named such as ``gettext-dev`` or ``gettext-devel``.
 
 Installation overview
 ---------------------
@@ -121,15 +118,12 @@ $ cd sympa-6.2-head
 $ git pull
 ```
 
-----
-Note:
-
-  * If you are planning to contribute to Sympa by fixing bugs or adding
-    enhancements, you would be better to create GitHub account of your own,
-    "fork" original repository and work on it.  For more details see
-    [GitHub documentation](https://help.github.com/articles/fork-a-repo/).
-
-----
+> **Note**
+>
+>   * If you are planning to contribute to Sympa by fixing bugs or adding
+>     enhancements, you would be better to create GitHub account of your own,
+>     "fork" original repository and work on it.  For more details see
+>     [GitHub documentation](https://help.github.com/articles/fork-a-repo/).
 
 Run ``configure`` script
 ------------------------
@@ -158,13 +152,10 @@ If you are installing Sympa anew, ``--enable-fhs`` and ``--prefix`` options are 
 $ ./configure --enable-fhs --prefix=/usr/local --with-confdir=/etc/sympa (...other options...)
 ```
 
-----
-Note:
-
-  * On the future releases of Sympa, the ``--enable-fhs`` option will be
-    enabled by default.
-
-----
+> **Note**
+>
+>   * On the future releases of Sympa, the ``--enable-fhs`` option will be
+>     enabled by default.
 
 ### Other useful options
 
@@ -191,12 +182,9 @@ Note:
         (``queue``, ``bouncequeue`` and ``familyqueue``).
         If setuid bits have already been enabled, will disable them.
 
-    ----
-    Note:
-
-      * ``--disable-setuid*`` options were introduced on Sympa 6.2.60.
-
-    ----
+    > **Note**
+    >
+    >   * ``--disable-setuid*`` options were introduced on Sympa 6.2.60.
 
   - ``--with-initdir=/etc/rc.d/init.d``
 

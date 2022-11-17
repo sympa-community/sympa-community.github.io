@@ -87,18 +87,16 @@ Steps in this section may be done once at the first time.
      # postmap hash:$SYSCONFDIR/virtual.sympa
      # sympa_newaliases.pl
      ```
-     ----
-     Note:
-     
-       * With steps above, `sympa_transport` file is world-readable and
-         people may know all of the names of existing lists.
-         To prevent it, follow the steps below after the steps above:
-         ``` bash
-         # chmod 640 $SYSCONFDIR/sympa_transport $SYSCONFDIR/sympa_transport.db
-         # chgrp postfix $SYSCONFDIR/sympa_transport $SYSCONFDIR/sympa_transport.db
-         ```
-         where `postfix` is the group the service processes of Postfix belong to.
-     ----
+     > **Note**
+     >
+     >   * With steps above, `sympa_transport` file is world-readable and
+     >     people may know all of the names of existing lists.
+     >     To prevent it, follow the steps below after the steps above:
+     >     ``` bash
+     >     # chmod 640 $SYSCONFDIR/sympa_transport $SYSCONFDIR/sympa_transport.db
+     >     # chgrp postfix $SYSCONFDIR/sympa_transport $SYSCONFDIR/sympa_transport.db
+     >     ```
+     >     where `postfix` is the group the service processes of Postfix belong to.
 
   4. Edit Postfix ``master.cf`` file to add transport definitions (Note:
      replace [``$LIBEXECDIR``](../layout.md#libexecdir) below):
@@ -135,16 +133,13 @@ Steps in this section may be done once at the first time.
      recipient_delimiter = +
      ```
 
-     ----
-     Note:
-
-       * If
-         [``mydestination``](http://www.postfix.org/postconf.5.html#mydestination)
-         parameter in ``main.cf`` file includes the virtual domain listed in
-         ``virtual_mailbox_domains``, Postfix outputs warnings to system log.
-         Remove virtual domain(s) from ``mydestination``.
-
-     ----
+     > **Note**
+     >
+     >   * If
+     >     [``mydestination``](http://www.postfix.org/postconf.5.html#mydestination)
+     >     parameter in ``main.cf`` file includes the virtual domain listed in
+     >     ``virtual_mailbox_domains``, Postfix outputs warnings to system log.
+     >     Remove virtual domain(s) from ``mydestination``.
 
 ### Adding new domain
 
@@ -189,13 +184,10 @@ Steps in this section have to be done every time the new domain is added.
 
      ```
 
-     ----
-     Note:
-
-       * If you want some addresses of ``mail.example.org`` to be excluded
-         from mailing list service, you can add them to these files.
-
-     ----
+     > **Note**
+     >
+     >   * If you want some addresses of ``mail.example.org`` to be excluded
+     >     from mailing list service, you can add them to these files.
 
      Then, update databases for transport map and virtual alias map (Note:
      replace [``$SYSCONFDIR``](../layout.md#sysconfdir) below):

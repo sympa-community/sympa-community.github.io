@@ -91,15 +91,12 @@ also be defined using
 [`include_*`](/gpldoc/man/sympa_config.5.html#data-sources-setup) configuration
 parameters; they can be edited through the list admin web interface of Sympa.
 
-----
-Note:
-
-  * As of Sympa 6.2,
-    [`user_data_source`](/gpldoc/man/sympa_config.5.html#user_data_source)
-    list configuration parameter is no more used (hard-coded include2 value);
-    it has been introduced to support different members data management modes.
-
-----
+> **Note**
+>
+>   * As of Sympa 6.2,
+>     [`user_data_source`](/gpldoc/man/sympa_config.5.html#user_data_source)
+>     list configuration parameter is no more used (hard-coded include2 value);
+>     it has been introduced to support different members data management modes.
 
 ### Data inclusion file
 
@@ -175,17 +172,14 @@ database.  List owners can update the information in one of following ways:
 Note that exclusion will not be released even if the same user will be added
 again.
 
-----
-Note:
-
-  * On Sympa prior to 6.2, deleting member needed exclusion in advance, if
-    they had already been included from data sources.
-
-    On 6.2 or later, deleting may imply exclusion.  If you noticed that
-    one or more users were not included from data sources, please check
-    "Exclude" in list administration menu.
-
-----
+> **Note**
+>
+>   * On Sympa prior to 6.2, deleting member needed exclusion in advance, if
+>     they had already been included from data sources.
+>
+>     On 6.2 or later, deleting may imply exclusion.  If you noticed that
+>     one or more users were not included from data sources, please check
+>     "Exclude" in list administration menu.
 
 Cache management
 ----------------
