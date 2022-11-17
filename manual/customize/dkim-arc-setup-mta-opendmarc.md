@@ -19,20 +19,17 @@ Requirements
     validation.
     In this document `mx.example.org` is used for example.
 
-----
-Note:
-
-  * It is assumed here that OpenDMARC was built with internal SPF checking
-    enabled. If not, you will need to install additional software for SPF,
-    such as:
-
-      - [pypolicyd-spf](https://launchpad.net/pypolicyd-spf)
-        (for Postfix only)
-      - [SPF Engine](https://launchpad.net/spf-engine)
-      - [SPF Milter](https://crates.io/crates/spf-milter)
-      - [spfmilter](https://github.com/sdgathman/milter/#spfmilter)
-
-----
+> **Note**
+>
+>   * It is assumed here that OpenDMARC was built with internal SPF checking
+>     enabled. If not, you will need to install additional software for SPF,
+>     such as:
+>
+>       - [pypolicyd-spf](https://launchpad.net/pypolicyd-spf)
+>         (for Postfix only)
+>       - [SPF Engine](https://launchpad.net/spf-engine)
+>       - [SPF Milter](https://crates.io/crates/spf-milter)
+>       - [spfmilter](https://github.com/sdgathman/milter/#spfmilter)
 
 Configuration
 -------------

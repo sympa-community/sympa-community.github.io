@@ -39,21 +39,18 @@ benefit from DKIM.
 
 ARC seals only make sense on mail forwarded by Sympa, that is, individual messages sent through to mailing lists. The ARC feature will only add seals to those messages.  ARC checks the ARC seals, if any, on incoming messages, 
 
-----
-Note:
-
-  * On Sympa 6.2.72 or later, ARC seals will also be added to the
-    messages forwarded through the addresses of listmaster, list owner
-    and list moderators.
-    On previous versions, ARC seals are added to only the messages sent
-    through the list posting addresses.
-
-  * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
-    have to update your customized scenario to introduce `dkim`
-    authentication method.  See
-    "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
-
-----
+> **Note**
+>
+>   * On Sympa 6.2.72 or later, ARC seals will also be added to the
+>     messages forwarded through the addresses of listmaster, list owner
+>     and list moderators.
+>     On previous versions, ARC seals are added to only the messages sent
+>     through the list posting addresses.
+>
+>   * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
+>     have to update your customized scenario to introduce `dkim`
+>     authentication method.  See
+>     "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
 
 Prerequisites
 -------------

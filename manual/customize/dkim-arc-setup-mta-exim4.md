@@ -13,13 +13,10 @@ Requirements
 
   * Exim 4.91 or later.
 
-    ----
-    Note:
-
-      * Validation of DKIM, SPF, and DMARC must be enabled when Exim is
-        built (it usually should be).
-
-    ----
+    > **Note**
+    >
+    >   * Validation of DKIM, SPF, and DMARC must be enabled when Exim is
+    >     built (it usually should be).
 
   * You have to choose **authserv-id** to determine the results of domain
     validation.

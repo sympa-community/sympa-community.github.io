@@ -67,13 +67,10 @@ How to setup
      ``` code
      dmarc_protection.mode dmarc_reject
      ```
-     ----
-     Note:
-
-       * On Sympa 6.2.56 or earlier, the name of the parameter above should
-         be `dmarc_protection_mode`.
-
-     ----
+     > **Note**
+     >
+     >   * On Sympa 6.2.56 or earlier, the name of the parameter above should
+     >     be `dmarc_protection_mode`.
 
 You can get further customization of how to deal with DMARC by using the
 other

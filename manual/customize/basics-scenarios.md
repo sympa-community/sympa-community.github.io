@@ -160,15 +160,12 @@ Here is a description of what is evaluated to authenticate the user depending of
 
 In most cases, `smtp` will be used for mails, and `md5` for the web.
 
-----
-Note:
-
-  * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
-    have to update your customized scenario to introduce `dkim`
-    authentication method.  See
-    "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
-
-----
+> **Note**
+>
+>   * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
+>     have to update your customized scenario to introduce `dkim`
+>     authentication method.  See
+>     "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
 
 #### Actions
 

@@ -18,14 +18,11 @@ And you have to generate a pair of **private key** and **public key**.
 Then, using the selector and signer domain above,
 you have to publish the public key as a DNS resource record.
 
-----
-Note:
-
-  * If you enable ARC feature, DKIM signing is also possible.
-    In that case you either may generate separate key pairs for each ARC and
-    DKIM signing, or may share the single key pair for the both.
-
-----
+> **Note**
+>
+>   * If you enable ARC feature, DKIM signing is also possible.
+>     In that case you either may generate separate key pairs for each ARC and
+>     DKIM signing, or may share the single key pair for the both.
 
 The signer domain should be the mail domain of the list. This is the
 default.  Don't change it unless you have strong reason for it.

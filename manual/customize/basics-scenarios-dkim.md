@@ -9,16 +9,13 @@ Authorisation scenarios: Obsoleted feature
 The `dkim` authentication method for scenarios
 ----------------------------------------------
 
-----
-Note:
-
-  * The `dkim` authentication method for scenarios was introduced
-    on Sympa 6.1, and has been deprecated after Sympa 6.2.70.
-
-    On Sympa 6.2.72 or later, the `dkim` is just a synonym of the `smtp`
-    authentication method and never has special meanings.
-
-----
+> **Note**
+>
+>   * The `dkim` authentication method for scenarios was introduced
+>     on Sympa 6.1, and has been deprecated after Sympa 6.2.70.
+>
+>     On Sympa 6.2.72 or later, the `dkim` is just a synonym of the `smtp`
+>     authentication method and never has special meanings.
 
 On Sympa 6.2.70 or earlier,
 turning on the
