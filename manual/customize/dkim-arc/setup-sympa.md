@@ -20,7 +20,7 @@ support for ARC.
 >   * On Sympa 6.1 to 6.2.70, before enabling DKIM feature you may
 >     have to update your customized scenario to introduce `dkim`
 >     authentication method.  See
->     "[The `dkim` authentication method for scenarios](basics-scenarios-dkim.md)".
+>     "[The `dkim` authentication method for scenarios](../../customize/basics-scenarios-dkim.md)".
 
 <!--
 [Content of AR field has to be parsed.  Matching by regexp does not make sense]
@@ -131,7 +131,7 @@ recipient sites reject message delivery based solely on the result of DMARC
 verification without ARC verification.
 
 As a remedy, it is recommended to enalbe
-[DMARC protection](dmarc-protection.md) for domains that have adopted the
+[DMARC protection](../../customize/dmarc-protection.md) for domains that have adopted the
 `reject` policy.  To do it, add following line to `sympa.conf` or
 `robot.conf`:
 
@@ -148,7 +148,7 @@ dmarc_protection.mode dmarc_reject
 Summary of parameters
 ---------------------
 
-| parameter name ([``sympa.conf``](../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
+| parameter name ([``sympa.conf``](../../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
 |---|---|---|
 | [dkim_feature](/gpldoc/man/sympa_config.5.html#dkim_feature) | `off` | not pertinent |
 | [dkim_add_signature_to](/gpldoc/man/sympa_config.5.html#dkim_add_signature_to) | `list,robot` | not pertinent |
