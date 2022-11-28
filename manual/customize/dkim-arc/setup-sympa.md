@@ -1,7 +1,7 @@
 ---
 title: 'DKIM and ARC: Setup Sympa'
-up: dkim-arc.md
-next: dkim-arc.md#tests
+up: ../dkim-arc.md
+next: ../dkim-arc.md#tests
 ---
 
 DKIM and ARC: Setup Sympa
@@ -99,7 +99,7 @@ Incoming messages will be checked for ARC seals automatically if the
 [arc_feature](/gpldoc/man/sympa_config.5.html#arc_feature) is enabled.
 The [arc_srvid](/gpldoc/man/sympa_config.5.html#arc_srvid) configuration
 parameter must be set to the **authserv-id** you chose during
-[setup of front MTA](dkim-arc-setup-mta.md), if that authserv-id is not the
+[setup of front MTA](setup-mta.md), if that authserv-id is not the
 same as the ARC signer domain.  There is no parameter to control which
 messages to check because the software automatically checks as needed.
 

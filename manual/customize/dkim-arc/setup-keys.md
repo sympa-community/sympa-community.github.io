@@ -1,7 +1,7 @@
 ---
 title: 'DKIM and ARC: Setup key pair'
-up: dkim-arc.md
-prev: dkim-arc.md
+up: ../dkim-arc.md
+prev: ../dkim-arc.md
 ---
 
 DKIM and ARC: Setup key pair
@@ -10,7 +10,7 @@ DKIM and ARC: Setup key pair
   * Steps described in this chapter are required to support DKIM signing
     feature (for outgoing messages) and/or ARC feature.
     If you are not planning to support neither of them,
-    [skip this chapter](dkim-arc-setup-sympa.md).
+    [skip this chapter](setup-sympa.md).
 
 In this chapter, you have to choose some parameters:
 **selector**, **signer domain** and optional **identity**.
@@ -70,6 +70,6 @@ how to register your key with the DNS.
 After you finished setting up DNS record,
 
   * If you want ARC feature enabled, proceed to
-    [setup MTA](dkim-arc-setup-mta.md).
-  * Otherwise, proceed to [setup Sympa](dkim-arc-setup-sympa.md).
+    [setup MTA](setup-mta.md).
+  * Otherwise, proceed to [setup Sympa](setup-sympa.md).
 

@@ -1,8 +1,8 @@
 ---
 title: 'DKIM and ARC: Setup MTA'
-up: dkim-arc.md
-prev: dkim-arc-setup-keys.md
-next: dkim-arc-setup-sympa.md
+up: ../dkim-arc.md
+prev: setup-keys.md
+next: setup-sympa.md
 ---
 
 DKIM and ARC: Setup MTA
@@ -10,7 +10,7 @@ DKIM and ARC: Setup MTA
 
   * Steps described in this chapter are required to support ARC.
     If you are not planning to support it,
-    [skip this chapter](dkim-arc-setup-sympa.md).
+    [skip this chapter](setup-sympa.md).
 
 In this chapter, how to set up MTA so that the feature of sender domain
 validation with SPF, DKIM, DMARC and possiblly ARC are enabled and their
@@ -57,7 +57,7 @@ Instruction by MTAs
 >     configure them for now:
 >     Sympa is responsible for those features.
 
-  * [Exim](dkim-arc-setup-mta-exim4.md)
+  * [Exim](setup-mta-exim4.md)
 
   * Using Milter (mail filter for Postfix and Sendmail):
 
@@ -67,9 +67,9 @@ Instruction by MTAs
         [documentation](https://metacpan.org/dist/Mail-Milter-Authentication)
         to get the hang of setup.
 
-      - [OpenDMARC](dkim-arc-setup-mta-opendmarc.md)
+      - [OpenDMARC](setup-mta-opendmarc.md)
 
-      - [Rspamd](dkim-arc-setup-mta-rspamd.md)
+      - [Rspamd](setup-mta-rspamd.md)
 
   * Rspamd is maybe also applicable to OpenSMTPD.
     TBD.
@@ -100,5 +100,5 @@ Tests
 ----
 
 After you finished setting up MTA, proceed to
-[setup Sympa](dkim-arc-setup-sympa.md).
+[setup Sympa](setup-sympa.md).
 

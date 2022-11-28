@@ -1,8 +1,8 @@
 ---
 title: 'DKIM and ARC: Setup MTA: Using Rspamd'
-up: dkim-arc-setup-mta.md
-prev: dkim-arc-setup-keys.md
-next: dkim-arc-setup-mta.md#tests
+up: setup-mta.md
+prev: setup-keys.md
+next: setup-mta.md#tests
 ---
 
 DKIM and ARC: Setup MTA: Using Rspamd
@@ -88,5 +88,5 @@ For details see the
 
 ----
 
-After you finished setting up MTA, [test](dkim-arc-setup-mta.md#tests) it.
+After you finished setting up MTA, [test](setup-mta.md#tests) it.
 

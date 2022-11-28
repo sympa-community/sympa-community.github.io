@@ -78,10 +78,10 @@ You will know how to do it in succeeding chapters.
 Configuration instruction
 -------------------------
 
-  1. [Setup key pair for DKIM / ARC](dkim-arc-setup-keys.md)
+  1. [Setup key pair for DKIM / ARC](dkim-arc/setup-keys.md)
      (for DKIM signing and/or ARC)
 
-  2. [Setup MTA](dkim-arc-setup-mta.md) (for ARC)
+  2. [Setup MTA](dkim-arc/setup-mta.md) (for ARC)
 
-  3. [Setup Sympa](dkim-arc-setup-sympa.md)
+  3. [Setup Sympa](dkim-arc/setup-sympa.md)
 
