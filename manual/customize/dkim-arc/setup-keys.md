@@ -48,19 +48,15 @@ and so on
 [this](https://www.socketlabs.com/domainkey-dkim-generation-wizard/).
 But those services will generate the private key for you ---
 is it still a private key?).
+
 <!--
 Gone.
   * http://www.port25.com/support/support_dkwz.php
 -->
 
-----
-
-Note:
-
-  * Currently, Sympa cannot handle the private key encrypted with a
-    passphase (password).
-
-----
+> **Note**
+>   * Currently, Sympa cannot handle the private key encrypted with a
+>     passphase (password).
 
 Please refer to your nameserver documentation for specific instructions on
 how to register your key with the DNS.
