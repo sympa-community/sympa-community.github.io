@@ -17,18 +17,17 @@ Currently, DNF (YUM) repositories provide RPM packages of Sympa.
 
 > **Note**
 >
->   * Packages for RHEL/CentOS 8 and 9 are work in progress.
->
 >   * Packages for RHEL/CentOS 6 or earlier will no longer be provided.
 
 Requirements
 ------------
 
-  * Fedora, Red Hat Enterprise Linux (RHEL) 7 or its clones.
-    Among clones, at least [CentOS](https://www.centos.org/download/) 7
-    is reported working.
+  * Fedora, Red Hat Enterprise Linux (RHEL) or its clones.
+    Among clones, at least [CentOS](https://www.centos.org/download/)
+    and [Rocky Linux](https://rockylinux.org/)
+    are reported working.
 
-  * With RHEL/CentOS, add
+  * With RHEL/CentOS or other clone, add
     [Extra Packages for Enterprise Linux](https://docs.fedoraproject.org/en-US/epel/)
     (EPEL) repository.  It can be done by installing ``epel-release``
     package.  For more details see
