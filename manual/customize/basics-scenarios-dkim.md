@@ -42,7 +42,9 @@ you must replace them with one of the following:
 ``` code
   is_subscriber([listname],[sender])   smtp,dkim request_auth
   is_subscriber([listname],[sender])   md5,smime do_it
+```
 
+``` code
   is_subscriber([listname],[sender])   smtp           request_auth
   is_subscriber([listname],[sender])   dkim,md5,smime do_it
 ```
