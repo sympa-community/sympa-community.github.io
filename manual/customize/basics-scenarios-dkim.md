@@ -1,9 +1,9 @@
 ---
-title: 'Authorisation scenarios: Obsoleted feature'
+title: 'Authorization scenarios: Obsoleted feature'
 up: basics-scenarios.md
 ---
 
-Authorisation scenarios: Obsoleted feature
+Authorization scenarios: Obsoleted feature
 ==========================================
 
 The `dkim` authentication method for scenarios
