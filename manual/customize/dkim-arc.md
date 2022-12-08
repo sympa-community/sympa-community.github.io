@@ -65,7 +65,7 @@ have the permission to add DNS RR.
 
 ### Prerequisites for ARC
 
-ARC requires Mail::DKIM version 0.55 or later which includes ARC support.
+ARC requires Mail::DKIM version 0.57 or later which includes ARC support.
 
 Like DKIM, ARC requires the keys for signing, but the DKIM key may be
 diverted for it.
