@@ -23,9 +23,6 @@ Configuration
 
 ### Setting Rspamd
 
-First, integrate MTA with Rspamd according to the instruction
-"[MTA integration](https://rspamd.com/doc/integration.html)".
-
 Note that,
 Rspamd also has DKIM signing and ARC sealing capabilities, but we may
 not configure them: Sympa is responsible for those features.
@@ -40,6 +37,9 @@ For details see the
 [documentation](https://rspamd.com/doc/modules/milter_headers.html).
 
 ### Setting MTA
+
+See also "[MTA integration](https://rspamd.com/doc/integration.html)"
+in the documentation.
 
   * Postfix
 
