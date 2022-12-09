@@ -61,11 +61,7 @@ Instruction by MTAs
 
   * Using Milter (mail filter for Postfix and Sendmail):
 
-      - authentication_milter
-
-        TBD: See the
-        [documentation](https://metacpan.org/dist/Mail-Milter-Authentication)
-        to get the hang of setup.
+      - [Authentication Milter](setup-mta-auththentication_milter.md)
 
       - [OpenDMARC](setup-mta-opendmarc.md)
 
