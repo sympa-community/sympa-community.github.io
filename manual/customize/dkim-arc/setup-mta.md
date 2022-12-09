@@ -17,7 +17,7 @@ validation with SPF, DKIM, DMARC and possiblly ARC are enabled and their
 results are added as the `Authentication-Results:` header field (AR).
 
 > **Note**
->   * Since Sympa 6.2.72 and later, Sympa is able to verify DKIM
+>   * Since Sympa 6.2.71b.1 and later, Sympa is able to verify DKIM
 >     signatures and ARC seals in incoming messages by itself and add the
 >     results as AR, so it can work anyway even without the settings
 >     described in this chapter.
