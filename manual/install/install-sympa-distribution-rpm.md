@@ -8,9 +8,7 @@ next: generate-initial-configuration.md
 Install Sympa distribution: RPM package
 =======================================
 
-Currently, DNF (YUM) repositories provide RPM packages of Sympa.
-
-  * Stable packages of Sympa for RHEL/CentOS are provided by EPEL, and packages for Fedora are also provided.
+Currently, several DNF (YUM) repositories provide RPM packages of Sympa.
 
   * Pre-release packages for Fedora/RHEL/CentOS are provided by
     [COPR ``sympa-beta`` repository](https://copr.fedorainfracloud.org/coprs/xavierb/sympa-beta/).
@@ -22,18 +20,25 @@ Currently, DNF (YUM) repositories provide RPM packages of Sympa.
 Requirements
 ------------
 
-  * Fedora, Red Hat Enterprise Linux (RHEL) or its clones.
-    Among clones, at least [CentOS](https://www.centos.org/download/)
-    and [Rocky Linux](https://rockylinux.org/)
-    are reported working.
+  * Red Hat Enterprise Linux (RHEL) or several clones of it
+    ([CentOS](https://www.centos.org/download/),
+    [Rocky Linux](https://rockylinux.org/),
+    [AlmaLinux](https://almalinux.org/)):
 
-  * With RHEL/CentOS or other clone, add
     [Extra Packages for Enterprise Linux](https://docs.fedoraproject.org/en-US/epel/)
-    (EPEL) repository.  It can be done by installing ``epel-release``
+    (EPEL) repository has to be added.  It can be done by installing ``epel-release``
     package.  For more details see
     [EPEL description](https://docs.fedoraproject.org/en-US/epel/#_quickstart).
-    
-    Note that some distributions need enabling additional repository/ies:
+
+  * [Fedora](https://getfedora.org/):
+
+    Packages for Sympa are provided.
+
+  * [Mageia](https://www.mageia.org/):
+
+    Stable package for Sympa is provided.
+
+  * Note that some distributions need enabling additional repository/ies:
     Some dependent packages are shipped in those repositories.
 
 Installing
