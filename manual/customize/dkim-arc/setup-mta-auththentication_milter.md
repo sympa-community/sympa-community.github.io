@@ -37,7 +37,7 @@ If you use `cpanm`, you can install as follows
 # cpanm --notest --install-args "--install_path sbin=$PREFIX/sbin" Mail::SPF
 # cpanm --notest Mail::Milter::Authentication
 ```
-Note that some external libraries such as OpenSSL are required
+Note that some external libraries such as OpenSSL/LibreSSL are required
 to build all dependencies.
 
 Authentication Milter also needs some directories.
