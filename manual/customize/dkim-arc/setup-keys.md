@@ -53,11 +53,11 @@ Gone.
 > **Note**
 >   * Currently, Sympa cannot handle the private key encrypted with a
 >     passphase (password).
+>     
 >   * Currently, Sympa supports the RSA-SHA256 (RSA algorithm with
 >     SHA-256 hash) key.  It has not supported the other types such as
->     Ed25519-SHA256 (Curve25519 curve algorith) or duplicate signatures
->     with them are not supported.
->     
+>     Ed25519-SHA256 (Curve25519 curve algorithm) or duplicate signatures
+>     with them.
 
 Please refer to your nameserver documentation for specific instructions on
 how to register your key with the DNS.
