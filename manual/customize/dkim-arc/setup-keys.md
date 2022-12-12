@@ -7,11 +7,6 @@ prev: ../dkim-arc.md
 DKIM and ARC: Setup key pair
 ============================
 
-  * Steps described in this chapter are required to support DKIM signing
-    feature (for outgoing messages) and/or ARC feature.
-    If you are not planning to support neither of them,
-    [skip this chapter](setup-sympa.md).
-
 In this chapter, you have to choose some parameters:
 **selector**, **signer domain** and optional **identity**.
 And you have to generate a pair of **private key** and **public key**.
@@ -42,7 +37,8 @@ In order to generate the public and private keys, you may use appropriate
 tool such as `openssl` (see
 [here](https://tools.ietf.org/html/rfc4871#appendix-C)),
 `certtool` (included in [GnuTLS](https://www.gnutls.org/)),
-`opendkim-genkey` (included in [OpenDKIM](http://www.opendkim.org/))
+`opendkim-genkey` (included in [OpenDKIM](http://www.opendkim.org/)),
+`rspamadm` (included in [Rspamd](https://rspamd.com/))
 and so on
 (There are also online tools to generate them, such as
 [this](https://www.socketlabs.com/domainkey-dkim-generation-wizard/).
@@ -57,6 +53,11 @@ Gone.
 > **Note**
 >   * Currently, Sympa cannot handle the private key encrypted with a
 >     passphase (password).
+>   * Currently, Sympa supports the RSA-SHA256 (RSA algorithm with
+>     SHA-256 hash) key.  It has not supported the other types such as
+>     Ed25519-SHA256 (Curve25519 curve algorith) or duplicate signatures
+>     with them are not supported.
+>     
 
 Please refer to your nameserver documentation for specific instructions on
 how to register your key with the DNS.
