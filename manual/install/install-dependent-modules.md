@@ -30,7 +30,7 @@ Using cpanminus (`cpanm`)
 
 ### Requirement
 
-  * [cpanminus](https://metacpan.org/pod/App::cpanminus) in required.
+  * [cpanminus](https://metacpan.org/pod/App::cpanminus) is required.
 
     With binary distributions, install following packages:
 
@@ -80,7 +80,7 @@ Using package management tools
 ------------------------------
 
 Also, you can use any package management tools on your system
-(apt, yum, pkg, ...) or generic tools
+(apt, dnf/yum, pkg, ...) or generic tools
 ([cpan](http://perldoc.perl.org/cpan.html), ...).
 
 To know what modules you should install, see `cpanfile` file.
