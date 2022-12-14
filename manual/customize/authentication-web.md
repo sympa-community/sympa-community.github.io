@@ -29,6 +29,9 @@ server):
       - A generic SSO setup, adapted to SSO products providing the module for
         Apache HTTP Server.
 
+  - External authentication mechanism may be used through the Common Gateway
+    Interface (CGI).
+
   - When contacted via HTTPS, Sympa can make use of X.509 client certificates
     to authenticate users.
 
@@ -117,6 +120,13 @@ And here is a sample `httpd.conf` that Shibboleth authentication protects the as
 For detailed description to integrate Sympa into Shibboleth and its
 federation, see
 "[Setting up a Shibboleth-enabled Sympa server](shibboleth.md)".
+
+### Using external authentication mechanisms through the Common Gateway Intertface (CGI)
+
+> **Note**
+>   - CGI support for authentication is available on Sympa 6.2.71b.1 or later.
+
+_Documentation work in progress._
 
 ### TLS client authentication
 
