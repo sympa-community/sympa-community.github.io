@@ -86,4 +86,4 @@ title: Sympa 6.2.71b.1 released
 * @github-actions made their first contribution in [\#1519](https://github.com/sympa-community/sympa/pull/1519)
 * @acasadoual made their first contribution in [\#1545](https://github.com/sympa-community/sympa/pull/1545)
 
-**Full Changelog**: https://github.com/sympa-community/sympa/compare/6.2.70...6.2.71b.1
+**Full Changelog**: [6.2.70...6.2.71b.1](https://github.com/sympa-community/sympa/compare/6.2.70...6.2.71b.1)

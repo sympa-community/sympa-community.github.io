@@ -70,4 +70,4 @@ title: Sympa 6.2.70 released
 ## New Contributors
 * @fingolfin made their first contribution in [\#1433](https://github.com/sympa-community/sympa/pull/1433)
 
-**Full Changelog**: https://github.com/sympa-community/sympa/compare/6.2.68...6.2.70
+**Full Changelog**: [6.2.68...6.2.70](https://github.com/sympa-community/sympa/compare/6.2.68...6.2.70)
