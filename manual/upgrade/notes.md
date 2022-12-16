@@ -24,6 +24,23 @@ Following subsections describe changes by particular versions of 6.2.x.
 If you are planning to upgrade from version prior to 6.2, see also sections
 below.
 
+### From version prior to 6.2.72
+
+  * The `dkim` authentication method for scenarios was obsoleted.
+    Now it is a synonym of `smtp` method.  See also
+    [the documentation](../customize/basics-scenarios-dkim.html).
+    
+  * The `antispam_feature` parameter was deprecated.  Instead, choose
+    appropriate scenario with
+    [`spam_status`](/gpldoc/man/sympa_config.5.html#spam_status) parameter.
+    In particular, if you wish to disable this feature, set "`spam_status none`".
+    
+  * The Command line tools under [`$SCRIPTDIR`](../layout.html#scriptdir)
+    either were deprecated or were integrated into the
+    [`sympa`](/gpldoc/man/sympa.1.html) command line tool.
+    See issue [\#1386](https://github.com/sympa-community/sympa/issues/1386)
+    for details.
+
 ### From version prior to 6.2.70
 
   * `sympa_wizard.pl` was deprecated.  About alternatives see
