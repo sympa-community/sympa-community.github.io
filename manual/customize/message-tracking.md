@@ -6,7 +6,8 @@ up: ../customize.md#customizing-web-interface
 Message tracking
 ================
 
-List owner can verify message delivery and disposition for each message using a special feature that can configutred for a robot or a list.
+List owner can verify message delivery and disposition for each message
+using a special feature that can configutred for a mail domain or a list.
 
 If the list is configured for tracking, outgoing messages include a "delivery status notification" request and optionnaly a "message disposition notification" request. This allows list owner to verify for **each mail** who did not received the message but also who received it and who displayed it.
 

@@ -70,7 +70,14 @@ Note that you need to set a mail alias for the generic `bounce+*` alias (see "[A
 ARF
 ---
 
-ARF (Abuse Reporting Format) is a standard for reporting abuse. It is implemented mainly in the AOL email user interface. AOL servers propose to mass mailer to received automatically the users complain by formated messages. Because many subscribers do not remember how to unsubscribe, they use ARF when provided by their user interface. It may be useful to configure the ARF management in Sympa. It is really simple: all what you have to do is to create a new alias for each virtual robot as the following (Note:
+ARF (Abuse Reporting Format) is one of standards for reporting abuse.
+It is implemented mainly in the AOL email user interface.
+AOL servers propose to mass mailer to received automatically the users
+complain by formated messages. Because many subscribers do not remember
+how to unsubscribe, they use ARF when provided by their user interface.
+It may be useful to configure the ARF management in Sympa.
+It is really simple: All what you have to do is to create a new alias
+for each virtual domain as the following (Note:
 replace [``$IBEXECDIR``](../layout.md#libexecdir) below):
 
 ``` code

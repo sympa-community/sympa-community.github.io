@@ -34,7 +34,10 @@ Using family
 
 ### Definition
 
-Families can be defined at the robot level, at the site level or on the distribution level (where default families are provided). So, you have to create a sub directory named after the family's name in a `families` directory:
+Families can be defined at the mail domain level, at the site level or
+on the distribution level (where default families are provided).
+So, you have to create a subdirectory named after the family's name
+in a `families` directory:
 
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/families/`_my family_
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_my domain_`/families/`_my family_
@@ -133,8 +136,13 @@ shared_doc.d_edit   editor
 
 #### `edit_list.conf`
 
-This is an optional file. It defines which parameters/files are editable by owners. See "[List editing](../admin/list-creation#list-editing)". If the family does not have this file, Sympa will look for the one defined on robot level, server site level or distribution level (this file already exists without family context).
-Note that by default, the `family_name` parameter is not writable, you should not change this editing right.
+This is an optional file. It defines which parameters/files are editable
+by owners. See "[List editing](../admin/list-creation#list-editing)".
+If the family does not have this file, Sympa will look for the one
+defined on mail domain level, server site level or distribution level
+(this file already exists without family context).
+Note that by default, the `family_name` parameter is not writable, you
+should not change this editing right.
 
 #### `automatic_lists_description.conf`
 
@@ -230,7 +238,14 @@ The subject of the list is "create and share our passion of scrap cooking", clic
 
 #### customizable files
 
-Families provide a new level of customization for scenarios (see "[Authorization scenarios](../customize/basics-scenarios.md)"), templates for service messages (see "~~[Site template files](../customize/basics-templates.md#site-template-files)~~") and templates for web pages (see "~~[web template files](../customize/basics-templates.md#web-template-files)~~"). Sympa looks for these files in the following level order: list, family, robot, server site or distribution.
+Families provide a new level of customization for scenarios (see
+"[Authorization scenarios](../customize/basics-scenarios.md)"),
+templates for service messages (see
+"~~[Site template files](../customize/basics-templates.md#site-template-files)~~")
+and templates for web pages (see
+"~~[web template files](../customize/basics-templates.md#web-template-files)~~").
+Sympa looks for these files in the following level order:
+List, family, mail domain, server site or distribution.
 
 Example of custom hierarchy:
 
@@ -245,10 +260,13 @@ Instantiation allows to generate lists. You must provide an XML file made of lis
 Here is a sample command to instantiate a family:
 
 ``` code
-sympa.pl --instantiate_family my_family --robot samplerobot --input_file /path/to/my_file.xml
+sympa.pl --instantiate_family my_family --robot mail.example.org --input_file /path/to/my_file.xml
 ```
 
-This means lists that belong to family `my_family` will be created under the robot `my_robot` and these lists are described in the file `my_file.xml`. Sympa will split this file into several XML files describing lists. Each list XML file is put in each list directory.
+This means lists that belong to family `my_family` will be created
+under the mail domain `mail.example.org` and these lists are described
+in the file `my_file.xml`. Sympa will split this file into several XML
+files describing lists. Each list XML file is put in each list directory.
 
 **``--close_unknown``** option can be added to automatically close undefined lists during a new instantation
 **``--quiet``** option can be added to skip the report printed to STDOUT
@@ -352,42 +370,57 @@ To modify a family, you have to edit family files manually. The modification wil
 
 ### Closure
 
-Closes every list (installed under the indicated robot) of this family: list status is set to `family_closed`, aliases are removed and subscribers are removed from DB (a dump is created in the list directory to allow restoration of the list).
+Closes every list (installed under the indicated mail domain)
+of this family: list status is set to `family_closed`, aliases are
+removed and subscribers are removed from DB (a dump is created in the
+list directory to allow restoration of the list).
 
 Here is a sample command to close a family:
 
 ``` bash
-sympa.pl --close_family my_family --robot samplerobot
+sympa.pl --close_family my_family --robot mail.example.org
 ```
 
 ### Adding a list to a list family
 
-Adds a list to the family without instantiating the whole family. The list is created as if it was created during an instantiation, under the indicated robot. The XML file describes the list and the root element is `<list>`. List elements are described in section [List creation on command line with sympa.pl](../admin/list-creation.md#list-creation-on-command-line-with-sympa-pl).
+Adds a list to the family without instantiating the whole family.
+The list is created as if it was created during an instantiation,
+under the indicated mail domain. The XML file describes the list and
+the root element is `<list>`. List elements are described in section
+"[List creation on command line with sympa.pl](../admin/list-creation.md#list-creation-on-command-line-with-sympa-pl)".
 
 Here is a sample command to add a list to a family:
 
 ``` bash
-sympa.pl --add_list my_family --robot samplerobot  --input_file /path/to/my_file.xml
+sympa.pl --add_list my_family --robot mail.example.org  --input_file /path/to/my_file.xml
 ```
 
 ### Removing a list from a list family
 
-Closes the list installed under the indicated robot: the list status is set to `family_closed`, aliases are removed and subscribers are removed from DB (a dump is created in the list directory to allow restoring the list).
+Closes the list installed under the indicated mail domain:
+the list status is set to `family_closed`, aliases are removed and
+subscribers are removed from DB (a dump is created in the list directory
+to allow restoring the list).
 
 Here is a sample command to close a list family (same as an orphan list):
 
 ``` bash
-sympa.pl --close_list my_list@samplerobot
+sympa.pl --close_list my_list@mail.example.org
 ```
 
 ### Modifying a family list
 
-Modifies a family list without instantiating the whole family. The list (installed under the indicated robot) is modified as if it was modified during an instantiation. The XML file describes the list and the root element is `<list>`. List elements are described in section [List creation on command line with sympa.pl](../admin/list-creation.md#list-creation-on-command-line-with-sympa-pl).
+Modifies a family list without instantiating the whole family.
+The list (installed under the indicated mail domain) is modified as
+if it was modified during an instantiation. The XML file describes the
+list and the root element is `<list>`. List elements are described in
+section
+"[List creation on command line with sympa.pl](../admin/list-creation.md#list-creation-on-command-line-with-sympa-pl)".
 
 Here is a sample command to modify a list to a family:
 
 ``` bash
-sympa.pl --modify_list my_family --robot samplerobot --input_file /path/to/my_file.xml
+sympa.pl --modify_list my_family --robot mail.example.org --input_file /path/to/my_file.xml
 ```
 
 ### Editing list parameters in a family context

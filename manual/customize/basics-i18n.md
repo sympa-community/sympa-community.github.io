@@ -126,4 +126,5 @@ Note that the shared documents (see "~~[Shared document repository](../customize
 
 Sympa fully supports Unicode. By default, all messages sent by Sympa will be encoded by `utf-8` character set. However, in some language environments legacy character sets are preferred, for example `iso-2022-jp` in Japanese language. Messages sent by Sympa may be encoded using legacy character sets spesific to each language. See [`legacy_character_support_feature`](/gpldoc/man/sympa_config.5.html#legacy_character_support_feature) parameter.
 
-Note that this setting does not affect messages sent by users but only the messages mailing list robot will send.
+Note that this setting does not affect messages sent by users but
+only the messages the mailing list system will send.

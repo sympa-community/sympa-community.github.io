@@ -13,12 +13,12 @@ You can assign roles to users (identified by their email addresses) at different
 (Super) listmasters
 -------------------
 
-These are the persons administrating the service, defined in the [`sympa.conf`](/gpldoc/man/sympa_config.5.html) file. They inherit the listmaster role in virtual hosts and are the default set of listmasters for virtual hosts.
+These are the persons administrating the service, defined in the [`sympa.conf`](/gpldoc/man/sympa_config.5.html) file. They inherit the listmaster role in virtual domains and are the default set of listmasters for virtual domains.
 
-(Robot) listmasters
+(Domain) listmasters
 -------------------
 
-You can define a different set of listmasters at a virtual host level (in the [`robot.conf`](/gpldoc/man/sympa_config.5.html) file). They are responsible for moderating mailing lists creation (if list creation is configured this way), editing default templates, providing help to list owners and moderators. Users defined as listmasters get a privileged access to the Sympa web interface. Listmasters also inherit the privileges of list owners (for any list defined in the virtual host), but not the moderator privileges.
+You can define a different set of listmasters at a virtual domain level (in the [`robot.conf`](/gpldoc/man/sympa_config.5.html) file). They are responsible for moderating mailing lists creation (if list creation is configured this way), editing default templates, providing help to list owners and moderators. Users defined as listmasters get a privileged access to the Sympa web interface. Listmasters also inherit the privileges of list owners (for any list defined in the virtual domain), but not the moderator privileges.
 
 Privileged list owners
 ----------------------

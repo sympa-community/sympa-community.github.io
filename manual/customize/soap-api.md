@@ -740,7 +740,7 @@ Parameters:
 
   - the subject of the list (mandatory);
 
-  - the template to use (mandatory) (the name of a template found in the `create_list_templates` directory for this Sympa robot;
+  - the template to use (mandatory) (the name of a template found in the `create_list_templates` directory for this Sympa service;
 
   - the description of the list (mandatory);
 

@@ -20,7 +20,7 @@ Important:
 
 You can create a *your_action*`.pm` module under any of following directories:
 
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*robot*`/custom_actions/`
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*domain*`/custom_actions/`
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/custom_actions/`
 
 In list context you can also create it under:
@@ -45,11 +45,13 @@ Your custom action is reachable using URL:
 
 The HTML code in *your_action*`.tt2` can make use of the parameters this way: `[%cap.1%]` for the first parameter (*param1* in the example URL above), `[%cap.2%]` for the second one, and so on. If the module is not defined, the template is simply displayed.
 
-You can even have a robot-common *your_action*`.pm` module with a specific *your_action*`.tt2` for each robot as the file (`.pm` or `.tt2`) is conducted in this order :
+You can even have a domain-common *your_action*`.pm` module
+with a specific *your_action*`.tt2` for each domain as the file (`.pm`
+or `.tt2`) is conducted in this order :
 
   - [``$EXPLDIR``](../layout.md#expldir)`/`*list path*`/custom_actions/`
-  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*robot*`/custom_actions/`
-    (if robot support)
+  - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`*domain*`/custom_actions/`
+    (if domain support)
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/custom_actions/`
 
 The module's subroutine `process()` receives `@cap` entries as arguments (the List object is prepended to the argument list in list context). The value returned by `process()` can be either:

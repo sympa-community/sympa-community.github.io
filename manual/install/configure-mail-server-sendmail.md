@@ -57,7 +57,7 @@ General instruction
      (Note: replace [``$LIBEXECDIR``](../layout.md#libexecdir) and
      ``mail.example.org`` below):
      ``` code
-     # Robot aliases for Sympa.
+     # Service aliases for Sympa.
      sympa:                 "| $LIBEXECDIR/queue sympa@mail.example.org"
      listmaster:            "| $LIBEXECDIR/queue listmaster@mail.example.org"
      bounce+*:              "| $LIBEXECDIR/bouncequeue sympa@mail.example.org"

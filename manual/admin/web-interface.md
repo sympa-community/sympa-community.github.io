@@ -73,7 +73,7 @@ Thus, you can perform following admninistrative operations.
 By this page, you can choose colors for web interface using the color editor.
 See "~~[Appearances](../customize/appearances.md)~~" for details.
 
-### Edit robot config
+### View domain config
 
 By this page, you can edit parameters in site-wide configuration file
 (`sympa.conf`) and in configuration specific to accessing mail domain
@@ -81,9 +81,9 @@ By this page, you can edit parameters in site-wide configuration file
 
 > **Note**
 >
->   * By default, this page is read-only: Parameters can not be changed.
->     To enable changing, you have to customize `web_tt2/edit_config.tt2`
->     web template file.
+>   * This page is read-only: Parameters can not be changed.
+>     The feature to change config using web interface has not been
+>     implemented yet.
 
 List management page
 --------------------

@@ -414,7 +414,7 @@ After the process above, the following changes will have occured:
     "`sympa.conf.upgrade.`_number_".
   - Any customized "**`web_tt2`**" directory (either in
     [``$SYSCONFDIR``](../layout.md#sysconfdir)`/` or in
-    [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_robot_`/`)
+    [``$SYSCONFDIR``](../layout.md#sysconfdir)`/`_domain_`/`)
     will have been renamed to
     "`web_tt2.upgrade.`_number_".
 

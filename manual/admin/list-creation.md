@@ -205,7 +205,9 @@ Here is a sample command to create one list:.
  --input_file /path/to/my_file.xml
 ```
 
-The list is created under the `my_robot` robot and the list is described in the file `my_file.xml`. The XML file is described before, see [XML file format](#xml-file-format).
+The list is created under the `mail.example.org` domain and the list is
+described in the file `my_file.xml`. The XML file is described before, see
+[XML file format](#xml-file-format).
 
 By default, the status of the list created is `open`.
 

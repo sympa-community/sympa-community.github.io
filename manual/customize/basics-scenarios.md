@@ -44,13 +44,13 @@ order (see also
   - [``$SYSCONFDIR``](../layout.md#sysconfdir)`/scenari`
   - [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari`
 
-You can modify Sympa behavior if you create a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, robot or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
+You can modify Sympa behavior if you create a new scenario with the same name as one of the scenario already included in the distribution but with a location related to the target site, domain or list. You can also add a new scenario ; it will automatically add an accepted value for the related parameter.
 
 See also "[Hiding scenario files](#hiding-scenario-files)".
 
 > **Note**
 >
->   * When customizing a scenario for your own site, robot or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
+>   * When customizing a scenario for your own site, domain or list, don't modify [``$DEFAULTDIR``](../layout.md#defaultdir)`/scenari` content or the next Sympa update will overwrite it (you must never modify anything in [``$DEFAULTDIR``](../layout.md#defaultdir) unless you are patching Sympa).
 >
 >   * When modifying an existing scenario you need to restart Sympa or touch list [`config`](/gpldoc/man/sympa_config.5.html) file before Sympa use it.
 
@@ -413,7 +413,7 @@ search(blocklist.txt)  smtp,md5,smime -> reject,quiet
 ```
 
 The goal is to block messages or other service requests from unwanted
-users. The blocklist can be defined for the robot or for the list. At
+users. The blocklist can be defined for the domain or for the list. At
 the list level, the blocklist is to be managed by the list owner or the
 list moderator via the web interface.
 
@@ -431,9 +431,9 @@ list moderator via the web interface.
 Hiding scenario files
 ---------------------
 
-Because Sympa is distributed with many default scenario files, you may want to hide some of them to list owners (to make list administration menus shorter and readable). To hide a scenario file, you should create an empty file with the `:ignore` suffix. Depending on where this file has been created, it will make it be ignored at either a global, robot or list level.
+Because Sympa is distributed with many default scenario files, you may want to hide some of them to list owners (to make list administration menus shorter and readable). To hide a scenario file, you should create an empty file with the `:ignore` suffix. Depending on where this file has been created, it will make it be ignored at either a global, domain or list level.
 
 Example:
 
-By creating [``$SYSCONFDIR``](../layout.md#sysconfdir)`/mail.example.org/scenari/send.public_nobcc:ignore`, the `public_nobcc` `send` scenario will be hidden (on the web admin interface), at the `mail.example.org` robot level only.
+By creating [``$SYSCONFDIR``](../layout.md#sysconfdir)`/mail.example.org/scenari/send.public_nobcc:ignore`, the `public_nobcc` `send` scenario will be hidden (on the web admin interface), at the `mail.example.org` domain level only.
 

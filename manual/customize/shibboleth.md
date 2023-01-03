@@ -170,7 +170,7 @@ You'll need to make sure all Identity Providers will provide the user email addr
 Coping with virtual hosts
 -------------------------
 
-If you have Sympa virtual robots for other virtual hosts, you'll need to define distinct `ApplicationOverride` Shibboleth configuration elements for each virtual host. You'll have to declare each of them to your favourite federation, since they appear as separate services.
+If you have Sympa virtual domains for other virtual domains, you'll need to define distinct `ApplicationOverride` Shibboleth configuration elements for each virtual host. You'll have to declare each of them to your favourite federation, since they appear as separate services.
 
 What if you don't trust provided email addresses?
 -------------------------------------------------

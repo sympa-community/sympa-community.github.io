@@ -14,8 +14,8 @@ You may be disappointed by this restriction if you are using a web browser as RS
 
 Sympa provides the following RSS features:
 
-  - the latest created lists on a robot (`latest_lists`);
-  - the most active lists on a robot(`active_lists`);
+  - the latest created lists on a mail domain (`latest_lists`);
+  - the most active lists on a mail domain (`active_lists`);
   - the latest messages of a list (`latest_arc`);
   - the latest shared documents of a list (`latest_d_read`).
 

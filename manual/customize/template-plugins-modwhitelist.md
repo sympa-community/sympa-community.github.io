@@ -27,7 +27,11 @@ Important:
 
 ----
 
-  - Copy whitelist.pm and modlist.pm to the `custom_actions` directory. These are the custom actions. If you only copy the whitelist.pm then modlist functionality will be disabled. Either put them at the top level, or at robot level as you prefer.
+  - Copy `whitelist.pm` and `modlist.pm` to the `custom_actions`
+    directory. These are the custom actions.
+    If you only copy the `whitelist.pm` then modlist functionality will
+    be disabled. Either put them at the top level, or at mail domain level
+    as you prefer.
 
   - Create default empty `whitelist.txt` and `modlist.txt` files in `search_filters` (or wherever your Sympa `search_filters` path is). These must exist as a default for lists that do not have a defined whitelist or modlist.
 
