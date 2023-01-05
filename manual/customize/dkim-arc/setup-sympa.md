@@ -148,25 +148,77 @@ dmarc_protection.mode dmarc_reject
 Summary of parameters
 ---------------------
 
+### 6.2.72 or later
+
 | parameter name ([``sympa.conf``](../../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
 |---|---|---|
-| [dkim_feature](/gpldoc/man/sympa_config.5.html#dkim_feature) | `off` | not pertinent |
-| [dkim_add_signature_to](/gpldoc/man/sympa_config.5.html#dkim_add_signature_to) | `list,robot` | not pertinent |
-| [dkim_signature_apply_on](/gpldoc/man/sympa_config.5.html#dkim_signature_apply_on) | `md5_authenticated_messages,` `smime_authenticated_messages,` `dkim_authenticated_messages,` `editor_validated_messages` | `dkim_signature_apply_on` |
-| [dkim_private_key_path](/gpldoc/man/sympa_config.5.html#dkim_private_key_path) | | `dkim_parameters` > `private_key_path` |
-| [dkim_signer_domain](/gpldoc/man/sympa_config.5.html#dkim_signer_domain) | `arc_signer_domain` if set, otherwise the mail domain (see also note below) | `dkim_parameters` > `signer_domain` |
-| [dkim_selector](/gpldoc/man/sympa_config.5.html#dkim_selector) | no default | `dkim_parameters` > `selector` |
-| [dkim_signer_identity](/gpldoc/man/sympa_config.5.html#dkim_signer_identity)<sup>*</sup> | (for messages in domain context) none | none |
-| [dkim_parameters > signer_identity](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity)<sup>*</sup> | (for lists) _`listname`_`-request@domain` | - |
-| ~~[dkim_header_list](/gpldoc/man/sympa_config.5.html#dkim_header_list)~~ | as recommended in RFC 6376 | Not yet implemented |
-| [arc_feature](/gpldoc/man/sympa_config.5.html#arc_feature) | `off` | not pertinent |
-| [arc_srvid](/gpldoc/man/sympa_config.5.html#arc_srvid) | arc_signer_domain | not pertinent |
-| [arc_signer_domain](/gpldoc/man/sympa_config.5.html#arc_signer_domain) | `dkim_signer_domain` if set, otherwise the mail domain (see also note below) | `arc_parameters` > `arc_signer_domain` |
-| [arc_selector](/gpldoc/man/sympa_config.5.html#arc_selector) | dkim_selector | `arc_parameters` > `arc_selector` |
-| [arc_private_key_path](/gpldoc/man/sympa_config.5.html#arc_private_key_path) | dkim_private_key_path | `arc_parameters` > `arc_private_key_path` |
-| [dmarc_protection > mode](/gpldoc/man/sympa_config.5.html#dmarc_protectionmode) | no default | `dmarc_protection` > `mode` |
+| [`dkim_feature`](/gpldoc/man/sympa_config.5.html#dkim_feature) | `off` | not pertinent |
+| [`dkim_add_signature_to`](/gpldoc/man/sympa_config.5.html#dkim_add_signature_to) | `list,robot` | not pertinent |
+| [`dkim_signature_apply_on`](/gpldoc/man/sympa_config.5.html#dkim_signature_apply_on) | `md5_authenticated_messages,` `smime_authenticated_messages,` `dkim_authenticated_messages,` `editor_validated_messages` | `dkim_signature_apply_on` |
+| [`dkim_parameters.private_key_path`](/gpldoc/man/sympa_config.5.html#dkim_parametersprivate_key_path) | `arc_parameters.private_key_path` if set | `dkim_parameters` > `private_key_path` |
+| [`dkim_parameters.signer_domain`](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_domain) | `arc_parameters.signer_domain` if set, otherwise the mail domain | `dkim_parameters` > `signer_domain` |
+| [`dkim_parameters.selector`](/gpldoc/man/sympa_config.5.html#dkim_parametersselector) | `arc_parameters.selector` if set | `dkim_parameters` > `selector` |
+| [`dkim_signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_signer_identity)<sup>(\*)</sup> | (for messages in domain context) none | none |
+| --- | (for lists) _`listname`_`-request@domain` | [`dkim_parameters` > `signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity)<sup>(\*)</sup> |
+| [`arc_feature`](/gpldoc/man/sympa_config.5.html#arc_feature) | `off` | not pertinent |
+| [`arc_srvid`](/gpldoc/man/sympa_config.5.html#arc_srvid) | `arc_signer_domain` | not pertinent |
+| [`arc_parameters.signer_domain`](/gpldoc/man/sympa_config.5.html#arc_parameterssigner_domain) | `dkim_parameters.signer_domain` if set, otherwise the mail domain | `arc_parameters` > `signer_domain` |
+| [`arc_parameters.selector`](/gpldoc/man/sympa_config.5.html#arc_parametersselector) | `dkim_parameters.selector` if set | `arc_parameters` > `selector` |
+| [`arc_parameters.private_key_path`](/gpldoc/man/sympa_config.5.html#arc_parametersprivate_key_path) | `dkim_parameters.private_key_path` if set | `arc_parameters` > `private_key_path` |
+| [`dmarc_protection.mode`](/gpldoc/man/sympa_config.5.html#dmarc_protectionmode) | none | `dmarc_protection` > `mode` |
+
+### 6.2.58 to 6.2.70
+
+| parameter name ([``sympa.conf``](../../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
+|---|---|---|
+| [`dkim_feature`](/gpldoc/man/sympa_config.5.html#dkim_feature) | `off` | not pertinent |
+| [`dkim_add_signature_to`](/gpldoc/man/sympa_config.5.html#dkim_add_signature_to) | `list,robot` | not pertinent |
+| [`dkim_signature_apply_on`](/gpldoc/man/sympa_config.5.html#dkim_signature_apply_on) | `md5_authenticated_messages,` `smime_authenticated_messages,` `dkim_authenticated_messages,` `editor_validated_messages` | `dkim_signature_apply_on` |
+| [**`dkim_private_key_path`**](/gpldoc/man/sympa_config.5.html#dkim_private_key_path) | **none** | `dkim_parameters` > `private_key_path` |
+| [**`dkim_signer_domain`**](/gpldoc/man/sympa_config.5.html#dkim_signer_domain) | **none**: the mail domain should be set<sup>(\*\*)</sup> | `dkim_parameters` > `signer_domain` |
+| [**`dkim_selector`**](/gpldoc/man/sympa_config.5.html#dkim_selector) | **none** | `dkim_parameters` > `selector` |
+| [`dkim_signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_signer_identity)<sup>(\*)</sup> | (for messages in domain context) none | none |
+| --- | (for lists) _`listname`_`-request@domain` | [`dkim_parameters > signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity)<sup>(\*)</sup> |
+| [`arc_feature`](/gpldoc/man/sympa_config.5.html#arc_feature) | `off` | not pertinent |
+| [`arc_srvid`](/gpldoc/man/sympa_config.5.html#arc_srvid) | `arc_signer_domain` | not pertinent |
+| [**`arc_signer_domain`**](/gpldoc/man/sympa_config.5.html#arc_signer_domain) | `dkim_signer_domain` | **`arc_parameters` > `arc_signer_domain`** |
+| [**`arc_selector`**](/gpldoc/man/sympa_config.5.html#arc_selector) | `dkim_selector` | **`arc_parameters` > `arc_selector`** |
+| [**`arc_private_key_path`**](/gpldoc/man/sympa_config.5.html#arc_private_key_path) | `dkim_private_key_path` | **`arc_parameters` > `arc_private_key_path`** |
+| [`dmarc_protection.mode`](/gpldoc/man/sympa_config.5.html#dmarc_protectionmode) | none | `dmarc_protection` > `mode` |
+
+### Up to 6.2.56
+
+| parameter name ([``sympa.conf``](../../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
+|---|---|---|
+| [`dkim_feature`](/gpldoc/man/sympa_config.5.html#dkim_feature) | `off` | not pertinent |
+| [`dkim_add_signature_to`](/gpldoc/man/sympa_config.5.html#dkim_add_signature_to) | `list,robot` | not pertinent |
+| [`dkim_signature_apply_on`](/gpldoc/man/sympa_config.5.html#dkim_signature_apply_on) | `md5_authenticated_messages,` `smime_authenticated_messages,` `dkim_authenticated_messages,` `editor_validated_messages` | `dkim_signature_apply_on` |
+| [**`dkim_private_key_path`**](/gpldoc/man/sympa_config.5.html#dkim_private_key_path) | none | `dkim_parameters` > `private_key_path` |
+| [**`dkim_signer_domain`**](/gpldoc/man/sympa_config.5.html#dkim_signer_domain) | **none**: the mail domain should be set<sup>(\*\*)</sup> | `dkim_parameters` > `signer_domain` |
+| [**`dkim_selector`**](/gpldoc/man/sympa_config.5.html#dkim_selector) | none | `dkim_parameters` > `selector` |
+| [`dkim_signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_signer_identity)<sup>(\*)</sup> | (for messages in domain context) none | none |
+| --- | (for lists) _`listname`_`-request@domain` | [`dkim_parameters` > `signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity)<sup>(\*)</sup> |
+| [`arc_feature`](/gpldoc/man/sympa_config.5.html#arc_feature) | `off` | not pertinent |
+| [`arc_srvid`](/gpldoc/man/sympa_config.5.html#arc_srvid) | `arc_signer_domain` | not pertinent |
+| [**`arc_signer_domain`**](/gpldoc/man/sympa_config.5.html#arc_signer_domain) | **none**: the mail domain should be set<sup>(\*\*)</sup> | **`arc_parameters` > `arc_signer_domain`** |
+| [**`arc_selector`**](/gpldoc/man/sympa_config.5.html#arc_selector) | `dkim_selector` | **`arc_parameters` > `arc_selector`** |
+| [**`arc_private_key_path`**](/gpldoc/man/sympa_config.5.html#arc_private_key_path) | `dkim_private_key_path` | **`arc_parameters` > `arc_private_key_path`** |
+| [**`dmarc_protection_mode`**](/gpldoc/man/sympa_config.5.html#dmarc_protectionmode) | none | `dmarc_protection` > `mode` |
+
+
+### Not yet implemented
+
+| parameter name ([``sympa.conf``](../../layout.md#config) or ``robot.conf`` context) | default | overwritten by (list configuration) |
+|---|---|---|
+| [dkim_header_list](/gpldoc/man/sympa_config.5.html#dkim_header_list) | as recommended in RFC 6376 | Not yet implemented |
+
+
 > **Note**
->   * On Sympa 6.2.70 or earlier, there was a bug that
+>   * (\*) `dkim_signer_identity` in `sympa.conf` or `robot.conf` _won't_ be
+>     overwritten by `dkim_parameters > signer_identity`,
+>     in other words the former is not treated as the default for the latter.
+>
+>   * (\*\*) On Sympa 6.2.70 or earlier, there was a bug that
 >     `arc_signer_domain` and `dkim_signer_domain` have no default
 >     values and they have to be set explicitly.
 >     This will be fixed on 6.2.72 so that if these parameters are not
