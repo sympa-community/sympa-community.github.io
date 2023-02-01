@@ -46,6 +46,16 @@ below.
   * `sympa_wizard.pl` was deprecated.  About alternatives see
      [issue \#508](https://github.com/sympa-community/sympa/issues/508).
 
+  * For the users of Systemd:
+    The unit files described in
+    [Using Systemd socket](../install/configure-http-server-systemdsocket.md)
+    have been added to the source distribution.
+    Some packagers (at least Debian and RPM) have adopted these and no longer
+    use the setuid wrappers for the FastCGI servers.
+    Also, when using these unit files, stopping the web service requires
+    stopping the `wwsympa.socket` unit instead of the `wwsympa.service` unit
+    (same for sympasoap).
+
 ### From version prior to 6.2.68
 
   * `sympa.pl`: The option `--import` is now deprecated. Instead, use the new
