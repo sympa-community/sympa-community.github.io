@@ -34,6 +34,8 @@ standard match() and equal() scenario conditions.
 DKIM signing for outgoing messages
 ----------------------------------
 
+  * See also "[Summary of parameters](#summary-of-parameters)" below.
+
 You may want to make Sympa sign outgoing messages.  Almost every aspects
 of DKIM signature behavior can be customized via Sympa configuration
 parameters.  Please check the
@@ -65,11 +67,11 @@ In most cases Sympa should sign **all** outgoing messages to get the maximum adv
 
 Before Sympa is able to DKIM-sign messages, you need to set several related
 parameters.  The most important ones are
-[dkim_private_key_path](/gpldoc/man/sympa_config.5.html#dkim_private_key_path)
+[`dkim_parameters.private_key_path`](/gpldoc/man/sympa_config.5.html#dkim_parametersprivate_key_path)
 (private key file location) and
-[dkim_selector](/gpldoc/man/sympa_config.5.html#dkim_selector).
+[`dkim_parameters.selector`](/gpldoc/man/sympa_config.5.html#dkim_parametersselector).
 Other parameters related to [RFC 6376](https://tools.ietf.org/html/rfc6376):
-[dkim_signer_domain](/gpldoc/man/sympa_config.5.html#dkim_signer_domain),
+[`dkim_parameters.signer_domain`](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_domain),
 [dkim_signer_identity](/gpldoc/man/sympa_config.5.html#dkim_signer_identity)
 (for domain) /
 [dkim_parameters.signer_identity](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity)
@@ -77,21 +79,25 @@ Other parameters related to [RFC 6376](https://tools.ietf.org/html/rfc6376):
 [dkim_header_list](/gpldoc/man/sympa_config.5.html#dkim_header_list)
 (not yet implemented).
 
+If you are using Sympa prior to 6.2.72, see also the note below.
+
 > **Note**
 >
 >   * `dkim_signer_identity` in `sympa.conf` or `robot.conf` _won't_ be
 >     overwritten by `dkim_parameters > signer_identity`,
 >     in other words the former is not treated as the default for the latter.
 >
->   * As of Sympa 6.2.72, some parameters in `sympa.conf` and `robot.conf`
->     will be renamed:
+>   * On Sympa prior to 6.2.72, some parameters in `sympa.conf` and
+>     `robot.conf` were not the same as those in the list `config` file:
 >
->       - `dkim_private_key_path` to `dkim_parameters.private_key_path`
->       - `dkim_signer_domain` to `dkim_parameters.signer_domain`
->       - `dkim_selector` to `dkim_parameters.selector`
+>       - "`dkim_private_key_path`" for `dkim_parameters.private_key_path`
+>       - "`dkim_selector`" for `dkim_parameters.selector`
+>       - "`dkim_signer_domain`" for `dkim_parameters.signer_domain`
 
 ARC
 ---
+
+  * See also "[Summary of parameters](#summary-of-parameters)" below.
 
 ### ARC verification for incoming messages
 
@@ -105,22 +111,29 @@ messages to check because the software automatically checks as needed.
 
 ### ARC sealing for outgoing messsages
 
-Outgoing forwarded messages will have ARC seals added if the [arc_feature](/gpldoc/man/sympa_config.5.html#arc_feature) is enabled.  ARC uses the same signatures and keys as DKIM, and DKIM is a prerequisite for ARC, so if your ARC seals use the same signer domain and selector as DKIM signatures, as they usually do, they need no further configuration.  If you want to use a different domain or selector which uses a different private key, they can be set in the same way as the DKIM domain, selector, and key. See the parameters below.
+Outgoing forwarded messages will have ARC seals added if the
+[arc_feature](/gpldoc/man/sympa_config.5.html#arc_feature)
+is enabled.  ARC feature can use the same keys as DKIM, and DKIM is a
+prerequisite for ARC, so if your ARC seals use the same signer domain and
+selector as DKIM signatures, as they usually do, they may need no further
+configuration.  If you want to use a different domain or selector which uses
+a different key pair, they can be set in the same way as the DKIM domain,
+selector, and key. See the parameters below.
 
 > **Note**
 >
->   * On Sympa 6.2.72 or later, ARC seals will also be added to the
->     messages forwarded through the addresses of listmaster, list owner
->     and list moderators.
->     On previous versions, ARC seals are added to only the messages sent
+>   * On Sympa prior to 6.2.72, ARC seals were added to only the messages sent
 >     through the list posting addresses.
+>     On Sympa 6.2.72 or later, ARC seals are also added to the
+>     messages forwarded through the addresses of listmaster, list owners
+>     and list moderators.
 >
->   * As of Sympa 6.2.72, some parameters in `sympa.conf` and `robot.conf`
->     will be renamed:
+>   * On Sympa prior to 6.2.72, some parameters in `sympa.conf` and
+>     `robot.conf` were not the same as those in the list `config` file:
 >
->       - `arc_signer_domain` to `arc_parameters.signer_domain`
->       - `dkim_selector` to `arc_parameters.selector`
->       - `arc_private_key_path` to `arc_parameters.private_key_path`
+>       - "`arc_private_key_path`" for `arc_parameters.private_key_path`
+>       - "`dkim_selector`" for `arc_parameters.selector`
+>       - "`arc_signer_domain`" for `arc_parameters.signer_domain`
 
 Remedy for ARC-unaware recipients
 ---------------------------------
@@ -138,9 +151,14 @@ As a remedy, it is recommended to enalbe
 ``` code
 dmarc_protection.mode dmarc_reject
 ```
+
+If you are using Sympa prior to 6.2.56, see also the note below.
+
 > **Note**
 >
->   * With Sympa 6.2.56 or earlier, the setting above has to be:
+>   * On Sympa prior to 6.2.56, the parameter above in `sympa.conf` and
+>     `robot.conf` was not the same as those in the list `config` file:
+>
 >     ``` code
 >     dmarc_protection_mode dmarc_reject
 >     ```
