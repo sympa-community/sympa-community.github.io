@@ -36,6 +36,7 @@ symbols with real paths on your Sympa.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/etc/sympa/sympa.conf`` or ``/etc/sympa/sympa/sympa.conf`` (see note) |
 | FreeBSD                     | ``/usr/local/etc/sympa/sympa.conf`` |
+| MacPorts                    | ``/opt/local/etc/sympa/sympa/sympa.conf`` |
 | RPM                         | ``/etc/sympa/sympa.conf``        |
 | Source distribution default | ``/etc/sympa/sympa.conf``        |
 | (by version prior to 6.2)   | ``/etc/sympa.conf``              |
@@ -56,6 +57,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/etc/mail/sympa/aliases``      |
 | FreeBSD                     | ``/etc/mail/sympa_aliases``      |
+| MacPorts                    | ``/opt/local/etc/sympa/sympa_aliases`` |
 | RPM                         | ``/var/lib/sympa/sympa_aliases`` |
 | Source distribution default | ``/etc/mail/sympa_aliases``      |
 | Suggested configure option  | ``/etc/mail/sympa_aliases``      |
@@ -68,6 +70,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/run/sympa``                   |
 | FreeBSD                     | ``/var/run/sympa``               |
+| MacPorts                    | ``/opt/local/var/run/sympa``     |
 | RPM                         | ``/run/sympa``                   |
 | (with RHEL/CentOS 6)        | ``/var/run/sympa``               |
 | Source distribution default | ``/home/sympa``                  |
@@ -84,6 +87,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/var/lib/sympa/list_data`` |
 | FreeBSD                     | ``/usr/local/share/sympa/list_data`` |
+| MacPorts                    | ``/opt/local/var/lib/sympa/list_data`` |
 | RPM                         | ``/var/lib/sympa/list_data``     |
 | Source distribution default | ``/home/sympa/list_data``        |
 | (by version prior to 6.0)   | ``/home/sympa/expl``             |
@@ -112,6 +116,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/var/spool/sympa`` |
 | FreeBSD                     | ``/var/spool/sympa``             |
+| MacPorts                    | ``/opt/local/var/spool/sympa``   |
 | RPM                         | ``/var/spool/sympa``             |
 | Source distribution default | ``/home/sympa/spool``            |
 | Suggested configure option  | ``/usr/local/var/spool/sympa``   |
@@ -128,6 +133,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 | Debian                      | ``/etc/sympa``                   |
 | FreeBSD                     | ``/usr/local/etc/sympa``         |
 | RPM                         | ``/etc/sympa``                   |
+| MacPorts                    | ``/opt/local/etc/sympa``         |
 | Source distribution default | ``/home/sympa/etc``              |
 | Suggested configure option  | ``/usr/local/etc``               |
 
@@ -140,6 +146,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 | Debian                      | ``/usr/share/locale``            |
 | (by Debian 9 (stretch) or earlier) | ``/usr/lib/sympa/locale`` |
 | FreeBSD                     | ``/usr/local/share/locale``      |
+| MacPorts                    | ``/opt/local/share/locale``      |
 | RPM                         | ``/usr/share/locale``            |
 | Source distribution default | ``/home/sympa/locale``           |
 | Suggested configure option  | ``/usr/local/share/locale``      |
@@ -152,6 +159,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/usr/lib/sympa/bin``           |
 | FreeBSD                     | ``/usr/local/libexec/sympa``     |
+| MacPorts                    | ``/opt/local/libexec``           |
 | RPM                         | ``/usr/libexec/sympa``           |
 | Source distribution default | ``/home/sympa/bin``              |
 | Suggested configure option  | ``/usr/local/libexec``           |
@@ -164,6 +172,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/usr/lib/sympa/bin``           |
 | FreeBSD                     | ``/usr/local/libexec/sympa``     |
+| MacPorts                    | ``/opt/local/sbin``              |
 | RPM                         | ``/usr/sbin``                    |
 | Source distribution default | ``/home/sympa/bin``              |
 | Suggested configure option  | ``/usr/local/sbin``              |
@@ -176,6 +185,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/usr/share/sympa/bin``         |
 | FreeBSD                     | ``/usr/local/libexec/sympa``     |
+| MacPorts                    | ``/opt/local/share/sympa/bin``   |
 | RPM                         | ``/usr/share/sympa/bin``         |
 | Source distribution default | ``/home/sympa/bin``              |
 | Suggested configure option  | ``/usr/local/share/sympa/bin``   |
@@ -188,6 +198,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/usr/share/sympa/lib``         |
 | FreeBSD                     | ``/usr/local/libexec/sympa``     |
+| MacPorts                    | ``/opt/local/share/sympa/lib``   |
 | RPM                         | ``/usr/share/sympa/lib``         |
 | Source distribution default | ``/home/sympa/bin``              |
 | Suggested configure option  | ``/usr/local/share/sympa/lib``   |
@@ -200,6 +211,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/usr/share/sympa/default``     |
 | FreeBSD                     | ``/usr/local/share/sympa/defaults`` |
+| MacPorts                    | ``/opt/local/share/sympa/default`` |
 | RPM                         | ``/usr/share/sympa/default``     |
 | Source distribution default | ``/home/sympa/default``          |
 | (by version prior to 6.0)   | ``/home/sympa/bin/etc``             |
@@ -216,6 +228,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/var/lib/sympa/arc``           |
 | FreeBSD                     | ``/usr/local/share/sympa/arc``   |
+| MacPorts                    | ``/opt/local/var/lib/sympa/arc`` |
 | RPM                         | ``/var/lib/sympa/arc``           |
 | Source distribution default | ``/home/sympa/arc``              |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/arc`` |
@@ -231,6 +244,7 @@ though ``/etc/sympa/sympa/sympa.conf`` is used by default.
 |-----------------------------|----------------------------------|
 | Debian                      | ``/var/lib/sympa/bounce``        |
 | FreeBSD                     | ``/usr/local/share/sympa/bounce`` |
+| MacPorts                    | ``/opt/local/var/lib/sympa/bounce`` |
 | RPM                         | ``/var/lib/sympa/bounce``        |
 | Source distribution default | ``/home/sympa/bounce``           |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/bounce`` |
@@ -246,6 +260,7 @@ Directories specific to web interface
 |-----------------------------|------------------------------|
 | Debian                      | ``/usr/lib/cgi-bin/sympa``   |
 | FreeBSD                     | ``/usr/local/libexec/sympa`` |
+| MacPorts                    | ``/opt/local/www/sympa/cgi`` |
 | RPM                         | ``/usr/libexec/sympa``       |
 | Source distribution default | ``/home/sympa/bin``          |
 | Suggested configure option  | ``/usr/local/lib/sympa/cgi`` |
@@ -263,6 +278,7 @@ Directories specific to web interface
 | Debian                      | ``/usr/share/sympa/static_content``|
 | (by Debian 9 (stretch) or earlier) | ``/var/lib/sympa/static_content`` |
 | FreeBSD                     | ``/usr/local/share/sympa/static`` |
+| MacPorts                    | ``/opt/local/www/sympa/static_content`` |
 | RPM                          | ``/usr/share/sympa/static_content`` |
 | (by version prior to 6.2.26) | ``/var/lib/sympa/static_content``   |
 | Source distribution default | ``/home/sympa/static_content``    |
@@ -281,6 +297,7 @@ Directories specific to web interface
 | (by version prior to 6.2.26 of any distributions) | [``$STATICDIR``](#staticdir)``/css`` |
 | Debian                      | ``/var/lib/sympa/css``                |
 | FreeBSD                     | ``/usr/local/share/sympa/static/css`` |
+| MacPorts                    | ``/opt/local/var/lib/sympa/static_content/css`` |
 | RPM                         | ``/var/lib/sympa/css``                |
 | Source distribution default | ``/home/sympa/static_content/css``    |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/static_content/css`` |
@@ -303,6 +320,7 @@ Directories specific to web interface
 | (by version prior to 6.2.26 of any distributions) | [``$STATICDIR``](#staticdir)``/pictures`` |
 | Debian                      | TBD |
 | FreeBSD                     | ``/usr/local/share/sympa/static/pictures`` |
+| MacPorts                    | ``/opt/local/var/lib/sympa/static_content/pictures`` |
 | RPM                         | ``/var/lib/sympa/pictures``                |
 | Source distribution default | ``/home/sympa/static_content/pictures``    |
 | Suggested configure option  | ``/usr/local/var/lib/sympa/static_content/pictures`` |

@@ -15,6 +15,8 @@ Instruction by distributions
 
   - [FreeBSD Ports/Packages](install-sympa-distribution-freebsd.md)
 
+  - [Package for macOS](install-sympa-distribution-macos.md)
+
   - [RPM package](install-sympa-distribution-rpm.md)
 
   - [Installing from source](install-sympa-distribution-source.md)
