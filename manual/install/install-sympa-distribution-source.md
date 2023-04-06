@@ -105,16 +105,15 @@ $ cd sympa-6.2.XX
 
 If you wish to install development version, create local clone of
 [git repository](https://github.com/sympa-community/sympa.git) and checkout
-``sympa-6.2`` branch:
+``main`` branch:
 ```
-$ git clone https://github.com/sympa-community/sympa.git sympa-6.2-head
-$ cd sympa-6.2-head
-$ git checkout -b sympa-6.2 origin/sympa-6.2
+$ git clone https://github.com/sympa-community/sympa.git sympa
+$ cd sympa
 ```
 Once you have created your local clone, you can get the latest source at any
 time just doing:
 ```
-$ cd sympa-6.2-head
+$ cd sympa
 $ git pull
 ```
 
