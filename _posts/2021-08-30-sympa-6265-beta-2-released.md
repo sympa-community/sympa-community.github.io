@@ -27,7 +27,7 @@ tag_name: 6.2.65b.2
 title: Sympa 6.2.65 beta 2 released
 ---
 
-<img align="right" src="https://www.sympa.org/_media/logos/old/sympa_beta.png" title="Sympa beta logo"/> 30 August 2021
+<img align="right" src="https://assets.sympa.community/logos/sympa_beta.png" title="Sympa beta logo"/> 30 August 2021
 
 The Sympa Community is proud to release the new beta of the next version of Sympa. Please install it to test and report bugs, translate user interface to your language, or enhance documentation of Sympa, if you want to help the Sympa community deliver a more reliable version of Sympa.
 

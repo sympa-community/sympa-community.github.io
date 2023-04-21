@@ -42,7 +42,7 @@ tag_name: 6.2.32
 title: '[Security update] Sympa 6.2.32 released'
 ---
 
-<img align="right" src="https://www.sympa.org/_media/logos/old/sympa_multi_150x121.png" title="Sympa logo"/> 19 April 2018
+<img align="right" src="https://assets.sympa.community/logos/sympa_multi_150x121.png" title="Sympa logo"/> 19 April 2018
 
 The Sympa Community is proud to release the newest version of Sympa.
 

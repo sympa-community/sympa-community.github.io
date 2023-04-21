@@ -12,7 +12,7 @@ tag_name: 6.2.22
 title: Sympa 6.2.22 released
 ---
 
-<img align="right" src="https://www.sympa.org/_media/logos/old/sympa_multi_150x121.png" title="Sympa logo"/> 1 October 2017
+<img align="right" src="https://assets.sympa.community/logos/sympa_multi_150x121.png" title="Sympa logo"/> 1 October 2017
 
 The Sympa Community is proud to release the newest  version of Sympa.
 

@@ -22,5 +22,5 @@ tag_name: 6.2.46
 title: Sympa 6.2.46 released
 ---
 
-<img align="right" src="https://www.sympa.org/_media/logos/old/sympa_nivx_gris_150x121.png" title="Sympa logo"/> **\*\*\*Withdrawn\*\*\***
+<img align="right" src="https://assets.sympa.community/logos/sympa_nivx_gris_150x121.png" title="Sympa logo"/> **\*\*\*Withdrawn\*\*\***
 

@@ -32,7 +32,7 @@ tag_name: 6.2.54
 title: Sympa 6.2.54 released
 ---
 
-<img align="right" src="https://www.sympa.org/_media/logos/old/sympa_multi_150x121.png" title="Sympa logo"/> 24 February 2020
+<img align="right" src="https://assets.sympa.community/logos/sympa_multi_150x121.png" title="Sympa logo"/> 24 February 2020
 
 The Sympa Community is proud to release the newest version of Sympa.
 

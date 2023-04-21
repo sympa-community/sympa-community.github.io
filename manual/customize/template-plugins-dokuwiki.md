@@ -15,7 +15,7 @@ The idea is to authorize a user to access part of the wiki if he/she is subscrib
 
 Using Sympa's SOAP server one can get the user's lists, we just need a way for DokuWiki to automatically do it and add the lists as groups to the user definition.
 
-[This plugin](https://www.sympa.org/_media/contribs/dokuwiki/sympagroups.zip) does just that (you can copy-paste the link in your wiki's plugin manager page).
+[This plugin](https://assets.sympa.community/old-contribs/dokuwiki/sympagroups.zip) does just that (you can copy-paste the link in your wiki's plugin manager page).
 
 ### Configuration parameters
 

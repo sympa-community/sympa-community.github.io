@@ -12,7 +12,7 @@ tag_name: 6.2.17b.2
 title: Sympa 6.2.17 beta 2 released
 ---
 
-<img align="right" src="https://www.sympa.org/_media/logos/old/sympa_beta.png" title="Sympa beta logo"/> 15 June 2017
+<img align="right" src="https://assets.sympa.community/logos/sympa_beta.png" title="Sympa beta logo"/> 15 June 2017
 
 The Sympa Community is proud to release the second beta of the next version of sympa. Please install it to test and report bugs, or translate user interface to your language, if you want to help the sympa community to deliver a more reliable version of Sympa.
 

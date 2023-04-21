@@ -27,7 +27,7 @@ tag_name: 6.2.68
 title: Sympa 6.2.68 released
 ---
 
-<img align="right" src="https://www.sympa.org/_media/logos/old/sympa_multi_150x121.png" title="Sympa logo"/> 25th January 2022
+<img align="right" src="https://assets.sympa.community/logos/sympa_multi_150x121.png" title="Sympa logo"/> 25th January 2022
 
 The Sympa Community is proud to release the newest version of Sympa.
 
