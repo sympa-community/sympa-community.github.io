@@ -191,7 +191,7 @@ my $response = $soap->authenticateRemoteAppAndRun('myTestApp',
     'subscribe', ['myList@mail.example.org']);
 ```
 
-[S. Santoro](mailto:dereckson@espace-win.org) wrote its own [PHP Trusted Application library for Sympa](https://www.sympa.org/contribs/index#php_soap_library).
+[S. Santoro](mailto:dereckson@espace-win.org) wrote its own [PHP Trusted Application library for Sympa](https://assets.sympa.community/old-contribs/#php_soap_library).
 
 Client-side programming
 -----------------------

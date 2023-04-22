@@ -283,7 +283,7 @@ print '</body></html>';
 
 ### How to do it using PHP ?
 
-Chris Hastie has sumitted a [contrib for sharing Sympa sessions with PHP applications](https://www.sympa.org/contribs/index#how_to_share_sympa_session_with_other_php_applications).
+Chris Hastie has sumitted a [contrib for sharing Sympa sessions with PHP applications](https://assets.sympa.community/old-contribs/#how_to_share_sympa_session_with_other_php_applications).
 
 <!--
 ### What about using SOAP/HTTP API to access Sympa sessions

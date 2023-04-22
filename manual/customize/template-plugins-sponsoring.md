@@ -13,7 +13,7 @@ Install instructions
 
 ### To enable the functionnality
 
-  - untar [sponsoring.tgz](https://www.sympa.org/_media/templates_plugins/sponsoring.tgz) to the [``$MODULEDIR``](../layout.md#moduledir)`/Sympa/Template/Plugin` directory
+  - untar [sponsoring.tgz](https://assets.sympa.community/media/templates_plugins/sponsoring.tgz) to the [``$MODULEDIR``](../layout.md#moduledir)`/Sympa/Template/Plugin` directory
 
   - copy the files from the `mail_tt2` sub-directory to the relevant
     `mail_tt2` directory (either in
