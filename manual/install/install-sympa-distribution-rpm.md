@@ -74,38 +74,10 @@ Upgrading
 Installing earlier version
 --------------------------
 
-If you have to (re)install RPMs of Sympa prior to 6.2.44, they are
-provided by
-[repository on Sympa-JA.org](http://sympa-ja.org/download/rhel/).
+If you have to (re)install RPMs of Sympa prior to 6.2.44, check the
+[archive](http://assets.sympa.community/old-packages/).
 
 > **Note**
 >
->   * Sympa-JA.org repository will no longer be updated.
->     And _it may be shut down_ in the near future.
->     Unless you needed particular historic version of Sympa,
+>   * Unless you needed particular historic version of Sympa,
 >     follow the instruction described in above.
->
->   * If you have been using Sympa-JA.org repository, you may
->     seamlessly upgrade `sympa` package with EPEL.
-
-  1. Install EPEL repository (see "[Requirements](#requirements)" above).
-
-  2. Add Sympa repository.
-
-     Download a configuration file of either repository:
-     
-       * [Repository on Sympa-JA.org](http://sympa-ja.org/download/rhel/sympa-ja.org.rhel.repo)
-
-     and save it in ``/etc/yum.repos.d/`` directory.
-
-     Then update cache:
-     ```bash
-     # yum makecache
-     ```
-
-  3. Install Sympa:
-     ```bash
-     # yum install sympa
-     ```
-
-By the steps above, Sympa and dependent packages will be installed.
