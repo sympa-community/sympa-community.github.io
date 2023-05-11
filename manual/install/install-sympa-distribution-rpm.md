@@ -30,6 +30,9 @@ Requirements
     package.  For more details see
     [EPEL description](https://docs.fedoraproject.org/en-US/epel/#_quickstart).
 
+    Note that you need enabling additional `CRB` repository:
+    Some dependent packages are shipped in it.
+
   * [Fedora](https://getfedora.org/):
 
     Packages for Sympa are provided.
@@ -37,9 +40,6 @@ Requirements
   * [Mageia](https://www.mageia.org/):
 
     Stable package for Sympa is provided.
-
-  * Note that some distributions need enabling additional repository/ies:
-    Some dependent packages are shipped in those repositories.
 
 Installing
 ----------
