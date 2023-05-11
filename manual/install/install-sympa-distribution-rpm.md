@@ -23,14 +23,15 @@ Requirements
   * Red Hat Enterprise Linux (RHEL) or several clones of it
     ([CentOS](https://www.centos.org/download/),
     [Rocky Linux](https://rockylinux.org/),
-    [AlmaLinux](https://almalinux.org/)):
+    [AlmaLinux](https://almalinux.org/)
+    and so on):
 
     [Extra Packages for Enterprise Linux](https://docs.fedoraproject.org/en-US/epel/)
     (EPEL) repository has to be added.  It can be done by installing ``epel-release``
     package.  For more details see
     [EPEL description](https://docs.fedoraproject.org/en-US/epel/#_quickstart).
 
-    Note that you need enabling additional `CRB` repository:
+    Note that you may need enabling additional `CRB` repository:
     Some dependent packages are shipped in it.
 
   * [Fedora](https://getfedora.org/):
