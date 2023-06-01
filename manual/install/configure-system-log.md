@@ -55,6 +55,7 @@ Tests
          ```bash
          # $SCRIPTDIR/testlogs.pl
          ```
+
      And confirm that following message will be shown:
      ```
      Ok, now check logs
