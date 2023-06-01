@@ -44,11 +44,17 @@ Instruction by syslog servers
 Tests
 -----
 
-  1. Run [``testlogs``](/gpldoc/man/testlogs.1.html) utility (Note: replace
-     [``$SCRIPTDIR``](../layout.md#scriptdir) below):
-     ```bash
-     # $SCRIPTDIR/testlogs.pl
-     ```
+  1. Run test command.
+
+       * With Sympa 6.2.72 and later, run:
+         ``` bash
+         # sympa test syslog
+         ```
+       * With Sympa 6.2.70 or earlier, run (Note: replace
+         [``$SCRIPTDIR``](../layout.md#scriptdir) below):
+         ```bash
+         # $SCRIPTDIR/testlogs.pl
+         ```
      And confirm that following message will be shown:
      ```
      Ok, now check logs

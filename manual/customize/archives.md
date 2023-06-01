@@ -225,13 +225,10 @@ The rebuild feature is accessible to listmasters only from the `Sympa admin` - `
 "[Listmaster portal](../admin/web-interface.md#listmaster-portal)").
 The rebuild is then run by the `archived.pl` process.
 
-Importing archives of earlier version
--------------------------------------
-
-Since version 5.2b, Sympa maintains a single archive of mailing lists, but it previously maintained both a mail archive (stored in the `list_data/mylist/archives/` directories) and a web archive (for historical reasons). You may need to import existing mail archives in a list mail archive, using the provided `arc2webarc.pl` script.
-See ~~[``arc2webarc(1)``](/gpldoc/man/arc2webarc.pl.1.html)~~.
-
 <!--
+Importing archives
+------------------
+
 If you are moving from another mailing list software to Sympa, you are also facing messages archive import problems. Check the [Contrib section](http://www.sympa.org/wiki/contribs/index "http://www.sympa.org/wiki/contribs/index") for useful migration tools.
 -->
 

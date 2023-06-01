@@ -189,8 +189,10 @@ below.
       * Built-in authantication:
         RC4 reversible encryption of password storage in database using
         Crypt::CipherSaber was dropped.  If you have been using it, run
-        [``upgrade_sympa_passowrd.pl``](/gpldoc/man/upgrade_sympa_password.1.html) to
-        rehash passwords stored in database.
+        [``sympa upgrade password``](/gpldoc/man/sympa-upgrade-password.1.html)
+        (if you are upgrading to Sympa 6.2.70 or earlier,
+        [``upgrade_sympa_passowrd.pl``](/gpldoc/man/upgrade_sympa_password.1.html))
+        to rehash passwords stored in database.
 
         > **Note**
         >
@@ -397,13 +399,25 @@ upgrading. Here is the ordered list of operations to perform.
 
      These are always needed you are using either binary distribution or source
      distribution.
-     ``` bash
-     # upgrade_bulk_spool.pl              # move messages stored in database to filesystem
-     # upgrade_send_spool.pl              # move messages sent through web interface to the new format
-     ```
-     For details, read manual pages of
-     [upgrade_bulk_spool.pl](/gpldoc/man/upgrade_bulk_spool.1.html) and
-     [upgrade_send_spool.pl](/gpldoc/man/upgrade_send_spool.1.html).
+
+       * If you are upgrading to Sympa 6.2.72 or later:
+         ``` bash
+         # sympa upgrade outgoing             # move messages stored in database to filesystem
+         # sympa upgrade incoming             # move messages sent through web interface to the new format
+         ```
+         For details, read manual pages of
+         [`sympa upgrade outgoing`](/gpldoc/man/sympa-upgrade-outgoing.1.html)
+         and
+         [`sympa upgrade incoming`](/gpldoc/man/sympa-upgrade-incoming.1.html).
+
+       * If you are upgrading to Sympa 6.2.70 or earlier:
+         ``` bash
+         # upgrade_bulk_spool.pl              # move messages stored in database to filesystem
+         # upgrade_send_spool.pl              # move messages sent through web interface to the new format
+         ```
+         For details, read manual pages of
+         [`upgrade_bulk_spool.pl`](/gpldoc/man/upgrade_bulk_spool.1.html) and
+         [`upgrade_send_spool.pl`](/gpldoc/man/upgrade_send_spool.1.html).
 
   4. For all your **custom action** templates, move them into
      **[``$SYSCONFDIR``](../layout.md#sysconfdir)`/custom_actions`**

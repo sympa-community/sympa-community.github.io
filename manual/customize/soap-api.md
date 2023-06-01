@@ -161,16 +161,37 @@ This configuration file [`trusted_applications.conf`](/gpldoc/man/trusted_applic
 
     A comma separated list of variables that can be set by the remote application and that will be used by the Sympa SOAP server when evaluating an authorization scenario. If you list `USER_EMAIL` in this parameter, then the remote application can act as a user. Any other variable such as `remote_host` can be listed.
 
-You can test your SOAP service using the [`sympa_soap_client.pl`](/gpldoc/man/sympa_soap_client.1.html) sample script as follows:
+You can test your SOAP service using the
+[`sympa test soap`](/gpldoc/man/sympa-test-soap.1.html)
+command (it was previously named
+[`sympa_soap_client.pl`](/gpldoc/man/sympa_soap_client.1.html))
+as follows:
 
+With Sympa 6.2.72 and later:
 ``` bash
-$ sympa_soap_client.pl --soap_url=http://web.example.org/sympasoap \
+$ sympa test soap \
+ --service=createList --trusted_application=myTestApp \
+ --trusted_application_password='myTestAppPwd' \
+ --proxy_vars='USER_EMAIL=userProxy@my.dom.ain' \
+ --service_parameters='listA,listSubject,discussion_list,description,myTopic' \
+ https://web.example.org/sympasoap
+
+$ sympa test soap \
+ --service=add --trusted_application=myTestApp \
+ --trusted_application_password='myTestAppPwd' \
+ --proxy_vars='USER_EMAIL=userProxy@my.dom.ain' \
+ --service_parameters='listA,someone@some;domain,name' \
+ https://web.example.org/sympasoap
+```
+With Sympa 6.2.70 or earlier:
+``` bash
+$ sympa_soap_client.pl --soap_url=https://web.example.org/sympasoap \
  --service=createList --trusted_application=myTestApp \
  --trusted_application_password='myTestAppPwd' \
  --proxy_vars='USER_EMAIL=userProxy@my.dom.ain' \
  --service_parameters='listA,listSubject,discussion_list,description,myTopic'
 
-$ sympa_soap_client.pl --soap_url=http://web.example.org/sympasoap \
+$ sympa_soap_client.pl --soap_url=https://web.example.org/sympasoap \
  --service=add --trusted_application=myTestApp \
  --trusted_application_password='myTestAppPwd' \
  --proxy_vars='USER_EMAIL=userProxy@my.dom.ain' \
@@ -184,7 +205,7 @@ use SOAP::Lite;
 
 my $soap = SOAP::Lite->new();
 $soap->uri('urn:sympasoap');
-$soap->proxy('http://web.exemple.org/sympasoap');
+$soap->proxy('https://web.exemple.org/sympasoap');
 
 my $response = $soap->authenticateRemoteAppAndRun('myTestApp',
     'myTestAppPwd', 'USER_EMAIL=userProxy@my.server',
@@ -200,7 +221,8 @@ Sympa is distributed with two sample clients written in Perl and in PHP. The Sym
 
 Depending on your programming language and the SOAP library you are using, you will either directly contact the SOAP service (as with the Perl SOAP::Lite module), or first load the WSDL description of the service (as with PHP nusoap or Java Axis). Axis is able to create a stub from the WSDL document.
 
-The WSDL document describing the service should be fetched through *WWSympa*'s dedicated URL, e.g. `http://web.example.org/sympa/wsdl`.
+The WSDL document describing the service should be fetched through
+*WWSympa*'s dedicated URL, e.g. `https://web.example.org/sympa/wsdl`.
 
 Note: the `login()` function maintains a login session using HTTP cookies. If you are not able to maintain this session by analyzing and sending appropriate cookies under SOAP, then you should use the `authenticateAndRun()` function that does not require cookies to authenticate.
 
@@ -213,7 +235,7 @@ Note: the `login()` function maintains a login session using HTTP cookies. If yo
 >     [CONTRIBUTING](../../CONTRIBUTING.md)).
 
 First, download
-[Apache Axis](http://axis.apache.org/axis2/java/core/download.html).
+[Apache Axis](https://axis.apache.org/axis2/java/core/download.html).
 
 You must add the libraries provided with Apache Axis to your CLASSPATH. These libraries are:
 
@@ -237,13 +259,13 @@ $ java org.apache.axis.wsdl.WSDL2Java -av <WSDL URL>
 For example:
 
 ``` bash
-$ java org.apache.axis.wsdl.WSDL2Java -av http://web.example.org/sympa/wsdl
+$ java org.apache.axis.wsdl.WSDL2Java -av https://web.example.org/sympa/wsdl
 ```
 
 Exemple of screen output during generation of Java files:
 
 ``` code
-  Parsing XML file:  http://web.example.org/sympa/wsdl
+  Parsing XML file:  https://web.example.org/sympa/wsdl
   Generating org/example/web/sympa/msdl/ListType.java
   Generating org/example/web/sympa/msdl/SympaPort.java
   Generating org/example/web/sympa/msdl/SOAPStub.java
@@ -276,7 +298,12 @@ Here is a simple Java code that invokes the generated stub to perform a `casLogi
 The test command line SOAP client
 ---------------------------------
 
-Sympa distribution includes a simple command line application that allows you to test SOAP request towards your Sympa SOAP server. This script is named [``sympa_soap_client.pl``](/gpldoc/man/sympa_soap_client.1.html) and is located in [``$SCRIPTDIR``](../layout.md#scriptdir) directory.
+Sympa distribution includes a simple command line application that allows you
+to test SOAP request towards your Sympa SOAP server. This is invoked as
+[``sympa test soap``](/gpldoc/man/sympa-test-soap.1.html)) command
+(it was previously named
+[``sympa_soap_client.pl``](/gpldoc/man/sympa_soap_client.1.html)
+and was located in [``$SCRIPTDIR``](../layout.md#scriptdir) directory).
 
 The [four methods](#introduction) available through the Sympa SOAP server can be tested using this tool. There is no explicit option to tell what access method is used. It is inferred based on what options are provided to the script.
 
@@ -286,13 +313,19 @@ You must use the id of a session actually used at the time you launch the comman
 
 #### Command line
 
+With Sympa 6.2.72 and later:
+``` bash
+$ sympa test soap \
+ --cookie=<cookie identifier> \
+ <SOAP server URL>
+```
+With Sympa 6.2.70 or earlier:
 ``` bash
 $ sympa_soap_client.pl \
  --soap_url=<SOAP server URL> \
  --cookie=<cookie identifier>
 ```
-
-  - ``--soap_url``
+  - ``<SOAP server URL>``
 
     The URL to your Sympa SOAP server.
 
@@ -324,16 +357,24 @@ It is done by calling the script and providing two kind of arguments :
 
 Actually, providing the HTTP cookie to a command line sums up in providing a session id, i.e. a simple number. You must use the value of a session cookie actually used at the time you launch the command. It is the “`sympa_session`” cookie set when accessing to the Sympa web interface.
 
+With Sympa 6.2.72 and later:
+``` bash
+$ sympa test soap \
+ --service=<a sympa service> \
+ --service_parameters=<value1,value2,value3> \
+ --session_id=<cookie identifier> \
+ <SOAP server URL>
+```
+With Sympa 6.2.70 or earlier:
 ``` bash
 $ sympa_soap_client.pl --soap_url=<SOAP server URL> \
  --service=<a sympa service> \
  --service_parameters=<value1,value2,value3> \
  --session_id=<cookie identifier>
 ```
-
 The options used are:
 
-  - ``--soap_url``
+  - ``<SOAP server URL>``
 
     The URL to your Sympa SOAP server.
 
@@ -351,6 +392,16 @@ The options used are:
 
 #### Authentication using a user name and password
 
+With Sympa 6.2.72 and later:
+``` bash
+$ sympa_soap_client.pl \
+ --service=<a sympa service> \
+ --service_parameters=<value1,value2,value3> \
+ --user_email=<email> \
+ --user_password=<password> \
+ <SOAP server URL>
+```
+With Sympa 6.2.70 or earlier:
 ``` bash
 $ sympa_soap_client.pl --soap_url=<SOAP server URL> \
  --service=<a sympa service> \
@@ -361,7 +412,7 @@ $ sympa_soap_client.pl --soap_url=<SOAP server URL> \
 
 The options used are:
 
-  - ``--soap_url``
+  - ``<SOAP server URL>``
 
     The URL to your Sympa SOAP server.
 
@@ -383,6 +434,18 @@ The options used are:
 
 #### Access through a trusted application
 
+With Sympa 6.2.72 and later:
+``` bash
+$ sympa test soap \
+ --service=<a sympa service> \
+ --service_parameters=<value1,value2,value3> \
+ --cookie=<cookie identifier> \
+ --trusted_application=<app name> \
+ --trusted_application_password=<password> \
+ --proxy_vars=<id=value,id2=value2> \
+ <SOAP server URL>
+```
+With Sympa 6.2.70 or earlier:
 ``` bash
 $ sympa_soap_client.pl --soap_url=<SOAP server URL> \
  --service=<a sympa service> \
@@ -395,7 +458,7 @@ $ sympa_soap_client.pl --soap_url=<SOAP server URL> \
 
 The options used are:
 
-  - ``--soap_url``
+  - ``<SOAP server URL>``
 
     The URL to your Sympa SOAP server.
 
@@ -472,13 +535,13 @@ Output example:
 ``` code
 lists....
 0
-        'homepage=http://domain.tld/sympa/info/amietestdv01;subject=Amical;listAddress=amietestdv01@domain.tld'
+        'homepage=https://web.example.org/sympa/info/amietestdv01;subject=Amical;listAddress=amietestdv01@mail.example.org'
 1
-        'homepage=http://domain.tld/sympa/info/archeologie;subject=Liste sur l'archéologie;listAddress=archeologie@domain.tld'
+        'homepage=https://web.example.org/sympa/info/archeologie;subject=Liste sur l'archéologie;listAddress=archeologie@mail.example.org'
 2
-        'homepage=http://domain.tld/sympa/info/blackmambo;subject=A black mambo;listAddress=blackmambo@domain.tld'
+        'homepage=https://web.example.org/sympa/info/blackmambo;subject=A black mambo;listAddress=blackmambo@mail.example.org'
 3
-        'homepage=http://domain.tld/sympa/info/bluemambo;subject=Another mambo. This one is blue.;listAddress=bluemambo@domain.tld'
+        'homepage=https://web.example.org/sympa/info/bluemambo;subject=Another mambo. This one is blue.;listAddress=bluemambo@mail.example.org'
 ```
 
 #### complexLists
@@ -497,30 +560,30 @@ Output example:
 AuthenticateAndRun complexLists....
 0
         _homepage_
-                'http://domain.tld/sympa-dv/info/amietestdv01'
+                'https://web.example.org/sympa-dv/info/amietestdv01'
         _listAddress_
-                'amietestdv01@domain.tld'
+                'amietestdv01@mail.example.org'
         _subject_
                 'Amical'
 1
         _homepage_
-                'http://domain.tld/sympa-dv/info/archeologie'
+                'https://web.example.org/sympa-dv/info/archeologie'
         _listAddress_
-                'archeologie@domain.tld'
+                'archeologie@mail.example.org'
         _subject_
                 'List sur l'archéologie'
 2
         _homepage_
-                'http://domain.tld/sympa-dv/info/blackmambo'
+                'https://web.example.org/sympa-dv/info/blackmambo'
         _listAddress_
-                'blackmambo@domain.tld'
+                'blackmambo@mail.example.org'
         _subject_
                 'A black mambo'
 3
         _homepage_
-                'http://domain.tld/sympa-dv/info/bluemambo'
+                'https://web.example.org/sympa-dv/info/bluemambo'
         _listAddress_
-                'bluemambo@domain.tld'
+                'bluemambo@mail.example.org'
         _subject_
                 'Another mambo. This one is blue.'
 ```
@@ -549,13 +612,13 @@ Output example:
 ``` code
 which....
 0
-        'isOwner=1;homepage=http://domain.tld/sympa/info/amietestdv01;subject=Amical;listAddress=amietestdv01@domain.tld;isEditor=0;isSubscriber=0'
+        'isOwner=1;homepage=https://web.example.org/sympa/info/amietestdv01;subject=Amical;listAddress=amietestdv01@mail.example.org;isEditor=0;isSubscriber=0'
 1
-        'isOwner=1;homepage=http://domain.tld/sympa/info/archeologie;subject=Liste sur l'archéologie;listAddress=archeologie@domain.tld;isEditor=0;isSubscriber=0'
+        'isOwner=1;homepage=https://web.example.org/sympa/info/archeologie;subject=Liste sur l'archéologie;listAddress=archeologie@mail.example.org;isEditor=0;isSubscriber=0'
 2
-        'isOwner=1;homepage=http://domain.tld/sympa/info/blackmambo;subject=A black mambo;listAddress=blackmambo@domain.tld;isEditor=0;isSubscriber=0'
+        'isOwner=1;homepage=https://web.example.org/sympa/info/blackmambo;subject=A black mambo;listAddress=blackmambo@mail.example.org;isEditor=0;isSubscriber=0'
 3
-        'isOwner=1;homepage=http://domain.tld/sympa/info/bluemambo;subject=Another mambo. This one is blue.;listAddress=bluemambo@domain.tld;isEditor=0;isSubscriber=0'
+        'isOwner=1;homepage=https://web.example.org/sympa/info/bluemambo;subject=Another mambo. This one is blue.;listAddress=bluemambo@mail.example.org;isEditor=0;isSubscriber=0'
 ```
 
 #### complexWhich
@@ -572,7 +635,7 @@ Output example:
 complexWhich....
 0
         _homepage_
-                'http://dev-sympa.renater.fr/sympa-dv/info/redmambo'
+                'https://dev-sympa.renater.fr/sympa-dv/info/redmambo'
         _isEditor_
                 '0'
         _isOwner_
@@ -585,7 +648,7 @@ complexWhich....
                 'Amical'
 1
         _homepage_
-                'http://dev-sympa.renater.fr/sympa-dv/info/bluemambo'
+                'https://dev-sympa.renater.fr/sympa-dv/info/bluemambo'
         _isEditor_
                 '1'
         _isOwner_
@@ -598,7 +661,7 @@ complexWhich....
                 'Another mambo. This one is blue.'
 2
         _homepage_
-                'http://dev-sympa.renater.fr/sympa-dv/info/archeologie'
+                'https://dev-sympa.renater.fr/sympa-dv/info/archeologie'
         _isEditor_
                 '1'
         _isOwner_
@@ -611,7 +674,7 @@ complexWhich....
                 'Liste sur l'archéologie'
 3
         _homepage_
-                'http://dev-sympa.renater.fr/sympa-dv/info/blackmambo'
+                'https://dev-sympa.renater.fr/sympa-dv/info/blackmambo'
         _isEditor_
                 '0'
         _isOwner_
