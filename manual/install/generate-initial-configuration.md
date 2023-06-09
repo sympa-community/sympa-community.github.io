@@ -8,6 +8,9 @@ next: setup-database.md
 Generate initial configuration
 ==============================
 
+Binary distributions
+--------------------
+
 If you installed binary distribution (apt, RPM, ports, ...), initial
 configuration may have been prepared during installation: You can
 [skip this section](setup-database.md).
