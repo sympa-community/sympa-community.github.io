@@ -11,8 +11,17 @@ Generate initial configuration
 General instruction
 -------------------
 
-Edit [``sympa.conf``](../layout.md#config) so that it will contain at least
-two lines such as:
+With Sympa 6.2.70 or later, the following command will generate a
+configuration file [`sympa.conf`](../layout.md#config)
+containing the full set of parameters described in this manual.
+
+``` bash
+# sympa config create
+```
+If you are using earlier version, or if you prefer to keep your
+configuration file as concise as possible, you may want to start
+with [`sympa.conf`](../layout.md#config) file containing only the
+following two lines:
 ```
 domain mail.example.org
 listmaster your@e-mail.addr.ess,other@email.addr.ess
@@ -29,7 +38,7 @@ listmaster your@e-mail.addr.ess,other@email.addr.ess
 
     Real address(es) of listmasters.  If your Sympa provides multiple domains,
     it may have listmasters by each domain.  However, listmaster(s) defined in
-    [``sympa.conf``](/gpldoc/man/sympa_config.5.html#config) have privileges to manage
+    [`sympa.conf`](../layout.md#config) have privileges to manage
     all domains, namely "super-listmaster".
 
     Multiple addresses have to be separated by comma
@@ -41,7 +50,7 @@ listmaster your@e-mail.addr.ess,other@email.addr.ess
 >
 >   * On Sympa prior to 6.2.34,
 >     [``wwsympa_url``](/gpldoc/man/sympa_config.5.html#wwsympa_url) parameter was also
->     required.  If it is the case, you may specify appropriate value at this
+>     mandatory.  If it is the case, you may specify appropriate value at this
 >     time.
 
 Additionally, following parameter may be useful:
@@ -58,6 +67,5 @@ Additionally, following parameter may be useful:
     ```
     The default value is ``en-US`` (American English).
 
-To know about all available parameters in sympa.conf,
-see [sympa.conf(5)](/gpldoc/man/sympa_config.5.html).
-
+To know about all available parameters in `sympa.conf`,
+see [sympa_config(5)](/gpldoc/man/sympa_config.5.html).
