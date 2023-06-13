@@ -179,7 +179,7 @@ Summary of parameters
 | [`dkim_signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_signer_identity)<sup>(\*)</sup> | (for messages in domain context) none | none |
 | --- | (for lists) _`listname`_`-request@domain` | [`dkim_parameters` > `signer_identity`](/gpldoc/man/sympa_config.5.html#dkim_parameterssigner_identity)<sup>(\*)</sup> |
 | [`arc_feature`](/gpldoc/man/sympa_config.5.html#arc_feature) | `off` | not pertinent |
-| [`arc_srvid`](/gpldoc/man/sympa_config.5.html#arc_srvid) | `arc_signer_domain` | not pertinent |
+| [`arc_srvid`](/gpldoc/man/sympa_config.5.html#arc_srvid) | value of `arc_parameters.signer_domain`: see below | not pertinent |
 | [`arc_parameters.signer_domain`](/gpldoc/man/sympa_config.5.html#arc_parameterssigner_domain) | `dkim_parameters.signer_domain` if set, otherwise the mail domain | [`arc_parameters` > `signer_domain`](/gpldoc/man/sympa_config.5.html#arc_parameterssigner_domain) |
 | [`arc_parameters.selector`](/gpldoc/man/sympa_config.5.html#arc_parametersselector) | `dkim_parameters.selector` if set | [`arc_parameters` > `selector`](/gpldoc/man/sympa_config.5.html#arc_parametersselector) |
 | [`arc_parameters.private_key_path`](/gpldoc/man/sympa_config.5.html#arc_parametersprivate_key_path) | `dkim_parameters.private_key_path` if set | [`arc_parameters` > `private_key_path`](/gpldoc/man/sympa_config.5.html#arc_parametersprivate_key_path) |
