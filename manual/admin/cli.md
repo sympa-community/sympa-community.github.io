@@ -31,6 +31,8 @@ Administration tools
 > **Note**
 >
 >   * `sympa_wizard.pl` command line utility to help performing Sympa
->     initial setup was deprecated on Sympa 6.2.70.
->     The manual page for earlier versions is
+>     initial setup was deprecated on Sympa 6.2.70 and part of its
+>     functionalities were replaced with
+>     [`sympa config`](/gpldoc/man/sympa-config.1.html) command.
+>     The manual page of `sympa_wizard.pl` for earlier versions is
 >     [here](/gpldoc/man/sympa_wizard.1.html).
