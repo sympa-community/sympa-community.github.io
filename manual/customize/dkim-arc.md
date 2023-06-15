@@ -10,6 +10,10 @@ DKIM and ARC features for Sympa
 
   * DKIM feature has been introduced in Sympa version **6.1**.
   * ARC feature has been introduced in Sympa version **6.2.38**.
+    > **Note**
+    >
+    >   * Unfortunately, some binary distributions including EPEL7 RPM do not
+    >     support ARC feature.
 
 DKIM ([RFC 6376](https://tools.ietf.org/html/rfc6376.html)) is a
 cryptographic signature method designed to prevent phishing.
