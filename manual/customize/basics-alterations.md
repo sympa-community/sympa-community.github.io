@@ -86,6 +86,20 @@ Some of these alterations can be configured.
     `Archived-At` ([RFC 5064](https://tools.ietf.org/html/rfc5064)) fields are
     added.
 
+      - Note that, if message personalization is enabled (see
+        "[Message personalization](../customize/message-personalization.md)")
+        and DKIM signing and/or ARC sealing are enabled (see
+        "[DKIM and ARC features for Sympa](../customize/dkim-arc.md)"),
+        `List-Unsubscribe` RFC 2369 field will be replaced with the
+        `List-Unsubscribe` and `List-Unsubscribe-Post` fields for
+        [RFC 8058](https://tools.ietf.org/html/rfc8058) One-Click Unsubscribe
+        at the step described in the next section.
+        > **Note**
+        >
+        >   * RFC 8058 One-Click Unsubscribe feature was introduced on Sympa 6.2.72.
+        >     However, some binary distributions including EPEL7 RPM do not support this
+        >     feature.
+
 ### Altering message body
 
   - Message body is altered according to message reception mode chosen by each
