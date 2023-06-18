@@ -1,4 +1,4 @@
-markdown: 
+markdown: GFM
 remote_theme: sympa-community/sympa-pages-theme
 include:
   - CONTRIBUTING.md
