@@ -142,7 +142,7 @@ Exim4 configuration
   # Sympa transport for queue program
   sympa_queue_transport:
     driver = pipe
-    command = /usr/lib/sympa/bin/queue ${local_part}\@$domain
+    command = /usr/lib/sympa/bin/queue ${local_part_data}@${domain_data}
     user = sympa
     group = sympa
     return_fail_output
@@ -151,7 +151,7 @@ Exim4 configuration
   # Sympa transport for bouncequeue program
   sympa_bounce_queue_transport:
     driver = pipe
-    command = /usr/lib/sympa/bin/bouncequeue ${local_part}\@$domain
+    command = /usr/lib/sympa/bin/bouncequeue ${local_part_data}@${domain_data}
     user = sympa
     group = sympa
     return_fail_output
