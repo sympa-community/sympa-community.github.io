@@ -138,7 +138,7 @@ necessary.
      # sysrc spawn_fcgi_bindsocket="$PIDDIR/wwsympa.socket"
      # sysrc spawn_fcgi_bindsocket_mode="0600 -U www"
      # sysrc spawn_fcgi_username="sympa"
-     # sysrc spawn_fcgi_groupname"sympa"
+     # sysrc spawn_fcgi_groupname="sympa"
      ```
 
      > **Note**
