@@ -150,7 +150,7 @@ necessary.
 
   2. Start WWSympa FastCGI service.
      ```bash
-     # /usr/local/etc/rc.d/spawn-fcgi start
+     # service spawn-fcgi start
      ```
 
 #### System V init script
