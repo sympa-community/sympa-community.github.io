@@ -15,7 +15,7 @@ This adds Whitelist and Modlist functionality to Sympa, by using an included sce
 Download
 --------
 
-You can retrieve this plugin from [Steve Shipway's web site](http://steveshipway.org/software/f_sympa.html).
+You can retrieve this plugin from [Steve Shipway's GitHub repository](https://github.com/sshipway/sympa-6.2-plugins).
 
 Installing
 ----------
