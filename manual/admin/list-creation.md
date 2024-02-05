@@ -224,7 +224,7 @@ The list rejection message and list creation notification message are both templ
 
 ### Who can create lists on the web interface
 
-(Work in progress)
+By default, any authenticated user can submit a new list creation request that goes to the listmaster. If you wish to disable list creation from the web, the fastest way is to customize `create_list_request.tt2` for your instance or your domain to remove the submit button.
 
 ### Typical list profile and web interface
 
