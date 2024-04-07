@@ -143,7 +143,7 @@ but support for ARC is still insufficient.  For this reason, some
 recipient sites reject message delivery based solely on the result of DMARC
 verification without ARC verification.
 
-As a remedy, it is recommended to enalbe
+As a remedy, it is recommended to enable
 [DMARC protection](../../customize/dmarc-protection.md) for domains that have adopted the
 `reject` policy.  To do it, add following line to `sympa.conf` or
 `robot.conf`:
