@@ -79,7 +79,7 @@ Tests
     for example:
     ``` code
     Received: (Information added by MTA...)
-    Authetication-Results: mx.example.org;
+    Authentication-Results: mx.example.org;
             dkim=pass ...;
             spf=pass ...;
             dmarc=none
