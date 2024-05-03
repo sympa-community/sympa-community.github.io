@@ -37,8 +37,9 @@ Instruction by HTTP servers
          server_name localhost.localdomain;  # Change it!
 
          location /sympa {
-             include       /etc/nginx/fastcgi_params;
-             fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
+             include       fastcgi_params;
+             fastcgi_param SERVER_NAME $host;  # See note
+	     fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
          }
 
          # Section below is needed for 6.2.28 or later.
@@ -65,7 +66,8 @@ Instruction by HTTP servers
      replace [``$PIDDIR``](../layout.md#piddir)):
      ```code
          location /sympasoap {
-             include       /etc/nginx/fastcgi_params;
+             include       fastcgi_params;
+             fastcgi_param SERVER_NAME $host;  # See note
              fastcgi_pass  unix:$PIDDIR/sympasoap.socket;
          }
      ```
@@ -77,6 +79,10 @@ Instruction by HTTP servers
      >
      >       - On RPM, ``/etc/nginx/conf.d/sympa.conf`` file is prepared by
      >         ``sympa-nginx`` package.
+     >
+     >   * The line `fastcgi_param SERVER_NAME $host;` after `include` line
+     >     is required if you will manage multiple virtual hosts, i.e.
+     >     `server_name` directive has multiple server names.
      >
      >   * With earlier version of Sympa, you may have to add following things:
      >
