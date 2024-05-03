@@ -39,7 +39,7 @@ Instruction by HTTP servers
          location /sympa {
              include       fastcgi_params;
              fastcgi_param SERVER_NAME $host;  # See note
-	     fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
+             fastcgi_pass  unix:$PIDDIR/wwsympa.socket;
          }
 
          # Section below is needed for 6.2.28 or later.
