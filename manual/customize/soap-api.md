@@ -75,6 +75,10 @@ The following functions are currently available through the Sympa SOAP server :
   - `review`
 
     Lists the members of a given list.
+    
+  - `fullReview`
+
+    Lists the members, editors and owners of a given list.
 
   - `subscribe`
 
@@ -597,6 +601,19 @@ Parameters:
 Output example:
 
 ``` code
+0
+        _homepage_
+                'http://domain.tld/sympa-dv/info/bluemambo'
+        _info_
+                'Description list of blue mambo. A long line.'
+        _isEditor_
+                '1'
+        _isOwner_
+                '1'
+        _listAddress_
+                'bluemambo@domain.tld'
+        _subject_
+                'Another mambo. This one is blue.'
 ```
 
 #### which
@@ -727,6 +744,40 @@ review....
         'mail2@renater.fr'
 2
         'mail3@renater.fr'
+```
+
+#### fullReview
+
+Parameters:
+
+  - the name of the list for which we want the subscribers, editors and owner list (mandatory).
+
+Output example:
+
+``` code
+review....
+0
+        _email_
+                'mail1@renater.fr'
+        _gecos_
+                UNDEF
+        _isEditor_
+                '0'
+        _isOwner_
+                '0'
+        _isSubscriber_
+                '1'
+1
+        _email_
+                'mail2@renater.fr'
+        _gecos_
+                'My name'
+        _isEditor_
+                '0'
+        _isOwner_
+                '1'
+        _isSubscriber_
+                '0'
 ```
 
 #### subscribe
