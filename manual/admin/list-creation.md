@@ -224,7 +224,11 @@ The list rejection message and list creation notification message are both templ
 
 ### Who can create lists on the web interface
 
-(Work in progress)
+Who can create lists on the web interface is controled by `create_list` [authorisation scenario](../customize/basics-scenarios.md).  It may be selected by setting [`create_list`](/gpldoc/man/sympa_config.5.html#create_list) parameter.  Possible options by default are:
+
+-   `listmaster`: Only listmaster can create a new list.
+-   `public_listmaster` (default): Any authenticated user can submit a new list creation request that goes to the listmaster.
+-   `closed`: List creation on the web interface is disabled.  This option is available as of Sympa 6.2.64 or later.
 
 ### Typical list profile and web interface
 
