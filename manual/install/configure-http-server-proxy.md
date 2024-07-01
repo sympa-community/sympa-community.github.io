@@ -132,8 +132,8 @@ Instruction by HTTP servers
      ...
 
      <Location /sympa>
-         SetHandler "proxy:unix:$PIDDIR/wwsympa.socket|fcgi://"
-	 # Don't forget to edit lines below!
+         SetHandler "proxy:unix:$PIDDIR/wwsympa.socket|fcgi://localhost"
+         # Don't forget to edit lines below!
          Require local
          #Require all granted
      </Location>
@@ -160,8 +160,8 @@ Instruction by HTTP servers
 
      ```
      <Location /sympasoap>
-         SetHandler "proxy:unix:$PIDDIR/sympasoap.socket|fcgi://"
-	       # Don't forget to edit lines below!
+         SetHandler "proxy:unix:$PIDDIR/sympasoap.socket|fcgi://localhost"
+         # Don't forget to edit lines below!
          Require local
          #Require all granted
      </Location>
