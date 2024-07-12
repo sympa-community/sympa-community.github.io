@@ -69,7 +69,7 @@ If something went unexpected, check mail system log and configuration of MTA.
 
 ### Telnet Example
 
-  1. Open your favorite telnet tools (telnet or putty for example).
+  1. Open your favorite telnet tools, for example `telnet`, netcat (`nc`), PuTTY.
 
   2. Open a session to your postfix server and use this command (replace
      example by your addresses).
