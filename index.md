@@ -3,7 +3,7 @@ layout: home
 title: Sympa - Mailing List Management Software
 ---
 
-  - [Documentation](docs.html)
+  - [Documentation](docs)
   - [Community and support](community/)
 
 ----
