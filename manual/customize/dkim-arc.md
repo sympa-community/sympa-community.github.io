@@ -15,14 +15,16 @@ DKIM and ARC features for Sympa
     >   * Unfortunately, some binary distributions including EPEL7 RPM do not
     >     support ARC feature.
 
-DKIM ([RFC 6376](https://tools.ietf.org/html/rfc6376.html)) is a
+[DomainKeys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail)
+(**DKIM**; [RFC 6376](https://tools.ietf.org/html/rfc6376.html)) is a
 cryptographic signature method designed to prevent phishing.
 As postmaster or listmaster you should consider:
 
  1. checking the DKIM status of each incoming message
  2. signing all or a subset of outgoing messages
 
-ARC ([RFC 8617](https://tools.ietf.org/html/rfc8617.html)) is intended to
+[Authenticated Received Chain](https://en.wikipedia.org/wiki/Authenticated_Received_Chain)
+(**ARC**; [RFC 8617](https://tools.ietf.org/html/rfc8617.html)) is intended to
 fix the problems introduced by DMARC by adding signatures (they are called
 "seals") that show the chain of servers that processed a message.
 Once ARC is more widely implemented, workarounds by
