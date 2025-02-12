@@ -38,7 +38,7 @@ List owners and moderators are defined in the list configuration file, however, 
 Importing subscribers from text file
 ------------------------------------
 
-You can import subscribers from text file.  See `--import` option in [sympa(1)](/gpldoc/man/symap.1.html) for details.
+You can import subscribers from text file.  See `--import` option in [sympa(1)](/gpldoc/man/sympa.1.html) for details.
 
 Dynamic mailing lists
 ---------------------
