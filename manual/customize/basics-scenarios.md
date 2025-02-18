@@ -429,6 +429,13 @@ list moderator via the web interface.
 The scenario `spam_status.x-spam-status` determines whether an incoming
 message is tagged as SPAM.
 
+> **Note**
+>
+> As of 6.2.72, pre-prepared scenarios for some spam filtering software
+> are shipped.  See the description on
+> [`spam_status`](/gpldoc/man/sympa_config.5.html#spam_status)
+> parameter.
+
 You can use the result in your *send* scenarios, common use cases are below.
 
 Reject the message:
