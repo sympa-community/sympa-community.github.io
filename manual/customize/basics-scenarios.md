@@ -351,8 +351,8 @@ The search condition is used in authorization scenarios.
 The syntax of this rule is:
 
 ``` code
-search(example.ldap)      smtp,smime,md5    -> do_it
-search(example.txt)       smtp,smime,md5    -> do_it
+search(example.ldap)      smtp,md5,smime    -> do_it
+search(example.txt)       smtp,md5,smime    -> do_it
 ```
 
 The variable used by `search` is the name of the LDAP configuration file or a txt matching enumeration.
@@ -441,13 +441,13 @@ You can use the result in your *send* scenarios, common use cases are below.
 Reject the message:
 
 ``` code
-equal([msg->spam_status],'spam')  smtp,md5,dkim,smime -> reject,quiet
+equal([msg->spam_status],'spam')  smtp,md5,smime -> reject,quiet
 ```
 
 Force moderation:
 
 ``` code
-equal([msg->spam_status],'spam')  smtp,md5,dkim,smime -> editorkey,quiet
+equal([msg->spam_status],'spam')  smtp,md5,smime -> editorkey,quiet
 ```
 
 Hiding scenario files
