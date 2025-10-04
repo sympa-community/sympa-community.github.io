@@ -182,6 +182,12 @@ Instruction by HTTP servers
      >         Also, separate ``/etc/apache2/conf-available/sympa-soap.conf``
      >         file is prepared for SympaSOAP feature.
      >
+     >         **Note** that you may have to enable `proxy_fcgi` Apache module by
+     >         running:
+     >         ```bash
+     >         # a2enmod proxy_fcgi
+     >         ```
+     >
      >       - On RPM (RHEL/CentOS 7 or later and Fedora),
      >         ``/etc/httpd/conf.d/sympa.conf``
      >         file is prepared by ``sympa-httpd`` package.
